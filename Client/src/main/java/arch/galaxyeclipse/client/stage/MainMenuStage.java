@@ -1,6 +1,7 @@
 package arch.galaxyeclipse.client.stage;
 
 import com.badlogic.gdx.*;
+import com.badlogic.gdx.graphics.g2d.*;
 import com.badlogic.gdx.scenes.scene2d.*;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;

@@ -15,6 +15,7 @@ import arch.galaxyeclipse.client.window.*;
 import com.badlogic.gdx.*;
 import com.badlogic.gdx.backends.lwjgl.*;
 import com.badlogic.gdx.graphics.*;
+import com.badlogic.gdx.graphics.g2d.*;
 
 public class GalaxyEclipseClient  {
 	private static final String HOST = "localhost";
@@ -23,7 +24,7 @@ public class GalaxyEclipseClient  {
 	private LwjglApplication application;
 	
 	public static void main(String[] args) throws Exception {
-		ClientWindow.init();
+		ClientWindow.getInstance();
 	}
 	
 	private void initNetwork() {

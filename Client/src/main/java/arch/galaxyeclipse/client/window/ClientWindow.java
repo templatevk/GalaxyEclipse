@@ -4,28 +4,54 @@ import arch.galaxyeclipse.client.stage.*;
 
 import com.badlogic.gdx.*;
 import com.badlogic.gdx.backends.lwjgl.*;
+import com.badlogic.gdx.graphics.*;
+import com.badlogic.gdx.graphics.g2d.*;
 import com.badlogic.gdx.scenes.scene2d.*;
 
-public class ClientWindow extends LwjglApplication {
-	private static final ClientWindow INSTANCE; 
+public class ClientWindow {
+	private static final ClientWindow INSTANCE = new ClientWindow();
 	
-	static {
+	private class ClientListener implements ApplicationListener {
+		public ClientListener() {
+
+		}
+		
+		public void create() {
+			stage = new MainMenuStage();
+		}
+
+		public void dispose() {
+			
+		}
+
+		public void pause() {
+			
+		}
+
+		public void render() {
+			  Gdx.gl.glClearColor(0, 0, 0.2f, 1);
+		      Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
+		      stage.draw();
+		}
+
+		public void resize(int width, int height) {
+			stage.setViewport(width, height, true);
+		}
+
+		public void resume() {
+			
+		}		
+	}
+	
+	private LwjglApplication application;
+	private Stage stage;
+	
+	public ClientWindow() {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
 		config.title = "Galaxy Eclipse";
 		config.width = 640;
 		config.height = 480;
-		INSTANCE = new ClientWindow(new ClientListener(), config);
-	}
-	
-	private Stage stage;
-	
-	public ClientWindow(ApplicationListener listener, LwjglApplicationConfiguration config) {
-		super(listener, config);
-		stage = new MainMenuStage();
-	}
-	
-	public static void init() {
-		
+		application = new LwjglApplication(new ClientListener(), config);
 	}
 	
 	public static ClientWindow getInstance() {
