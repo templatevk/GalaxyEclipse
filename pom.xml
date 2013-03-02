@@ -1,0 +1,84 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>GalaxyEclipse</groupId>
+	<artifactId>GalaxyEclipseRoot</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>GalaxyEclipse</name>
+
+	<modules>
+		<module>Server</module>
+		<module>Client</module>
+		<module>Shared</module>
+	</modules>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.0</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.jboss.netty</groupId>
+			<artifactId>netty</artifactId>
+			<version>3.2.9.Final</version>
+		</dependency>
+	</dependencies>
+	
+	<dependencyManagement>
+		<!-- libgdx -->
+		<dependencies>
+			<dependency>
+				<groupId>libgdx</groupId>
+				<artifactId>libgdx</artifactId>
+				<version>0.9.8</version>
+				<scope>system</scope>
+				<systemPath>${basedir}/../libgdx/gdx.jar</systemPath>
+			</dependency>
+			<dependency>
+				<groupId>libgdx</groupId>
+				<artifactId>libgdx-ui</artifactId>
+				<version>0.9.8</version>
+				<scope>system</scope>
+				<systemPath>${basedir}/../libgdx/gdx-setup-ui.jar</systemPath>
+			</dependency>
+			<dependency>
+				<groupId>libgdx</groupId>
+				<artifactId>libgdx-openal</artifactId>
+				<version>0.9.8</version>
+				<scope>system</scope>
+				<systemPath>${basedir}/../libgdx/gdx-openal.jar</systemPath>
+			</dependency>
+			<dependency>
+				<groupId>libgdx</groupId>
+				<artifactId>libgdx-natives</artifactId>
+				<version>0.9.8</version>
+				<scope>system</scope>
+				<systemPath>${basedir}/../libgdx/gdx-natives.jar</systemPath>
+			</dependency>
+			<dependency>
+				<groupId>libgdx</groupId>
+				<artifactId>libgdx-lwjgl</artifactId>
+				<version>0.9.8</version>
+				<scope>system</scope>
+				<systemPath>${basedir}/../libgdx/gdx-backend-lwjgl.jar</systemPath>
+			</dependency>
+			<dependency>
+				<groupId>libgdx</groupId>
+				<artifactId>libgdx-lwjgl-natives</artifactId>
+				<version>0.9.8</version>
+				<scope>system</scope>
+				<systemPath>${basedir}/../libgdx/gdx-backend-lwjgl-natives.jar</systemPath>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+</project>
