@@ -23,7 +23,7 @@ public class GalaxyEclipseClient  {
 	private LwjglApplication application;
 	
 	public static void main(String[] args) throws Exception {
-		ClientWindow.getInstance();
+		ClientWindow.init();
 	}
 	
 	private void initNetwork() {
