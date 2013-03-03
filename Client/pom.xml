@@ -32,5 +32,9 @@
 			<groupId>libgdx</groupId>
 			<artifactId>libgdx-lwjgl-natives</artifactId>
 		</dependency>
+		<dependency>
+		    <groupId>libgdx</groupId>
+		    <artifactId>libgdx-texturepacker</artifactId>
+		</dependency>
 	</dependencies>
 </project>

@@ -79,6 +79,13 @@
 				<scope>system</scope>
 				<systemPath>${basedir}/../libgdx/gdx-backend-lwjgl-natives.jar</systemPath>
 			</dependency>
+			<dependency>
+                <groupId>libgdx</groupId>
+                <artifactId>libgdx-texturepacker</artifactId>
+                <version>3.2.0</version>
+                <scope>system</scope>
+                <systemPath>${basedir}/../libgdx/gdx-texturepacker.jar</systemPath>
+            </dependency>
 		</dependencies>
 	</dependencyManagement>
 </project>

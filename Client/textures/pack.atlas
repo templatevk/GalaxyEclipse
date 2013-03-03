@@ -1,0 +1,31 @@
+
+pack.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+mainmenu3
+  rotate: false
+  xy: 1, 1603
+  size: 3200, 2355
+  orig: 3200, 2355
+  offset: 0, 0
+  index: -1
+mainmenu2
+  rotate: false
+  xy: 1, 1
+  size: 2560, 1600
+  orig: 2560, 1600
+  offset: 0, 0
+  index: -1
+
+pack2.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+mainmenu
+  rotate: false
+  xy: 1, 1
+  size: 1600, 1200
+  orig: 1600, 1200
+  offset: 0, 0
+  index: -1
