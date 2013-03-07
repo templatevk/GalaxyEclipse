@@ -1,0 +1,15 @@
+package arch.galaxyeclipse.shared.protocol;
+
+option java_outer_classname = "GalaxyEclipseProtocol";
+option optimize_for = SPEED;
+
+message Packet {
+    enum Type {
+        // Remember that 1-15 are faster
+    
+        AUTH_REQUEST = 16;
+        AUTH_RESPONSE = 17;
+    }
+    
+    required Type type = 1;
+}

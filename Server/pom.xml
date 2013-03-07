@@ -8,6 +8,12 @@
 	</parent>	
 	
 	<dependencies>
+	    <dependency>
+            <groupId>GalaxyEclipse</groupId>
+            <artifactId>Shared</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+	    
         <dependency>
             <groupId>libgdx</groupId>
             <artifactId>libgdx</artifactId>

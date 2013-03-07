@@ -11,18 +11,14 @@ import org.jboss.netty.channel.*;
 import org.jboss.netty.channel.socket.nio.*;
 
 import arch.galaxyeclipse.client.window.*;
+import arch.galaxyeclipse.shared.*;
 
 import com.badlogic.gdx.*;
 import com.badlogic.gdx.backends.lwjgl.*;
 import com.badlogic.gdx.graphics.*;
 import com.badlogic.gdx.graphics.g2d.*;
 
-public class GalaxyEclipseClient  {
-	private static final String HOST = "localhost";
-	private static final int PORT = 3724;
-	
-	private LwjglApplication application;
-	
+public class GalaxyEclipseClient  {		
 	public static void main(String[] args) throws Exception {
 		ClientWindow.getInstance();
 	}
@@ -34,16 +30,17 @@ public class GalaxyEclipseClient  {
 
 		ClientBootstrap bootstrap = new ClientBootstrap(factory);
 
-//		bootstrap.setPipelineFactory(new ChannelPipelineFactory() {
-//			public ChannelPipeline getPipeline() {
-//				return Channels.pipeline();
-//			}
-//		});
+		bootstrap.setPipelineFactory(new ChannelPipelineFactory() {
+			public ChannelPipeline getPipeline() {
+				return Channels.pipeline();
+			}
+		});
 
 		bootstrap.setOption("tcpNoDelay", true);
 		bootstrap.setOption("keepAlive", true);
-
-		ChannelFuture future = bootstrap.connect(new InetSocketAddress(HOST, PORT));
+		
+		ChannelFuture future = bootstrap.connect(new InetSocketAddress(
+				SharedTestInfo.HOST, SharedTestInfo.PORT));
 		future.addListener(new ChannelFutureListener() {
 			public void operationComplete(ChannelFuture future) throws Exception {
 				

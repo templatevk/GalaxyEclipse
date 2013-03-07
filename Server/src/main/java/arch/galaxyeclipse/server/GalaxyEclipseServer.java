@@ -8,9 +8,9 @@ import org.jboss.netty.buffer.*;
 import org.jboss.netty.channel.*;
 import org.jboss.netty.channel.socket.nio.*;
 
-public class GalaxyEclipseServer {
-	private static final int PORT = 3724;
-	
+import arch.galaxyeclipse.shared.*;
+
+public class GalaxyEclipseServer {	
 	public static void main(String[] args) throws Exception {
 		ChannelFactory factory = new NioServerSocketChannelFactory(
 				Executors.newCachedThreadPool(),
@@ -27,6 +27,6 @@ public class GalaxyEclipseServer {
 		bootstrap.setOption("child.tcpNoDelay", true);
 		bootstrap.setOption("child.keepAlive", true);
 
-		bootstrap.bind(new InetSocketAddress(PORT));
+		bootstrap.bind(new InetSocketAddress(SharedTestInfo.PORT));
 	}
 }
