@@ -1,75 +1,80 @@
 package arch.galaxyeclipse.client.window;
 
-import java.text.*;
-import java.util.*;
-
-import org.lwjgl.*;
-
 import arch.galaxyeclipse.client.stage.*;
 
 import com.badlogic.gdx.*;
+import com.badlogic.gdx.Graphics.DisplayMode;
 import com.badlogic.gdx.backends.lwjgl.*;
 import com.badlogic.gdx.graphics.*;
-import com.badlogic.gdx.graphics.g2d.*;
 import com.badlogic.gdx.scenes.scene2d.*;
+import com.badlogic.gdx.scenes.scene2d.ui.*;
 
 public class ClientWindow {
+	public static final float DEFAULT_WIDTH = 1024;
+	public static final float DEFAULT_HEIGHT = 748;
+
 	private static final ClientWindow INSTANCE = new ClientWindow();
-	
-	private class ClientListener implements ApplicationListener {		
-		public ClientListener() {
 
-		}
-		
-		public void create() {
-			setStage(new MainMenuStage());
-		}
+	private GameStage stage;
 
-		public void dispose() {
-			
-		}
-
-		public void pause() {
-			
-		}
-
-		public void render() {
-			  Gdx.gl.glClearColor(0, 0, 0.2f, 1);
-		      Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
-		      stage.draw();
-		}
-
-		public void resize(int width, int height) {
-			stage.setViewport(width, height, true);
-		}
-
-		public void resume() {
-			
-		}		
-	}
-	
-	private LwjglApplication application;
-	private Stage stage;
-	
 	public ClientWindow() {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
 		config.title = "Galaxy Eclipse";
-		config.width = 640;
-		config.height = 480;
+		config.width = (int)DEFAULT_WIDTH;
+		config.height = (int)DEFAULT_HEIGHT;
 		//config.fullscreen = true;
-		application = new LwjglApplication(new ClientListener(), config);
+		new LwjglApplication(new ClientListener(), config);
 	}
-	
+
 	public static ClientWindow getInstance() {
 		return INSTANCE;
 	}
-	
-	public void setStage(Stage stage) {
+
+	public void setGameStage(GameStage stage) {
 		this.stage = stage;
 		Gdx.input.setInputProcessor(stage);
 	}
 
-	public Stage getStage() {
+	public GameStage getGameStage() {
 		return stage;
+	}
+
+	private class ClientListener implements ApplicationListener {
+		public ClientListener() {
+
+		}
+
+		@Override
+		public void create() {
+			setGameStage(new MainMenuStage());
+		}
+
+		@Override
+		public void dispose() {
+
+		}
+
+		@Override
+		public void pause() {
+
+		}	
+
+		@Override
+		public void render() {
+			Gdx.gl.glClearColor(0, 0, 0.2f, 1);
+			Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
+			stage.draw();
+			Table.drawDebug(stage);
+		}
+
+		@Override
+		public void resize(int width, int height) {
+			stage.resize(width, height);
+		}
+
+		@Override
+		public void resume() {
+
+		}
 	}
 }

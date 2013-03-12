@@ -5,10 +5,43 @@ option optimize_for = SPEED;
 
 message Packet {
     enum Type {
+        LOCATION_DYNAMIC_OBJECTS_REQUEST = 1;
+        LOCATION_DYNAMIC_OBJECTS_RESPONSE = 2;
+        SHIP_STATE_REQUEST = 3;
+        SHIP_STATE_RESPONSE = 4;
+        
+        CLIENT_ACTION = 5;
+        enum ClientActionType {
+            // A S W D
+            ROTATE_LEFT = 1;
+            ROTATE_RIGHT = 2;
+            MOVE = 3;
+            STOP = 4; 
+            
+            MAP_CLICK = 5;
+            MINI_MAP_CLICK = 6;
+            OBJECT_CLICK = 7;       // LBM 
+            OBJECT_PICK = 8;        // RMB
+            
+            // Space button
+            ATTACK_START = 9;
+            ATTACK_STOP = 10;
+            
+            ROCKET_SHOOT = 16;      // SHIFT
+        }
+        
         // Remember that 1-15 are faster
     
         AUTH_REQUEST = 16;
         AUTH_RESPONSE = 17;
+        REGISTER_REQUEST = 18;
+        REGISTER_RESPONSE = 19;
+        LOCATION_STATIC_OBJECTS_REQUEST = 20;
+        LOCATION_STATIC_OBJECTS_RESPONSE = 21;
+        CHAT_SEND_MESSAGE = 22;
+        CHAT_RECEIVE_MESSAGE = 23;
+        INVENTORY_ITEMS_REQUEST = 24;
+        INVENTORY_ITEMS_RESPONSE = 25;
     }
     
     required Type type = 1;

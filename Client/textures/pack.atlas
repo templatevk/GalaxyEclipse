@@ -3,38 +3,52 @@ pack.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-mainmenu
+ui/menu
   rotate: false
-  xy: 1, 274
+  xy: 1, 215
   size: 1920, 1200
   orig: 1920, 1200
   offset: 0, 0
   index: -1
-btnDown
+ui/font
   rotate: false
-  xy: 1, 46
-  size: 223, 226
-  orig: 223, 226
-  offset: 0, 0
-  index: -1
-default
-  rotate: false
-  xy: 226, 144
+  xy: 1, 85
   size: 256, 128
   orig: 256, 128
   offset: 0, 0
   index: -1
-btnUp
+ui/textField
   rotate: false
-  xy: 1, 1
-  size: 174, 43
-  orig: 174, 43
+  xy: 1, 43
+  size: 175, 40
+  orig: 175, 40
   offset: 0, 0
   index: -1
-btnDownSmall
+ui/btnDown
   rotate: false
-  xy: 1923, 1447
-  size: 111, 27
-  orig: 111, 27
+  xy: 259, 173
+  size: 125, 40
+  orig: 125, 40
+  offset: 0, 0
+  index: -1
+ui/btnUp
+  rotate: false
+  xy: 1, 1
+  size: 125, 40
+  orig: 125, 40
+  offset: 0, 0
+  index: -1
+ui/btnOver
+  rotate: false
+  xy: 259, 131
+  size: 125, 40
+  orig: 125, 40
+  offset: 0, 0
+  index: -1
+ui/carret
+  rotate: false
+  xy: 1923, 1375
+  size: 3, 40
+  orig: 3, 40
   offset: 0, 0
   index: -1
