@@ -9,4 +9,4 @@ public class GalaxyEclipseClient  {
 		PropertyConfigurator.configure("log4j.properties");
 		ClientWindow.getInstance();		
 	}
-}			
+}				

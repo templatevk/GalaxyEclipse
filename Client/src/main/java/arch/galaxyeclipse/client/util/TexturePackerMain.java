@@ -9,6 +9,6 @@ public class TexturePackerMain {
 		settings.pot = true;
 		settings.maxWidth = 4096;
 		settings.maxHeight = 4096;
-		TexturePacker2.process(settings, "textures", "textures", "pack");
+		TexturePacker2.process(settings, "assets/textures", "assets/textures", "pack");
 	}
 }

@@ -11,7 +11,7 @@ public class CachingTextureAtlas extends TextureAtlas {
 	private Map<String, AtlasRegion> regions = new HashMap<String, AtlasRegion>();
 
 	public CachingTextureAtlas() {
-		super(Gdx.files.internal("textures/pack.atlas"));
+		super(Gdx.files.internal("assets/textures/pack.atlas"));
 	}
 	
 	public static TextureAtlas getInstance() {

@@ -1,0 +1,47 @@
+
+pack.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+ui/menu
+  rotate: false
+  xy: 1, 607
+  size: 1920, 1200
+  orig: 1920, 1200
+  offset: 0, 0
+  index: -1
+ui/group
+  rotate: false
+  xy: 1, 205
+  size: 400, 400
+  orig: 400, 400
+  offset: 0, 0
+  index: -1
+ui/textField
+  rotate: false
+  xy: 1, 103
+  size: 370, 100
+  orig: 370, 100
+  offset: 0, 0
+  index: -1
+ui/btnUp
+  rotate: false
+  xy: 403, 505
+  size: 270, 100
+  orig: 270, 100
+  offset: 0, 0
+  index: -1
+ui/btnDown
+  rotate: false
+  xy: 1, 1
+  size: 270, 100
+  orig: 270, 100
+  offset: 0, 0
+  index: -1
+ui/carret
+  rotate: false
+  xy: 1923, 1707
+  size: 10, 100
+  orig: 10, 100
+  offset: 0, 0
+  index: -1

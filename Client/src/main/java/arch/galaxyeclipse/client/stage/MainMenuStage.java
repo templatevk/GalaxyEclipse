@@ -1,7 +1,5 @@
 package arch.galaxyeclipse.client.stage;
 
-import org.antlr.runtime.debug.*;
-
 import arch.galaxyeclipse.client.util.*;
 
 import com.badlogic.gdx.*;
@@ -15,29 +13,30 @@ import com.badlogic.gdx.scenes.scene2d.utils.*;
 
 public class MainMenuStage extends GameStage {
 	private static final float TABLE_SPACING = 10;
-	private static final float DEFAULT_TEXTFIELD_WIDTH = 175;
+	private static final float DEFAULT_TEXTFIELD_WIDTH = 370;
+	private static final float DEFAULT_TEXTFIELD_HEIGHT = 100;
 	private static final float DEFAULT_BUTTON_DOWN_OFFSET = 2;
 	
 	private Button connectBtn;
-	private TextField addressTxt;
+	private TextField usernameTxt;
+	private TextField passwordTxt;
 	private Table rootTable;
 	private Table innerTable;
 	
 	public MainMenuStage() {
 		TextureAtlas atlas = CachingTextureAtlas.getInstance();
 		
-		BitmapFont font = new BitmapFont(Gdx.files.internal("textures/ui/font.fnt"), 
-				Gdx.files.internal("textures/ui/font.png"), false);
+		BitmapFont font = new BitmapFont(Gdx.files.internal("assets/font1.fnt"), 
+				Gdx.files.internal("assets/font1.png"), false);
 		
 		Drawable carret = new TextureRegionDrawable(atlas.findRegion("ui/carret"));
 		TextFieldStyle textFieldStyle = new TextFieldStyle(font, Color.RED, carret, 
 				carret, new TextureRegionDrawable(atlas.findRegion("ui/textField")));
-		textFieldStyle.fontColor = Color.BLACK;
+		textFieldStyle.fontColor = Color.WHITE;
 		
 		TextButtonStyle style = new TextButtonStyle();
 		style.up = new TextureRegionDrawable(atlas.findRegion("ui/btnUp"));
 		style.down = new TextureRegionDrawable(atlas.findRegion("ui/btnDown"));
-		style.over = new TextureRegionDrawable(atlas.findRegion("ui/btnOver"));
 		style.font = font;
 		style.fontColor = Color.BLACK;
 		style.downFontColor = Color.DARK_GRAY;
@@ -49,17 +48,31 @@ public class MainMenuStage extends GameStage {
 		rootTable.setBackground(new TextureRegionDrawable(atlas.findRegion("ui/menu")));
 		rootTable.debug();
 		addActor(rootTable);
-		
+	
 		innerTable = new Table();
+		innerTable.setBackground(new TextureRegionDrawable(atlas.findRegion("ui/group")));
+		innerTable.setBounds(0, 0, 400, 200);
 		innerTable.setTransform(true);
+		innerTable.debug();
+		rootTable.setTransform(false);
 		rootTable.add(innerTable);
 		
-		addressTxt = new CustomTextField("", textFieldStyle, DEFAULT_TEXTFIELD_WIDTH);
-		addressTxt.setMessageText("Enter the host address...");
+		usernameTxt = new CustomTextField("", textFieldStyle, DEFAULT_TEXTFIELD_WIDTH,
+				DEFAULT_TEXTFIELD_HEIGHT);
+		usernameTxt.setMessageText("Enter your username");
+		usernameTxt.setLayoutEnabled(true);
+		
+		passwordTxt = new CustomTextField("", textFieldStyle, DEFAULT_TEXTFIELD_WIDTH,
+				DEFAULT_TEXTFIELD_HEIGHT);
+		passwordTxt.setPasswordMode(true);
+		passwordTxt.setPasswordCharacter('*');
+		passwordTxt.setMessageText("Enter your password");
 		
 		connectBtn = new TextButton("Connect", style);
 		
-		innerTable.add(addressTxt).expand(true, false).space(TABLE_SPACING);
+		innerTable.add(usernameTxt).expand(true, false).space(TABLE_SPACING);
+		innerTable.row();
+		innerTable.add(passwordTxt).expand(true, false).space(TABLE_SPACING);
 		innerTable.row();
 		innerTable.add(connectBtn).expand(true, false).space(TABLE_SPACING);
 		innerTable.setOrigin(innerTable.getPrefWidth() / 2, 

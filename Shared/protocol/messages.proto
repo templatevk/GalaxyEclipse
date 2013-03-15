@@ -11,24 +11,6 @@ message Packet {
         SHIP_STATE_RESPONSE = 4;
         
         CLIENT_ACTION = 5;
-        enum ClientActionType {
-            // A S W D
-            ROTATE_LEFT = 1;
-            ROTATE_RIGHT = 2;
-            MOVE = 3;
-            STOP = 4; 
-            
-            MAP_CLICK = 5;
-            MINI_MAP_CLICK = 6;
-            OBJECT_CLICK = 7;       // LBM 
-            OBJECT_PICK = 8;        // RMB
-            
-            // Space button
-            ATTACK_START = 9;
-            ATTACK_STOP = 10;
-            
-            ROCKET_SHOOT = 16;      // SHIFT
-        }
         
         // Remember that 1-15 are faster
     
@@ -42,7 +24,122 @@ message Packet {
         CHAT_RECEIVE_MESSAGE = 23;
         INVENTORY_ITEMS_REQUEST = 24;
         INVENTORY_ITEMS_RESPONSE = 25;
+        TYPES_MAP_REQUEST = 26;
+        TYPES_MAP_RESPONSE = 27;
+    }
+    
+    enum ClientActionType {
+        // A S W D
+        ROTATE_LEFT = 1;
+        ROTATE_RIGHT = 2;
+        MOVE = 3;
+        STOP = 4; 
+        
+        MAP_CLICK = 5;
+        MINI_MAP_CLICK = 6;
+        OBJECT_CLICK = 7;       // LBM 
+        OBJECT_PICK = 8;        // RMB
+        
+        // Space button
+        ATTACK_START = 9;
+        ATTACK_STOP = 10;
+        
+        ROCKET_SHOOT = 16;      // SHIFT
     }
     
     required Type type = 1;
+}
+
+// 1 - 15
+
+message AuthRequest {
+    required string username = 1;
+    required string password = 2;
+}
+
+message AuthResponse {
+    required bool isSuccess = 1;
+}
+
+message RegisterRequest {
+    required string username = 1;
+    required string password = 2;
+    required string nickname = 3;
+}
+
+message RegisterResponse {
+    required bool isSuccess = 1;
+    optional string error = 2;
+}
+
+message LocationStaticObjectsRequest {
+    required int32 locationId = 1;
+}
+
+message LocationStaticObjectsResponse {
+    repeated LocationStaticObject objects = 1;
+    
+    message LocationStaticObject {
+        required int32 positionX = 1;
+        required int32 positionY = 2;
+        required string imagePath = 3;
+        required int32 objectTypeId = 4;
+    }
+}
+
+message ChatSendMessage {   
+    required string message = 1;
+}
+
+message ChatReceiveMessage {
+    required string message = 1;
+    required string sender = 2;
+}
+
+message InventoryItemsRequest {
+    
+}
+
+message InventoryItemsResponse {
+    repeated InventoryItem items = 1;
+    
+    message InventoryItem {
+        required int32 id = 1;
+        required string name = 2;
+        required string description = 3;
+        required int32 price = 4;
+        required string imagePath = 5;
+        required int itemTypeId = 6;
+    }
+}
+
+message TypesMapRequest {
+
+}
+
+message TypesMapResponse {
+    repeated ItemType itemTypes = 1;
+    repeated BonusType bonusTypes = 2;
+    repeated WeaponType weaponTypes = 3;
+    repeated LocationStaticObjectType locationStaticObjectTypes = 4;
+    
+    message ItemType {
+        required int32 id = 1;
+        required string name = 2;
+    }
+   
+    message BonusType {
+        required int32 id = 1;
+        required string name = 2;
+    }
+    
+    message WeaponType {
+        required int32 id = 1;
+        required string name = 2;
+    }
+    
+    message LocationStaticObjectType {
+        required int32 id = 1;
+        required string name = 2;
+    }
 }

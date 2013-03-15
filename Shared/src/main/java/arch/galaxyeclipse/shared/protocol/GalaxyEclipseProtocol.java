@@ -124,23 +124,99 @@ public final class GalaxyEclipseProtocol {
 
     /**
      * Protobuf enum {@code arch.galaxyeclipse.shared.protocol.Packet.Type}
-     *
-     * <pre>
-     * Remember that 1-15 are faster
-     * </pre>
      */
     public enum Type
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
+       * <code>LOCATION_DYNAMIC_OBJECTS_REQUEST = 1;</code>
+       */
+      LOCATION_DYNAMIC_OBJECTS_REQUEST(0, 1),
+      /**
+       * <code>LOCATION_DYNAMIC_OBJECTS_RESPONSE = 2;</code>
+       */
+      LOCATION_DYNAMIC_OBJECTS_RESPONSE(1, 2),
+      /**
+       * <code>SHIP_STATE_REQUEST = 3;</code>
+       */
+      SHIP_STATE_REQUEST(2, 3),
+      /**
+       * <code>SHIP_STATE_RESPONSE = 4;</code>
+       */
+      SHIP_STATE_RESPONSE(3, 4),
+      /**
+       * <code>CLIENT_ACTION = 5;</code>
+       */
+      CLIENT_ACTION(4, 5),
+      /**
        * <code>AUTH_REQUEST = 16;</code>
        */
-      AUTH_REQUEST(0, 16),
+      AUTH_REQUEST(5, 16),
       /**
        * <code>AUTH_RESPONSE = 17;</code>
        */
-      AUTH_RESPONSE(1, 17),
+      AUTH_RESPONSE(6, 17),
+      /**
+       * <code>REGISTER_REQUEST = 18;</code>
+       */
+      REGISTER_REQUEST(7, 18),
+      /**
+       * <code>REGISTER_RESPONSE = 19;</code>
+       */
+      REGISTER_RESPONSE(8, 19),
+      /**
+       * <code>LOCATION_STATIC_OBJECTS_REQUEST = 20;</code>
+       */
+      LOCATION_STATIC_OBJECTS_REQUEST(9, 20),
+      /**
+       * <code>LOCATION_STATIC_OBJECTS_RESPONSE = 21;</code>
+       */
+      LOCATION_STATIC_OBJECTS_RESPONSE(10, 21),
+      /**
+       * <code>CHAT_SEND_MESSAGE = 22;</code>
+       */
+      CHAT_SEND_MESSAGE(11, 22),
+      /**
+       * <code>CHAT_RECEIVE_MESSAGE = 23;</code>
+       */
+      CHAT_RECEIVE_MESSAGE(12, 23),
+      /**
+       * <code>INVENTORY_ITEMS_REQUEST = 24;</code>
+       */
+      INVENTORY_ITEMS_REQUEST(13, 24),
+      /**
+       * <code>INVENTORY_ITEMS_RESPONSE = 25;</code>
+       */
+      INVENTORY_ITEMS_RESPONSE(14, 25),
+      /**
+       * <code>TYPES_MAP_REQUEST = 26;</code>
+       */
+      TYPES_MAP_REQUEST(15, 26),
+      /**
+       * <code>TYPES_MAP_RESPONSE = 27;</code>
+       */
+      TYPES_MAP_RESPONSE(16, 27),
       ;
 
+      /**
+       * <code>LOCATION_DYNAMIC_OBJECTS_REQUEST = 1;</code>
+       */
+      public static final int LOCATION_DYNAMIC_OBJECTS_REQUEST_VALUE = 1;
+      /**
+       * <code>LOCATION_DYNAMIC_OBJECTS_RESPONSE = 2;</code>
+       */
+      public static final int LOCATION_DYNAMIC_OBJECTS_RESPONSE_VALUE = 2;
+      /**
+       * <code>SHIP_STATE_REQUEST = 3;</code>
+       */
+      public static final int SHIP_STATE_REQUEST_VALUE = 3;
+      /**
+       * <code>SHIP_STATE_RESPONSE = 4;</code>
+       */
+      public static final int SHIP_STATE_RESPONSE_VALUE = 4;
+      /**
+       * <code>CLIENT_ACTION = 5;</code>
+       */
+      public static final int CLIENT_ACTION_VALUE = 5;
       /**
        * <code>AUTH_REQUEST = 16;</code>
        */
@@ -149,14 +225,69 @@ public final class GalaxyEclipseProtocol {
        * <code>AUTH_RESPONSE = 17;</code>
        */
       public static final int AUTH_RESPONSE_VALUE = 17;
+      /**
+       * <code>REGISTER_REQUEST = 18;</code>
+       */
+      public static final int REGISTER_REQUEST_VALUE = 18;
+      /**
+       * <code>REGISTER_RESPONSE = 19;</code>
+       */
+      public static final int REGISTER_RESPONSE_VALUE = 19;
+      /**
+       * <code>LOCATION_STATIC_OBJECTS_REQUEST = 20;</code>
+       */
+      public static final int LOCATION_STATIC_OBJECTS_REQUEST_VALUE = 20;
+      /**
+       * <code>LOCATION_STATIC_OBJECTS_RESPONSE = 21;</code>
+       */
+      public static final int LOCATION_STATIC_OBJECTS_RESPONSE_VALUE = 21;
+      /**
+       * <code>CHAT_SEND_MESSAGE = 22;</code>
+       */
+      public static final int CHAT_SEND_MESSAGE_VALUE = 22;
+      /**
+       * <code>CHAT_RECEIVE_MESSAGE = 23;</code>
+       */
+      public static final int CHAT_RECEIVE_MESSAGE_VALUE = 23;
+      /**
+       * <code>INVENTORY_ITEMS_REQUEST = 24;</code>
+       */
+      public static final int INVENTORY_ITEMS_REQUEST_VALUE = 24;
+      /**
+       * <code>INVENTORY_ITEMS_RESPONSE = 25;</code>
+       */
+      public static final int INVENTORY_ITEMS_RESPONSE_VALUE = 25;
+      /**
+       * <code>TYPES_MAP_REQUEST = 26;</code>
+       */
+      public static final int TYPES_MAP_REQUEST_VALUE = 26;
+      /**
+       * <code>TYPES_MAP_RESPONSE = 27;</code>
+       */
+      public static final int TYPES_MAP_RESPONSE_VALUE = 27;
 
 
       public final int getNumber() { return value; }
 
       public static Type valueOf(int value) {
         switch (value) {
+          case 1: return LOCATION_DYNAMIC_OBJECTS_REQUEST;
+          case 2: return LOCATION_DYNAMIC_OBJECTS_RESPONSE;
+          case 3: return SHIP_STATE_REQUEST;
+          case 4: return SHIP_STATE_RESPONSE;
+          case 5: return CLIENT_ACTION;
           case 16: return AUTH_REQUEST;
           case 17: return AUTH_RESPONSE;
+          case 18: return REGISTER_REQUEST;
+          case 19: return REGISTER_RESPONSE;
+          case 20: return LOCATION_STATIC_OBJECTS_REQUEST;
+          case 21: return LOCATION_STATIC_OBJECTS_RESPONSE;
+          case 22: return CHAT_SEND_MESSAGE;
+          case 23: return CHAT_RECEIVE_MESSAGE;
+          case 24: return INVENTORY_ITEMS_REQUEST;
+          case 25: return INVENTORY_ITEMS_RESPONSE;
+          case 26: return TYPES_MAP_REQUEST;
+          case 27: return TYPES_MAP_RESPONSE;
           default: return null;
         }
       }
@@ -208,6 +339,209 @@ public final class GalaxyEclipseProtocol {
       // @@protoc_insertion_point(enum_scope:arch.galaxyeclipse.shared.protocol.Packet.Type)
     }
 
+    /**
+     * Protobuf enum {@code arch.galaxyeclipse.shared.protocol.Packet.ClientActionType}
+     */
+    public enum ClientActionType
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>ROTATE_LEFT = 1;</code>
+       *
+       * <pre>
+       * A S W D
+       * </pre>
+       */
+      ROTATE_LEFT(0, 1),
+      /**
+       * <code>ROTATE_RIGHT = 2;</code>
+       */
+      ROTATE_RIGHT(1, 2),
+      /**
+       * <code>MOVE = 3;</code>
+       */
+      MOVE(2, 3),
+      /**
+       * <code>STOP = 4;</code>
+       */
+      STOP(3, 4),
+      /**
+       * <code>MAP_CLICK = 5;</code>
+       */
+      MAP_CLICK(4, 5),
+      /**
+       * <code>MINI_MAP_CLICK = 6;</code>
+       */
+      MINI_MAP_CLICK(5, 6),
+      /**
+       * <code>OBJECT_CLICK = 7;</code>
+       *
+       * <pre>
+       * LBM 
+       * </pre>
+       */
+      OBJECT_CLICK(6, 7),
+      /**
+       * <code>OBJECT_PICK = 8;</code>
+       *
+       * <pre>
+       * RMB
+       * </pre>
+       */
+      OBJECT_PICK(7, 8),
+      /**
+       * <code>ATTACK_START = 9;</code>
+       *
+       * <pre>
+       * Space button
+       * </pre>
+       */
+      ATTACK_START(8, 9),
+      /**
+       * <code>ATTACK_STOP = 10;</code>
+       */
+      ATTACK_STOP(9, 10),
+      /**
+       * <code>ROCKET_SHOOT = 16;</code>
+       *
+       * <pre>
+       * SHIFT
+       * </pre>
+       */
+      ROCKET_SHOOT(10, 16),
+      ;
+
+      /**
+       * <code>ROTATE_LEFT = 1;</code>
+       *
+       * <pre>
+       * A S W D
+       * </pre>
+       */
+      public static final int ROTATE_LEFT_VALUE = 1;
+      /**
+       * <code>ROTATE_RIGHT = 2;</code>
+       */
+      public static final int ROTATE_RIGHT_VALUE = 2;
+      /**
+       * <code>MOVE = 3;</code>
+       */
+      public static final int MOVE_VALUE = 3;
+      /**
+       * <code>STOP = 4;</code>
+       */
+      public static final int STOP_VALUE = 4;
+      /**
+       * <code>MAP_CLICK = 5;</code>
+       */
+      public static final int MAP_CLICK_VALUE = 5;
+      /**
+       * <code>MINI_MAP_CLICK = 6;</code>
+       */
+      public static final int MINI_MAP_CLICK_VALUE = 6;
+      /**
+       * <code>OBJECT_CLICK = 7;</code>
+       *
+       * <pre>
+       * LBM 
+       * </pre>
+       */
+      public static final int OBJECT_CLICK_VALUE = 7;
+      /**
+       * <code>OBJECT_PICK = 8;</code>
+       *
+       * <pre>
+       * RMB
+       * </pre>
+       */
+      public static final int OBJECT_PICK_VALUE = 8;
+      /**
+       * <code>ATTACK_START = 9;</code>
+       *
+       * <pre>
+       * Space button
+       * </pre>
+       */
+      public static final int ATTACK_START_VALUE = 9;
+      /**
+       * <code>ATTACK_STOP = 10;</code>
+       */
+      public static final int ATTACK_STOP_VALUE = 10;
+      /**
+       * <code>ROCKET_SHOOT = 16;</code>
+       *
+       * <pre>
+       * SHIFT
+       * </pre>
+       */
+      public static final int ROCKET_SHOOT_VALUE = 16;
+
+
+      public final int getNumber() { return value; }
+
+      public static ClientActionType valueOf(int value) {
+        switch (value) {
+          case 1: return ROTATE_LEFT;
+          case 2: return ROTATE_RIGHT;
+          case 3: return MOVE;
+          case 4: return STOP;
+          case 5: return MAP_CLICK;
+          case 6: return MINI_MAP_CLICK;
+          case 7: return OBJECT_CLICK;
+          case 8: return OBJECT_PICK;
+          case 9: return ATTACK_START;
+          case 10: return ATTACK_STOP;
+          case 16: return ROCKET_SHOOT;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<ClientActionType>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static com.google.protobuf.Internal.EnumLiteMap<ClientActionType>
+          internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<ClientActionType>() {
+              public ClientActionType findValueByNumber(int number) {
+                return ClientActionType.valueOf(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        return getDescriptor().getValues().get(index);
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet.getDescriptor().getEnumTypes().get(1);
+      }
+
+      private static final ClientActionType[] VALUES = values();
+
+      public static ClientActionType valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int index;
+      private final int value;
+
+      private ClientActionType(int index, int value) {
+        this.index = index;
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:arch.galaxyeclipse.shared.protocol.Packet.ClientActionType)
+    }
+
     private int bitField0_;
     // required .arch.galaxyeclipse.shared.protocol.Packet.Type type = 1;
     public static final int TYPE_FIELD_NUMBER = 1;
@@ -226,7 +560,7 @@ public final class GalaxyEclipseProtocol {
     }
 
     private void initFields() {
-      type_ = arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet.Type.AUTH_REQUEST;
+      type_ = arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet.Type.LOCATION_DYNAMIC_OBJECTS_REQUEST;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -376,7 +710,7 @@ public final class GalaxyEclipseProtocol {
 
       public Builder clear() {
         super.clear();
-        type_ = arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet.Type.AUTH_REQUEST;
+        type_ = arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet.Type.LOCATION_DYNAMIC_OBJECTS_REQUEST;
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
@@ -461,7 +795,7 @@ public final class GalaxyEclipseProtocol {
       private int bitField0_;
 
       // required .arch.galaxyeclipse.shared.protocol.Packet.Type type = 1;
-      private arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet.Type type_ = arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet.Type.AUTH_REQUEST;
+      private arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet.Type type_ = arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet.Type.LOCATION_DYNAMIC_OBJECTS_REQUEST;
       /**
        * <code>required .arch.galaxyeclipse.shared.protocol.Packet.Type type = 1;</code>
        */
@@ -491,7 +825,7 @@ public final class GalaxyEclipseProtocol {
        */
       public Builder clearType() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        type_ = arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet.Type.AUTH_REQUEST;
+        type_ = arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet.Type.LOCATION_DYNAMIC_OBJECTS_REQUEST;
         onChanged();
         return this;
       }
@@ -507,11 +841,6735 @@ public final class GalaxyEclipseProtocol {
     // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.Packet)
   }
 
+  public interface AuthRequestOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // required string username = 1;
+    /**
+     * <code>required string username = 1;</code>
+     */
+    boolean hasUsername();
+    /**
+     * <code>required string username = 1;</code>
+     */
+    java.lang.String getUsername();
+    /**
+     * <code>required string username = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getUsernameBytes();
+
+    // required string password = 2;
+    /**
+     * <code>required string password = 2;</code>
+     */
+    boolean hasPassword();
+    /**
+     * <code>required string password = 2;</code>
+     */
+    java.lang.String getPassword();
+    /**
+     * <code>required string password = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getPasswordBytes();
+  }
+  /**
+   * Protobuf type {@code arch.galaxyeclipse.shared.protocol.AuthRequest}
+   */
+  public static final class AuthRequest extends
+      com.google.protobuf.GeneratedMessage
+      implements AuthRequestOrBuilder {
+    // Use AuthRequest.newBuilder() to construct.
+    private AuthRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private AuthRequest(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final AuthRequest defaultInstance;
+    public static AuthRequest getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public AuthRequest getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private AuthRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              username_ = input.readBytes();
+              break;
+            }
+            case 18: {
+              bitField0_ |= 0x00000002;
+              password_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_AuthRequest_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_AuthRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthRequest.class, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthRequest.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<AuthRequest> PARSER =
+        new com.google.protobuf.AbstractParser<AuthRequest>() {
+      public AuthRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new AuthRequest(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<AuthRequest> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // required string username = 1;
+    public static final int USERNAME_FIELD_NUMBER = 1;
+    private java.lang.Object username_;
+    /**
+     * <code>required string username = 1;</code>
+     */
+    public boolean hasUsername() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required string username = 1;</code>
+     */
+    public java.lang.String getUsername() {
+      java.lang.Object ref = username_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          username_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string username = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUsernameBytes() {
+      java.lang.Object ref = username_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        username_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // required string password = 2;
+    public static final int PASSWORD_FIELD_NUMBER = 2;
+    private java.lang.Object password_;
+    /**
+     * <code>required string password = 2;</code>
+     */
+    public boolean hasPassword() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required string password = 2;</code>
+     */
+    public java.lang.String getPassword() {
+      java.lang.Object ref = password_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          password_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string password = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPasswordBytes() {
+      java.lang.Object ref = password_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        password_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private void initFields() {
+      username_ = "";
+      password_ = "";
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      if (!hasUsername()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasPassword()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getUsernameBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, getPasswordBytes());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getUsernameBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, getPasswordBytes());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthRequest prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.AuthRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_AuthRequest_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_AuthRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthRequest.class, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthRequest.Builder.class);
+      }
+
+      // Construct using arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        username_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        password_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_AuthRequest_descriptor;
+      }
+
+      public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthRequest getDefaultInstanceForType() {
+        return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthRequest.getDefaultInstance();
+      }
+
+      public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthRequest build() {
+        arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthRequest buildPartial() {
+        arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthRequest result = new arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthRequest(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.username_ = username_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.password_ = password_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthRequest) {
+          return mergeFrom((arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthRequest other) {
+        if (other == arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthRequest.getDefaultInstance()) return this;
+        if (other.hasUsername()) {
+          bitField0_ |= 0x00000001;
+          username_ = other.username_;
+          onChanged();
+        }
+        if (other.hasPassword()) {
+          bitField0_ |= 0x00000002;
+          password_ = other.password_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasUsername()) {
+          
+          return false;
+        }
+        if (!hasPassword()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthRequest) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // required string username = 1;
+      private java.lang.Object username_ = "";
+      /**
+       * <code>required string username = 1;</code>
+       */
+      public boolean hasUsername() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required string username = 1;</code>
+       */
+      public java.lang.String getUsername() {
+        java.lang.Object ref = username_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          username_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string username = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getUsernameBytes() {
+        java.lang.Object ref = username_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          username_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string username = 1;</code>
+       */
+      public Builder setUsername(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        username_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string username = 1;</code>
+       */
+      public Builder clearUsername() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        username_ = getDefaultInstance().getUsername();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string username = 1;</code>
+       */
+      public Builder setUsernameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        username_ = value;
+        onChanged();
+        return this;
+      }
+
+      // required string password = 2;
+      private java.lang.Object password_ = "";
+      /**
+       * <code>required string password = 2;</code>
+       */
+      public boolean hasPassword() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required string password = 2;</code>
+       */
+      public java.lang.String getPassword() {
+        java.lang.Object ref = password_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          password_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string password = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPasswordBytes() {
+        java.lang.Object ref = password_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          password_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string password = 2;</code>
+       */
+      public Builder setPassword(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        password_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string password = 2;</code>
+       */
+      public Builder clearPassword() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        password_ = getDefaultInstance().getPassword();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string password = 2;</code>
+       */
+      public Builder setPasswordBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        password_ = value;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.AuthRequest)
+    }
+
+    static {
+      defaultInstance = new AuthRequest(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.AuthRequest)
+  }
+
+  public interface AuthResponseOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // required bool isSuccess = 1;
+    /**
+     * <code>required bool isSuccess = 1;</code>
+     */
+    boolean hasIsSuccess();
+    /**
+     * <code>required bool isSuccess = 1;</code>
+     */
+    boolean getIsSuccess();
+  }
+  /**
+   * Protobuf type {@code arch.galaxyeclipse.shared.protocol.AuthResponse}
+   */
+  public static final class AuthResponse extends
+      com.google.protobuf.GeneratedMessage
+      implements AuthResponseOrBuilder {
+    // Use AuthResponse.newBuilder() to construct.
+    private AuthResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private AuthResponse(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final AuthResponse defaultInstance;
+    public static AuthResponse getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public AuthResponse getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private AuthResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              isSuccess_ = input.readBool();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_AuthResponse_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_AuthResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthResponse.class, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthResponse.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<AuthResponse> PARSER =
+        new com.google.protobuf.AbstractParser<AuthResponse>() {
+      public AuthResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new AuthResponse(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<AuthResponse> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // required bool isSuccess = 1;
+    public static final int ISSUCCESS_FIELD_NUMBER = 1;
+    private boolean isSuccess_;
+    /**
+     * <code>required bool isSuccess = 1;</code>
+     */
+    public boolean hasIsSuccess() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required bool isSuccess = 1;</code>
+     */
+    public boolean getIsSuccess() {
+      return isSuccess_;
+    }
+
+    private void initFields() {
+      isSuccess_ = false;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      if (!hasIsSuccess()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBool(1, isSuccess_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(1, isSuccess_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthResponse prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.AuthResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_AuthResponse_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_AuthResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthResponse.class, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthResponse.Builder.class);
+      }
+
+      // Construct using arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        isSuccess_ = false;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_AuthResponse_descriptor;
+      }
+
+      public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthResponse getDefaultInstanceForType() {
+        return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthResponse.getDefaultInstance();
+      }
+
+      public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthResponse build() {
+        arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthResponse buildPartial() {
+        arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthResponse result = new arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthResponse(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.isSuccess_ = isSuccess_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthResponse) {
+          return mergeFrom((arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthResponse other) {
+        if (other == arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthResponse.getDefaultInstance()) return this;
+        if (other.hasIsSuccess()) {
+          setIsSuccess(other.getIsSuccess());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasIsSuccess()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthResponse) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // required bool isSuccess = 1;
+      private boolean isSuccess_ ;
+      /**
+       * <code>required bool isSuccess = 1;</code>
+       */
+      public boolean hasIsSuccess() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required bool isSuccess = 1;</code>
+       */
+      public boolean getIsSuccess() {
+        return isSuccess_;
+      }
+      /**
+       * <code>required bool isSuccess = 1;</code>
+       */
+      public Builder setIsSuccess(boolean value) {
+        bitField0_ |= 0x00000001;
+        isSuccess_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required bool isSuccess = 1;</code>
+       */
+      public Builder clearIsSuccess() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        isSuccess_ = false;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.AuthResponse)
+    }
+
+    static {
+      defaultInstance = new AuthResponse(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.AuthResponse)
+  }
+
+  public interface RegisterRequestOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // required string username = 1;
+    /**
+     * <code>required string username = 1;</code>
+     */
+    boolean hasUsername();
+    /**
+     * <code>required string username = 1;</code>
+     */
+    java.lang.String getUsername();
+    /**
+     * <code>required string username = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getUsernameBytes();
+
+    // required string password = 2;
+    /**
+     * <code>required string password = 2;</code>
+     */
+    boolean hasPassword();
+    /**
+     * <code>required string password = 2;</code>
+     */
+    java.lang.String getPassword();
+    /**
+     * <code>required string password = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getPasswordBytes();
+
+    // required string nickname = 3;
+    /**
+     * <code>required string nickname = 3;</code>
+     */
+    boolean hasNickname();
+    /**
+     * <code>required string nickname = 3;</code>
+     */
+    java.lang.String getNickname();
+    /**
+     * <code>required string nickname = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getNicknameBytes();
+  }
+  /**
+   * Protobuf type {@code arch.galaxyeclipse.shared.protocol.RegisterRequest}
+   */
+  public static final class RegisterRequest extends
+      com.google.protobuf.GeneratedMessage
+      implements RegisterRequestOrBuilder {
+    // Use RegisterRequest.newBuilder() to construct.
+    private RegisterRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private RegisterRequest(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final RegisterRequest defaultInstance;
+    public static RegisterRequest getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public RegisterRequest getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private RegisterRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              username_ = input.readBytes();
+              break;
+            }
+            case 18: {
+              bitField0_ |= 0x00000002;
+              password_ = input.readBytes();
+              break;
+            }
+            case 26: {
+              bitField0_ |= 0x00000004;
+              nickname_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_RegisterRequest_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_RegisterRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterRequest.class, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterRequest.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<RegisterRequest> PARSER =
+        new com.google.protobuf.AbstractParser<RegisterRequest>() {
+      public RegisterRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new RegisterRequest(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<RegisterRequest> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // required string username = 1;
+    public static final int USERNAME_FIELD_NUMBER = 1;
+    private java.lang.Object username_;
+    /**
+     * <code>required string username = 1;</code>
+     */
+    public boolean hasUsername() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required string username = 1;</code>
+     */
+    public java.lang.String getUsername() {
+      java.lang.Object ref = username_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          username_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string username = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUsernameBytes() {
+      java.lang.Object ref = username_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        username_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // required string password = 2;
+    public static final int PASSWORD_FIELD_NUMBER = 2;
+    private java.lang.Object password_;
+    /**
+     * <code>required string password = 2;</code>
+     */
+    public boolean hasPassword() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required string password = 2;</code>
+     */
+    public java.lang.String getPassword() {
+      java.lang.Object ref = password_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          password_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string password = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPasswordBytes() {
+      java.lang.Object ref = password_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        password_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // required string nickname = 3;
+    public static final int NICKNAME_FIELD_NUMBER = 3;
+    private java.lang.Object nickname_;
+    /**
+     * <code>required string nickname = 3;</code>
+     */
+    public boolean hasNickname() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required string nickname = 3;</code>
+     */
+    public java.lang.String getNickname() {
+      java.lang.Object ref = nickname_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          nickname_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string nickname = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getNicknameBytes() {
+      java.lang.Object ref = nickname_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        nickname_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private void initFields() {
+      username_ = "";
+      password_ = "";
+      nickname_ = "";
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      if (!hasUsername()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasPassword()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasNickname()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getUsernameBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, getPasswordBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBytes(3, getNicknameBytes());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getUsernameBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, getPasswordBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(3, getNicknameBytes());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterRequest prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.RegisterRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_RegisterRequest_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_RegisterRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterRequest.class, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterRequest.Builder.class);
+      }
+
+      // Construct using arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        username_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        password_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        nickname_ = "";
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_RegisterRequest_descriptor;
+      }
+
+      public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterRequest getDefaultInstanceForType() {
+        return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterRequest.getDefaultInstance();
+      }
+
+      public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterRequest build() {
+        arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterRequest buildPartial() {
+        arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterRequest result = new arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterRequest(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.username_ = username_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.password_ = password_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.nickname_ = nickname_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterRequest) {
+          return mergeFrom((arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterRequest other) {
+        if (other == arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterRequest.getDefaultInstance()) return this;
+        if (other.hasUsername()) {
+          bitField0_ |= 0x00000001;
+          username_ = other.username_;
+          onChanged();
+        }
+        if (other.hasPassword()) {
+          bitField0_ |= 0x00000002;
+          password_ = other.password_;
+          onChanged();
+        }
+        if (other.hasNickname()) {
+          bitField0_ |= 0x00000004;
+          nickname_ = other.nickname_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasUsername()) {
+          
+          return false;
+        }
+        if (!hasPassword()) {
+          
+          return false;
+        }
+        if (!hasNickname()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterRequest) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // required string username = 1;
+      private java.lang.Object username_ = "";
+      /**
+       * <code>required string username = 1;</code>
+       */
+      public boolean hasUsername() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required string username = 1;</code>
+       */
+      public java.lang.String getUsername() {
+        java.lang.Object ref = username_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          username_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string username = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getUsernameBytes() {
+        java.lang.Object ref = username_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          username_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string username = 1;</code>
+       */
+      public Builder setUsername(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        username_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string username = 1;</code>
+       */
+      public Builder clearUsername() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        username_ = getDefaultInstance().getUsername();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string username = 1;</code>
+       */
+      public Builder setUsernameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        username_ = value;
+        onChanged();
+        return this;
+      }
+
+      // required string password = 2;
+      private java.lang.Object password_ = "";
+      /**
+       * <code>required string password = 2;</code>
+       */
+      public boolean hasPassword() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required string password = 2;</code>
+       */
+      public java.lang.String getPassword() {
+        java.lang.Object ref = password_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          password_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string password = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPasswordBytes() {
+        java.lang.Object ref = password_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          password_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string password = 2;</code>
+       */
+      public Builder setPassword(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        password_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string password = 2;</code>
+       */
+      public Builder clearPassword() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        password_ = getDefaultInstance().getPassword();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string password = 2;</code>
+       */
+      public Builder setPasswordBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        password_ = value;
+        onChanged();
+        return this;
+      }
+
+      // required string nickname = 3;
+      private java.lang.Object nickname_ = "";
+      /**
+       * <code>required string nickname = 3;</code>
+       */
+      public boolean hasNickname() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required string nickname = 3;</code>
+       */
+      public java.lang.String getNickname() {
+        java.lang.Object ref = nickname_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          nickname_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string nickname = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getNicknameBytes() {
+        java.lang.Object ref = nickname_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          nickname_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string nickname = 3;</code>
+       */
+      public Builder setNickname(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        nickname_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string nickname = 3;</code>
+       */
+      public Builder clearNickname() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        nickname_ = getDefaultInstance().getNickname();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string nickname = 3;</code>
+       */
+      public Builder setNicknameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        nickname_ = value;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.RegisterRequest)
+    }
+
+    static {
+      defaultInstance = new RegisterRequest(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.RegisterRequest)
+  }
+
+  public interface RegisterResponseOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // required bool isSuccess = 1;
+    /**
+     * <code>required bool isSuccess = 1;</code>
+     */
+    boolean hasIsSuccess();
+    /**
+     * <code>required bool isSuccess = 1;</code>
+     */
+    boolean getIsSuccess();
+
+    // optional string error = 2;
+    /**
+     * <code>optional string error = 2;</code>
+     */
+    boolean hasError();
+    /**
+     * <code>optional string error = 2;</code>
+     */
+    java.lang.String getError();
+    /**
+     * <code>optional string error = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getErrorBytes();
+  }
+  /**
+   * Protobuf type {@code arch.galaxyeclipse.shared.protocol.RegisterResponse}
+   */
+  public static final class RegisterResponse extends
+      com.google.protobuf.GeneratedMessage
+      implements RegisterResponseOrBuilder {
+    // Use RegisterResponse.newBuilder() to construct.
+    private RegisterResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private RegisterResponse(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final RegisterResponse defaultInstance;
+    public static RegisterResponse getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public RegisterResponse getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private RegisterResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              isSuccess_ = input.readBool();
+              break;
+            }
+            case 18: {
+              bitField0_ |= 0x00000002;
+              error_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_RegisterResponse_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_RegisterResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterResponse.class, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterResponse.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<RegisterResponse> PARSER =
+        new com.google.protobuf.AbstractParser<RegisterResponse>() {
+      public RegisterResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new RegisterResponse(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<RegisterResponse> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // required bool isSuccess = 1;
+    public static final int ISSUCCESS_FIELD_NUMBER = 1;
+    private boolean isSuccess_;
+    /**
+     * <code>required bool isSuccess = 1;</code>
+     */
+    public boolean hasIsSuccess() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required bool isSuccess = 1;</code>
+     */
+    public boolean getIsSuccess() {
+      return isSuccess_;
+    }
+
+    // optional string error = 2;
+    public static final int ERROR_FIELD_NUMBER = 2;
+    private java.lang.Object error_;
+    /**
+     * <code>optional string error = 2;</code>
+     */
+    public boolean hasError() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional string error = 2;</code>
+     */
+    public java.lang.String getError() {
+      java.lang.Object ref = error_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          error_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string error = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getErrorBytes() {
+      java.lang.Object ref = error_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        error_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private void initFields() {
+      isSuccess_ = false;
+      error_ = "";
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      if (!hasIsSuccess()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBool(1, isSuccess_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, getErrorBytes());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(1, isSuccess_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, getErrorBytes());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterResponse prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.RegisterResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_RegisterResponse_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_RegisterResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterResponse.class, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterResponse.Builder.class);
+      }
+
+      // Construct using arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        isSuccess_ = false;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        error_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_RegisterResponse_descriptor;
+      }
+
+      public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterResponse getDefaultInstanceForType() {
+        return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterResponse.getDefaultInstance();
+      }
+
+      public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterResponse build() {
+        arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterResponse buildPartial() {
+        arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterResponse result = new arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterResponse(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.isSuccess_ = isSuccess_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.error_ = error_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterResponse) {
+          return mergeFrom((arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterResponse other) {
+        if (other == arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterResponse.getDefaultInstance()) return this;
+        if (other.hasIsSuccess()) {
+          setIsSuccess(other.getIsSuccess());
+        }
+        if (other.hasError()) {
+          bitField0_ |= 0x00000002;
+          error_ = other.error_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasIsSuccess()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.RegisterResponse) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // required bool isSuccess = 1;
+      private boolean isSuccess_ ;
+      /**
+       * <code>required bool isSuccess = 1;</code>
+       */
+      public boolean hasIsSuccess() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required bool isSuccess = 1;</code>
+       */
+      public boolean getIsSuccess() {
+        return isSuccess_;
+      }
+      /**
+       * <code>required bool isSuccess = 1;</code>
+       */
+      public Builder setIsSuccess(boolean value) {
+        bitField0_ |= 0x00000001;
+        isSuccess_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required bool isSuccess = 1;</code>
+       */
+      public Builder clearIsSuccess() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        isSuccess_ = false;
+        onChanged();
+        return this;
+      }
+
+      // optional string error = 2;
+      private java.lang.Object error_ = "";
+      /**
+       * <code>optional string error = 2;</code>
+       */
+      public boolean hasError() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional string error = 2;</code>
+       */
+      public java.lang.String getError() {
+        java.lang.Object ref = error_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          error_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string error = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getErrorBytes() {
+        java.lang.Object ref = error_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          error_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string error = 2;</code>
+       */
+      public Builder setError(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        error_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string error = 2;</code>
+       */
+      public Builder clearError() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        error_ = getDefaultInstance().getError();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string error = 2;</code>
+       */
+      public Builder setErrorBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        error_ = value;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.RegisterResponse)
+    }
+
+    static {
+      defaultInstance = new RegisterResponse(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.RegisterResponse)
+  }
+
+  public interface LocationStaticObjectsRequestOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // required int32 locationId = 1;
+    /**
+     * <code>required int32 locationId = 1;</code>
+     */
+    boolean hasLocationId();
+    /**
+     * <code>required int32 locationId = 1;</code>
+     */
+    int getLocationId();
+  }
+  /**
+   * Protobuf type {@code arch.galaxyeclipse.shared.protocol.LocationStaticObjectsRequest}
+   */
+  public static final class LocationStaticObjectsRequest extends
+      com.google.protobuf.GeneratedMessage
+      implements LocationStaticObjectsRequestOrBuilder {
+    // Use LocationStaticObjectsRequest.newBuilder() to construct.
+    private LocationStaticObjectsRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private LocationStaticObjectsRequest(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final LocationStaticObjectsRequest defaultInstance;
+    public static LocationStaticObjectsRequest getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public LocationStaticObjectsRequest getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private LocationStaticObjectsRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              locationId_ = input.readInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_LocationStaticObjectsRequest_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_LocationStaticObjectsRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsRequest.class, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsRequest.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<LocationStaticObjectsRequest> PARSER =
+        new com.google.protobuf.AbstractParser<LocationStaticObjectsRequest>() {
+      public LocationStaticObjectsRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new LocationStaticObjectsRequest(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<LocationStaticObjectsRequest> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // required int32 locationId = 1;
+    public static final int LOCATIONID_FIELD_NUMBER = 1;
+    private int locationId_;
+    /**
+     * <code>required int32 locationId = 1;</code>
+     */
+    public boolean hasLocationId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required int32 locationId = 1;</code>
+     */
+    public int getLocationId() {
+      return locationId_;
+    }
+
+    private void initFields() {
+      locationId_ = 0;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      if (!hasLocationId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, locationId_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, locationId_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsRequest prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.LocationStaticObjectsRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_LocationStaticObjectsRequest_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_LocationStaticObjectsRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsRequest.class, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsRequest.Builder.class);
+      }
+
+      // Construct using arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        locationId_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_LocationStaticObjectsRequest_descriptor;
+      }
+
+      public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsRequest getDefaultInstanceForType() {
+        return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsRequest.getDefaultInstance();
+      }
+
+      public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsRequest build() {
+        arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsRequest buildPartial() {
+        arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsRequest result = new arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsRequest(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.locationId_ = locationId_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsRequest) {
+          return mergeFrom((arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsRequest other) {
+        if (other == arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsRequest.getDefaultInstance()) return this;
+        if (other.hasLocationId()) {
+          setLocationId(other.getLocationId());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasLocationId()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsRequest) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // required int32 locationId = 1;
+      private int locationId_ ;
+      /**
+       * <code>required int32 locationId = 1;</code>
+       */
+      public boolean hasLocationId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int32 locationId = 1;</code>
+       */
+      public int getLocationId() {
+        return locationId_;
+      }
+      /**
+       * <code>required int32 locationId = 1;</code>
+       */
+      public Builder setLocationId(int value) {
+        bitField0_ |= 0x00000001;
+        locationId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 locationId = 1;</code>
+       */
+      public Builder clearLocationId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        locationId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.LocationStaticObjectsRequest)
+    }
+
+    static {
+      defaultInstance = new LocationStaticObjectsRequest(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.LocationStaticObjectsRequest)
+  }
+
+  public interface LocationStaticObjectsResponseOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // repeated .arch.galaxyeclipse.shared.protocol.LocationStaticObjectsResponse.LocationStaticObject objects = 1;
+    /**
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationStaticObjectsResponse.LocationStaticObject objects = 1;</code>
+     */
+    java.util.List<arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject> 
+        getObjectsList();
+    /**
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationStaticObjectsResponse.LocationStaticObject objects = 1;</code>
+     */
+    arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject getObjects(int index);
+    /**
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationStaticObjectsResponse.LocationStaticObject objects = 1;</code>
+     */
+    int getObjectsCount();
+    /**
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationStaticObjectsResponse.LocationStaticObject objects = 1;</code>
+     */
+    java.util.List<? extends arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObjectOrBuilder> 
+        getObjectsOrBuilderList();
+    /**
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationStaticObjectsResponse.LocationStaticObject objects = 1;</code>
+     */
+    arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObjectOrBuilder getObjectsOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code arch.galaxyeclipse.shared.protocol.LocationStaticObjectsResponse}
+   */
+  public static final class LocationStaticObjectsResponse extends
+      com.google.protobuf.GeneratedMessage
+      implements LocationStaticObjectsResponseOrBuilder {
+    // Use LocationStaticObjectsResponse.newBuilder() to construct.
+    private LocationStaticObjectsResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private LocationStaticObjectsResponse(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final LocationStaticObjectsResponse defaultInstance;
+    public static LocationStaticObjectsResponse getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public LocationStaticObjectsResponse getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private LocationStaticObjectsResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                objects_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              objects_.add(input.readMessage(arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject.PARSER, extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          objects_ = java.util.Collections.unmodifiableList(objects_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_LocationStaticObjectsResponse_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_LocationStaticObjectsResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.class, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<LocationStaticObjectsResponse> PARSER =
+        new com.google.protobuf.AbstractParser<LocationStaticObjectsResponse>() {
+      public LocationStaticObjectsResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new LocationStaticObjectsResponse(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<LocationStaticObjectsResponse> getParserForType() {
+      return PARSER;
+    }
+
+    public interface LocationStaticObjectOrBuilder
+        extends com.google.protobuf.MessageOrBuilder {
+
+      // required int32 positionX = 1;
+      /**
+       * <code>required int32 positionX = 1;</code>
+       */
+      boolean hasPositionX();
+      /**
+       * <code>required int32 positionX = 1;</code>
+       */
+      int getPositionX();
+
+      // required int32 positionY = 2;
+      /**
+       * <code>required int32 positionY = 2;</code>
+       */
+      boolean hasPositionY();
+      /**
+       * <code>required int32 positionY = 2;</code>
+       */
+      int getPositionY();
+
+      // required string imagePath = 3;
+      /**
+       * <code>required string imagePath = 3;</code>
+       */
+      boolean hasImagePath();
+      /**
+       * <code>required string imagePath = 3;</code>
+       */
+      java.lang.String getImagePath();
+      /**
+       * <code>required string imagePath = 3;</code>
+       */
+      com.google.protobuf.ByteString
+          getImagePathBytes();
+
+      // required int32 objectTypeId = 4;
+      /**
+       * <code>required int32 objectTypeId = 4;</code>
+       */
+      boolean hasObjectTypeId();
+      /**
+       * <code>required int32 objectTypeId = 4;</code>
+       */
+      int getObjectTypeId();
+    }
+    /**
+     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.LocationStaticObjectsResponse.LocationStaticObject}
+     */
+    public static final class LocationStaticObject extends
+        com.google.protobuf.GeneratedMessage
+        implements LocationStaticObjectOrBuilder {
+      // Use LocationStaticObject.newBuilder() to construct.
+      private LocationStaticObject(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+        super(builder);
+        this.unknownFields = builder.getUnknownFields();
+      }
+      private LocationStaticObject(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+      private static final LocationStaticObject defaultInstance;
+      public static LocationStaticObject getDefaultInstance() {
+        return defaultInstance;
+      }
+
+      public LocationStaticObject getDefaultInstanceForType() {
+        return defaultInstance;
+      }
+
+      private final com.google.protobuf.UnknownFieldSet unknownFields;
+      @java.lang.Override
+      public final com.google.protobuf.UnknownFieldSet
+          getUnknownFields() {
+        return this.unknownFields;
+      }
+      private LocationStaticObject(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        initFields();
+        int mutable_bitField0_ = 0;
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+            com.google.protobuf.UnknownFieldSet.newBuilder();
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default: {
+                if (!parseUnknownField(input, unknownFields,
+                                       extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+              case 8: {
+                bitField0_ |= 0x00000001;
+                positionX_ = input.readInt32();
+                break;
+              }
+              case 16: {
+                bitField0_ |= 0x00000002;
+                positionY_ = input.readInt32();
+                break;
+              }
+              case 26: {
+                bitField0_ |= 0x00000004;
+                imagePath_ = input.readBytes();
+                break;
+              }
+              case 32: {
+                bitField0_ |= 0x00000008;
+                objectTypeId_ = input.readInt32();
+                break;
+              }
+            }
+          }
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(this);
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(
+              e.getMessage()).setUnfinishedMessage(this);
+        } finally {
+          this.unknownFields = unknownFields.build();
+          makeExtensionsImmutable();
+        }
+      }
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_LocationStaticObjectsResponse_LocationStaticObject_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_LocationStaticObjectsResponse_LocationStaticObject_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject.class, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject.Builder.class);
+      }
+
+      public static com.google.protobuf.Parser<LocationStaticObject> PARSER =
+          new com.google.protobuf.AbstractParser<LocationStaticObject>() {
+        public LocationStaticObject parsePartialFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return new LocationStaticObject(input, extensionRegistry);
+        }
+      };
+
+      @java.lang.Override
+      public com.google.protobuf.Parser<LocationStaticObject> getParserForType() {
+        return PARSER;
+      }
+
+      private int bitField0_;
+      // required int32 positionX = 1;
+      public static final int POSITIONX_FIELD_NUMBER = 1;
+      private int positionX_;
+      /**
+       * <code>required int32 positionX = 1;</code>
+       */
+      public boolean hasPositionX() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int32 positionX = 1;</code>
+       */
+      public int getPositionX() {
+        return positionX_;
+      }
+
+      // required int32 positionY = 2;
+      public static final int POSITIONY_FIELD_NUMBER = 2;
+      private int positionY_;
+      /**
+       * <code>required int32 positionY = 2;</code>
+       */
+      public boolean hasPositionY() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required int32 positionY = 2;</code>
+       */
+      public int getPositionY() {
+        return positionY_;
+      }
+
+      // required string imagePath = 3;
+      public static final int IMAGEPATH_FIELD_NUMBER = 3;
+      private java.lang.Object imagePath_;
+      /**
+       * <code>required string imagePath = 3;</code>
+       */
+      public boolean hasImagePath() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required string imagePath = 3;</code>
+       */
+      public java.lang.String getImagePath() {
+        java.lang.Object ref = imagePath_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            imagePath_ = s;
+          }
+          return s;
+        }
+      }
+      /**
+       * <code>required string imagePath = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getImagePathBytes() {
+        java.lang.Object ref = imagePath_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          imagePath_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
+      // required int32 objectTypeId = 4;
+      public static final int OBJECTTYPEID_FIELD_NUMBER = 4;
+      private int objectTypeId_;
+      /**
+       * <code>required int32 objectTypeId = 4;</code>
+       */
+      public boolean hasObjectTypeId() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>required int32 objectTypeId = 4;</code>
+       */
+      public int getObjectTypeId() {
+        return objectTypeId_;
+      }
+
+      private void initFields() {
+        positionX_ = 0;
+        positionY_ = 0;
+        imagePath_ = "";
+        objectTypeId_ = 0;
+      }
+      private byte memoizedIsInitialized = -1;
+      public final boolean isInitialized() {
+        byte isInitialized = memoizedIsInitialized;
+        if (isInitialized != -1) return isInitialized == 1;
+
+        if (!hasPositionX()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+        if (!hasPositionY()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+        if (!hasImagePath()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+        if (!hasObjectTypeId()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+        memoizedIsInitialized = 1;
+        return true;
+      }
+
+      public void writeTo(com.google.protobuf.CodedOutputStream output)
+                          throws java.io.IOException {
+        getSerializedSize();
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          output.writeInt32(1, positionX_);
+        }
+        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          output.writeInt32(2, positionY_);
+        }
+        if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          output.writeBytes(3, getImagePathBytes());
+        }
+        if (((bitField0_ & 0x00000008) == 0x00000008)) {
+          output.writeInt32(4, objectTypeId_);
+        }
+        getUnknownFields().writeTo(output);
+      }
+
+      private int memoizedSerializedSize = -1;
+      public int getSerializedSize() {
+        int size = memoizedSerializedSize;
+        if (size != -1) return size;
+
+        size = 0;
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeInt32Size(1, positionX_);
+        }
+        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeInt32Size(2, positionY_);
+        }
+        if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeBytesSize(3, getImagePathBytes());
+        }
+        if (((bitField0_ & 0x00000008) == 0x00000008)) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeInt32Size(4, objectTypeId_);
+        }
+        size += getUnknownFields().getSerializedSize();
+        memoizedSerializedSize = size;
+        return size;
+      }
+
+      private static final long serialVersionUID = 0L;
+      @java.lang.Override
+      protected java.lang.Object writeReplace()
+          throws java.io.ObjectStreamException {
+        return super.writeReplace();
+      }
+
+      public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject parseFrom(
+          com.google.protobuf.ByteString data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject parseFrom(
+          com.google.protobuf.ByteString data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject parseFrom(byte[] data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject parseFrom(
+          byte[] data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject parseFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return PARSER.parseFrom(input);
+      }
+      public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject parseFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return PARSER.parseFrom(input, extensionRegistry);
+      }
+      public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject parseDelimitedFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return PARSER.parseDelimitedFrom(input);
+      }
+      public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject parseDelimitedFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      }
+      public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject parseFrom(
+          com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        return PARSER.parseFrom(input);
+      }
+      public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject parseFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return PARSER.parseFrom(input, extensionRegistry);
+      }
+
+      public static Builder newBuilder() { return Builder.create(); }
+      public Builder newBuilderForType() { return newBuilder(); }
+      public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject prototype) {
+        return newBuilder().mergeFrom(prototype);
+      }
+      public Builder toBuilder() { return newBuilder(this); }
+
+      @java.lang.Override
+      protected Builder newBuilderForType(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        Builder builder = new Builder(parent);
+        return builder;
+      }
+      /**
+       * Protobuf type {@code arch.galaxyeclipse.shared.protocol.LocationStaticObjectsResponse.LocationStaticObject}
+       */
+      public static final class Builder extends
+          com.google.protobuf.GeneratedMessage.Builder<Builder>
+         implements arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObjectOrBuilder {
+        public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+          return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_LocationStaticObjectsResponse_LocationStaticObject_descriptor;
+        }
+
+        protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+          return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_LocationStaticObjectsResponse_LocationStaticObject_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject.class, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject.Builder.class);
+        }
+
+        // Construct using arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject.newBuilder()
+        private Builder() {
+          maybeForceBuilderInitialization();
+        }
+
+        private Builder(
+            com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          super(parent);
+          maybeForceBuilderInitialization();
+        }
+        private void maybeForceBuilderInitialization() {
+          if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          }
+        }
+        private static Builder create() {
+          return new Builder();
+        }
+
+        public Builder clear() {
+          super.clear();
+          positionX_ = 0;
+          bitField0_ = (bitField0_ & ~0x00000001);
+          positionY_ = 0;
+          bitField0_ = (bitField0_ & ~0x00000002);
+          imagePath_ = "";
+          bitField0_ = (bitField0_ & ~0x00000004);
+          objectTypeId_ = 0;
+          bitField0_ = (bitField0_ & ~0x00000008);
+          return this;
+        }
+
+        public Builder clone() {
+          return create().mergeFrom(buildPartial());
+        }
+
+        public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+          return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_LocationStaticObjectsResponse_LocationStaticObject_descriptor;
+        }
+
+        public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject getDefaultInstanceForType() {
+          return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject.getDefaultInstance();
+        }
+
+        public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject build() {
+          arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject result = buildPartial();
+          if (!result.isInitialized()) {
+            throw newUninitializedMessageException(result);
+          }
+          return result;
+        }
+
+        public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject buildPartial() {
+          arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject result = new arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject(this);
+          int from_bitField0_ = bitField0_;
+          int to_bitField0_ = 0;
+          if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+            to_bitField0_ |= 0x00000001;
+          }
+          result.positionX_ = positionX_;
+          if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+            to_bitField0_ |= 0x00000002;
+          }
+          result.positionY_ = positionY_;
+          if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+            to_bitField0_ |= 0x00000004;
+          }
+          result.imagePath_ = imagePath_;
+          if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+            to_bitField0_ |= 0x00000008;
+          }
+          result.objectTypeId_ = objectTypeId_;
+          result.bitField0_ = to_bitField0_;
+          onBuilt();
+          return result;
+        }
+
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+          if (other instanceof arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject) {
+            return mergeFrom((arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject)other);
+          } else {
+            super.mergeFrom(other);
+            return this;
+          }
+        }
+
+        public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject other) {
+          if (other == arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject.getDefaultInstance()) return this;
+          if (other.hasPositionX()) {
+            setPositionX(other.getPositionX());
+          }
+          if (other.hasPositionY()) {
+            setPositionY(other.getPositionY());
+          }
+          if (other.hasImagePath()) {
+            bitField0_ |= 0x00000004;
+            imagePath_ = other.imagePath_;
+            onChanged();
+          }
+          if (other.hasObjectTypeId()) {
+            setObjectTypeId(other.getObjectTypeId());
+          }
+          this.mergeUnknownFields(other.getUnknownFields());
+          return this;
+        }
+
+        public final boolean isInitialized() {
+          if (!hasPositionX()) {
+            
+            return false;
+          }
+          if (!hasPositionY()) {
+            
+            return false;
+          }
+          if (!hasImagePath()) {
+            
+            return false;
+          }
+          if (!hasObjectTypeId()) {
+            
+            return false;
+          }
+          return true;
+        }
+
+        public Builder mergeFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject parsedMessage = null;
+          try {
+            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            parsedMessage = (arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject) e.getUnfinishedMessage();
+            throw e;
+          } finally {
+            if (parsedMessage != null) {
+              mergeFrom(parsedMessage);
+            }
+          }
+          return this;
+        }
+        private int bitField0_;
+
+        // required int32 positionX = 1;
+        private int positionX_ ;
+        /**
+         * <code>required int32 positionX = 1;</code>
+         */
+        public boolean hasPositionX() {
+          return ((bitField0_ & 0x00000001) == 0x00000001);
+        }
+        /**
+         * <code>required int32 positionX = 1;</code>
+         */
+        public int getPositionX() {
+          return positionX_;
+        }
+        /**
+         * <code>required int32 positionX = 1;</code>
+         */
+        public Builder setPositionX(int value) {
+          bitField0_ |= 0x00000001;
+          positionX_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>required int32 positionX = 1;</code>
+         */
+        public Builder clearPositionX() {
+          bitField0_ = (bitField0_ & ~0x00000001);
+          positionX_ = 0;
+          onChanged();
+          return this;
+        }
+
+        // required int32 positionY = 2;
+        private int positionY_ ;
+        /**
+         * <code>required int32 positionY = 2;</code>
+         */
+        public boolean hasPositionY() {
+          return ((bitField0_ & 0x00000002) == 0x00000002);
+        }
+        /**
+         * <code>required int32 positionY = 2;</code>
+         */
+        public int getPositionY() {
+          return positionY_;
+        }
+        /**
+         * <code>required int32 positionY = 2;</code>
+         */
+        public Builder setPositionY(int value) {
+          bitField0_ |= 0x00000002;
+          positionY_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>required int32 positionY = 2;</code>
+         */
+        public Builder clearPositionY() {
+          bitField0_ = (bitField0_ & ~0x00000002);
+          positionY_ = 0;
+          onChanged();
+          return this;
+        }
+
+        // required string imagePath = 3;
+        private java.lang.Object imagePath_ = "";
+        /**
+         * <code>required string imagePath = 3;</code>
+         */
+        public boolean hasImagePath() {
+          return ((bitField0_ & 0x00000004) == 0x00000004);
+        }
+        /**
+         * <code>required string imagePath = 3;</code>
+         */
+        public java.lang.String getImagePath() {
+          java.lang.Object ref = imagePath_;
+          if (!(ref instanceof java.lang.String)) {
+            java.lang.String s = ((com.google.protobuf.ByteString) ref)
+                .toStringUtf8();
+            imagePath_ = s;
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
+        }
+        /**
+         * <code>required string imagePath = 3;</code>
+         */
+        public com.google.protobuf.ByteString
+            getImagePathBytes() {
+          java.lang.Object ref = imagePath_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            imagePath_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <code>required string imagePath = 3;</code>
+         */
+        public Builder setImagePath(
+            java.lang.String value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+          imagePath_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>required string imagePath = 3;</code>
+         */
+        public Builder clearImagePath() {
+          bitField0_ = (bitField0_ & ~0x00000004);
+          imagePath_ = getDefaultInstance().getImagePath();
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>required string imagePath = 3;</code>
+         */
+        public Builder setImagePathBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+          imagePath_ = value;
+          onChanged();
+          return this;
+        }
+
+        // required int32 objectTypeId = 4;
+        private int objectTypeId_ ;
+        /**
+         * <code>required int32 objectTypeId = 4;</code>
+         */
+        public boolean hasObjectTypeId() {
+          return ((bitField0_ & 0x00000008) == 0x00000008);
+        }
+        /**
+         * <code>required int32 objectTypeId = 4;</code>
+         */
+        public int getObjectTypeId() {
+          return objectTypeId_;
+        }
+        /**
+         * <code>required int32 objectTypeId = 4;</code>
+         */
+        public Builder setObjectTypeId(int value) {
+          bitField0_ |= 0x00000008;
+          objectTypeId_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>required int32 objectTypeId = 4;</code>
+         */
+        public Builder clearObjectTypeId() {
+          bitField0_ = (bitField0_ & ~0x00000008);
+          objectTypeId_ = 0;
+          onChanged();
+          return this;
+        }
+
+        // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.LocationStaticObjectsResponse.LocationStaticObject)
+      }
+
+      static {
+        defaultInstance = new LocationStaticObject(true);
+        defaultInstance.initFields();
+      }
+
+      // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.LocationStaticObjectsResponse.LocationStaticObject)
+    }
+
+    // repeated .arch.galaxyeclipse.shared.protocol.LocationStaticObjectsResponse.LocationStaticObject objects = 1;
+    public static final int OBJECTS_FIELD_NUMBER = 1;
+    private java.util.List<arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject> objects_;
+    /**
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationStaticObjectsResponse.LocationStaticObject objects = 1;</code>
+     */
+    public java.util.List<arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject> getObjectsList() {
+      return objects_;
+    }
+    /**
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationStaticObjectsResponse.LocationStaticObject objects = 1;</code>
+     */
+    public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObjectOrBuilder> 
+        getObjectsOrBuilderList() {
+      return objects_;
+    }
+    /**
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationStaticObjectsResponse.LocationStaticObject objects = 1;</code>
+     */
+    public int getObjectsCount() {
+      return objects_.size();
+    }
+    /**
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationStaticObjectsResponse.LocationStaticObject objects = 1;</code>
+     */
+    public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject getObjects(int index) {
+      return objects_.get(index);
+    }
+    /**
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationStaticObjectsResponse.LocationStaticObject objects = 1;</code>
+     */
+    public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObjectOrBuilder getObjectsOrBuilder(
+        int index) {
+      return objects_.get(index);
+    }
+
+    private void initFields() {
+      objects_ = java.util.Collections.emptyList();
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      for (int i = 0; i < getObjectsCount(); i++) {
+        if (!getObjects(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      for (int i = 0; i < objects_.size(); i++) {
+        output.writeMessage(1, objects_.get(i));
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < objects_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, objects_.get(i));
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.LocationStaticObjectsResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_LocationStaticObjectsResponse_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_LocationStaticObjectsResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.class, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.Builder.class);
+      }
+
+      // Construct using arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getObjectsFieldBuilder();
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        if (objectsBuilder_ == null) {
+          objects_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          objectsBuilder_.clear();
+        }
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_LocationStaticObjectsResponse_descriptor;
+      }
+
+      public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse getDefaultInstanceForType() {
+        return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.getDefaultInstance();
+      }
+
+      public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse build() {
+        arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse buildPartial() {
+        arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse result = new arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse(this);
+        int from_bitField0_ = bitField0_;
+        if (objectsBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            objects_ = java.util.Collections.unmodifiableList(objects_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.objects_ = objects_;
+        } else {
+          result.objects_ = objectsBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse) {
+          return mergeFrom((arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse other) {
+        if (other == arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.getDefaultInstance()) return this;
+        if (objectsBuilder_ == null) {
+          if (!other.objects_.isEmpty()) {
+            if (objects_.isEmpty()) {
+              objects_ = other.objects_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureObjectsIsMutable();
+              objects_.addAll(other.objects_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.objects_.isEmpty()) {
+            if (objectsBuilder_.isEmpty()) {
+              objectsBuilder_.dispose();
+              objectsBuilder_ = null;
+              objects_ = other.objects_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              objectsBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getObjectsFieldBuilder() : null;
+            } else {
+              objectsBuilder_.addAllMessages(other.objects_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        for (int i = 0; i < getObjectsCount(); i++) {
+          if (!getObjects(i).isInitialized()) {
+            
+            return false;
+          }
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // repeated .arch.galaxyeclipse.shared.protocol.LocationStaticObjectsResponse.LocationStaticObject objects = 1;
+      private java.util.List<arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject> objects_ =
+        java.util.Collections.emptyList();
+      private void ensureObjectsIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          objects_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject>(objects_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject.Builder, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObjectOrBuilder> objectsBuilder_;
+
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationStaticObjectsResponse.LocationStaticObject objects = 1;</code>
+       */
+      public java.util.List<arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject> getObjectsList() {
+        if (objectsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(objects_);
+        } else {
+          return objectsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationStaticObjectsResponse.LocationStaticObject objects = 1;</code>
+       */
+      public int getObjectsCount() {
+        if (objectsBuilder_ == null) {
+          return objects_.size();
+        } else {
+          return objectsBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationStaticObjectsResponse.LocationStaticObject objects = 1;</code>
+       */
+      public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject getObjects(int index) {
+        if (objectsBuilder_ == null) {
+          return objects_.get(index);
+        } else {
+          return objectsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationStaticObjectsResponse.LocationStaticObject objects = 1;</code>
+       */
+      public Builder setObjects(
+          int index, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject value) {
+        if (objectsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureObjectsIsMutable();
+          objects_.set(index, value);
+          onChanged();
+        } else {
+          objectsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationStaticObjectsResponse.LocationStaticObject objects = 1;</code>
+       */
+      public Builder setObjects(
+          int index, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject.Builder builderForValue) {
+        if (objectsBuilder_ == null) {
+          ensureObjectsIsMutable();
+          objects_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          objectsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationStaticObjectsResponse.LocationStaticObject objects = 1;</code>
+       */
+      public Builder addObjects(arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject value) {
+        if (objectsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureObjectsIsMutable();
+          objects_.add(value);
+          onChanged();
+        } else {
+          objectsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationStaticObjectsResponse.LocationStaticObject objects = 1;</code>
+       */
+      public Builder addObjects(
+          int index, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject value) {
+        if (objectsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureObjectsIsMutable();
+          objects_.add(index, value);
+          onChanged();
+        } else {
+          objectsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationStaticObjectsResponse.LocationStaticObject objects = 1;</code>
+       */
+      public Builder addObjects(
+          arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject.Builder builderForValue) {
+        if (objectsBuilder_ == null) {
+          ensureObjectsIsMutable();
+          objects_.add(builderForValue.build());
+          onChanged();
+        } else {
+          objectsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationStaticObjectsResponse.LocationStaticObject objects = 1;</code>
+       */
+      public Builder addObjects(
+          int index, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject.Builder builderForValue) {
+        if (objectsBuilder_ == null) {
+          ensureObjectsIsMutable();
+          objects_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          objectsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationStaticObjectsResponse.LocationStaticObject objects = 1;</code>
+       */
+      public Builder addAllObjects(
+          java.lang.Iterable<? extends arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject> values) {
+        if (objectsBuilder_ == null) {
+          ensureObjectsIsMutable();
+          super.addAll(values, objects_);
+          onChanged();
+        } else {
+          objectsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationStaticObjectsResponse.LocationStaticObject objects = 1;</code>
+       */
+      public Builder clearObjects() {
+        if (objectsBuilder_ == null) {
+          objects_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          objectsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationStaticObjectsResponse.LocationStaticObject objects = 1;</code>
+       */
+      public Builder removeObjects(int index) {
+        if (objectsBuilder_ == null) {
+          ensureObjectsIsMutable();
+          objects_.remove(index);
+          onChanged();
+        } else {
+          objectsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationStaticObjectsResponse.LocationStaticObject objects = 1;</code>
+       */
+      public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject.Builder getObjectsBuilder(
+          int index) {
+        return getObjectsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationStaticObjectsResponse.LocationStaticObject objects = 1;</code>
+       */
+      public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObjectOrBuilder getObjectsOrBuilder(
+          int index) {
+        if (objectsBuilder_ == null) {
+          return objects_.get(index);  } else {
+          return objectsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationStaticObjectsResponse.LocationStaticObject objects = 1;</code>
+       */
+      public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObjectOrBuilder> 
+           getObjectsOrBuilderList() {
+        if (objectsBuilder_ != null) {
+          return objectsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(objects_);
+        }
+      }
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationStaticObjectsResponse.LocationStaticObject objects = 1;</code>
+       */
+      public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject.Builder addObjectsBuilder() {
+        return getObjectsFieldBuilder().addBuilder(
+            arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationStaticObjectsResponse.LocationStaticObject objects = 1;</code>
+       */
+      public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject.Builder addObjectsBuilder(
+          int index) {
+        return getObjectsFieldBuilder().addBuilder(
+            index, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationStaticObjectsResponse.LocationStaticObject objects = 1;</code>
+       */
+      public java.util.List<arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject.Builder> 
+           getObjectsBuilderList() {
+        return getObjectsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject.Builder, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObjectOrBuilder> 
+          getObjectsFieldBuilder() {
+        if (objectsBuilder_ == null) {
+          objectsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObject.Builder, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.LocationStaticObjectsResponse.LocationStaticObjectOrBuilder>(
+                  objects_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          objects_ = null;
+        }
+        return objectsBuilder_;
+      }
+
+      // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.LocationStaticObjectsResponse)
+    }
+
+    static {
+      defaultInstance = new LocationStaticObjectsResponse(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.LocationStaticObjectsResponse)
+  }
+
+  public interface ChatSendMessageOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // required string message = 1;
+    /**
+     * <code>required string message = 1;</code>
+     */
+    boolean hasMessage();
+    /**
+     * <code>required string message = 1;</code>
+     */
+    java.lang.String getMessage();
+    /**
+     * <code>required string message = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getMessageBytes();
+  }
+  /**
+   * Protobuf type {@code arch.galaxyeclipse.shared.protocol.ChatSendMessage}
+   */
+  public static final class ChatSendMessage extends
+      com.google.protobuf.GeneratedMessage
+      implements ChatSendMessageOrBuilder {
+    // Use ChatSendMessage.newBuilder() to construct.
+    private ChatSendMessage(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private ChatSendMessage(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final ChatSendMessage defaultInstance;
+    public static ChatSendMessage getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public ChatSendMessage getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ChatSendMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              message_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ChatSendMessage_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ChatSendMessage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatSendMessage.class, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatSendMessage.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<ChatSendMessage> PARSER =
+        new com.google.protobuf.AbstractParser<ChatSendMessage>() {
+      public ChatSendMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ChatSendMessage(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ChatSendMessage> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // required string message = 1;
+    public static final int MESSAGE_FIELD_NUMBER = 1;
+    private java.lang.Object message_;
+    /**
+     * <code>required string message = 1;</code>
+     */
+    public boolean hasMessage() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required string message = 1;</code>
+     */
+    public java.lang.String getMessage() {
+      java.lang.Object ref = message_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          message_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string message = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getMessageBytes() {
+      java.lang.Object ref = message_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        message_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private void initFields() {
+      message_ = "";
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      if (!hasMessage()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getMessageBytes());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getMessageBytes());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatSendMessage parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatSendMessage parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatSendMessage parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatSendMessage parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatSendMessage parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatSendMessage parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatSendMessage parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatSendMessage parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatSendMessage parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatSendMessage parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatSendMessage prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.ChatSendMessage}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatSendMessageOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ChatSendMessage_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ChatSendMessage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatSendMessage.class, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatSendMessage.Builder.class);
+      }
+
+      // Construct using arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatSendMessage.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        message_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ChatSendMessage_descriptor;
+      }
+
+      public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatSendMessage getDefaultInstanceForType() {
+        return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatSendMessage.getDefaultInstance();
+      }
+
+      public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatSendMessage build() {
+        arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatSendMessage result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatSendMessage buildPartial() {
+        arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatSendMessage result = new arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatSendMessage(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.message_ = message_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatSendMessage) {
+          return mergeFrom((arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatSendMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatSendMessage other) {
+        if (other == arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatSendMessage.getDefaultInstance()) return this;
+        if (other.hasMessage()) {
+          bitField0_ |= 0x00000001;
+          message_ = other.message_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasMessage()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatSendMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatSendMessage) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // required string message = 1;
+      private java.lang.Object message_ = "";
+      /**
+       * <code>required string message = 1;</code>
+       */
+      public boolean hasMessage() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required string message = 1;</code>
+       */
+      public java.lang.String getMessage() {
+        java.lang.Object ref = message_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          message_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string message = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getMessageBytes() {
+        java.lang.Object ref = message_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          message_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string message = 1;</code>
+       */
+      public Builder setMessage(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        message_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string message = 1;</code>
+       */
+      public Builder clearMessage() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        message_ = getDefaultInstance().getMessage();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string message = 1;</code>
+       */
+      public Builder setMessageBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        message_ = value;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.ChatSendMessage)
+    }
+
+    static {
+      defaultInstance = new ChatSendMessage(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.ChatSendMessage)
+  }
+
+  public interface ChatReceiveMessageOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // required string message = 1;
+    /**
+     * <code>required string message = 1;</code>
+     */
+    boolean hasMessage();
+    /**
+     * <code>required string message = 1;</code>
+     */
+    java.lang.String getMessage();
+    /**
+     * <code>required string message = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getMessageBytes();
+
+    // required string sender = 2;
+    /**
+     * <code>required string sender = 2;</code>
+     */
+    boolean hasSender();
+    /**
+     * <code>required string sender = 2;</code>
+     */
+    java.lang.String getSender();
+    /**
+     * <code>required string sender = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getSenderBytes();
+  }
+  /**
+   * Protobuf type {@code arch.galaxyeclipse.shared.protocol.ChatReceiveMessage}
+   */
+  public static final class ChatReceiveMessage extends
+      com.google.protobuf.GeneratedMessage
+      implements ChatReceiveMessageOrBuilder {
+    // Use ChatReceiveMessage.newBuilder() to construct.
+    private ChatReceiveMessage(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private ChatReceiveMessage(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final ChatReceiveMessage defaultInstance;
+    public static ChatReceiveMessage getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public ChatReceiveMessage getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ChatReceiveMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              message_ = input.readBytes();
+              break;
+            }
+            case 18: {
+              bitField0_ |= 0x00000002;
+              sender_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ChatReceiveMessage_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ChatReceiveMessage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatReceiveMessage.class, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatReceiveMessage.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<ChatReceiveMessage> PARSER =
+        new com.google.protobuf.AbstractParser<ChatReceiveMessage>() {
+      public ChatReceiveMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ChatReceiveMessage(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ChatReceiveMessage> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // required string message = 1;
+    public static final int MESSAGE_FIELD_NUMBER = 1;
+    private java.lang.Object message_;
+    /**
+     * <code>required string message = 1;</code>
+     */
+    public boolean hasMessage() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required string message = 1;</code>
+     */
+    public java.lang.String getMessage() {
+      java.lang.Object ref = message_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          message_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string message = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getMessageBytes() {
+      java.lang.Object ref = message_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        message_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // required string sender = 2;
+    public static final int SENDER_FIELD_NUMBER = 2;
+    private java.lang.Object sender_;
+    /**
+     * <code>required string sender = 2;</code>
+     */
+    public boolean hasSender() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required string sender = 2;</code>
+     */
+    public java.lang.String getSender() {
+      java.lang.Object ref = sender_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          sender_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string sender = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getSenderBytes() {
+      java.lang.Object ref = sender_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        sender_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private void initFields() {
+      message_ = "";
+      sender_ = "";
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      if (!hasMessage()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasSender()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getMessageBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, getSenderBytes());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getMessageBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, getSenderBytes());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatReceiveMessage parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatReceiveMessage parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatReceiveMessage parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatReceiveMessage parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatReceiveMessage parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatReceiveMessage parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatReceiveMessage parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatReceiveMessage parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatReceiveMessage parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatReceiveMessage parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatReceiveMessage prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.ChatReceiveMessage}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatReceiveMessageOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ChatReceiveMessage_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ChatReceiveMessage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatReceiveMessage.class, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatReceiveMessage.Builder.class);
+      }
+
+      // Construct using arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatReceiveMessage.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        message_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        sender_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ChatReceiveMessage_descriptor;
+      }
+
+      public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatReceiveMessage getDefaultInstanceForType() {
+        return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatReceiveMessage.getDefaultInstance();
+      }
+
+      public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatReceiveMessage build() {
+        arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatReceiveMessage result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatReceiveMessage buildPartial() {
+        arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatReceiveMessage result = new arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatReceiveMessage(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.message_ = message_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.sender_ = sender_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatReceiveMessage) {
+          return mergeFrom((arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatReceiveMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatReceiveMessage other) {
+        if (other == arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatReceiveMessage.getDefaultInstance()) return this;
+        if (other.hasMessage()) {
+          bitField0_ |= 0x00000001;
+          message_ = other.message_;
+          onChanged();
+        }
+        if (other.hasSender()) {
+          bitField0_ |= 0x00000002;
+          sender_ = other.sender_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasMessage()) {
+          
+          return false;
+        }
+        if (!hasSender()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatReceiveMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.ChatReceiveMessage) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // required string message = 1;
+      private java.lang.Object message_ = "";
+      /**
+       * <code>required string message = 1;</code>
+       */
+      public boolean hasMessage() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required string message = 1;</code>
+       */
+      public java.lang.String getMessage() {
+        java.lang.Object ref = message_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          message_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string message = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getMessageBytes() {
+        java.lang.Object ref = message_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          message_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string message = 1;</code>
+       */
+      public Builder setMessage(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        message_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string message = 1;</code>
+       */
+      public Builder clearMessage() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        message_ = getDefaultInstance().getMessage();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string message = 1;</code>
+       */
+      public Builder setMessageBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        message_ = value;
+        onChanged();
+        return this;
+      }
+
+      // required string sender = 2;
+      private java.lang.Object sender_ = "";
+      /**
+       * <code>required string sender = 2;</code>
+       */
+      public boolean hasSender() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required string sender = 2;</code>
+       */
+      public java.lang.String getSender() {
+        java.lang.Object ref = sender_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          sender_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string sender = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getSenderBytes() {
+        java.lang.Object ref = sender_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          sender_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string sender = 2;</code>
+       */
+      public Builder setSender(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        sender_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string sender = 2;</code>
+       */
+      public Builder clearSender() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        sender_ = getDefaultInstance().getSender();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string sender = 2;</code>
+       */
+      public Builder setSenderBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        sender_ = value;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.ChatReceiveMessage)
+    }
+
+    static {
+      defaultInstance = new ChatReceiveMessage(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.ChatReceiveMessage)
+  }
+
+  public interface InventoryItemsRequestOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+  }
+  /**
+   * Protobuf type {@code arch.galaxyeclipse.shared.protocol.InventoryItemsRequest}
+   */
+  public static final class InventoryItemsRequest extends
+      com.google.protobuf.GeneratedMessage
+      implements InventoryItemsRequestOrBuilder {
+    // Use InventoryItemsRequest.newBuilder() to construct.
+    private InventoryItemsRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private InventoryItemsRequest(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final InventoryItemsRequest defaultInstance;
+    public static InventoryItemsRequest getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public InventoryItemsRequest getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private InventoryItemsRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_InventoryItemsRequest_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_InventoryItemsRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsRequest.class, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsRequest.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<InventoryItemsRequest> PARSER =
+        new com.google.protobuf.AbstractParser<InventoryItemsRequest>() {
+      public InventoryItemsRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new InventoryItemsRequest(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<InventoryItemsRequest> getParserForType() {
+      return PARSER;
+    }
+
+    private void initFields() {
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsRequest prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.InventoryItemsRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_InventoryItemsRequest_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_InventoryItemsRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsRequest.class, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsRequest.Builder.class);
+      }
+
+      // Construct using arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_InventoryItemsRequest_descriptor;
+      }
+
+      public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsRequest getDefaultInstanceForType() {
+        return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsRequest.getDefaultInstance();
+      }
+
+      public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsRequest build() {
+        arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsRequest buildPartial() {
+        arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsRequest result = new arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsRequest(this);
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsRequest) {
+          return mergeFrom((arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsRequest other) {
+        if (other == arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsRequest.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsRequest) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.InventoryItemsRequest)
+    }
+
+    static {
+      defaultInstance = new InventoryItemsRequest(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.InventoryItemsRequest)
+  }
+
+  public interface InventoryItemsResponseOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // repeated .arch.galaxyeclipse.shared.protocol.InventoryItemsResponse.InventoryItem items = 1;
+    /**
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.InventoryItemsResponse.InventoryItem items = 1;</code>
+     */
+    java.util.List<arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem> 
+        getItemsList();
+    /**
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.InventoryItemsResponse.InventoryItem items = 1;</code>
+     */
+    arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem getItems(int index);
+    /**
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.InventoryItemsResponse.InventoryItem items = 1;</code>
+     */
+    int getItemsCount();
+    /**
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.InventoryItemsResponse.InventoryItem items = 1;</code>
+     */
+    java.util.List<? extends arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItemOrBuilder> 
+        getItemsOrBuilderList();
+    /**
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.InventoryItemsResponse.InventoryItem items = 1;</code>
+     */
+    arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItemOrBuilder getItemsOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code arch.galaxyeclipse.shared.protocol.InventoryItemsResponse}
+   */
+  public static final class InventoryItemsResponse extends
+      com.google.protobuf.GeneratedMessage
+      implements InventoryItemsResponseOrBuilder {
+    // Use InventoryItemsResponse.newBuilder() to construct.
+    private InventoryItemsResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private InventoryItemsResponse(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final InventoryItemsResponse defaultInstance;
+    public static InventoryItemsResponse getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public InventoryItemsResponse getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private InventoryItemsResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                items_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              items_.add(input.readMessage(arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem.PARSER, extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          items_ = java.util.Collections.unmodifiableList(items_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_InventoryItemsResponse_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_InventoryItemsResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.class, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<InventoryItemsResponse> PARSER =
+        new com.google.protobuf.AbstractParser<InventoryItemsResponse>() {
+      public InventoryItemsResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new InventoryItemsResponse(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<InventoryItemsResponse> getParserForType() {
+      return PARSER;
+    }
+
+    public interface InventoryItemOrBuilder
+        extends com.google.protobuf.MessageOrBuilder {
+    }
+    /**
+     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.InventoryItemsResponse.InventoryItem}
+     */
+    public static final class InventoryItem extends
+        com.google.protobuf.GeneratedMessage
+        implements InventoryItemOrBuilder {
+      // Use InventoryItem.newBuilder() to construct.
+      private InventoryItem(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+        super(builder);
+        this.unknownFields = builder.getUnknownFields();
+      }
+      private InventoryItem(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+      private static final InventoryItem defaultInstance;
+      public static InventoryItem getDefaultInstance() {
+        return defaultInstance;
+      }
+
+      public InventoryItem getDefaultInstanceForType() {
+        return defaultInstance;
+      }
+
+      private final com.google.protobuf.UnknownFieldSet unknownFields;
+      @java.lang.Override
+      public final com.google.protobuf.UnknownFieldSet
+          getUnknownFields() {
+        return this.unknownFields;
+      }
+      private InventoryItem(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        initFields();
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+            com.google.protobuf.UnknownFieldSet.newBuilder();
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default: {
+                if (!parseUnknownField(input, unknownFields,
+                                       extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+            }
+          }
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(this);
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(
+              e.getMessage()).setUnfinishedMessage(this);
+        } finally {
+          this.unknownFields = unknownFields.build();
+          makeExtensionsImmutable();
+        }
+      }
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_InventoryItemsResponse_InventoryItem_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_InventoryItemsResponse_InventoryItem_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem.class, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem.Builder.class);
+      }
+
+      public static com.google.protobuf.Parser<InventoryItem> PARSER =
+          new com.google.protobuf.AbstractParser<InventoryItem>() {
+        public InventoryItem parsePartialFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return new InventoryItem(input, extensionRegistry);
+        }
+      };
+
+      @java.lang.Override
+      public com.google.protobuf.Parser<InventoryItem> getParserForType() {
+        return PARSER;
+      }
+
+      private void initFields() {
+      }
+      private byte memoizedIsInitialized = -1;
+      public final boolean isInitialized() {
+        byte isInitialized = memoizedIsInitialized;
+        if (isInitialized != -1) return isInitialized == 1;
+
+        memoizedIsInitialized = 1;
+        return true;
+      }
+
+      public void writeTo(com.google.protobuf.CodedOutputStream output)
+                          throws java.io.IOException {
+        getSerializedSize();
+        getUnknownFields().writeTo(output);
+      }
+
+      private int memoizedSerializedSize = -1;
+      public int getSerializedSize() {
+        int size = memoizedSerializedSize;
+        if (size != -1) return size;
+
+        size = 0;
+        size += getUnknownFields().getSerializedSize();
+        memoizedSerializedSize = size;
+        return size;
+      }
+
+      private static final long serialVersionUID = 0L;
+      @java.lang.Override
+      protected java.lang.Object writeReplace()
+          throws java.io.ObjectStreamException {
+        return super.writeReplace();
+      }
+
+      public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem parseFrom(
+          com.google.protobuf.ByteString data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem parseFrom(
+          com.google.protobuf.ByteString data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem parseFrom(byte[] data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem parseFrom(
+          byte[] data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem parseFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return PARSER.parseFrom(input);
+      }
+      public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem parseFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return PARSER.parseFrom(input, extensionRegistry);
+      }
+      public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem parseDelimitedFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return PARSER.parseDelimitedFrom(input);
+      }
+      public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem parseDelimitedFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      }
+      public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem parseFrom(
+          com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        return PARSER.parseFrom(input);
+      }
+      public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem parseFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return PARSER.parseFrom(input, extensionRegistry);
+      }
+
+      public static Builder newBuilder() { return Builder.create(); }
+      public Builder newBuilderForType() { return newBuilder(); }
+      public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem prototype) {
+        return newBuilder().mergeFrom(prototype);
+      }
+      public Builder toBuilder() { return newBuilder(this); }
+
+      @java.lang.Override
+      protected Builder newBuilderForType(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        Builder builder = new Builder(parent);
+        return builder;
+      }
+      /**
+       * Protobuf type {@code arch.galaxyeclipse.shared.protocol.InventoryItemsResponse.InventoryItem}
+       */
+      public static final class Builder extends
+          com.google.protobuf.GeneratedMessage.Builder<Builder>
+         implements arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItemOrBuilder {
+        public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+          return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_InventoryItemsResponse_InventoryItem_descriptor;
+        }
+
+        protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+          return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_InventoryItemsResponse_InventoryItem_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem.class, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem.Builder.class);
+        }
+
+        // Construct using arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem.newBuilder()
+        private Builder() {
+          maybeForceBuilderInitialization();
+        }
+
+        private Builder(
+            com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          super(parent);
+          maybeForceBuilderInitialization();
+        }
+        private void maybeForceBuilderInitialization() {
+          if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          }
+        }
+        private static Builder create() {
+          return new Builder();
+        }
+
+        public Builder clear() {
+          super.clear();
+          return this;
+        }
+
+        public Builder clone() {
+          return create().mergeFrom(buildPartial());
+        }
+
+        public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+          return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_InventoryItemsResponse_InventoryItem_descriptor;
+        }
+
+        public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem getDefaultInstanceForType() {
+          return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem.getDefaultInstance();
+        }
+
+        public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem build() {
+          arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem result = buildPartial();
+          if (!result.isInitialized()) {
+            throw newUninitializedMessageException(result);
+          }
+          return result;
+        }
+
+        public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem buildPartial() {
+          arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem result = new arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem(this);
+          onBuilt();
+          return result;
+        }
+
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+          if (other instanceof arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem) {
+            return mergeFrom((arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem)other);
+          } else {
+            super.mergeFrom(other);
+            return this;
+          }
+        }
+
+        public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem other) {
+          if (other == arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem.getDefaultInstance()) return this;
+          this.mergeUnknownFields(other.getUnknownFields());
+          return this;
+        }
+
+        public final boolean isInitialized() {
+          return true;
+        }
+
+        public Builder mergeFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem parsedMessage = null;
+          try {
+            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            parsedMessage = (arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem) e.getUnfinishedMessage();
+            throw e;
+          } finally {
+            if (parsedMessage != null) {
+              mergeFrom(parsedMessage);
+            }
+          }
+          return this;
+        }
+
+        // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.InventoryItemsResponse.InventoryItem)
+      }
+
+      static {
+        defaultInstance = new InventoryItem(true);
+        defaultInstance.initFields();
+      }
+
+      // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.InventoryItemsResponse.InventoryItem)
+    }
+
+    // repeated .arch.galaxyeclipse.shared.protocol.InventoryItemsResponse.InventoryItem items = 1;
+    public static final int ITEMS_FIELD_NUMBER = 1;
+    private java.util.List<arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem> items_;
+    /**
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.InventoryItemsResponse.InventoryItem items = 1;</code>
+     */
+    public java.util.List<arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem> getItemsList() {
+      return items_;
+    }
+    /**
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.InventoryItemsResponse.InventoryItem items = 1;</code>
+     */
+    public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItemOrBuilder> 
+        getItemsOrBuilderList() {
+      return items_;
+    }
+    /**
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.InventoryItemsResponse.InventoryItem items = 1;</code>
+     */
+    public int getItemsCount() {
+      return items_.size();
+    }
+    /**
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.InventoryItemsResponse.InventoryItem items = 1;</code>
+     */
+    public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem getItems(int index) {
+      return items_.get(index);
+    }
+    /**
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.InventoryItemsResponse.InventoryItem items = 1;</code>
+     */
+    public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItemOrBuilder getItemsOrBuilder(
+        int index) {
+      return items_.get(index);
+    }
+
+    private void initFields() {
+      items_ = java.util.Collections.emptyList();
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      for (int i = 0; i < items_.size(); i++) {
+        output.writeMessage(1, items_.get(i));
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < items_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, items_.get(i));
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.InventoryItemsResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_InventoryItemsResponse_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_InventoryItemsResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.class, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.Builder.class);
+      }
+
+      // Construct using arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getItemsFieldBuilder();
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        if (itemsBuilder_ == null) {
+          items_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          itemsBuilder_.clear();
+        }
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.internal_static_arch_galaxyeclipse_shared_protocol_InventoryItemsResponse_descriptor;
+      }
+
+      public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse getDefaultInstanceForType() {
+        return arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.getDefaultInstance();
+      }
+
+      public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse build() {
+        arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse buildPartial() {
+        arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse result = new arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse(this);
+        int from_bitField0_ = bitField0_;
+        if (itemsBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            items_ = java.util.Collections.unmodifiableList(items_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.items_ = items_;
+        } else {
+          result.items_ = itemsBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse) {
+          return mergeFrom((arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse other) {
+        if (other == arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.getDefaultInstance()) return this;
+        if (itemsBuilder_ == null) {
+          if (!other.items_.isEmpty()) {
+            if (items_.isEmpty()) {
+              items_ = other.items_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureItemsIsMutable();
+              items_.addAll(other.items_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.items_.isEmpty()) {
+            if (itemsBuilder_.isEmpty()) {
+              itemsBuilder_.dispose();
+              itemsBuilder_ = null;
+              items_ = other.items_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              itemsBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getItemsFieldBuilder() : null;
+            } else {
+              itemsBuilder_.addAllMessages(other.items_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // repeated .arch.galaxyeclipse.shared.protocol.InventoryItemsResponse.InventoryItem items = 1;
+      private java.util.List<arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem> items_ =
+        java.util.Collections.emptyList();
+      private void ensureItemsIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          items_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem>(items_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem.Builder, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItemOrBuilder> itemsBuilder_;
+
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.InventoryItemsResponse.InventoryItem items = 1;</code>
+       */
+      public java.util.List<arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem> getItemsList() {
+        if (itemsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(items_);
+        } else {
+          return itemsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.InventoryItemsResponse.InventoryItem items = 1;</code>
+       */
+      public int getItemsCount() {
+        if (itemsBuilder_ == null) {
+          return items_.size();
+        } else {
+          return itemsBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.InventoryItemsResponse.InventoryItem items = 1;</code>
+       */
+      public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem getItems(int index) {
+        if (itemsBuilder_ == null) {
+          return items_.get(index);
+        } else {
+          return itemsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.InventoryItemsResponse.InventoryItem items = 1;</code>
+       */
+      public Builder setItems(
+          int index, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem value) {
+        if (itemsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureItemsIsMutable();
+          items_.set(index, value);
+          onChanged();
+        } else {
+          itemsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.InventoryItemsResponse.InventoryItem items = 1;</code>
+       */
+      public Builder setItems(
+          int index, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem.Builder builderForValue) {
+        if (itemsBuilder_ == null) {
+          ensureItemsIsMutable();
+          items_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          itemsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.InventoryItemsResponse.InventoryItem items = 1;</code>
+       */
+      public Builder addItems(arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem value) {
+        if (itemsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureItemsIsMutable();
+          items_.add(value);
+          onChanged();
+        } else {
+          itemsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.InventoryItemsResponse.InventoryItem items = 1;</code>
+       */
+      public Builder addItems(
+          int index, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem value) {
+        if (itemsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureItemsIsMutable();
+          items_.add(index, value);
+          onChanged();
+        } else {
+          itemsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.InventoryItemsResponse.InventoryItem items = 1;</code>
+       */
+      public Builder addItems(
+          arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem.Builder builderForValue) {
+        if (itemsBuilder_ == null) {
+          ensureItemsIsMutable();
+          items_.add(builderForValue.build());
+          onChanged();
+        } else {
+          itemsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.InventoryItemsResponse.InventoryItem items = 1;</code>
+       */
+      public Builder addItems(
+          int index, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem.Builder builderForValue) {
+        if (itemsBuilder_ == null) {
+          ensureItemsIsMutable();
+          items_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          itemsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.InventoryItemsResponse.InventoryItem items = 1;</code>
+       */
+      public Builder addAllItems(
+          java.lang.Iterable<? extends arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem> values) {
+        if (itemsBuilder_ == null) {
+          ensureItemsIsMutable();
+          super.addAll(values, items_);
+          onChanged();
+        } else {
+          itemsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.InventoryItemsResponse.InventoryItem items = 1;</code>
+       */
+      public Builder clearItems() {
+        if (itemsBuilder_ == null) {
+          items_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          itemsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.InventoryItemsResponse.InventoryItem items = 1;</code>
+       */
+      public Builder removeItems(int index) {
+        if (itemsBuilder_ == null) {
+          ensureItemsIsMutable();
+          items_.remove(index);
+          onChanged();
+        } else {
+          itemsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.InventoryItemsResponse.InventoryItem items = 1;</code>
+       */
+      public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem.Builder getItemsBuilder(
+          int index) {
+        return getItemsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.InventoryItemsResponse.InventoryItem items = 1;</code>
+       */
+      public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItemOrBuilder getItemsOrBuilder(
+          int index) {
+        if (itemsBuilder_ == null) {
+          return items_.get(index);  } else {
+          return itemsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.InventoryItemsResponse.InventoryItem items = 1;</code>
+       */
+      public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItemOrBuilder> 
+           getItemsOrBuilderList() {
+        if (itemsBuilder_ != null) {
+          return itemsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(items_);
+        }
+      }
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.InventoryItemsResponse.InventoryItem items = 1;</code>
+       */
+      public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem.Builder addItemsBuilder() {
+        return getItemsFieldBuilder().addBuilder(
+            arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.InventoryItemsResponse.InventoryItem items = 1;</code>
+       */
+      public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem.Builder addItemsBuilder(
+          int index) {
+        return getItemsFieldBuilder().addBuilder(
+            index, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.InventoryItemsResponse.InventoryItem items = 1;</code>
+       */
+      public java.util.List<arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem.Builder> 
+           getItemsBuilderList() {
+        return getItemsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem.Builder, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItemOrBuilder> 
+          getItemsFieldBuilder() {
+        if (itemsBuilder_ == null) {
+          itemsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItem.Builder, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.InventoryItemsResponse.InventoryItemOrBuilder>(
+                  items_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          items_ = null;
+        }
+        return itemsBuilder_;
+      }
+
+      // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.InventoryItemsResponse)
+    }
+
+    static {
+      defaultInstance = new InventoryItemsResponse(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.InventoryItemsResponse)
+  }
+
   private static com.google.protobuf.Descriptors.Descriptor
     internal_static_arch_galaxyeclipse_shared_protocol_Packet_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_arch_galaxyeclipse_shared_protocol_Packet_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_arch_galaxyeclipse_shared_protocol_AuthRequest_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_arch_galaxyeclipse_shared_protocol_AuthRequest_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_arch_galaxyeclipse_shared_protocol_AuthResponse_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_arch_galaxyeclipse_shared_protocol_AuthResponse_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_arch_galaxyeclipse_shared_protocol_RegisterRequest_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_arch_galaxyeclipse_shared_protocol_RegisterRequest_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_arch_galaxyeclipse_shared_protocol_RegisterResponse_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_arch_galaxyeclipse_shared_protocol_RegisterResponse_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_arch_galaxyeclipse_shared_protocol_LocationStaticObjectsRequest_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_arch_galaxyeclipse_shared_protocol_LocationStaticObjectsRequest_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_arch_galaxyeclipse_shared_protocol_LocationStaticObjectsResponse_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_arch_galaxyeclipse_shared_protocol_LocationStaticObjectsResponse_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_arch_galaxyeclipse_shared_protocol_LocationStaticObjectsResponse_LocationStaticObject_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_arch_galaxyeclipse_shared_protocol_LocationStaticObjectsResponse_LocationStaticObject_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_arch_galaxyeclipse_shared_protocol_ChatSendMessage_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_arch_galaxyeclipse_shared_protocol_ChatSendMessage_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_arch_galaxyeclipse_shared_protocol_ChatReceiveMessage_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_arch_galaxyeclipse_shared_protocol_ChatReceiveMessage_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_arch_galaxyeclipse_shared_protocol_InventoryItemsRequest_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_arch_galaxyeclipse_shared_protocol_InventoryItemsRequest_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_arch_galaxyeclipse_shared_protocol_InventoryItemsResponse_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_arch_galaxyeclipse_shared_protocol_InventoryItemsResponse_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_arch_galaxyeclipse_shared_protocol_InventoryItemsResponse_InventoryItem_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_arch_galaxyeclipse_shared_protocol_InventoryItemsResponse_InventoryItem_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -522,10 +7580,45 @@ public final class GalaxyEclipseProtocol {
   static {
     java.lang.String[] descriptorData = {
       "\n\016messages.proto\022\"arch.galaxyeclipse.sha" +
-      "red.protocol\"t\n\006Packet\022=\n\004type\030\001 \002(\0162/.a" +
-      "rch.galaxyeclipse.shared.protocol.Packet" +
-      ".Type\"+\n\004Type\022\020\n\014AUTH_REQUEST\020\020\022\021\n\rAUTH_" +
-      "RESPONSE\020\021B\031B\025GalaxyEclipseProtocolH\001"
+      "red.protocol\"\340\005\n\006Packet\022=\n\004type\030\001 \002(\0162/." +
+      "arch.galaxyeclipse.shared.protocol.Packe" +
+      "t.Type\"\317\003\n\004Type\022$\n LOCATION_DYNAMIC_OBJE" +
+      "CTS_REQUEST\020\001\022%\n!LOCATION_DYNAMIC_OBJECT" +
+      "S_RESPONSE\020\002\022\026\n\022SHIP_STATE_REQUEST\020\003\022\027\n\023" +
+      "SHIP_STATE_RESPONSE\020\004\022\021\n\rCLIENT_ACTION\020\005" +
+      "\022\020\n\014AUTH_REQUEST\020\020\022\021\n\rAUTH_RESPONSE\020\021\022\024\n" +
+      "\020REGISTER_REQUEST\020\022\022\025\n\021REGISTER_RESPONSE" +
+      "\020\023\022#\n\037LOCATION_STATIC_OBJECTS_REQUEST\020\024\022",
+      "$\n LOCATION_STATIC_OBJECTS_RESPONSE\020\025\022\025\n" +
+      "\021CHAT_SEND_MESSAGE\020\026\022\030\n\024CHAT_RECEIVE_MES" +
+      "SAGE\020\027\022\033\n\027INVENTORY_ITEMS_REQUEST\020\030\022\034\n\030I" +
+      "NVENTORY_ITEMS_RESPONSE\020\031\022\025\n\021TYPES_MAP_R" +
+      "EQUEST\020\032\022\026\n\022TYPES_MAP_RESPONSE\020\033\"\304\001\n\020Cli" +
+      "entActionType\022\017\n\013ROTATE_LEFT\020\001\022\020\n\014ROTATE" +
+      "_RIGHT\020\002\022\010\n\004MOVE\020\003\022\010\n\004STOP\020\004\022\r\n\tMAP_CLIC" +
+      "K\020\005\022\022\n\016MINI_MAP_CLICK\020\006\022\020\n\014OBJECT_CLICK\020" +
+      "\007\022\017\n\013OBJECT_PICK\020\010\022\020\n\014ATTACK_START\020\t\022\017\n\013" +
+      "ATTACK_STOP\020\n\022\020\n\014ROCKET_SHOOT\020\020\"1\n\013AuthR",
+      "equest\022\020\n\010username\030\001 \002(\t\022\020\n\010password\030\002 \002" +
+      "(\t\"!\n\014AuthResponse\022\021\n\tisSuccess\030\001 \002(\010\"G\n" +
+      "\017RegisterRequest\022\020\n\010username\030\001 \002(\t\022\020\n\010pa" +
+      "ssword\030\002 \002(\t\022\020\n\010nickname\030\003 \002(\t\"4\n\020Regist" +
+      "erResponse\022\021\n\tisSuccess\030\001 \002(\010\022\r\n\005error\030\002" +
+      " \001(\t\"2\n\034LocationStaticObjectsRequest\022\022\n\n" +
+      "locationId\030\001 \002(\005\"\357\001\n\035LocationStaticObjec" +
+      "tsResponse\022g\n\007objects\030\001 \003(\0132V.arch.galax" +
+      "yeclipse.shared.protocol.LocationStaticO" +
+      "bjectsResponse.LocationStaticObject\032e\n\024L",
+      "ocationStaticObject\022\021\n\tpositionX\030\001 \002(\005\022\021" +
+      "\n\tpositionY\030\002 \002(\005\022\021\n\timagePath\030\003 \002(\t\022\024\n\014" +
+      "objectTypeId\030\004 \002(\005\"\"\n\017ChatSendMessage\022\017\n" +
+      "\007message\030\001 \002(\t\"5\n\022ChatReceiveMessage\022\017\n\007" +
+      "message\030\001 \002(\t\022\016\n\006sender\030\002 \002(\t\"\027\n\025Invento" +
+      "ryItemsRequest\"\202\001\n\026InventoryItemsRespons" +
+      "e\022W\n\005items\030\001 \003(\0132H.arch.galaxyeclipse.sh" +
+      "ared.protocol.InventoryItemsResponse.Inv" +
+      "entoryItem\032\017\n\rInventoryItemB\031B\025GalaxyEcl" +
+      "ipseProtocolH\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -538,6 +7631,78 @@ public final class GalaxyEclipseProtocol {
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_arch_galaxyeclipse_shared_protocol_Packet_descriptor,
               new java.lang.String[] { "Type", });
+          internal_static_arch_galaxyeclipse_shared_protocol_AuthRequest_descriptor =
+            getDescriptor().getMessageTypes().get(1);
+          internal_static_arch_galaxyeclipse_shared_protocol_AuthRequest_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_arch_galaxyeclipse_shared_protocol_AuthRequest_descriptor,
+              new java.lang.String[] { "Username", "Password", });
+          internal_static_arch_galaxyeclipse_shared_protocol_AuthResponse_descriptor =
+            getDescriptor().getMessageTypes().get(2);
+          internal_static_arch_galaxyeclipse_shared_protocol_AuthResponse_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_arch_galaxyeclipse_shared_protocol_AuthResponse_descriptor,
+              new java.lang.String[] { "IsSuccess", });
+          internal_static_arch_galaxyeclipse_shared_protocol_RegisterRequest_descriptor =
+            getDescriptor().getMessageTypes().get(3);
+          internal_static_arch_galaxyeclipse_shared_protocol_RegisterRequest_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_arch_galaxyeclipse_shared_protocol_RegisterRequest_descriptor,
+              new java.lang.String[] { "Username", "Password", "Nickname", });
+          internal_static_arch_galaxyeclipse_shared_protocol_RegisterResponse_descriptor =
+            getDescriptor().getMessageTypes().get(4);
+          internal_static_arch_galaxyeclipse_shared_protocol_RegisterResponse_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_arch_galaxyeclipse_shared_protocol_RegisterResponse_descriptor,
+              new java.lang.String[] { "IsSuccess", "Error", });
+          internal_static_arch_galaxyeclipse_shared_protocol_LocationStaticObjectsRequest_descriptor =
+            getDescriptor().getMessageTypes().get(5);
+          internal_static_arch_galaxyeclipse_shared_protocol_LocationStaticObjectsRequest_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_arch_galaxyeclipse_shared_protocol_LocationStaticObjectsRequest_descriptor,
+              new java.lang.String[] { "LocationId", });
+          internal_static_arch_galaxyeclipse_shared_protocol_LocationStaticObjectsResponse_descriptor =
+            getDescriptor().getMessageTypes().get(6);
+          internal_static_arch_galaxyeclipse_shared_protocol_LocationStaticObjectsResponse_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_arch_galaxyeclipse_shared_protocol_LocationStaticObjectsResponse_descriptor,
+              new java.lang.String[] { "Objects", });
+          internal_static_arch_galaxyeclipse_shared_protocol_LocationStaticObjectsResponse_LocationStaticObject_descriptor =
+            internal_static_arch_galaxyeclipse_shared_protocol_LocationStaticObjectsResponse_descriptor.getNestedTypes().get(0);
+          internal_static_arch_galaxyeclipse_shared_protocol_LocationStaticObjectsResponse_LocationStaticObject_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_arch_galaxyeclipse_shared_protocol_LocationStaticObjectsResponse_LocationStaticObject_descriptor,
+              new java.lang.String[] { "PositionX", "PositionY", "ImagePath", "ObjectTypeId", });
+          internal_static_arch_galaxyeclipse_shared_protocol_ChatSendMessage_descriptor =
+            getDescriptor().getMessageTypes().get(7);
+          internal_static_arch_galaxyeclipse_shared_protocol_ChatSendMessage_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_arch_galaxyeclipse_shared_protocol_ChatSendMessage_descriptor,
+              new java.lang.String[] { "Message", });
+          internal_static_arch_galaxyeclipse_shared_protocol_ChatReceiveMessage_descriptor =
+            getDescriptor().getMessageTypes().get(8);
+          internal_static_arch_galaxyeclipse_shared_protocol_ChatReceiveMessage_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_arch_galaxyeclipse_shared_protocol_ChatReceiveMessage_descriptor,
+              new java.lang.String[] { "Message", "Sender", });
+          internal_static_arch_galaxyeclipse_shared_protocol_InventoryItemsRequest_descriptor =
+            getDescriptor().getMessageTypes().get(9);
+          internal_static_arch_galaxyeclipse_shared_protocol_InventoryItemsRequest_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_arch_galaxyeclipse_shared_protocol_InventoryItemsRequest_descriptor,
+              new java.lang.String[] { });
+          internal_static_arch_galaxyeclipse_shared_protocol_InventoryItemsResponse_descriptor =
+            getDescriptor().getMessageTypes().get(10);
+          internal_static_arch_galaxyeclipse_shared_protocol_InventoryItemsResponse_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_arch_galaxyeclipse_shared_protocol_InventoryItemsResponse_descriptor,
+              new java.lang.String[] { "Items", });
+          internal_static_arch_galaxyeclipse_shared_protocol_InventoryItemsResponse_InventoryItem_descriptor =
+            internal_static_arch_galaxyeclipse_shared_protocol_InventoryItemsResponse_descriptor.getNestedTypes().get(0);
+          internal_static_arch_galaxyeclipse_shared_protocol_InventoryItemsResponse_InventoryItem_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_arch_galaxyeclipse_shared_protocol_InventoryItemsResponse_InventoryItem_descriptor,
+              new java.lang.String[] { });
           return null;
         }
       };
