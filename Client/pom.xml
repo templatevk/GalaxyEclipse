@@ -7,7 +7,7 @@
 	</parent>
 	<artifactId>Client</artifactId>
 
-	<dependencies>
+	<dependencies> 
 	    <dependency>
 	        <groupId>GalaxyEclipse</groupId>
 	        <artifactId>Shared</artifactId>

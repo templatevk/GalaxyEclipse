@@ -2,11 +2,19 @@ package arch.galaxyeclipse.client;
 
 import org.apache.log4j.*;
 
-import arch.galaxyeclipse.client.window.*;
+import arch.galaxyeclipse.shared.inject.*;
 
 public class GalaxyEclipseClient  {		
-	public static void main(String[] args) throws Exception {
+	public GalaxyEclipseClient() {
+		
+	}
+	
+	public void start() {
 		PropertyConfigurator.configure("log4j.properties");
-		ClientWindow.getInstance();		
+		SpringContextHolder.CONTEXT.getClass();
+	}
+	
+	public static void main(String[] args) throws Exception {
+		new GalaxyEclipseClient().start();
 	}
 }				

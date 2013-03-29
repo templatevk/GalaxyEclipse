@@ -3,10 +3,10 @@ create table players (
         username 		    varchar(16) not null unique key,
         password 		    varchar(64) not null,
         nickname 		    varchar(16) not null unique key,
-        player_money 		integer not null,
-        ship_state_id 		integer not null,
-        ship_config_id 		integer not null,
-        inventory_id 		integer not null
+        player_money 		integer not null default 1000,
+        ship_state_id 		integer auto_increment unique key,
+        ship_config_id 		integer auto_increment unique key,
+        inventory_id 		integer auto_increment unique key
 );
 
 -- ship
@@ -16,8 +16,6 @@ create table ship_states (		-- dynamic state of the ship
         ship_state_rotation_speed 	integer not null,
         ship_state_hp 			    integer not null,
 	    ship_state_armor_durability	integer not null,
-        ship_state_position_x		integer not null,
-        ship_state_position_y 		integer not null,
         ship_state_rotation_angle 	integer not null
 );
 create table ship_types (
@@ -128,23 +126,29 @@ create table location_static_objects (
 );
 create table location_static_object_types (
         location_static_object_type_id       integer auto_increment primary key,
-        object_type_name                     varchar(16) not null -- bullet, rocket, player
+        object_type_name                     varchar(16) not null -- sation, start, ...
 );
 create table location_dynamic_objects (
         location_dynamic_object_id          integer auto_increment primary key,
-        location_dynamic_objects_type_id    integer not null,
-        location_dynamic_object_native_id   integer not null,
+        location_dynamic_objects_type_id    integer not null,       
+        object_native_id                    integer not null,   -- defines the primary key of table depending on object type
         location_id                         integer not null,
         position_x                          integer not null,
-        position_y                          integer not null,
-        object_image_path               varchar(64) not null
+        position_y                          integer not null
 );
-
+create table location_dynamic_object_types (
+        location_dynamic_object_type_id       integer auto_increment primary key,
+        object_type_name                      varchar(16) not null -- bullet, rocket, player, loot
+);
 
 alter table location_static_objects
         add constraint fk_location_static_object_location foreign key (location_id) references locations(location_id),
         add constraint fk_location_static_object_location_static_object_type foreign key (location_static_object_type_id) references location_static_object_types(location_static_object_type_id);
 
+alter table location_dynamic_objects
+        add constraint fk_location_dynamic_object_location foreign key (location_id) references locations(location_id),
+        add constraint fk_location_dynamic_object_location_dynamic_object_type foreign key (location_dynamic_object_type_id) references location_dynamic_object_types(location_dynamic_object_type_id);        
+        
 alter table bonuses
         add constraint fk_bonus_type_item foreign key (item_id) references items (item_id);
 

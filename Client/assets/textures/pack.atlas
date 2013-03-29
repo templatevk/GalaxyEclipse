@@ -3,9 +3,16 @@ pack.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-ui/menu
+ui/menu_login
   rotate: false
   xy: 1, 607
+  size: 1920, 1200
+  orig: 1920, 1200
+  offset: 0, 0
+  index: -1
+ui/menu
+  rotate: false
+  xy: 1923, 607
   size: 1920, 1200
   orig: 1920, 1200
   offset: 0, 0
@@ -40,7 +47,7 @@ ui/btnDown
   index: -1
 ui/carret
   rotate: false
-  xy: 1923, 1707
+  xy: 3845, 1707
   size: 10, 100
   orig: 10, 100
   offset: 0, 0

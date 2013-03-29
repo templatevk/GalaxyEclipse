@@ -41,7 +41,7 @@ public class ClientTest {
 		bootstrap.setOption("connectTimeoutMillis", 5000);
 		
 		ChannelFuture future = bootstrap.connect(new InetSocketAddress(
-				SharedTestInfo.HOST, SharedTestInfo.PORT));
+				SharedInfo.HOST, SharedInfo.PORT));
 		future.addListener(new ChannelFutureListener() {
 			public void operationComplete(ChannelFuture future) throws Exception {
 				System.out.println(future.isSuccess());

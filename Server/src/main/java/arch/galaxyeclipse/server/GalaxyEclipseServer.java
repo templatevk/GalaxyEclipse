@@ -1,32 +1,28 @@
 package arch.galaxyeclipse.server;
 
-import java.net.*;
-import java.util.concurrent.*;
+import org.apache.log4j.*;
 
-import org.jboss.netty.bootstrap.*;
-import org.jboss.netty.buffer.*;
-import org.jboss.netty.channel.*;
-import org.jboss.netty.channel.socket.nio.*;
-
+import arch.galaxyeclipse.server.network.*;
 import arch.galaxyeclipse.shared.*;
+import arch.galaxyeclipse.shared.inject.*;
 
-public class GalaxyEclipseServer {	
+public class GalaxyEclipseServer {
+	private IServerNetworkManager serverNetworkManager;
+	
+	public GalaxyEclipseServer() {
+		PropertyConfigurator.configure("log4j.properties");
+		serverNetworkManager = SpringContextHolder.CONTEXT.getBean(IServerNetworkManager.class);
+	}
+	
+	public void start() {
+		serverNetworkManager.startServer(SharedInfo.HOST, SharedInfo.PORT);
+	}
+	
+	public void stop() {
+		serverNetworkManager.stopServer();
+	}
+	
 	public static void main(String[] args) throws Exception {
-		ChannelFactory factory = new NioServerSocketChannelFactory(
-				Executors.newCachedThreadPool(),
-				Executors.newCachedThreadPool());
-
-		ServerBootstrap bootstrap = new ServerBootstrap(factory);
-
-//		bootstrap.setPipelineFactory(new ChannelPipelineFactory() {
-//			public ChannelPipeline getPipeline() {
-//				//return Channels.pipeline();
-//			}
-//		});
-
-		bootstrap.setOption("child.tcpNoDelay", true);
-		bootstrap.setOption("child.keepAlive", true);
-
-		bootstrap.bind(new InetSocketAddress(SharedTestInfo.PORT));
+		new GalaxyEclipseServer().start();
 	}
 }

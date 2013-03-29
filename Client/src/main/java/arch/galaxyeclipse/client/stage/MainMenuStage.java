@@ -1,6 +1,17 @@
 package arch.galaxyeclipse.client.stage;
 
+import java.net.*;
+
+import org.apache.log4j.*;
+
+import arch.galaxyeclipse.client.network.*;
 import arch.galaxyeclipse.client.util.*;
+import arch.galaxyeclipse.shared.*;
+import arch.galaxyeclipse.shared.inject.*;
+import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthRequest;
+import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet;
+import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet.Type;
+import arch.galaxyeclipse.shared.thread.*;
 
 import com.badlogic.gdx.*;
 import com.badlogic.gdx.graphics.*;
@@ -11,11 +22,15 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField.TextFieldStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.*;
 
-public class MainMenuStage extends GameStage {
+public class MainMenuStage extends AbstractGameStage implements IServerPacketListener {
+	private static final Logger log = Logger.getLogger(MainMenuStage.class);
+	
 	private static final float TABLE_SPACING = 10;
 	private static final float DEFAULT_TEXTFIELD_WIDTH = 370;
 	private static final float DEFAULT_TEXTFIELD_HEIGHT = 100;
 	private static final float DEFAULT_BUTTON_DOWN_OFFSET = 2;
+	
+	private IClientNetworkManager networkManager;
 	
 	private Button connectBtn;
 	private TextField usernameTxt;
@@ -45,12 +60,12 @@ public class MainMenuStage extends GameStage {
 		
 		rootTable = new Table();
 		rootTable.setFillParent(true);
-		rootTable.setBackground(new TextureRegionDrawable(atlas.findRegion("ui/menu")));
+		rootTable.setBackground(new TextureRegionDrawable(atlas.findRegion("ui/menu_login")));
 		rootTable.debug();
 		addActor(rootTable);
 	
 		innerTable = new Table();
-		innerTable.setBackground(new TextureRegionDrawable(atlas.findRegion("ui/group")));
+		//innerTable.setBackground(new TextureRegionDrawable(atlas.findRegion("ui/group")));
 		innerTable.setBounds(0, 0, 400, 200);
 		innerTable.setTransform(true);
 		innerTable.debug();
@@ -69,6 +84,24 @@ public class MainMenuStage extends GameStage {
 		passwordTxt.setMessageText("Enter your password");
 		
 		connectBtn = new TextButton("Connect", style);
+		connectBtn.addListener(new ClickListener() {
+			@Override
+			public void clicked(InputEvent event, float x, float y) {
+				networkManager.connect(new InetSocketAddress(
+						SharedInfo.HOST, SharedInfo.PORT), new ICallback<Boolean>() {
+							@Override
+							public void onOperationComplete(Boolean object) {
+								AuthRequest request = AuthRequest.newBuilder()
+										.setUsername("")
+										.setPassword("").build();
+								Packet packet = Packet.newBuilder()
+										.setType(Type.AUTH_REQUEST)
+										.setAuthRequest(request).build();
+								networkManager.sendPacket(packet);
+							}
+						});
+			}
+		});
 		
 		innerTable.add(usernameTxt).expand(true, false).space(TABLE_SPACING);
 		innerTable.row();
@@ -77,10 +110,23 @@ public class MainMenuStage extends GameStage {
 		innerTable.add(connectBtn).expand(true, false).space(TABLE_SPACING);
 		innerTable.setOrigin(innerTable.getPrefWidth() / 2, 
 				innerTable.getPrefHeight() / 2);
+		
+		networkManager = SpringContextHolder.CONTEXT.getBean(IClientNetworkManager.class);
+		networkManager.addListener(this);
 	}
 	
 	@Override
 	protected Group getScaleGroup() {
 		return innerTable;
+	}
+
+	@Override
+	public void onPacketReceived(Packet packet) {
+		log.info("Packet received " + packet.getType());
+	}
+
+	@Override
+	public Type getPacketType() {
+		return Type.AUTH_RESPONSE;
 	}
 }

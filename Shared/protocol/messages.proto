@@ -48,6 +48,19 @@ message Packet {
     }
     
     required Type type = 1;
+    optional LocationDynamicObjectsResponse LocationDynamicObjectsResponse = 2;
+    optional ShipStateResponse shipStateResponse = 3;
+    
+    optional AuthRequest authRequest = 16;
+    optional AuthResponse authResponse = 17;
+    optional RegisterRequest registerRequest = 18;
+    optional RegisterResponse registerResponse = 19;
+    optional LocationStaticObjectsRequest locationStaticObjectsRequest = 20;
+    optional LocationStaticObjectsResponse locationStaticObjectsResponse = 21;
+    optional ChatSendMessage chatSendMessage = 22;
+    optional ChatReceiveMessage chatReceiveMessage = 23;
+    optional InventoryItemsResponse inventoryItemsResponse = 24;
+    optional TypesMapResponse typesMapResponse = 25;
 }
 
 // 1 - 15
@@ -96,10 +109,6 @@ message ChatReceiveMessage {
     required string sender = 2;
 }
 
-message InventoryItemsRequest {
-    
-}
-
 message InventoryItemsResponse {
     repeated InventoryItem items = 1;
     
@@ -109,12 +118,8 @@ message InventoryItemsResponse {
         required string description = 3;
         required int32 price = 4;
         required string imagePath = 5;
-        required int itemTypeId = 6;
+        required int32 itemTypeId = 6;
     }
-}
-
-message TypesMapRequest {
-
 }
 
 message TypesMapResponse {
@@ -142,4 +147,36 @@ message TypesMapResponse {
         required int32 id = 1;
         required string name = 2;
     }
+    
+    message LocationDynamicObjectType {
+        required int32 id = 1;
+        required string name = 2;
+    }
+}
+
+message LocationDynamicObjectsRequest {
+
+}
+
+message LocationDynamicObjectsResponse {
+    repeated LocationDynamicObject objects = 1;
+    
+    message LocationDynamicObject {
+        required int32 objectTypeId = 1;
+        required int32 nativeId = 2;
+        required int32 x = 3;
+        required int32 y = 4;
+    }
+}
+
+message ShipStateRequest {
+    
+}
+
+message ShipStateResponse {
+    required int32 ship_state_move_speed = 1;
+    required int32 ship_state_rotation_speed = 2;
+    required int32 ship_state_hp = 3;
+    required int32 ship_state_armor_durability = 4;
+    required int32 ship_state_rotation_angle = 5;
 }

@@ -1,13 +1,19 @@
 package arch.galaxyeclipse.client.window;
 
+import org.springframework.stereotype.*;
+
 import arch.galaxyeclipse.client.stage.*;
 
 import com.badlogic.gdx.*;
 import com.badlogic.gdx.backends.lwjgl.*;
 import com.badlogic.gdx.graphics.*;
 import com.badlogic.gdx.math.*;
-import com.badlogic.gdx.scenes.scene2d.ui.*;
 
+/**
+ * ClientWindow - singleton отвечающий за LwjglApplication и делегирующий отрисовку
+ * текущей GameStage.
+ */
+@Component
 public class ClientWindow {
 	private static final int VIRTUAL_WIDTH = 480;
     private static final int VIRTUAL_HEIGHT = 320;
@@ -16,10 +22,10 @@ public class ClientWindow {
 	public static final float DEFAULT_HEIGHT = 748;
 	public static final float ASPECT_RATIO = (float)VIRTUAL_WIDTH/(float)VIRTUAL_HEIGHT;
 
-	private static final ClientWindow INSTANCE = new ClientWindow();
-
-	private GameStage stage;
+	private AbstractGameStage stage;
 	private Rectangle viewport;
+	private int viewportHeight;
+	private int viewportWidth;
 
 	public ClientWindow() {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
@@ -30,16 +36,12 @@ public class ClientWindow {
 		new LwjglApplication(new ClientListener(), config);
 	}
 
-	public static ClientWindow getInstance() {
-		return INSTANCE;
-	}
-
-	public void setGameStage(GameStage stage) {
+	public void setGameStage(AbstractGameStage stage) {
 		this.stage = stage;
 		Gdx.input.setInputProcessor(stage);
 	}
 
-	public GameStage getGameStage() {
+	public AbstractGameStage getGameStage() {
 		return stage;
 	}
 
@@ -80,37 +82,36 @@ public class ClientWindow {
 			Gdx.gl.glClearColor(0, 0, 0.2f, 1);
 			Gdx.gl.glViewport((int)viewport.x, (int)viewport.y, 
 					(int)viewport.width, (int)viewport.height);
+//			Gdx.gl.glViewport((int)viewport.x, (int)viewport.y, 
+//					Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 			Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 			
 			stage.draw();
-			Table.drawDebug(stage);
+			//Table.drawDebug(stage);
 		}
 
 		@Override
 		public void resize(int width, int height) {
-			float aspectRatio = (float)width/(float)height;
+			float aspectRatio = (float)width / (float)height;
 	        float scale = 1f;
 	        Vector2 crop = new Vector2(0f, 0f);
 			
-			if(aspectRatio > ASPECT_RATIO)
-	        {
+			if(aspectRatio > ASPECT_RATIO) {
 	            scale = (float)height/(float)VIRTUAL_HEIGHT;
-	            crop.x = (width - VIRTUAL_WIDTH*scale)/2f;
-	        }
-	        else if(aspectRatio < ASPECT_RATIO)
-	        {
+	            crop.x = (width - VIRTUAL_WIDTH * scale)/2f;
+	        } else if(aspectRatio < ASPECT_RATIO) {
 	            scale = (float)width/(float)VIRTUAL_WIDTH;
-	            crop.y = (height - VIRTUAL_HEIGHT*scale)/2f;
-	        }
-	        else
-	        {
+	            crop.y = (height - VIRTUAL_HEIGHT * scale)/2f;
+	        } else {
 	            scale = (float)width/(float)VIRTUAL_WIDTH;
 	        }
 	 
-	        float w = (float)VIRTUAL_WIDTH*scale;
-	        float h = (float)VIRTUAL_HEIGHT*scale;
+	        float w = (float)VIRTUAL_WIDTH * scale;
+	        float h = (float)VIRTUAL_HEIGHT * scale;
 	        viewport = new Rectangle(crop.x, crop.y, w, h);
-			
+			viewportWidth = (int)viewport.getWidth();
+			viewportHeight = (int)viewport.getHeight();  			
+	        
 			stage.resize(width, height);
 		}
 
@@ -118,5 +119,13 @@ public class ClientWindow {
 		public void resume() {
 
 		}
+	}
+
+	public int getViewportHeight() {
+		return viewportHeight;
+	}
+
+	public int getViewportWidth() {
+		return viewportWidth;
 	}
 }

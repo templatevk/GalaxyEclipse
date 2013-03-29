@@ -39,6 +39,6 @@ public class ServerTest {
 		bootstrap.setOption("child.tcpNoDelay", true);
 		bootstrap.setOption("child.keepAlive", true);
 
-		bootstrap.bind(new InetSocketAddress(SharedTestInfo.PORT));
+		bootstrap.bind(new InetSocketAddress(SharedInfo.PORT));
 	}
 }
