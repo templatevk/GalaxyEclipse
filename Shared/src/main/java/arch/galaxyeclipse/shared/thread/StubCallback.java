@@ -1,8 +1,12 @@
 package arch.galaxyeclipse.shared.thread;
 
-public class StubCallback implements ICallback<Object> {
+public class StubCallback<T> implements ICallback<T> {
+	public StubCallback() {
+		
+	}
+	
 	@Override
-	public void onOperationComplete(Object object) {
+	public void onOperationComplete(T object) {
 		
 	}
 }

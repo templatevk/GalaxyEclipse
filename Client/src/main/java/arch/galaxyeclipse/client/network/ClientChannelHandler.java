@@ -8,46 +8,24 @@ import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet;
 import arch.galaxyeclipse.shared.thread.*;
 
 public class ClientChannelHandler extends AbstractProtobufChannelHandler 
-		implements IClientChannelHandler {	
+		implements IChannelHandler {
 	private static final Logger log = Logger.getLogger(ClientChannelHandler.class);
 	
-	private Channel channel;
-	
-	public ClientChannelHandler(IDispatchCommand<Packet> incomingPacketDispatcherCommand) {
+	public ClientChannelHandler(ICommand<Packet> incomingPacketDispatcherCommand) {
 		super(incomingPacketDispatcherCommand);
 	}
 	
 	@Override
 	public void channelConnected(ChannelHandlerContext ctx, ChannelStateEvent e)
-		throws Exception {
-		channel = e.getChannel();
-		getIncomingPackets().clear();
-		getIncomingPacketDispatcher().start();
-		getOutgoingPackets().clear();
-		getOutgoingPacketDispatcher().start();
-		log.info("Client channel connected");
+			throws Exception {
+		log.info("Client channel connected " + e.getChannel().hashCode());
+		super.channelConnected(ctx, e);
 	}
 	
 	@Override
 	public void channelDisconnected(ChannelHandlerContext ctx,
-		ChannelStateEvent e) throws Exception {
-		getOutgoingPacketDispatcher().interrupt();
-		log.info("Client channel disconnected");
-	}
-	
-	@Override
-	public void disconnect(final ICallback<Boolean> callback) {
-		channel.disconnect().addListener(new ChannelFutureListener() {
-			@Override
-			public void operationComplete(ChannelFuture future) throws Exception {
-				future.getChannel().close();
-				callback.onOperationComplete(future.isSuccess());
-			}
-		});
-	}
-	
-	@Override
-	public boolean isConnected() {
-		return channel != null && channel.isConnected();
+			ChannelStateEvent e) throws Exception {
+		log.info("Client channel disconnected " + e.getChannel().hashCode());
+		super.channelDisconnected(ctx, e);
 	}
 }

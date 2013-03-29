@@ -14,34 +14,34 @@ public class ServerChannelHandler extends AbstractProtobufChannelHandler
 	private IPacketHandler packetHandler;
 	
 	public ServerChannelHandler() {		
-		IDispatchCommand<Packet> dispatchCommand = new IDispatchCommand<Packet>() {
+		super(new StubDispatchCommand<Packet>());
+		getIncomingPacketDispatcher().setCommand(new ICommand<Packet>() {
 			@Override
 			public void perform(Packet packet) {
 				packetHandler.handle(packet);
 			}
-		};
-		getIncomingPacketDispatcher().setCommand(dispatchCommand);
+		});
 	}
 	
 	@Override
 	public void channelConnected(ChannelHandlerContext ctx, ChannelStateEvent e)
 			throws Exception {
+		log.debug("Server channel connected " + e.getChannel().hashCode());
+		super.channelConnected(ctx, e);
+		
 		packetHandler = new UnauthenticatedPacketHandler(this);
-		getIncomingPacketDispatcher().start();
-		getOutgoingPacketDispatcher().start();
-		log.info("Server channel connected");
 	}
 	
 	@Override
 	public void channelDisconnected(ChannelHandlerContext ctx,
 			ChannelStateEvent e) throws Exception {
-		log.info("Server channel disconnected");
+		log.debug("Server channel disconnected");
+		super.channelDisconnected(ctx, e);
 	}	
 	
 	@Override
 	public void setPacketHandler(IPacketHandler packetHandler) {
+		log.debug("Client XXX packet handler changed to " + packetHandler);
 		this.packetHandler = packetHandler;
-		log.debug("Client XXX packet handler changed to " 
-				+ packetHandler.getClass().getSimpleName());
 	}
 }

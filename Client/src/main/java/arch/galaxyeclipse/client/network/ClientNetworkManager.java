@@ -13,21 +13,25 @@ import org.springframework.stereotype.*;
 
 import arch.galaxyeclipse.shared.network.*;
 import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet;
+import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet.Type;
 import arch.galaxyeclipse.shared.thread.*;
+import arch.galaxyeclipse.shared.util.*;
 
 @Component
 public class ClientNetworkManager implements IClientNetworkManager {
+	private static final int CONNECTION_TIMEOUT_MILLISECONDS = 3000;
+	
 	private static final Logger log = Logger.getLogger(ClientNetworkManager.class);
 
 	@Autowired
 	private IClientChannelHandlerFactory channelHandlerFactory;
 	
-	private IClientChannelHandler channelHandler;
+	private IChannelHandler channelHandler;
 	private ClientBootstrap bootstrap;
-	private Map<Packet.Type, List<IServerPacketListener>> listeners;
+	private Map<Packet.Type, Set<IServerPacketListener>> listeners;
 	
 	public ClientNetworkManager() {			
-		listeners = new HashMap<Packet.Type, List<IServerPacketListener>>();
+		listeners = new HashMap<Packet.Type, Set<IServerPacketListener>>();
 		bootstrap = new ClientBootstrap(new NioClientSocketChannelFactory(
 				Executors.newCachedThreadPool(), Executors.newCachedThreadPool()));
 		bootstrap.setOption("keepAlive", true);
@@ -44,7 +48,7 @@ public class ClientNetworkManager implements IClientNetworkManager {
 	@Override
 	public void connect(SocketAddress address, final ICallback<Boolean> callback) {
 		if (channelHandler == null) {
-			channelHandler = channelHandlerFactory.createHandler(new IDispatchCommand<Packet>() {
+			channelHandler = channelHandlerFactory.createHandler(new ICommand<Packet>() {
 				@Override
 				public void perform(Packet packet) {
 					log.debug("Notifying listeners for " + packet.getType());
@@ -52,13 +56,23 @@ public class ClientNetworkManager implements IClientNetworkManager {
 						listener.onPacketReceived(packet);
 					}
 				}
-			});
+			});			
 		}
 		
 		bootstrap.connect(address).addListener(new ChannelFutureListener() {
 			@Override
-			public void operationComplete(ChannelFuture future) throws Exception {
-				callback.onOperationComplete(future.isSuccess());
+			public void operationComplete(final ChannelFuture future) throws Exception {
+				log.info("Waiting " + CONNECTION_TIMEOUT_MILLISECONDS 
+						+ " milliseconds for connection");
+				new DelayedRunnableExecutor(CONNECTION_TIMEOUT_MILLISECONDS, new Runnable() {
+					@Override
+					public void run() {
+						if (!channelHandler.isConnected()) {
+							channelHandler.disconnect(new StubCallback<Boolean>());
+						}
+						callback.onOperationComplete(channelHandler.isConnected());
+					}
+				}).start();
 			}
 		});
 	}
@@ -72,26 +86,45 @@ public class ClientNetworkManager implements IClientNetworkManager {
 		}
 	}
 	
+	@Override
 	public void addListener(IServerPacketListener listener) {
-		List<IServerPacketListener> typeListeners = listeners.get(listener.getPacketType());
+		Set<IServerPacketListener> typeListeners = listeners.get(listener.getPacketTypes());
 		if (typeListeners == null) {
-			typeListeners = new ArrayList<IServerPacketListener>();
-			listeners.put(listener.getPacketType(), typeListeners);
+			typeListeners = new HashSet<IServerPacketListener>();
+			for (Packet.Type packetType : listener.getPacketTypes()) {
+				log.info("Adding listener of type " + packetType.toString());
+				listeners.put(packetType, typeListeners);
+			}
 		}
 		typeListeners.add(listener);
-		log.info("Adding listener of type " + listener.getPacketType().toString());
 	}
 	
+	@Override
 	public void removeListener(IServerPacketListener listener) {
-		List<IServerPacketListener> typeListeners = listeners.get(listener.getPacketType());
-		if (typeListeners != null) {
-			typeListeners.remove(listener);
-			log.info("Removing listener of type " + listener.getPacketType().toString());
+		log.info("Removing listener " + listener + " of types");
+		for (Packet.Type packetType : listener.getPacketTypes()) {
+			Set<IServerPacketListener> typeListeners = listeners.get(listener.getPacketTypes());
+			if (typeListeners != null) {
+				log.info(packetType.toString());
+				typeListeners.remove(listener);
+			}
 		}
 	}
 	
 	@Override
+	public void removeListenerForType(IServerPacketListener listener,
+			Type packetType) {
+		log.info("Removing listener " + listener + " of type");
+		Set<IServerPacketListener> typeListeners = listeners.get(packetType);
+		if (typeListeners != null) {
+			log.info(packetType.toString());
+			typeListeners.remove(listener);
+		}	
+	}
+	
+	@Override
 	public void sendPacket(Packet packet) {
+		log.debug(LogUtils.getObjectInfo(this) + " sending packet " + packet.getType());
 		channelHandler.sendPacket(packet);
 	}
 }

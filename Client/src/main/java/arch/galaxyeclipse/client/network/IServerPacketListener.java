@@ -1,8 +1,11 @@
 package arch.galaxyeclipse.client.network;
 
+import java.util.*;
+
 import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet;
 
 public interface IServerPacketListener {
 	void onPacketReceived(Packet packet);
-	Packet.Type getPacketType();
+	
+	List<Packet.Type> getPacketTypes();
 }

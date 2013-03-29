@@ -10,6 +10,8 @@ public interface IClientNetworkManager {
 	
 	void removeListener(IServerPacketListener listener);
 	
+	void removeListenerForType(IServerPacketListener listener, Packet.Type packetType);
+	
 	void sendPacket(Packet packet);
 	
 	void disconnect(ICallback<Boolean> callback);

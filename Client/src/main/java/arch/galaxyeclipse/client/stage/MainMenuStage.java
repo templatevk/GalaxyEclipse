@@ -1,17 +1,20 @@
 package arch.galaxyeclipse.client.stage;
 
 import java.net.*;
+import java.util.*;
+import java.util.List;
 
 import org.apache.log4j.*;
 
 import arch.galaxyeclipse.client.network.*;
-import arch.galaxyeclipse.client.util.*;
+import arch.galaxyeclipse.client.texture.*;
 import arch.galaxyeclipse.shared.*;
 import arch.galaxyeclipse.shared.inject.*;
 import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthRequest;
 import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet;
 import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet.Type;
 import arch.galaxyeclipse.shared.thread.*;
+import arch.galaxyeclipse.shared.util.*;
 
 import com.badlogic.gdx.*;
 import com.badlogic.gdx.graphics.*;
@@ -37,9 +40,20 @@ public class MainMenuStage extends AbstractGameStage implements IServerPacketLis
 	private TextField passwordTxt;
 	private Table rootTable;
 	private Table innerTable;
+	private boolean isGuiInitialized = false;
 	
 	public MainMenuStage() {
-		TextureAtlas atlas = CachingTextureAtlas.getInstance();
+		
+	}
+	
+	private void initGuiOnce() {
+		if (isGuiInitialized) {
+			return;
+		}
+		isGuiInitialized = true;
+		
+		ITextureAtlas atlas = SpringContextHolder.CONTEXT
+				.getBean(ITextureAtlasFactory.class).createAtlas();
 		
 		BitmapFont font = new BitmapFont(Gdx.files.internal("assets/font1.fnt"), 
 				Gdx.files.internal("assets/font1.png"), false);
@@ -90,14 +104,18 @@ public class MainMenuStage extends AbstractGameStage implements IServerPacketLis
 				networkManager.connect(new InetSocketAddress(
 						SharedInfo.HOST, SharedInfo.PORT), new ICallback<Boolean>() {
 							@Override
-							public void onOperationComplete(Boolean object) {
-								AuthRequest request = AuthRequest.newBuilder()
-										.setUsername("")
-										.setPassword("").build();
-								Packet packet = Packet.newBuilder()
-										.setType(Type.AUTH_REQUEST)
-										.setAuthRequest(request).build();
-								networkManager.sendPacket(packet);
+							public void onOperationComplete(Boolean isConnected) {
+								log.info(getClass().getSimpleName() + " connection callback "
+										+ " result = " + isConnected);
+								if (isConnected) {
+									AuthRequest request = AuthRequest.newBuilder()
+											.setUsername("")
+											.setPassword("").build();
+									Packet packet = Packet.newBuilder()
+											.setType(Type.AUTH_REQUEST)
+											.setAuthRequest(request).build();
+									networkManager.sendPacket(packet);
+								}
 							}
 						});
 			}
@@ -116,17 +134,28 @@ public class MainMenuStage extends AbstractGameStage implements IServerPacketLis
 	}
 	
 	@Override
+	public void resize(int width, int height) {
+		initGuiOnce();
+		super.resize(width, height);
+	}
+	
+	@Override
 	protected Group getScaleGroup() {
 		return innerTable;
 	}
 
 	@Override
 	public void onPacketReceived(Packet packet) {
-		log.info("Packet received " + packet.getType());
+		log.info(this + " received packet " + packet.getType());
+		switch (packet.getType()) {
+		case AUTH_RESPONSE:
+			log.info("Authentication result = " + packet.getAuthResponse().getIsSuccess());
+			break;
+		}
 	}
 
 	@Override
-	public Type getPacketType() {
-		return Type.AUTH_RESPONSE;
+	public List<Type> getPacketTypes() {
+		return Arrays.asList(Type.AUTH_RESPONSE);
 	}
 }

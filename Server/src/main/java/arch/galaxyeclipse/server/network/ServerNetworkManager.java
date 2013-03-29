@@ -38,16 +38,16 @@ public class ServerNetworkManager implements IServerNetworkManager {
 		if (serverChannel != null && serverChannel.isBound()) {
 			serverChannel.unbind();
 		}
-		serverChannel = bootstrap.bind(new InetSocketAddress(host, port));
 		log.info("Starting server on " + host + ":" + port);
+		serverChannel = bootstrap.bind(new InetSocketAddress(host, port));
 	}
 	
 	@Override
 	public void stopServer() {
 		if (serverChannel != null && serverChannel.isOpen()) {
+			log.info("Stopping server");
 			serverChannel.close();
 			serverChannel.unbind();
-			log.info("Stopping server");
 		}
 	}
 }

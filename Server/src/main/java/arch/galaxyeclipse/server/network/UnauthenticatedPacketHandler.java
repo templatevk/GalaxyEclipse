@@ -1,5 +1,7 @@
 package arch.galaxyeclipse.server.network;
 
+import org.apache.log4j.*;
+
 import arch.galaxyeclipse.server.authentication.*;
 import arch.galaxyeclipse.shared.inject.*;
 import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthRequest;
@@ -8,6 +10,8 @@ import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet;
 import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet.Type;
 
 public class UnauthenticatedPacketHandler implements IPacketHandler {
+	private static final Logger log = Logger.getLogger(UnauthenticatedPacketHandler.class);
+	
 	private IServerChannelHandler channelHandler;
 	private IClientAuthenticator authenticator;
 	
@@ -26,6 +30,8 @@ public class UnauthenticatedPacketHandler implements IPacketHandler {
 			if (result.isSuccess) {
 				channelHandler.setPacketHandler(new AuthenticatedPacketHandler());
 			} 
+			log.debug("Authentication user = " + request.getUsername() 
+					+ " pass = " + request.getPassword() + " result = " + result.isSuccess);
 			
 			AuthResponse authResponse = AuthResponse.newBuilder()
 					.setIsSuccess(result.isSuccess).build();

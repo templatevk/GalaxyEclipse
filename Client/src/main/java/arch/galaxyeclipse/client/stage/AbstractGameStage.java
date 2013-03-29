@@ -13,7 +13,7 @@ import com.badlogic.gdx.scenes.scene2d.*;
  * представляют елементы UI или игровые объекты.
  *
  */
-public abstract class AbstractGameStage extends Stage implements IStage {
+public abstract class AbstractGameStage extends Stage {
 	private static final Logger log = Logger.getLogger(AbstractGameStage.class);
 	
 	private static final float DEFAULT_SCALE_COEF = 0.5f;

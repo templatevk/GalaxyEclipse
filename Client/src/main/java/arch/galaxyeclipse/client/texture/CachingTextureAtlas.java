@@ -1,21 +1,17 @@
-package arch.galaxyeclipse.client.util;
+package arch.galaxyeclipse.client.texture;
 
 import java.util.*;
+
+import org.springframework.stereotype.*;
 
 import com.badlogic.gdx.*;
 import com.badlogic.gdx.graphics.g2d.*;
 
-public class CachingTextureAtlas extends TextureAtlas {
-	private static final TextureAtlas INSTANCE = new CachingTextureAtlas();
-	
+public class CachingTextureAtlas extends TextureAtlas implements ITextureAtlas {	
 	private Map<String, AtlasRegion> regions = new HashMap<String, AtlasRegion>();
 
 	public CachingTextureAtlas() {
 		super(Gdx.files.internal("assets/textures/pack.atlas"));
-	}
-	
-	public static TextureAtlas getInstance() {
-		return INSTANCE;
 	}
 	
 	@Override

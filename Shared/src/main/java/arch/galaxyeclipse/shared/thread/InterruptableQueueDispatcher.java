@@ -11,19 +11,19 @@ public class InterruptableQueueDispatcher<T> extends Thread {
 	private static final Logger log = Logger.getLogger(InterruptableQueueDispatcher.class);
 	
 	private AbstractQueue<T> queue;
-	private IDispatchCommand<T> command;
+	private ICommand<T> command;
 	private boolean yield;
 	
 	public InterruptableQueueDispatcher(AbstractQueue<T> queue) {
 		this(queue, new StubDispatchCommand<T>(), false);
 	}
 	
-	public InterruptableQueueDispatcher(AbstractQueue<T> queue, IDispatchCommand<T> command) {
+	public InterruptableQueueDispatcher(AbstractQueue<T> queue, ICommand<T> command) {
 		this(queue, command, false);
 	}
 	
 	public InterruptableQueueDispatcher(AbstractQueue<T> queue, 
-			IDispatchCommand<T> command, boolean yieldOnQueueEmpty) {
+			ICommand<T> command, boolean yieldOnQueueEmpty) {
 		this.queue = queue;
 		this.command = command;
 		this.yield = yieldOnQueueEmpty;
@@ -31,6 +31,7 @@ public class InterruptableQueueDispatcher<T> extends Thread {
 	
 	@Override
 	public void run() {
+		log.debug("Starting " + this);
 		try {
 			T item;
 			while (!Thread.interrupted()) {
@@ -47,7 +48,7 @@ public class InterruptableQueueDispatcher<T> extends Thread {
 		}
 	}
 
-	public void setCommand(IDispatchCommand<T> command) {
+	public void setCommand(ICommand<T> command) {
 		this.command = command;
 	}
 }

@@ -7,8 +7,9 @@ import org.jboss.netty.channel.*;
 
 import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet;
 import arch.galaxyeclipse.shared.thread.*;
+import arch.galaxyeclipse.shared.util.*;
 
-public class AbstractProtobufChannelHandler extends SimpleChannelHandler 
+public abstract class AbstractProtobufChannelHandler extends SimpleChannelHandler 
 		implements IChannelHandler {
 	private static final Logger log = Logger.getLogger(AbstractProtobufChannelHandler.class);
 	
@@ -16,30 +17,58 @@ public class AbstractProtobufChannelHandler extends SimpleChannelHandler
 	private InterruptableQueueDispatcher<Packet> incomingPacketDispatcher;
 	private ConcurrentLinkedQueue<Packet> outgoingPackets;
 	private InterruptableQueueDispatcher<Packet> outgoingPacketDispatcher;
+	private Channel channel;
+	private volatile IPacketSender packetSender;
 	
-	public AbstractProtobufChannelHandler() {
-		this(new StubDispatchCommand<Packet>());
-	}
-	
-	public AbstractProtobufChannelHandler(IDispatchCommand<Packet> incomingPacketDispatcherCommand) {
-		this(incomingPacketDispatcherCommand, null);
-		outgoingPacketDispatcher.setCommand(new IDispatchCommand<Packet>() {
-			@Override
-			public void perform(Packet packet) {
-				log.debug("Sending packet " + packet.getType());
-				outgoingPackets.add(packet);
-			}
-		});
-	}
-	
-	public AbstractProtobufChannelHandler(IDispatchCommand<Packet> incomingPacketDispatcherCommand,
-			IDispatchCommand<Packet> outgoingPacketDispatcherCommand) {
+	protected AbstractProtobufChannelHandler(ICommand<Packet> incomingPacketDispatcherCommand) {
 		incomingPackets = new ConcurrentLinkedQueue<Packet>();	
 		incomingPacketDispatcher = new InterruptableQueueDispatcher<Packet>(
 				incomingPackets, incomingPacketDispatcherCommand);
 		outgoingPackets = new ConcurrentLinkedQueue<Packet>();
 		outgoingPacketDispatcher = new InterruptableQueueDispatcher<Packet>(
-				outgoingPackets, outgoingPacketDispatcherCommand);
+				outgoingPackets, new ICommand<Packet>() {
+					@Override
+					public void perform(Packet packet) {
+						log.debug("Sending packet from the outgoing queue " + packet.getType());
+						packetSender.send(packet);
+					}
+				});
+		packetSender = new StubPacketSender();
+	} 
+	
+	@Override
+	public void disconnect(final ICallback<Boolean> callback) {
+		channel.disconnect().addListener(new ChannelFutureListener() {
+			@Override
+			public void operationComplete(ChannelFuture future) throws Exception {
+				future.getChannel().close();
+				callback.onOperationComplete(future.isSuccess());
+			}
+		});
+	}
+	
+	@Override
+	public boolean isConnected() {
+		return channel != null && channel.isConnected();
+	}
+	
+	@Override
+	public void channelConnected(ChannelHandlerContext ctx, ChannelStateEvent e)
+		throws Exception {
+		channel = e.getChannel();
+		packetSender = new ChannelPacketSender(channel);
+		getIncomingPacketDispatcher().start();
+		getOutgoingPacketDispatcher().start();
+	}
+	
+	@Override
+	public void channelDisconnected(ChannelHandlerContext ctx,
+		ChannelStateEvent e) throws Exception {
+		packetSender = new StubPacketSender();
+		getOutgoingPacketDispatcher().interrupt();
+		getIncomingPacketDispatcher().interrupt();
+		getIncomingPackets().clear();
+		getOutgoingPackets().clear();
 	}
 	
 	protected ConcurrentLinkedQueue<Packet> getIncomingPackets() {
@@ -61,7 +90,10 @@ public class AbstractProtobufChannelHandler extends SimpleChannelHandler
 	@Override
 	public void messageReceived(ChannelHandlerContext ctx, MessageEvent e)
 			throws Exception {
-		incomingPackets.add((Packet)e.getMessage());
+		Packet packet = (Packet)e.getMessage();
+		log.debug(LogUtils.getObjectInfo(this) + " put packet " 
+				+ packet.getType() + " to the incoming queue");
+		incomingPackets.add(packet);
 	}
 	
 	@Override
@@ -72,6 +104,12 @@ public class AbstractProtobufChannelHandler extends SimpleChannelHandler
 	
 	@Override
 	public void sendPacket(Packet packet) {
+		log.debug(LogUtils.getObjectInfo(this) + " put packet " 
+				+ packet.getType() + " to the outgoing queue");
 		outgoingPackets.add(packet);
+	}
+
+	protected Channel getChannel() {
+		return channel;
 	}
 }
