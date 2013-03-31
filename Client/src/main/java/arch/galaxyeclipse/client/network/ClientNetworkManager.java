@@ -8,8 +8,6 @@ import org.apache.log4j.*;
 import org.jboss.netty.bootstrap.*;
 import org.jboss.netty.channel.*;
 import org.jboss.netty.channel.socket.nio.*;
-import org.springframework.beans.factory.annotation.*;
-import org.springframework.stereotype.*;
 
 import arch.galaxyeclipse.shared.network.*;
 import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet;
@@ -17,37 +15,44 @@ import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet.Type;
 import arch.galaxyeclipse.shared.thread.*;
 import arch.galaxyeclipse.shared.util.*;
 
-@Component
+/**
+ * Main class responsible for network communication using the GalaxyEclipseProtocol.
+ */
 public class ClientNetworkManager implements IClientNetworkManager {
+	// Sleep interval to wait for connection result
 	private static final int CONNECTION_TIMEOUT_MILLISECONDS = 3000;
 	
 	private static final Logger log = Logger.getLogger(ClientNetworkManager.class);
 
-	@Autowired
 	private IClientChannelHandlerFactory channelHandlerFactory;
 	
 	private IChannelHandler channelHandler;
 	private ClientBootstrap bootstrap;
 	private Map<Packet.Type, Set<IServerPacketListener>> listeners;
 	
-	public ClientNetworkManager() {			
+	public ClientNetworkManager(IClientChannelHandlerFactory channelHandlerFactory) {
+		this.channelHandlerFactory = channelHandlerFactory;
+		
 		listeners = new HashMap<Packet.Type, Set<IServerPacketListener>>();
+		
+		// Instantiating the client bootsrap
 		bootstrap = new ClientBootstrap(new NioClientSocketChannelFactory(
 				Executors.newCachedThreadPool(), Executors.newCachedThreadPool()));
-		bootstrap.setOption("keepAlive", true);
-		bootstrap.setOption("tcpNoDelay", true);
-		
 		bootstrap.setPipelineFactory(new AbstractProtobufChannelPipelineFactory() {
 			@Override
 			protected void configureHandlers(ChannelPipeline pipeline) {
 				pipeline.addLast("clientHanlder", channelHandler);
 			}
 		});	
+		bootstrap.setOption("keepAlive", true);
+		bootstrap.setOption("tcpNoDelay", true);
 	}
 	
 	@Override
 	public void connect(SocketAddress address, final ICallback<Boolean> callback) {
-		if (channelHandler == null) {
+		if (channelHandler == null) { 
+			// Instantiating channel handler
+			// Command for incoming packets notifies subscribed listeners
 			channelHandler = channelHandlerFactory.createHandler(new ICommand<Packet>() {
 				@Override
 				public void perform(Packet packet) {
@@ -59,11 +64,13 @@ public class ClientNetworkManager implements IClientNetworkManager {
 			});			
 		}
 		
+		// Trying to connect to the passed adress
 		bootstrap.connect(address).addListener(new ChannelFutureListener() {
 			@Override
 			public void operationComplete(final ChannelFuture future) throws Exception {
 				log.info("Waiting " + CONNECTION_TIMEOUT_MILLISECONDS 
 						+ " milliseconds for connection");
+				// Waiting in the separate thread and notifying the caller trough the callback
 				new DelayedRunnableExecutor(CONNECTION_TIMEOUT_MILLISECONDS, new Runnable() {
 					@Override
 					public void run() {

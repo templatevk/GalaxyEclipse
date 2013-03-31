@@ -11,6 +11,7 @@ public class GalaxyEclipseClient  {
 	
 	public void start() {
 		PropertyConfigurator.configure("log4j.properties");
+		// Instantiating xml context
 		SpringContextHolder.CONTEXT.getClass();
 	}
 	

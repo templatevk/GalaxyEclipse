@@ -6,6 +6,9 @@ import org.jboss.netty.channel.*;
 import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet;
 import arch.galaxyeclipse.shared.util.*;
 
+/**
+ * Sends the packets through the channel passed.
+ */
 public class ChannelPacketSender implements IPacketSender {
 	private static final Logger log = Logger.getLogger(StubPacketSender.class);
 	

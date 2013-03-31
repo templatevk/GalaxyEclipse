@@ -1,8 +1,8 @@
 package arch.galaxyeclipse.server.authentication;
 
-import org.springframework.stereotype.*;
-
-@Component
+/**
+ * Test authenticator.
+ */
 public class StubAllowingAuthenticator implements IClientAuthenticator {
 	@Override
 	public AuthenticationResult authenticate(String username, String password) {

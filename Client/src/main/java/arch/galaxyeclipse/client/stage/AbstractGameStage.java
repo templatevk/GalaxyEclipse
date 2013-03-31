@@ -8,10 +8,7 @@ import arch.galaxyeclipse.shared.inject.*;
 import com.badlogic.gdx.scenes.scene2d.*;
 
 /**
- * Базовый класс всех сцен реализующий масштабирование элементов сцены 
- * и установку размера Viewport'a. Stage состоит из многих Image/Actor которые 
- * представляют елементы UI или игровые объекты.
- *
+ * Base class for all game stages. Performs scaling, resizing and aspect ration matching.
  */
 public abstract class AbstractGameStage extends Stage {
 	private static final Logger log = Logger.getLogger(AbstractGameStage.class);
@@ -24,6 +21,7 @@ public abstract class AbstractGameStage extends Stage {
 		clientWindow = SpringContextHolder.CONTEXT.getBean(ClientWindow.class);
 	}
 
+	// Root container we are going to scale
 	protected abstract Group getScaleGroup();
 	
 	public void resize(int width, int height) {

@@ -9,18 +9,27 @@ import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet;
 import arch.galaxyeclipse.shared.thread.*;
 import arch.galaxyeclipse.shared.util.*;
 
+/**
+ * Base class for handling @see Channel data. Puts sent/received packets into queues
+ * and processes the into seperate threads.
+ */
 public abstract class AbstractProtobufChannelHandler extends SimpleChannelHandler 
 		implements IChannelHandler {
 	private static final Logger log = Logger.getLogger(AbstractProtobufChannelHandler.class);
 	
+	// Queue holding the packets received
 	private ConcurrentLinkedQueue<Packet> incomingPackets;
+	// Thread for processing the received packets
 	private InterruptableQueueDispatcher<Packet> incomingPacketDispatcher;
+	// Queue holding the packets sent
 	private ConcurrentLinkedQueue<Packet> outgoingPackets;
+	// Thread for processing the sent packets
 	private InterruptableQueueDispatcher<Packet> outgoingPacketDispatcher;
 	private Channel channel;
 	private volatile IPacketSender packetSender;
 	
 	protected AbstractProtobufChannelHandler(ICommand<Packet> incomingPacketDispatcherCommand) {
+		// Initialize the queues and their processors
 		incomingPackets = new ConcurrentLinkedQueue<Packet>();	
 		incomingPacketDispatcher = new InterruptableQueueDispatcher<Packet>(
 				incomingPackets, incomingPacketDispatcherCommand);
@@ -33,18 +42,21 @@ public abstract class AbstractProtobufChannelHandler extends SimpleChannelHandle
 						packetSender.send(packet);
 					}
 				});
+		// Drop packets because of no connection
 		packetSender = new StubPacketSender();
 	} 
 	
 	@Override
 	public void disconnect(final ICallback<Boolean> callback) {
-		channel.disconnect().addListener(new ChannelFutureListener() {
-			@Override
-			public void operationComplete(ChannelFuture future) throws Exception {
-				future.getChannel().close();
-				callback.onOperationComplete(future.isSuccess());
-			}
-		});
+        if (isConnected()) {
+            channel.disconnect().addListener(new ChannelFutureListener() {
+                @Override
+                public void operationComplete(ChannelFuture future) throws Exception {
+                    future.getChannel().close();
+                    callback.onOperationComplete(future.isSuccess());
+                }
+		    });
+        }
 	}
 	
 	@Override
@@ -55,8 +67,10 @@ public abstract class AbstractProtobufChannelHandler extends SimpleChannelHandle
 	@Override
 	public void channelConnected(ChannelHandlerContext ctx, ChannelStateEvent e)
 		throws Exception {
+		// Initializing the channel and passing it to packet sender
 		channel = e.getChannel();
 		packetSender = new ChannelPacketSender(channel);
+		// Starting packet queues' processors
 		getIncomingPacketDispatcher().start();
 		getOutgoingPacketDispatcher().start();
 	}
@@ -64,9 +78,12 @@ public abstract class AbstractProtobufChannelHandler extends SimpleChannelHandle
 	@Override
 	public void channelDisconnected(ChannelHandlerContext ctx,
 		ChannelStateEvent e) throws Exception {
+		// Initializing sender dropping the packets
 		packetSender = new StubPacketSender();
+		// Stopping packet queues' processors
 		getOutgoingPacketDispatcher().interrupt();
 		getIncomingPacketDispatcher().interrupt();
+		// Clearing packet queues
 		getIncomingPackets().clear();
 		getOutgoingPackets().clear();
 	}
@@ -90,6 +107,7 @@ public abstract class AbstractProtobufChannelHandler extends SimpleChannelHandle
 	@Override
 	public void messageReceived(ChannelHandlerContext ctx, MessageEvent e)
 			throws Exception {
+		// Get the packet and put to the received packets queue
 		Packet packet = (Packet)e.getMessage();
 		log.debug(LogUtils.getObjectInfo(this) + " put packet " 
 				+ packet.getType() + " to the incoming queue");

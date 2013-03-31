@@ -5,7 +5,7 @@ import java.util.*;
 import org.apache.log4j.*;
 
 /**
- * Поток обрабатывающий сообщения из очереди.
+ * Thread processing the queue passed applying the passed command to the queue items.
  */
 public class InterruptableQueueDispatcher<T> extends Thread {
 	private static final Logger log = Logger.getLogger(InterruptableQueueDispatcher.class);

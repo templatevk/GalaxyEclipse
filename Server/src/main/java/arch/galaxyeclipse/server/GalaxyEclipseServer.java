@@ -14,7 +14,7 @@ public class GalaxyEclipseServer {
 		serverNetworkManager = SpringContextHolder.CONTEXT.getBean(IServerNetworkManager.class);
 	}
 	
-	public void start() {
+	public void start() { // Binding the server on the address
 		serverNetworkManager.startServer(SharedInfo.HOST, SharedInfo.PORT);
 	}
 	

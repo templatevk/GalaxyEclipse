@@ -7,27 +7,23 @@ import org.apache.log4j.*;
 import org.jboss.netty.bootstrap.*;
 import org.jboss.netty.channel.*;
 import org.jboss.netty.channel.socket.nio.*;
-import org.springframework.beans.factory.annotation.*;
-import org.springframework.stereotype.*;
 
 import arch.galaxyeclipse.shared.network.*;
 
-@Component
 public class ServerNetworkManager implements IServerNetworkManager {	
 	private static final Logger log = Logger.getLogger(ServerNetworkManager.class);
 	
-	@Autowired
 	private AbstractProtobufChannelPipelineFactory channelPipelineFactory;
 	private Channel serverChannel;
 	private ServerBootstrap bootstrap;
 	
-	public ServerNetworkManager() {
-				
+	public ServerNetworkManager(AbstractProtobufChannelPipelineFactory channelPipelineFactory) {
+		this.channelPipelineFactory = channelPipelineFactory;
 	}
 	
 	@Override
 	public void startServer(String host, int port) {
-		if (bootstrap == null) {
+		if (bootstrap == null) { // Initialize server bootstrap
 			bootstrap = new ServerBootstrap(new NioServerSocketChannelFactory(
 					Executors.newCachedThreadPool(), Executors.newCachedThreadPool()));
 			bootstrap.setPipelineFactory(channelPipelineFactory);
@@ -35,7 +31,7 @@ public class ServerNetworkManager implements IServerNetworkManager {
 			bootstrap.setOption("tcpNoDelay", true);
 		}
 		
-		if (serverChannel != null && serverChannel.isBound()) {
+		if (serverChannel != null && serverChannel.isBound()) { // Unbind the port if binded
 			serverChannel.unbind();
 		}
 		log.info("Starting server on " + host + ":" + port);

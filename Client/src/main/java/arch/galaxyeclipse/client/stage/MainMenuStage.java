@@ -14,7 +14,6 @@ import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthRequest;
 import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet;
 import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet.Type;
 import arch.galaxyeclipse.shared.thread.*;
-import arch.galaxyeclipse.shared.util.*;
 
 import com.badlogic.gdx.*;
 import com.badlogic.gdx.graphics.*;
@@ -78,6 +77,7 @@ public class MainMenuStage extends AbstractGameStage implements IServerPacketLis
 		rootTable.debug();
 		addActor(rootTable);
 	
+		// Inner table is the root layout container
 		innerTable = new Table();
 		//innerTable.setBackground(new TextureRegionDrawable(atlas.findRegion("ui/group")));
 		innerTable.setBounds(0, 0, 400, 200);
@@ -97,6 +97,7 @@ public class MainMenuStage extends AbstractGameStage implements IServerPacketLis
 		passwordTxt.setPasswordCharacter('*');
 		passwordTxt.setMessageText("Enter your password");
 		
+		// Connection button
 		connectBtn = new TextButton("Connect", style);
 		connectBtn.addListener(new ClickListener() {
 			@Override

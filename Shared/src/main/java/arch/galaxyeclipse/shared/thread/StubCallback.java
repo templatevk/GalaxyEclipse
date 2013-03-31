@@ -1,5 +1,8 @@
 package arch.galaxyeclipse.shared.thread;
 
+/**
+ * No action callback.
+ */
 public class StubCallback<T> implements ICallback<T> {
 	public StubCallback() {
 		

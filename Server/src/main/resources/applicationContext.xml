@@ -6,5 +6,14 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
-    <context:component-scan base-package="arch.galaxyeclipse"/>
+    
+    <bean id="pipelineFactory" class="arch.galaxyeclipse.server.network.ServerPipelineChannelFactory"/>
+    <bean class="arch.galaxyeclipse.server.network.ServerNetworkManager">
+        <constructor-arg ref="pipelineFactory"/>
+    </bean>
+    
+    <bean class="arch.galaxyeclipse.server.authentication.StubAllowingAuthenticator"/>
+    <bean class="arch.galaxyeclipse.shared.typesdictionary.DictionaryTypesMapper"/>
+    
+    <bean id="emf" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean"/>
 </beans>

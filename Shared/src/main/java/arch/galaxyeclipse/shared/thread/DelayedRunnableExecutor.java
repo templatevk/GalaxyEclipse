@@ -4,6 +4,10 @@ import org.apache.log4j.*;
 
 import arch.galaxyeclipse.shared.util.*;
 
+/**
+ * Represents a thread that will execute submitted runnable after the submitted 
+ * milliseconds delay.
+ */
 public class DelayedRunnableExecutor extends Thread {
 	private static final Logger log = Logger.getLogger(DelayedRunnableExecutor.class);
 	
@@ -17,7 +21,7 @@ public class DelayedRunnableExecutor extends Thread {
 	
 	@Override
 	public void run() {
-		try {
+		try { // Sleep for delay and execute the runnable
 			Thread.sleep(millisecondsDelay);
 			runnable.run();
 		} catch (InterruptedException e) {

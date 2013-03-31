@@ -15,6 +15,7 @@ public class ServerChannelHandler extends AbstractProtobufChannelHandler
 	
 	public ServerChannelHandler() {		
 		super(new StubDispatchCommand<Packet>());
+		// Delegate incoming packets to the current packet handler
 		getIncomingPacketDispatcher().setCommand(new ICommand<Packet>() {
 			@Override
 			public void perform(Packet packet) {
@@ -28,7 +29,7 @@ public class ServerChannelHandler extends AbstractProtobufChannelHandler
 			throws Exception {
 		log.debug("Server channel connected " + e.getChannel().hashCode());
 		super.channelConnected(ctx, e);
-		
+
 		packetHandler = new UnauthenticatedPacketHandler(this);
 	}
 	

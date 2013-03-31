@@ -1,8 +1,5 @@
 package arch.galaxyeclipse.client.texture;
 
-import org.springframework.stereotype.*;
-
-@Component
 public class CachingTextureAtlasFactory implements ITextureAtlasFactory {
 	private static CachingTextureAtlas instance;
 	
