@@ -2,25 +2,26 @@
 	<persistence-unit name="persistenceManager" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		
-		<class>arch.galaxyeclipse.server.data.generated.Bonuses</class>
-		<class>arch.galaxyeclipse.server.data.generated.BonusTypes</class>
-		<class>arch.galaxyeclipse.server.data.generated.Engines</class>
-		<class>arch.galaxyeclipse.server.data.generated.InventoriesItems</class>
-		<class>arch.galaxyeclipse.server.data.generated.Items</class>
-		<class>arch.galaxyeclipse.server.data.generated.ItemTypes</class>
-		<class>arch.galaxyeclipse.server.data.generated.LocationDynamicObjects</class>
-		<class>arch.galaxyeclipse.server.data.generated.LocationDynamicObjectTypes</class>
-		<class>arch.galaxyeclipse.server.data.generated.Locations</class>
-		<class>arch.galaxyeclipse.server.data.generated.LocationStaticObjects</class>
-		<class>arch.galaxyeclipse.server.data.generated.LocationStaticObjectTypes</class>
-		<class>arch.galaxyeclipse.server.data.generated.Players</class>
-		<class>arch.galaxyeclipse.server.data.generated.ShipConfigBonusSlots</class>
-		<class>arch.galaxyeclipse.server.data.generated.ShipConfigs</class>
-		<class>arch.galaxyeclipse.server.data.generated.ShipConfigWeaponSlots</class>
-		<class>arch.galaxyeclipse.server.data.generated.ShipStates</class>
-		<class>arch.galaxyeclipse.server.data.generated.ShipTypes</class>
-		<class>arch.galaxyeclipse.server.data.generated.Weapons</class>
-		<class>arch.galaxyeclipse.server.data.generated.WeaponTypes</class>
+		<class>arch.galaxyeclipse.server.data.model.Bonuses</class>
+		<class>arch.galaxyeclipse.server.data.model.BonusTypes</class>
+		<class>arch.galaxyeclipse.server.data.model.Engines</class>
+		<class>arch.galaxyeclipse.server.data.model.InventoriesItems</class>
+		<class>arch.galaxyeclipse.server.data.model.Items</class>
+		<class>arch.galaxyeclipse.server.data.model.ItemTypes</class>
+		<class>arch.galaxyeclipse.server.data.model.LocationDynamicObjects</class>
+		<class>arch.galaxyeclipse.server.data.model.LocationDynamicObjectTypes</class>
+		<class>arch.galaxyeclipse.server.data.model.Locations</class>
+		<class>arch.galaxyeclipse.server.data.model.LocationStaticObjects</class>
+		<class>arch.galaxyeclipse.server.data.model.LocationStaticObjectTypes</class>
+		<class>arch.galaxyeclipse.server.data.model.Players</class>
+		<class>arch.galaxyeclipse.server.data.model.ShipConfigBonusSlots</class>
+		<class>arch.galaxyeclipse.server.data.model.ShipConfigs</class>
+		<class>arch.galaxyeclipse.server.data.model.ShipConfigWeaponSlots</class>
+		<class>arch.galaxyeclipse.server.data.model.ShipStates</class>
+		<class>arch.galaxyeclipse.server.data.model.ShipTypes</class>
+		<class>arch.galaxyeclipse.server.data.model.Weapons</class>
+		<class>arch.galaxyeclipse.server.data.model.WeaponTypes</class>
+
 		
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
