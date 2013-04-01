@@ -11,41 +11,73 @@
 	    <dependency>
 	        <groupId>GalaxyEclipse</groupId>
 	        <artifactId>Shared</artifactId>
-	        <version>0.0.1-SNAPSHOT</version>
 	    </dependency>
 	    
 	    <dependency>
 		    <groupId>log4j</groupId>
 		    <artifactId>log4j</artifactId>
-		</dependency>            
-	    
-		<dependency>
-			<groupId>libgdx</groupId>
-			<artifactId>libgdx</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>libgdx</groupId>
-			<artifactId>libgdx-ui</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>libgdx</groupId>
-			<artifactId>libgdx-openal</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>libgdx</groupId>
-			<artifactId>libgdx-natives</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>libgdx</groupId>
-			<artifactId>libgdx-lwjgl</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>libgdx</groupId>
-			<artifactId>libgdx-lwjgl-natives</artifactId>
-		</dependency>
-		<dependency>
-		    <groupId>libgdx</groupId>
-		    <artifactId>libgdx-texturepacker</artifactId>
-		</dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java</artifactId>
+            <version>2.5.0</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/../lib/protobuf/protobuf-java-2.5.0.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>libgdx</groupId>
+            <artifactId>libgdx</artifactId>
+            <version>0.9.8</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/../lib/libgdx/gdx.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>libgdx</groupId>
+            <artifactId>libgdx-ui</artifactId>
+            <version>0.9.8</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/../lib/libgdx/gdx-setup-ui.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>libgdx</groupId>
+            <artifactId>libgdx-openal</artifactId>
+            <version>0.9.8</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/../lib/libgdx/gdx-openal.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>libgdx</groupId>
+            <artifactId>libgdx-natives</artifactId>
+            <version>0.9.8</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/../lib/libgdx/gdx-natives.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>libgdx</groupId>
+            <artifactId>libgdx-lwjgl</artifactId>
+            <version>0.9.8</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/../lib/libgdx/gdx-backend-lwjgl.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>libgdx</groupId>
+            <artifactId>libgdx-lwjgl-natives</artifactId>
+            <version>0.9.8</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/../lib/libgdx/gdx-backend-lwjgl-natives.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>libgdx</groupId>
+            <artifactId>libgdx-texturepacker</artifactId>
+            <version>3.2.0</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/../lib/libgdx/gdx-texturepacker.jar</systemPath>
+        </dependency>
 	</dependencies>
 </project>

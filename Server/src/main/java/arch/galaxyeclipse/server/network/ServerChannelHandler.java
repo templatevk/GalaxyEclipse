@@ -22,6 +22,7 @@ public class ServerChannelHandler extends AbstractProtobufChannelHandler
 				packetHandler.handle(packet);
 			}
 		});
+
 	}
 	
 	@Override

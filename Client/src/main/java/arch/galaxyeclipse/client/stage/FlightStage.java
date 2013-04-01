@@ -8,7 +8,6 @@ import com.badlogic.gdx.scenes.scene2d.*;
 public class FlightStage extends AbstractGameStage {
 	@Override
 	protected Group getScaleGroup() {
-		// TODO Auto-model method stub
 		return null;
 	}
 }

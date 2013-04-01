@@ -5,9 +5,28 @@
 	xmlns:tx="http://www.springframework.org/schema/tx"
     xmlns:jpa="http://www.springframework.org/schema/data/jpa"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
 		http://www.springframework.org/schema/data/jpa
-        http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
+        http://www.springframework.org/schema/data/jpa/spring-jpa-1.1.xsd">
+
+    <!-- Database -->
+    <tx:annotation-driven/>
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="defaultAutoCommit" value="false"/>
+        <property name="driverClassName" value="${db.driver_class}"/>
+        <property name="url" value="${db.url}"/>
+        <property name="username" value="${db.username}"/>
+        <property name="password" value="${db.password}"/>
+    </bean>
+    <bean id="txManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="emf"/>
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <bean id="emf" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean"/>
+    <jpa:repositories base-package="arch.galaxyeclipse.server.data.repository"
+                      entity-manager-factory-ref="emf" transaction-manager-ref="txManager">
+
+    </jpa:repositories>
 
     <!-- Network -->
     <bean id="pipelineFactory" class="arch.galaxyeclipse.server.network.ServerPipelineChannelFactory"/>
@@ -18,17 +37,4 @@
     <!-- Other -->
     <bean class="arch.galaxyeclipse.server.authentication.StubAllowingAuthenticator"/>
     <bean class="arch.galaxyeclipse.shared.typesdictionary.DictionaryTypesMapper"/>
-
-    <!-- Database -->
-    <tx:annotation-driven/>
-    <tx:advice/>
-    <bean id="dataSource"/>
-    <bean id="txManager" class="org.springframework.orm.jpa.JpaTransactionManager">
-        <property name="entityManagerFactory" ref="emf"/>
-    </bean>
-    <bean id="emf" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean"/>
-    <jpa:repositories base-package="arch.galaxyeclipse.server.data.repo"
-                      entity-manager-factory-ref="emf" transaction-manager-ref="txManager">
-
-    </jpa:repositories>
 </beans>
