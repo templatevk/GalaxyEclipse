@@ -24,7 +24,8 @@ create table ship_states (-- dynamic state of the ship
   ship_state_armor_durability integer not null,
   ship_state_rotation_angle   integer not null,
   player_money                integer not null default 1000,
-  player_id                   integer not null
+  player_id                   integer not null,
+  location_dynamic_object_id  integer not null
 );
 create table ship_types (
   ship_type_id                    integer auto_increment primary key,
@@ -178,7 +179,8 @@ alter table items
 add constraint fk_item_item_type foreign key (item_type_id) references item_types (item_type_id);
 
 alter table ship_states
-add constraint fk_ship_state_player foreign key (player_id) references players (player_id);
+add constraint fk_ship_state_player foreign key (player_id) references players (player_id),
+add constraint fk_ship_state_location_dynamic_object foreign key (location_dynamic_object_id) references location_dynamic_objects (location_dynamic_object_id);
 
 alter table ship_configs
 add constraint fk_ship_config_engine_item foreign key (engine_item_id) references items (item_id),

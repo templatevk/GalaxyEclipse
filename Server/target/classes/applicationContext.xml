@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+		http://www.springframework.org/schema/data/jpa
+        http://www.springframework.org/schema/data/jpa/spring-jpa-1.1.xsd">
+
+    <!-- Database -->
+    <tx:annotation-driven/>
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="defaultAutoCommit" value="false"/>
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost/ge"/>
+        <property name="username" value="root"/>
+        <property name="password" value=""/>
+    </bean>
+    <bean id="txManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="emf"/>
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <bean id="emf" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean"/>
+    <jpa:repositories base-package="arch.galaxyeclipse.server.data.repository"
+                      entity-manager-factory-ref="emf" transaction-manager-ref="txManager">
+
+    </jpa:repositories>
+
+    <!-- Network -->
+    <bean id="pipelineFactory" class="arch.galaxyeclipse.server.network.ServerPipelineChannelFactory"/>
+    <bean class="arch.galaxyeclipse.server.network.ServerNetworkManager">
+        <constructor-arg ref="pipelineFactory"/>
+    </bean>
+
+    <!-- Other -->
+    <bean class="arch.galaxyeclipse.server.authentication.StubAllowingAuthenticator"/>
+    <bean class="arch.galaxyeclipse.shared.typesdictionary.DictionaryTypesMapper"/>
+</beans>
