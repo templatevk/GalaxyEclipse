@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.*;
 /**
  *
  */
-public interface ShipConfigsRepository extends JpaRepository<ShipConfigs, Integer> {
-    ShipConfigs findByPlayerId(int playerId);
+public interface IShipStatesRepository extends JpaRepository<ShipStates, Integer> {
+    ShipStates findByPlayerId(int playerId);
 }

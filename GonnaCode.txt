@@ -1,0 +1,4 @@
+1) IoC, DI, IoC Container - http://habrahabr.ru/post/131993/
+2) Spring IoC Container - http://www.rsdn.ru/article/java/spring.xml
+3) Apache Maven - http://habrahabr.ru/post/77382/
+4) JUnit - http://habrahabr.ru/post/120101/

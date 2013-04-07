@@ -5,7 +5,7 @@ import arch.galaxyeclipse.shared.inject.*;
 import org.junit.*;
 import org.springframework.data.jpa.repository.*;
 
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 /**
  *

@@ -9,16 +9,16 @@ import org.apache.commons.codec.digest.*;
  *
  */
 class ClientAuthenticator implements IClientAuthenticator {
-    private PlayersRepository playersRepository;
+    private IPlayersRepository IPlayersRepository;
 
     public ClientAuthenticator() {
-        playersRepository = SpringContextHolder.CONTEXT.getBean(PlayersRepository.class);
+        IPlayersRepository = SpringContextHolder.CONTEXT.getBean(IPlayersRepository.class);
     }
 
     @Override
     public AuthenticationResult authenticate(String username, String password) {
         // Query the player by the username and password
-        Players player = playersRepository.findByUsernameAndPassword(
+        Players player = IPlayersRepository.findByUsernameAndPassword(
                 username, DigestUtils.md5Hex(password));
 
         if (player != null && player.isActivated() && !player.isBanned()) {

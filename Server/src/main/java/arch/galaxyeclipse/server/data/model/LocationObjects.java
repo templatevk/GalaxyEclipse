@@ -5,31 +5,43 @@ import javax.persistence.*;
 /**
  *
  */
-@Table(name = "location_dynamic_objects", schema = "", catalog = "ge")
+@Table(name = "location_objects", schema = "", catalog = "ge")
 @Entity
-public class LocationDynamicObjects {
-    private int locationDynamicObjectId;
+public class LocationObjects {
+    private int locationObjectId;
 
-    @Column(name = "location_dynamic_object_id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
+    @Column(name = "location_object_id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     @Id
-    public int getLocationDynamicObjectId() {
-        return locationDynamicObjectId;
+    public int getLocationObjectId() {
+        return locationObjectId;
     }
 
-    public void setLocationDynamicObjectId(int locationDynamicObjectId) {
-        this.locationDynamicObjectId = locationDynamicObjectId;
+    public void setLocationObjectId(int locationObjectId) {
+        this.locationObjectId = locationObjectId;
     }
 
-    private int locationDynamicObjectTypeId;
+    private int locationObjectBehaviorTypeId;
 
-    @Column(name = "location_dynamic_object_type_id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
+    @Column(name = "location_object_behavior_type_id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     @Basic
-    public int getLocationDynamicObjectTypeId() {
-        return locationDynamicObjectTypeId;
+    public int getLocationObjectBehaviorTypeId() {
+        return locationObjectBehaviorTypeId;
     }
 
-    public void setLocationDynamicObjectTypeId(int locationDynamicObjectTypeId) {
-        this.locationDynamicObjectTypeId = locationDynamicObjectTypeId;
+    public void setLocationObjectBehaviorTypeId(int locationObjectBehaviorTypeId) {
+        this.locationObjectBehaviorTypeId = locationObjectBehaviorTypeId;
+    }
+
+    private int locationObjectTypeId;
+
+    @Column(name = "location_object_type_id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
+    @Basic
+    public int getLocationObjectTypeId() {
+        return locationObjectTypeId;
+    }
+
+    public void setLocationObjectTypeId(int locationObjectTypeId) {
+        this.locationObjectTypeId = locationObjectTypeId;
     }
 
     private int objectNativeId;
@@ -85,11 +97,12 @@ public class LocationDynamicObjects {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        LocationDynamicObjects that = (LocationDynamicObjects) o;
+        LocationObjects that = (LocationObjects) o;
 
-        if (locationDynamicObjectId != that.locationDynamicObjectId) return false;
-        if (locationDynamicObjectTypeId != that.locationDynamicObjectTypeId) return false;
         if (locationId != that.locationId) return false;
+        if (locationObjectBehaviorTypeId != that.locationObjectBehaviorTypeId) return false;
+        if (locationObjectId != that.locationObjectId) return false;
+        if (locationObjectTypeId != that.locationObjectTypeId) return false;
         if (objectNativeId != that.objectNativeId) return false;
         if (positionX != that.positionX) return false;
         if (positionY != that.positionY) return false;
@@ -99,8 +112,9 @@ public class LocationDynamicObjects {
 
     @Override
     public int hashCode() {
-        int result = locationDynamicObjectId;
-        result = 31 * result + locationDynamicObjectTypeId;
+        int result = locationObjectId;
+        result = 31 * result + locationObjectBehaviorTypeId;
+        result = 31 * result + locationObjectTypeId;
         result = 31 * result + objectNativeId;
         result = 31 * result + locationId;
         result = 31 * result + positionX;

@@ -10424,77 +10424,77 @@ public final class GalaxyEclipseProtocol {
   public interface TypesMapResponseOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemType itemTypes = 1;
+    // repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemTypesMapperType itemTypes = 1;
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemType itemTypes = 1;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemTypesMapperType itemTypes = 1;</code>
      */
     java.util.List<arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.ItemType> 
         getItemTypesList();
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemType itemTypes = 1;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemTypesMapperType itemTypes = 1;</code>
      */
     arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.ItemType getItemTypes(int index);
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemType itemTypes = 1;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemTypesMapperType itemTypes = 1;</code>
      */
     int getItemTypesCount();
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemType itemTypes = 1;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemTypesMapperType itemTypes = 1;</code>
      */
     java.util.List<? extends arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.ItemTypeOrBuilder> 
         getItemTypesOrBuilderList();
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemType itemTypes = 1;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemTypesMapperType itemTypes = 1;</code>
      */
     arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.ItemTypeOrBuilder getItemTypesOrBuilder(
         int index);
 
-    // repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusType bonusTypes = 2;
+    // repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusTypesMapperType bonusTypes = 2;
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusType bonusTypes = 2;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusTypesMapperType bonusTypes = 2;</code>
      */
     java.util.List<arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.BonusType> 
         getBonusTypesList();
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusType bonusTypes = 2;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusTypesMapperType bonusTypes = 2;</code>
      */
     arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.BonusType getBonusTypes(int index);
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusType bonusTypes = 2;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusTypesMapperType bonusTypes = 2;</code>
      */
     int getBonusTypesCount();
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusType bonusTypes = 2;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusTypesMapperType bonusTypes = 2;</code>
      */
     java.util.List<? extends arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.BonusTypeOrBuilder> 
         getBonusTypesOrBuilderList();
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusType bonusTypes = 2;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusTypesMapperType bonusTypes = 2;</code>
      */
     arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.BonusTypeOrBuilder getBonusTypesOrBuilder(
         int index);
 
-    // repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponType weaponTypes = 3;
+    // repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponTypesMapperType weaponTypes = 3;
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponType weaponTypes = 3;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponTypesMapperType weaponTypes = 3;</code>
      */
     java.util.List<arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.WeaponType> 
         getWeaponTypesList();
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponType weaponTypes = 3;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponTypesMapperType weaponTypes = 3;</code>
      */
     arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.WeaponType getWeaponTypes(int index);
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponType weaponTypes = 3;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponTypesMapperType weaponTypes = 3;</code>
      */
     int getWeaponTypesCount();
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponType weaponTypes = 3;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponTypesMapperType weaponTypes = 3;</code>
      */
     java.util.List<? extends arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.WeaponTypeOrBuilder> 
         getWeaponTypesOrBuilderList();
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponType weaponTypes = 3;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponTypesMapperType weaponTypes = 3;</code>
      */
     arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.WeaponTypeOrBuilder getWeaponTypesOrBuilder(
         int index);
@@ -10687,12 +10687,12 @@ public final class GalaxyEclipseProtocol {
           getNameBytes();
     }
     /**
-     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemType}
+     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemTypesMapperType}
      */
     public static final class ItemType extends
         com.google.protobuf.GeneratedMessage
         implements ItemTypeOrBuilder {
-      // Use ItemType.newBuilder() to construct.
+      // Use ItemTypesMapperType.newBuilder() to construct.
       private ItemType(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
         super(builder);
         this.unknownFields = builder.getUnknownFields();
@@ -10972,7 +10972,7 @@ public final class GalaxyEclipseProtocol {
         return builder;
       }
       /**
-       * Protobuf type {@code arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemType}
+       * Protobuf type {@code arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemTypesMapperType}
        */
       public static final class Builder extends
           com.google.protobuf.GeneratedMessage.Builder<Builder>
@@ -10989,7 +10989,7 @@ public final class GalaxyEclipseProtocol {
                   arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.ItemType.class, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.ItemType.Builder.class);
         }
 
-        // Construct using arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.ItemType.newBuilder()
+        // Construct using arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.ItemTypesMapperType.newBuilder()
         private Builder() {
           maybeForceBuilderInitialization();
         }
@@ -11215,7 +11215,7 @@ public final class GalaxyEclipseProtocol {
           return this;
         }
 
-        // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemType)
+        // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemTypesMapperType)
       }
 
       static {
@@ -11223,7 +11223,7 @@ public final class GalaxyEclipseProtocol {
         defaultInstance.initFields();
       }
 
-      // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemType)
+      // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemTypesMapperType)
     }
 
     public interface BonusTypeOrBuilder
@@ -11255,12 +11255,12 @@ public final class GalaxyEclipseProtocol {
           getNameBytes();
     }
     /**
-     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusType}
+     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusTypesMapperType}
      */
     public static final class BonusType extends
         com.google.protobuf.GeneratedMessage
         implements BonusTypeOrBuilder {
-      // Use BonusType.newBuilder() to construct.
+      // Use BonusTypesMapperType.newBuilder() to construct.
       private BonusType(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
         super(builder);
         this.unknownFields = builder.getUnknownFields();
@@ -11540,7 +11540,7 @@ public final class GalaxyEclipseProtocol {
         return builder;
       }
       /**
-       * Protobuf type {@code arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusType}
+       * Protobuf type {@code arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusTypesMapperType}
        */
       public static final class Builder extends
           com.google.protobuf.GeneratedMessage.Builder<Builder>
@@ -11557,7 +11557,7 @@ public final class GalaxyEclipseProtocol {
                   arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.BonusType.class, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.BonusType.Builder.class);
         }
 
-        // Construct using arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.BonusType.newBuilder()
+        // Construct using arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.BonusTypesMapperType.newBuilder()
         private Builder() {
           maybeForceBuilderInitialization();
         }
@@ -11783,7 +11783,7 @@ public final class GalaxyEclipseProtocol {
           return this;
         }
 
-        // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusType)
+        // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusTypesMapperType)
       }
 
       static {
@@ -11791,7 +11791,7 @@ public final class GalaxyEclipseProtocol {
         defaultInstance.initFields();
       }
 
-      // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusType)
+      // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusTypesMapperType)
     }
 
     public interface WeaponTypeOrBuilder
@@ -11823,12 +11823,12 @@ public final class GalaxyEclipseProtocol {
           getNameBytes();
     }
     /**
-     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponType}
+     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponTypesMapperType}
      */
     public static final class WeaponType extends
         com.google.protobuf.GeneratedMessage
         implements WeaponTypeOrBuilder {
-      // Use WeaponType.newBuilder() to construct.
+      // Use WeaponTypesMapperType.newBuilder() to construct.
       private WeaponType(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
         super(builder);
         this.unknownFields = builder.getUnknownFields();
@@ -12108,7 +12108,7 @@ public final class GalaxyEclipseProtocol {
         return builder;
       }
       /**
-       * Protobuf type {@code arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponType}
+       * Protobuf type {@code arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponTypesMapperType}
        */
       public static final class Builder extends
           com.google.protobuf.GeneratedMessage.Builder<Builder>
@@ -12125,7 +12125,7 @@ public final class GalaxyEclipseProtocol {
                   arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.WeaponType.class, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.WeaponType.Builder.class);
         }
 
-        // Construct using arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.WeaponType.newBuilder()
+        // Construct using arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.WeaponTypesMapperType.newBuilder()
         private Builder() {
           maybeForceBuilderInitialization();
         }
@@ -12351,7 +12351,7 @@ public final class GalaxyEclipseProtocol {
           return this;
         }
 
-        // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponType)
+        // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponTypesMapperType)
       }
 
       static {
@@ -12359,7 +12359,7 @@ public final class GalaxyEclipseProtocol {
         defaultInstance.initFields();
       }
 
-      // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponType)
+      // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponTypesMapperType)
     }
 
     public interface LocationStaticObjectTypeOrBuilder
@@ -13498,108 +13498,108 @@ public final class GalaxyEclipseProtocol {
       // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.TypesMapResponse.LocationDynamicObjectType)
     }
 
-    // repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemType itemTypes = 1;
+    // repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemTypesMapperType itemTypes = 1;
     public static final int ITEMTYPES_FIELD_NUMBER = 1;
     private java.util.List<arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.ItemType> itemTypes_;
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemType itemTypes = 1;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemTypesMapperType itemTypes = 1;</code>
      */
     public java.util.List<arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.ItemType> getItemTypesList() {
       return itemTypes_;
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemType itemTypes = 1;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemTypesMapperType itemTypes = 1;</code>
      */
     public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.ItemTypeOrBuilder> 
         getItemTypesOrBuilderList() {
       return itemTypes_;
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemType itemTypes = 1;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemTypesMapperType itemTypes = 1;</code>
      */
     public int getItemTypesCount() {
       return itemTypes_.size();
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemType itemTypes = 1;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemTypesMapperType itemTypes = 1;</code>
      */
     public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.ItemType getItemTypes(int index) {
       return itemTypes_.get(index);
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemType itemTypes = 1;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemTypesMapperType itemTypes = 1;</code>
      */
     public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.ItemTypeOrBuilder getItemTypesOrBuilder(
         int index) {
       return itemTypes_.get(index);
     }
 
-    // repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusType bonusTypes = 2;
+    // repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusTypesMapperType bonusTypes = 2;
     public static final int BONUSTYPES_FIELD_NUMBER = 2;
     private java.util.List<arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.BonusType> bonusTypes_;
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusType bonusTypes = 2;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusTypesMapperType bonusTypes = 2;</code>
      */
     public java.util.List<arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.BonusType> getBonusTypesList() {
       return bonusTypes_;
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusType bonusTypes = 2;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusTypesMapperType bonusTypes = 2;</code>
      */
     public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.BonusTypeOrBuilder> 
         getBonusTypesOrBuilderList() {
       return bonusTypes_;
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusType bonusTypes = 2;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusTypesMapperType bonusTypes = 2;</code>
      */
     public int getBonusTypesCount() {
       return bonusTypes_.size();
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusType bonusTypes = 2;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusTypesMapperType bonusTypes = 2;</code>
      */
     public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.BonusType getBonusTypes(int index) {
       return bonusTypes_.get(index);
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusType bonusTypes = 2;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusTypesMapperType bonusTypes = 2;</code>
      */
     public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.BonusTypeOrBuilder getBonusTypesOrBuilder(
         int index) {
       return bonusTypes_.get(index);
     }
 
-    // repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponType weaponTypes = 3;
+    // repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponTypesMapperType weaponTypes = 3;
     public static final int WEAPONTYPES_FIELD_NUMBER = 3;
     private java.util.List<arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.WeaponType> weaponTypes_;
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponType weaponTypes = 3;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponTypesMapperType weaponTypes = 3;</code>
      */
     public java.util.List<arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.WeaponType> getWeaponTypesList() {
       return weaponTypes_;
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponType weaponTypes = 3;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponTypesMapperType weaponTypes = 3;</code>
      */
     public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.WeaponTypeOrBuilder> 
         getWeaponTypesOrBuilderList() {
       return weaponTypes_;
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponType weaponTypes = 3;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponTypesMapperType weaponTypes = 3;</code>
      */
     public int getWeaponTypesCount() {
       return weaponTypes_.size();
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponType weaponTypes = 3;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponTypesMapperType weaponTypes = 3;</code>
      */
     public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.WeaponType getWeaponTypes(int index) {
       return weaponTypes_.get(index);
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponType weaponTypes = 3;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponTypesMapperType weaponTypes = 3;</code>
      */
     public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.WeaponTypeOrBuilder getWeaponTypesOrBuilder(
         int index) {
@@ -14098,7 +14098,7 @@ public final class GalaxyEclipseProtocol {
       }
       private int bitField0_;
 
-      // repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemType itemTypes = 1;
+      // repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemTypesMapperType itemTypes = 1;
       private java.util.List<arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.ItemType> itemTypes_ =
         java.util.Collections.emptyList();
       private void ensureItemTypesIsMutable() {
@@ -14112,7 +14112,7 @@ public final class GalaxyEclipseProtocol {
           arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.ItemType, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.ItemType.Builder, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.ItemTypeOrBuilder> itemTypesBuilder_;
 
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemType itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemTypesMapperType itemTypes = 1;</code>
        */
       public java.util.List<arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.ItemType> getItemTypesList() {
         if (itemTypesBuilder_ == null) {
@@ -14122,7 +14122,7 @@ public final class GalaxyEclipseProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemType itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemTypesMapperType itemTypes = 1;</code>
        */
       public int getItemTypesCount() {
         if (itemTypesBuilder_ == null) {
@@ -14132,7 +14132,7 @@ public final class GalaxyEclipseProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemType itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemTypesMapperType itemTypes = 1;</code>
        */
       public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.ItemType getItemTypes(int index) {
         if (itemTypesBuilder_ == null) {
@@ -14142,7 +14142,7 @@ public final class GalaxyEclipseProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemType itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemTypesMapperType itemTypes = 1;</code>
        */
       public Builder setItemTypes(
           int index, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.ItemType value) {
@@ -14159,7 +14159,7 @@ public final class GalaxyEclipseProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemType itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemTypesMapperType itemTypes = 1;</code>
        */
       public Builder setItemTypes(
           int index, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.ItemType.Builder builderForValue) {
@@ -14173,7 +14173,7 @@ public final class GalaxyEclipseProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemType itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemTypesMapperType itemTypes = 1;</code>
        */
       public Builder addItemTypes(arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.ItemType value) {
         if (itemTypesBuilder_ == null) {
@@ -14189,7 +14189,7 @@ public final class GalaxyEclipseProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemType itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemTypesMapperType itemTypes = 1;</code>
        */
       public Builder addItemTypes(
           int index, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.ItemType value) {
@@ -14206,7 +14206,7 @@ public final class GalaxyEclipseProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemType itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemTypesMapperType itemTypes = 1;</code>
        */
       public Builder addItemTypes(
           arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.ItemType.Builder builderForValue) {
@@ -14220,7 +14220,7 @@ public final class GalaxyEclipseProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemType itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemTypesMapperType itemTypes = 1;</code>
        */
       public Builder addItemTypes(
           int index, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.ItemType.Builder builderForValue) {
@@ -14234,7 +14234,7 @@ public final class GalaxyEclipseProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemType itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemTypesMapperType itemTypes = 1;</code>
        */
       public Builder addAllItemTypes(
           java.lang.Iterable<? extends arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.ItemType> values) {
@@ -14248,7 +14248,7 @@ public final class GalaxyEclipseProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemType itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemTypesMapperType itemTypes = 1;</code>
        */
       public Builder clearItemTypes() {
         if (itemTypesBuilder_ == null) {
@@ -14261,7 +14261,7 @@ public final class GalaxyEclipseProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemType itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemTypesMapperType itemTypes = 1;</code>
        */
       public Builder removeItemTypes(int index) {
         if (itemTypesBuilder_ == null) {
@@ -14274,14 +14274,14 @@ public final class GalaxyEclipseProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemType itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemTypesMapperType itemTypes = 1;</code>
        */
       public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.ItemType.Builder getItemTypesBuilder(
           int index) {
         return getItemTypesFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemType itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemTypesMapperType itemTypes = 1;</code>
        */
       public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.ItemTypeOrBuilder getItemTypesOrBuilder(
           int index) {
@@ -14291,7 +14291,7 @@ public final class GalaxyEclipseProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemType itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemTypesMapperType itemTypes = 1;</code>
        */
       public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.ItemTypeOrBuilder> 
            getItemTypesOrBuilderList() {
@@ -14302,14 +14302,14 @@ public final class GalaxyEclipseProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemType itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemTypesMapperType itemTypes = 1;</code>
        */
       public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.ItemType.Builder addItemTypesBuilder() {
         return getItemTypesFieldBuilder().addBuilder(
             arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.ItemType.getDefaultInstance());
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemType itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemTypesMapperType itemTypes = 1;</code>
        */
       public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.ItemType.Builder addItemTypesBuilder(
           int index) {
@@ -14317,7 +14317,7 @@ public final class GalaxyEclipseProtocol {
             index, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.ItemType.getDefaultInstance());
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemType itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.ItemTypesMapperType itemTypes = 1;</code>
        */
       public java.util.List<arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.ItemType.Builder> 
            getItemTypesBuilderList() {
@@ -14338,7 +14338,7 @@ public final class GalaxyEclipseProtocol {
         return itemTypesBuilder_;
       }
 
-      // repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusType bonusTypes = 2;
+      // repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusTypesMapperType bonusTypes = 2;
       private java.util.List<arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.BonusType> bonusTypes_ =
         java.util.Collections.emptyList();
       private void ensureBonusTypesIsMutable() {
@@ -14352,7 +14352,7 @@ public final class GalaxyEclipseProtocol {
           arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.BonusType, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.BonusType.Builder, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.BonusTypeOrBuilder> bonusTypesBuilder_;
 
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusType bonusTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusTypesMapperType bonusTypes = 2;</code>
        */
       public java.util.List<arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.BonusType> getBonusTypesList() {
         if (bonusTypesBuilder_ == null) {
@@ -14362,7 +14362,7 @@ public final class GalaxyEclipseProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusType bonusTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusTypesMapperType bonusTypes = 2;</code>
        */
       public int getBonusTypesCount() {
         if (bonusTypesBuilder_ == null) {
@@ -14372,7 +14372,7 @@ public final class GalaxyEclipseProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusType bonusTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusTypesMapperType bonusTypes = 2;</code>
        */
       public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.BonusType getBonusTypes(int index) {
         if (bonusTypesBuilder_ == null) {
@@ -14382,7 +14382,7 @@ public final class GalaxyEclipseProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusType bonusTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusTypesMapperType bonusTypes = 2;</code>
        */
       public Builder setBonusTypes(
           int index, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.BonusType value) {
@@ -14399,7 +14399,7 @@ public final class GalaxyEclipseProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusType bonusTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusTypesMapperType bonusTypes = 2;</code>
        */
       public Builder setBonusTypes(
           int index, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.BonusType.Builder builderForValue) {
@@ -14413,7 +14413,7 @@ public final class GalaxyEclipseProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusType bonusTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusTypesMapperType bonusTypes = 2;</code>
        */
       public Builder addBonusTypes(arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.BonusType value) {
         if (bonusTypesBuilder_ == null) {
@@ -14429,7 +14429,7 @@ public final class GalaxyEclipseProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusType bonusTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusTypesMapperType bonusTypes = 2;</code>
        */
       public Builder addBonusTypes(
           int index, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.BonusType value) {
@@ -14446,7 +14446,7 @@ public final class GalaxyEclipseProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusType bonusTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusTypesMapperType bonusTypes = 2;</code>
        */
       public Builder addBonusTypes(
           arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.BonusType.Builder builderForValue) {
@@ -14460,7 +14460,7 @@ public final class GalaxyEclipseProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusType bonusTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusTypesMapperType bonusTypes = 2;</code>
        */
       public Builder addBonusTypes(
           int index, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.BonusType.Builder builderForValue) {
@@ -14474,7 +14474,7 @@ public final class GalaxyEclipseProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusType bonusTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusTypesMapperType bonusTypes = 2;</code>
        */
       public Builder addAllBonusTypes(
           java.lang.Iterable<? extends arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.BonusType> values) {
@@ -14488,7 +14488,7 @@ public final class GalaxyEclipseProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusType bonusTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusTypesMapperType bonusTypes = 2;</code>
        */
       public Builder clearBonusTypes() {
         if (bonusTypesBuilder_ == null) {
@@ -14501,7 +14501,7 @@ public final class GalaxyEclipseProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusType bonusTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusTypesMapperType bonusTypes = 2;</code>
        */
       public Builder removeBonusTypes(int index) {
         if (bonusTypesBuilder_ == null) {
@@ -14514,14 +14514,14 @@ public final class GalaxyEclipseProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusType bonusTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusTypesMapperType bonusTypes = 2;</code>
        */
       public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.BonusType.Builder getBonusTypesBuilder(
           int index) {
         return getBonusTypesFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusType bonusTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusTypesMapperType bonusTypes = 2;</code>
        */
       public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.BonusTypeOrBuilder getBonusTypesOrBuilder(
           int index) {
@@ -14531,7 +14531,7 @@ public final class GalaxyEclipseProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusType bonusTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusTypesMapperType bonusTypes = 2;</code>
        */
       public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.BonusTypeOrBuilder> 
            getBonusTypesOrBuilderList() {
@@ -14542,14 +14542,14 @@ public final class GalaxyEclipseProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusType bonusTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusTypesMapperType bonusTypes = 2;</code>
        */
       public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.BonusType.Builder addBonusTypesBuilder() {
         return getBonusTypesFieldBuilder().addBuilder(
             arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.BonusType.getDefaultInstance());
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusType bonusTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusTypesMapperType bonusTypes = 2;</code>
        */
       public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.BonusType.Builder addBonusTypesBuilder(
           int index) {
@@ -14557,7 +14557,7 @@ public final class GalaxyEclipseProtocol {
             index, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.BonusType.getDefaultInstance());
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusType bonusTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.BonusTypesMapperType bonusTypes = 2;</code>
        */
       public java.util.List<arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.BonusType.Builder> 
            getBonusTypesBuilderList() {
@@ -14578,7 +14578,7 @@ public final class GalaxyEclipseProtocol {
         return bonusTypesBuilder_;
       }
 
-      // repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponType weaponTypes = 3;
+      // repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponTypesMapperType weaponTypes = 3;
       private java.util.List<arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.WeaponType> weaponTypes_ =
         java.util.Collections.emptyList();
       private void ensureWeaponTypesIsMutable() {
@@ -14592,7 +14592,7 @@ public final class GalaxyEclipseProtocol {
           arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.WeaponType, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.WeaponType.Builder, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.WeaponTypeOrBuilder> weaponTypesBuilder_;
 
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponType weaponTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponTypesMapperType weaponTypes = 3;</code>
        */
       public java.util.List<arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.WeaponType> getWeaponTypesList() {
         if (weaponTypesBuilder_ == null) {
@@ -14602,7 +14602,7 @@ public final class GalaxyEclipseProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponType weaponTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponTypesMapperType weaponTypes = 3;</code>
        */
       public int getWeaponTypesCount() {
         if (weaponTypesBuilder_ == null) {
@@ -14612,7 +14612,7 @@ public final class GalaxyEclipseProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponType weaponTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponTypesMapperType weaponTypes = 3;</code>
        */
       public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.WeaponType getWeaponTypes(int index) {
         if (weaponTypesBuilder_ == null) {
@@ -14622,7 +14622,7 @@ public final class GalaxyEclipseProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponType weaponTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponTypesMapperType weaponTypes = 3;</code>
        */
       public Builder setWeaponTypes(
           int index, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.WeaponType value) {
@@ -14639,7 +14639,7 @@ public final class GalaxyEclipseProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponType weaponTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponTypesMapperType weaponTypes = 3;</code>
        */
       public Builder setWeaponTypes(
           int index, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.WeaponType.Builder builderForValue) {
@@ -14653,7 +14653,7 @@ public final class GalaxyEclipseProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponType weaponTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponTypesMapperType weaponTypes = 3;</code>
        */
       public Builder addWeaponTypes(arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.WeaponType value) {
         if (weaponTypesBuilder_ == null) {
@@ -14669,7 +14669,7 @@ public final class GalaxyEclipseProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponType weaponTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponTypesMapperType weaponTypes = 3;</code>
        */
       public Builder addWeaponTypes(
           int index, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.WeaponType value) {
@@ -14686,7 +14686,7 @@ public final class GalaxyEclipseProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponType weaponTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponTypesMapperType weaponTypes = 3;</code>
        */
       public Builder addWeaponTypes(
           arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.WeaponType.Builder builderForValue) {
@@ -14700,7 +14700,7 @@ public final class GalaxyEclipseProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponType weaponTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponTypesMapperType weaponTypes = 3;</code>
        */
       public Builder addWeaponTypes(
           int index, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.WeaponType.Builder builderForValue) {
@@ -14714,7 +14714,7 @@ public final class GalaxyEclipseProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponType weaponTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponTypesMapperType weaponTypes = 3;</code>
        */
       public Builder addAllWeaponTypes(
           java.lang.Iterable<? extends arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.WeaponType> values) {
@@ -14728,7 +14728,7 @@ public final class GalaxyEclipseProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponType weaponTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponTypesMapperType weaponTypes = 3;</code>
        */
       public Builder clearWeaponTypes() {
         if (weaponTypesBuilder_ == null) {
@@ -14741,7 +14741,7 @@ public final class GalaxyEclipseProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponType weaponTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponTypesMapperType weaponTypes = 3;</code>
        */
       public Builder removeWeaponTypes(int index) {
         if (weaponTypesBuilder_ == null) {
@@ -14754,14 +14754,14 @@ public final class GalaxyEclipseProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponType weaponTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponTypesMapperType weaponTypes = 3;</code>
        */
       public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.WeaponType.Builder getWeaponTypesBuilder(
           int index) {
         return getWeaponTypesFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponType weaponTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponTypesMapperType weaponTypes = 3;</code>
        */
       public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.WeaponTypeOrBuilder getWeaponTypesOrBuilder(
           int index) {
@@ -14771,7 +14771,7 @@ public final class GalaxyEclipseProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponType weaponTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponTypesMapperType weaponTypes = 3;</code>
        */
       public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.WeaponTypeOrBuilder> 
            getWeaponTypesOrBuilderList() {
@@ -14782,14 +14782,14 @@ public final class GalaxyEclipseProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponType weaponTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponTypesMapperType weaponTypes = 3;</code>
        */
       public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.WeaponType.Builder addWeaponTypesBuilder() {
         return getWeaponTypesFieldBuilder().addBuilder(
             arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.WeaponType.getDefaultInstance());
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponType weaponTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponTypesMapperType weaponTypes = 3;</code>
        */
       public arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.WeaponType.Builder addWeaponTypesBuilder(
           int index) {
@@ -14797,7 +14797,7 @@ public final class GalaxyEclipseProtocol {
             index, arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.WeaponType.getDefaultInstance());
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponType weaponTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapResponse.WeaponTypesMapperType weaponTypes = 3;</code>
        */
       public java.util.List<arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.TypesMapResponse.WeaponType.Builder> 
            getWeaponTypesBuilderList() {
@@ -17996,17 +17996,17 @@ public final class GalaxyEclipseProtocol {
       "\002(\t\022\r\n\005price\030\004 \002(\005\022\021\n\timagePath\030\005 \002(\t\022\022\n" +
       "\nitemTypeId\030\006 \002(\005\"\342\004\n\020TypesMapResponse\022P" +
       "\n\titemTypes\030\001 \003(\0132=.arch.galaxyeclipse.s" +
-      "hared.protocol.TypesMapResponse.ItemType" +
+      "hared.protocol.TypesMapResponse.ItemTypesMapperType" +
       "\022R\n\nbonusTypes\030\002 \003(\0132>.arch.galaxyeclips",
       "e.shared.protocol.TypesMapResponse.Bonus" +
       "Type\022T\n\013weaponTypes\030\003 \003(\0132?.arch.galaxye" +
       "clipse.shared.protocol.TypesMapResponse." +
-      "WeaponType\022p\n\031locationStaticObjectTypes\030" +
+      "WeaponTypesMapperType\022p\n\031locationStaticObjectTypes\030" +
       "\004 \003(\0132M.arch.galaxyeclipse.shared.protoc" +
       "ol.TypesMapResponse.LocationStaticObject" +
       "Type\032$\n\010ItemType\022\n\n\002id\030\001 \002(\005\022\014\n\004name\030\002 \002" +
-      "(\t\032%\n\tBonusType\022\n\n\002id\030\001 \002(\005\022\014\n\004name\030\002 \002(" +
-      "\t\032&\n\nWeaponType\022\n\n\002id\030\001 \002(\005\022\014\n\004name\030\002 \002(" +
+      "(\t\032%\n\tBonusTypesMapperType\022\n\n\002id\030\001 \002(\005\022\014\n\004name\030\002 \002(" +
+      "\t\032&\n\nWeaponTypesMapperType\022\n\n\002id\030\001 \002(\005\022\014\n\004name\030\002 \002(" +
       "\t\0324\n\030LocationStaticObjectType\022\n\n\002id\030\001 \002(",
       "\005\022\014\n\004name\030\002 \002(\t\0325\n\031LocationDynamicObject" +
       "Type\022\n\n\002id\030\001 \002(\005\022\014\n\004name\030\002 \002(\t\"\037\n\035Locati" +

@@ -5,19 +5,19 @@ import javax.persistence.*;
 /**
  *
  */
-@Table(name = "location_static_object_types", schema = "", catalog = "ge")
+@Table(name = "location_object_types", schema = "", catalog = "ge")
 @Entity
-public class LocationStaticObjectTypes {
-    private int locationStaticObjectTypeId;
+public class LocationObjectTypes {
+    private int locationObjectTypeId;
 
-    @Column(name = "location_static_object_type_id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
+    @Column(name = "location_object_type_id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     @Id
-    public int getLocationStaticObjectTypeId() {
-        return locationStaticObjectTypeId;
+    public int getLocationObjectTypeId() {
+        return locationObjectTypeId;
     }
 
-    public void setLocationStaticObjectTypeId(int locationStaticObjectTypeId) {
-        this.locationStaticObjectTypeId = locationStaticObjectTypeId;
+    public void setLocationObjectTypeId(int locationObjectTypeId) {
+        this.locationObjectTypeId = locationObjectTypeId;
     }
 
     private String objectTypeName;
@@ -37,9 +37,9 @@ public class LocationStaticObjectTypes {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        LocationStaticObjectTypes that = (LocationStaticObjectTypes) o;
+        LocationObjectTypes that = (LocationObjectTypes) o;
 
-        if (locationStaticObjectTypeId != that.locationStaticObjectTypeId) return false;
+        if (locationObjectTypeId != that.locationObjectTypeId) return false;
         if (objectTypeName != null ? !objectTypeName.equals(that.objectTypeName) : that.objectTypeName != null)
             return false;
 
@@ -48,7 +48,7 @@ public class LocationStaticObjectTypes {
 
     @Override
     public int hashCode() {
-        int result = locationStaticObjectTypeId;
+        int result = locationObjectTypeId;
         result = 31 * result + (objectTypeName != null ? objectTypeName.hashCode() : 0);
         return result;
     }

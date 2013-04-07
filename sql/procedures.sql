@@ -19,7 +19,7 @@ create procedure activate_player(username varchar(32))
      location_id, position_x, position_y)
       values
       (get_location_object_behavior_type_id_by_name('static'),
-       get_location_object_type_id_by_name('player_offline'),
+       get_location_object_type_id_by_name('player_flight'),
        ship_type_id, get_location_id_by_name(get_default_location_name()),
        get_default_position_x(), get_default_position_y());
 

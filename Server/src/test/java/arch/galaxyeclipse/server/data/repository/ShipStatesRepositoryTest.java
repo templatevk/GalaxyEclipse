@@ -7,14 +7,14 @@ import static junit.framework.Assert.*;
 /**
  *
  */
-public class ShipConfigsRepositoryTest extends AbstractRepositoryTest {
-    public ShipConfigsRepositoryTest() {
-        super(IShipConfigsRepository.class);
+public class ShipStatesRepositoryTest extends AbstractRepositoryTest {
+    public ShipStatesRepositoryTest() {
+        super(IShipStatesRepository.class);
     }
 
     @Test
     public void testFindByPlayerId() {
-        IShipConfigsRepository repository = (IShipConfigsRepository)getRepository();
+        IShipStatesRepository repository = (IShipStatesRepository)getRepository();
 
         assertNotNull(repository.findByPlayerId(1));
     }

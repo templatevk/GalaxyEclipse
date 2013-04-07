@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.*;
 /**
  *
  */
-public interface PlayersRepository extends JpaRepository<Players, Integer> {
-    Players findByUsernameAndPassword(String username, String password);
+public interface IShipConfigsRepository extends JpaRepository<ShipConfigs, Integer> {
+    ShipConfigs findByPlayerId(int playerId);
 }

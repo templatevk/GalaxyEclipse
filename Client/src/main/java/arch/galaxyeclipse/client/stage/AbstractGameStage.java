@@ -1,11 +1,9 @@
 package arch.galaxyeclipse.client.stage;
 
-import org.apache.log4j.*;
-
 import arch.galaxyeclipse.client.window.*;
 import arch.galaxyeclipse.shared.inject.*;
-
 import com.badlogic.gdx.scenes.scene2d.*;
+import org.apache.log4j.*;
 
 /**
  * Base class for all game stages. Performs scaling, resizing and aspect ration matching.
@@ -13,6 +11,7 @@ import com.badlogic.gdx.scenes.scene2d.*;
  */
 public abstract class AbstractGameStage extends Stage {
     public enum StageType {
+        LOADING,
         MAIN_MENU,
         FLIGHT,
         STATION;
@@ -30,12 +29,14 @@ public abstract class AbstractGameStage extends Stage {
 
     public static AbstractGameStage getStage(StageType stageType) {
         switch (stageType) {
+            case LOADING:
+                return new LoadingStage();
             case MAIN_MENU:
                 return new MainMenuStage();
             case FLIGHT:
-                break;
+                return new FlightStage();
             case STATION:
-                break;
+                return new StationStage();
         }
         return null;
     }

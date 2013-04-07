@@ -1,11 +1,16 @@
 package arch.galaxyeclipse.server;
 
+import org.apache.commons.codec.digest.*;
 import org.junit.*;
 
 /**
  *
  */
 public abstract class AbstractServerTest {
+    public static final String TEST_PLAYER_USERNAME = "test";
+    public static final String TEST_PLAYER_PASSWORD_DECRYPTED = "test";
+    public static final String TEST_PLAYER_PASSWORD_ENCRYPTED = DigestUtils.md5Hex("test");
+
     private static GalaxyEclipseServer server;
 
     @BeforeClass

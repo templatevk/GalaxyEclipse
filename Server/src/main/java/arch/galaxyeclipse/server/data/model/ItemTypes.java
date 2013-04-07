@@ -20,16 +20,16 @@ public class ItemTypes {
         this.itemTypeId = itemTypeId;
     }
 
-    private String name;
+    private String itemTypeName;
 
-    @Column(name = "name", nullable = false, insertable = true, updatable = true, length = 16, precision = 0)
+    @Column(name = "item_type_name", nullable = false, insertable = true, updatable = true, length = 16, precision = 0)
     @Basic
-    public String getName() {
-        return name;
+    public String getItemTypeName() {
+        return itemTypeName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setItemTypeName(String itemTypeName) {
+        this.itemTypeName = itemTypeName;
     }
 
     @Override
@@ -40,7 +40,8 @@ public class ItemTypes {
         ItemTypes itemTypes = (ItemTypes) o;
 
         if (itemTypeId != itemTypes.itemTypeId) return false;
-        if (name != null ? !name.equals(itemTypes.name) : itemTypes.name != null) return false;
+        if (itemTypeName != null ? !itemTypeName.equals(itemTypes.itemTypeName) : itemTypes.itemTypeName != null)
+            return false;
 
         return true;
     }
@@ -48,7 +49,7 @@ public class ItemTypes {
     @Override
     public int hashCode() {
         int result = itemTypeId;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (itemTypeName != null ? itemTypeName.hashCode() : 0);
         return result;
     }
 }

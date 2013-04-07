@@ -9,10 +9,10 @@ import arch.galaxyeclipse.shared.inject.*;
  * Should not be used in production.
  */
 class TestAuthenticator implements IClientAuthenticator {
-    private PlayersRepository playersRepository;
+    private IPlayersRepository playersRepository;
 
     public TestAuthenticator() {
-        playersRepository = SpringContextHolder.CONTEXT.getBean(PlayersRepository.class);
+        playersRepository = SpringContextHolder.CONTEXT.getBean(IPlayersRepository.class);
     }
 
     @Override

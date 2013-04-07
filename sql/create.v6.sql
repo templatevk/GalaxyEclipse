@@ -77,8 +77,8 @@ create table ship_config_weapon_slots (
 
 -- game items
 create table item_types (
-  item_type_id integer auto_increment primary key,
-  name         varchar(16) not null unique key  -- engine, weapon, bonus, sale
+  item_type_id   integer auto_increment primary key,
+  item_type_name varchar(16) not null unique key  -- engine, weapon, bonus, sale
 );
 create table items (
   item_id          integer auto_increment primary key,
@@ -154,9 +154,9 @@ create table location_object_behavior_types (
 );
 
 create index location_objects_behavior_type_index
-on location_objects(location_object_behavior_type_id);
+on location_objects (location_object_behavior_type_id);
 create index location_objects_location_position_index
-on location_objects(location_id, position_x, position_y);
+on location_objects (location_id, position_x, position_y);
 
 alter table location_objects
 add constraint fk_location_object_location foreign key (location_id) references locations (location_id),

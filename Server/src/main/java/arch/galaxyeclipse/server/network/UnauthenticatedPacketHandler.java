@@ -1,18 +1,15 @@
 package arch.galaxyeclipse.server.network;
 
-import org.apache.log4j.*;
-
 import arch.galaxyeclipse.server.authentication.*;
 import arch.galaxyeclipse.shared.inject.*;
-import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthRequest;
-import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthResponse;
-import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet;
-import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet.Type;
+import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.*;
+import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet.*;
+import org.apache.log4j.*;
 
 /**
  * Processes the messages of unauthenticated players.
  */
-class UnauthenticatedPacketHandler implements IPacketHandler {
+class UnauthenticatedPacketHandler extends AbstractStubPacketHandler {
 	private static final Logger log = Logger.getLogger(UnauthenticatedPacketHandler.class);
 	
 	private IServerChannelHandler channelHandler;

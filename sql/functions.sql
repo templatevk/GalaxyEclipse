@@ -7,7 +7,26 @@ create function get_item_type_id_by_name(name varchar(16))
     return (select
               item_type_id
             from item_types it
-            where it.name = name);
+            where item_type_name = name);
+  end
+//
+
+create function get_bonus_type_id_by_name(name varchar(16))
+  returns integer deterministic
+  begin
+    return (select
+              bonus_type_id
+            from bonus_types
+            where bonus_type_name = name);
+  end
+//
+create function get_weapon_type_id_by_name(name varchar(16))
+  returns integer deterministic
+  begin
+    return (select
+              weapon_type_id
+            from weapon_types
+            where weapon_type_name = name);
   end
 //
 
@@ -64,24 +83,6 @@ create function get_ship_config_id_by_nickname(nickname varchar(16))
   end
 //
 
-create function get_bonus_type_id_by_name(name varchar(16))
-  returns integer deterministic
-  begin
-    return (select
-              bonus_type_id
-            from bonus_types
-            where bonus_type_name = name);
-  end
-//
-create function get_weapon_type_id_by_name(name varchar(16))
-  returns integer deterministic
-  begin
-    return (select
-              weapon_type_id
-            from weapon_types
-            where weapon_type_name = name);
-  end
-//
 
 create function get_location_id_by_name(name varchar(32))
   returns integer deterministic

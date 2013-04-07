@@ -52,5 +52,6 @@
 
     <!-- Other -->
     <bean class="arch.galaxyeclipse.server.authentication.ClientAuthenticator" lazy-init="true"/>
-    <bean class="arch.galaxyeclipse.shared.typesdictionary.DictionaryTypesMapper"/>
+    <bean class="arch.galaxyeclipse.server.data.util.DictionaryTypesMapperHelper" lazy-init="true"/>
+    <bean class="arch.galaxyeclipse.shared.types.DictionaryTypesMapper"/>
 </beans>

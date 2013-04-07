@@ -8,5 +8,5 @@
     <bean class="arch.galaxyeclipse.client.network.ClientNetworkManager">
         <constructor-arg ref="channelHandlerFactory"/>
     </bean>
-    <bean class="arch.galaxyeclipse.shared.typesdictionary.DictionaryTypesMapper"/>
+    <bean class="arch.galaxyeclipse.shared.types.DictionaryTypesMapper"/>
 </beans>

@@ -19,6 +19,8 @@ public class AuthenticatorTest extends AbstractServerTest {
 
     @Test
     public void testAuthentication() {
-        assertTrue(authenticator.authenticate("test", "test").isSuccess());
+        assertTrue(authenticator.authenticate(
+                TEST_PLAYER_USERNAME,
+                TEST_PLAYER_PASSWORD_DECRYPTED).isSuccess());
     }
 }

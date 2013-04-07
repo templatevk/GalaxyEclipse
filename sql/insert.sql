@@ -1,6 +1,6 @@
 # dictionaries
 insert into item_types
-(name)
+(item_type_name)
   values
   ('engine'),
   ('weapon'),
@@ -37,8 +37,8 @@ insert into location_object_types
   ('rocket'),
   ('asteroid'),
   ('station'),
-  ('player_online'),
-  ('player_offline');
+  ('player_flight'),  -- static behavior and player = offline,
+  ('player_station'); -- dynamic behavior and player = online
 
 
 # locations

@@ -1,28 +1,25 @@
 package arch.galaxyeclipse.client.stage;
 
-import java.net.*;
-import java.util.*;
-import java.util.List;
-
-import org.apache.log4j.*;
-
 import arch.galaxyeclipse.client.network.*;
 import arch.galaxyeclipse.client.texture.*;
 import arch.galaxyeclipse.shared.*;
 import arch.galaxyeclipse.shared.inject.*;
-import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.AuthRequest;
-import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet;
-import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet.Type;
+import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.*;
+import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet.*;
 import arch.galaxyeclipse.shared.thread.*;
-
 import com.badlogic.gdx.*;
 import com.badlogic.gdx.graphics.*;
 import com.badlogic.gdx.graphics.g2d.*;
 import com.badlogic.gdx.scenes.scene2d.*;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
-import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
-import com.badlogic.gdx.scenes.scene2d.ui.TextField.TextFieldStyle;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton.*;
+import com.badlogic.gdx.scenes.scene2d.ui.TextField.*;
 import com.badlogic.gdx.scenes.scene2d.utils.*;
+import org.apache.log4j.*;
+
+import java.net.*;
+import java.util.*;
+import java.util.List;
 
 class MainMenuStage extends AbstractGameStage implements IServerPacketListener {
 	private static final Logger log = Logger.getLogger(MainMenuStage.class);
@@ -133,9 +130,20 @@ class MainMenuStage extends AbstractGameStage implements IServerPacketListener {
 	@Override
 	public void onPacketReceived(Packet packet) {
 		log.info(this + " received packet " + packet.getType());
+
 		switch (packet.getType()) {
 		case AUTH_RESPONSE:
-			log.info("Authentication result = " + packet.getAuthResponse().getIsSuccess());
+            boolean success = packet.getAuthResponse().getIsSuccess();
+			log.info("Authentication result = " + success);
+
+            if (success) {
+                /*
+                TODO:
+                   Change to loading stage, fill dictionary types
+                   and obtain the necessary data, change to appropriate
+                   stage and unsubscribe from network manager
+               */
+            }
 			break;
 		}
 	}

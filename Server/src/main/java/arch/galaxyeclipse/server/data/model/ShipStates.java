@@ -44,6 +44,18 @@ public class ShipStates {
         this.shipStateRotationSpeed = shipStateRotationSpeed;
     }
 
+    private int shipStateRotationAngle;
+
+    @Column(name = "ship_state_rotation_angle", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
+    @Basic
+    public int getShipStateRotationAngle() {
+        return shipStateRotationAngle;
+    }
+
+    public void setShipStateRotationAngle(int shipStateRotationAngle) {
+        this.shipStateRotationAngle = shipStateRotationAngle;
+    }
+
     private int shipStateHp;
 
     @Column(name = "ship_state_hp", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
@@ -66,18 +78,6 @@ public class ShipStates {
 
     public void setShipStateArmorDurability(int shipStateArmorDurability) {
         this.shipStateArmorDurability = shipStateArmorDurability;
-    }
-
-    private int shipStateRotationAngle;
-
-    @Column(name = "ship_state_rotation_angle", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
-    @Basic
-    public int getShipStateRotationAngle() {
-        return shipStateRotationAngle;
-    }
-
-    public void setShipStateRotationAngle(int shipStateRotationAngle) {
-        this.shipStateRotationAngle = shipStateRotationAngle;
     }
 
     private int playerMoney;
@@ -104,16 +104,16 @@ public class ShipStates {
         this.playerId = playerId;
     }
 
-    private int locationDynamicObjectId;
+    private int locationObjectId;
 
-    @Column(name = "location_dynamic_object_id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
+    @Column(name = "location_object_id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     @Basic
-    public int getLocationDynamicObjectId() {
-        return locationDynamicObjectId;
+    public int getLocationObjectId() {
+        return locationObjectId;
     }
 
-    public void setLocationDynamicObjectId(int locationDynamicObjectId) {
-        this.locationDynamicObjectId = locationDynamicObjectId;
+    public void setLocationObjectId(int locationObjectId) {
+        this.locationObjectId = locationObjectId;
     }
 
     @Override
@@ -123,7 +123,7 @@ public class ShipStates {
 
         ShipStates that = (ShipStates) o;
 
-        if (locationDynamicObjectId != that.locationDynamicObjectId) return false;
+        if (locationObjectId != that.locationObjectId) return false;
         if (playerId != that.playerId) return false;
         if (playerMoney != that.playerMoney) return false;
         if (shipStateArmorDurability != that.shipStateArmorDurability) return false;
@@ -141,12 +141,12 @@ public class ShipStates {
         int result = shipStateId;
         result = 31 * result + shipStateMoveSpeed;
         result = 31 * result + shipStateRotationSpeed;
+        result = 31 * result + shipStateRotationAngle;
         result = 31 * result + shipStateHp;
         result = 31 * result + shipStateArmorDurability;
-        result = 31 * result + shipStateRotationAngle;
         result = 31 * result + playerMoney;
         result = 31 * result + playerId;
-        result = 31 * result + locationDynamicObjectId;
+        result = 31 * result + locationObjectId;
         return result;
     }
 }
