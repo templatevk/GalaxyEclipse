@@ -1,36 +1,4 @@
-<persistence xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0">
-	<persistence-unit name="persistenceManager" transaction-type="RESOURCE_LOCAL">
-		<provider>org.hibernate.ejb.HibernatePersistence</provider>
-		
-		<!--<class>arch.galaxyeclipse.server.data.model.Bonuses</class>-->
-		<!--<class>arch.galaxyeclipse.server.data.model.BonusTypes</class>-->
-		<!--<class>arch.galaxyeclipse.server.data.model.Engines</class>-->
-		<!--<class>arch.galaxyeclipse.server.data.model.InventoriesItems</class>-->
-		<!--<class>arch.galaxyeclipse.server.data.model.Items</class>-->
-		<!--<class>arch.galaxyeclipse.server.data.model.ItemTypes</class>-->
-		<!--<class>arch.galaxyeclipse.server.data.model.LocationDynamicObjects</class>-->
-		<!--<class>arch.galaxyeclipse.server.data.model.LocationDynamicObjectTypes</class>-->
-		<!--<class>arch.galaxyeclipse.server.data.model.Locations</class>-->
-		<!--<class>arch.galaxyeclipse.server.data.model.LocationStaticObjects</class>-->
-		<!--<class>arch.galaxyeclipse.server.data.model.LocationStaticObjectTypes</class>-->
-		<!--<class>arch.galaxyeclipse.server.data.model.Players</class>-->
-		<!--<class>arch.galaxyeclipse.server.data.model.ShipConfigBonusSlots</class>-->
-		<!--<class>arch.galaxyeclipse.server.data.model.ShipConfigs</class>-->
-		<!--<class>arch.galaxyeclipse.server.data.model.ShipConfigWeaponSlots</class>-->
-		<!--<class>arch.galaxyeclipse.server.data.model.ShipStates</class>-->
-		<!--<class>arch.galaxyeclipse.server.data.model.ShipTypes</class>-->
-		<!--<class>arch.galaxyeclipse.server.data.model.Weapons</class>-->
-		<!--<class>arch.galaxyeclipse.server.data.model.WeaponTypes</class>-->
-
-		
-		<properties>
-			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
-			<property name="hibernate.connection.driver_class" value="${db.driver_class}"/>    
-			<property name="hibernate.connection.url" value="${db.url}"/>
-			<property name="hibernate.connection.username" value="${db.username}"/>   
-			<property name="hibernate.connection.password" value="${db.password}"/>
-			<property name="hibernate.show_sql" value="true"/>
-			<property name="hibernate.format_sql" value="true"/>
-		</properties>		
-	</persistence-unit>
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+    <persistence-unit name="galaxyeclipse" transaction-type="RESOURCE_LOCAL"/>
 </persistence>

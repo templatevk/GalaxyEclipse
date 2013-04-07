@@ -7,7 +7,7 @@ import arch.galaxyeclipse.shared.network.*;
 import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet;
 import arch.galaxyeclipse.shared.thread.*;
 
-public class ServerChannelHandler extends AbstractProtobufChannelHandler 
+class ServerChannelHandler extends AbstractProtobufChannelHandler
 		implements IServerChannelHandler {
 	private static final Logger log = Logger.getLogger(ServerChannelHandler.class);
 	

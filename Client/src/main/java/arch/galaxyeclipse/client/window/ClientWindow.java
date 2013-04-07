@@ -62,8 +62,8 @@ public class ClientWindow {
 			Gdx.gl.glHint(GL10.GL_POINT_SMOOTH_HINT, GL20.GL_NICEST);
 			Gdx.gl.glHint(GL10.GL_POLYGON_SMOOTH_HINT, GL20.GL_NICEST);
 			Gdx.gl.glHint(GL20.GL_FRAGMENT_SHADER, GL20.GL_NICEST);
-			
-			setGameStage(new MainMenuStage());
+
+			setGameStage(AbstractGameStage.getStage(AbstractGameStage.StageType.MAIN_MENU));
 		}
 
 		@Override

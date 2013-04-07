@@ -1,6 +1,6 @@
 package arch.galaxyeclipse.client.texture;
 
-public class CachingTextureAtlasFactory implements ITextureAtlasFactory {
+class CachingTextureAtlasFactory implements ITextureAtlasFactory {
 	private static CachingTextureAtlas instance;
 	
 	public CachingTextureAtlasFactory() {

@@ -8,7 +8,7 @@ import com.badlogic.gdx.graphics.g2d.*;
 /**
  * Texture atlas instance caching the regions, etc through HashMaps.
  */
-public class CachingTextureAtlas extends TextureAtlas implements ITextureAtlas {	
+class CachingTextureAtlas extends TextureAtlas implements ITextureAtlas {
 	private Map<String, AtlasRegion> regions = new HashMap<String, AtlasRegion>();
 
 	public CachingTextureAtlas() {

@@ -18,15 +18,31 @@
         <property name="username" value="${db.username}"/>
         <property name="password" value="${db.password}"/>
     </bean>
-    <bean id="txManager" class="org.springframework.orm.jpa.JpaTransactionManager">
-        <property name="entityManagerFactory" ref="emf"/>
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
         <property name="dataSource" ref="dataSource"/>
     </bean>
-    <bean id="emf" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean"/>
+    <bean id="entityManagerFactory"
+          class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
+        </property>
+        <property name="jpaPropertyMap">
+            <map>
+                <entry key="hibernate.connection.driver_class" value="${db.driver_class}"/>
+                <entry key="hibernate.connection.url" value="${db.url}"/>
+                <entry key="hibernate.connection.username" value="${db.username}"/>
+                <entry key="hibernate.connection.password" value="${db.password}"/>
+                <entry key="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
+                <entry key="hibernate.show_sql" value="true"/>
+                <entry key="hibernate.format_sql" value="true"/>
+            </map>
+        </property>
+    </bean>
     <jpa:repositories base-package="arch.galaxyeclipse.server.data.repository"
-                      entity-manager-factory-ref="emf" transaction-manager-ref="txManager">
-
-    </jpa:repositories>
+                      entity-manager-factory-ref="entityManagerFactory"
+                      transaction-manager-ref="transactionManager"/>
 
     <!-- Network -->
     <bean id="pipelineFactory" class="arch.galaxyeclipse.server.network.ServerPipelineChannelFactory"/>
@@ -35,6 +51,6 @@
     </bean>
 
     <!-- Other -->
-    <bean class="arch.galaxyeclipse.server.authentication.StubAllowingAuthenticator"/>
+    <bean class="arch.galaxyeclipse.server.authentication.ClientAuthenticator" lazy-init="true"/>
     <bean class="arch.galaxyeclipse.shared.typesdictionary.DictionaryTypesMapper"/>
 </beans>

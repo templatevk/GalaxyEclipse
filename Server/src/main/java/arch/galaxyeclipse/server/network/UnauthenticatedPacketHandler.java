@@ -12,7 +12,7 @@ import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet.Type;
 /**
  * Processes the messages of unauthenticated players.
  */
-public class UnauthenticatedPacketHandler implements IPacketHandler {
+class UnauthenticatedPacketHandler implements IPacketHandler {
 	private static final Logger log = Logger.getLogger(UnauthenticatedPacketHandler.class);
 	
 	private IServerChannelHandler channelHandler;
@@ -20,6 +20,7 @@ public class UnauthenticatedPacketHandler implements IPacketHandler {
 	
 	public UnauthenticatedPacketHandler(IServerChannelHandler channelHandler) {
 		this.channelHandler = channelHandler;
+
 		authenticator = SpringContextHolder.CONTEXT.getBean(IClientAuthenticator.class);
 	}
 	
@@ -32,15 +33,16 @@ public class UnauthenticatedPacketHandler implements IPacketHandler {
 			// Authentication the player
 			AuthenticationResult result = authenticator.authenticate(
 					request.getUsername(), request.getPassword());
-			if (result.isSuccess) {
-				channelHandler.setPacketHandler(new AuthenticatedPacketHandler());
+			if (result.isSuccess()) {
+				channelHandler.setPacketHandler(new FlightModePacketHandler(
+                        channelHandler, result.getPlayer()));
 			} 
 			log.debug("Authentication user = " + request.getUsername() 
-					+ " pass = " + request.getPassword() + " result = " + result.isSuccess);
+					+ " pass = " + request.getPassword() + " result = " + result.isSuccess());
 			
 			// Sending response as authentication result
 			AuthResponse authResponse = AuthResponse.newBuilder()
-					.setIsSuccess(result.isSuccess).build();
+					.setIsSuccess(result.isSuccess()).build();
 			Packet response = Packet.newBuilder()
 					.setType(Type.AUTH_RESPONSE)
 					.setAuthResponse(authResponse).build();

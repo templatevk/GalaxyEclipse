@@ -18,7 +18,7 @@ import arch.galaxyeclipse.shared.util.*;
 /**
  * Main class responsible for network communication using the GalaxyEclipseProtocol.
  */
-public class ClientNetworkManager implements IClientNetworkManager {
+class ClientNetworkManager implements IClientNetworkManager {
 	// Sleep interval to wait for connection result
 	private static final int CONNECTION_TIMEOUT_MILLISECONDS = 3000;
 	

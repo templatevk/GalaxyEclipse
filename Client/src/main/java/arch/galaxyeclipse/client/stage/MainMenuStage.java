@@ -24,7 +24,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField.TextFieldStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.*;
 
-public class MainMenuStage extends AbstractGameStage implements IServerPacketListener {
+class MainMenuStage extends AbstractGameStage implements IServerPacketListener {
 	private static final Logger log = Logger.getLogger(MainMenuStage.class);
 	
 	private static final float TABLE_SPACING = 10;
@@ -39,18 +39,8 @@ public class MainMenuStage extends AbstractGameStage implements IServerPacketLis
 	private TextField passwordTxt;
 	private Table rootTable;
 	private Table innerTable;
-	private boolean isGuiInitialized = false;
 	
 	public MainMenuStage() {
-		
-	}
-	
-	private void initGuiOnce() {
-		if (isGuiInitialized) {
-			return;
-		}
-		isGuiInitialized = true;
-		
 		ITextureAtlas atlas = SpringContextHolder.CONTEXT
 				.getBean(ITextureAtlasFactory.class).createAtlas();
 		
@@ -98,27 +88,28 @@ public class MainMenuStage extends AbstractGameStage implements IServerPacketLis
 		passwordTxt.setMessageText("Enter your password");
 		
 		// Connection button
+        final ICallback<Boolean> connectionCallback = new ICallback<Boolean>() {
+            @Override
+            public void onOperationComplete(Boolean isConnected) {
+                log.info(getClass().getSimpleName() + " connection callback "
+                        + " result = " + isConnected);
+                if (isConnected) {
+                    AuthRequest request = AuthRequest.newBuilder()
+                            .setUsername("")
+                            .setPassword("").build();
+                    Packet packet = Packet.newBuilder()
+                            .setType(Type.AUTH_REQUEST)
+                            .setAuthRequest(request).build();
+                    networkManager.sendPacket(packet);
+                }
+            }
+        };
 		connectBtn = new TextButton("Connect", style);
 		connectBtn.addListener(new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
 				networkManager.connect(new InetSocketAddress(
-						SharedInfo.HOST, SharedInfo.PORT), new ICallback<Boolean>() {
-							@Override
-							public void onOperationComplete(Boolean isConnected) {
-								log.info(getClass().getSimpleName() + " connection callback "
-										+ " result = " + isConnected);
-								if (isConnected) {
-									AuthRequest request = AuthRequest.newBuilder()
-											.setUsername("")
-											.setPassword("").build();
-									Packet packet = Packet.newBuilder()
-											.setType(Type.AUTH_REQUEST)
-											.setAuthRequest(request).build();
-									networkManager.sendPacket(packet);
-								}
-							}
-						});
+						SharedInfo.HOST, SharedInfo.PORT), connectionCallback);
 			}
 		});
 		
@@ -132,12 +123,6 @@ public class MainMenuStage extends AbstractGameStage implements IServerPacketLis
 		
 		networkManager = SpringContextHolder.CONTEXT.getBean(IClientNetworkManager.class);
 		networkManager.addListener(this);
-	}
-	
-	@Override
-	public void resize(int width, int height) {
-		initGuiOnce();
-		super.resize(width, height);
 	}
 	
 	@Override

@@ -10,7 +10,7 @@ import org.jboss.netty.channel.socket.nio.*;
 
 import arch.galaxyeclipse.shared.network.*;
 
-public class ServerNetworkManager implements IServerNetworkManager {	
+class ServerNetworkManager implements IServerNetworkManager {
 	private static final Logger log = Logger.getLogger(ServerNetworkManager.class);
 	
 	private AbstractProtobufChannelPipelineFactory channelPipelineFactory;
