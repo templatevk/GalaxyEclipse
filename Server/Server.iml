@@ -44,6 +44,7 @@
     <orderEntry type="jdk" jdkName="JDK 1.7" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="Shared" />
+    <orderEntry type="module" module-name="Client" scope="TEST" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-log4j12:1.7.4" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.4" level="project" />
     <orderEntry type="library" name="Maven: log4j:log4j:1.2.17" level="project" />
@@ -77,6 +78,10 @@
     <orderEntry type="library" name="Maven: org.javassist:javassist:3.15.0-GA" level="project" />
     <orderEntry type="library" name="Maven: org.hibernate.common:hibernate-commons-annotations:4.0.1.Final" level="project" />
     <orderEntry type="library" name="Maven: org.hibernate:hibernate-entitymanager:4.1.10.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.jmock:jmock-junit4:2.6.0" level="project" />
+    <orderEntry type="library" name="Maven: org.jmock:jmock:2.6.0" level="project" />
+    <orderEntry type="library" name="Maven: org.hamcrest:hamcrest-library:1.1" level="project" />
+    <orderEntry type="library" name="Maven: junit:junit-dep:4.4" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-test:3.2.2.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: com.google.protobuf:protobuf-java:2.5.0" level="project" />
     <orderEntry type="library" name="Maven: org.jboss.netty:netty:3.2.9.Final" level="project" />

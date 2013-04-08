@@ -1,5 +1,6 @@
-package arch.galaxyeclipse.server.data.repository;
+package arch.galaxyeclipse.server.data.repository.jpa;
 
+import arch.galaxyeclipse.server.data.repository.*;
 import org.junit.*;
 
 import static junit.framework.Assert.*;

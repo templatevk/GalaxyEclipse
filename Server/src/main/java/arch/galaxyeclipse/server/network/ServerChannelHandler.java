@@ -1,16 +1,17 @@
 package arch.galaxyeclipse.server.network;
 
+import arch.galaxyeclipse.shared.inject.*;
+import arch.galaxyeclipse.shared.network.*;
+import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.*;
+import arch.galaxyeclipse.shared.thread.*;
 import org.apache.log4j.*;
 import org.jboss.netty.channel.*;
-
-import arch.galaxyeclipse.shared.network.*;
-import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet;
-import arch.galaxyeclipse.shared.thread.*;
 
 class ServerChannelHandler extends AbstractProtobufChannelHandler
 		implements IServerChannelHandler {
 	private static final Logger log = Logger.getLogger(ServerChannelHandler.class);
-	
+
+    private IMonitoringNetworkManager monitoringNetworkManager;
 	private IPacketHandler packetHandler;
 	
 	public ServerChannelHandler() {		
@@ -22,23 +23,26 @@ class ServerChannelHandler extends AbstractProtobufChannelHandler
 				packetHandler.handle(packet);
 			}
 		});
-
+        monitoringNetworkManager = SpringContextHolder.CONTEXT.getBean(
+                IMonitoringNetworkManager.class);
 	}
 	
 	@Override
 	public void channelConnected(ChannelHandlerContext ctx, ChannelStateEvent e)
 			throws Exception {
-		log.debug("Server channel connected " + e.getChannel().hashCode());
-		super.channelConnected(ctx, e);
+        super.channelConnected(ctx, e);
+        log.debug("Server channel connected " + e.getChannel().hashCode());
+        monitoringNetworkManager.registerServerChannelHandler(this);
 
 		packetHandler = new UnauthenticatedPacketHandler(this);
 	}
-	
-	@Override
+
+    @Override
 	public void channelDisconnected(ChannelHandlerContext ctx,
 			ChannelStateEvent e) throws Exception {
-		log.debug("Server channel disconnected");
-		super.channelDisconnected(ctx, e);
+        super.channelDisconnected(ctx, e);
+        log.debug("Server channel disconnected");
+        monitoringNetworkManager.unregisterServerChannelHandler(this);
 	}	
 	
 	@Override

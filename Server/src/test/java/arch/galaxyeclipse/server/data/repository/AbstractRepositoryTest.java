@@ -3,7 +3,7 @@ package arch.galaxyeclipse.server.data.repository;
 import arch.galaxyeclipse.server.*;
 import arch.galaxyeclipse.shared.inject.*;
 import org.junit.*;
-import org.springframework.data.jpa.repository.*;
+import org.springframework.data.repository.*;
 
 import static org.junit.Assert.*;
 
@@ -11,14 +11,14 @@ import static org.junit.Assert.*;
  *
  */
 public abstract class AbstractRepositoryTest extends AbstractServerTest {
-    private JpaRepository<?, ?> repository;
-    private Class<? extends JpaRepository<?, ?>> clazz;
+    private CrudRepository<?, ?> repository;
+    private Class<? extends CrudRepository<?, ?>> clazz;
 
-    public AbstractRepositoryTest(Class<? extends JpaRepository<?, ?>> clazz) {
+    public AbstractRepositoryTest(Class<? extends CrudRepository<?, ?>> clazz) {
         this.clazz = clazz;
     }
 
-    protected JpaRepository<?, ?> getRepository() {
+    protected CrudRepository<?, ?> getRepository() {
         return repository;
     }
 

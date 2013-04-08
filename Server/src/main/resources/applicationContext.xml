@@ -11,7 +11,7 @@
 
     <!-- Database -->
     <tx:annotation-driven/>
-    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="defaultAutoCommit" value="false"/>
         <property name="driverClassName" value="${db.driver_class}"/>
         <property name="url" value="${db.url}"/>
@@ -40,14 +40,15 @@
             </map>
         </property>
     </bean>
-    <jpa:repositories base-package="arch.galaxyeclipse.server.data.repository"
+    <jpa:repositories base-package="arch.galaxyeclipse.server.data.repository.jpa"
                       entity-manager-factory-ref="entityManagerFactory"
                       transaction-manager-ref="transactionManager"/>
 
     <!-- Network -->
-    <bean id="pipelineFactory" class="arch.galaxyeclipse.server.network.ServerPipelineChannelFactory"/>
     <bean class="arch.galaxyeclipse.server.network.ServerNetworkManager">
-        <constructor-arg ref="pipelineFactory"/>
+        <constructor-arg>
+            <bean class="arch.galaxyeclipse.server.network.ServerPipelineChannelFactory"/>
+        </constructor-arg>
     </bean>
 
     <!-- Other -->

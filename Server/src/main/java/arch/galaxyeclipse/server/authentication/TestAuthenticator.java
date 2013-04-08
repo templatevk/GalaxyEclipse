@@ -1,7 +1,7 @@
 package arch.galaxyeclipse.server.authentication;
 
 import arch.galaxyeclipse.server.data.model.*;
-import arch.galaxyeclipse.server.data.repository.*;
+import arch.galaxyeclipse.server.data.repository.jpa.*;
 import arch.galaxyeclipse.shared.inject.*;
 
 /**

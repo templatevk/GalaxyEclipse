@@ -1,7 +1,7 @@
 package arch.galaxyeclipse.server.network;
 
 import arch.galaxyeclipse.server.data.model.*;
-import arch.galaxyeclipse.server.data.repository.*;
+import arch.galaxyeclipse.server.data.repository.jpa.*;
 import arch.galaxyeclipse.shared.inject.*;
 import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.*;
 import arch.galaxyeclipse.shared.types.*;

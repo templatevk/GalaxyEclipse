@@ -2,11 +2,18 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Rendering -->
     <bean class="arch.galaxyeclipse.client.window.ClientWindow"/>
-    <bean class="arch.galaxyeclipse.client.texture.CachingTextureAtlasFactory"/>
-    <bean id="channelHandlerFactory" class="arch.galaxyeclipse.client.network.ClientChannelHandlerFactory"/>
+
+    <!-- Network -->
     <bean class="arch.galaxyeclipse.client.network.ClientNetworkManager">
-        <constructor-arg ref="channelHandlerFactory"/>
+        <constructor-arg>
+            <bean class="arch.galaxyeclipse.client.network.ClientChannelHandlerFactory"/>
+        </constructor-arg>
     </bean>
+
+    <!-- Other -->
+    <bean class="arch.galaxyeclipse.client.texture.CachingTextureAtlasFactory"/>
     <bean class="arch.galaxyeclipse.shared.types.DictionaryTypesMapper"/>
 </beans>

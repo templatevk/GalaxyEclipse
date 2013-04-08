@@ -1,23 +1,29 @@
 package arch.galaxyeclipse.server.network;
 
 import arch.galaxyeclipse.shared.network.*;
+import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.*;
 import org.apache.log4j.*;
 import org.jboss.netty.bootstrap.*;
 import org.jboss.netty.channel.*;
 import org.jboss.netty.channel.socket.nio.*;
 
 import java.net.*;
+import java.util.*;
 import java.util.concurrent.*;
 
-class ServerNetworkManager implements IServerNetworkManager {
+class ServerNetworkManager implements IServerNetworkManager, IMonitoringNetworkManager {
 	private static final Logger log = Logger.getLogger(ServerNetworkManager.class);
-	
+
+    // All the connected clients
+    private Set<IServerChannelHandler> serverChannelHandlers;
+
 	private AbstractProtobufChannelPipelineFactory channelPipelineFactory;
-	private Channel serverChannel;
-	private ServerBootstrap bootstrap;
-	
+    private ServerBootstrap bootstrap;
+    private Channel serverChannel;
+
 	public ServerNetworkManager(AbstractProtobufChannelPipelineFactory channelPipelineFactory) {
 		this.channelPipelineFactory = channelPipelineFactory;
+        serverChannelHandlers = new HashSet<IServerChannelHandler>();
 	}
 	
 	@Override
@@ -49,4 +55,21 @@ class ServerNetworkManager implements IServerNetworkManager {
 			serverChannel.unbind();
 		}
 	}
+
+    @Override
+    public void registerServerChannelHandler(IServerChannelHandler handler) {
+        serverChannelHandlers.add(handler);
+    }
+
+    @Override
+    public void unregisterServerChannelHandler(IServerChannelHandler handler) {
+        serverChannelHandlers.remove(handler);
+    }
+
+    @Override
+    public void sendBroadcast(Packet packet) {
+        for (IServerChannelHandler handler : serverChannelHandlers) {
+            handler.sendPacket(packet);
+        }
+    }
 }

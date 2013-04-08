@@ -1,5 +1,7 @@
 package arch.galaxyeclipse.server.network;
 
+import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.*;
+
 /**
  *
  */
@@ -8,4 +10,6 @@ public interface IServerNetworkManager {
     void startServer(String host, int port);
 	
 	void stopServer();
+
+    void sendBroadcast(Packet packet);
 }
