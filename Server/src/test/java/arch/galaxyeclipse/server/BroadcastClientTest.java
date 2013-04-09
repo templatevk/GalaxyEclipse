@@ -15,6 +15,7 @@ import static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.*;
 /**
  *
  */
+@Ignore
 public class BroadcastClientTest extends AbstractServerTest {
     private static final Logger log = Logger.getLogger(BroadcastClientTest.class);
 
