@@ -1,6 +1,6 @@
 package arch.galaxyeclipse.server.network;
 
-import arch.galaxyeclipse.shared.inject.*;
+import arch.galaxyeclipse.shared.context.*;
 import arch.galaxyeclipse.shared.network.*;
 import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.*;
 import arch.galaxyeclipse.shared.thread.*;
@@ -23,7 +23,7 @@ class ServerChannelHandler extends AbstractProtobufChannelHandler
 				packetHandler.handle(packet);
 			}
 		});
-        monitoringNetworkManager = SpringContextHolder.CONTEXT.getBean(
+        monitoringNetworkManager = ContextHolder.INSTANCE.getBean(
                 IMonitoringNetworkManager.class);
 	}
 	

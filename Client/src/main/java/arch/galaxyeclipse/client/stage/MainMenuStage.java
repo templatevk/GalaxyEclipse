@@ -3,7 +3,7 @@ package arch.galaxyeclipse.client.stage;
 import arch.galaxyeclipse.client.network.*;
 import arch.galaxyeclipse.client.texture.*;
 import arch.galaxyeclipse.shared.*;
-import arch.galaxyeclipse.shared.inject.*;
+import arch.galaxyeclipse.shared.context.*;
 import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.*;
 import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet.*;
 import arch.galaxyeclipse.shared.thread.*;
@@ -38,7 +38,7 @@ class MainMenuStage extends AbstractGameStage implements IServerPacketListener {
 	private Table innerTable;
 	
 	public MainMenuStage() {
-		ITextureAtlas atlas = SpringContextHolder.CONTEXT
+		ITextureAtlas atlas = ContextHolder.INSTANCE
 				.getBean(ITextureAtlasFactory.class).createAtlas();
 		
 		BitmapFont font = new BitmapFont(Gdx.files.internal("assets/font1.fnt"), 
@@ -118,7 +118,7 @@ class MainMenuStage extends AbstractGameStage implements IServerPacketListener {
 		innerTable.setOrigin(innerTable.getPrefWidth() / 2, 
 				innerTable.getPrefHeight() / 2);
 		
-		networkManager = SpringContextHolder.CONTEXT.getBean(IClientNetworkManager.class);
+		networkManager = ContextHolder.INSTANCE.getBean(IClientNetworkManager.class);
 		networkManager.addListener(this);
 	}
 	

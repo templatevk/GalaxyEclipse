@@ -1,7 +1,7 @@
 package arch.galaxyeclipse.server.network;
 
 import arch.galaxyeclipse.server.authentication.*;
-import arch.galaxyeclipse.shared.inject.*;
+import arch.galaxyeclipse.shared.context.*;
 import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.*;
 import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet.*;
 import org.apache.log4j.*;
@@ -18,7 +18,7 @@ class UnauthenticatedPacketHandler extends AbstractStubPacketHandler {
 	public UnauthenticatedPacketHandler(IServerChannelHandler channelHandler) {
 		this.channelHandler = channelHandler;
 
-		authenticator = SpringContextHolder.CONTEXT.getBean(IClientAuthenticator.class);
+		authenticator = ContextHolder.INSTANCE.getBean(IClientAuthenticator.class);
 	}
 	
 	@Override

@@ -4,7 +4,7 @@ import org.apache.commons.codec.digest.*;
 import org.junit.*;
 
 /**
- *
+ * Base class for server tests.
  */
 public abstract class AbstractServerTest {
     public static final String TEST_PLAYER_USERNAME = "test";

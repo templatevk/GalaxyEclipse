@@ -1,7 +1,7 @@
 package arch.galaxyeclipse.server.data.repository;
 
 import arch.galaxyeclipse.server.*;
-import arch.galaxyeclipse.shared.inject.*;
+import arch.galaxyeclipse.shared.context.*;
 import org.junit.*;
 import org.springframework.data.repository.*;
 
@@ -18,13 +18,19 @@ public abstract class AbstractRepositoryTest extends AbstractServerTest {
         this.clazz = clazz;
     }
 
+    public static void testRepositories(Class<? extends CrudRepository<?, ?>>... classes) {
+        for (Class<? extends CrudRepository<?, ?>> clazz : classes) {
+            assertNotNull(ContextHolder.INSTANCE.getBean(clazz).findAll());
+        }
+    }
+
     protected CrudRepository<?, ?> getRepository() {
         return repository;
     }
 
     @Before
     public void initDependencies() {
-        repository = SpringContextHolder.CONTEXT.getBean(clazz);
+        repository = ContextHolder.INSTANCE.getBean(clazz);
     }
 
     @Test

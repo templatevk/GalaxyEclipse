@@ -2,7 +2,7 @@ package arch.galaxyeclipse.server.network;
 
 import arch.galaxyeclipse.server.data.model.*;
 import arch.galaxyeclipse.server.data.repository.jpa.*;
-import arch.galaxyeclipse.shared.inject.*;
+import arch.galaxyeclipse.shared.context.*;
 import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.*;
 import arch.galaxyeclipse.shared.types.*;
 import org.apache.log4j.*;
@@ -31,10 +31,10 @@ class FlightModePacketHandler implements IPacketHandler {
         this.player = player;
 
         // Resolve dependencies
-        dictionaryTypesMapper = SpringContextHolder.CONTEXT.getBean(DictionaryTypesMapper.class);
-        shipStatesRepository = SpringContextHolder.CONTEXT.getBean(IShipStatesRepository.class);
-        shipConfigsRepository = SpringContextHolder.CONTEXT.getBean(IShipConfigsRepository.class);
-        locationObjectsRepository = SpringContextHolder.CONTEXT.getBean(
+        dictionaryTypesMapper = ContextHolder.INSTANCE.getBean(DictionaryTypesMapper.class);
+        shipStatesRepository = ContextHolder.INSTANCE.getBean(IShipStatesRepository.class);
+        shipConfigsRepository = ContextHolder.INSTANCE.getBean(IShipConfigsRepository.class);
+        locationObjectsRepository = ContextHolder.INSTANCE.getBean(
                 ILocationObjectsRepository.class);
 
         // Initialize player's data e.g. ship state and ship config

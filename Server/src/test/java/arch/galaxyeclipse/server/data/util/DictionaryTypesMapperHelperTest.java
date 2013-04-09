@@ -1,7 +1,7 @@
 package arch.galaxyeclipse.server.data.util;
 
 import arch.galaxyeclipse.server.*;
-import arch.galaxyeclipse.shared.inject.*;
+import arch.galaxyeclipse.shared.context.*;
 import arch.galaxyeclipse.shared.types.*;
 import org.junit.*;
 
@@ -16,9 +16,9 @@ public class DictionaryTypesMapperHelperTest extends AbstractServerTest {
 
     @Before
     public void initDependencies() {
-        dictionaryTypesMapper = SpringContextHolder.CONTEXT.getBean(
+        dictionaryTypesMapper = ContextHolder.INSTANCE.getBean(
                 DictionaryTypesMapper.class);
-        dictionaryTypesMapperHelper = SpringContextHolder.CONTEXT.getBean(
+        dictionaryTypesMapperHelper = ContextHolder.INSTANCE.getBean(
                 IDictionaryTypesMapperHelper.class);
     }
 

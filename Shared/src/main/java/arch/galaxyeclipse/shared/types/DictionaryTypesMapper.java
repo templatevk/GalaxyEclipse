@@ -26,7 +26,7 @@ public class DictionaryTypesMapper {
     private Map<Integer, ItemTypesMapperType> idsItemTypes;
 	private Map<ItemTypesMapperType, Integer> itemTypesIds;
 	
-	private DictionaryTypesMapper() {
+	public DictionaryTypesMapper() {
 		idsObjectTypes = new HashMap<Integer, LocationObjectTypesMapperType>();
 		idsObjectBehaviorTypes = new HashMap<Integer, LocationObjectBehaviorTypesMapperType>();
 		idsWeaponTypes = new HashMap<Integer, WeaponTypesMapperType>();

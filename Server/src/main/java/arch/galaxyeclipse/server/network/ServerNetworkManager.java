@@ -2,6 +2,7 @@ package arch.galaxyeclipse.server.network;
 
 import arch.galaxyeclipse.shared.network.*;
 import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.*;
+import org.apache.commons.collections.set.*;
 import org.apache.log4j.*;
 import org.jboss.netty.bootstrap.*;
 import org.jboss.netty.channel.*;
@@ -23,7 +24,7 @@ class ServerNetworkManager implements IServerNetworkManager, IMonitoringNetworkM
 
 	public ServerNetworkManager(AbstractProtobufChannelPipelineFactory channelPipelineFactory) {
 		this.channelPipelineFactory = channelPipelineFactory;
-        serverChannelHandlers = new HashSet<IServerChannelHandler>();
+        serverChannelHandlers = SynchronizedSet.decorate(new HashSet<IServerChannelHandler>());
 	}
 	
 	@Override

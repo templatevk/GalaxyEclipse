@@ -33,6 +33,12 @@
 					<target>1.6</target>
 				</configuration>
 			</plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.9</version>
+            </plugin>
 		</plugins>
 	</build>
 
@@ -42,7 +48,14 @@
 			<artifactId>netty</artifactId>
 			<version>3.2.9.Final</version>
 		</dependency>
-	</dependencies>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>maven-lombok-plugin</artifactId>
+            <version>0.9.3.1</version>
+        </dependency>
+
+    </dependencies>
 
 	<dependencyManagement>
 		<dependencies>
@@ -55,7 +68,6 @@
                 <groupId>GalaxyEclipse</groupId>
                 <artifactId>Client</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
-                <scope>test</scope>
             </dependency>
 
             <dependency>

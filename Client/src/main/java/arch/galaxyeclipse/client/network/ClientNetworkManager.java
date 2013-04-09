@@ -4,6 +4,7 @@ import java.net.*;
 import java.util.*;
 import java.util.concurrent.*;
 
+import arch.galaxyeclipse.shared.*;
 import org.apache.log4j.*;
 import org.jboss.netty.bootstrap.*;
 import org.jboss.netty.channel.*;
@@ -18,7 +19,7 @@ import arch.galaxyeclipse.shared.util.*;
 /**
  * Main class responsible for network communication using the GalaxyEclipseProtocol.
  */
-class ClientNetworkManager implements IClientNetworkManager {
+class ClientNetworkManager implements IClientNetworkManager, ITestClientNetworkManager {
 	// Sleep interval to wait for connection result
 	private static final int CONNECTION_TIMEOUT_MILLISECONDS = 3000;
 	
@@ -32,11 +33,22 @@ class ClientNetworkManager implements IClientNetworkManager {
 	
 	public ClientNetworkManager(IClientChannelHandlerFactory channelHandlerFactory) {
 		this.channelHandlerFactory = channelHandlerFactory;
-		
-		listeners = new HashMap<Packet.Type, Set<IServerPacketListener>>();
-		
-		// Instantiating the client bootsrap
-		bootstrap = new ClientBootstrap(new NioClientSocketChannelFactory(
+
+        listeners = new HashMap<Packet.Type, Set<IServerPacketListener>>();
+        // Instantiating channel handler
+        // Command for incoming packets notifies subscribed listeners
+        channelHandler = channelHandlerFactory.createHandler(new ICommand<Packet>() {
+            @Override
+            public void perform(Packet packet) {
+                log.debug("Notifying listeners for " + packet.getType());
+                for (IServerPacketListener listener : listeners.get(packet.getType())) {
+                    listener.onPacketReceived(packet);
+                }
+            }
+        });
+
+        // Instantiating the client bootsrap
+        bootstrap = new ClientBootstrap(new NioClientSocketChannelFactory(
 				Executors.newCachedThreadPool(), Executors.newCachedThreadPool()));
 		bootstrap.setPipelineFactory(new AbstractProtobufChannelPipelineFactory() {
 			@Override
@@ -50,21 +62,7 @@ class ClientNetworkManager implements IClientNetworkManager {
 	
 	@Override
 	public void connect(SocketAddress address, final ICallback<Boolean> callback) {
-		if (channelHandler == null) { 
-			// Instantiating channel handler
-			// Command for incoming packets notifies subscribed listeners
-			channelHandler = channelHandlerFactory.createHandler(new ICommand<Packet>() {
-				@Override
-				public void perform(Packet packet) {
-					log.debug("Notifying listeners for " + packet.getType());
-					for (IServerPacketListener listener : listeners.get(packet.getType())) {
-						listener.onPacketReceived(packet);
-					}
-				}
-			});			
-		}
-		
-		// Trying to connect to the passed adress
+		// Trying to testConnect to the passed adress
 		bootstrap.connect(address).addListener(new ChannelFutureListener() {
 			@Override
 			public void operationComplete(final ChannelFuture future) throws Exception {
@@ -134,4 +132,48 @@ class ClientNetworkManager implements IClientNetworkManager {
 		log.debug(LogUtils.getObjectInfo(this) + " sending packet " + packet.getType());
 		channelHandler.sendPacket(packet);
 	}
+
+    // Test methods
+
+    @Override
+    public void testConnect() {
+        testConnect(false);
+    }
+
+    @Override
+    public void testConnect(boolean wait) {
+        testConnect(new InetSocketAddress(SharedInfo.HOST, SharedInfo.PORT), wait);
+    }
+
+    @Override
+    public void testConnect(SocketAddress address, boolean wait) {
+        testConnect(address, wait, new StubCallback<Boolean>());
+    }
+
+    @Override
+    public void testConnect(SocketAddress address, final boolean wait,
+            final ICallback<Boolean> callback) {
+        // Trying to testConnect to the passed adress
+        bootstrap.connect(address).addListener(new ChannelFutureListener() {
+            @Override
+            public void operationComplete(final ChannelFuture future) throws Exception {
+                if (wait) {
+                    log.info("Waiting " + CONNECTION_TIMEOUT_MILLISECONDS
+                            + " milliseconds for connection");
+                    // Waiting in the separate thread and notifying the caller trough the callback
+                    new DelayedRunnableExecutor(CONNECTION_TIMEOUT_MILLISECONDS, new Runnable() {
+                        @Override
+                        public void run() {
+                            if (!channelHandler.isConnected()) {
+                                channelHandler.disconnect(new StubCallback<Boolean>());
+                            }
+                            callback.onOperationComplete(channelHandler.isConnected());
+                        }
+                    }).start();
+                } else {
+                    callback.onOperationComplete(channelHandler.isConnected());
+                }
+            }
+        });
+    }
 }

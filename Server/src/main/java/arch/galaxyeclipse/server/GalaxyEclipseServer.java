@@ -3,7 +3,7 @@ package arch.galaxyeclipse.server;
 import arch.galaxyeclipse.server.data.util.*;
 import arch.galaxyeclipse.server.network.*;
 import arch.galaxyeclipse.shared.*;
-import arch.galaxyeclipse.shared.inject.*;
+import arch.galaxyeclipse.shared.context.*;
 import arch.galaxyeclipse.shared.types.*;
 import org.apache.log4j.*;
 
@@ -22,13 +22,13 @@ public class GalaxyEclipseServer {
     public void preconfigure() {
         // Initializing the system
         PropertyConfigurator.configure("log4j.properties");
-        SpringContextHolder.CONTEXT.getClass();
+        ContextHolder.INSTANCE.getClass();
 
         // Resolving dependencies
-        serverNetworkManager = SpringContextHolder.CONTEXT.getBean(IServerNetworkManager.class);
-        dictionaryTypesMapperHelper = SpringContextHolder.CONTEXT.getBean(
+        serverNetworkManager = ContextHolder.INSTANCE.getBean(IServerNetworkManager.class);
+        dictionaryTypesMapperHelper = ContextHolder.INSTANCE.getBean(
                 IDictionaryTypesMapperHelper.class);
-        dictionaryTypesMapper = SpringContextHolder.CONTEXT.getBean(DictionaryTypesMapper.class);
+        dictionaryTypesMapper = ContextHolder.INSTANCE.getBean(DictionaryTypesMapper.class);
 
         // Dependencies initialization
         dictionaryTypesMapperHelper.fillAll(dictionaryTypesMapper);

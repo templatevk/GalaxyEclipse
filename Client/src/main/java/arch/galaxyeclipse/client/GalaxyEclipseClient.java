@@ -2,7 +2,7 @@ package arch.galaxyeclipse.client;
 
 import org.apache.log4j.*;
 
-import arch.galaxyeclipse.shared.inject.*;
+import arch.galaxyeclipse.shared.context.*;
 
 public class GalaxyEclipseClient  {		
 	public GalaxyEclipseClient() {
@@ -12,7 +12,7 @@ public class GalaxyEclipseClient  {
 	public void start() {
 		PropertyConfigurator.configure("log4j.properties");
 		// Instantiating xml context
-		SpringContextHolder.CONTEXT.getClass();
+		ContextHolder.INSTANCE.getClass();
 	}
 	
 	public static void main(String[] args) throws Exception {

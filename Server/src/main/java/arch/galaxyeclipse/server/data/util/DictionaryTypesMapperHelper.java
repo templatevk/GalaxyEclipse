@@ -2,7 +2,7 @@ package arch.galaxyeclipse.server.data.util;
 
 import arch.galaxyeclipse.server.data.model.*;
 import arch.galaxyeclipse.server.data.repository.jpa.*;
-import arch.galaxyeclipse.shared.inject.*;
+import arch.galaxyeclipse.shared.context.*;
 import arch.galaxyeclipse.shared.types.*;
 import arch.galaxyeclipse.shared.util.*;
 import org.apache.log4j.*;
@@ -22,15 +22,15 @@ class DictionaryTypesMapperHelper implements IDictionaryTypesMapperHelper {
     private ILocationObjectBehaviorTypesRepository locationObjectBehaviorTypesRepository;
 
     public DictionaryTypesMapperHelper() {
-        bonusTypesRepository = SpringContextHolder.CONTEXT.getBean(
+        bonusTypesRepository = ContextHolder.INSTANCE.getBean(
                 IBonusTypesRepository.class);
-        itemTypesRepository = SpringContextHolder.CONTEXT.getBean(
+        itemTypesRepository = ContextHolder.INSTANCE.getBean(
                 IItemTypesRepository.class);
-        weaponTypesRepository = SpringContextHolder.CONTEXT.getBean(
+        weaponTypesRepository = ContextHolder.INSTANCE.getBean(
                 IWeaponTypesRepository.class);
-        locationObjectBehaviorTypesRepository = SpringContextHolder.CONTEXT.getBean(
+        locationObjectBehaviorTypesRepository = ContextHolder.INSTANCE.getBean(
                 ILocationObjectBehaviorTypesRepository.class);
-        locationObjectTypesRepository = SpringContextHolder.CONTEXT.getBean(
+        locationObjectTypesRepository = ContextHolder.INSTANCE.getBean(
                 ILocationObjectTypesRepository.class);
     }
 

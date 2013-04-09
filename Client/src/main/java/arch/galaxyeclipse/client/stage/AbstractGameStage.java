@@ -1,7 +1,7 @@
 package arch.galaxyeclipse.client.stage;
 
 import arch.galaxyeclipse.client.window.*;
-import arch.galaxyeclipse.shared.inject.*;
+import arch.galaxyeclipse.shared.context.*;
 import com.badlogic.gdx.scenes.scene2d.*;
 import org.apache.log4j.*;
 
@@ -24,7 +24,7 @@ public abstract class AbstractGameStage extends Stage {
     private ClientWindow clientWindow;
 
     protected AbstractGameStage() {
-        clientWindow = SpringContextHolder.CONTEXT.getBean(ClientWindow.class);
+        clientWindow = ContextHolder.INSTANCE.getBean(ClientWindow.class);
     }
 
     public static AbstractGameStage getStage(StageType stageType) {

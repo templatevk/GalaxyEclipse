@@ -2,7 +2,7 @@ package arch.galaxyeclipse.server.authentication;
 
 import arch.galaxyeclipse.server.data.model.*;
 import arch.galaxyeclipse.server.data.repository.jpa.*;
-import arch.galaxyeclipse.shared.inject.*;
+import arch.galaxyeclipse.shared.context.*;
 import org.apache.commons.codec.digest.*;
 
 /**
@@ -12,7 +12,7 @@ class ClientAuthenticator implements IClientAuthenticator {
     private arch.galaxyeclipse.server.data.repository.jpa.IPlayersRepository IPlayersRepository;
 
     public ClientAuthenticator() {
-        IPlayersRepository = SpringContextHolder.CONTEXT.getBean(IPlayersRepository.class);
+        IPlayersRepository = ContextHolder.INSTANCE.getBean(IPlayersRepository.class);
     }
 
     @Override

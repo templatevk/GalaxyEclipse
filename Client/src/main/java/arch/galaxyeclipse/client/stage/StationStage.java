@@ -1,7 +1,7 @@
 package arch.galaxyeclipse.client.stage;
 
 import arch.galaxyeclipse.client.texture.*;
-import arch.galaxyeclipse.shared.inject.*;
+import arch.galaxyeclipse.shared.context.*;
 import com.badlogic.gdx.*;
 import com.badlogic.gdx.graphics.g2d.*;
 import com.badlogic.gdx.scenes.scene2d.*;
@@ -16,7 +16,7 @@ class StationStage extends AbstractGameStage {
     private Table innerTable;
 
     public StationStage() {
-        ITextureAtlas atlas = SpringContextHolder.CONTEXT
+        ITextureAtlas atlas = ContextHolder.INSTANCE
                 .getBean(ITextureAtlasFactory.class).createAtlas();
 
         BitmapFont font = new BitmapFont(Gdx.files.internal("assets/font1.fnt"),

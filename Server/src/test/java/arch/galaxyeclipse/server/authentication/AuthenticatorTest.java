@@ -1,7 +1,7 @@
 package arch.galaxyeclipse.server.authentication;
 
 import arch.galaxyeclipse.server.*;
-import arch.galaxyeclipse.shared.inject.*;
+import arch.galaxyeclipse.shared.context.*;
 import org.junit.*;
 
 import static junit.framework.Assert.*;
@@ -14,7 +14,7 @@ public class AuthenticatorTest extends AbstractServerTest {
 
     @Before
     public void initDependencies() {
-        authenticator = SpringContextHolder.CONTEXT.getBean(IClientAuthenticator.class);
+        authenticator = ContextHolder.INSTANCE.getBean(IClientAuthenticator.class);
     }
 
     @Test
