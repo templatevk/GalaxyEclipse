@@ -3,12 +3,13 @@ package arch.galaxyeclipse.client.stage;
 import arch.galaxyeclipse.client.window.*;
 import arch.galaxyeclipse.shared.context.*;
 import com.badlogic.gdx.scenes.scene2d.*;
-import org.apache.log4j.*;
+import lombok.extern.slf4j.*;
 
 /**
  * Base class for all game stages. Performs scaling, resizing and aspect ration matching.
  * Stages are obtained via the getStage method.
  */
+@Slf4j
 public abstract class AbstractGameStage extends Stage {
     public enum StageType {
         LOADING,
@@ -16,8 +17,6 @@ public abstract class AbstractGameStage extends Stage {
         FLIGHT,
         STATION;
     }
-
-    private static final Logger log = Logger.getLogger(AbstractGameStage.class);
 
     private static final float DEFAULT_SCALE_COEF = 0.5f;
 
@@ -56,11 +55,15 @@ public abstract class AbstractGameStage extends Stage {
 
         if (!isManualScaling()) {
             getScaleGroup().setScale(scaleX * DEFAULT_SCALE_COEF, scaleY * DEFAULT_SCALE_COEF);
-            log.info("scaleX = " + scaleX * DEFAULT_SCALE_COEF
-                    + ", scaleY = " + scaleY * DEFAULT_SCALE_COEF);
+            if (log.isInfoEnabled()) {
+                log.info("scaleX = " + scaleX * DEFAULT_SCALE_COEF
+                        + ", scaleY = " + scaleY * DEFAULT_SCALE_COEF);
+            }
         }
-        log.info("width = " + width + ", height = " + height + ", viewportHeight = "
-                + clientWindow.getViewportHeight() + ", viewportWidth = "
-                + clientWindow.getViewportWidth());
+        if (log.isInfoEnabled()) {
+            log.info("width = " + width + ", height = " + height + ", viewportHeight = "
+                    + clientWindow.getViewportHeight() + ", viewportWidth = "
+                    + clientWindow.getViewportWidth());
+        }
     }
 }

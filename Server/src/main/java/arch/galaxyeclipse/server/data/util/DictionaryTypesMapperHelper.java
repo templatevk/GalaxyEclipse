@@ -5,16 +5,15 @@ import arch.galaxyeclipse.server.data.repository.jpa.*;
 import arch.galaxyeclipse.shared.context.*;
 import arch.galaxyeclipse.shared.types.*;
 import arch.galaxyeclipse.shared.util.*;
-import org.apache.log4j.*;
+import lombok.extern.slf4j.*;
 
 import java.util.*;
 
 /**
  *
  */
+@Slf4j
 class DictionaryTypesMapperHelper implements IDictionaryTypesMapperHelper {
-    private static final Logger log = Logger.getLogger(DictionaryTypesMapperHelper.class);
-
     private IBonusTypesRepository bonusTypesRepository;
     private IItemTypesRepository itemTypesRepository;
     private IWeaponTypesRepository weaponTypesRepository;
@@ -81,7 +80,10 @@ class DictionaryTypesMapperHelper implements IDictionaryTypesMapperHelper {
 
     @Override
     public void fillAll(DictionaryTypesMapper dictionaryTypesMapper) {
-        log.debug(LogUtils.getObjectInfo(this) + " filling in dictionary types");
+        if (log.isDebugEnabled()) {
+            log.debug(LogUtils.getObjectInfo(this) + " filling in dictionary types");
+        }
+
         dictionaryTypesMapper.fillItemTypes(getItemTypes());
         dictionaryTypesMapper.fillBonusTypes(getBonusTypes());
         dictionaryTypesMapper.fillWeaponTypes(getWeaponTypes());

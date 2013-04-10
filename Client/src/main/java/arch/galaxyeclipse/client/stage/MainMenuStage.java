@@ -7,6 +7,7 @@ import arch.galaxyeclipse.shared.context.*;
 import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.*;
 import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet.*;
 import arch.galaxyeclipse.shared.thread.*;
+import arch.galaxyeclipse.shared.util.*;
 import com.badlogic.gdx.*;
 import com.badlogic.gdx.graphics.*;
 import com.badlogic.gdx.graphics.g2d.*;
@@ -15,15 +16,14 @@ import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.*;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField.*;
 import com.badlogic.gdx.scenes.scene2d.utils.*;
-import org.apache.log4j.*;
+import lombok.extern.slf4j.*;
 
 import java.net.*;
 import java.util.*;
 import java.util.List;
 
+@Slf4j
 class MainMenuStage extends AbstractGameStage implements IServerPacketListener {
-	private static final Logger log = Logger.getLogger(MainMenuStage.class);
-	
 	private static final float TABLE_SPACING = 10;
 	private static final float DEFAULT_TEXTFIELD_WIDTH = 370;
 	private static final float DEFAULT_TEXTFIELD_HEIGHT = 100;
@@ -88,8 +88,11 @@ class MainMenuStage extends AbstractGameStage implements IServerPacketListener {
         final ICallback<Boolean> connectionCallback = new ICallback<Boolean>() {
             @Override
             public void onOperationComplete(Boolean isConnected) {
-                log.info(getClass().getSimpleName() + " connection callback "
-                        + " result = " + isConnected);
+                if (log.isInfoEnabled()) {
+                    log.info(getClass().getSimpleName() + " connection callback "
+                            + " result = " + isConnected);
+                }
+
                 if (isConnected) {
                     AuthRequest request = AuthRequest.newBuilder()
                             .setUsername("")
@@ -129,7 +132,9 @@ class MainMenuStage extends AbstractGameStage implements IServerPacketListener {
 
 	@Override
 	public void onPacketReceived(Packet packet) {
-		log.info(this + " received packet " + packet.getType());
+        if (log.isInfoEnabled()) {
+		    log.info(LogUtils.getObjectInfo(this) + " received packet " + packet.getType());
+        }
 
 		switch (packet.getType()) {
 		case AUTH_RESPONSE:

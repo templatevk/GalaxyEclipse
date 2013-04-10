@@ -1,11 +1,10 @@
 package arch.galaxyeclipse.shared.handler;
 
-import java.util.*;
-
+import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.*;
+import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet.*;
 import org.jboss.netty.channel.*;
 
-import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet;
-import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet.Type;
+import java.util.*;
 
 public class TestClientHandler extends SimpleChannelHandler {
 	@Override

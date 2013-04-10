@@ -4,14 +4,13 @@ import arch.galaxyeclipse.server.authentication.*;
 import arch.galaxyeclipse.shared.context.*;
 import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.*;
 import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet.*;
-import org.apache.log4j.*;
+import lombok.extern.slf4j.*;
 
 /**
  * Processes the messages of unauthenticated players.
  */
+@Slf4j
 class UnauthenticatedPacketHandler extends AbstractStubPacketHandler {
-	private static final Logger log = Logger.getLogger(UnauthenticatedPacketHandler.class);
-	
 	private IServerChannelHandler channelHandler;
 	private IClientAuthenticator authenticator;
 	
@@ -33,9 +32,11 @@ class UnauthenticatedPacketHandler extends AbstractStubPacketHandler {
 			if (result.isSuccess()) {
 				channelHandler.setPacketHandler(new FlightModePacketHandler(
                         channelHandler, result.getPlayer()));
-			} 
-			log.debug("Authentication user = " + request.getUsername() 
-					+ " pass = " + request.getPassword() + " result = " + result.isSuccess());
+			}
+            if (log.isDebugEnabled()) {
+			    log.debug("Authentication user = " + request.getUsername() + " pass = "
+                        + request.getPassword() + " result = " + result.isSuccess());
+            }
 			
 			// Sending response as authentication result
 			AuthResponse authResponse = AuthResponse.newBuilder()

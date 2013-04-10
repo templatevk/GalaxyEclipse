@@ -1,17 +1,17 @@
 package arch.galaxyeclipse.client;
 
-import org.apache.log4j.*;
-
 import arch.galaxyeclipse.shared.context.*;
+import ch.qos.logback.classic.*;
+import ch.qos.logback.core.util.*;
+import org.slf4j.*;
 
 public class GalaxyEclipseClient  {		
 	public GalaxyEclipseClient() {
-		
+
 	}
 	
 	public void start() {
-		PropertyConfigurator.configure("log4j.properties");
-		// Instantiating xml context
+        StatusPrinter.print((LoggerContext)LoggerFactory.getILoggerFactory());
 		ContextHolder.INSTANCE.getClass();
 	}
 	

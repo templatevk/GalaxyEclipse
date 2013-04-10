@@ -3,7 +3,7 @@ package arch.galaxyeclipse.shared.network;
 import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.*;
 import arch.galaxyeclipse.shared.thread.*;
 import arch.galaxyeclipse.shared.util.*;
-import org.apache.log4j.*;
+import lombok.extern.slf4j.*;
 import org.jboss.netty.channel.*;
 
 import java.util.concurrent.*;
@@ -12,10 +12,9 @@ import java.util.concurrent.*;
  * Base class for handling @see Channel data. Puts sent/received packets into queues
  * and processes the into seperate threads.
  */
+@Slf4j
 public abstract class AbstractProtobufChannelHandler extends SimpleChannelHandler
 		implements IChannelHandler {
-	private static final Logger log = Logger.getLogger(AbstractProtobufChannelHandler.class);
-
 	// Queue holding the packets received
 	private ConcurrentLinkedQueue<Packet> incomingPackets;
 	// Thread for processing the received packets
@@ -37,7 +36,9 @@ public abstract class AbstractProtobufChannelHandler extends SimpleChannelHandle
 				outgoingPackets, new ICommand<Packet>() {
 					@Override
 					public void perform(Packet packet) {
-						log.debug("Sending packet from the outgoing queue " + packet.getType());
+						if (log.isDebugEnabled()) {
+                            log.debug("Sending packet from the outgoing queue " + packet.getType());
+                        }
 						packetSender.send(packet);
 					}
 				});
@@ -111,8 +112,10 @@ public abstract class AbstractProtobufChannelHandler extends SimpleChannelHandle
 			throws Exception {
 		// Get the packet and put to the received packets queue
 		Packet packet = (Packet)e.getMessage();
-		log.debug(LogUtils.getObjectInfo(this) + " put packet "
-				+ packet.getType() + " to the incoming queue");
+        if (log.isDebugEnabled()) {
+            log.debug(LogUtils.getObjectInfo(this) + " put packet "
+			    	+ packet.getType() + " to the incoming queue");
+        }
 		incomingPackets.add(packet);
 	}
 
@@ -124,8 +127,10 @@ public abstract class AbstractProtobufChannelHandler extends SimpleChannelHandle
 
 	@Override
 	public void sendPacket(Packet packet) {
-		log.debug(LogUtils.getObjectInfo(this) + " put packet "
-				+ packet.getType() + " to the outgoing queue");
+        if (log.isDebugEnabled()) {
+            log.debug(LogUtils.getObjectInfo(this) + " put packet "
+				    + packet.getType() + " to the outgoing queue");
+        }
 		outgoingPackets.add(packet);
 	}
 

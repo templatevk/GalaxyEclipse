@@ -1,8 +1,7 @@
 package arch.galaxyeclipse.server.network;
 
-import org.jboss.netty.channel.*;
-
 import arch.galaxyeclipse.shared.network.*;
+import org.jboss.netty.channel.*;
 
 class ServerPipelineChannelFactory extends AbstractProtobufChannelPipelineFactory {
 	@Override

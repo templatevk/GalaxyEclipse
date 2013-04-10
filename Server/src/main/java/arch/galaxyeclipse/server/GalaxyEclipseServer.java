@@ -5,12 +5,14 @@ import arch.galaxyeclipse.server.network.*;
 import arch.galaxyeclipse.shared.*;
 import arch.galaxyeclipse.shared.context.*;
 import arch.galaxyeclipse.shared.types.*;
-import org.apache.log4j.*;
+import ch.qos.logback.classic.*;
+import ch.qos.logback.core.util.*;
+import lombok.extern.slf4j.*;
+import org.slf4j.*;
 
+@Slf4j
 public class GalaxyEclipseServer {
-    private static final Logger log = Logger.getLogger(GalaxyEclipseServer.class);
-
-	private IServerNetworkManager serverNetworkManager;
+    private IServerNetworkManager serverNetworkManager;
     private IDictionaryTypesMapperHelper dictionaryTypesMapperHelper;
     private DictionaryTypesMapper dictionaryTypesMapper;
 	
@@ -18,10 +20,8 @@ public class GalaxyEclipseServer {
 
 	}
 
-    // Configuration and dependency resolution
     public void preconfigure() {
-        // Initializing the system
-        PropertyConfigurator.configure("log4j.properties");
+        StatusPrinter.print((LoggerContext) LoggerFactory.getILoggerFactory());
         ContextHolder.INSTANCE.getClass();
 
         // Resolving dependencies

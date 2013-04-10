@@ -1,8 +1,8 @@
 package arch.galaxyeclipse.client.network;
 
-import java.util.*;
+import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.*;
 
-import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet;
+import java.util.*;
 
 public interface IServerPacketListener {
 	void onPacketReceived(Packet packet);

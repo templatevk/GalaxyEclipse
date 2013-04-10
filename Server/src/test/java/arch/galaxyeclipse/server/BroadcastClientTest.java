@@ -1,11 +1,10 @@
 package arch.galaxyeclipse.server;
 
-import arch.galaxyeclipse.client.*;
 import arch.galaxyeclipse.client.network.*;
 import arch.galaxyeclipse.server.network.*;
 import arch.galaxyeclipse.shared.context.*;
 import arch.galaxyeclipse.shared.protocol.*;
-import org.apache.log4j.*;
+import lombok.extern.slf4j.*;
 import org.junit.*;
 
 import java.util.*;
@@ -15,10 +14,8 @@ import static arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.*;
 /**
  *
  */
-@Ignore
+@Slf4j
 public class BroadcastClientTest extends AbstractServerTest {
-    private static final Logger log = Logger.getLogger(BroadcastClientTest.class);
-
     private static final int CLIENTS_NUMBER = 100;
     private static final int WAIT_DELAY = 8000;
 
@@ -33,10 +30,13 @@ public class BroadcastClientTest extends AbstractServerTest {
     public void testBroadcastMessage() throws InterruptedException {
         List<NoGuiGalaxyEclipseClient> clients = NoGuiGalaxyEclipseClient
                 .connectClients(CLIENTS_NUMBER);
+
         IServerPacketListener listener = new IServerPacketListener() {
             @Override
             public void onPacketReceived(Packet packet) {
-                log.info("Packet received");
+                if (log.isInfoEnabled()) {
+                    log.info("Packet received");
+                }
             }
 
             @Override

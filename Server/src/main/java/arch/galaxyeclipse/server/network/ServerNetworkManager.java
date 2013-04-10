@@ -2,8 +2,8 @@ package arch.galaxyeclipse.server.network;
 
 import arch.galaxyeclipse.shared.network.*;
 import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.*;
+import lombok.extern.slf4j.*;
 import org.apache.commons.collections.set.*;
-import org.apache.log4j.*;
 import org.jboss.netty.bootstrap.*;
 import org.jboss.netty.channel.*;
 import org.jboss.netty.channel.socket.nio.*;
@@ -12,9 +12,8 @@ import java.net.*;
 import java.util.*;
 import java.util.concurrent.*;
 
+@Slf4j
 class ServerNetworkManager implements IServerNetworkManager, IMonitoringNetworkManager {
-	private static final Logger log = Logger.getLogger(ServerNetworkManager.class);
-
     // All the connected clients
     private Set<IServerChannelHandler> serverChannelHandlers;
 
@@ -43,7 +42,9 @@ class ServerNetworkManager implements IServerNetworkManager, IMonitoringNetworkM
 			serverChannel.unbind();
 		}
 
-		log.info("Starting server on " + host + ":" + port);
+        if (log.isInfoEnabled()) {
+		    log.info("Starting server on " + host + ":" + port);
+        }
 
 		serverChannel = bootstrap.bind(new InetSocketAddress(host, port));
 	}
@@ -51,7 +52,9 @@ class ServerNetworkManager implements IServerNetworkManager, IMonitoringNetworkM
 	@Override
 	public void stopServer() {
 		if (serverChannel != null && serverChannel.isOpen()) {
-			log.info("Stopping server");
+            if (log.isInfoEnabled()) {
+                log.info("Stopping server");
+            }
 			serverChannel.close();
 			serverChannel.unbind();
 		}

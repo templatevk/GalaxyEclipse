@@ -1,15 +1,14 @@
 package arch.galaxyeclipse.shared;
 
-import java.net.*;
-import java.util.concurrent.*;
-
+import arch.galaxyeclipse.shared.handler.*;
+import arch.galaxyeclipse.shared.protocol.*;
 import org.jboss.netty.bootstrap.*;
 import org.jboss.netty.channel.*;
 import org.jboss.netty.channel.socket.nio.*;
 import org.jboss.netty.handler.codec.protobuf.*;
 
-import arch.galaxyeclipse.shared.handler.*;
-import arch.galaxyeclipse.shared.protocol.*;
+import java.net.*;
+import java.util.concurrent.*;
 
 public class ServerTest {
 	public static void main(String[] args) throws Exception {

@@ -1,29 +1,27 @@
 package arch.galaxyeclipse.client.network;
 
-import java.net.*;
-import java.util.*;
-import java.util.concurrent.*;
-
 import arch.galaxyeclipse.shared.*;
-import org.apache.log4j.*;
+import arch.galaxyeclipse.shared.network.*;
+import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.*;
+import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet.*;
+import arch.galaxyeclipse.shared.thread.*;
+import arch.galaxyeclipse.shared.util.*;
+import lombok.extern.slf4j.*;
 import org.jboss.netty.bootstrap.*;
 import org.jboss.netty.channel.*;
 import org.jboss.netty.channel.socket.nio.*;
 
-import arch.galaxyeclipse.shared.network.*;
-import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet;
-import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet.Type;
-import arch.galaxyeclipse.shared.thread.*;
-import arch.galaxyeclipse.shared.util.*;
+import java.net.*;
+import java.util.*;
+import java.util.concurrent.*;
 
 /**
  * Main class responsible for network communication using the GalaxyEclipseProtocol.
  */
+@Slf4j
 class ClientNetworkManager implements IClientNetworkManager, ITestClientNetworkManager {
 	// Sleep interval to wait for connection result
 	private static final int CONNECTION_TIMEOUT_MILLISECONDS = 3000;
-	
-	private static final Logger log = Logger.getLogger(ClientNetworkManager.class);
 
 	private IClientChannelHandlerFactory channelHandlerFactory;
 	
@@ -40,7 +38,10 @@ class ClientNetworkManager implements IClientNetworkManager, ITestClientNetworkM
         channelHandler = channelHandlerFactory.createHandler(new ICommand<Packet>() {
             @Override
             public void perform(Packet packet) {
-                log.debug("Notifying listeners for " + packet.getType());
+                if (log.isDebugEnabled()) {
+                    log.debug("Notifying listeners for " + packet.getType());
+                }
+
                 for (IServerPacketListener listener : listeners.get(packet.getType())) {
                     listener.onPacketReceived(packet);
                 }
@@ -97,7 +98,9 @@ class ClientNetworkManager implements IClientNetworkManager, ITestClientNetworkM
 		if (typeListeners == null) {
 			typeListeners = new HashSet<IServerPacketListener>();
 			for (Packet.Type packetType : listener.getPacketTypes()) {
-				log.info("Adding listener of type " + packetType.toString());
+                if (log.isInfoEnabled()) {
+				    log.info("Adding listener of type " + packetType.toString());
+                }
 				listeners.put(packetType, typeListeners);
 			}
 		}
@@ -110,7 +113,9 @@ class ClientNetworkManager implements IClientNetworkManager, ITestClientNetworkM
 		for (Packet.Type packetType : listener.getPacketTypes()) {
 			Set<IServerPacketListener> typeListeners = listeners.get(listener.getPacketTypes());
 			if (typeListeners != null) {
-				log.info(packetType.toString());
+                if (log.isInfoEnabled()) {
+                    log.info(packetType.toString());
+                }
 				typeListeners.remove(listener);
 			}
 		}
@@ -122,14 +127,19 @@ class ClientNetworkManager implements IClientNetworkManager, ITestClientNetworkM
 		log.info("Removing listener " + listener + " of type");
 		Set<IServerPacketListener> typeListeners = listeners.get(packetType);
 		if (typeListeners != null) {
-			log.info(packetType.toString());
+            if (log.isInfoEnabled()) {
+                log.info(packetType.toString());
+            }
 			typeListeners.remove(listener);
 		}	
 	}
 	
 	@Override
 	public void sendPacket(Packet packet) {
-		log.debug(LogUtils.getObjectInfo(this) + " sending packet " + packet.getType());
+        if (log.isDebugEnabled()) {
+            log.debug(LogUtils.getObjectInfo(this) + " sending packet " + packet.getType());
+        }
+
 		channelHandler.sendPacket(packet);
 	}
 
@@ -158,8 +168,11 @@ class ClientNetworkManager implements IClientNetworkManager, ITestClientNetworkM
             @Override
             public void operationComplete(final ChannelFuture future) throws Exception {
                 if (wait) {
-                    log.info("Waiting " + CONNECTION_TIMEOUT_MILLISECONDS
-                            + " milliseconds for connection");
+                    if (log.isInfoEnabled()) {
+                        log.info("Waiting " + CONNECTION_TIMEOUT_MILLISECONDS
+                                + " milliseconds for connection");
+                    }
+
                     // Waiting in the separate thread and notifying the caller trough the callback
                     new DelayedRunnableExecutor(CONNECTION_TIMEOUT_MILLISECONDS, new Runnable() {
                         @Override

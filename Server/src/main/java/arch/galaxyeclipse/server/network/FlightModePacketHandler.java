@@ -5,14 +5,13 @@ import arch.galaxyeclipse.server.data.repository.jpa.*;
 import arch.galaxyeclipse.shared.context.*;
 import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.*;
 import arch.galaxyeclipse.shared.types.*;
-import org.apache.log4j.*;
+import lombok.extern.slf4j.*;
 
 /**
  * Handles packets of authenticated players.
  */
+@Slf4j
 class FlightModePacketHandler implements IPacketHandler {
-    private static final Logger log = Logger.getLogger(FlightModePacketHandler.class);
-
     private IServerChannelHandler channelHandler;
     private DictionaryTypesMapper dictionaryTypesMapper;
 
@@ -54,7 +53,9 @@ class FlightModePacketHandler implements IPacketHandler {
 
     @Override
     public void onChannelClosed() {
-        log.debug("Channel closed during flight mode, hibernating player");
+        if (log.isDebugEnabled()) {
+            log.debug("Channel closed during flight mode, hibernating player");
+        }
 
         // Stop the ship
         shipState.setShipStateMoveSpeed(0);

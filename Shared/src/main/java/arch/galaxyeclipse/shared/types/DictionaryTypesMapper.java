@@ -1,15 +1,14 @@
 package arch.galaxyeclipse.shared.types;
 
-import org.apache.log4j.*;
+import lombok.extern.slf4j.*;
 
 import java.util.*;
 
 /**
  * Maps values from dictionary tables, name-id and id-name associations. 
  */
+@Slf4j
 public class DictionaryTypesMapper {
-	private static final Logger log = Logger.getLogger(DictionaryTypesMapper.class);
-	
 	// Mapping primary keys of the dictionary tables to the enum values and vise versa
 	private Map<Integer, LocationObjectTypesMapperType> idsObjectTypes;
     private Map<LocationObjectTypesMapperType, Integer> objectTypesIds;
@@ -89,7 +88,10 @@ public class DictionaryTypesMapper {
 				objectTypesIds.put(LocationObjectTypesMapperType.valueOf(
                         entry.getValue().toUpperCase()), entry.getKey());
 			}
-			log.info("Location object types mapped");
+
+            if (log.isInfoEnabled()) {
+			    log.info("Location object types mapped");
+            }
 		} catch (Exception e) {
 			log.error("Error mapping location object types", e);
 		}
@@ -104,7 +106,10 @@ public class DictionaryTypesMapper {
 				objectBehaviorTypesIds.put(LocationObjectBehaviorTypesMapperType.valueOf(
                         entry.getValue().toUpperCase()), entry.getKey());
 			}
-			log.info("Location object behavior types mapped");
+
+            if (log.isInfoEnabled()) {
+			    log.info("Location object behavior types mapped");
+            }
 		} catch (Exception e) {
 			log.error("Error mapping location behavior object types", e);
 		}
@@ -119,7 +124,10 @@ public class DictionaryTypesMapper {
 				weaponTypesIds.put(WeaponTypesMapperType.valueOf(entry.getValue().toUpperCase()),
 						entry.getKey());
 			}
-			log.info("Weapon types mapped");
+
+            if (log.isInfoEnabled()) {
+			    log.info("Weapon types mapped");
+            }
 		} catch (Exception e) {
 			log.error("Error mapping weapon types", e);
 		}
@@ -134,7 +142,9 @@ public class DictionaryTypesMapper {
 				itemTypesIds.put(ItemTypesMapperType.valueOf(entry.getValue().toUpperCase()),
 						entry.getKey());
 			}
-			log.info("Item types mapped");
+            if (log.isInfoEnabled()) {
+			    log.info("Item types mapped");
+            }
 		} catch (Exception e) {
 			log.error("Error mapping item types", e);
 		}
@@ -149,7 +159,10 @@ public class DictionaryTypesMapper {
 				bonusTypesIds.put(BonusTypesMapperType.valueOf(entry.getValue().toUpperCase()),
 						entry.getKey());
 			}
-			log.info("Bonus types mapped");
+
+            if (log.isInfoEnabled()) {
+			    log.info("Bonus types mapped");
+            }
 		} catch (Exception e) {
 			log.error("Error mapping bonus types", e);
 		}

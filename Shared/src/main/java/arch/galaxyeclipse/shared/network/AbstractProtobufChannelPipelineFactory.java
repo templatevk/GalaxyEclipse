@@ -1,24 +1,21 @@
 package arch.galaxyeclipse.shared.network;
 
-import org.apache.log4j.*;
+import arch.galaxyeclipse.shared.protocol.*;
+import lombok.extern.slf4j.*;
 import org.jboss.netty.channel.*;
 import org.jboss.netty.handler.codec.protobuf.*;
-
-import arch.galaxyeclipse.shared.protocol.*;
 
 /**
  * Adds protobuf handlers and custom ones.
  */
+@Slf4j
 public abstract class AbstractProtobufChannelPipelineFactory implements ChannelPipelineFactory {
-	private static final Logger log = Logger.getLogger(AbstractProtobufChannelPipelineFactory.class);
-	
-	// Subclasses add custom handlers.
 	protected abstract void configureHandlers(ChannelPipeline pipeline);
 	
 	@Override
 	public ChannelPipeline getPipeline() throws Exception {
 		ChannelPipeline pipeline = Channels.pipeline();
-		
+
 		// Adding length and protobuf handlers
 		pipeline.addLast("frameDecoder", new ProtobufVarint32FrameDecoder());
 		pipeline.addLast("protobufDecoder", new ProtobufDecoder(
@@ -28,7 +25,9 @@ public abstract class AbstractProtobufChannelPipelineFactory implements ChannelP
 		pipeline.addLast("protobufEncoder", new ProtobufEncoder());
 		
 		configureHandlers(pipeline);
-		log.info("Channel handlers configured");
+        if (log.isInfoEnabled()) {
+		    log.info("Channel handlers configured");
+        }
 		
 		return pipeline;
 	}

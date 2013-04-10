@@ -1,16 +1,14 @@
 package arch.galaxyeclipse.shared.thread;
 
-import org.apache.log4j.*;
-
 import arch.galaxyeclipse.shared.util.*;
+import lombok.extern.slf4j.*;
 
 /**
  * Represents a thread that will execute submitted runnable after the submitted 
  * milliseconds delay.
  */
+@Slf4j
 public class DelayedRunnableExecutor extends Thread {
-	private static final Logger log = Logger.getLogger(DelayedRunnableExecutor.class);
-	
 	private int millisecondsDelay;
 	private Runnable runnable;
 	

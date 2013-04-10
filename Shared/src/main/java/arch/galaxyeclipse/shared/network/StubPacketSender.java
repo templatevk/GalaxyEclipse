@@ -1,22 +1,22 @@
 package arch.galaxyeclipse.shared.network;
 
-import org.apache.log4j.*;
-
-import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet;
+import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.*;
 import arch.galaxyeclipse.shared.util.*;
+import lombok.extern.slf4j.*;
 
 /**
  * Simply ignores all packets.
  */
+@Slf4j
 public class StubPacketSender implements IPacketSender {
-	private static final Logger log = Logger.getLogger(StubPacketSender.class);
-	
-	public StubPacketSender() {
+    public StubPacketSender() {
 		
 	}
 
 	@Override
 	public void send(Packet packet) {
-		log.debug(LogUtils.getObjectInfo(this) + " " + packet.getType());
+        if (log.isDebugEnabled()) {
+		    log.debug(LogUtils.getObjectInfo(this) + " " + packet.getType());
+        }
 	}
 }

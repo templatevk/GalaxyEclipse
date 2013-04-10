@@ -1,17 +1,15 @@
 package arch.galaxyeclipse.shared.network;
 
-import org.apache.log4j.*;
-import org.jboss.netty.channel.*;
-
-import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet;
+import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.*;
 import arch.galaxyeclipse.shared.util.*;
+import lombok.extern.slf4j.*;
+import org.jboss.netty.channel.*;
 
 /**
  * Sends the packets through the channel passed.
  */
+@Slf4j
 public class ChannelPacketSender implements IPacketSender {
-	private static final Logger log = Logger.getLogger(StubPacketSender.class);
-	
 	private Channel channel;
 
 	public ChannelPacketSender(Channel channel) {
@@ -21,7 +19,9 @@ public class ChannelPacketSender implements IPacketSender {
 	
 	@Override
 	public void send(Packet packet) {
-		log.debug(LogUtils.getObjectInfo(this) + " "  + packet.getType());
+        if (log.isDebugEnabled()) {
+		    log.debug(LogUtils.getObjectInfo(this) + " "  + packet.getType());
+        }
 		channel.write(packet);
 	}
 }

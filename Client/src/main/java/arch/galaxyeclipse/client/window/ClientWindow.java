@@ -1,7 +1,6 @@
 package arch.galaxyeclipse.client.window;
 
 import arch.galaxyeclipse.client.stage.*;
-
 import com.badlogic.gdx.*;
 import com.badlogic.gdx.backends.lwjgl.*;
 import com.badlogic.gdx.graphics.*;

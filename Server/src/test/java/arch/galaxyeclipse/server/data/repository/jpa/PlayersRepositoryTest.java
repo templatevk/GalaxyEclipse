@@ -3,7 +3,6 @@ package arch.galaxyeclipse.server.data.repository.jpa;
 import arch.galaxyeclipse.server.data.model.*;
 import arch.galaxyeclipse.server.data.repository.*;
 import org.junit.*;
-import org.springframework.test.context.transaction.*;
 import org.springframework.transaction.annotation.*;
 
 import static junit.framework.Assert.*;
@@ -11,7 +10,6 @@ import static junit.framework.Assert.*;
 /**
  *
  */
-@TransactionConfiguration(defaultRollback = true)
 public class PlayersRepositoryTest extends AbstractRepositoryTest {
     public PlayersRepositoryTest() {
         super(IPlayersRepository.class);

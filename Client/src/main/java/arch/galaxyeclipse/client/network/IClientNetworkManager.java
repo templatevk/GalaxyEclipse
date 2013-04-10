@@ -1,9 +1,9 @@
 package arch.galaxyeclipse.client.network;
 
-import java.net.*;
-
-import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet;
+import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.*;
 import arch.galaxyeclipse.shared.thread.*;
+
+import java.net.*;
 
 public interface IClientNetworkManager {	
 	void addListener(IServerPacketListener listener);

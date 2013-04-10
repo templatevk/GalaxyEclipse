@@ -39,16 +39,16 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/resources" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="jdk" jdkName="JDK 1.7" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Maven: org.projectlombok:maven-lombok-plugin:0.9.3.1" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.maven:maven-plugin-api:2.0.9" level="project" />
-    <orderEntry type="library" name="Maven: org.projectlombok:lombok:0.9.3" level="project" />
     <orderEntry type="module" module-name="Shared" />
     <orderEntry type="module" module-name="Client" scope="TEST" />
-    <orderEntry type="library" name="Maven: log4j:log4j:1.2.17" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.4" level="project" />
+    <orderEntry type="library" name="Maven: ch.qos.logback:logback-core:1.0.9" level="project" />
+    <orderEntry type="library" name="Maven: ch.qos.logback:logback-classic:1.0.9" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-context:3.2.2.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-aop:3.2.2.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: aopalliance:aopalliance:1.0" level="project" />
@@ -65,18 +65,15 @@
     <orderEntry type="library" name="Maven: libgdx:libgdx-lwjgl-natives:0.9.8" level="project" />
     <orderEntry type="library" name="Maven: libgdx:libgdx-texturepacker:3.2.0" level="project" />
     <orderEntry type="library" name="Maven: org.jboss.netty:netty:3.2.9.Final" level="project" />
-    <orderEntry type="library" name="Maven: org.projectlombok:maven-lombok-plugin:0.9.3.1" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.maven:maven-plugin-api:2.0.9" level="project" />
-    <orderEntry type="library" name="Maven: org.projectlombok:lombok:0.9.3" level="project" />
-    <orderEntry type="library" name="Maven: org.slf4j:slf4j-log4j12:1.7.4" level="project" />
-    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.4" level="project" />
+    <orderEntry type="library" name="Maven: org.projectlombok:lombok:0.11.6" level="project" />
+    <orderEntry type="library" name="Maven: com.github.peichhorn:lombok-pg:0.11.3" level="project" />
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:5.1.24" level="project" />
     <orderEntry type="library" name="Maven: commons-dbcp:commons-dbcp:20030825.184428" level="project" />
     <orderEntry type="library" name="Maven: commons-pool:commons-pool:20030825.183949" level="project" />
     <orderEntry type="library" name="Maven: commons-collections:commons-collections:3.2.1" level="project" />
     <orderEntry type="library" name="Maven: commons-codec:commons-codec:20041127.091804" level="project" />
-    <orderEntry type="library" name="Maven: junit:junit:4.9" level="project" />
-    <orderEntry type="library" name="Maven: org.hamcrest:hamcrest-core:1.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.9" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.hamcrest:hamcrest-core:1.1" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-tx:3.2.2.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-orm:3.2.2.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-jdbc:3.2.2.RELEASE" level="project" />
@@ -93,11 +90,9 @@
     <orderEntry type="library" name="Maven: org.javassist:javassist:3.15.0-GA" level="project" />
     <orderEntry type="library" name="Maven: org.hibernate.common:hibernate-commons-annotations:4.0.1.Final" level="project" />
     <orderEntry type="library" name="Maven: org.hibernate:hibernate-entitymanager:4.1.10.Final" level="project" />
-    <orderEntry type="library" name="Maven: org.jmock:jmock-junit4:2.6.0" level="project" />
-    <orderEntry type="library" name="Maven: org.jmock:jmock:2.6.0" level="project" />
-    <orderEntry type="library" name="Maven: org.hamcrest:hamcrest-library:1.1" level="project" />
-    <orderEntry type="library" name="Maven: junit:junit-dep:4.4" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-test:3.2.2.RELEASE" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: com.googlecode.jmockit:jmockit:1.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.easytesting:fest-assert:1.4" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.easytesting:fest-util:1.1.6" level="project" />
   </component>
 </module>
 

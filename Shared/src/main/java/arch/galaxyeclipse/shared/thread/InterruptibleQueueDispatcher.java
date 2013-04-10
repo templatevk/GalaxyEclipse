@@ -1,15 +1,14 @@
 package arch.galaxyeclipse.shared.thread;
 
-import org.apache.log4j.*;
+import lombok.extern.slf4j.*;
 
 import java.util.*;
 
 /**
  * Thread processing the queue passed applying the passed command to the queue items.
  */
+@Slf4j
 public class InterruptibleQueueDispatcher<T> extends Thread {
-	private static final Logger log = Logger.getLogger(InterruptibleQueueDispatcher.class);
-	
 	private AbstractQueue<T> queue;
 	private ICommand<T> command;
 	private boolean yield;
@@ -31,7 +30,10 @@ public class InterruptibleQueueDispatcher<T> extends Thread {
 	
 	@Override
 	public void run() {
-		log.debug("Starting " + this);
+        if (log.isDebugEnabled()) {
+		    log.debug("Starting " + this);
+        }
+
 		try {
 			T item;
 			while (!Thread.interrupted()) {

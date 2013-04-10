@@ -1,9 +1,9 @@
 package arch.galaxyeclipse.client.texture;
 
-import java.util.*;
-
 import com.badlogic.gdx.*;
 import com.badlogic.gdx.graphics.g2d.*;
+
+import java.util.*;
 
 /**
  * Texture atlas instance caching the regions, etc through HashMaps.

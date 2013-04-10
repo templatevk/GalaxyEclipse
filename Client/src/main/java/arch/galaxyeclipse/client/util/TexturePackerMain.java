@@ -1,7 +1,7 @@
 package arch.galaxyeclipse.client.util;
 
 import com.badlogic.gdx.tools.imagepacker.*;
-import com.badlogic.gdx.tools.imagepacker.TexturePacker2.Settings;
+import com.badlogic.gdx.tools.imagepacker.TexturePacker2.*;
 
 /**
  * Utility class to pack the pictures into .atlas.
