@@ -126,4 +126,4 @@ insert into players
   values
   ('test', md5('test'), 'test', 'test', 0, 1);
 
-call activate_player('test');
+call activate_player(get_player_id_by_username('test'));

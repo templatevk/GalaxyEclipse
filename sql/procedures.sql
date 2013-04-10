@@ -2,12 +2,11 @@ drop procedure if exists activate_player;
 
 delimiter //
 
-create procedure activate_player(username varchar(32))
+create procedure activate_player(player_id integer)
   begin
-    declare player_id int;
+
     declare ship_type_id int;
     declare location_object_id int;
-    set player_id = (select get_player_id_by_username(username));
     set ship_type_id = (select get_ship_type_id_by_name(get_default_ship_type_name()));
 
     update players p
