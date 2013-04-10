@@ -42,8 +42,11 @@ class ClientNetworkManager implements IClientNetworkManager, ITestClientNetworkM
                     log.debug("Notifying listeners for " + packet.getType());
                 }
 
-                for (IServerPacketListener listener : listeners.get(packet.getType())) {
-                    listener.onPacketReceived(packet);
+                Set<IServerPacketListener> listenersForType = listeners.get(packet.getType());
+                if (listenersForType != null) {
+                    for (IServerPacketListener listener : listenersForType) {
+                        listener.onPacketReceived(packet);
+                    }
                 }
             }
         });

@@ -48,7 +48,6 @@
         <dependency>
             <groupId>GalaxyEclipse</groupId>
             <artifactId>Client</artifactId>
-            <scope>test</scope>
         </dependency>
 
         <dependency>
