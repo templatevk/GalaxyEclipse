@@ -27,23 +27,11 @@ public class BroadcastClientTest extends AbstractServerTest {
         serverNetworkManager = ContextHolder.INSTANCE.getBean(IServerNetworkManager.class);
     }
 
-    @Mocked StubServerPacketListener listener;
     @Test
     public void testBroadcastMessage() throws InterruptedException {
-        new MockUp<StubServerPacketListener>() {
-            @Mock
-            public void onPacketReceived(Packet packet) {
-                if (BroadcastClientTest.log.isInfoEnabled()) {
-                    BroadcastClientTest.log.info("Packet received");
-                }
-            }
+        new ServerPacketListener();
 
-            @Mock
-            public List<GalaxyEclipseProtocol.Packet.Type> getPacketTypes() {
-                return Arrays.asList(Packet.Type.CHAT_RECEIVE_MESSAGE);
-            }
-        };
-
+        final StubPacketListener listener = new StubPacketListener();
         List<NoGuiGalaxyEclipseClient> clients = NoGuiGalaxyEclipseClient
                 .connectClients(CLIENTS_NUMBER);
         for (NoGuiGalaxyEclipseClient client : clients) {
@@ -64,5 +52,34 @@ public class BroadcastClientTest extends AbstractServerTest {
         new Verifications() {{
             listener.onPacketReceived(Packet.getDefaultInstance()); times = CLIENTS_NUMBER;
         }};
+    }
+
+    private static class StubPacketListener implements IServerPacketListener {
+        @Override
+        public void onPacketReceived(Packet packet) {
+
+        }
+
+        @Override
+        public List<Packet.Type> getPacketTypes() {
+            return null;
+        }
+    }
+
+    private static class ServerPacketListener extends MockUp<IServerPacketListener>
+            implements IServerPacketListener {
+        {
+            log.info("Initializing mock");
+        }
+
+        @Override
+        public void onPacketReceived(Packet packet) {
+            log.info("Mock listener received " + packet.getType());
+        }
+
+        @Override
+        public List<Packet.Type> getPacketTypes() {
+            return Arrays.asList(Packet.Type.CHAT_RECEIVE_MESSAGE);
+        }
     }
 }
