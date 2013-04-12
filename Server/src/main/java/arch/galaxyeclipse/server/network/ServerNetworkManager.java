@@ -2,6 +2,7 @@ package arch.galaxyeclipse.server.network;
 
 import arch.galaxyeclipse.shared.network.*;
 import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.*;
+import arch.galaxyeclipse.shared.util.*;
 import lombok.extern.slf4j.*;
 import org.apache.commons.collections.set.*;
 import org.jboss.netty.bootstrap.*;
@@ -23,7 +24,7 @@ class ServerNetworkManager implements IServerNetworkManager, IMonitoringNetworkM
 
 	public ServerNetworkManager(AbstractProtobufChannelPipelineFactory channelPipelineFactory) {
 		this.channelPipelineFactory = channelPipelineFactory;
-        serverChannelHandlers = SynchronizedSet.decorate(new HashSet<IServerChannelHandler>());
+        serverChannelHandlers = new HashSet<>();
 	}
 	
 	@Override
@@ -63,16 +64,30 @@ class ServerNetworkManager implements IServerNetworkManager, IMonitoringNetworkM
     @Override
     public void registerServerChannelHandler(IServerChannelHandler handler) {
         serverChannelHandlers.add(handler);
+
+        if (log.isDebugEnabled()) {
+            log.debug(LogUtils.getObjectInfo(handler) + " registered, total handlers = "
+                    + serverChannelHandlers.size());
+        }
     }
 
     @Override
     public void unregisterServerChannelHandler(IServerChannelHandler handler) {
         serverChannelHandlers.remove(handler);
+
+        if (log.isDebugEnabled()) {
+            log.debug(LogUtils.getObjectInfo(handler) + " unregistered, total handlers = "
+                    + serverChannelHandlers.size());
+        }
     }
 
     @Override
     public void sendBroadcast(Packet packet) {
-        for (IServerChannelHandler handler : serverChannelHandlers) {
+        if (log.isInfoEnabled()) {
+            log.info("Sending " + packet.getType() + " broadcast");
+        }
+
+        for (IServerChannelHandler handler : new ArrayList<>(serverChannelHandlers)) {
             handler.sendPacket(packet);
         }
     }

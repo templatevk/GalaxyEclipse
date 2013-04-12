@@ -1,0 +1,10 @@
+arch/galaxyeclipse/server/network/BroadcastClientTest$InvokationCouner.class
+arch/galaxyeclipse/server/AbstractJUnitServerTest.class
+arch/galaxyeclipse/server/network/BroadcastClientTest.class
+arch/galaxyeclipse/server/AbstractTestNGServerTest.class
+arch/galaxyeclipse/server/network/BroadcastClientTest$StubPacketListener.class
+arch/galaxyeclipse/server/network/BroadcastClientTest$1.class
+arch/galaxyeclipse/server/EntityCriteriaTest$1.class
+arch/galaxyeclipse/server/EntityCriteriaTest.class
+arch/galaxyeclipse/server/data/util/DictionaryTypesMapperHelperTest.class
+arch/galaxyeclipse/server/authentication/AuthenticatorTest.class

@@ -9,7 +9,7 @@ import static junit.framework.Assert.*;
 /**
  *
  */
-public class AuthenticatorTest extends AbstractServerTest {
+public class AuthenticatorTest extends AbstractJUnitServerTest {
     private IClientAuthenticator authenticator;
 
     @Before

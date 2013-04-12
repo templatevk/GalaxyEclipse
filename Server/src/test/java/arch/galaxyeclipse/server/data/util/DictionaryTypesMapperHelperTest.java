@@ -10,7 +10,7 @@ import static junit.framework.Assert.*;
 /**
  *
  */
-public class DictionaryTypesMapperHelperTest extends AbstractServerTest {
+public class DictionaryTypesMapperHelperTest extends AbstractJUnitServerTest {
     private IDictionaryTypesMapperHelper dictionaryTypesMapperHelper;
     private DictionaryTypesMapper dictionaryTypesMapper;
 
