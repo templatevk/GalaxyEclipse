@@ -89,14 +89,14 @@ class MainMenuStage extends AbstractGameStage implements IServerPacketListener {
             @Override
             public void onOperationComplete(Boolean isConnected) {
                 if (log.isInfoEnabled()) {
-                    log.info(getClass().getSimpleName() + " connection callback "
+                    log.info(LogUtils.getObjectInfo(MainMenuStage.this) + " connection callback "
                             + " result = " + isConnected);
                 }
 
                 if (isConnected) {
                     AuthRequest request = AuthRequest.newBuilder()
-                            .setUsername("")
-                            .setPassword("").build();
+                            .setUsername(usernameTxt.getText())
+                            .setPassword(passwordTxt.getText()).build();
                     Packet packet = Packet.newBuilder()
                             .setType(Type.AUTH_REQUEST)
                             .setAuthRequest(request).build();

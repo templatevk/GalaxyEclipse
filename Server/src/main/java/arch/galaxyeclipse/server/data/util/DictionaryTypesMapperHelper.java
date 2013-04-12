@@ -1,8 +1,7 @@
 package arch.galaxyeclipse.server.data.util;
 
+import arch.galaxyeclipse.server.data.*;
 import arch.galaxyeclipse.server.data.model.*;
-import arch.galaxyeclipse.server.data.repository.jpa.*;
-import arch.galaxyeclipse.shared.context.*;
 import arch.galaxyeclipse.shared.types.*;
 import arch.galaxyeclipse.shared.util.*;
 import lombok.extern.slf4j.*;
@@ -14,29 +13,15 @@ import java.util.*;
  */
 @Slf4j
 class DictionaryTypesMapperHelper implements IDictionaryTypesMapperHelper {
-    private IBonusTypesRepository bonusTypesRepository;
-    private IItemTypesRepository itemTypesRepository;
-    private IWeaponTypesRepository weaponTypesRepository;
-    private ILocationObjectTypesRepository locationObjectTypesRepository;
-    private ILocationObjectBehaviorTypesRepository locationObjectBehaviorTypesRepository;
-
     public DictionaryTypesMapperHelper() {
-        bonusTypesRepository = ContextHolder.INSTANCE.getBean(
-                IBonusTypesRepository.class);
-        itemTypesRepository = ContextHolder.INSTANCE.getBean(
-                IItemTypesRepository.class);
-        weaponTypesRepository = ContextHolder.INSTANCE.getBean(
-                IWeaponTypesRepository.class);
-        locationObjectBehaviorTypesRepository = ContextHolder.INSTANCE.getBean(
-                ILocationObjectBehaviorTypesRepository.class);
-        locationObjectTypesRepository = ContextHolder.INSTANCE.getBean(
-                ILocationObjectTypesRepository.class);
+
     }
 
     @Override
     public Map<Integer, String> getBonusTypes() {
-        Map<Integer, String> result = new HashMap<Integer, String>();
-        for (BonusTypes type : bonusTypesRepository.findAll()) {
+        Map<Integer, String> result = new HashMap<>();
+
+        for (BonusType type : new CriteriaDataWorker<>(BonusType.class).execute()) {
             result.put(type.getBonusTypeId(), type.getBonusTypeName());
         }
         return result;
@@ -44,8 +29,9 @@ class DictionaryTypesMapperHelper implements IDictionaryTypesMapperHelper {
 
     @Override
     public Map<Integer, String> getItemTypes() {
-        Map<Integer, String> result = new HashMap<Integer, String>();
-        for (ItemTypes type : itemTypesRepository.findAll()) {
+        Map<Integer, String> result = new HashMap<>();
+
+        for (ItemType type : new CriteriaDataWorker<>(ItemType.class).execute()) {
             result.put(type.getItemTypeId(), type.getItemTypeName());
         }
         return result;
@@ -53,8 +39,9 @@ class DictionaryTypesMapperHelper implements IDictionaryTypesMapperHelper {
 
     @Override
     public Map<Integer, String> getWeaponTypes() {
-        Map<Integer, String> result = new HashMap<Integer, String>();
-        for (WeaponTypes type : weaponTypesRepository.findAll()) {
+        Map<Integer, String> result = new HashMap<>();
+
+        for (WeaponType type : new CriteriaDataWorker<>(WeaponType.class).execute()) {
             result.put(type.getWeaponTypeId(), type.getWeaponTypeName());
         }
         return result;
@@ -62,8 +49,10 @@ class DictionaryTypesMapperHelper implements IDictionaryTypesMapperHelper {
 
     @Override
     public Map<Integer, String> getLocationObjectTypes() {
-        Map<Integer, String> result = new HashMap<Integer, String>();
-        for (LocationObjectTypes type : locationObjectTypesRepository.findAll()) {
+        Map<Integer, String> result = new HashMap<>();
+
+        for (LocationObjectType type : new CriteriaDataWorker<>(
+                LocationObjectType.class).execute()) {
             result.put(type.getLocationObjectTypeId(), type.getObjectTypeName());
         }
         return result;
@@ -71,8 +60,10 @@ class DictionaryTypesMapperHelper implements IDictionaryTypesMapperHelper {
 
     @Override
     public Map<Integer, String> getLocationObjectBehaviorTypes() {
-        Map<Integer, String> result = new HashMap<Integer, String>();
-        for (LocationObjectBehaviorTypes type : locationObjectBehaviorTypesRepository.findAll()) {
+        Map<Integer, String> result = new HashMap<>();
+
+        for (LocationObjectBehaviorType type : new CriteriaDataWorker<>(
+                LocationObjectBehaviorType.class).execute()) {
             result.put(type.getLocationObjectBehaviorTypeId(), type.getObjectBehaviorTypeName());
         }
         return result;

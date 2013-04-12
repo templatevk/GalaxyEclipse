@@ -1,5 +1,5 @@
 # dictionaries
-insert into item_types
+insert into item_type
 (item_type_name)
   values
   ('engine'),
@@ -7,7 +7,7 @@ insert into item_types
   ('bonus'),
   ('sale');
 
-insert into bonus_types
+insert into bonus_type
 (bonus_type_name)
   values
   ('armor'),
@@ -19,19 +19,19 @@ insert into bonus_types
   ('acceleration_move'),
   ('weapon_speed');
 
-insert into weapon_types
+insert into weapon_type
 (weapon_type_name)
   values
   ('rocket'),
   ('laser');
 
-insert into location_object_behavior_types
+insert into location_object_behavior_type
 (object_behavior_type_name)
   values
   ('static'),
   ('dynamic');
 
-insert into location_object_types
+insert into location_object_type
 (object_type_name)
   values
   ('rocket'),
@@ -41,15 +41,15 @@ insert into location_object_types
   ('player_station'); -- dynamic behavior and player = online
 
 
-# locations
-insert into locations
+# location
+insert into location
 (location_name, location_width, location_height)
   values
   (get_default_location_name(), get_default_position_x() * 2, get_default_position_y() * 2);
 
 
-# items
-insert into items
+# item
+insert into item
 (item_name, item_description, item_price, item_type_id)
   values
 # engine
@@ -77,7 +77,7 @@ insert into items
   ('Reactor Core', 'scarp metal for sale', 100, get_item_type_id_by_name('sale')),
   ('Trash', 'trash for sale', 5, get_item_type_id_by_name('sale'));
 
-insert into bonuses
+insert into bonus
 (bonus_value, item_id, bonus_type_id)
   values
 # armor
@@ -90,7 +90,7 @@ insert into bonuses
   (3, get_item_id_by_name('Energy Regen Module "Lanis"'), get_bonus_type_id_by_name('energy_regen')),
   (3, get_item_id_by_name('Energy Regen Module "Tadpole"'), get_bonus_type_id_by_name('energy_regen'));
 
-insert into weapons
+insert into weapon
 (damage, delay_speed, bullet_speed, max_distance, energy_cost, weapon_type_id, item_id)
   values
 # rocket
@@ -100,7 +100,7 @@ insert into weapons
   (5, 1, 400, 100, 1, get_weapon_type_id_by_name('laser'), get_item_id_by_name('Laser "Flersiss"')),
   (10, 1, 350, 100, 2, get_weapon_type_id_by_name('laser'), get_item_id_by_name('Laser "Gyash"'));
 
-insert into engines
+insert into engine
 (move_acceleration_bonus, move_max_speed_bonus, rotation_acceleration_bonus, rotation_max_speed_bonus, item_id)
   values
   (1, 5, 1, 2, get_item_id_by_name(get_default_engine_name())),
@@ -110,7 +110,7 @@ insert into engines
 
 
 # ships
-insert into ship_types
+insert into ship_type
 (ship_type_name, ship_type_armor, ship_type_armor_durability, ship_type_energy_max,
  ship_type_hp_max, ship_type_energy_regen, ship_type_hp_regen, ship_type_move_max_speed,
  ship_type_move_acceleration, ship_type_rotation_max_speed, ship_type_rotation_acceleration,
@@ -121,9 +121,9 @@ insert into ship_types
 
 
 # test data
-insert into players
-(username, password, nickname, email, is_banned, is_activated)
+insert into player
+(username, password, nickname, email, banned, activated)
   values
   ('test', md5('test'), 'test', 'test', 0, 1);
 
-call activate_player('test');
+call activate_player(get_player_id_by_username('test'));

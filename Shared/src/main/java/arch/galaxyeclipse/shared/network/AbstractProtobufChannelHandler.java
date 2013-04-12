@@ -3,6 +3,7 @@ package arch.galaxyeclipse.shared.network;
 import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.*;
 import arch.galaxyeclipse.shared.thread.*;
 import arch.galaxyeclipse.shared.util.*;
+import lombok.*;
 import lombok.extern.slf4j.*;
 import org.jboss.netty.channel.*;
 
@@ -15,38 +16,50 @@ import java.util.concurrent.*;
 @Slf4j
 public abstract class AbstractProtobufChannelHandler extends SimpleChannelHandler
 		implements IChannelHandler {
-	// Queue holding the packets received
 	private ConcurrentLinkedQueue<Packet> incomingPackets;
-	// Thread for processing the received packets
-	private InterruptibleQueueDispatcher<Packet> incomingPacketDispatcher;
-	// Queue holding the packets sent
+	private InterruptableQueueDispatcher<Packet> incomingPacketDispatcher;
 	private ConcurrentLinkedQueue<Packet> outgoingPackets;
-	// Thread for processing the sent packets
-	private InterruptibleQueueDispatcher<Packet> outgoingPacketDispatcher;
-	private Channel channel;
-	private volatile IPacketSender packetSender;
+	private InterruptableQueueDispatcher<Packet> outgoingPacketDispatcher;
+    private ICommand<Packet> outgoingPacketDispatcherCommand;
+    private volatile IPacketSender packetSender;
 
-	protected AbstractProtobufChannelHandler(ICommand<Packet> incomingPacketDispatcherCommand) {
-		// Initialize the queues and their processors
-		incomingPackets = new ConcurrentLinkedQueue<Packet>();
-		incomingPacketDispatcher = new InterruptibleQueueDispatcher<Packet>(
-				incomingPackets, incomingPacketDispatcherCommand);
-		outgoingPackets = new ConcurrentLinkedQueue<Packet>();
-		outgoingPacketDispatcher = new InterruptibleQueueDispatcher<Packet>(
-				outgoingPackets, new ICommand<Packet>() {
-					@Override
-					public void perform(Packet packet) {
-						if (log.isDebugEnabled()) {
-                            log.debug("Sending packet from the outgoing queue " + packet.getType());
-                        }
-						packetSender.send(packet);
-					}
-				});
+    @Getter(AccessLevel.PROTECTED)
+    private Channel channel;
+
+    protected AbstractProtobufChannelHandler() {
+        outgoingPacketDispatcherCommand = new ICommand<Packet>() {
+            @Override
+            public void perform(Packet packet) {
+                if (log.isTraceEnabled()) {
+                    log.trace("Sending packet from the outgoing queue " + packet.getType());
+                }
+                packetSender.send(packet);
+            }
+        };
+
+        outgoingPackets = new ConcurrentLinkedQueue<>();
+        incomingPackets = new ConcurrentLinkedQueue<>();
+
 		// Drop packets because of no connection
 		packetSender = new StubPacketSender();
 	}
 
-	@Override
+    protected abstract ICommand<Packet> getIncomingPacketDispatcherCommand();
+
+    private void preparePacketDispatchers() {
+        incomingPackets.clear();
+        outgoingPackets.clear();
+
+        outgoingPacketDispatcher = new InterruptableQueueDispatcher<>(
+                outgoingPackets, outgoingPacketDispatcherCommand);
+        incomingPacketDispatcher = new InterruptableQueueDispatcher<>(
+                incomingPackets, getIncomingPacketDispatcherCommand());
+
+        incomingPacketDispatcher.start();
+        outgoingPacketDispatcher.start();
+    }
+
+    @Override
 	public void disconnect(final ICallback<Boolean> callback) {
         if (isConnected()) {
             channel.disconnect().addListener(new ChannelFutureListener() {
@@ -67,44 +80,19 @@ public abstract class AbstractProtobufChannelHandler extends SimpleChannelHandle
 	@Override
 	public void channelConnected(ChannelHandlerContext ctx, ChannelStateEvent e)
 		    throws Exception {
-		// Initializing the channel and passing it to packet sender
 		channel = e.getChannel();
-		packetSender = new ChannelPacketSender(channel);
 
-		// Starting packet queues' processors
-		getIncomingPacketDispatcher().start();
-		getOutgoingPacketDispatcher().start();
+        packetSender = new ChannelPacketSender(channel);
+        preparePacketDispatchers();
 	}
 
 	@Override
 	public void channelDisconnected(ChannelHandlerContext ctx,
 		    ChannelStateEvent e) throws Exception {
-		// Initializing sender dropping the packets
 		packetSender = new StubPacketSender();
 
-		// Stopping packet queues' processors
-		getOutgoingPacketDispatcher().interrupt();
-		getIncomingPacketDispatcher().interrupt();
-
-		// Clearing packet queues
-		getIncomingPackets().clear();
-		getOutgoingPackets().clear();
-	}
-
-	protected ConcurrentLinkedQueue<Packet> getIncomingPackets() {
-		return incomingPackets;
-	}
-
-	protected InterruptibleQueueDispatcher<Packet> getIncomingPacketDispatcher() {
-		return incomingPacketDispatcher;
-	}
-
-	protected ConcurrentLinkedQueue<Packet> getOutgoingPackets() {
-		return outgoingPackets;
-	}
-
-	protected InterruptibleQueueDispatcher<Packet> getOutgoingPacketDispatcher() {
-		return outgoingPacketDispatcher;
+        outgoingPacketDispatcher.interrupt();
+		incomingPacketDispatcher.interrupt();
 	}
 
 	@Override
@@ -112,8 +100,8 @@ public abstract class AbstractProtobufChannelHandler extends SimpleChannelHandle
 			throws Exception {
 		// Get the packet and put to the received packets queue
 		Packet packet = (Packet)e.getMessage();
-        if (log.isDebugEnabled()) {
-            log.debug(LogUtils.getObjectInfo(this) + " put packet "
+        if (log.isTraceEnabled()) {
+            log.trace(LogUtils.getObjectInfo(this) + " put packet "
 			    	+ packet.getType() + " to the incoming queue");
         }
 		incomingPackets.add(packet);
@@ -127,14 +115,10 @@ public abstract class AbstractProtobufChannelHandler extends SimpleChannelHandle
 
 	@Override
 	public void sendPacket(Packet packet) {
-        if (log.isDebugEnabled()) {
-            log.debug(LogUtils.getObjectInfo(this) + " put packet "
+        if (log.isTraceEnabled()) {
+            log.trace(LogUtils.getObjectInfo(this) + " put packet "
 				    + packet.getType() + " to the outgoing queue");
         }
 		outgoingPackets.add(packet);
-	}
-
-	protected Channel getChannel() {
-		return channel;
 	}
 }

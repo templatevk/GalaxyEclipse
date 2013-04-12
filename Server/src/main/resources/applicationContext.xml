@@ -2,15 +2,11 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:tx="http://www.springframework.org/schema/tx"
     xmlns:jpa="http://www.springframework.org/schema/data/jpa"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
-		http://www.springframework.org/schema/data/jpa
-        http://www.springframework.org/schema/data/jpa/spring-jpa-1.1.xsd">
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 
     <!-- Database -->
-    <tx:annotation-driven/>
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="defaultAutoCommit" value="false"/>
         <property name="driverClassName" value="${db.driver_class}"/>
@@ -18,31 +14,39 @@
         <property name="username" value="${db.username}"/>
         <property name="password" value="${db.password}"/>
     </bean>
-    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
-        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
-    </bean>
-    <bean id="entityManagerFactory"
-          class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-        <property name="dataSource" ref="dataSource"/>
-        <property name="jpaVendorAdapter">
-            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
-        </property>
-        <property name="jpaPropertyMap">
+        <property name="hibernateProperties">
             <map>
-                <entry key="hibernate.connection.driver_class" value="${db.driver_class}"/>
-                <entry key="hibernate.connection.url" value="${db.url}"/>
-                <entry key="hibernate.connection.username" value="${db.username}"/>
-                <entry key="hibernate.connection.password" value="${db.password}"/>
                 <entry key="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
                 <entry key="hibernate.show_sql" value="true"/>
                 <entry key="hibernate.format_sql" value="true"/>
             </map>
         </property>
+        <property name="annotatedClasses">
+            <list>
+                <value>arch.galaxyeclipse.server.data.model.Bonus</value>
+                <value>arch.galaxyeclipse.server.data.model.BonusType</value>
+                <value>arch.galaxyeclipse.server.data.model.Engine</value>
+                <value>arch.galaxyeclipse.server.data.model.InventoryItem</value>
+                <value>arch.galaxyeclipse.server.data.model.Item</value>
+                <value>arch.galaxyeclipse.server.data.model.ItemType</value>
+                <value>arch.galaxyeclipse.server.data.model.Location</value>
+                <value>arch.galaxyeclipse.server.data.model.LocationObject</value>
+                <value>arch.galaxyeclipse.server.data.model.LocationObjectBehaviorType</value>
+                <value>arch.galaxyeclipse.server.data.model.LocationObjectType</value>
+                <value>arch.galaxyeclipse.server.data.model.Player</value>
+                <value>arch.galaxyeclipse.server.data.model.PlayerActivationHash</value>
+                <value>arch.galaxyeclipse.server.data.model.ShipConfig</value>
+                <value>arch.galaxyeclipse.server.data.model.ShipConfigBonusSlot</value>
+                <value>arch.galaxyeclipse.server.data.model.ShipConfigWeaponSlot</value>
+                <value>arch.galaxyeclipse.server.data.model.ShipState</value>
+                <value>arch.galaxyeclipse.server.data.model.ShipType</value>
+                <value>arch.galaxyeclipse.server.data.model.Weapon</value>
+                <value>arch.galaxyeclipse.server.data.model.WeaponType</value>
+            </list>
+        </property>
     </bean>
-    <jpa:repositories base-package="arch.galaxyeclipse.server.data.repository.jpa"
-                      entity-manager-factory-ref="entityManagerFactory"
-                      transaction-manager-ref="transactionManager"/>
 
     <!-- Network -->
     <bean class="arch.galaxyeclipse.server.network.ServerNetworkManager">

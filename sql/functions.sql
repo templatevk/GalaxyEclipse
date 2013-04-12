@@ -6,7 +6,7 @@ create function get_item_type_id_by_name(name varchar(16))
   begin
     return (select
               item_type_id
-            from item_types it
+            from item_type it
             where item_type_name = name);
   end
 //
@@ -16,7 +16,7 @@ create function get_bonus_type_id_by_name(name varchar(16))
   begin
     return (select
               bonus_type_id
-            from bonus_types
+            from bonus_type
             where bonus_type_name = name);
   end
 //
@@ -25,7 +25,7 @@ create function get_weapon_type_id_by_name(name varchar(16))
   begin
     return (select
               weapon_type_id
-            from weapon_types
+            from weapon_type
             where weapon_type_name = name);
   end
 //
@@ -35,7 +35,7 @@ create function get_ship_type_id_by_name(name varchar(32))
   begin
     return (select
               ship_type_id
-            from ship_types
+            from ship_type
             where ship_type_name = name);
   end
 //
@@ -45,7 +45,7 @@ create function get_item_id_by_name(name varchar(32))
   begin
     return (select
               item_id
-            from items
+            from item
             where item_name = name);
   end
 //
@@ -55,7 +55,7 @@ create function get_player_id_by_username(username varchar(16))
   begin
     return (select
               player_id
-            from players p
+            from player p
             where p.username = username);
   end
 //
@@ -65,7 +65,7 @@ create function get_player_id_by_nickname(nickname varchar(16))
   begin
     return (select
               player_id
-            from players p
+            from player p
             where p.nickname = nickname);
   end
 //
@@ -76,9 +76,9 @@ create function get_ship_config_id_by_nickname(nickname varchar(16))
   begin
     return (select
               ship_config_id
-            from ship_configs
-              inner join players p
-                on ship_configs.player_id = p.player_id
+            from ship_config
+              inner join player p
+                on ship_config.player_id = p.player_id
             where p.nickname = nickname);
   end
 //
@@ -89,7 +89,7 @@ create function get_location_id_by_name(name varchar(32))
   begin
     return (select
               location_id
-            from locations
+            from location
             where location_name = name);
   end
 //
@@ -99,7 +99,7 @@ create function get_location_object_behavior_type_id_by_name(name varchar(16))
   begin
     return (select
               location_object_behavior_type_id
-            from location_object_behavior_types
+            from location_object_behavior_type
             where object_behavior_type_name = name);
   end
 //
@@ -109,7 +109,7 @@ create function get_location_object_type_id_by_name(name varchar(16))
   begin
     return (select
               location_object_type_id
-            from location_object_types
+            from location_object_type
             where object_type_name = name);
   end
 //

@@ -1,28 +1,45 @@
 package arch.galaxyeclipse.server.authentication;
 
+import arch.galaxyeclipse.server.data.*;
 import arch.galaxyeclipse.server.data.model.*;
-import arch.galaxyeclipse.server.data.repository.jpa.*;
-import arch.galaxyeclipse.shared.context.*;
 import org.apache.commons.codec.digest.*;
+import org.hibernate.*;
+import org.hibernate.criterion.*;
+
+import java.util.*;
 
 /**
- *
- */
+*
+*/
 class ClientAuthenticator implements IClientAuthenticator {
-    private arch.galaxyeclipse.server.data.repository.jpa.IPlayersRepository IPlayersRepository;
-
     public ClientAuthenticator() {
-        IPlayersRepository = ContextHolder.INSTANCE.getBean(IPlayersRepository.class);
+
     }
 
     @Override
-    public AuthenticationResult authenticate(String username, String password) {
-        // Query the player by the username and password
-        Players player = IPlayersRepository.findByUsernameAndPassword(
-                username, DigestUtils.md5Hex(password));
+    public AuthenticationResult authenticate(final String username,
+            final String password) {
+        Player player = new DataWorker<Player>() {
+            @Override
+            protected void doWork(Session session) {
+               List<Player> playerList = session.createCriteria(Player.class)
+                       .add(Restrictions.eq("activated", true))
+                       .add(Restrictions.eq("banned", false))
+                       .add(Restrictions.eq("username", username))
+                       .add(Restrictions.eq("password", DigestUtils.md5Hex(password)))
+                       .setFetchMode("shipStates", FetchMode.JOIN)
+                       .setFetchMode("shipConfigs", FetchMode.JOIN)
+                       .setFetchMode("shipStates.locationObject", FetchMode.JOIN)
+               .list();
+
+                if (!playerList.isEmpty()) {
+                    setResult(playerList.get(0));
+                }
+            }
+        }.execute();
 
         if (player != null && player.isActivated() && !player.isBanned()) {
-            return new AuthenticationResult(true);
+            return new AuthenticationResult(true, player);
         }
         return new AuthenticationResult(false);
     }

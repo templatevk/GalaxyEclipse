@@ -21,7 +21,7 @@ import java.util.concurrent.*;
 @Slf4j
 class ClientNetworkManager implements IClientNetworkManager, ITestClientNetworkManager {
 	// Sleep interval to wait for connection result
-	private static final int CONNECTION_TIMEOUT_MILLISECONDS = 3000;
+	private static final int CONNECTION_TIMEOUT_MILLISECONDS = 500;
 
 	private IClientChannelHandlerFactory channelHandlerFactory;
 	
@@ -32,9 +32,8 @@ class ClientNetworkManager implements IClientNetworkManager, ITestClientNetworkM
 	public ClientNetworkManager(IClientChannelHandlerFactory channelHandlerFactory) {
 		this.channelHandlerFactory = channelHandlerFactory;
 
-        listeners = new HashMap<Packet.Type, Set<IServerPacketListener>>();
-        // Instantiating channel handler
-        // Command for incoming packets notifies subscribed listeners
+        listeners = new HashMap<>();
+
         channelHandler = channelHandlerFactory.createHandler(new ICommand<Packet>() {
             @Override
             public void perform(Packet packet) {
@@ -67,6 +66,10 @@ class ClientNetworkManager implements IClientNetworkManager, ITestClientNetworkM
 	@Override
 	public void connect(SocketAddress address, final ICallback<Boolean> callback) {
 		// Trying to testConnect to the passed adress
+        if (channelHandler.isConnected()) {
+            channelHandler.disconnect(new StubCallback<Boolean>());
+        }
+
 		bootstrap.connect(address).addListener(new ChannelFutureListener() {
 			@Override
 			public void operationComplete(final ChannelFuture future) throws Exception {
@@ -139,8 +142,8 @@ class ClientNetworkManager implements IClientNetworkManager, ITestClientNetworkM
 	
 	@Override
 	public void sendPacket(Packet packet) {
-        if (log.isDebugEnabled()) {
-            log.debug(LogUtils.getObjectInfo(this) + " sending packet " + packet.getType());
+        if (log.isTraceEnabled()) {
+            log.trace(LogUtils.getObjectInfo(this) + " sending packet " + packet.getType());
         }
 
 		channelHandler.sendPacket(packet);

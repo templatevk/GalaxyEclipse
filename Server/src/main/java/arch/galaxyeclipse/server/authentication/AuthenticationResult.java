@@ -1,28 +1,23 @@
 package arch.galaxyeclipse.server.authentication;
 
 import arch.galaxyeclipse.server.data.model.*;
+import lombok.*;
 
 /**
  * Result of the player authentication.
  */
 public class AuthenticationResult {
+    @Getter
     private boolean success;
-    private Players player;
+    @Getter
+    private Player player;
 
 	public AuthenticationResult(boolean isSuccess) {
-		this(isSuccess, new Players());
+		this(isSuccess, new Player());
 	}
 
-    public AuthenticationResult(boolean isSuccess, Players player) {
+    public AuthenticationResult(boolean isSuccess, Player player) {
         this.success = isSuccess;
         this.player = player;
-    }
-
-    public boolean isSuccess() {
-        return success;
-    }
-
-    public Players getPlayer() {
-        return player;
     }
 }

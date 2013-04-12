@@ -6,5 +6,5 @@ import arch.galaxyeclipse.shared.network.*;
  * Represents server channel handler, state pattern applied.
  */
 interface IServerChannelHandler extends IChannelHandler {
-	void setPacketHandler(IPacketHandler packetHandler);
+	void setStatefulPacketHandler(IStatefulPacketHandler packetHandler);
 }

@@ -4,29 +4,36 @@ import arch.galaxyeclipse.shared.context.*;
 import arch.galaxyeclipse.shared.network.*;
 import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.*;
 import arch.galaxyeclipse.shared.thread.*;
+import arch.galaxyeclipse.shared.util.*;
 import lombok.extern.slf4j.*;
 import org.jboss.netty.channel.*;
 
 @Slf4j
 class ServerChannelHandler extends AbstractProtobufChannelHandler
 		implements IServerChannelHandler {
+
     private IMonitoringNetworkManager monitoringNetworkManager;
-	private IPacketHandler packetHandler;
-	
-	public ServerChannelHandler() {		
-		super(new StubDispatchCommand<Packet>());
-		// Delegate incoming packets to the current packet handler
-		getIncomingPacketDispatcher().setCommand(new ICommand<Packet>() {
-			@Override
-			public void perform(Packet packet) {
-				packetHandler.handle(packet);
-			}
-		});
+	private IStatefulPacketHandler statefulPacketHandler;
+    private final ICommand<Packet> incomingPacketDispatcherCommand;
+
+    public ServerChannelHandler() {		
         monitoringNetworkManager = ContextHolder.INSTANCE.getBean(
                 IMonitoringNetworkManager.class);
+
+        incomingPacketDispatcherCommand = new ICommand<Packet>() {
+            @Override
+            public void perform(Packet packet) {
+                statefulPacketHandler.handle(packet);
+            }
+        };
 	}
-	
-	@Override
+
+    @Override
+    protected ICommand<Packet> getIncomingPacketDispatcherCommand() {
+        return incomingPacketDispatcherCommand;
+    }
+
+    @Override
 	public void channelConnected(ChannelHandlerContext ctx, ChannelStateEvent e)
 			throws Exception {
         super.channelConnected(ctx, e);
@@ -36,7 +43,7 @@ class ServerChannelHandler extends AbstractProtobufChannelHandler
 
         monitoringNetworkManager.registerServerChannelHandler(this);
 
-		packetHandler = new UnauthenticatedPacketHandler(this);
+		statefulPacketHandler = new UnauthenticatedPacketHandler(this);
 	}
 
     @Override
@@ -51,10 +58,12 @@ class ServerChannelHandler extends AbstractProtobufChannelHandler
 	}	
 	
 	@Override
-	public void setPacketHandler(IPacketHandler packetHandler) {
+	public void setStatefulPacketHandler(IStatefulPacketHandler statefulPacketHandler) {
+		this.statefulPacketHandler = statefulPacketHandler;
+
         if (log.isDebugEnabled()) {
-            log.debug("Client XXX packet handler changed to " + packetHandler);
+            log.debug("Client packet handler changed to "
+                    + LogUtils.getObjectInfo(statefulPacketHandler));
         }
-		this.packetHandler = packetHandler;
-	}
+    }
 }
