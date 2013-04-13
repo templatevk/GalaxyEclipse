@@ -1,0 +1,16 @@
+@startuml
+
+skin BlueModern
+
+title Client login flow
+
+participant Client
+participant Server
+
+autonumber
+Client -> Server: Authentication request
+Client <- Server: Authentication response
+Client <- Server: Types map [authenticated = true]
+Client <- Server: GameInfo
+
+@enduml

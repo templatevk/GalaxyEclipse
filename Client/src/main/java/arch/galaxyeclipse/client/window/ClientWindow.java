@@ -45,6 +45,11 @@ public class ClientWindow implements IClientWindow {
     }
 
     @Override
+    public void setStage(AbstractGameStage gameStage) {
+        Gdx.input.setInputProcessor(gameStage);
+    }
+
+    @Override
 	public int getViewportHeight() {
 		return viewportHeight;
 	}

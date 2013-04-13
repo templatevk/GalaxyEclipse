@@ -3,6 +3,7 @@ package arch.galaxyeclipse.client.stage;
 import arch.galaxyeclipse.client.network.*;
 import arch.galaxyeclipse.client.resources.*;
 import arch.galaxyeclipse.client.stage.ui.*;
+import arch.galaxyeclipse.client.window.*;
 import arch.galaxyeclipse.shared.*;
 import arch.galaxyeclipse.shared.context.*;
 import arch.galaxyeclipse.shared.protocol.*;
@@ -24,6 +25,8 @@ import java.util.List;
 @Slf4j
 public class MainMenuPresenter implements IStagePresenter, IServerPacketListener {
     private IClientNetworkManager networkManager;
+    private IClientWindow clientWindow;
+
     private MainMenuStage view;
     private MainMenuModel model;
     private IButtonClickCommand connectButtonCommand;
@@ -31,6 +34,7 @@ public class MainMenuPresenter implements IStagePresenter, IServerPacketListener
     public MainMenuPresenter() {
         view = new MainMenuStage(this);
         model = new MainMenuModel();
+        clientWindow = ContextHolder.INSTANCE.getBean(IClientWindow.class);
         networkManager = ContextHolder.INSTANCE.getBean(IClientNetworkManager.class);
 
         connectButtonCommand = new IButtonClickCommand() {
@@ -48,10 +52,10 @@ public class MainMenuPresenter implements IStagePresenter, IServerPacketListener
                             GeProtocol.AuthRequest request = GeProtocol.AuthRequest.newBuilder()
                                     .setUsername(view.getUsernameTxt().getText())
                                     .setPassword(view.getPasswordTxt().getText()).build();
-                            GeProtocol.Packet packet = GeProtocol.Packet.newBuilder()
+                            GeProtocol.Packet authRequest = GeProtocol.Packet.newBuilder()
                                     .setType(GeProtocol.Packet.Type.AUTH_REQUEST)
                                     .setAuthRequest(request).build();
-                            networkManager.sendPacket(packet);
+                            networkManager.sendPacket(authRequest);
                         }
                     }
                 };
@@ -85,20 +89,18 @@ public class MainMenuPresenter implements IStagePresenter, IServerPacketListener
                 log.info("Authentication result = " + success);
 
                 if (success) {
-                /*
-                TODO:
-                   Change to loading stage, fill dictionary types
-                   and obtain the necessary data, change to appropriate
-                   stage and unsubscribe from network manager
-               */
+                    clientWindow.setStage(new LoadingStage());
                 }
+                break;
+            case GAME_INFO:
                 break;
         }
     }
 
     @Override
     public List<GeProtocol.Packet.Type> getPacketTypes() {
-        return Arrays.asList(GeProtocol.Packet.Type.AUTH_RESPONSE);
+        return Arrays.asList(GeProtocol.Packet.Type.AUTH_RESPONSE,
+                GeProtocol.Packet.Type.GAME_INFO);
     }
 
     @Data
