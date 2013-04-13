@@ -6,7 +6,7 @@ import arch.galaxyeclipse.client.stage.ui.*;
 import arch.galaxyeclipse.client.window.*;
 import arch.galaxyeclipse.shared.*;
 import arch.galaxyeclipse.shared.context.*;
-import arch.galaxyeclipse.shared.protocol.*;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.*;
 import arch.galaxyeclipse.shared.thread.*;
 import arch.galaxyeclipse.shared.util.*;
 import com.badlogic.gdx.scenes.scene2d.*;
@@ -49,12 +49,14 @@ public class MainMenuPresenter implements IStagePresenter, IServerPacketListener
                         }
 
                         if (isConnected) {
-                            GeProtocol.AuthRequest request = GeProtocol.AuthRequest.newBuilder()
+                            AuthRequest request = AuthRequest.newBuilder()
                                     .setUsername(view.getUsernameTxt().getText())
                                     .setPassword(view.getPasswordTxt().getText()).build();
-                            GeProtocol.Packet authRequest = GeProtocol.Packet.newBuilder()
-                                    .setType(GeProtocol.Packet.Type.AUTH_REQUEST)
+
+                            Packet authRequest = Packet.newBuilder()
+                                    .setType(Packet.Type.AUTH_REQUEST)
                                     .setAuthRequest(request).build();
+
                             networkManager.sendPacket(authRequest);
                         }
                     }
@@ -78,7 +80,7 @@ public class MainMenuPresenter implements IStagePresenter, IServerPacketListener
     }
 
     @Override
-    public void onPacketReceived(GeProtocol.Packet packet) {
+    public void onPacketReceived(Packet packet) {
         if (log.isInfoEnabled()) {
             log.info(LogUtils.getObjectInfo(this) + " received packet " + packet.getType());
         }
@@ -93,14 +95,17 @@ public class MainMenuPresenter implements IStagePresenter, IServerPacketListener
                 }
                 break;
             case GAME_INFO:
+                GameInfo gameInfo = packet.getGameInfo();
+                GameInfo.TypesMap typesMap = gameInfo.getTypesMap();
+            //    typesMap.getItemTypesList().get(0).
                 break;
         }
     }
 
     @Override
-    public List<GeProtocol.Packet.Type> getPacketTypes() {
-        return Arrays.asList(GeProtocol.Packet.Type.AUTH_RESPONSE,
-                GeProtocol.Packet.Type.GAME_INFO);
+    public List<Packet.Type> getPacketTypes() {
+        return Arrays.asList(Packet.Type.AUTH_RESPONSE,
+                Packet.Type.GAME_INFO);
     }
 
     @Data
