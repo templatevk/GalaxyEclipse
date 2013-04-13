@@ -73,18 +73,7 @@ class ClientNetworkManager implements IClientNetworkManager, ITestClientNetworkM
 		bootstrap.connect(address).addListener(new ChannelFutureListener() {
 			@Override
 			public void operationComplete(final ChannelFuture future) throws Exception {
-				log.info("Waiting " + CONNECTION_TIMEOUT_MILLISECONDS 
-						+ " milliseconds for connection");
-				// Waiting in the separate thread and notifying the caller trough the callback
-				new DelayedRunnableExecutor(CONNECTION_TIMEOUT_MILLISECONDS, new Runnable() {
-					@Override
-					public void run() {
-						if (!channelHandler.isConnected()) {
-							channelHandler.disconnect(new StubCallback<Boolean>());
-						}
-						callback.onOperationComplete(channelHandler.isConnected());
-					}
-				}).start();
+                callback.onOperationComplete(channelHandler.isConnected());
 			}
 		});
 	}
@@ -115,7 +104,10 @@ class ClientNetworkManager implements IClientNetworkManager, ITestClientNetworkM
 	
 	@Override
 	public void removeListener(IServerPacketListener listener) {
-		log.info("Removing listener " + listener + " of types");
+        if (log.isInfoEnabled()) {
+		    log.info("Removing listener " + listener + " of types");
+        }
+
 		for (Packet.Type packetType : listener.getPacketTypes()) {
 			Set<IServerPacketListener> typeListeners = listeners.get(listener.getPacketTypes());
 			if (typeListeners != null) {
@@ -130,7 +122,10 @@ class ClientNetworkManager implements IClientNetworkManager, ITestClientNetworkM
 	@Override
 	public void removeListenerForType(IServerPacketListener listener,
 			Type packetType) {
-		log.info("Removing listener " + listener + " of type");
+        if (log.isInfoEnabled()) {
+            log.info("Removing listener " + listener + " of type");
+        }
+
 		Set<IServerPacketListener> typeListeners = listeners.get(packetType);
 		if (typeListeners != null) {
             if (log.isInfoEnabled()) {
@@ -148,6 +143,11 @@ class ClientNetworkManager implements IClientNetworkManager, ITestClientNetworkM
 
 		channelHandler.sendPacket(packet);
 	}
+
+
+
+
+
 
     // Test methods
 

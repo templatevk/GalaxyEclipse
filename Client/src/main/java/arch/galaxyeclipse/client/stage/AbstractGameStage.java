@@ -11,33 +11,12 @@ import lombok.extern.slf4j.*;
  */
 @Slf4j
 public abstract class AbstractGameStage extends Stage {
-    public enum StageType {
-        LOADING,
-        MAIN_MENU,
-        FLIGHT,
-        STATION;
-    }
-
     private static final float DEFAULT_SCALE_COEF = 0.5f;
 
-    private ClientWindow clientWindow;
+    private IClientWindow clientWindow;
 
     protected AbstractGameStage() {
-        clientWindow = ContextHolder.INSTANCE.getBean(ClientWindow.class);
-    }
-
-    public static AbstractGameStage getStage(StageType stageType) {
-        switch (stageType) {
-            case LOADING:
-                return new LoadingStage();
-            case MAIN_MENU:
-                return new MainMenuStage();
-            case FLIGHT:
-                return new FlightStage();
-            case STATION:
-                return new StationStage();
-        }
-        return null;
+        clientWindow = ContextHolder.INSTANCE.getBean(IClientWindow.class);
     }
 
     // Root container we are going to scale if isManualScaling returns false

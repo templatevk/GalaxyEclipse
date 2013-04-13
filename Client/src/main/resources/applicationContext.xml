@@ -14,6 +14,7 @@
     </bean>
 
     <!-- Other -->
-    <bean class="arch.galaxyeclipse.client.texture.CachingTextureAtlasFactory"/>
+    <bean class="arch.galaxyeclipse.client.stage.ui.StageUiFactory"/>
+    <bean class="arch.galaxyeclipse.client.resources.CachingResourceLoaderFactory"/>
     <bean class="arch.galaxyeclipse.shared.types.DictionaryTypesMapper"/>
 </beans>

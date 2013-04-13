@@ -2,25 +2,24 @@ package arch.galaxyeclipse.server.authentication;
 
 import arch.galaxyeclipse.server.*;
 import arch.galaxyeclipse.shared.context.*;
-import org.junit.*;
-
-import static junit.framework.Assert.*;
+import org.fest.assertions.*;
+import org.testng.annotations.*;
 
 /**
  *
  */
-public class AuthenticatorTest extends AbstractJUnitServerTest {
+public class AuthenticatorTest extends AbstractTestNGServerTest {
     private IClientAuthenticator authenticator;
 
-    @Before
+    @BeforeClass
     public void initDependencies() {
         authenticator = ContextHolder.INSTANCE.getBean(IClientAuthenticator.class);
     }
 
-    @Test
+    @Test(groups = "fast")
     public void testAuthentication() {
-        assertTrue(authenticator.authenticate(
+        Assertions.assertThat(authenticator.authenticate(
                 TEST_PLAYER_USERNAME,
-                TEST_PLAYER_PASSWORD_DECRYPTED).isSuccess());
+                TEST_PLAYER_PASSWORD_DECRYPTED).isSuccess()).isTrue();
     }
 }

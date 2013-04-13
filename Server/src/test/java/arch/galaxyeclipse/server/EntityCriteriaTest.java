@@ -2,7 +2,6 @@ package arch.galaxyeclipse.server;
 
 import arch.galaxyeclipse.server.data.*;
 import arch.galaxyeclipse.server.data.model.*;
-import arch.galaxyeclipse.shared.context.*;
 import org.hibernate.*;
 import org.testng.annotations.*;
 
@@ -12,7 +11,7 @@ import java.util.*;
  *
  */
 public class EntityCriteriaTest extends AbstractTestNGServerTest {
-    @Test
+    @Test(groups = "fast")
     public void criteriaTest() {
         List<Class<?>> entities = Arrays.asList(
                 Bonus.class,

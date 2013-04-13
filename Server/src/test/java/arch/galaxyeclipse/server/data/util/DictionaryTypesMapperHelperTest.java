@@ -3,18 +3,18 @@ package arch.galaxyeclipse.server.data.util;
 import arch.galaxyeclipse.server.*;
 import arch.galaxyeclipse.shared.context.*;
 import arch.galaxyeclipse.shared.types.*;
-import org.junit.*;
+import org.fest.assertions.*;
+import org.testng.annotations.*;
 
-import static junit.framework.Assert.*;
 
 /**
  *
  */
-public class DictionaryTypesMapperHelperTest extends AbstractJUnitServerTest {
+public class DictionaryTypesMapperHelperTest extends AbstractTestNGServerTest {
     private IDictionaryTypesMapperHelper dictionaryTypesMapperHelper;
     private DictionaryTypesMapper dictionaryTypesMapper;
 
-    @Before
+    @BeforeClass
     public void initDependencies() {
         dictionaryTypesMapper = ContextHolder.INSTANCE.getBean(
                 DictionaryTypesMapper.class);
@@ -22,57 +22,61 @@ public class DictionaryTypesMapperHelperTest extends AbstractJUnitServerTest {
                 IDictionaryTypesMapperHelper.class);
     }
 
-    @Test
+    @Test(groups = "fast")
     public void testFilling() {
         dictionaryTypesMapperHelper.fillAll(dictionaryTypesMapper);
 
-        assertNotNull(dictionaryTypesMapper.getItemTypeById(1));
-        assertNotNull(dictionaryTypesMapper.getWeaponTypeById(1));
-        assertNotNull(dictionaryTypesMapper.getBonusTypeById(1));
-        assertNotNull(dictionaryTypesMapper.getLocationObjectBehaviorTypeById(1));
-        assertNotNull(dictionaryTypesMapper.getLocationObjectTypeById(1));
+        Assertions.assertThat(dictionaryTypesMapper.getItemTypeById(1)).isNotNull();
+        Assertions.assertThat(dictionaryTypesMapper.getWeaponTypeById(1)).isNotNull();
+        Assertions.assertThat(dictionaryTypesMapper.getBonusTypeById(1)).isNotNull();
+        Assertions.assertThat(dictionaryTypesMapper.getLocationObjectBehaviorTypeById(1)).isNotNull();
+        Assertions.assertThat(dictionaryTypesMapper.getLocationObjectTypeById(1)).isNotNull();
 
-        assertNotNull(dictionaryTypesMapper.getIdByItemType(ItemTypesMapperType.BONUS));
-        assertNotNull(dictionaryTypesMapper.getIdByItemType(ItemTypesMapperType.ENGINE));
-        assertNotNull(dictionaryTypesMapper.getIdByItemType(ItemTypesMapperType.SALE));
-        assertNotNull(dictionaryTypesMapper.getIdByItemType(ItemTypesMapperType.WEAPON));
+        Assertions.assertThat(dictionaryTypesMapper.getIdByItemType(
+                ItemTypesMapperType.BONUS)).isNotNull();
+        Assertions.assertThat(dictionaryTypesMapper.getIdByItemType(
+                ItemTypesMapperType.ENGINE)).isNotNull();
+        Assertions.assertThat(dictionaryTypesMapper.getIdByItemType(
+                ItemTypesMapperType.SALE)).isNotNull();
+        Assertions.assertThat(dictionaryTypesMapper.getIdByItemType(
+                ItemTypesMapperType.WEAPON)).isNotNull();
 
-        assertNotNull(dictionaryTypesMapper.getIdByWeaponType(
-                WeaponTypesMapperType.LASER));
-        assertNotNull(dictionaryTypesMapper.getIdByWeaponType(
-                WeaponTypesMapperType.ROCKET));
+        Assertions.assertThat(dictionaryTypesMapper.getIdByWeaponType(
+                WeaponTypesMapperType.LASER)).isNotNull();
+        Assertions.assertThat(dictionaryTypesMapper.getIdByWeaponType(
+                WeaponTypesMapperType.ROCKET)).isNotNull();
 
-        assertNotNull(dictionaryTypesMapper.getIdByBonusType(
-                BonusTypesMapperType.ACCELERATION_MOVE));
-        assertNotNull(dictionaryTypesMapper.getIdByBonusType(
-                BonusTypesMapperType.ACCELERATION_ROTATION));
-        assertNotNull(dictionaryTypesMapper.getIdByBonusType(
-                BonusTypesMapperType.SPEED_MOVE));
-        assertNotNull(dictionaryTypesMapper.getIdByBonusType(
-                BonusTypesMapperType.SPEED_ROTATION));
-        assertNotNull(dictionaryTypesMapper.getIdByBonusType(
-                BonusTypesMapperType.ARMOR));
-        assertNotNull(dictionaryTypesMapper.getIdByBonusType(
-                BonusTypesMapperType.ENERGY_REGEN));
-        assertNotNull(dictionaryTypesMapper.getIdByBonusType(
-                BonusTypesMapperType.HP_REGEN));
-        assertNotNull(dictionaryTypesMapper.getIdByBonusType(
-                BonusTypesMapperType.WEAPON_SPEED));
+        Assertions.assertThat(dictionaryTypesMapper.getIdByBonusType(
+                BonusTypesMapperType.ACCELERATION_MOVE)).isNotNull();
+        Assertions.assertThat(dictionaryTypesMapper.getIdByBonusType(
+                BonusTypesMapperType.ACCELERATION_ROTATION)).isNotNull();
+        Assertions.assertThat(dictionaryTypesMapper.getIdByBonusType(
+                BonusTypesMapperType.SPEED_MOVE)).isNotNull();
+        Assertions.assertThat(dictionaryTypesMapper.getIdByBonusType(
+                BonusTypesMapperType.SPEED_ROTATION)).isNotNull();
+        Assertions.assertThat(dictionaryTypesMapper.getIdByBonusType(
+                BonusTypesMapperType.ARMOR)).isNotNull();
+        Assertions.assertThat(dictionaryTypesMapper.getIdByBonusType(
+                BonusTypesMapperType.ENERGY_REGEN)).isNotNull();
+        Assertions.assertThat(dictionaryTypesMapper.getIdByBonusType(
+                BonusTypesMapperType.HP_REGEN)).isNotNull();
+        Assertions.assertThat(dictionaryTypesMapper.getIdByBonusType(
+                BonusTypesMapperType.WEAPON_SPEED)).isNotNull();
 
-        assertNotNull(dictionaryTypesMapper.getIdByLocationObjectBehaviorType(
-                LocationObjectBehaviorTypesMapperType.DYNAMIC));
-        assertNotNull(dictionaryTypesMapper.getIdByLocationObjectBehaviorType(
-                LocationObjectBehaviorTypesMapperType.STATIC));
+        Assertions.assertThat(dictionaryTypesMapper.getIdByLocationObjectBehaviorType(
+                LocationObjectBehaviorTypesMapperType.DYNAMIC)).isNotNull();
+        Assertions.assertThat(dictionaryTypesMapper.getIdByLocationObjectBehaviorType(
+                LocationObjectBehaviorTypesMapperType.STATIC)).isNotNull();
 
-        assertNotNull(dictionaryTypesMapper.getIdByLocationObjectType(
-                LocationObjectTypesMapperType.ASTEROID));
-        assertNotNull(dictionaryTypesMapper.getIdByLocationObjectType(
-                LocationObjectTypesMapperType.PLAYER_FLIGHT));
-        assertNotNull(dictionaryTypesMapper.getIdByLocationObjectType(
-                LocationObjectTypesMapperType.PLAYER_STATION));
-        assertNotNull(dictionaryTypesMapper.getIdByLocationObjectType(
-                LocationObjectTypesMapperType.ROCKET));
-        assertNotNull(dictionaryTypesMapper.getIdByLocationObjectType(
-                LocationObjectTypesMapperType.STATION));
+        Assertions.assertThat(dictionaryTypesMapper.getIdByLocationObjectType(
+                LocationObjectTypesMapperType.ASTEROID)).isNotNull();
+        Assertions.assertThat(dictionaryTypesMapper.getIdByLocationObjectType(
+                LocationObjectTypesMapperType.PLAYER_FLIGHT)).isNotNull();
+        Assertions.assertThat(dictionaryTypesMapper.getIdByLocationObjectType(
+                LocationObjectTypesMapperType.PLAYER_STATION)).isNotNull();
+        Assertions.assertThat(dictionaryTypesMapper.getIdByLocationObjectType(
+                LocationObjectTypesMapperType.ROCKET)).isNotNull();
+        Assertions.assertThat(dictionaryTypesMapper.getIdByLocationObjectType(
+                LocationObjectTypesMapperType.STATION)).isNotNull();
     }
 }

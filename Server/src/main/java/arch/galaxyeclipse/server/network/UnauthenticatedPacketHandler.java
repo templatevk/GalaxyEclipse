@@ -30,7 +30,7 @@ class UnauthenticatedPacketHandler extends AbstractStubPacketHandler {
 			AuthenticationResult result = authenticator.authenticate(
 					request.getUsername(), request.getPassword());
 			if (result.isSuccess()) {
-				channelHandler.setStatefulPacketHandler(new FlightModePacketHandler(
+				channelHandler.setStatefulPacketHandler(new FlightPacketHandler(
                         channelHandler, result.getPlayer()));
 			}
             if (log.isDebugEnabled()) {

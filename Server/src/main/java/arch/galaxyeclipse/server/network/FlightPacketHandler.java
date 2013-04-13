@@ -10,7 +10,7 @@ import lombok.extern.slf4j.*;
 * Handles packets of authenticated players.
 */
 @Slf4j
-class FlightModePacketHandler implements IStatefulPacketHandler {
+class FlightPacketHandler implements IStatefulPacketHandler {
     private IServerChannelHandler channelHandler;
     private DictionaryTypesMapper dictionaryTypesMapper;
 
@@ -19,7 +19,7 @@ class FlightModePacketHandler implements IStatefulPacketHandler {
     private ShipConfig shipConfig;
     private LocationObject locationObject;
 
-    public FlightModePacketHandler(IServerChannelHandler channelHandler, Player player) {
+    public FlightPacketHandler(IServerChannelHandler channelHandler, Player player) {
         this.channelHandler = channelHandler;
         this.player = player;
 
@@ -43,8 +43,8 @@ class FlightModePacketHandler implements IStatefulPacketHandler {
 
     @Override
     public void onChannelClosed() {
-        if (log.isDebugEnabled()) {
-            log.debug("Channel closed during flight mode, hibernating player");
+        if (FlightPacketHandler.log.isDebugEnabled()) {
+            FlightPacketHandler.log.debug("Channel closed during flight mode, hibernating player");
         }
 
         // Stop the ship
