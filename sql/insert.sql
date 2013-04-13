@@ -5,7 +5,8 @@ insert into item_type
   ('engine'),
   ('weapon'),
   ('bonus'),
-  ('sale');
+  ('sale'),
+  ('money');
 
 insert into bonus_type
 (bonus_type_name)
@@ -29,6 +30,7 @@ insert into location_object_behavior_type
 (object_behavior_type_name)
   values
   ('static'),
+  ('drawable'),
   ('dynamic');
 
 insert into location_object_type
@@ -64,8 +66,8 @@ insert into item
   ('Rocket "Idario"', 'weapon escarpment 0', 2000, get_item_type_id_by_name('weapon')),
   ('Rocket "Pemelaya', 'weapon escarpment 1', 5000, get_item_type_id_by_name('weapon')),
 # bonus armor
-  ('Armor Module "Tortoise"', ' armor bonus', 600, get_item_type_id_by_name('bonus')),
-  ('Armor Module "Armadillo"', ' armor bonus', 800, get_item_type_id_by_name('bonus')),
+  ('Armor Module "Tortoise"', 'armor bonus', 600, get_item_type_id_by_name('bonus')),
+  ('Armor Module "Armadillo"', 'armor bonus', 800, get_item_type_id_by_name('bonus')),
 # bonus hp regen
   ('HP Regen Module "Lisard"', 'hp_regen bonus', 800, get_item_type_id_by_name('bonus')),
   ('HP Regen Module "Tarrudo"', 'hp_regen bonus', 1000, get_item_type_id_by_name('bonus')),
@@ -75,7 +77,10 @@ insert into item
 # sale
   ('Scarp Metal', 'scarp metal for sale', 100, get_item_type_id_by_name('sale')),
   ('Reactor Core', 'scarp metal for sale', 100, get_item_type_id_by_name('sale')),
-  ('Trash', 'trash for sale', 5, get_item_type_id_by_name('sale'));
+  ('Trash', 'trash for sale', 5, get_item_type_id_by_name('sale')),
+#money
+  ('Gold', 'money doesn\'t bring happiness, but it helps', 1, get_item_type_id_by_name('money'));
+
 
 insert into bonus
 (bonus_value, item_id, bonus_type_id)

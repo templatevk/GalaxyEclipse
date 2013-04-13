@@ -40,6 +40,8 @@ public class DictionaryTypesMapperHelperTest extends AbstractTestNGServerTest {
                 ItemTypesMapperType.SALE)).isNotNull();
         Assertions.assertThat(dictionaryTypesMapper.getIdByItemType(
                 ItemTypesMapperType.WEAPON)).isNotNull();
+        Assertions.assertThat(dictionaryTypesMapper.getIdByItemType(
+                ItemTypesMapperType.MONEY)).isNotNull();
 
         Assertions.assertThat(dictionaryTypesMapper.getIdByWeaponType(
                 WeaponTypesMapperType.LASER)).isNotNull();

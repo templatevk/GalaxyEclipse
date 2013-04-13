@@ -2,8 +2,8 @@ package arch.galaxyeclipse.client.network;
 
 import arch.galaxyeclipse.shared.*;
 import arch.galaxyeclipse.shared.network.*;
-import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.*;
-import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet.*;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.*;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.Packet.*;
 import arch.galaxyeclipse.shared.thread.*;
 import arch.galaxyeclipse.shared.util.*;
 import lombok.extern.slf4j.*;
@@ -16,7 +16,7 @@ import java.util.*;
 import java.util.concurrent.*;
 
 /**
- * Main class responsible for network communication using the GalaxyEclipseProtocol.
+ * Main class responsible for network communication using the GeProtocol.
  */
 @Slf4j
 class ClientNetworkManager implements IClientNetworkManager, ITestClientNetworkManager {

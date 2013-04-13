@@ -2,7 +2,7 @@ package arch.galaxyeclipse.server.network;
 
 import arch.galaxyeclipse.server.data.model.*;
 import arch.galaxyeclipse.shared.context.*;
-import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.*;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.*;
 import arch.galaxyeclipse.shared.types.*;
 import lombok.extern.slf4j.*;
 

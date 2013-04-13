@@ -8,9 +8,6 @@ import arch.galaxyeclipse.shared.context.*;
 import arch.galaxyeclipse.shared.protocol.*;
 import arch.galaxyeclipse.shared.thread.*;
 import arch.galaxyeclipse.shared.util.*;
-import com.badlogic.gdx.*;
-import com.badlogic.gdx.graphics.*;
-import com.badlogic.gdx.graphics.g2d.*;
 import com.badlogic.gdx.scenes.scene2d.*;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.*;
@@ -48,11 +45,11 @@ public class MainMenuPresenter implements IStagePresenter, IServerPacketListener
                         }
 
                         if (isConnected) {
-                            GalaxyEclipseProtocol.AuthRequest request = GalaxyEclipseProtocol.AuthRequest.newBuilder()
+                            GeProtocol.AuthRequest request = GeProtocol.AuthRequest.newBuilder()
                                     .setUsername(view.getUsernameTxt().getText())
                                     .setPassword(view.getPasswordTxt().getText()).build();
-                            GalaxyEclipseProtocol.Packet packet = GalaxyEclipseProtocol.Packet.newBuilder()
-                                    .setType(GalaxyEclipseProtocol.Packet.Type.AUTH_REQUEST)
+                            GeProtocol.Packet packet = GeProtocol.Packet.newBuilder()
+                                    .setType(GeProtocol.Packet.Type.AUTH_REQUEST)
                                     .setAuthRequest(request).build();
                             networkManager.sendPacket(packet);
                         }
@@ -77,7 +74,7 @@ public class MainMenuPresenter implements IStagePresenter, IServerPacketListener
     }
 
     @Override
-    public void onPacketReceived(GalaxyEclipseProtocol.Packet packet) {
+    public void onPacketReceived(GeProtocol.Packet packet) {
         if (log.isInfoEnabled()) {
             log.info(LogUtils.getObjectInfo(this) + " received packet " + packet.getType());
         }
@@ -100,8 +97,8 @@ public class MainMenuPresenter implements IStagePresenter, IServerPacketListener
     }
 
     @Override
-    public List<GalaxyEclipseProtocol.Packet.Type> getPacketTypes() {
-        return Arrays.asList(GalaxyEclipseProtocol.Packet.Type.AUTH_RESPONSE);
+    public List<GeProtocol.Packet.Type> getPacketTypes() {
+        return Arrays.asList(GeProtocol.Packet.Type.AUTH_RESPONSE);
     }
 
     @Data

@@ -5,5 +5,6 @@ package arch.galaxyeclipse.shared.types;
  */
 public enum LocationObjectBehaviorTypesMapperType {
     STATIC,
-    DYNAMIC;
+    DYNAMIC,
+    DRAWABLE;
 }

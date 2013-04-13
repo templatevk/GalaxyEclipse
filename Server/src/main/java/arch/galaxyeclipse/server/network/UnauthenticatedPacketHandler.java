@@ -2,8 +2,8 @@ package arch.galaxyeclipse.server.network;
 
 import arch.galaxyeclipse.server.authentication.*;
 import arch.galaxyeclipse.shared.context.*;
-import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.*;
-import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.Packet.*;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.*;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.Packet.*;
 import lombok.extern.slf4j.*;
 
 /**

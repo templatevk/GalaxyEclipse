@@ -27,7 +27,6 @@ create table ship_state (-- dynamic state of the shipType
   ship_state_rotation_angle   integer not null default 0,
   ship_state_hp               integer not null,
   ship_state_armor_durability integer not null,
-  player_money                integer not null,
   player_id                   integer not null,
   location_object_id          integer not null
 );

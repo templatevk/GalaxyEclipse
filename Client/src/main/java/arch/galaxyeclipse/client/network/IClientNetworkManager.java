@@ -1,6 +1,6 @@
 package arch.galaxyeclipse.client.network;
 
-import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.*;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.*;
 import arch.galaxyeclipse.shared.thread.*;
 
 import java.net.*;

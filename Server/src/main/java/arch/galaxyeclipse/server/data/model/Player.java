@@ -3,7 +3,7 @@ package arch.galaxyeclipse.server.data.model;
 import javax.persistence.*;
 import java.util.*;
 
-import static arch.galaxyeclipse.server.data.EntityUtils.getFirst;
+import static arch.galaxyeclipse.server.data.EntityUtils.*;
 
 /**
  *

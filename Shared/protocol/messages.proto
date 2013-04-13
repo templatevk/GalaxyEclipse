@@ -1,182 +1,217 @@
 package arch.galaxyeclipse.shared.protocol;
 
-option java_outer_classname = "GalaxyEclipseProtocol";
+option java_outer_classname = "GeProtocol";
 option optimize_for = SPEED;
 
 message Packet {
     enum Type {
-        LOCATION_DYNAMIC_OBJECTS_REQUEST = 1;
-        LOCATION_DYNAMIC_OBJECTS_RESPONSE = 2;
-        SHIP_STATE_REQUEST = 3;
-        SHIP_STATE_RESPONSE = 4;
-        
-        CLIENT_ACTION = 5;
-        
-        // Remember that 1-15 are faster
-    
-        AUTH_REQUEST = 16;
-        AUTH_RESPONSE = 17;
-        REGISTER_REQUEST = 18;
-        REGISTER_RESPONSE = 19;
-        LOCATION_STATIC_OBJECTS_REQUEST = 20;
-        LOCATION_STATIC_OBJECTS_RESPONSE = 21;
-        CHAT_SEND_MESSAGE = 22;
-        CHAT_RECEIVE_MESSAGE = 23;
-        INVENTORY_ITEMS_REQUEST = 24;
-        INVENTORY_ITEMS_RESPONSE = 25;
-        TYPES_MAP_REQUEST = 26;
-        TYPES_MAP_RESPONSE = 27;
+        DYNAMIC_OBJECTS_REQUEST     = 1;
+        DYNAMIC_OBJECTS_RESPONSE    = 2;
+        SHIP_STATE_REQUEST          = 3;
+        SHIP_STATE_RESPONSE         = 4;
+
+        CLIENT_ACTION               = 5;
+
+        AUTH_REQUEST                = 16;
+        AUTH_RESPONSE               = 17;
+
+        GAME_INFO                   = 18;
+
+        CHAT_SEND_MESSAGE           = 22;
+        CHAR_RECEIVE_MESSAGE        = 23;
     }
+
+    required Type                   type                    = 1;
+
+    optional DynamicObjectsRequest  dynamicObjectsResponse  = 2;
+    optional ShipStateResponse      shipStateResponse       = 3;
+    optional ClientAction           clientAction            = 4;
     
-    enum ClientActionType {
-        // A S W D
-        ROTATE_LEFT = 1;
-        ROTATE_RIGHT = 2;
-        MOVE = 3;
-        STOP = 4; 
-        
-        MAP_CLICK = 5;
-        MINI_MAP_CLICK = 6;
-        OBJECT_CLICK = 7;       // LBM 
-        OBJECT_PICK = 8;        // RMB
-        
-        // Space button
-        ATTACK_START = 9;
-        ATTACK_STOP = 10;
-        
-        ROCKET_SHOOT = 16;      // SHIFT
-    }
-    
-    required Type type = 1;
-    optional LocationDynamicObjectsResponse LocationDynamicObjectsResponse = 2;
-    optional ShipStateResponse shipStateResponse = 3;
-    
-    optional AuthRequest authRequest = 16;
-    optional AuthResponse authResponse = 17;
-    optional RegisterRequest registerRequest = 18;
-    optional RegisterResponse registerResponse = 19;
-    optional LocationStaticObjectsRequest locationStaticObjectsRequest = 20;
-    optional LocationStaticObjectsResponse locationStaticObjectsResponse = 21;
-    optional ChatSendMessage chatSendMessage = 22;
-    optional ChatReceiveMessage chatReceiveMessage = 23;
-    optional InventoryItemsResponse inventoryItemsResponse = 24;
-    optional TypesMapResponse typesMapResponse = 25;
+    optional AuthRequest            authRequest             = 16;
+    optional AuthResponse           authResponse            = 17;
+
+    optional GameInfo               gameInfo                = 18;
+    optional ChangeCommand          changeCommand           = 19;
+
+    optional ChatSendMessage        chatSendMessage         = 20;
+    optional ChatReceiveMessage     typesMapResponse        = 21;
 }
 
-// 1 - 15
+
+message DynamicObjectsRequest {
+
+}
+message DynamicObjectsResponse {
+    repeated LocationDynamicObject objects = 1;
+
+    message LocationDynamicObject {
+        required int32 locationDynamicObjectId  = 1;
+        required int32 objectTypeId             = 2;
+        required int32 nativeId                 = 3;
+        required int32 x                        = 4;
+        required int32 y                        = 5;
+    }
+}
+message ShipStateRequest {
+
+}
+message ShipStateResponse {
+    required int32 moveSpeed        = 1;
+    required int32 rotationSpeed    = 2;
+    required int32 hp               = 3;
+    required int32 armorDurability  = 4;
+    required int32 rotationAngle    = 5;
+}
+
+
+message ClientAction {
+    enum ClientActionType {
+        // A S W D
+        ROTATE_LEFT     = 1;
+        ROTATE_RIGHT    = 2;
+        MOVE            = 3;
+        STOP            = 4;
+
+        MAP_CLICK       = 5;
+        MINI_MAP_CLICK  = 6;
+        OBJECT_CLICK    = 7;       // LBM
+        LOOT_PICK       = 8;       // RMB
+
+        // Space button
+        ATTACK_START    = 9;
+        ATTACK_STOP     = 10;
+
+        ROCKET_SHOOT    = 16;      // SHIFT
+    }
+
+    required ClientActionType   type                    = 1;
+
+    optional Point              point                   = 2;
+    optional int32              locationObjectId        = 3;
+    optional int32              locationObjectTypeId    = 4;
+
+    message Point {
+        required int32 x = 1;
+        required int32 y = 2;
+    }
+}
+
 
 message AuthRequest {
     required string username = 1;
     required string password = 2;
 }
-
 message AuthResponse {
     required bool isSuccess = 1;
 }
 
-message RegisterRequest {
-    required string username = 1;
-    required string password = 2;
-    required string nickname = 3;
-}
 
-message RegisterResponse {
-    required bool isSuccess = 1;
-    optional string error = 2;
-}
+message GameInfo {
+    required int32                  locationId              = 1;
+    required StaticObjects          locationStaticObjects   = 2;
+    required StaticObjects          locationDrawableObject  = 3;
+    required TypesMap               typesMap                = 4;
 
-message LocationStaticObjectsRequest {
-    required int32 locationId = 1;
-}
+    message StaticObjects {
+        repeated StaticObject objects = 1;
 
-message LocationStaticObjectsResponse {
-    repeated LocationStaticObject objects = 1;
-    
-    message LocationStaticObject {
-        required int32 positionX = 1;
-        required int32 positionY = 2;
-        required string imagePath = 3;
-        required int32 objectTypeId = 4;
+        message StaticObject {
+            required int32 objectId = 1;
+            required int32 positionX = 2;
+            required int32 positionY = 3;
+            required int32 objectTypeId = 4;
+        }
+    }
+
+    message TypesMap {
+        repeated ItemType itemTypes = 1;
+        repeated WeaponType weaponTypes = 2;
+        repeated LocationObjectType locationObjectTypes = 3;
+
+        message ItemType {
+            required int32 id = 1;
+            required string name = 2;
+        }
+
+        message WeaponType {
+            required int32 id = 1;
+            required string name = 2;
+        }
+
+        message LocationObjectType {
+            required int32 id = 1;
+            required string name = 2;
+        }
+    }
+
+    message ShipStaticInfo {
+        // Ship config values
+        required int32          moveMaxSpeed            = 1;
+        required int32          rotationMaxSpeed        = 2;
+        required int32          moveAccelerationSpeed   = 3;
+        required int32          rotationAcceleration    = 4;
+        required int32          armor                   = 5;
+        required int32          energyMax               = 6;
+        required int32          hpMax                   = 7;
+        required int32          energyRegen             = 8;
+        required int32          hpRegen                 = 9;
+
+        // Ship type values
+        required string         name                    = 10;
+        required int32          armorDurability         = 11;
+        required int32          weaponSlotsCount        = 12;
+        required int32          bonusSlotsCount         = 13;
+
+        repeated Item           inventoryItems          = 14;
+        repeated Bonus          shipBonus               = 15;
+        repeated Weapon         shipWeapons             = 16;
+        required Engine         shipEngine              = 17;
+
+        message Item {
+            required int32  itemId      = 1;
+            required string name        = 2;
+            required string description = 3;
+            required int32  price       = 4;
+            required int32  itemTypeId  = 5;
+
+            optional Bonus  bonus       = 6;
+            optional Weapon weapon      = 7;
+            optional Engine engine      = 8;
+        }
+
+        message Bonus {
+            required int32 bonusId      = 1;
+            required int32 bonusValue   = 2;
+            required int32 bonusTypeId  = 3;
+        }
+
+        message Weapon {
+            required int32 weaponId     = 1;
+            required int32 damage       = 2;
+            required int32 delaySpeed   = 3;
+            required int32 bulletSpeed  = 4;
+            required int32 maxDistance  = 5;
+            required int32 energyCost   = 6;
+        }
+
+        message Engine {
+            required int32 engineId                     = 1;
+            required int32 moveAccelerationBonus        = 2;
+            required int32 moveMaxSpeedBonus            = 3;
+            required int32 rotationAccelerationBonus    = 4;
+            required int32 rotationMaxSpeed             = 5;
+        }
     }
 }
-
-message ChatSendMessage {   
-    required string message = 1;
+message ChangeCommand {
+    required bytes serializedCommand = 1;
 }
 
+
+message ChatSendMessage {
+    required string message = 1;
+}
 message ChatReceiveMessage {
     required string message = 1;
-    required string sender = 2;
-}
-
-message InventoryItemsResponse {
-    repeated InventoryItem items = 1;
-    
-    message InventoryItem {
-        required int32 id = 1;
-        required string name = 2;
-        required string description = 3;
-        required int32 price = 4;
-        required string imagePath = 5;
-        required int32 itemTypeId = 6;
-    }
-}
-
-message TypesMapResponse {
-    repeated ItemType itemTypes = 1;
-    repeated BonusType bonusTypes = 2;
-    repeated WeaponType weaponTypes = 3;
-    repeated LocationStaticObjectType locationStaticObjectTypes = 4;
-    
-    message ItemType {
-        required int32 id = 1;
-        required string name = 2;
-    }
-   
-    message BonusType {
-        required int32 id = 1;
-        required string name = 2;
-    }
-    
-    message WeaponType {
-        required int32 id = 1;
-        required string name = 2;
-    }
-    
-    message LocationStaticObjectType {
-        required int32 id = 1;
-        required string name = 2;
-    }
-    
-    message LocationDynamicObjectType {
-        required int32 id = 1;
-        required string name = 2;
-    }
-}
-
-message LocationDynamicObjectsRequest {
-
-}
-
-message LocationDynamicObjectsResponse {
-    repeated LocationDynamicObject objects = 1;
-    
-    message LocationDynamicObject {
-        required int32 objectTypeId = 1;
-        required int32 nativeId = 2;
-        required int32 x = 3;
-        required int32 y = 4;
-    }
-}
-
-message ShipStateRequest {
-    
-}
-
-message ShipStateResponse {
-    required int32 ship_state_move_speed = 1;
-    required int32 ship_state_rotation_speed = 2;
-    required int32 ship_state_hp = 3;
-    required int32 ship_state_armor_durability = 4;
-    required int32 ship_state_rotation_angle = 5;
+    required string sender  = 2;
 }

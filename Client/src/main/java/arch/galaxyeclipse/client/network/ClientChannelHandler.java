@@ -1,8 +1,7 @@
 package arch.galaxyeclipse.client.network;
 
 import arch.galaxyeclipse.shared.network.*;
-import arch.galaxyeclipse.shared.protocol.*;
-import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.*;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.*;
 import arch.galaxyeclipse.shared.thread.*;
 import lombok.extern.slf4j.*;
 import org.jboss.netty.channel.*;

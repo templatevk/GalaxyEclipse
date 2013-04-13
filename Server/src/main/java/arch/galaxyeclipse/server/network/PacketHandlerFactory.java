@@ -1,7 +1,5 @@
 package arch.galaxyeclipse.server.network;
 
-import arch.galaxyeclipse.server.network.*;
-
 /**
  *
  */

@@ -62,7 +62,7 @@ create procedure activate_player(player_id integer)
        player_id);
 
     insert into ship_state
-    (ship_state_hp, ship_state_armor_durability, player_money,
+    (ship_state_hp, ship_state_armor_durability,
      player_id, location_object_id)
       values
       ((select ship_type_hp_max
@@ -71,6 +71,11 @@ create procedure activate_player(player_id integer)
        (select ship_type_armor_durability
         from ship_type st
         where st.ship_type_id = ship_type_id),
-       get_default_player_money(), player_id,
-       location_object_id);
+       player_id, location_object_id);
+
+    insert into inventory_item
+    (amount, item_id, player_id)
+      values
+      (get_default_player_money(), get_item_id_by_name('Gold'), player_id);
+
   end

@@ -1,6 +1,6 @@
 package arch.galaxyeclipse.shared.network;
 
-import arch.galaxyeclipse.shared.protocol.*;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.*;
 import lombok.extern.slf4j.*;
 import org.jboss.netty.channel.*;
 import org.jboss.netty.handler.codec.protobuf.*;
@@ -18,8 +18,7 @@ public abstract class AbstractProtobufChannelPipelineFactory implements ChannelP
 
 		// Adding length and protobuf handlers
 		pipeline.addLast("frameDecoder", new ProtobufVarint32FrameDecoder());
-		pipeline.addLast("protobufDecoder", new ProtobufDecoder(
-				GalaxyEclipseProtocol.Packet.getDefaultInstance()));
+		pipeline.addLast("protobufDecoder", new ProtobufDecoder(Packet.getDefaultInstance()));
 		
 		pipeline.addLast("frameEncoder", new ProtobufVarint32LengthFieldPrepender());
 		pipeline.addLast("protobufEncoder", new ProtobufEncoder());

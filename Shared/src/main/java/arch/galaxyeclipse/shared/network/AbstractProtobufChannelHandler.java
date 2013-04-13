@@ -1,6 +1,6 @@
 package arch.galaxyeclipse.shared.network;
 
-import arch.galaxyeclipse.shared.protocol.GalaxyEclipseProtocol.*;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.*;
 import arch.galaxyeclipse.shared.thread.*;
 import arch.galaxyeclipse.shared.util.*;
 import lombok.*;
