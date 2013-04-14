@@ -1,5 +1,7 @@
 package arch.galaxyeclipse.server.data.model;
 
+import arch.galaxyeclipse.shared.util.*;
+
 import javax.persistence.*;
 import java.util.*;
 
@@ -103,6 +105,11 @@ public class Item {
         return bonuses;
     }
 
+    @Transient
+    public Bonus getBonus() {
+        return CollectionUtils.getFirst(bonuses);
+    }
+
     public void setBonuses(Set<Bonus> bonuses) {
         this.bonuses = bonuses;
     }
@@ -113,6 +120,9 @@ public class Item {
     public Set<Engine> getEngines() {
         return engines;
     }
+
+//    @Transient
+//    public
 
     public void setEngines(Set<Engine> engines) {
         this.engines = engines;
@@ -132,6 +142,7 @@ public class Item {
     private ItemType itemType;
 
     @ManyToOne(fetch = FetchType.LAZY)
+
     @JoinColumn(name = "item_type_id", referencedColumnName = "item_type_id", nullable = false, insertable = false, updatable = false)
     public ItemType getItemType() {
         return itemType;

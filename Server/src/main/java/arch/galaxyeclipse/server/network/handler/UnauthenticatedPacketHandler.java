@@ -44,10 +44,20 @@ class UnauthenticatedPacketHandler extends AbstractStubPacketHandler {
 				channelHandler.setStatefulPacketHandler(new FlightPacketHandler(
                         channelHandler, result.getPlayer()));
 
-                // Indicate player is online
+
                 new UnitOfWork() {
                     @Override
                     protected void doWork(Session session) {
+                        // Load player data to build ship static info
+                        result.setPlayer((Player)session.createCriteria(Player.class)
+                                .setFetchMode("shipStates", FetchMode.JOIN)
+                                .setFetchMode("inventoryItems", FetchMode.JOIN)
+                                .setFetchMode("inventoryItems.item", FetchMode.JOIN)
+                                .setFetchMode("shipConfigs", FetchMode.JOIN)
+                                .setFetchMode("shipStates.locationObject", FetchMode.JOIN)
+                                .uniqueResult());
+
+                        // Indicate player is online
                         int idDynamic = dictionaryTypesMapper.getIdByLocationObjectBehaviorType(
                                 LocationObjectBehaviorTypesMapperType.DYNAMIC);
                         LocationObject locationObject = result.getPlayer()
@@ -73,7 +83,7 @@ class UnauthenticatedPacketHandler extends AbstractStubPacketHandler {
 
 
             // TODO Sending StartupInfo
-            //StartupInfo startupInfo = StartupInfo.newBuilder();
+            StartupInfo.Builder startupInfoBuilder = StartupInfo.newBuilder();
 
 
             channelHandler.sendPacket(response);

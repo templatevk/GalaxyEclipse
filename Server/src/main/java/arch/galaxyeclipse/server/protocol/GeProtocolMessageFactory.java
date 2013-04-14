@@ -11,7 +11,10 @@ import org.hibernate.criterion.*;
 import java.util.*;
 
 /**
+ * Convenience class to build protobuf messages
  *
+ * build* methods simply access the fields of the entity provided
+ * load* methods retrieve data using {@see UnitOfWork}
  */
 public class GeProtocolMessageFactory {
     private DictionaryTypesMapper dictionaryTypesMapper;
@@ -20,16 +23,48 @@ public class GeProtocolMessageFactory {
         dictionaryTypesMapper = ContextHolder.INSTANCE.getBean(DictionaryTypesMapper.class);
     }
 
-    public ShipStaticInfo getShipStaticInfo(final Player player) {
-        return new UnitOfWork<ShipStaticInfo>() {
-            @Override
-            protected void doWork(Session session) {
+    public ShipStaticInfo buildShipStaticInfo(final Player player) {
+        ShipConfig shipConfig = player.getShipConfig();
+        ShipType shipType = shipConfig.getShipType();
 
-            }
-        }.execute();
+        ShipStaticInfo.Builder shipStaticInfoBuilder = ShipStaticInfo.newBuilder();
+        shipStaticInfoBuilder
+                // ship config values
+                .setMoveMaxSpeed(shipConfig.getShipConfigMoveMaxSpeed())
+                .setRotationMaxSpeed(shipConfig.getShipConfigRotationMaxSpeed())
+                .setMoveAccelerationSpeed(shipConfig.getShipConfigMoveAcceleration())
+                .setRotationAcceleration(shipConfig.getShipConfigRotationAcceleration())
+                .setArmor(shipConfig.getShipConfigArmor())
+                .setEnergyMax(shipConfig.getShipConfigEnergyMax())
+                .setHpMax(shipConfig.getShipConfigHpMax())
+                .setEnergyRegen(shipConfig.getShipConfigEnergyRegen())
+                .setHpRegen(shipConfig.getShipConfigHpRegen())
+                // ship types values
+                .setName(shipType.getShipTypeName())
+                .setArmorDurability(shipType.getShipTypeArmorDurability())
+                .setWeaponSlotsCount(shipType.getWeaponSlotsCount())
+                .setBonusSlotsCount(shipType.getBonusSlotsCount());
+
+        // inventory items, bonuses, weapons and engine
+        ShipStaticInfo.Item.Builder itemBuilder = ShipStaticInfo.Item.newBuilder();
+        for (InventoryItem inventoryItem : player.getInventoryItems()) {
+            Item item = inventoryItem.getItem();
+
+
+//            itemBuilder.setItemId(inventoryItem.getItemId())
+//                    .setName(item.getItemName())
+//                    .setDescription(item.getItemDescription())
+//                    .setPrice(item.getItemPrice())
+//                    .setItemId(item.getItemTypeId())
+
+            shipStaticInfoBuilder.addInventoryItems(itemBuilder);
+            itemBuilder.clear();
+        }
+
+        return shipStaticInfoBuilder.build();
     }
 
-    public LocationInfo getLocationInfo(final int locationId) {
+    public LocationInfo loadLocationInfo(final int locationId) {
         return new UnitOfWork<LocationInfo>() {
             @Override
             protected void doWork(Session session) {

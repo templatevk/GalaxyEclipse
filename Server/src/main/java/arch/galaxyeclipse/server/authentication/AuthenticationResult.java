@@ -6,10 +6,9 @@ import lombok.*;
 /**
  * Result of the player authentication.
  */
+@Data
 public class AuthenticationResult {
-    @Getter
     private boolean success;
-    @Getter
     private Player player;
 
 	public AuthenticationResult(boolean isSuccess) {

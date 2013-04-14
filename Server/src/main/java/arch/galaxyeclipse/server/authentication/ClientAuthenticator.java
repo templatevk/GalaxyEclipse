@@ -24,18 +24,14 @@ class ClientAuthenticator implements IClientAuthenticator {
         Player player = new UnitOfWork<Player>() {
             @Override
             protected void doWork(Session session) {
-               List<Player> playerList = session.createCriteria(Player.class)
+               Player player = (Player)session.createCriteria(Player.class)
                        .add(Restrictions.eq("activated", true))
                        .add(Restrictions.eq("banned", false))
                        .add(Restrictions.eq("username", username))
                        .add(Restrictions.eq("password", DigestUtils.md5Hex(password)))
-                       .setFetchMode("shipStates", FetchMode.JOIN)
-                       .setFetchMode("shipConfigs", FetchMode.JOIN)
-                       .setFetchMode("shipStates.locationObject", FetchMode.JOIN)
-               .list();
+                       .uniqueResult();
 
-                if (!playerList.isEmpty()) {
-                    Player player = playerList.get(0);
+                if (player != null) {
                     setResult(player);
                 }
             }

@@ -2,7 +2,7 @@
 
 skin BlueModern
 
-title Client login flow
+title Login flow
 
 participant Client
 participant Server
@@ -10,7 +10,6 @@ participant Server
 autonumber
 Client -> Server: Authentication request
 Client <- Server: Authentication response
-Client <- Server: Types map [authenticated = true]
-Client <- Server: GameInfo
+Client <- Server: StartupInfo [authenticated = true]
 
 @enduml
