@@ -7,19 +7,9 @@ import javax.persistence.*;
  */
 @Table(name = "weapon", schema = "", catalog = "ge")
 @Entity
-public class Weapon {
-    private int weaponId;
-
-    @Column(name = "weapon_id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
-    @Id
-    public int getWeaponId() {
-        return weaponId;
-    }
-
-    public void setWeaponId(int weaponId) {
-        this.weaponId = weaponId;
-    }
-
+@DiscriminatorValue(value = "2")
+@PrimaryKeyJoinColumn(name = "item_id")
+public class Weapon extends Item {
     private int damage;
 
     @Column(name = "damage", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
@@ -94,7 +84,7 @@ public class Weapon {
 
     private int itemId;
 
-    @Column(name = "item_id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
+    @Column(name = "item_id", nullable = false, insertable = false, updatable = false, length = 10, precision = 0)
     @Basic
     public int getItemId() {
         return itemId;
@@ -117,7 +107,6 @@ public class Weapon {
         if (energyCost != weapon.energyCost) return false;
         if (itemId != weapon.itemId) return false;
         if (maxDistance != weapon.maxDistance) return false;
-        if (weaponId != weapon.weaponId) return false;
         if (weaponTypeId != weapon.weaponTypeId) return false;
 
         return true;
@@ -125,7 +114,7 @@ public class Weapon {
 
     @Override
     public int hashCode() {
-        int result = weaponId;
+        int result = itemId;
         result = 31 * result + damage;
         result = 31 * result + delaySpeed;
         result = 31 * result + bulletSpeed;
@@ -134,18 +123,6 @@ public class Weapon {
         result = 31 * result + weaponTypeId;
         result = 31 * result + itemId;
         return result;
-    }
-
-    private Item item;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "item_id", referencedColumnName = "item_id", nullable = false, insertable = false, updatable = false)
-    public Item getItem() {
-        return item;
-    }
-
-    public void setItem(Item item) {
-        this.item = item;
     }
 
     private WeaponType weaponType;

@@ -1,7 +1,5 @@
 package arch.galaxyeclipse.server.data.model;
 
-import arch.galaxyeclipse.shared.util.*;
-
 import javax.persistence.*;
 import java.util.*;
 
@@ -10,6 +8,8 @@ import java.util.*;
  */
 @Table(name = "item", schema = "", catalog = "ge")
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name = "item_type_id", discriminatorType = DiscriminatorType.INTEGER)
 public class Item {
     private int itemId;
 
@@ -62,6 +62,7 @@ public class Item {
     private int itemTypeId;
 
     @Column(name = "item_type_id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
+
     @Basic
     public int getItemTypeId() {
         return itemTypeId;
@@ -98,36 +99,6 @@ public class Item {
         return result;
     }
 
-    private Set<Bonus> bonuses;
-
-    @OneToMany(mappedBy = "item", fetch = FetchType.LAZY)
-    public Set<Bonus> getBonuses() {
-        return bonuses;
-    }
-
-    @Transient
-    public Bonus getBonus() {
-        return CollectionUtils.getFirst(bonuses);
-    }
-
-    public void setBonuses(Set<Bonus> bonuses) {
-        this.bonuses = bonuses;
-    }
-
-    private Set<Engine> engines;
-
-    @OneToMany(mappedBy = "item", fetch = FetchType.LAZY)
-    public Set<Engine> getEngines() {
-        return engines;
-    }
-
-//    @Transient
-//    public
-
-    public void setEngines(Set<Engine> engines) {
-        this.engines = engines;
-    }
-
     private Set<InventoryItem> inventoryItems;
 
     @OneToMany(mappedBy = "item", fetch = FetchType.LAZY)
@@ -142,7 +113,6 @@ public class Item {
     private ItemType itemType;
 
     @ManyToOne(fetch = FetchType.LAZY)
-
     @JoinColumn(name = "item_type_id", referencedColumnName = "item_type_id", nullable = false, insertable = false, updatable = false)
     public ItemType getItemType() {
         return itemType;
@@ -183,16 +153,5 @@ public class Item {
 
     public void setShipConfigWeaponSlots(Set<ShipConfigWeaponSlot> shipConfigWeaponSlots) {
         this.shipConfigWeaponSlots = shipConfigWeaponSlots;
-    }
-
-    private Set<Weapon> weapons;
-
-    @OneToMany(mappedBy = "item", fetch = FetchType.LAZY)
-    public Set<Weapon> getWeapons() {
-        return weapons;
-    }
-
-    public void setWeapons(Set<Weapon> weapons) {
-        this.weapons = weapons;
     }
 }

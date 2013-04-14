@@ -7,19 +7,9 @@ import javax.persistence.*;
  */
 @Table(name = "bonus", schema = "", catalog = "ge")
 @Entity
-public class Bonus {
-    private int bonusId;
-
-    @Column(name = "bonus_id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
-    @Id
-    public int getBonusId() {
-        return bonusId;
-    }
-
-    public void setBonusId(int bonusId) {
-        this.bonusId = bonusId;
-    }
-
+@DiscriminatorValue(value = "3")
+@PrimaryKeyJoinColumn(name = "item_id")
+public class Bonus extends Item {
     private int bonusValue;
 
     @Column(name = "bonus_value", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
@@ -46,7 +36,7 @@ public class Bonus {
 
     private int itemId;
 
-    @Column(name = "item_id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
+    @Column(name = "item_id", nullable = false, insertable = false, updatable = false, length = 10, precision = 0)
     @Basic
     public int getItemId() {
         return itemId;
@@ -63,7 +53,6 @@ public class Bonus {
 
         Bonus bonus = (Bonus) o;
 
-        if (bonusId != bonus.bonusId) return false;
         if (bonusTypeId != bonus.bonusTypeId) return false;
         if (bonusValue != bonus.bonusValue) return false;
         if (itemId != bonus.itemId) return false;
@@ -73,7 +62,7 @@ public class Bonus {
 
     @Override
     public int hashCode() {
-        int result = bonusId;
+        int result = itemId;
         result = 31 * result + bonusValue;
         result = 31 * result + bonusTypeId;
         result = 31 * result + itemId;

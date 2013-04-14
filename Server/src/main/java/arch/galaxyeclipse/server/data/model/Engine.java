@@ -5,20 +5,11 @@ import javax.persistence.*;
 /**
  *
  */
+@Table(name = "engine", schema = "", catalog = "ge")
 @Entity
-public class Engine {
-    private int engineId;
-
-    @Column(name = "engine_id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
-    @Id
-    public int getEngineId() {
-        return engineId;
-    }
-
-    public void setEngineId(int engineId) {
-        this.engineId = engineId;
-    }
-
+@DiscriminatorValue(value = "1")
+@PrimaryKeyJoinColumn(name = "item_id")
+public class Engine extends Item {
     private int moveAccelerationBonus;
 
     @Column(name = "move_acceleration_bonus", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
@@ -69,7 +60,7 @@ public class Engine {
 
     private int itemId;
 
-    @Column(name = "item_id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
+    @Column(name = "item_id", nullable = false, insertable = false, updatable = false, length = 10, precision = 0)
     @Basic
     public int getItemId() {
         return itemId;
@@ -86,7 +77,6 @@ public class Engine {
 
         Engine engine = (Engine) o;
 
-        if (engineId != engine.engineId) return false;
         if (itemId != engine.itemId) return false;
         if (moveAccelerationBonus != engine.moveAccelerationBonus) return false;
         if (moveMaxSpeedBonus != engine.moveMaxSpeedBonus) return false;
@@ -98,24 +88,12 @@ public class Engine {
 
     @Override
     public int hashCode() {
-        int result = engineId;
+        int result = itemId;
         result = 31 * result + moveAccelerationBonus;
         result = 31 * result + moveMaxSpeedBonus;
         result = 31 * result + rotationAccelerationBonus;
         result = 31 * result + rotationMaxSpeedBonus;
         result = 31 * result + itemId;
         return result;
-    }
-
-    private Item item;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "item_id", referencedColumnName = "item_id", nullable = false, insertable = false, updatable = false)
-    public Item getItem() {
-        return item;
-    }
-
-    public void setItem(Item item) {
-        this.item = item;
     }
 }
