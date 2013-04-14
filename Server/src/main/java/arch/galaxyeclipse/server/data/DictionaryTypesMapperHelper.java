@@ -1,6 +1,5 @@
-package arch.galaxyeclipse.server.data.util;
+package arch.galaxyeclipse.server.data;
 
-import arch.galaxyeclipse.server.data.*;
 import arch.galaxyeclipse.server.data.model.*;
 import arch.galaxyeclipse.shared.types.*;
 import arch.galaxyeclipse.shared.util.*;
@@ -21,7 +20,7 @@ class DictionaryTypesMapperHelper implements IDictionaryTypesMapperHelper {
     public Map<Integer, String> getBonusTypes() {
         Map<Integer, String> result = new HashMap<>();
 
-        for (BonusType type : new CriteriaDataWorker<>(BonusType.class).execute()) {
+        for (BonusType type : new CriteriaUnitOfWork<>(BonusType.class).execute()) {
             result.put(type.getBonusTypeId(), type.getBonusTypeName());
         }
         return result;
@@ -31,7 +30,7 @@ class DictionaryTypesMapperHelper implements IDictionaryTypesMapperHelper {
     public Map<Integer, String> getItemTypes() {
         Map<Integer, String> result = new HashMap<>();
 
-        for (ItemType type : new CriteriaDataWorker<>(ItemType.class).execute()) {
+        for (ItemType type : new CriteriaUnitOfWork<>(ItemType.class).execute()) {
             result.put(type.getItemTypeId(), type.getItemTypeName());
         }
         return result;
@@ -41,7 +40,7 @@ class DictionaryTypesMapperHelper implements IDictionaryTypesMapperHelper {
     public Map<Integer, String> getWeaponTypes() {
         Map<Integer, String> result = new HashMap<>();
 
-        for (WeaponType type : new CriteriaDataWorker<>(WeaponType.class).execute()) {
+        for (WeaponType type : new CriteriaUnitOfWork<>(WeaponType.class).execute()) {
             result.put(type.getWeaponTypeId(), type.getWeaponTypeName());
         }
         return result;
@@ -51,7 +50,7 @@ class DictionaryTypesMapperHelper implements IDictionaryTypesMapperHelper {
     public Map<Integer, String> getLocationObjectTypes() {
         Map<Integer, String> result = new HashMap<>();
 
-        for (LocationObjectType type : new CriteriaDataWorker<>(
+        for (LocationObjectType type : new CriteriaUnitOfWork<>(
                 LocationObjectType.class).execute()) {
             result.put(type.getLocationObjectTypeId(), type.getObjectTypeName());
         }
@@ -62,7 +61,7 @@ class DictionaryTypesMapperHelper implements IDictionaryTypesMapperHelper {
     public Map<Integer, String> getLocationObjectBehaviorTypes() {
         Map<Integer, String> result = new HashMap<>();
 
-        for (LocationObjectBehaviorType type : new CriteriaDataWorker<>(
+        for (LocationObjectBehaviorType type : new CriteriaUnitOfWork<>(
                 LocationObjectBehaviorType.class).execute()) {
             result.put(type.getLocationObjectBehaviorTypeId(), type.getObjectBehaviorTypeName());
         }
@@ -71,8 +70,8 @@ class DictionaryTypesMapperHelper implements IDictionaryTypesMapperHelper {
 
     @Override
     public void fillAll(DictionaryTypesMapper dictionaryTypesMapper) {
-        if (log.isDebugEnabled()) {
-            log.debug(LogUtils.getObjectInfo(this) + " filling in dictionary types");
+        if (DictionaryTypesMapperHelper.log.isDebugEnabled()) {
+            DictionaryTypesMapperHelper.log.debug(LogUtils.getObjectInfo(this) + " filling in dictionary types");
         }
 
         dictionaryTypesMapper.fillItemTypes(getItemTypes());

@@ -10,11 +10,11 @@ import org.hibernate.*;
  *
  */
 @Slf4j
-public abstract class DataWorker<T> {
+public abstract class UnitOfWork<T> {
     @Setter(AccessLevel.PROTECTED)
     private T result;
 
-    public DataWorker() {
+    public UnitOfWork() {
 
     }
 
@@ -31,7 +31,7 @@ public abstract class DataWorker<T> {
             if (!tx.wasRolledBack()) {
                 tx.rollback();
             }
-            log.error("Error on " + LogUtils.getObjectInfo(this), e);
+            UnitOfWork.log.error("Error on " + LogUtils.getObjectInfo(this), e);
         } finally {
             session.close();
         }

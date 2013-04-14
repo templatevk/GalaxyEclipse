@@ -7,7 +7,7 @@ import arch.galaxyeclipse.client.window.*;
 import arch.galaxyeclipse.shared.*;
 import arch.galaxyeclipse.shared.context.*;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.*;
-import arch.galaxyeclipse.shared.thread.*;
+import arch.galaxyeclipse.shared.types.*;
 import arch.galaxyeclipse.shared.util.*;
 import com.badlogic.gdx.scenes.scene2d.*;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
@@ -23,7 +23,7 @@ import java.util.List;
  *
  */
 @Slf4j
-public class MainMenuPresenter implements IStagePresenter, IServerPacketListener {
+public class MainMenuPresenter extends ServerPacketListener implements IStagePresenter {
     private IClientNetworkManager networkManager;
     private IClientWindow clientWindow;
 
@@ -77,27 +77,58 @@ public class MainMenuPresenter implements IStagePresenter, IServerPacketListener
     @Override
     public void detach() {
         networkManager.removeListener(this);
-    }
+}
 
     @Override
-    public void onPacketReceived(Packet packet) {
-        if (log.isInfoEnabled()) {
-            log.info(LogUtils.getObjectInfo(this) + " received packet " + packet.getType());
-        }
+    protected void onPacketReceivedImpl(Packet packet) {
 
         switch (packet.getType()) {
             case AUTH_RESPONSE:
                 boolean success = packet.getAuthResponse().getIsSuccess();
-                log.info("Authentication result = " + success);
+                if (log.isInfoEnabled()) {
+                    log.info("Authentication result = " + success);
+                }
 
                 if (success) {
+                    if (log.isDebugEnabled()) {
+                        log.debug("Switching to loading stage");
+                    }
                     clientWindow.setStage(new LoadingStage());
                 }
                 break;
-            case GAME_INFO:
-                GameInfo gameInfo = packet.getGameInfo();
-                GameInfo.TypesMap typesMap = gameInfo.getTypesMap();
-            //    typesMap.getItemTypesList().get(0).
+            case STARTUP_INFO:
+                StartupInfo startupInfo = packet.getStartupInfo();
+
+                IShipStaticInfoHolder gameInfoHolder = ContextHolder.INSTANCE.getBean(IShipStaticInfoHolder.class);
+                gameInfoHolder.setShipStaticInfo(startupInfo.getShipStaticInfo());
+
+                if (log.isDebugEnabled()) {
+                    log.debug("Processing types map");
+                }
+
+                TypesMap typesMap = startupInfo.getTypesMap();
+                DictionaryTypesMapper dictionaryTypesMapper = ContextHolder.INSTANCE
+                        .getBean(DictionaryTypesMapper.class);
+
+                Map<Integer, String> itemTypes = new HashMap<>();
+                for (TypesMap.ItemType itemType : typesMap.getItemTypesList()) {
+                    itemTypes.put(itemType.getId(), itemType.getName());
+                }
+                dictionaryTypesMapper.fillItemTypes(itemTypes);
+
+                Map<Integer, String> weaponTypes = new HashMap<>();
+                for (TypesMap.WeaponType weaponType : typesMap.getWeaponTypesList()) {
+                    weaponTypes.put(weaponType.getId(), weaponType.getName());
+                }
+                dictionaryTypesMapper.fillItemTypes(weaponTypes);
+
+                Map<Integer, String> locationObjectTypes = new HashMap<>();
+                for (TypesMap.LocationObjectType locationObjectType : typesMap
+                        .getLocationObjectTypesList()) {
+                    locationObjectTypes.put(locationObjectType.getId(), locationObjectType.getName());
+                }
+                dictionaryTypesMapper.fillItemTypes(weaponTypes);
+
                 break;
         }
     }
@@ -105,7 +136,7 @@ public class MainMenuPresenter implements IStagePresenter, IServerPacketListener
     @Override
     public List<Packet.Type> getPacketTypes() {
         return Arrays.asList(Packet.Type.AUTH_RESPONSE,
-                Packet.Type.GAME_INFO);
+                Packet.Type.STARTUP_INFO);
     }
 
     @Data

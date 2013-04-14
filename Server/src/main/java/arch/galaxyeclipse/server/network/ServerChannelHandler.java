@@ -1,14 +1,14 @@
 package arch.galaxyeclipse.server.network;
 
+import arch.galaxyeclipse.server.network.handler.*;
 import arch.galaxyeclipse.shared.context.*;
 import arch.galaxyeclipse.shared.network.*;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.*;
-import arch.galaxyeclipse.shared.thread.*;
 import arch.galaxyeclipse.shared.util.*;
 import lombok.extern.slf4j.*;
 import org.jboss.netty.channel.*;
 
-import static arch.galaxyeclipse.server.network.PacketHandlerFactory.*;
+import static arch.galaxyeclipse.server.network.handler.PacketHandlerFactory.*;
 
 @Slf4j
 class ServerChannelHandler extends AbstractProtobufChannelHandler
@@ -49,8 +49,7 @@ class ServerChannelHandler extends AbstractProtobufChannelHandler
 
         monitoringNetworkManager.registerServerChannelHandler(this);
 
-		statefulPacketHandler = packetProcessorFactory.createStatefulPacketHandler(
-                this, StatefulPacketHandlerType.UNAUTHENTICATED_CLIENT_HANDLER);
+		statefulPacketHandler = packetProcessorFactory.createStatefulPacketHandler(this);
 	}
 
     @Override
@@ -62,7 +61,9 @@ class ServerChannelHandler extends AbstractProtobufChannelHandler
         }
 
         monitoringNetworkManager.unregisterServerChannelHandler(this);
-	}	
+
+        statefulPacketHandler.onChannelClosed();
+	}
 	
 	@Override
 	public void setStatefulPacketHandler(IStatefulPacketHandler statefulPacketHandler) {

@@ -1,4 +1,4 @@
-package arch.galaxyeclipse.server.data;
+package arch.galaxyeclipse.shared.util;
 
 
 import java.util.*;
@@ -6,8 +6,8 @@ import java.util.*;
 /**
  *
  */
-public class EntityUtils {
-    private EntityUtils() {
+public class CollectionUtils {
+    private CollectionUtils() {
 
     }
 

@@ -1,9 +1,9 @@
 package arch.galaxyeclipse.server.data.model;
 
+import arch.galaxyeclipse.shared.util.*;
+
 import javax.persistence.*;
 import java.util.*;
-
-import static arch.galaxyeclipse.server.data.EntityUtils.*;
 
 /**
  *
@@ -156,7 +156,7 @@ public class Player {
 
     @Transient
     public ShipConfig getShipConfig() {
-        return getFirst(shipConfigs);
+        return CollectionUtils.getFirst(shipConfigs);
     }
 
     public void setShipConfigs(Set<ShipConfig> shipConfigs) {
@@ -172,7 +172,7 @@ public class Player {
 
     @Transient
     public ShipState getShipState() {
-        return getFirst(shipStates);
+        return CollectionUtils.getFirst(shipStates);
     }
 
     public void setShipStates(Set<ShipState> shipStates) {

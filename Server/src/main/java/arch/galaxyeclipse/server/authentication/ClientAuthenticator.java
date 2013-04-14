@@ -2,6 +2,8 @@ package arch.galaxyeclipse.server.authentication;
 
 import arch.galaxyeclipse.server.data.*;
 import arch.galaxyeclipse.server.data.model.*;
+import arch.galaxyeclipse.shared.context.*;
+import arch.galaxyeclipse.shared.types.*;
 import org.apache.commons.codec.digest.*;
 import org.hibernate.*;
 import org.hibernate.criterion.*;
@@ -19,7 +21,7 @@ class ClientAuthenticator implements IClientAuthenticator {
     @Override
     public AuthenticationResult authenticate(final String username,
             final String password) {
-        Player player = new DataWorker<Player>() {
+        Player player = new UnitOfWork<Player>() {
             @Override
             protected void doWork(Session session) {
                List<Player> playerList = session.createCriteria(Player.class)
@@ -33,7 +35,8 @@ class ClientAuthenticator implements IClientAuthenticator {
                .list();
 
                 if (!playerList.isEmpty()) {
-                    setResult(playerList.get(0));
+                    Player player = playerList.get(0);
+                    setResult(player);
                 }
             }
         }.execute();

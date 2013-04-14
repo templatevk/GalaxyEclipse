@@ -19,6 +19,7 @@
                 <entry key="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
                 <entry key="hibernate.show_sql" value="true"/>
                 <entry key="hibernate.format_sql" value="true"/>
+                <!--<entry key="hibernate.jdbc.batch_size" value="50"/>-->
             </map>
         </property>
         <property name="annotatedClasses">
@@ -54,9 +55,10 @@
     </bean>
 
     <!-- Other -->
-    <bean class="arch.galaxyeclipse.server.authentication.ClientAuthenticator"  scope="prototype"/>
-    <bean class="arch.galaxyeclipse.server.network.PacketHandlerFactory"        scope="prototype"/>
+    <bean class="arch.galaxyeclipse.server.authentication.ClientAuthenticator" scope="prototype"/>
+    <bean class="arch.galaxyeclipse.server.network.handler.PacketHandlerFactory" scope="prototype"/>
+    <bean class="arch.galaxyeclipse.server.protocol.GeProtocolMessageFactory" scope="prototype"/>
 
-    <bean class="arch.galaxyeclipse.server.data.util.DictionaryTypesMapperHelper" lazy-init="true"/>
+    <bean class="arch.galaxyeclipse.server.data.DictionaryTypesMapperHelper" lazy-init="true"/>
     <bean class="arch.galaxyeclipse.shared.types.DictionaryTypesMapper"/>
 </beans>

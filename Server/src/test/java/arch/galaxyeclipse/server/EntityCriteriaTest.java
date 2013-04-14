@@ -35,7 +35,7 @@ public class EntityCriteriaTest extends AbstractTestNGServerTest {
                 WeaponType.class
         );
         for (final Class<?> entity : entities) {
-            new DataWorker() {
+            new UnitOfWork() {
                 @Override
                 protected void doWork(Session session) {
                     session.createCriteria(entity).list();

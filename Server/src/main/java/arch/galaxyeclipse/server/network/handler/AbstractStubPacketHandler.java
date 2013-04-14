@@ -1,4 +1,4 @@
-package arch.galaxyeclipse.server.network;
+package arch.galaxyeclipse.server.network.handler;
 
 /**
  * Stub implementation fo channel closed event.

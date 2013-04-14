@@ -1,4 +1,4 @@
-package arch.galaxyeclipse.shared.thread;
+package arch.galaxyeclipse.shared.util;
 
 /**
  * No action callback.

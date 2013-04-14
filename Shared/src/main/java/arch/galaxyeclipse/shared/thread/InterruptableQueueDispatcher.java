@@ -1,5 +1,6 @@
 package arch.galaxyeclipse.shared.thread;
 
+import arch.galaxyeclipse.shared.util.*;
 import lombok.extern.slf4j.*;
 
 import java.util.*;
@@ -14,7 +15,7 @@ public class InterruptableQueueDispatcher<T> extends Thread {
 	private boolean yield;
 	
 	public InterruptableQueueDispatcher(AbstractQueue<T> queue) {
-		this(queue, new StubDispatchCommand<T>(), false);
+		this(queue, new StubCommand<T>(), false);
 	}
 	
 	public InterruptableQueueDispatcher(AbstractQueue<T> queue, ICommand<T> command) {

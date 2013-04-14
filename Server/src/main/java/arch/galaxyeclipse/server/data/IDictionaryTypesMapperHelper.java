@@ -1,4 +1,4 @@
-package arch.galaxyeclipse.server.data.util;
+package arch.galaxyeclipse.server.data;
 
  import arch.galaxyeclipse.shared.types.*;
 

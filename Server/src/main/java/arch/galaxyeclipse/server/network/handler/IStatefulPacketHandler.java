@@ -1,4 +1,4 @@
-package arch.galaxyeclipse.server.network;
+package arch.galaxyeclipse.server.network.handler;
 
 import arch.galaxyeclipse.shared.protocol.GeProtocol.*;
 

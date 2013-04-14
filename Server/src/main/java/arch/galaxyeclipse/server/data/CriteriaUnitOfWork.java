@@ -7,10 +7,10 @@ import java.util.*;
 /**
  *
  */
-public class CriteriaDataWorker<T> extends DataWorker<List<T>> {
+public class CriteriaUnitOfWork<T> extends UnitOfWork<List<T>> {
     private Class<T> clazz;
 
-    public CriteriaDataWorker(Class<T> clazz) {
+    public CriteriaUnitOfWork(Class<T> clazz) {
         this.clazz = clazz;
     }
 

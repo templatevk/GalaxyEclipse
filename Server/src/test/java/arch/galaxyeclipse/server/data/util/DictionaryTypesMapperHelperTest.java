@@ -1,6 +1,7 @@
 package arch.galaxyeclipse.server.data.util;
 
 import arch.galaxyeclipse.server.*;
+import arch.galaxyeclipse.server.data.*;
 import arch.galaxyeclipse.shared.context.*;
 import arch.galaxyeclipse.shared.types.*;
 import org.fest.assertions.*;

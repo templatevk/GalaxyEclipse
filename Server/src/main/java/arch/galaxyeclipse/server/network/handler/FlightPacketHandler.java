@@ -1,10 +1,13 @@
-package arch.galaxyeclipse.server.network;
+package arch.galaxyeclipse.server.network.handler;
 
+import arch.galaxyeclipse.server.data.*;
 import arch.galaxyeclipse.server.data.model.*;
+import arch.galaxyeclipse.server.network.*;
 import arch.galaxyeclipse.shared.context.*;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.*;
 import arch.galaxyeclipse.shared.types.*;
 import lombok.extern.slf4j.*;
+import org.hibernate.*;
 
 /**
 * Handles packets of authenticated players.
@@ -28,12 +31,8 @@ class FlightPacketHandler implements IStatefulPacketHandler {
 
         // Initialize player's data e.g. ship state and ship config
         shipState = player.getShipState();
-        //shipConfig = player.getShipConfig();
+        shipConfig = player.getShipConfig();
         locationObject = shipState.getLocationObject();
-
-        // Indicate player is online
-        locationObject.setLocationObjectBehaviorTypeId(dictionaryTypesMapper
-                .getIdByLocationObjectBehaviorType(LocationObjectBehaviorTypesMapperType.DYNAMIC));
 	}
 
 	@Override
@@ -47,12 +46,21 @@ class FlightPacketHandler implements IStatefulPacketHandler {
             FlightPacketHandler.log.debug("Channel closed during flight mode, hibernating player");
         }
 
-        // Stop the ship
-        shipState.setShipStateMoveSpeed(0);
-        shipState.setShipStateRotationSpeed(0);
+        new UnitOfWork() {
+            @Override
+            protected void doWork(Session session) {
+                // Stop the ship
+                shipState.setShipStateMoveSpeed(0);
+                shipState.setShipStateRotationSpeed(0);
 
-        // Indicate player is offline
-        locationObject.setLocationObjectBehaviorTypeId(dictionaryTypesMapper
-                .getIdByLocationObjectBehaviorType(LocationObjectBehaviorTypesMapperType.STATIC));
+                // Indicate player is offline
+                int idStatic = dictionaryTypesMapper.getIdByLocationObjectBehaviorType(
+                        LocationObjectBehaviorTypesMapperType.STATIC);
+                locationObject.setLocationObjectBehaviorTypeId(idStatic);
+
+                session.merge(shipState);
+                session.merge(locationObject);
+            }
+        }.execute();
     }
 }

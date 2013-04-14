@@ -15,10 +15,12 @@ message Packet {
         AUTH_REQUEST                = 16;
         AUTH_RESPONSE               = 17;
 
-        GAME_INFO                   = 18;
+        LOCATION_INFO               = 30;
+        STARTUP_INFO                = 31;
+        SHIP_STATIC_INFO_COMMAND    = 32;
 
-        CHAT_SEND_MESSAGE           = 22;
-        CHAR_RECEIVE_MESSAGE        = 23;
+        CHAT_SEND_MESSAGE           = 60;
+        CHAR_RECEIVE_MESSAGE        = 61;
     }
 
     required Type                   type                    = 1;
@@ -30,11 +32,12 @@ message Packet {
     optional AuthRequest            authRequest             = 16;
     optional AuthResponse           authResponse            = 17;
 
-    optional GameInfo               gameInfo                = 18;
-    optional ChangeCommand          changeCommand           = 19;
+    optional LocationInfo           locationInfo            = 18;
+    optional StartupInfo            startupInfo             = 19;
+    optional ShipStaticInfoCommand  gameInfoCommandHolder   = 20;
 
-    optional ChatSendMessage        chatSendMessage         = 20;
-    optional ChatReceiveMessage     typesMapResponse        = 21;
+    optional ChatSendMessage        chatSendMessage         = 21;
+    optional ChatReceiveMessage     typesMapResponse        = 22;
 }
 
 
@@ -106,104 +109,106 @@ message AuthResponse {
 }
 
 
-message GameInfo {
+message LocationInfo {
     required int32                  locationId              = 1;
     required StaticObjects          locationStaticObjects   = 2;
     required StaticObjects          locationDrawableObject  = 3;
-    required TypesMap               typesMap                = 4;
 
     message StaticObjects {
         repeated StaticObject objects = 1;
 
         message StaticObject {
-            required int32 objectId = 1;
-            required int32 positionX = 2;
-            required int32 positionY = 3;
+            required int32 objectId     = 1;
+            required int32 positionX    = 2;
+            required int32 positionY    = 3;
             required int32 objectTypeId = 4;
         }
     }
+}
+message ShipStaticInfo {
+    // Ship config values
+    required int32          moveMaxSpeed            = 1;
+    required int32          rotationMaxSpeed        = 2;
+    required int32          moveAccelerationSpeed   = 3;
+    required int32          rotationAcceleration    = 4;
+    required int32          armor                   = 5;
+    required int32          energyMax               = 6;
+    required int32          hpMax                   = 7;
+    required int32          energyRegen             = 8;
+    required int32          hpRegen                 = 9;
 
-    message TypesMap {
-        repeated ItemType itemTypes = 1;
-        repeated WeaponType weaponTypes = 2;
-        repeated LocationObjectType locationObjectTypes = 3;
+    // Ship type values
+    required string         name                    = 10;
+    required int32          armorDurability         = 11;
+    required int32          weaponSlotsCount        = 12;
+    required int32          bonusSlotsCount         = 13;
 
-        message ItemType {
-            required int32 id = 1;
-            required string name = 2;
-        }
+    repeated Item           inventoryItems          = 14;
+    repeated Bonus          shipBonus               = 15;
+    repeated Weapon         shipWeapons             = 16;
+    required Engine         shipEngine              = 17;
 
-        message WeaponType {
-            required int32 id = 1;
-            required string name = 2;
-        }
+    message Item {
+        required int32  itemId      = 1;
+        required string name        = 2;
+        required string description = 3;
+        required int32  price       = 4;
+        required int32  itemTypeId  = 5;
 
-        message LocationObjectType {
-            required int32 id = 1;
-            required string name = 2;
-        }
+        optional Bonus  bonus       = 6;
+        optional Weapon weapon      = 7;
+        optional Engine engine      = 8;
     }
 
-    message ShipStaticInfo {
-        // Ship config values
-        required int32          moveMaxSpeed            = 1;
-        required int32          rotationMaxSpeed        = 2;
-        required int32          moveAccelerationSpeed   = 3;
-        required int32          rotationAcceleration    = 4;
-        required int32          armor                   = 5;
-        required int32          energyMax               = 6;
-        required int32          hpMax                   = 7;
-        required int32          energyRegen             = 8;
-        required int32          hpRegen                 = 9;
+    message Bonus {
+        required int32 bonusId      = 1;
+        required int32 bonusValue   = 2;
+        required int32 bonusTypeId  = 3;
+    }
 
-        // Ship type values
-        required string         name                    = 10;
-        required int32          armorDurability         = 11;
-        required int32          weaponSlotsCount        = 12;
-        required int32          bonusSlotsCount         = 13;
+    message Weapon {
+        required int32 weaponId     = 1;
+        required int32 damage       = 2;
+        required int32 delaySpeed   = 3;
+        required int32 bulletSpeed  = 4;
+        required int32 maxDistance  = 5;
+        required int32 energyCost   = 6;
+    }
 
-        repeated Item           inventoryItems          = 14;
-        repeated Bonus          shipBonus               = 15;
-        repeated Weapon         shipWeapons             = 16;
-        required Engine         shipEngine              = 17;
-
-        message Item {
-            required int32  itemId      = 1;
-            required string name        = 2;
-            required string description = 3;
-            required int32  price       = 4;
-            required int32  itemTypeId  = 5;
-
-            optional Bonus  bonus       = 6;
-            optional Weapon weapon      = 7;
-            optional Engine engine      = 8;
-        }
-
-        message Bonus {
-            required int32 bonusId      = 1;
-            required int32 bonusValue   = 2;
-            required int32 bonusTypeId  = 3;
-        }
-
-        message Weapon {
-            required int32 weaponId     = 1;
-            required int32 damage       = 2;
-            required int32 delaySpeed   = 3;
-            required int32 bulletSpeed  = 4;
-            required int32 maxDistance  = 5;
-            required int32 energyCost   = 6;
-        }
-
-        message Engine {
-            required int32 engineId                     = 1;
-            required int32 moveAccelerationBonus        = 2;
-            required int32 moveMaxSpeedBonus            = 3;
-            required int32 rotationAccelerationBonus    = 4;
-            required int32 rotationMaxSpeed             = 5;
-        }
+    message Engine {
+        required int32 engineId                     = 1;
+        required int32 moveAccelerationBonus        = 2;
+        required int32 moveMaxSpeedBonus            = 3;
+        required int32 rotationAccelerationBonus    = 4;
+        required int32 rotationMaxSpeed             = 5;
     }
 }
-message ChangeCommand {
+message TypesMap {
+    repeated ItemType itemTypes = 1;
+    repeated WeaponType weaponTypes = 2;
+    repeated LocationObjectType locationObjectTypes = 3;
+
+    message ItemType {
+        required int32 id = 1;
+        required string name = 2;
+    }
+
+    message WeaponType {
+        required int32 id = 1;
+        required string name = 2;
+    }
+
+    message LocationObjectType {
+        required int32 id = 1;
+        required string name = 2;
+    }
+}
+message StartupInfo {
+    required LocationInfo   locationInfo    = 1;
+    required TypesMap       typesMap        = 2;
+    required ShipStaticInfo shipStaticInfo  = 3;
+}
+message ShipStaticInfoCommand {
     required bytes serializedCommand = 1;
 }
 
