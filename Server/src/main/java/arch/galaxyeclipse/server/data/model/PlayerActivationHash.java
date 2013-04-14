@@ -69,7 +69,7 @@ public class PlayerActivationHash {
 
     private Player player;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "player_activation_hash_id", referencedColumnName = "player_id", nullable = false, insertable = false, updatable = false)
     public Player getPlayer() {
         return player;

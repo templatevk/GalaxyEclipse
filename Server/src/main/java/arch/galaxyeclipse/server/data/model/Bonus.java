@@ -7,7 +7,7 @@ import javax.persistence.*;
  */
 @Table(name = "bonus", schema = "", catalog = "ge")
 @Entity
-@DiscriminatorValue(value = "3")
+@DiscriminatorValue(value = Item.BONUS_TYPE)
 @PrimaryKeyJoinColumn(name = "item_id")
 public class Bonus extends Item {
     private int bonusValue;

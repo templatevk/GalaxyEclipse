@@ -21,7 +21,7 @@ import java.util.concurrent.*;
 @Slf4j
 class ClientNetworkManager implements IClientNetworkManager, ITestClientNetworkManager {
 	// Sleep interval to wait for connection result
-	private static final int CONNECTION_TIMEOUT_MILLISECONDS = 500;
+	private static final int CONNECTION_TIMEOUT_MILLISECONDS = 300;
 
 	private IClientChannelHandlerFactory channelHandlerFactory;
 	
@@ -73,7 +73,12 @@ class ClientNetworkManager implements IClientNetworkManager, ITestClientNetworkM
 		bootstrap.connect(address).addListener(new ChannelFutureListener() {
 			@Override
 			public void operationComplete(final ChannelFuture future) throws Exception {
-                callback.onOperationComplete(channelHandler.isConnected());
+                new DelayedRunnableExecutor(CONNECTION_TIMEOUT_MILLISECONDS, new Runnable() {
+                    @Override
+                    public void run() {
+                        callback.onOperationComplete(channelHandler.isConnected());
+                    }
+                }).start();
 			}
 		});
 	}

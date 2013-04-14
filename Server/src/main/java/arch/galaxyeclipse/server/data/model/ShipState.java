@@ -80,18 +80,6 @@ public class ShipState {
         this.shipStateArmorDurability = shipStateArmorDurability;
     }
 
-    private int playerMoney;
-
-    @Column(name = "player_money", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
-    @Basic
-    public int getPlayerMoney() {
-        return playerMoney;
-    }
-
-    public void setPlayerMoney(int playerMoney) {
-        this.playerMoney = playerMoney;
-    }
-
     private int playerId;
 
     @Column(name = "player_id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
@@ -125,7 +113,6 @@ public class ShipState {
 
         if (locationObjectId != shipState.locationObjectId) return false;
         if (playerId != shipState.playerId) return false;
-        if (playerMoney != shipState.playerMoney) return false;
         if (shipStateArmorDurability != shipState.shipStateArmorDurability) return false;
         if (shipStateHp != shipState.shipStateHp) return false;
         if (shipStateId != shipState.shipStateId) return false;
@@ -144,7 +131,6 @@ public class ShipState {
         result = 31 * result + shipStateRotationAngle;
         result = 31 * result + shipStateHp;
         result = 31 * result + shipStateArmorDurability;
-        result = 31 * result + playerMoney;
         result = 31 * result + playerId;
         result = 31 * result + locationObjectId;
         return result;

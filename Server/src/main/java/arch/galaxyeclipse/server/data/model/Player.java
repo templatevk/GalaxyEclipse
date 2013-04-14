@@ -136,15 +136,15 @@ public class Player {
         this.inventoryItems = inventoryItems;
     }
 
-    private PlayerActivationHash playerActivationHash;
+    private Set<PlayerActivationHash> playerActivationHashes;
 
-    @OneToOne(mappedBy = "player", fetch = FetchType.LAZY)
-    public PlayerActivationHash getPlayerActivationHash() {
-        return playerActivationHash;
+    @OneToMany(mappedBy = "player", fetch = FetchType.LAZY)
+    public Set<PlayerActivationHash> getPlayerActivationHashes() {
+        return playerActivationHashes;
     }
 
-    public void setPlayerActivationHash(PlayerActivationHash playerActivationHash) {
-        this.playerActivationHash = playerActivationHash;
+    public void setPlayerActivationHashes(Set<PlayerActivationHash> playerActivationHashes) {
+        this.playerActivationHashes = playerActivationHashes;
     }
 
     private Set<ShipConfig> shipConfigs;

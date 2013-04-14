@@ -29,6 +29,7 @@ insert into weapon_type
 insert into location_object_behavior_type
 (object_behavior_type_name)
   values
+  ('ignored'),
   ('static'),
   ('drawable'),
   ('dynamic');

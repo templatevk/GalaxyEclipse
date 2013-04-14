@@ -7,7 +7,7 @@ import javax.persistence.*;
  */
 @Table(name = "engine", schema = "", catalog = "ge")
 @Entity
-@DiscriminatorValue(value = "1")
+@DiscriminatorValue(value = Item.ENGINE_TYPE)
 @PrimaryKeyJoinColumn(name = "item_id")
 public class Engine extends Item {
     private int moveAccelerationBonus;

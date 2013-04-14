@@ -11,6 +11,13 @@ import java.util.*;
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name = "item_type_id", discriminatorType = DiscriminatorType.INTEGER)
 public class Item {
+    @Transient
+    public static final String ENGINE_TYPE = "1";
+    @Transient
+    public static final String WEAPON_TYPE = "2";
+    @Transient
+    public static final String BONUS_TYPE = "3";
+
     private int itemId;
 
     @Column(name = "item_id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)

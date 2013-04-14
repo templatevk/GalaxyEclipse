@@ -46,6 +46,10 @@ class FlightPacketHandler implements IStatefulPacketHandler {
             FlightPacketHandler.log.debug("Channel closed during flight mode, hibernating player");
         }
 
+        hibernatePlayer();
+    }
+
+    private void hibernatePlayer() {
         new UnitOfWork() {
             @Override
             protected void doWork(Session session) {
@@ -55,7 +59,7 @@ class FlightPacketHandler implements IStatefulPacketHandler {
 
                 // Indicate player is offline
                 int idStatic = dictionaryTypesMapper.getIdByLocationObjectBehaviorType(
-                        LocationObjectBehaviorTypesMapperType.STATIC);
+                        LocationObjectBehaviorTypesMapperType.IGNORED);
                 locationObject.setLocationObjectBehaviorTypeId(idStatic);
 
                 session.merge(shipState);

@@ -6,6 +6,7 @@ import arch.galaxyeclipse.client.stage.ui.*;
 import arch.galaxyeclipse.client.window.*;
 import arch.galaxyeclipse.shared.*;
 import arch.galaxyeclipse.shared.context.*;
+import arch.galaxyeclipse.shared.protocol.*;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.*;
 import arch.galaxyeclipse.shared.types.*;
 import arch.galaxyeclipse.shared.util.*;
@@ -32,8 +33,6 @@ public class MainMenuPresenter extends ServerPacketListener implements IStagePre
     private IButtonClickCommand connectButtonCommand;
 
     public MainMenuPresenter() {
-        view = new MainMenuStage(this);
-        model = new MainMenuModel();
         clientWindow = ContextHolder.INSTANCE.getBean(IClientWindow.class);
         networkManager = ContextHolder.INSTANCE.getBean(IClientNetworkManager.class);
 
@@ -67,6 +66,9 @@ public class MainMenuPresenter extends ServerPacketListener implements IStagePre
         };
 
         networkManager.addListener(this);
+
+        view = new MainMenuStage(this);
+        model = new MainMenuModel();
     }
 
     @Override
@@ -84,52 +86,62 @@ public class MainMenuPresenter extends ServerPacketListener implements IStagePre
 
         switch (packet.getType()) {
             case AUTH_RESPONSE:
-                boolean success = packet.getAuthResponse().getIsSuccess();
-                if (log.isInfoEnabled()) {
-                    log.info("Authentication result = " + success);
-                }
-
-                if (success) {
-                    if (log.isDebugEnabled()) {
-                        log.debug("Switching to loading stage");
-                    }
-                    clientWindow.setStage(new LoadingStage());
-                }
+                processAuthResponse(packet.getAuthResponse());
                 break;
             case STARTUP_INFO:
-                StartupInfo startupInfo = packet.getStartupInfo();
-
-                IShipStaticInfoHolder gameInfoHolder = ContextHolder.INSTANCE.getBean(IShipStaticInfoHolder.class);
-                gameInfoHolder.setShipStaticInfo(startupInfo.getShipStaticInfo());
-
-                if (log.isDebugEnabled()) {
-                    log.debug("Processing types map");
-                }
-
-                TypesMap typesMap = startupInfo.getTypesMap();
-                DictionaryTypesMapper dictionaryTypesMapper = ContextHolder.INSTANCE
-                        .getBean(DictionaryTypesMapper.class);
-
-                Map<Integer, String> itemTypes = new HashMap<>();
-                for (TypesMap.ItemType itemType : typesMap.getItemTypesList()) {
-                    itemTypes.put(itemType.getId(), itemType.getName());
-                }
-                dictionaryTypesMapper.fillItemTypes(itemTypes);
-
-                Map<Integer, String> weaponTypes = new HashMap<>();
-                for (TypesMap.WeaponType weaponType : typesMap.getWeaponTypesList()) {
-                    weaponTypes.put(weaponType.getId(), weaponType.getName());
-                }
-                dictionaryTypesMapper.fillItemTypes(weaponTypes);
-
-                Map<Integer, String> locationObjectTypes = new HashMap<>();
-                for (TypesMap.LocationObjectType locationObjectType : typesMap
-                        .getLocationObjectTypesList()) {
-                    locationObjectTypes.put(locationObjectType.getId(), locationObjectType.getName());
-                }
-                dictionaryTypesMapper.fillItemTypes(weaponTypes);
-
+                processStartupInfo(packet.getStartupInfo());
                 break;
+        }
+    }
+
+    private void processStartupInfo(StartupInfo startupInfo) {
+        ContextHolder.INSTANCE.getBean(IShipStaticInfoHolder.class)
+                .setShipStaticInfo(startupInfo.getShipStaticInfo());
+        ContextHolder.INSTANCE.getBean(ILocationInfoHolder.class)
+                .setLocationInfo(startupInfo.getLocationInfo());
+
+        processTypesMap(startupInfo.getTypesMap());
+    }
+
+    private void processTypesMap(TypesMap typesMap) {
+        if (log.isDebugEnabled()) {
+            log.debug("Processing types map");
+        }
+
+        DictionaryTypesMapper dictionaryTypesMapper = ContextHolder.INSTANCE
+                .getBean(DictionaryTypesMapper.class);
+
+        Map<Integer, String> itemTypes = new HashMap<>();
+        for (TypesMap.ItemType itemType : typesMap.getItemTypesList()) {
+            itemTypes.put(itemType.getId(), itemType.getName());
+        }
+        dictionaryTypesMapper.fillItemTypes(itemTypes);
+
+        Map<Integer, String> weaponTypes = new HashMap<>();
+        for (TypesMap.WeaponType weaponType : typesMap.getWeaponTypesList()) {
+            weaponTypes.put(weaponType.getId(), weaponType.getName());
+        }
+        dictionaryTypesMapper.fillItemTypes(weaponTypes);
+
+        Map<Integer, String> locationObjectTypes = new HashMap<>();
+        for (TypesMap.LocationObjectType locationObjectType : typesMap
+                .getLocationObjectTypesList()) {
+            locationObjectTypes.put(locationObjectType.getId(), locationObjectType.getName());
+        }
+        dictionaryTypesMapper.fillItemTypes(weaponTypes);
+    }
+
+    private void processAuthResponse(AuthResponse authResponse) {
+        boolean success = authResponse.getIsSuccess();
+        if (log.isInfoEnabled()) {
+            log.info("Authentication result = " + success);
+        }
+
+        if (success) {
+            if (log.isDebugEnabled()) {
+                log.debug("Switching to loading stage");
+            }
+            clientWindow.setStage(new LoadingStage());
         }
     }
 

@@ -11,6 +11,7 @@
     </root>
 
     <logger name="arch.galaxyeclipse.client" level="INFO"/>
+    <logger name="arch.galaxyeclipse.server.network" level="TRACE"/>
     <logger name="org.springframework" level="INFO"/>
     <logger name="org.hibernate" level="INFO"/>
 </configuration>

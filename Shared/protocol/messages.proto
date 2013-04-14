@@ -111,13 +111,15 @@ message AuthResponse {
 
 message LocationInfo {
     required int32                  locationId              = 1;
-    required StaticObjects          locationStaticObjects   = 2;
-    required StaticObjects          locationDrawableObject  = 3;
+    required string                 name                    = 2;
+    required int32                  width                   = 3;
+    required int32                  height                  = 4;
+    required CachedObjects          locationCachedObjects   = 5;
 
-    message StaticObjects {
-        repeated StaticObject objects = 1;
+    message CachedObjects {
+        repeated CachedObject objects = 1;
 
-        message StaticObject {
+        message CachedObject {
             required int32 objectId     = 1;
             required int32 positionX    = 2;
             required int32 positionY    = 3;
@@ -144,9 +146,9 @@ message ShipStaticInfo {
     required int32          bonusSlotsCount         = 13;
 
     repeated Item           inventoryItems          = 14;
-    repeated Bonus          shipBonus               = 15;
-    repeated Weapon         shipWeapons             = 16;
-    required Engine         shipEngine              = 17;
+    repeated Item           shipBonus               = 15;
+    repeated Item           shipWeapons             = 16;
+    required Item           shipEngine              = 17;
 
     message Item {
         required int32  itemId      = 1;
@@ -158,29 +160,26 @@ message ShipStaticInfo {
         optional Bonus  bonus       = 6;
         optional Weapon weapon      = 7;
         optional Engine engine      = 8;
-    }
 
-    message Bonus {
-        required int32 bonusId      = 1;
-        required int32 bonusValue   = 2;
-        required int32 bonusTypeId  = 3;
-    }
+        message Bonus {
+            required int32 bonusValue   = 1;
+            required int32 bonusTypeId  = 2;
+        }
 
-    message Weapon {
-        required int32 weaponId     = 1;
-        required int32 damage       = 2;
-        required int32 delaySpeed   = 3;
-        required int32 bulletSpeed  = 4;
-        required int32 maxDistance  = 5;
-        required int32 energyCost   = 6;
-    }
+        message Weapon {
+            required int32 damage       = 1;
+            required int32 delaySpeed   = 2;
+            required int32 bulletSpeed  = 3;
+            required int32 maxDistance  = 4;
+            required int32 energyCost   = 5;
+        }
 
-    message Engine {
-        required int32 engineId                     = 1;
-        required int32 moveAccelerationBonus        = 2;
-        required int32 moveMaxSpeedBonus            = 3;
-        required int32 rotationAccelerationBonus    = 4;
-        required int32 rotationMaxSpeed             = 5;
+        message Engine {
+            required int32 moveAccelerationBonus        = 1;
+            required int32 moveMaxSpeedBonus            = 2;
+            required int32 rotationAccelerationBonus    = 3;
+            required int32 rotationMaxSpeedBonus        = 4;
+        }
     }
 }
 message TypesMap {

@@ -70,6 +70,10 @@ public class DictionaryTypesMapperHelperTest extends AbstractTestNGServerTest {
                 LocationObjectBehaviorTypesMapperType.DYNAMIC)).isNotNull();
         Assertions.assertThat(dictionaryTypesMapper.getIdByLocationObjectBehaviorType(
                 LocationObjectBehaviorTypesMapperType.STATIC)).isNotNull();
+        Assertions.assertThat(dictionaryTypesMapper.getIdByLocationObjectBehaviorType(
+                LocationObjectBehaviorTypesMapperType.DRAWABLE)).isNotNull();
+        Assertions.assertThat(dictionaryTypesMapper.getIdByLocationObjectBehaviorType(
+                LocationObjectBehaviorTypesMapperType.IGNORED)).isNotNull();
 
         Assertions.assertThat(dictionaryTypesMapper.getIdByLocationObjectType(
                 LocationObjectTypesMapperType.ASTEROID)).isNotNull();
