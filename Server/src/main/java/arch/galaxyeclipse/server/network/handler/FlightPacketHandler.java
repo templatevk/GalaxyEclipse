@@ -14,25 +14,17 @@ import org.hibernate.*;
 */
 @Slf4j
 class FlightPacketHandler implements IStatefulPacketHandler {
-    private IServerChannelHandler channelHandler;
+    private IServerChannelHandler serverChannelHandler;
     private DictionaryTypesMapper dictionaryTypesMapper;
 
+    private PlayerInfoHolder playerInfoHolder;
     private Player player;
-    private ShipState shipState;
-    private ShipConfig shipConfig;
-    private LocationObject locationObject;
 
-    public FlightPacketHandler(IServerChannelHandler channelHandler, Player player) {
-        this.channelHandler = channelHandler;
-        this.player = player;
+    public FlightPacketHandler(IServerChannelHandler serverChannelHandler) {
+        this.serverChannelHandler = serverChannelHandler;
 
-        // Resolve dependencies
         dictionaryTypesMapper = ContextHolder.INSTANCE.getBean(DictionaryTypesMapper.class);
-
-        // Initialize player's data e.g. ship state and ship config
-        shipState = player.getShipState();
-        shipConfig = player.getShipConfig();
-        locationObject = shipState.getLocationObject();
+        playerInfoHolder = serverChannelHandler.getPlayerInfoHolder();
 	}
 
 	@Override
@@ -54,16 +46,16 @@ class FlightPacketHandler implements IStatefulPacketHandler {
             @Override
             protected void doWork(Session session) {
                 // Stop the ship
-                shipState.setShipStateMoveSpeed(0);
-                shipState.setShipStateRotationSpeed(0);
+                playerInfoHolder.getShipState().setShipStateMoveSpeed(0);
+                playerInfoHolder.getShipState().setShipStateRotationSpeed(0);
 
                 // Indicate player is offline
                 int idStatic = dictionaryTypesMapper.getIdByLocationObjectBehaviorType(
                         LocationObjectBehaviorTypesMapperType.IGNORED);
-                locationObject.setLocationObjectBehaviorTypeId(idStatic);
+                playerInfoHolder.getLocationObject().setLocationObjectBehaviorTypeId(idStatic);
 
-                session.merge(shipState);
-                session.merge(locationObject);
+                session.merge(playerInfoHolder.getShipState());
+                session.merge(playerInfoHolder.getLocationObject());
             }
         }.execute();
     }

@@ -15,20 +15,22 @@ class ServerChannelHandler extends AbstractProtobufChannelHandler
 		implements IServerChannelHandler {
 
     private PacketHandlerFactory packetProcessorFactory;
+    private PlayerInfoHolder playerInfoHolder;
 
     private IMonitoringNetworkManager monitoringNetworkManager;
 	private IStatefulPacketHandler statefulPacketHandler;
-    private final ICommand<Packet> incomingPacketDispatcherCommand;
+    private ICommand<Packet> incomingPacketDispatcherCommand;
 
     public ServerChannelHandler() {		
         monitoringNetworkManager = ContextHolder.INSTANCE.getBean(
                 IMonitoringNetworkManager.class);
         packetProcessorFactory = ContextHolder.INSTANCE.getBean(
                 PacketHandlerFactory.class);
-
+        playerInfoHolder = new PlayerInfoHolder();
         incomingPacketDispatcherCommand = new ICommand<Packet>() {
             @Override
             public void perform(Packet packet) {
+
                 statefulPacketHandler.handle(packet);
             }
         };
@@ -73,5 +75,10 @@ class ServerChannelHandler extends AbstractProtobufChannelHandler
             log.debug("Client packet handler changed to "
                     + LogUtils.getObjectInfo(statefulPacketHandler));
         }
+    }
+
+    @Override
+    public PlayerInfoHolder getPlayerInfoHolder() {
+        return playerInfoHolder;
     }
 }

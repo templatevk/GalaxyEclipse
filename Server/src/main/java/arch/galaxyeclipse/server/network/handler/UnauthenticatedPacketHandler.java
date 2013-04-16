@@ -6,7 +6,6 @@ import arch.galaxyeclipse.server.data.model.*;
 import arch.galaxyeclipse.server.network.*;
 import arch.galaxyeclipse.server.protocol.*;
 import arch.galaxyeclipse.shared.context.*;
-import arch.galaxyeclipse.shared.protocol.*;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.*;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.Packet.*;
 import arch.galaxyeclipse.shared.types.*;
@@ -23,12 +22,12 @@ import java.util.*;
 @Slf4j
 class UnauthenticatedPacketHandler extends AbstractStubPacketHandler {
     private DictionaryTypesMapper dictionaryTypesMapper;
-    private IServerChannelHandler channelHandler;
+    private IServerChannelHandler serverChannelHandler;
 	private IClientAuthenticator authenticator;
     private GeProtocolMessageFactory geProtocolMessageFactory;
 
-	public UnauthenticatedPacketHandler(IServerChannelHandler channelHandler) {
-		this.channelHandler = channelHandler;
+	public UnauthenticatedPacketHandler(IServerChannelHandler serverChannelHandler) {
+		this.serverChannelHandler = serverChannelHandler;
 
         dictionaryTypesMapper = ContextHolder.INSTANCE.getBean(DictionaryTypesMapper.class);
 		authenticator = ContextHolder.INSTANCE.getBean(IClientAuthenticator.class);
@@ -58,8 +57,7 @@ class UnauthenticatedPacketHandler extends AbstractStubPacketHandler {
             indicatePlayerOnline(startupInfoData.getPlayer());
 
             // TODO: Depending on the player state!
-            channelHandler.setStatefulPacketHandler(new FlightPacketHandler(
-                    channelHandler, authenticationResult.getPlayer()));
+            serverChannelHandler.setStatefulPacketHandler(new FlightPacketHandler(serverChannelHandler));
         }
 
         if (UnauthenticatedPacketHandler.log.isDebugEnabled()) {
@@ -92,7 +90,7 @@ class UnauthenticatedPacketHandler extends AbstractStubPacketHandler {
                 .setTypesMap(geProtocolMessageFactory.createTypesMap()).build();
         Packet startupInfoPacket = Packet.newBuilder().setType(Type.STARTUP_INFO)
                 .setStartupInfo(startupInfo).build();
-        channelHandler.sendPacket(startupInfoPacket);
+        serverChannelHandler.sendPacket(startupInfoPacket);
     }
 
     private void sendAuthResponse(AuthenticationResult authenticationResult) {
@@ -101,30 +99,17 @@ class UnauthenticatedPacketHandler extends AbstractStubPacketHandler {
         Packet authResponsePacket = Packet.newBuilder()
                 .setType(Type.AUTH_RESPONSE)
                 .setAuthResponse(authResponse).build();
-        channelHandler.sendPacket(authResponsePacket);
+        serverChannelHandler.sendPacket(authResponsePacket);
     }
 
     private StartupInfoData getStartupDataInfo(final int playerId) {
-        return new UnitOfWork<StartupInfoData>() {
+        StartupInfoData startupInfoData = new UnitOfWork<StartupInfoData>() {
             @Override
             protected void doWork(Session session) {
                 StartupInfoData startupInfoData = new StartupInfoData();
 
-                // Load player data to build ship static info, provide values
-                // needed for appropriate handler
-                Player player = (Player)session.createCriteria(Player.class)
-                        .setFetchMode("shipStates", FetchMode.JOIN)
-                        .setFetchMode("shipStates.locationObject", FetchMode.JOIN)
-                        .setFetchMode("shipStates.locationObject.location", FetchMode.JOIN)
-                        .setFetchMode("inventoryItems", FetchMode.JOIN)
-                        .setFetchMode("inventoryItems.item", FetchMode.JOIN)
-                        .setFetchMode("shipConfigs", FetchMode.JOIN)
-                        .setFetchMode("shipConfigs.shipConfigBonusSlots", FetchMode.JOIN)
-                        .setFetchMode("shipConfigs.shipConfigBonusSlots.item", FetchMode.JOIN)
-                        .setFetchMode("shipConfigs.shipConfigWeaponSlots", FetchMode.JOIN)
-                        .setFetchMode("shipConfigs.shipConfigWeaponSlots.item", FetchMode.JOIN)
-                        .add(Restrictions.eq("playerId", playerId))
-                        .uniqueResult();
+                Player player = (Player)session.getNamedQuery("player.startupInfo")
+                        .setParameter("playerId", playerId).uniqueResult();
                 startupInfoData.setPlayer(player);
 
                 Location location = player.getShipState().getLocationObject().getLocation();
@@ -141,8 +126,22 @@ class UnauthenticatedPacketHandler extends AbstractStubPacketHandler {
                                         Restrictions.eq("locationObjectBehaviorTypeId", idStatic),
                                         Restrictions.eq("locationObjectBehaviorTypeId", idDrawable)))
                                 .add(Restrictions.eq("locationId", location.getLocationId())).list());
+
+                setResult(startupInfoData);
             }
         }.execute();
+        fillPlayerInfoHolder(startupInfoData);
+
+        return startupInfoData;
+    }
+
+    private void fillPlayerInfoHolder(StartupInfoData startupInfoData) {
+        PlayerInfoHolder playerInfoHolder = serverChannelHandler.getPlayerInfoHolder();
+        playerInfoHolder.setPlayer(startupInfoData.getPlayer());
+        playerInfoHolder.setShipConfig(startupInfoData.getPlayer().getShipConfig());
+        playerInfoHolder.setShipState(startupInfoData.getPlayer().getShipState());
+        playerInfoHolder.setLocationObject(startupInfoData.getPlayer()
+                .getShipState().getLocationObject());
     }
 
     @Data

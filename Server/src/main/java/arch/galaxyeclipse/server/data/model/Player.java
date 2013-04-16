@@ -10,6 +10,14 @@ import java.util.*;
  */
 @Table(name = "player", schema = "", catalog = "ge")
 @Entity
+@NamedQuery(name = "player.startupInfo", query =
+        "select p from Player p inner join fetch p.shipStates ss " +
+        "inner join fetch ss.locationObject lo inner join fetch lo.location l " +
+        "left outer join fetch p.inventoryItems ii left outer join fetch ii.item " +
+        "inner join fetch p.shipConfigs sc inner join fetch sc.shipType st " +
+        "inner join fetch sc.engine e left outer join fetch sc.shipConfigBonusSlots scbs " +
+        "left outer join scbs.item left outer join fetch sc.shipConfigWeaponSlots scws " +
+        "left outer join fetch scws.item where p.playerId = :playerId")
 public class Player {
     private int playerId;
 

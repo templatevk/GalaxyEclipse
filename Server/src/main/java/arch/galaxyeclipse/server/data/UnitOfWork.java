@@ -29,9 +29,13 @@ public abstract class UnitOfWork<T> {
             tx.commit();
         } catch (Exception e) {
             if (!tx.wasRolledBack()) {
-                tx.rollback();
+                try {
+                    tx.rollback();
+                } catch (Exception ex) {
+                    log.error("Error rolling back the transaction", ex);
+                }
             }
-            UnitOfWork.log.error("Error on " + LogUtils.getObjectInfo(this), e);
+            log.error("Error on " + LogUtils.getObjectInfo(this), e);
         } finally {
             session.close();
         }

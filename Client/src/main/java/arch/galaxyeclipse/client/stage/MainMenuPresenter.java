@@ -43,8 +43,8 @@ public class MainMenuPresenter extends ServerPacketListener implements IStagePre
                     @Override
                     public void onOperationComplete(Boolean isConnected) {
                         if (log.isInfoEnabled()) {
-                            log.info(LogUtils.getObjectInfo(this) + " connection callback "
-                                    + " result = " + isConnected);
+                            log.info(LogUtils.getObjectInfo(this) + " connection callback"
+                                    + ", result = " + isConnected);
                         }
 
                         if (isConnected) {
@@ -121,14 +121,14 @@ public class MainMenuPresenter extends ServerPacketListener implements IStagePre
         for (TypesMap.WeaponType weaponType : typesMap.getWeaponTypesList()) {
             weaponTypes.put(weaponType.getId(), weaponType.getName());
         }
-        dictionaryTypesMapper.fillItemTypes(weaponTypes);
+        dictionaryTypesMapper.fillWeaponTypes(weaponTypes);
 
         Map<Integer, String> locationObjectTypes = new HashMap<>();
         for (TypesMap.LocationObjectType locationObjectType : typesMap
                 .getLocationObjectTypesList()) {
             locationObjectTypes.put(locationObjectType.getId(), locationObjectType.getName());
         }
-        dictionaryTypesMapper.fillItemTypes(weaponTypes);
+        dictionaryTypesMapper.fillLocationObjectTypes(locationObjectTypes);
     }
 
     private void processAuthResponse(AuthResponse authResponse) {
@@ -141,7 +141,8 @@ public class MainMenuPresenter extends ServerPacketListener implements IStagePre
             if (log.isDebugEnabled()) {
                 log.debug("Switching to loading stage");
             }
-            clientWindow.setStage(new LoadingStage());
+            // TODO uncomment when stable
+            // clientWindow.setStage(new LoadingStage());
         }
     }
 

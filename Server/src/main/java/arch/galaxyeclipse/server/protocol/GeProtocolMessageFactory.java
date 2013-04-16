@@ -9,9 +9,6 @@ import java.util.*;
 
 /**
  * Convenience class to build protobuf messages
- * <p/>
- * build* methods simply access the fields of the entity provided
- * load* methods retrieve data using {@see UnitOfWork}
  */
 public class GeProtocolMessageFactory {
     private DictionaryTypesMapper dictionaryTypesMapper;
@@ -57,7 +54,8 @@ public class GeProtocolMessageFactory {
                 .setName(shipType.getShipTypeName())
                 .setArmorDurability(shipType.getShipTypeArmorDurability())
                 .setWeaponSlotsCount(shipType.getWeaponSlotsCount())
-                .setBonusSlotsCount(shipType.getBonusSlotsCount());
+                .setBonusSlotsCount(shipType.getBonusSlotsCount())
+                .setShipEngine(getItem(shipConfig.getEngine()));
 
         // inventory items, bonuses, weapons and engine
         for (InventoryItem inventoryItem : player.getInventoryItems()) {
@@ -134,7 +132,7 @@ public class GeProtocolMessageFactory {
                 .setName(item.getItemName())
                 .setDescription(item.getItemDescription())
                 .setPrice(item.getItemPrice())
-                .setItemId(item.getItemTypeId());
+                .setItemTypeId(item.getItemTypeId());
 
         switch (dictionaryTypesMapper.getItemTypeById(item.getItemTypeId())) {
             case ENGINE:

@@ -1,8 +1,5 @@
-1) IoC, DI, IoC Container - http://habrahabr.ru/post/131993/
-2) Spring IoC Container - http://www.rsdn.ru/article/java/spring.xml
-3) Apache Maven - http://habrahabr.ru/post/77382/
-4) JUnit - http://habrahabr.ru/post/120101/
-
-Git
-1. Палюбе взять версию ремут ветки на локал - git reset --hard <repository>/<branch>
-                                              git reset --hard origin/master
+Hibernate:
+1. Nested association
+    a) FetchMode.JOIN without alias or restriction
+    b) Restriction with alias or nested criteria
+    c) HQL can do a) + b)

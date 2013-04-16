@@ -264,4 +264,16 @@ public class ShipConfig {
     public void setShipConfigWeaponSlots(Set<ShipConfigWeaponSlot> shipConfigWeaponSlots) {
         this.shipConfigWeaponSlots = shipConfigWeaponSlots;
     }
+
+    private Engine engine;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "engine_item_id", referencedColumnName = "item_id", updatable = false, insertable = false, nullable = false)
+    public Engine getEngine() {
+        return engine;
+    }
+
+    public void setEngine(Engine engine) {
+        this.engine = engine;
+    }
 }

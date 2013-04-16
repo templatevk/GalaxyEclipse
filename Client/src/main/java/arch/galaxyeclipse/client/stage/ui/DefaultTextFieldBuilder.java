@@ -1,5 +1,6 @@
 package arch.galaxyeclipse.client.stage.ui;
 
+import arch.galaxyeclipse.client.*;
 import arch.galaxyeclipse.client.resources.*;
 import arch.galaxyeclipse.shared.context.*;
 import com.badlogic.gdx.graphics.*;
@@ -77,6 +78,12 @@ class DefaultTextFieldBuilder implements ITextFieldBuilder {
         textField.setPasswordMode(passwordMode);
         textField.setMessageText(messageText);
         textField.setPasswordCharacter(passwordCharacter);
+
+        if (GalaxyEclipseClient.getEnvType() == GalaxyEclipseClient.getEnvType().DEV
+                && "".equals(text)) {
+            textField.setText("test");
+        }
+
         return textField;
     }
 }

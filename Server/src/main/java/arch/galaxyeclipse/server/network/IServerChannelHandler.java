@@ -8,4 +8,6 @@ import arch.galaxyeclipse.shared.network.*;
  */
 public interface IServerChannelHandler extends IChannelHandler {
 	void setStatefulPacketHandler(IStatefulPacketHandler packetHandler);
+
+    PlayerInfoHolder getPlayerInfoHolder();
 }

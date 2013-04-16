@@ -23,8 +23,9 @@ class LocationInfoHolder extends ServerPacketListener implements ILocationInfoHo
         if (log.isInfoEnabled()) {
             log.info("Updating location info");
         }
-
         this.locationInfo = locationInfo;
+
+        locationInfo.get
     }
 
     @Override
