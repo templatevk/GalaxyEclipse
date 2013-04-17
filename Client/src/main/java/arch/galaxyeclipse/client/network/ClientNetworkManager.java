@@ -93,7 +93,7 @@ class ClientNetworkManager implements IClientNetworkManager, ITestClientNetworkM
 	}
 	
 	@Override
-	public void addListener(IServerPacketListener listener) {
+	public void addPacketListener(IServerPacketListener listener) {
 		Set<IServerPacketListener> typeListeners = listeners.get(listener.getPacketTypes());
 		if (typeListeners == null) {
 			typeListeners = new HashSet<IServerPacketListener>();
@@ -108,7 +108,7 @@ class ClientNetworkManager implements IClientNetworkManager, ITestClientNetworkM
 	}
 	
 	@Override
-	public void removeListener(IServerPacketListener listener) {
+	public void removePacketListener(IServerPacketListener listener) {
         if (log.isInfoEnabled()) {
 		    log.info("Removing listener " + listener + " of types");
         }

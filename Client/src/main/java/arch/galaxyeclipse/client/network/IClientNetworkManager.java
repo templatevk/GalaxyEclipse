@@ -6,9 +6,9 @@ import arch.galaxyeclipse.shared.util.*;
 import java.net.*;
 
 public interface IClientNetworkManager {	
-	void addListener(IServerPacketListener listener);
+	void addPacketListener(IServerPacketListener listener);
 	
-	void removeListener(IServerPacketListener listener);
+	void removePacketListener(IServerPacketListener listener);
 	
 	void removeListenerForType(IServerPacketListener listener, Packet.Type packetType);
 	

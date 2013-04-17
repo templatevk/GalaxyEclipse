@@ -1,12 +1,12 @@
 package arch.galaxyeclipse.client.stage;
 
+import arch.galaxyeclipse.client.data.*;
 import arch.galaxyeclipse.client.network.*;
 import arch.galaxyeclipse.client.resources.*;
 import arch.galaxyeclipse.client.stage.ui.*;
 import arch.galaxyeclipse.client.window.*;
 import arch.galaxyeclipse.shared.*;
 import arch.galaxyeclipse.shared.context.*;
-import arch.galaxyeclipse.shared.protocol.*;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.*;
 import arch.galaxyeclipse.shared.types.*;
 import arch.galaxyeclipse.shared.util.*;
@@ -65,7 +65,7 @@ public class MainMenuPresenter extends ServerPacketListener implements IStagePre
             }
         };
 
-        networkManager.addListener(this);
+        networkManager.addPacketListener(this);
 
         view = new MainMenuStage(this);
         model = new MainMenuModel();
@@ -78,7 +78,7 @@ public class MainMenuPresenter extends ServerPacketListener implements IStagePre
 
     @Override
     public void detach() {
-        networkManager.removeListener(this);
+        networkManager.removePacketListener(this);
 }
 
     @Override
@@ -200,6 +200,10 @@ public class MainMenuPresenter extends ServerPacketListener implements IStagePre
             innerTable.add(connectBtn).expand(true, false).space(TABLE_SPACING);
             innerTable.setOrigin(innerTable.getPrefWidth() / 2,
                     innerTable.getPrefHeight() / 2);
+
+
+            // TODO test if we can click/process scaled actors
+            // add(new Image())
         }
 
         @Override

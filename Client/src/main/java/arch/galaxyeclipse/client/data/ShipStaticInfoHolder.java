@@ -1,4 +1,4 @@
-package arch.galaxyeclipse.client.resources;
+package arch.galaxyeclipse.client.data;
 
 import arch.galaxyeclipse.client.network.*;
 import arch.galaxyeclipse.shared.protocol.*;

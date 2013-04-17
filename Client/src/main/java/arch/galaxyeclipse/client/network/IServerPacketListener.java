@@ -6,7 +6,7 @@ import java.util.*;
 
 public interface IServerPacketListener {
 	void onPacketReceived(Packet packet);
-	
+
 	// Packet types willing to listen for
 	List<Packet.Type> getPacketTypes();
 }

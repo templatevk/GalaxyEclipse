@@ -15,8 +15,8 @@
 
     <!-- Other -->
     <bean class="arch.galaxyeclipse.client.stage.ui.StageUiFactory"/>
-    <bean class="arch.galaxyeclipse.client.resources.ShipStaticInfoHolder"/>
-    <bean class="arch.galaxyeclipse.client.resources.LocationInfoHolder"/>
+    <bean class="arch.galaxyeclipse.client.data.ShipStaticInfoHolder"/>
+    <bean class="arch.galaxyeclipse.client.data.LocationInfoHolder"/>
     <bean class="arch.galaxyeclipse.client.resources.CachingResourceLoaderFactory"/>
     <bean class="arch.galaxyeclipse.shared.types.DictionaryTypesMapper"/>
 </beans>
