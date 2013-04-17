@@ -10,7 +10,7 @@ import lombok.extern.slf4j.*;
 import java.util.*;
 
 /**
- *
+ * TODO determine LocationInfo message processing, may be split StartupInfo and synch
  */
 @Slf4j
 public class LocationInfoHolder {
@@ -22,29 +22,18 @@ public class LocationInfoHolder {
 
     LocationInfoHolder() {
         positionPredicate = new PositionPredicate();
-        cachedObjects = TreeMultiset.create(new Ordering<LocationObject>() {
-            @Override
-            public int compare(LocationObject left, LocationObject right) {
-                return left.getPositionX() < right.getPositionX()
-                        ? -1 : left.getPositionX() > right.getPositionX()
-                        ? 1 : left.getPositionY() < right.getPositionY()
-                        ? -1 : left.getPositionY() > right.getPositionY()
-                        ? 1 : 0;
-            }
-        });
+        cachedObjects = TreeMultiset.create(new LocationObjectOrdering());
+        dynamicObjects = TreeMultiset.create(new LocationObjectOrdering());
     }
 
     public void setLocationInfo(GeProtocol.LocationInfo locationInfo) {
-        // TODO process location info
         if (LocationInfoHolder.log.isInfoEnabled()) {
             LocationInfoHolder.log.info("Updating location info");
         }
         this.locationInfo = locationInfo;
 
         List<LocationObject> objectsList = locationInfo.getLocationCachedObjects().getObjectsList();
-        for (LocationObject locationObject : objectsList) {
-            cachedObjects.add(locationObject);
-        }
+        cachedObjects.addAll(objectsList);
     }
 
     public Multiset<LocationObject> getCachedObjects() {
@@ -71,6 +60,17 @@ public class LocationInfoHolder {
             float yAbs = input.getPositionY();
             return Math.abs(xAbs) < SharedInfo.DYNAMIC_OBJECT_QUERY_RADIUS
                     && Math.abs(yAbs - position.getY()) < SharedInfo.DYNAMIC_OBJECT_QUERY_RADIUS;
+        }
+    }
+
+    private static class LocationObjectOrdering extends Ordering<LocationObject> {
+        @Override
+        public int compare(LocationObject left, LocationObject right) {
+            return left.getPositionX() < right.getPositionX()
+                    ? -1 : left.getPositionX() > right.getPositionX()
+                    ? 1 : left.getPositionY() < right.getPositionY()
+                    ? -1 : left.getPositionY() > right.getPositionY()
+                    ? 1 : 0;
         }
     }
 }

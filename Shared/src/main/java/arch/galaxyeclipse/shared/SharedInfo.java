@@ -23,4 +23,3 @@ public class SharedInfo {
         return EnvType.DEV;
     }
 }
-// TODO Hibernate versioning, pixel to position & location size mapping                6
