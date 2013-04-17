@@ -1,5 +1,6 @@
 package arch.galaxyeclipse.client.network;
 
+import arch.galaxyeclipse.client.network.test.*;
 import arch.galaxyeclipse.shared.types.*;
 import lombok.*;
 
@@ -15,7 +16,7 @@ public class NoGuiGalaxyEclipseClient {
     private DictionaryTypesMapper dictionaryTypesMapper;
 
     public NoGuiGalaxyEclipseClient() {
-        clientNetworkManager = new ClientNetworkManager(new ClientChannelHandlerFactory());
+        clientNetworkManager = new ClientNetworkManager();
         dictionaryTypesMapper = new DictionaryTypesMapper();
     }
 

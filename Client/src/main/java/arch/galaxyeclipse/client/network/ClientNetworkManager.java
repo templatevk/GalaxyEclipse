@@ -1,11 +1,13 @@
 package arch.galaxyeclipse.client.network;
 
+import arch.galaxyeclipse.client.network.test.*;
 import arch.galaxyeclipse.shared.*;
 import arch.galaxyeclipse.shared.network.*;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.*;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.Packet.*;
 import arch.galaxyeclipse.shared.thread.*;
 import arch.galaxyeclipse.shared.util.*;
+import com.google.common.collect.*;
 import lombok.extern.slf4j.*;
 import org.jboss.netty.bootstrap.*;
 import org.jboss.netty.channel.*;
@@ -22,35 +24,27 @@ import java.util.concurrent.*;
 class ClientNetworkManager implements IClientNetworkManager, ITestClientNetworkManager {
 	// Sleep interval to wait for connection result
 	private static final int CONNECTION_TIMEOUT_MILLISECONDS = 300;
-
-	private IClientChannelHandlerFactory channelHandlerFactory;
 	
 	private IChannelHandler channelHandler;
 	private ClientBootstrap bootstrap;
-	private Map<Packet.Type, Set<IServerPacketListener>> listeners;
+	private SetMultimap<Packet.Type, IServerPacketListener> listeners;
 	
-	public ClientNetworkManager(IClientChannelHandlerFactory channelHandlerFactory) {
-		this.channelHandlerFactory = channelHandlerFactory;
+	public ClientNetworkManager() {
+        listeners = HashMultimap.create();
 
-        listeners = new HashMap<>();
-
-        channelHandler = channelHandlerFactory.createHandler(new ICommand<Packet>() {
+        channelHandler = ClientChannelHandlerFactory.createHandler(new ICommand<Packet>() {
             @Override
             public void perform(Packet packet) {
                 if (log.isDebugEnabled()) {
                     log.debug("Notifying listeners for " + packet.getType());
                 }
 
-                Set<IServerPacketListener> listenersForType = listeners.get(packet.getType());
-                if (listenersForType != null) {
-                    for (IServerPacketListener listener : listenersForType) {
-                        listener.onPacketReceived(packet);
-                    }
+                for (IServerPacketListener listener : listeners.get(packet.getType())) {
+                    listener.onPacketReceived(packet);
                 }
             }
         });
 
-        // Instantiating the client bootsrap
         bootstrap = new ClientBootstrap(new NioClientSocketChannelFactory(
 				Executors.newCachedThreadPool(), Executors.newCachedThreadPool()));
 		bootstrap.setPipelineFactory(new AbstractProtobufChannelPipelineFactory() {
@@ -58,14 +52,13 @@ class ClientNetworkManager implements IClientNetworkManager, ITestClientNetworkM
 			protected void configureHandlers(ChannelPipeline pipeline) {
 				pipeline.addLast("clientHanlder", channelHandler);
 			}
-		});	
+		});
 		bootstrap.setOption("keepAlive", true);
 		bootstrap.setOption("tcpNoDelay", true);
 	}
 	
 	@Override
 	public void connect(SocketAddress address, final ICallback<Boolean> callback) {
-		// Trying to testConnect to the passed adress
         if (channelHandler.isConnected()) {
             channelHandler.disconnect(new StubCallback<Boolean>());
         }
@@ -94,17 +87,12 @@ class ClientNetworkManager implements IClientNetworkManager, ITestClientNetworkM
 	
 	@Override
 	public void addPacketListener(IServerPacketListener listener) {
-		Set<IServerPacketListener> typeListeners = listeners.get(listener.getPacketTypes());
-		if (typeListeners == null) {
-			typeListeners = new HashSet<IServerPacketListener>();
-			for (Packet.Type packetType : listener.getPacketTypes()) {
-                if (log.isInfoEnabled()) {
-				    log.info("Adding listener of type " + packetType.toString());
-                }
-				listeners.put(packetType, typeListeners);
-			}
-		}
-		typeListeners.add(listener);
+        for (Packet.Type packetType : listener.getPacketTypes()) {
+            if (log.isInfoEnabled()) {
+                log.info("Adding listener of type " + packetType.toString());
+            }
+            listeners.put(packetType, listener);
+        }
 	}
 	
 	@Override
@@ -114,13 +102,10 @@ class ClientNetworkManager implements IClientNetworkManager, ITestClientNetworkM
         }
 
 		for (Packet.Type packetType : listener.getPacketTypes()) {
-			Set<IServerPacketListener> typeListeners = listeners.get(listener.getPacketTypes());
-			if (typeListeners != null) {
-                if (log.isInfoEnabled()) {
-                    log.info(packetType.toString());
-                }
-				typeListeners.remove(listener);
-			}
+            if (log.isInfoEnabled()) {
+                log.info(packetType.toString());
+            }
+            removeListenerForType(listener, packetType);
 		}
 	}
 	
@@ -131,13 +116,7 @@ class ClientNetworkManager implements IClientNetworkManager, ITestClientNetworkM
             log.info("Removing listener " + listener + " of type");
         }
 
-		Set<IServerPacketListener> typeListeners = listeners.get(packetType);
-		if (typeListeners != null) {
-            if (log.isInfoEnabled()) {
-                log.info(packetType.toString());
-            }
-			typeListeners.remove(listener);
-		}	
+        listeners.get(packetType).remove(listener);
 	}
 	
 	@Override

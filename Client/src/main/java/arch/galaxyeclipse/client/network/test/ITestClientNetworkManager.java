@@ -1,5 +1,6 @@
-package arch.galaxyeclipse.client.network;
+package arch.galaxyeclipse.client.network.test;
 
+import arch.galaxyeclipse.client.network.*;
 import arch.galaxyeclipse.shared.util.*;
 
 import java.net.*;

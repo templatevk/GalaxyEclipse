@@ -8,10 +8,12 @@ import arch.galaxyeclipse.server.protocol.*;
 import arch.galaxyeclipse.shared.context.*;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.*;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.Packet.*;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.Packet.*;
 import arch.galaxyeclipse.shared.types.*;
 import lombok.*;
 import lombok.extern.slf4j.*;
 import org.hibernate.*;
+import org.hibernate.annotations.*;
 import org.hibernate.criterion.*;
 
 import java.util.*;
@@ -72,7 +74,7 @@ class UnauthenticatedPacketHandler extends AbstractStubPacketHandler {
             protected void doWork(Session session) {
                 int idDynamic = dictionaryTypesMapper.getIdByLocationObjectBehaviorType(
                         LocationObjectBehaviorTypesMapperType.DYNAMIC);
-                LocationObject locationObject = player.getShipState().getLocationObject();
+                LocationObject locationObject = player.getLocationObject();
                 locationObject.setLocationObjectBehaviorTypeId(idDynamic);
 
                 session.merge(locationObject);
@@ -88,7 +90,7 @@ class UnauthenticatedPacketHandler extends AbstractStubPacketHandler {
                         startupInfoData.getLocation(),
                         startupInfoData.getLocationCachedObjects()))
                 .setTypesMap(geProtocolMessageFactory.createTypesMap()).build();
-        Packet startupInfoPacket = Packet.newBuilder().setType(Type.STARTUP_INFO)
+        Packet startupInfoPacket = Packet.newBuilder().setType(Packet.Type.STARTUP_INFO)
                 .setStartupInfo(startupInfo).build();
         serverChannelHandler.sendPacket(startupInfoPacket);
     }
@@ -97,7 +99,7 @@ class UnauthenticatedPacketHandler extends AbstractStubPacketHandler {
         AuthResponse authResponse = AuthResponse.newBuilder()
                 .setIsSuccess(authenticationResult.isSuccess()).build();
         Packet authResponsePacket = Packet.newBuilder()
-                .setType(Type.AUTH_RESPONSE)
+                .setType(Packet.Type.AUTH_RESPONSE)
                 .setAuthResponse(authResponse).build();
         serverChannelHandler.sendPacket(authResponsePacket);
     }
@@ -112,7 +114,7 @@ class UnauthenticatedPacketHandler extends AbstractStubPacketHandler {
                         .setParameter("playerId", playerId).uniqueResult();
                 startupInfoData.setPlayer(player);
 
-                Location location = player.getShipState().getLocationObject().getLocation();
+                Location location = player.getLocationObject().getLocation();
                 startupInfoData.setLocation(location);
 
                 int idStatic = dictionaryTypesMapper.getIdByLocationObjectBehaviorType(
@@ -140,8 +142,7 @@ class UnauthenticatedPacketHandler extends AbstractStubPacketHandler {
         playerInfoHolder.setPlayer(startupInfoData.getPlayer());
         playerInfoHolder.setShipConfig(startupInfoData.getPlayer().getShipConfig());
         playerInfoHolder.setShipState(startupInfoData.getPlayer().getShipState());
-        playerInfoHolder.setLocationObject(startupInfoData.getPlayer()
-                .getShipState().getLocationObject());
+        playerInfoHolder.setLocationObject(startupInfoData.getPlayer().getLocationObject());
     }
 
     @Data

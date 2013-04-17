@@ -11,10 +11,10 @@ import java.util.*;
 @Table(name = "player", schema = "", catalog = "ge")
 @Entity
 @NamedQuery(name = "player.startupInfo", query =
-        "select p from Player p inner join fetch p.shipStates ss " +
-        "inner join fetch ss.locationObject lo inner join fetch lo.location l " +
+        "select p from Player p inner join fetch p.shipState ss " +
+        "inner join fetch p.locationObject lo inner join fetch lo.location l " +
         "left outer join fetch p.inventoryItems ii left outer join fetch ii.item " +
-        "inner join fetch p.shipConfigs sc inner join fetch sc.shipType st " +
+        "inner join fetch p.shipConfig sc inner join fetch sc.shipType st " +
         "inner join fetch sc.engine e left outer join fetch sc.shipConfigBonusSlots scbs " +
         "left outer join scbs.item left outer join fetch sc.shipConfigWeaponSlots scws " +
         "left outer join fetch scws.item where p.playerId = :playerId")
@@ -103,6 +103,42 @@ public class Player {
         this.activated = activated;
     }
 
+    private int shipStateId;
+
+    @Column(name = "ship_state_id", nullable = true, insertable = true, updatable = true, length = 10, precision = 0)
+    @Basic
+    public int getShipStateId() {
+        return shipStateId;
+    }
+
+    public void setShipStateId(int shipStateId) {
+        this.shipStateId = shipStateId;
+    }
+
+    private int shipConfigId;
+
+    @Column(name = "ship_config_id", nullable = true, insertable = true, updatable = true, length = 10, precision = 0)
+    @Basic
+    public int getShipConfigId() {
+        return shipConfigId;
+    }
+
+    public void setShipConfigId(int shipConfigId) {
+        this.shipConfigId = shipConfigId;
+    }
+
+    private int locationObjectId;
+
+    @Column(name = "location_object_id", nullable = true, insertable = true, updatable = true, length = 10, precision = 0)
+    @Basic
+    public int getLocationObjectId() {
+        return locationObjectId;
+    }
+
+    public void setLocationObjectId(int locationObjectId) {
+        this.locationObjectId = locationObjectId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -112,11 +148,14 @@ public class Player {
 
         if (activated != player.activated) return false;
         if (banned != player.banned) return false;
+        if (locationObjectId != player.locationObjectId) return false;
         if (playerId != player.playerId) return false;
-        if (email != null ? !email.equals(player.email) : player.email != null) return false;
-        if (nickname != null ? !nickname.equals(player.nickname) : player.nickname != null) return false;
-        if (password != null ? !password.equals(player.password) : player.password != null) return false;
-        if (username != null ? !username.equals(player.username) : player.username != null) return false;
+        if (shipConfigId != player.shipConfigId) return false;
+        if (shipStateId != player.shipStateId) return false;
+        if (!email.equals(player.email)) return false;
+        if (!nickname.equals(player.nickname)) return false;
+        if (!password.equals(player.password)) return false;
+        if (!username.equals(player.username)) return false;
 
         return true;
     }
@@ -124,12 +163,15 @@ public class Player {
     @Override
     public int hashCode() {
         int result = playerId;
-        result = 31 * result + (username != null ? username.hashCode() : 0);
-        result = 31 * result + (password != null ? password.hashCode() : 0);
-        result = 31 * result + (nickname != null ? nickname.hashCode() : 0);
-        result = 31 * result + (email != null ? email.hashCode() : 0);
+        result = 31 * result + username.hashCode();
+        result = 31 * result + password.hashCode();
+        result = 31 * result + nickname.hashCode();
+        result = 31 * result + email.hashCode();
         result = 31 * result + (banned ? 1 : 0);
         result = 31 * result + (activated ? 1 : 0);
+        result = 31 * result + shipStateId;
+        result = 31 * result + shipConfigId;
+        result = 31 * result + locationObjectId;
         return result;
     }
 
@@ -155,35 +197,39 @@ public class Player {
         this.playerActivationHashes = playerActivationHashes;
     }
 
-    private Set<ShipConfig> shipConfigs;
+    private ShipState shipState;
 
-    @OneToMany(mappedBy = "player", fetch = FetchType.LAZY)
-    public Set<ShipConfig> getShipConfigs() {
-        return shipConfigs;
-    }
-
-    @Transient
-    public ShipConfig getShipConfig() {
-        return CollectionUtils.getFirst(shipConfigs);
-    }
-
-    public void setShipConfigs(Set<ShipConfig> shipConfigs) {
-        this.shipConfigs = shipConfigs;
-    }
-
-    private Set<ShipState> shipStates;
-
-    @OneToMany(mappedBy = "player", fetch = FetchType.LAZY)
-    public Set<ShipState> getShipStates() {
-        return shipStates;
-    }
-
-    @Transient
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ship_state_id", referencedColumnName = "ship_state_id", nullable = true, insertable = false, updatable = false)
     public ShipState getShipState() {
-        return CollectionUtils.getFirst(shipStates);
+        return shipState;
     }
 
-    public void setShipStates(Set<ShipState> shipStates) {
-        this.shipStates = shipStates;
+    public void setShipState(ShipState shipState) {
+        this.shipState = shipState;
+    }
+
+    private ShipConfig shipConfig;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ship_config_id", referencedColumnName = "ship_config_id", nullable = true, insertable = false, updatable = false)
+    public ShipConfig getShipConfig() {
+        return shipConfig;
+    }
+
+    public void setShipConfig(ShipConfig shipConfig) {
+        this.shipConfig = shipConfig;
+    }
+
+    private LocationObject locationObject;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "location_object_id", referencedColumnName = "location_object_id", nullable = true, insertable = false, updatable = false)
+    public LocationObject getLocationObject() {
+        return locationObject;
+    }
+
+    public void setLocationObject(LocationObject locationObject) {
+        this.locationObject = locationObject;
     }
 }

@@ -1,7 +1,8 @@
 package arch.galaxyeclipse.client.stage;
 
-import arch.galaxyeclipse.client.resources.*;
+import arch.galaxyeclipse.client.resource.*;
 import arch.galaxyeclipse.shared.context.*;
+import arch.galaxyeclipse.shared.util.*;
 import com.badlogic.gdx.scenes.scene2d.*;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.*;
@@ -14,8 +15,7 @@ class LoadingStage extends AbstractGameStage {
     private Table innerTable;
 
     LoadingStage() {
-        IResourceLoader resourceLoader = ContextHolder.INSTANCE
-                .getBean(IResourceLoaderFactory.class).createResourceLoader();
+        IResourceLoader resourceLoader = ContextHolder.INSTANCE.getBean(IResourceLoader.class);
 
         rootTable = new Table();
         rootTable.setFillParent(true);
@@ -27,6 +27,7 @@ class LoadingStage extends AbstractGameStage {
         innerTable.setTransform(true);
         rootTable.setTransform(false);
         rootTable.add(innerTable);
+
     }
 
     @Override

@@ -153,18 +153,6 @@ public class ShipConfig {
         this.engineItemId = engineItemId;
     }
 
-    private int playerId;
-
-    @Column(name = "player_id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
-    @Basic
-    public int getPlayerId() {
-        return playerId;
-    }
-
-    public void setPlayerId(int playerId) {
-        this.playerId = playerId;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -173,7 +161,6 @@ public class ShipConfig {
         ShipConfig that = (ShipConfig) o;
 
         if (engineItemId != that.engineItemId) return false;
-        if (playerId != that.playerId) return false;
         if (shipConfigArmor != that.shipConfigArmor) return false;
         if (shipConfigEnergyMax != that.shipConfigEnergyMax) return false;
         if (shipConfigEnergyRegen != that.shipConfigEnergyRegen) return false;
@@ -203,7 +190,6 @@ public class ShipConfig {
         result = 31 * result + shipConfigHpRegen;
         result = 31 * result + shipTypeId;
         result = 31 * result + engineItemId;
-        result = 31 * result + playerId;
         return result;
     }
 
@@ -229,18 +215,6 @@ public class ShipConfig {
 
     public void setShipType(ShipType shipType) {
         this.shipType = shipType;
-    }
-
-    private Player player;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "player_id", referencedColumnName = "player_id", nullable = false, insertable = false, updatable = false)
-    public Player getPlayer() {
-        return player;
-    }
-
-    public void setPlayer(Player player) {
-        this.player = player;
     }
 
     private Set<ShipConfigBonusSlot> shipConfigBonusSlots;
@@ -275,5 +249,16 @@ public class ShipConfig {
 
     public void setEngine(Engine engine) {
         this.engine = engine;
+    }
+
+    private Set<Player> players;
+
+    @OneToMany(mappedBy = "shipConfig", fetch = FetchType.LAZY)
+    public Set<Player> getPlayers() {
+        return players;
+    }
+
+    public void setPlayers(Set<Player> players) {
+        this.players = players;
     }
 }

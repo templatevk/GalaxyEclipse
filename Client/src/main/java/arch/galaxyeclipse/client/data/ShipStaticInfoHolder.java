@@ -2,6 +2,7 @@ package arch.galaxyeclipse.client.data;
 
 import arch.galaxyeclipse.client.network.*;
 import arch.galaxyeclipse.shared.protocol.*;
+import lombok.*;
 import lombok.extern.slf4j.*;
 import org.springframework.util.*;
 
@@ -11,16 +12,12 @@ import java.util.*;
  *
  */
 @Slf4j
-class ShipStaticInfoHolder extends ServerPacketListener implements IShipStaticInfoHolder {
+@Data
+public class ShipStaticInfoHolder extends ServerPacketListener {
     private GeProtocol.ShipStaticInfo shipStaticInfo;
 
     ShipStaticInfoHolder() {
 
-    }
-
-    @Override
-    public void setShipStaticInfo(GeProtocol.ShipStaticInfo shipStaticInfo) {
-        this.shipStaticInfo = shipStaticInfo;
     }
 
     @Override

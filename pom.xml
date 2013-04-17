@@ -55,6 +55,11 @@
             <version>0.11.6</version>
         </dependency>
         <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>14.0.1</version>
+        </dependency>
+        <dependency>
             <groupId>com.github.peichhorn</groupId>
             <artifactId>lombok-pg</artifactId>
             <version>0.11.3</version>
@@ -181,17 +186,50 @@
         <profile>
             <id>localhost</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <property>
+                    <name>host</name>
+                    <value>local</value>
+                </property>
             </activation>
             <properties>
-                <server.resources.filter>${basedir}/src/main/resources/localhost.properties</server.resources.filter>
+                <server.resources.filter.host>${basedir}/src/main/resources/local.properties</server.resources.filter.host>
+            </properties>
+        </profile>
+        <profile>
+            <id>remote</id>
+            <activation>
+                <property>
+                    <name>host</name>
+                    <value>remote</value>
+                </property>
+            </activation>
+            <properties>
+                <server.resources.filter.host>${basedir}/src/main/resources/remote.properties</server.resources.filter.host>
             </properties>
         </profile>
 
         <profile>
-            <id>production</id>
+            <id>dev</id>
+            <activation>
+                <property>
+                    <name>env</name>
+                    <value>dev</value>
+                </property>
+            </activation>
             <properties>
-                <server.resources.filter>production.properties</server.resources.filter>
+                <server.resources.filter.env>${basedir}/src/main/resources/dev.properties</server.resources.filter.env>
+            </properties>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <activation>
+                <property>
+                    <name>env</name>
+                    <value>prod</value>
+                </property>
+            </activation>
+            <properties>
+                <server.resources.filter.env>${basedir}/src/main/resources/prod.properties</server.resources.filter.env>
             </properties>
         </profile>
     </profiles>

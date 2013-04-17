@@ -1,6 +1,8 @@
 package arch.galaxyeclipse.client.window;
 
+import arch.galaxyeclipse.client.*;
 import arch.galaxyeclipse.client.stage.*;
+import arch.galaxyeclipse.shared.*;
 import com.badlogic.gdx.*;
 import com.badlogic.gdx.backends.lwjgl.*;
 import com.badlogic.gdx.graphics.*;
@@ -10,12 +12,9 @@ import com.badlogic.gdx.math.*;
  * OpenGL window delegating drawing to the stage set.
  */
 public class ClientWindow implements IClientWindow {
-	private static final int VIRTUAL_WIDTH = 480;
+    private static final int VIRTUAL_WIDTH = 480;
     private static final int VIRTUAL_HEIGHT = 320;
-	
-	public static final float DEFAULT_WIDTH = 1024;
-	public static final float DEFAULT_HEIGHT = 748;
-	public static final float ASPECT_RATIO = (float)VIRTUAL_WIDTH/(float)VIRTUAL_HEIGHT;
+    private static final float ASPECT_RATIO = (float)VIRTUAL_WIDTH/(float)VIRTUAL_HEIGHT;
 
     private StagePresenterFactory stagePresenterFactory;
 	private IStagePresenter stagePresenter;
@@ -28,7 +27,11 @@ public class ClientWindow implements IClientWindow {
 		config.title = "Galaxy Eclipse";
 		config.width = (int)DEFAULT_WIDTH;
 		config.height = (int)DEFAULT_HEIGHT;
-		//config.fullscreen = true;
+
+        if (GalaxyEclipseClient.getEnvType() == EnvType.PROD) {
+            config.fullscreen = true;
+        }
+
 		new LwjglApplication(new ClientListener(), config);
 
         stagePresenterFactory = new StagePresenterFactory();
@@ -42,11 +45,6 @@ public class ClientWindow implements IClientWindow {
         this.stagePresenter = stagePresenter;
 
         Gdx.input.setInputProcessor(stagePresenter.getGameStage());
-    }
-
-    @Override
-    public void setStage(AbstractGameStage gameStage) {
-        Gdx.input.setInputProcessor(gameStage);
     }
 
     @Override

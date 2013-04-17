@@ -3,17 +3,15 @@ package arch.galaxyeclipse.client.stage.ui;
 /**
  *
  */
-class StageUiFactory implements IStageUiFactory {
-    StageUiFactory() {
+public class StageUiFactory {
+    private StageUiFactory() {
     }
 
-    @Override
-    public IButtonBuilder createButtonBuilder() {
+    public static IButtonBuilder createButtonBuilder() {
         return new DefaultButtonBuilder();
     }
 
-    @Override
-    public ITextFieldBuilder createTextFieldBuilder() {
+    public static  ITextFieldBuilder createTextFieldBuilder() {
         return new DefaultTextFieldBuilder();
     }
 }

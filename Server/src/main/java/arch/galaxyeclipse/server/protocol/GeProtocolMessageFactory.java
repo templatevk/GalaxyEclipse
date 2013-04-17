@@ -1,6 +1,7 @@
 package arch.galaxyeclipse.server.protocol;
 
 import arch.galaxyeclipse.server.data.model.*;
+import arch.galaxyeclipse.server.data.model.LocationObject;
 import arch.galaxyeclipse.shared.context.*;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.*;
 import arch.galaxyeclipse.shared.types.*;
@@ -15,7 +16,7 @@ public class GeProtocolMessageFactory {
 
     // Helper functions' builders
     private LocationInfo.CachedObjects.Builder getStaticObjectsBuilder;
-    private LocationInfo.CachedObjects.CachedObject.Builder getStaticObjectBuilder;
+    private LocationInfo.LocationObject.Builder getStaticObjectBuilder;
 
     private ShipStaticInfo.Item.Builder getItemBuilder;
     private ShipStaticInfo.Item.Engine.Builder getEngineBuilder;
@@ -26,7 +27,7 @@ public class GeProtocolMessageFactory {
         dictionaryTypesMapper = ContextHolder.INSTANCE.getBean(DictionaryTypesMapper.class);
 
         getStaticObjectsBuilder = LocationInfo.CachedObjects.newBuilder();
-        getStaticObjectBuilder = LocationInfo.CachedObjects.CachedObject.newBuilder();
+        getStaticObjectBuilder = LocationInfo.LocationObject.newBuilder();
 
         getItemBuilder = ShipStaticInfo.Item.newBuilder();
         getEngineBuilder = ShipStaticInfo.Item.Engine.newBuilder();
@@ -120,7 +121,8 @@ public class GeProtocolMessageFactory {
                     .setObjectId(locationObject.getLocationObjectId())
                     .setPositionX(locationObject.getPositionX())
                     .setPositionY(locationObject.getPositionY())
-                    .setObjectTypeId(locationObject.getLocationObjectTypeId()));
+                    .setObjectTypeId(locationObject.getLocationObjectTypeId())
+                    .setNativeId(locationObject.getObjectNativeId()).build());
             getStaticObjectBuilder.clear();
         }
         return getStaticObjectsBuilder.build();

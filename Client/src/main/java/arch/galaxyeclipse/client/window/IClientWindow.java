@@ -6,9 +6,10 @@ import arch.galaxyeclipse.client.stage.*;
  *
  */
 public interface IClientWindow {
-    void setStagePresenter(IStagePresenter stagePresenter);
+    float DEFAULT_WIDTH = 1024;
+    float DEFAULT_HEIGHT = 748;
 
-    void setStage(AbstractGameStage gameStage);
+    void setStagePresenter(IStagePresenter stagePresenter);
 
     int getViewportHeight();
 

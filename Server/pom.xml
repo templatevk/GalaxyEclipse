@@ -16,7 +16,8 @@
                 <configuration>
                     <encoding>UTF-8</encoding>
                     <filters>
-                        <filter>${server.resources.filter}</filter>
+                        <filter>${server.resources.filter.host}</filter>
+                        <filter>${server.resources.filter.env}</filter>
                     </filters>
                 </configuration>
             </plugin>

@@ -13,7 +13,6 @@ import org.slf4j.*;
 @Slf4j
 public class GalaxyEclipseServer {
     private IServerNetworkManager serverNetworkManager;
-    private IDictionaryTypesMapperHelper dictionaryTypesMapperHelper;
     private DictionaryTypesMapper dictionaryTypesMapper;
 	
 	public GalaxyEclipseServer() {
@@ -26,12 +25,10 @@ public class GalaxyEclipseServer {
 
         // Resolving dependencies
         serverNetworkManager = ContextHolder.INSTANCE.getBean(IServerNetworkManager.class);
-        dictionaryTypesMapperHelper = ContextHolder.INSTANCE.getBean(
-                IDictionaryTypesMapperHelper.class);
         dictionaryTypesMapper = ContextHolder.INSTANCE.getBean(DictionaryTypesMapper.class);
 
         // Dependencies initialization
-        dictionaryTypesMapperHelper.fillAll(dictionaryTypesMapper);
+        DictionaryTypesMapperHelper.fillAll(dictionaryTypesMapper);
     }
 
     // Performing full startup of the application

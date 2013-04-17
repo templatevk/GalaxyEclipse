@@ -1,4 +1,4 @@
-package arch.galaxyeclipse.client.resources;
+package arch.galaxyeclipse.client.resource;
 
 import com.badlogic.gdx.*;
 import com.badlogic.gdx.graphics.g2d.*;

@@ -69,27 +69,27 @@ public class LocationObject {
         this.locationId = locationId;
     }
 
-    private int positionX;
+    private float positionX;
 
     @Column(name = "position_x", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     @Basic
-    public int getPositionX() {
+    public float getPositionX() {
         return positionX;
     }
 
-    public void setPositionX(int positionX) {
+    public void setPositionX(float positionX) {
         this.positionX = positionX;
     }
 
-    private int positionY;
+    private float positionY;
 
     @Column(name = "position_y", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     @Basic
-    public int getPositionY() {
+    public float getPositionY() {
         return positionY;
     }
 
-    public void setPositionY(int positionY) {
+    public void setPositionY(float positionY) {
         this.positionY = positionY;
     }
 
@@ -118,8 +118,6 @@ public class LocationObject {
         result = 31 * result + locationObjectTypeId;
         result = 31 * result + objectNativeId;
         result = 31 * result + locationId;
-        result = 31 * result + positionX;
-        result = 31 * result + positionY;
         return result;
     }
 
@@ -159,14 +157,14 @@ public class LocationObject {
         this.locationObjectBehaviorType = locationObjectBehaviorTypeByLocationObjectBehaviorTypeId;
     }
 
-    private Set<ShipState> shipStates;
+    private Set<Player> players;
 
     @OneToMany(mappedBy = "locationObject", fetch = FetchType.LAZY)
-    public Set<ShipState> getShipStates() {
-        return shipStates;
+    public Set<Player> getPlayers() {
+        return players;
     }
 
-    public void setShipStates(Set<ShipState> shipStates) {
-        this.shipStates = shipStates;
+    public void setPlayers(Set<Player> players) {
+        this.players = players;
     }
 }

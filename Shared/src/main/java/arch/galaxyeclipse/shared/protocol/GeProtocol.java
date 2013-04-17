@@ -2933,29 +2933,29 @@ public final class GeProtocol {
   public interface DynamicObjectsResponseOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // repeated .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse.LocationDynamicObject objects = 1;
+    // repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse.LocationDynamicObject objects = 1;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
      */
-    java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject> 
+    java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject> 
         getObjectsList();
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse.LocationDynamicObject objects = 1;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject getObjects(int index);
+    arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject getObjects(int index);
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse.LocationDynamicObject objects = 1;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
      */
     int getObjectsCount();
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse.LocationDynamicObject objects = 1;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
      */
-    java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObjectOrBuilder> 
+    java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObjectOrBuilder> 
         getObjectsOrBuilderList();
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse.LocationDynamicObject objects = 1;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObjectOrBuilder getObjectsOrBuilder(
+    arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObjectOrBuilder getObjectsOrBuilder(
         int index);
   }
   /**
@@ -3011,10 +3011,10 @@ public final class GeProtocol {
             }
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                objects_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject>();
+                objects_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject>();
                 mutable_bitField0_ |= 0x00000001;
               }
-              objects_.add(input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject.PARSER, extensionRegistry));
+              objects_.add(input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject.PARSER, extensionRegistry));
               break;
             }
           }
@@ -3059,798 +3059,38 @@ public final class GeProtocol {
       return PARSER;
     }
 
-    public interface LocationDynamicObjectOrBuilder
-        extends com.google.protobuf.MessageOrBuilder {
-
-      // required int32 locationDynamicObjectId = 1;
-      /**
-       * <code>required int32 locationDynamicObjectId = 1;</code>
-       */
-      boolean hasLocationDynamicObjectId();
-      /**
-       * <code>required int32 locationDynamicObjectId = 1;</code>
-       */
-      int getLocationDynamicObjectId();
-
-      // required int32 objectTypeId = 2;
-      /**
-       * <code>required int32 objectTypeId = 2;</code>
-       */
-      boolean hasObjectTypeId();
-      /**
-       * <code>required int32 objectTypeId = 2;</code>
-       */
-      int getObjectTypeId();
-
-      // required int32 nativeId = 3;
-      /**
-       * <code>required int32 nativeId = 3;</code>
-       */
-      boolean hasNativeId();
-      /**
-       * <code>required int32 nativeId = 3;</code>
-       */
-      int getNativeId();
-
-      // required int32 x = 4;
-      /**
-       * <code>required int32 x = 4;</code>
-       */
-      boolean hasX();
-      /**
-       * <code>required int32 x = 4;</code>
-       */
-      int getX();
-
-      // required int32 y = 5;
-      /**
-       * <code>required int32 y = 5;</code>
-       */
-      boolean hasY();
-      /**
-       * <code>required int32 y = 5;</code>
-       */
-      int getY();
-    }
-    /**
-     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse.LocationDynamicObject}
-     */
-    public static final class LocationDynamicObject extends
-        com.google.protobuf.GeneratedMessage
-        implements LocationDynamicObjectOrBuilder {
-      // Use LocationDynamicObject.newBuilder() to construct.
-      private LocationDynamicObject(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
-        super(builder);
-        this.unknownFields = builder.getUnknownFields();
-      }
-      private LocationDynamicObject(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-      private static final LocationDynamicObject defaultInstance;
-      public static LocationDynamicObject getDefaultInstance() {
-        return defaultInstance;
-      }
-
-      public LocationDynamicObject getDefaultInstanceForType() {
-        return defaultInstance;
-      }
-
-      private final com.google.protobuf.UnknownFieldSet unknownFields;
-      @java.lang.Override
-      public final com.google.protobuf.UnknownFieldSet
-          getUnknownFields() {
-        return this.unknownFields;
-      }
-      private LocationDynamicObject(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        initFields();
-        int mutable_bitField0_ = 0;
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              default: {
-                if (!parseUnknownField(input, unknownFields,
-                                       extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-              case 8: {
-                bitField0_ |= 0x00000001;
-                locationDynamicObjectId_ = input.readInt32();
-                break;
-              }
-              case 16: {
-                bitField0_ |= 0x00000002;
-                objectTypeId_ = input.readInt32();
-                break;
-              }
-              case 24: {
-                bitField0_ |= 0x00000004;
-                nativeId_ = input.readInt32();
-                break;
-              }
-              case 32: {
-                bitField0_ |= 0x00000008;
-                x_ = input.readInt32();
-                break;
-              }
-              case 40: {
-                bitField0_ |= 0x00000010;
-                y_ = input.readInt32();
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e.getMessage()).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_DynamicObjectsResponse_LocationDynamicObject_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_DynamicObjectsResponse_LocationDynamicObject_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject.class, arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject.Builder.class);
-      }
-
-      public static com.google.protobuf.Parser<LocationDynamicObject> PARSER =
-          new com.google.protobuf.AbstractParser<LocationDynamicObject>() {
-        public LocationDynamicObject parsePartialFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return new LocationDynamicObject(input, extensionRegistry);
-        }
-      };
-
-      @java.lang.Override
-      public com.google.protobuf.Parser<LocationDynamicObject> getParserForType() {
-        return PARSER;
-      }
-
-      private int bitField0_;
-      // required int32 locationDynamicObjectId = 1;
-      public static final int LOCATIONDYNAMICOBJECTID_FIELD_NUMBER = 1;
-      private int locationDynamicObjectId_;
-      /**
-       * <code>required int32 locationDynamicObjectId = 1;</code>
-       */
-      public boolean hasLocationDynamicObjectId() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      /**
-       * <code>required int32 locationDynamicObjectId = 1;</code>
-       */
-      public int getLocationDynamicObjectId() {
-        return locationDynamicObjectId_;
-      }
-
-      // required int32 objectTypeId = 2;
-      public static final int OBJECTTYPEID_FIELD_NUMBER = 2;
-      private int objectTypeId_;
-      /**
-       * <code>required int32 objectTypeId = 2;</code>
-       */
-      public boolean hasObjectTypeId() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      /**
-       * <code>required int32 objectTypeId = 2;</code>
-       */
-      public int getObjectTypeId() {
-        return objectTypeId_;
-      }
-
-      // required int32 nativeId = 3;
-      public static final int NATIVEID_FIELD_NUMBER = 3;
-      private int nativeId_;
-      /**
-       * <code>required int32 nativeId = 3;</code>
-       */
-      public boolean hasNativeId() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
-      }
-      /**
-       * <code>required int32 nativeId = 3;</code>
-       */
-      public int getNativeId() {
-        return nativeId_;
-      }
-
-      // required int32 x = 4;
-      public static final int X_FIELD_NUMBER = 4;
-      private int x_;
-      /**
-       * <code>required int32 x = 4;</code>
-       */
-      public boolean hasX() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
-      }
-      /**
-       * <code>required int32 x = 4;</code>
-       */
-      public int getX() {
-        return x_;
-      }
-
-      // required int32 y = 5;
-      public static final int Y_FIELD_NUMBER = 5;
-      private int y_;
-      /**
-       * <code>required int32 y = 5;</code>
-       */
-      public boolean hasY() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
-      }
-      /**
-       * <code>required int32 y = 5;</code>
-       */
-      public int getY() {
-        return y_;
-      }
-
-      private void initFields() {
-        locationDynamicObjectId_ = 0;
-        objectTypeId_ = 0;
-        nativeId_ = 0;
-        x_ = 0;
-        y_ = 0;
-      }
-      private byte memoizedIsInitialized = -1;
-      public final boolean isInitialized() {
-        byte isInitialized = memoizedIsInitialized;
-        if (isInitialized != -1) return isInitialized == 1;
-
-        if (!hasLocationDynamicObjectId()) {
-          memoizedIsInitialized = 0;
-          return false;
-        }
-        if (!hasObjectTypeId()) {
-          memoizedIsInitialized = 0;
-          return false;
-        }
-        if (!hasNativeId()) {
-          memoizedIsInitialized = 0;
-          return false;
-        }
-        if (!hasX()) {
-          memoizedIsInitialized = 0;
-          return false;
-        }
-        if (!hasY()) {
-          memoizedIsInitialized = 0;
-          return false;
-        }
-        memoizedIsInitialized = 1;
-        return true;
-      }
-
-      public void writeTo(com.google.protobuf.CodedOutputStream output)
-                          throws java.io.IOException {
-        getSerializedSize();
-        if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          output.writeInt32(1, locationDynamicObjectId_);
-        }
-        if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          output.writeInt32(2, objectTypeId_);
-        }
-        if (((bitField0_ & 0x00000004) == 0x00000004)) {
-          output.writeInt32(3, nativeId_);
-        }
-        if (((bitField0_ & 0x00000008) == 0x00000008)) {
-          output.writeInt32(4, x_);
-        }
-        if (((bitField0_ & 0x00000010) == 0x00000010)) {
-          output.writeInt32(5, y_);
-        }
-        getUnknownFields().writeTo(output);
-      }
-
-      private int memoizedSerializedSize = -1;
-      public int getSerializedSize() {
-        int size = memoizedSerializedSize;
-        if (size != -1) return size;
-
-        size = 0;
-        if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(1, locationDynamicObjectId_);
-        }
-        if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(2, objectTypeId_);
-        }
-        if (((bitField0_ & 0x00000004) == 0x00000004)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(3, nativeId_);
-        }
-        if (((bitField0_ & 0x00000008) == 0x00000008)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(4, x_);
-        }
-        if (((bitField0_ & 0x00000010) == 0x00000010)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(5, y_);
-        }
-        size += getUnknownFields().getSerializedSize();
-        memoizedSerializedSize = size;
-        return size;
-      }
-
-      private static final long serialVersionUID = 0L;
-      @java.lang.Override
-      protected java.lang.Object writeReplace()
-          throws java.io.ObjectStreamException {
-        return super.writeReplace();
-      }
-
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject parseFrom(
-          com.google.protobuf.ByteString data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject parseFrom(
-          com.google.protobuf.ByteString data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject parseFrom(byte[] data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject parseFrom(
-          byte[] data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject parseFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return PARSER.parseFrom(input);
-      }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject parseFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return PARSER.parseFrom(input, extensionRegistry);
-      }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject parseDelimitedFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return PARSER.parseDelimitedFrom(input);
-      }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject parseDelimitedFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return PARSER.parseDelimitedFrom(input, extensionRegistry);
-      }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject parseFrom(
-          com.google.protobuf.CodedInputStream input)
-          throws java.io.IOException {
-        return PARSER.parseFrom(input);
-      }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject parseFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return PARSER.parseFrom(input, extensionRegistry);
-      }
-
-      public static Builder newBuilder() { return Builder.create(); }
-      public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject prototype) {
-        return newBuilder().mergeFrom(prototype);
-      }
-      public Builder toBuilder() { return newBuilder(this); }
-
-      @java.lang.Override
-      protected Builder newBuilderForType(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-        Builder builder = new Builder(parent);
-        return builder;
-      }
-      /**
-       * Protobuf type {@code arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse.LocationDynamicObject}
-       */
-      public static final class Builder extends
-          com.google.protobuf.GeneratedMessage.Builder<Builder>
-         implements arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObjectOrBuilder {
-        public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_DynamicObjectsResponse_LocationDynamicObject_descriptor;
-        }
-
-        protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_DynamicObjectsResponse_LocationDynamicObject_fieldAccessorTable
-              .ensureFieldAccessorsInitialized(
-                  arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject.class, arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject.Builder.class);
-        }
-
-        // Construct using arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject.newBuilder()
-        private Builder() {
-          maybeForceBuilderInitialization();
-        }
-
-        private Builder(
-            com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-          super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-          }
-        }
-        private static Builder create() {
-          return new Builder();
-        }
-
-        public Builder clear() {
-          super.clear();
-          locationDynamicObjectId_ = 0;
-          bitField0_ = (bitField0_ & ~0x00000001);
-          objectTypeId_ = 0;
-          bitField0_ = (bitField0_ & ~0x00000002);
-          nativeId_ = 0;
-          bitField0_ = (bitField0_ & ~0x00000004);
-          x_ = 0;
-          bitField0_ = (bitField0_ & ~0x00000008);
-          y_ = 0;
-          bitField0_ = (bitField0_ & ~0x00000010);
-          return this;
-        }
-
-        public Builder clone() {
-          return create().mergeFrom(buildPartial());
-        }
-
-        public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_DynamicObjectsResponse_LocationDynamicObject_descriptor;
-        }
-
-        public arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject getDefaultInstanceForType() {
-          return arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject.getDefaultInstance();
-        }
-
-        public arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject build() {
-          arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject result = buildPartial();
-          if (!result.isInitialized()) {
-            throw newUninitializedMessageException(result);
-          }
-          return result;
-        }
-
-        public arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject buildPartial() {
-          arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject result = new arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject(this);
-          int from_bitField0_ = bitField0_;
-          int to_bitField0_ = 0;
-          if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-            to_bitField0_ |= 0x00000001;
-          }
-          result.locationDynamicObjectId_ = locationDynamicObjectId_;
-          if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-            to_bitField0_ |= 0x00000002;
-          }
-          result.objectTypeId_ = objectTypeId_;
-          if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-            to_bitField0_ |= 0x00000004;
-          }
-          result.nativeId_ = nativeId_;
-          if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
-            to_bitField0_ |= 0x00000008;
-          }
-          result.x_ = x_;
-          if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
-            to_bitField0_ |= 0x00000010;
-          }
-          result.y_ = y_;
-          result.bitField0_ = to_bitField0_;
-          onBuilt();
-          return result;
-        }
-
-        public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject) {
-            return mergeFrom((arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject)other);
-          } else {
-            super.mergeFrom(other);
-            return this;
-          }
-        }
-
-        public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject other) {
-          if (other == arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject.getDefaultInstance()) return this;
-          if (other.hasLocationDynamicObjectId()) {
-            setLocationDynamicObjectId(other.getLocationDynamicObjectId());
-          }
-          if (other.hasObjectTypeId()) {
-            setObjectTypeId(other.getObjectTypeId());
-          }
-          if (other.hasNativeId()) {
-            setNativeId(other.getNativeId());
-          }
-          if (other.hasX()) {
-            setX(other.getX());
-          }
-          if (other.hasY()) {
-            setY(other.getY());
-          }
-          this.mergeUnknownFields(other.getUnknownFields());
-          return this;
-        }
-
-        public final boolean isInitialized() {
-          if (!hasLocationDynamicObjectId()) {
-            
-            return false;
-          }
-          if (!hasObjectTypeId()) {
-            
-            return false;
-          }
-          if (!hasNativeId()) {
-            
-            return false;
-          }
-          if (!hasX()) {
-            
-            return false;
-          }
-          if (!hasY()) {
-            
-            return false;
-          }
-          return true;
-        }
-
-        public Builder mergeFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-          arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject parsedMessage = null;
-          try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject) e.getUnfinishedMessage();
-            throw e;
-          } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
-          return this;
-        }
-        private int bitField0_;
-
-        // required int32 locationDynamicObjectId = 1;
-        private int locationDynamicObjectId_ ;
-        /**
-         * <code>required int32 locationDynamicObjectId = 1;</code>
-         */
-        public boolean hasLocationDynamicObjectId() {
-          return ((bitField0_ & 0x00000001) == 0x00000001);
-        }
-        /**
-         * <code>required int32 locationDynamicObjectId = 1;</code>
-         */
-        public int getLocationDynamicObjectId() {
-          return locationDynamicObjectId_;
-        }
-        /**
-         * <code>required int32 locationDynamicObjectId = 1;</code>
-         */
-        public Builder setLocationDynamicObjectId(int value) {
-          bitField0_ |= 0x00000001;
-          locationDynamicObjectId_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>required int32 locationDynamicObjectId = 1;</code>
-         */
-        public Builder clearLocationDynamicObjectId() {
-          bitField0_ = (bitField0_ & ~0x00000001);
-          locationDynamicObjectId_ = 0;
-          onChanged();
-          return this;
-        }
-
-        // required int32 objectTypeId = 2;
-        private int objectTypeId_ ;
-        /**
-         * <code>required int32 objectTypeId = 2;</code>
-         */
-        public boolean hasObjectTypeId() {
-          return ((bitField0_ & 0x00000002) == 0x00000002);
-        }
-        /**
-         * <code>required int32 objectTypeId = 2;</code>
-         */
-        public int getObjectTypeId() {
-          return objectTypeId_;
-        }
-        /**
-         * <code>required int32 objectTypeId = 2;</code>
-         */
-        public Builder setObjectTypeId(int value) {
-          bitField0_ |= 0x00000002;
-          objectTypeId_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>required int32 objectTypeId = 2;</code>
-         */
-        public Builder clearObjectTypeId() {
-          bitField0_ = (bitField0_ & ~0x00000002);
-          objectTypeId_ = 0;
-          onChanged();
-          return this;
-        }
-
-        // required int32 nativeId = 3;
-        private int nativeId_ ;
-        /**
-         * <code>required int32 nativeId = 3;</code>
-         */
-        public boolean hasNativeId() {
-          return ((bitField0_ & 0x00000004) == 0x00000004);
-        }
-        /**
-         * <code>required int32 nativeId = 3;</code>
-         */
-        public int getNativeId() {
-          return nativeId_;
-        }
-        /**
-         * <code>required int32 nativeId = 3;</code>
-         */
-        public Builder setNativeId(int value) {
-          bitField0_ |= 0x00000004;
-          nativeId_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>required int32 nativeId = 3;</code>
-         */
-        public Builder clearNativeId() {
-          bitField0_ = (bitField0_ & ~0x00000004);
-          nativeId_ = 0;
-          onChanged();
-          return this;
-        }
-
-        // required int32 x = 4;
-        private int x_ ;
-        /**
-         * <code>required int32 x = 4;</code>
-         */
-        public boolean hasX() {
-          return ((bitField0_ & 0x00000008) == 0x00000008);
-        }
-        /**
-         * <code>required int32 x = 4;</code>
-         */
-        public int getX() {
-          return x_;
-        }
-        /**
-         * <code>required int32 x = 4;</code>
-         */
-        public Builder setX(int value) {
-          bitField0_ |= 0x00000008;
-          x_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>required int32 x = 4;</code>
-         */
-        public Builder clearX() {
-          bitField0_ = (bitField0_ & ~0x00000008);
-          x_ = 0;
-          onChanged();
-          return this;
-        }
-
-        // required int32 y = 5;
-        private int y_ ;
-        /**
-         * <code>required int32 y = 5;</code>
-         */
-        public boolean hasY() {
-          return ((bitField0_ & 0x00000010) == 0x00000010);
-        }
-        /**
-         * <code>required int32 y = 5;</code>
-         */
-        public int getY() {
-          return y_;
-        }
-        /**
-         * <code>required int32 y = 5;</code>
-         */
-        public Builder setY(int value) {
-          bitField0_ |= 0x00000010;
-          y_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>required int32 y = 5;</code>
-         */
-        public Builder clearY() {
-          bitField0_ = (bitField0_ & ~0x00000010);
-          y_ = 0;
-          onChanged();
-          return this;
-        }
-
-        // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse.LocationDynamicObject)
-      }
-
-      static {
-        defaultInstance = new LocationDynamicObject(true);
-        defaultInstance.initFields();
-      }
-
-      // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse.LocationDynamicObject)
-    }
-
-    // repeated .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse.LocationDynamicObject objects = 1;
+    // repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;
     public static final int OBJECTS_FIELD_NUMBER = 1;
-    private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject> objects_;
+    private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject> objects_;
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse.LocationDynamicObject objects = 1;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
      */
-    public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject> getObjectsList() {
+    public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject> getObjectsList() {
       return objects_;
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse.LocationDynamicObject objects = 1;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
      */
-    public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObjectOrBuilder> 
+    public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObjectOrBuilder> 
         getObjectsOrBuilderList() {
       return objects_;
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse.LocationDynamicObject objects = 1;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
      */
     public int getObjectsCount() {
       return objects_.size();
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse.LocationDynamicObject objects = 1;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject getObjects(int index) {
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject getObjects(int index) {
       return objects_.get(index);
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse.LocationDynamicObject objects = 1;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObjectOrBuilder getObjectsOrBuilder(
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObjectOrBuilder getObjectsOrBuilder(
         int index) {
       return objects_.get(index);
     }
@@ -4125,23 +3365,23 @@ public final class GeProtocol {
       }
       private int bitField0_;
 
-      // repeated .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse.LocationDynamicObject objects = 1;
-      private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject> objects_ =
+      // repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;
+      private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject> objects_ =
         java.util.Collections.emptyList();
       private void ensureObjectsIsMutable() {
         if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-          objects_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject>(objects_);
+          objects_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject>(objects_);
           bitField0_ |= 0x00000001;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject, arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObjectOrBuilder> objectsBuilder_;
+          arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObjectOrBuilder> objectsBuilder_;
 
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse.LocationDynamicObject objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
        */
-      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject> getObjectsList() {
+      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject> getObjectsList() {
         if (objectsBuilder_ == null) {
           return java.util.Collections.unmodifiableList(objects_);
         } else {
@@ -4149,7 +3389,7 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse.LocationDynamicObject objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
        */
       public int getObjectsCount() {
         if (objectsBuilder_ == null) {
@@ -4159,9 +3399,9 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse.LocationDynamicObject objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject getObjects(int index) {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject getObjects(int index) {
         if (objectsBuilder_ == null) {
           return objects_.get(index);
         } else {
@@ -4169,10 +3409,10 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse.LocationDynamicObject objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
        */
       public Builder setObjects(
-          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject value) {
+          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject value) {
         if (objectsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -4186,10 +3426,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse.LocationDynamicObject objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
        */
       public Builder setObjects(
-          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject.Builder builderForValue) {
+          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject.Builder builderForValue) {
         if (objectsBuilder_ == null) {
           ensureObjectsIsMutable();
           objects_.set(index, builderForValue.build());
@@ -4200,9 +3440,9 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse.LocationDynamicObject objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
        */
-      public Builder addObjects(arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject value) {
+      public Builder addObjects(arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject value) {
         if (objectsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -4216,10 +3456,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse.LocationDynamicObject objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
        */
       public Builder addObjects(
-          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject value) {
+          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject value) {
         if (objectsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -4233,10 +3473,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse.LocationDynamicObject objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
        */
       public Builder addObjects(
-          arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject.Builder builderForValue) {
+          arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject.Builder builderForValue) {
         if (objectsBuilder_ == null) {
           ensureObjectsIsMutable();
           objects_.add(builderForValue.build());
@@ -4247,10 +3487,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse.LocationDynamicObject objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
        */
       public Builder addObjects(
-          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject.Builder builderForValue) {
+          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject.Builder builderForValue) {
         if (objectsBuilder_ == null) {
           ensureObjectsIsMutable();
           objects_.add(index, builderForValue.build());
@@ -4261,10 +3501,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse.LocationDynamicObject objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
        */
       public Builder addAllObjects(
-          java.lang.Iterable<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject> values) {
+          java.lang.Iterable<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject> values) {
         if (objectsBuilder_ == null) {
           ensureObjectsIsMutable();
           super.addAll(values, objects_);
@@ -4275,7 +3515,7 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse.LocationDynamicObject objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
        */
       public Builder clearObjects() {
         if (objectsBuilder_ == null) {
@@ -4288,7 +3528,7 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse.LocationDynamicObject objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
        */
       public Builder removeObjects(int index) {
         if (objectsBuilder_ == null) {
@@ -4301,16 +3541,16 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse.LocationDynamicObject objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject.Builder getObjectsBuilder(
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject.Builder getObjectsBuilder(
           int index) {
         return getObjectsFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse.LocationDynamicObject objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObjectOrBuilder getObjectsOrBuilder(
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObjectOrBuilder getObjectsOrBuilder(
           int index) {
         if (objectsBuilder_ == null) {
           return objects_.get(index);  } else {
@@ -4318,9 +3558,9 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse.LocationDynamicObject objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
        */
-      public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObjectOrBuilder> 
+      public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObjectOrBuilder> 
            getObjectsOrBuilderList() {
         if (objectsBuilder_ != null) {
           return objectsBuilder_.getMessageOrBuilderList();
@@ -4329,33 +3569,33 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse.LocationDynamicObject objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject.Builder addObjectsBuilder() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject.Builder addObjectsBuilder() {
         return getObjectsFieldBuilder().addBuilder(
-            arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject.getDefaultInstance());
+            arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject.getDefaultInstance());
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse.LocationDynamicObject objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject.Builder addObjectsBuilder(
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject.Builder addObjectsBuilder(
           int index) {
         return getObjectsFieldBuilder().addBuilder(
-            index, arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject.getDefaultInstance());
+            index, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject.getDefaultInstance());
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse.LocationDynamicObject objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
        */
-      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject.Builder> 
+      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject.Builder> 
            getObjectsBuilderList() {
         return getObjectsFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject, arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObjectOrBuilder> 
+          arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObjectOrBuilder> 
           getObjectsFieldBuilder() {
         if (objectsBuilder_ == null) {
           objectsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject, arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObject.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.LocationDynamicObjectOrBuilder>(
+              arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObjectOrBuilder>(
                   objects_,
                   ((bitField0_ & 0x00000001) == 0x00000001),
                   getParentForChildren(),
@@ -4737,6 +3977,26 @@ public final class GeProtocol {
      * <code>required int32 rotationAngle = 5;</code>
      */
     int getRotationAngle();
+
+    // required float positionX = 6;
+    /**
+     * <code>required float positionX = 6;</code>
+     */
+    boolean hasPositionX();
+    /**
+     * <code>required float positionX = 6;</code>
+     */
+    float getPositionX();
+
+    // required float positionY = 7;
+    /**
+     * <code>required float positionY = 7;</code>
+     */
+    boolean hasPositionY();
+    /**
+     * <code>required float positionY = 7;</code>
+     */
+    float getPositionY();
   }
   /**
    * Protobuf type {@code arch.galaxyeclipse.shared.protocol.ShipStateResponse}
@@ -4812,6 +4072,16 @@ public final class GeProtocol {
             case 40: {
               bitField0_ |= 0x00000010;
               rotationAngle_ = input.readInt32();
+              break;
+            }
+            case 53: {
+              bitField0_ |= 0x00000020;
+              positionX_ = input.readFloat();
+              break;
+            }
+            case 61: {
+              bitField0_ |= 0x00000040;
+              positionY_ = input.readFloat();
               break;
             }
           }
@@ -4934,12 +4204,46 @@ public final class GeProtocol {
       return rotationAngle_;
     }
 
+    // required float positionX = 6;
+    public static final int POSITIONX_FIELD_NUMBER = 6;
+    private float positionX_;
+    /**
+     * <code>required float positionX = 6;</code>
+     */
+    public boolean hasPositionX() {
+      return ((bitField0_ & 0x00000020) == 0x00000020);
+    }
+    /**
+     * <code>required float positionX = 6;</code>
+     */
+    public float getPositionX() {
+      return positionX_;
+    }
+
+    // required float positionY = 7;
+    public static final int POSITIONY_FIELD_NUMBER = 7;
+    private float positionY_;
+    /**
+     * <code>required float positionY = 7;</code>
+     */
+    public boolean hasPositionY() {
+      return ((bitField0_ & 0x00000040) == 0x00000040);
+    }
+    /**
+     * <code>required float positionY = 7;</code>
+     */
+    public float getPositionY() {
+      return positionY_;
+    }
+
     private void initFields() {
       moveSpeed_ = 0;
       rotationSpeed_ = 0;
       hp_ = 0;
       armorDurability_ = 0;
       rotationAngle_ = 0;
+      positionX_ = 0F;
+      positionY_ = 0F;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -4966,6 +4270,14 @@ public final class GeProtocol {
         memoizedIsInitialized = 0;
         return false;
       }
+      if (!hasPositionX()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasPositionY()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -4987,6 +4299,12 @@ public final class GeProtocol {
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         output.writeInt32(5, rotationAngle_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        output.writeFloat(6, positionX_);
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        output.writeFloat(7, positionY_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -5016,6 +4334,14 @@ public final class GeProtocol {
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(5, rotationAngle_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFloatSize(6, positionX_);
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFloatSize(7, positionY_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -5143,6 +4469,10 @@ public final class GeProtocol {
         bitField0_ = (bitField0_ & ~0x00000008);
         rotationAngle_ = 0;
         bitField0_ = (bitField0_ & ~0x00000010);
+        positionX_ = 0F;
+        bitField0_ = (bitField0_ & ~0x00000020);
+        positionY_ = 0F;
+        bitField0_ = (bitField0_ & ~0x00000040);
         return this;
       }
 
@@ -5191,6 +4521,14 @@ public final class GeProtocol {
           to_bitField0_ |= 0x00000010;
         }
         result.rotationAngle_ = rotationAngle_;
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
+        }
+        result.positionX_ = positionX_;
+        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
+          to_bitField0_ |= 0x00000040;
+        }
+        result.positionY_ = positionY_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -5222,6 +4560,12 @@ public final class GeProtocol {
         if (other.hasRotationAngle()) {
           setRotationAngle(other.getRotationAngle());
         }
+        if (other.hasPositionX()) {
+          setPositionX(other.getPositionX());
+        }
+        if (other.hasPositionY()) {
+          setPositionY(other.getPositionY());
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
@@ -5244,6 +4588,14 @@ public final class GeProtocol {
           return false;
         }
         if (!hasRotationAngle()) {
+          
+          return false;
+        }
+        if (!hasPositionX()) {
+          
+          return false;
+        }
+        if (!hasPositionY()) {
           
           return false;
         }
@@ -5434,6 +4786,72 @@ public final class GeProtocol {
         return this;
       }
 
+      // required float positionX = 6;
+      private float positionX_ ;
+      /**
+       * <code>required float positionX = 6;</code>
+       */
+      public boolean hasPositionX() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       * <code>required float positionX = 6;</code>
+       */
+      public float getPositionX() {
+        return positionX_;
+      }
+      /**
+       * <code>required float positionX = 6;</code>
+       */
+      public Builder setPositionX(float value) {
+        bitField0_ |= 0x00000020;
+        positionX_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required float positionX = 6;</code>
+       */
+      public Builder clearPositionX() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        positionX_ = 0F;
+        onChanged();
+        return this;
+      }
+
+      // required float positionY = 7;
+      private float positionY_ ;
+      /**
+       * <code>required float positionY = 7;</code>
+       */
+      public boolean hasPositionY() {
+        return ((bitField0_ & 0x00000040) == 0x00000040);
+      }
+      /**
+       * <code>required float positionY = 7;</code>
+       */
+      public float getPositionY() {
+        return positionY_;
+      }
+      /**
+       * <code>required float positionY = 7;</code>
+       */
+      public Builder setPositionY(float value) {
+        bitField0_ |= 0x00000040;
+        positionY_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required float positionY = 7;</code>
+       */
+      public Builder clearPositionY() {
+        bitField0_ = (bitField0_ & ~0x00000040);
+        positionY_ = 0F;
+        onChanged();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.ShipStateResponse)
     }
 
@@ -5458,37 +4876,23 @@ public final class GeProtocol {
      */
     arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.ClientActionType getType();
 
-    // optional .arch.galaxyeclipse.shared.protocol.ClientAction.Point point = 2;
+    // optional int32 locationObjectId = 2;
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.ClientAction.Point point = 2;</code>
-     */
-    boolean hasPoint();
-    /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.ClientAction.Point point = 2;</code>
-     */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.Point getPoint();
-    /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.ClientAction.Point point = 2;</code>
-     */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.PointOrBuilder getPointOrBuilder();
-
-    // optional int32 locationObjectId = 3;
-    /**
-     * <code>optional int32 locationObjectId = 3;</code>
+     * <code>optional int32 locationObjectId = 2;</code>
      */
     boolean hasLocationObjectId();
     /**
-     * <code>optional int32 locationObjectId = 3;</code>
+     * <code>optional int32 locationObjectId = 2;</code>
      */
     int getLocationObjectId();
 
-    // optional int32 locationObjectTypeId = 4;
+    // optional int32 locationObjectTypeId = 3;
     /**
-     * <code>optional int32 locationObjectTypeId = 4;</code>
+     * <code>optional int32 locationObjectTypeId = 3;</code>
      */
     boolean hasLocationObjectTypeId();
     /**
-     * <code>optional int32 locationObjectTypeId = 4;</code>
+     * <code>optional int32 locationObjectTypeId = 3;</code>
      */
     int getLocationObjectTypeId();
   }
@@ -5554,26 +4958,13 @@ public final class GeProtocol {
               }
               break;
             }
-            case 18: {
-              arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.Point.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000002) == 0x00000002)) {
-                subBuilder = point_.toBuilder();
-              }
-              point_ = input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.Point.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(point_);
-                point_ = subBuilder.buildPartial();
-              }
+            case 16: {
               bitField0_ |= 0x00000002;
+              locationObjectId_ = input.readInt32();
               break;
             }
             case 24: {
               bitField0_ |= 0x00000004;
-              locationObjectId_ = input.readInt32();
-              break;
-            }
-            case 32: {
-              bitField0_ |= 0x00000008;
               locationObjectTypeId_ = input.readInt32();
               break;
             }
@@ -5642,21 +5033,13 @@ public final class GeProtocol {
        */
       STOP(3, 4),
       /**
-       * <code>MAP_CLICK = 5;</code>
-       */
-      MAP_CLICK(4, 5),
-      /**
-       * <code>MINI_MAP_CLICK = 6;</code>
-       */
-      MINI_MAP_CLICK(5, 6),
-      /**
        * <code>OBJECT_CLICK = 7;</code>
        *
        * <pre>
        * LBM
        * </pre>
        */
-      OBJECT_CLICK(6, 7),
+      OBJECT_CLICK(4, 7),
       /**
        * <code>LOOT_PICK = 8;</code>
        *
@@ -5664,7 +5047,7 @@ public final class GeProtocol {
        * RMB
        * </pre>
        */
-      LOOT_PICK(7, 8),
+      LOOT_PICK(5, 8),
       /**
        * <code>ATTACK_START = 9;</code>
        *
@@ -5672,11 +5055,11 @@ public final class GeProtocol {
        * Space button
        * </pre>
        */
-      ATTACK_START(8, 9),
+      ATTACK_START(6, 9),
       /**
        * <code>ATTACK_STOP = 10;</code>
        */
-      ATTACK_STOP(9, 10),
+      ATTACK_STOP(7, 10),
       /**
        * <code>ROCKET_SHOOT = 16;</code>
        *
@@ -5684,7 +5067,7 @@ public final class GeProtocol {
        * SHIFT
        * </pre>
        */
-      ROCKET_SHOOT(10, 16),
+      ROCKET_SHOOT(8, 16),
       ;
 
       /**
@@ -5707,14 +5090,6 @@ public final class GeProtocol {
        * <code>STOP = 4;</code>
        */
       public static final int STOP_VALUE = 4;
-      /**
-       * <code>MAP_CLICK = 5;</code>
-       */
-      public static final int MAP_CLICK_VALUE = 5;
-      /**
-       * <code>MINI_MAP_CLICK = 6;</code>
-       */
-      public static final int MINI_MAP_CLICK_VALUE = 6;
       /**
        * <code>OBJECT_CLICK = 7;</code>
        *
@@ -5761,8 +5136,6 @@ public final class GeProtocol {
           case 2: return ROTATE_RIGHT;
           case 3: return MOVE;
           case 4: return STOP;
-          case 5: return MAP_CLICK;
-          case 6: return MINI_MAP_CLICK;
           case 7: return OBJECT_CLICK;
           case 8: return LOOT_PICK;
           case 9: return ATTACK_START;
@@ -5819,499 +5192,6 @@ public final class GeProtocol {
       // @@protoc_insertion_point(enum_scope:arch.galaxyeclipse.shared.protocol.ClientAction.ClientActionType)
     }
 
-    public interface PointOrBuilder
-        extends com.google.protobuf.MessageOrBuilder {
-
-      // required int32 x = 1;
-      /**
-       * <code>required int32 x = 1;</code>
-       */
-      boolean hasX();
-      /**
-       * <code>required int32 x = 1;</code>
-       */
-      int getX();
-
-      // required int32 y = 2;
-      /**
-       * <code>required int32 y = 2;</code>
-       */
-      boolean hasY();
-      /**
-       * <code>required int32 y = 2;</code>
-       */
-      int getY();
-    }
-    /**
-     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.ClientAction.Point}
-     */
-    public static final class Point extends
-        com.google.protobuf.GeneratedMessage
-        implements PointOrBuilder {
-      // Use Point.newBuilder() to construct.
-      private Point(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
-        super(builder);
-        this.unknownFields = builder.getUnknownFields();
-      }
-      private Point(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-      private static final Point defaultInstance;
-      public static Point getDefaultInstance() {
-        return defaultInstance;
-      }
-
-      public Point getDefaultInstanceForType() {
-        return defaultInstance;
-      }
-
-      private final com.google.protobuf.UnknownFieldSet unknownFields;
-      @java.lang.Override
-      public final com.google.protobuf.UnknownFieldSet
-          getUnknownFields() {
-        return this.unknownFields;
-      }
-      private Point(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        initFields();
-        int mutable_bitField0_ = 0;
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              default: {
-                if (!parseUnknownField(input, unknownFields,
-                                       extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-              case 8: {
-                bitField0_ |= 0x00000001;
-                x_ = input.readInt32();
-                break;
-              }
-              case 16: {
-                bitField0_ |= 0x00000002;
-                y_ = input.readInt32();
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e.getMessage()).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ClientAction_Point_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ClientAction_Point_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.Point.class, arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.Point.Builder.class);
-      }
-
-      public static com.google.protobuf.Parser<Point> PARSER =
-          new com.google.protobuf.AbstractParser<Point>() {
-        public Point parsePartialFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Point(input, extensionRegistry);
-        }
-      };
-
-      @java.lang.Override
-      public com.google.protobuf.Parser<Point> getParserForType() {
-        return PARSER;
-      }
-
-      private int bitField0_;
-      // required int32 x = 1;
-      public static final int X_FIELD_NUMBER = 1;
-      private int x_;
-      /**
-       * <code>required int32 x = 1;</code>
-       */
-      public boolean hasX() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      /**
-       * <code>required int32 x = 1;</code>
-       */
-      public int getX() {
-        return x_;
-      }
-
-      // required int32 y = 2;
-      public static final int Y_FIELD_NUMBER = 2;
-      private int y_;
-      /**
-       * <code>required int32 y = 2;</code>
-       */
-      public boolean hasY() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      /**
-       * <code>required int32 y = 2;</code>
-       */
-      public int getY() {
-        return y_;
-      }
-
-      private void initFields() {
-        x_ = 0;
-        y_ = 0;
-      }
-      private byte memoizedIsInitialized = -1;
-      public final boolean isInitialized() {
-        byte isInitialized = memoizedIsInitialized;
-        if (isInitialized != -1) return isInitialized == 1;
-
-        if (!hasX()) {
-          memoizedIsInitialized = 0;
-          return false;
-        }
-        if (!hasY()) {
-          memoizedIsInitialized = 0;
-          return false;
-        }
-        memoizedIsInitialized = 1;
-        return true;
-      }
-
-      public void writeTo(com.google.protobuf.CodedOutputStream output)
-                          throws java.io.IOException {
-        getSerializedSize();
-        if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          output.writeInt32(1, x_);
-        }
-        if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          output.writeInt32(2, y_);
-        }
-        getUnknownFields().writeTo(output);
-      }
-
-      private int memoizedSerializedSize = -1;
-      public int getSerializedSize() {
-        int size = memoizedSerializedSize;
-        if (size != -1) return size;
-
-        size = 0;
-        if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(1, x_);
-        }
-        if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(2, y_);
-        }
-        size += getUnknownFields().getSerializedSize();
-        memoizedSerializedSize = size;
-        return size;
-      }
-
-      private static final long serialVersionUID = 0L;
-      @java.lang.Override
-      protected java.lang.Object writeReplace()
-          throws java.io.ObjectStreamException {
-        return super.writeReplace();
-      }
-
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.Point parseFrom(
-          com.google.protobuf.ByteString data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.Point parseFrom(
-          com.google.protobuf.ByteString data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.Point parseFrom(byte[] data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.Point parseFrom(
-          byte[] data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.Point parseFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return PARSER.parseFrom(input);
-      }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.Point parseFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return PARSER.parseFrom(input, extensionRegistry);
-      }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.Point parseDelimitedFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return PARSER.parseDelimitedFrom(input);
-      }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.Point parseDelimitedFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return PARSER.parseDelimitedFrom(input, extensionRegistry);
-      }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.Point parseFrom(
-          com.google.protobuf.CodedInputStream input)
-          throws java.io.IOException {
-        return PARSER.parseFrom(input);
-      }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.Point parseFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return PARSER.parseFrom(input, extensionRegistry);
-      }
-
-      public static Builder newBuilder() { return Builder.create(); }
-      public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.Point prototype) {
-        return newBuilder().mergeFrom(prototype);
-      }
-      public Builder toBuilder() { return newBuilder(this); }
-
-      @java.lang.Override
-      protected Builder newBuilderForType(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-        Builder builder = new Builder(parent);
-        return builder;
-      }
-      /**
-       * Protobuf type {@code arch.galaxyeclipse.shared.protocol.ClientAction.Point}
-       */
-      public static final class Builder extends
-          com.google.protobuf.GeneratedMessage.Builder<Builder>
-         implements arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.PointOrBuilder {
-        public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ClientAction_Point_descriptor;
-        }
-
-        protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ClientAction_Point_fieldAccessorTable
-              .ensureFieldAccessorsInitialized(
-                  arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.Point.class, arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.Point.Builder.class);
-        }
-
-        // Construct using arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.Point.newBuilder()
-        private Builder() {
-          maybeForceBuilderInitialization();
-        }
-
-        private Builder(
-            com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-          super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-          }
-        }
-        private static Builder create() {
-          return new Builder();
-        }
-
-        public Builder clear() {
-          super.clear();
-          x_ = 0;
-          bitField0_ = (bitField0_ & ~0x00000001);
-          y_ = 0;
-          bitField0_ = (bitField0_ & ~0x00000002);
-          return this;
-        }
-
-        public Builder clone() {
-          return create().mergeFrom(buildPartial());
-        }
-
-        public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ClientAction_Point_descriptor;
-        }
-
-        public arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.Point getDefaultInstanceForType() {
-          return arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.Point.getDefaultInstance();
-        }
-
-        public arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.Point build() {
-          arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.Point result = buildPartial();
-          if (!result.isInitialized()) {
-            throw newUninitializedMessageException(result);
-          }
-          return result;
-        }
-
-        public arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.Point buildPartial() {
-          arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.Point result = new arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.Point(this);
-          int from_bitField0_ = bitField0_;
-          int to_bitField0_ = 0;
-          if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-            to_bitField0_ |= 0x00000001;
-          }
-          result.x_ = x_;
-          if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-            to_bitField0_ |= 0x00000002;
-          }
-          result.y_ = y_;
-          result.bitField0_ = to_bitField0_;
-          onBuilt();
-          return result;
-        }
-
-        public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.Point) {
-            return mergeFrom((arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.Point)other);
-          } else {
-            super.mergeFrom(other);
-            return this;
-          }
-        }
-
-        public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.Point other) {
-          if (other == arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.Point.getDefaultInstance()) return this;
-          if (other.hasX()) {
-            setX(other.getX());
-          }
-          if (other.hasY()) {
-            setY(other.getY());
-          }
-          this.mergeUnknownFields(other.getUnknownFields());
-          return this;
-        }
-
-        public final boolean isInitialized() {
-          if (!hasX()) {
-            
-            return false;
-          }
-          if (!hasY()) {
-            
-            return false;
-          }
-          return true;
-        }
-
-        public Builder mergeFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-          arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.Point parsedMessage = null;
-          try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.Point) e.getUnfinishedMessage();
-            throw e;
-          } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
-          return this;
-        }
-        private int bitField0_;
-
-        // required int32 x = 1;
-        private int x_ ;
-        /**
-         * <code>required int32 x = 1;</code>
-         */
-        public boolean hasX() {
-          return ((bitField0_ & 0x00000001) == 0x00000001);
-        }
-        /**
-         * <code>required int32 x = 1;</code>
-         */
-        public int getX() {
-          return x_;
-        }
-        /**
-         * <code>required int32 x = 1;</code>
-         */
-        public Builder setX(int value) {
-          bitField0_ |= 0x00000001;
-          x_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>required int32 x = 1;</code>
-         */
-        public Builder clearX() {
-          bitField0_ = (bitField0_ & ~0x00000001);
-          x_ = 0;
-          onChanged();
-          return this;
-        }
-
-        // required int32 y = 2;
-        private int y_ ;
-        /**
-         * <code>required int32 y = 2;</code>
-         */
-        public boolean hasY() {
-          return ((bitField0_ & 0x00000002) == 0x00000002);
-        }
-        /**
-         * <code>required int32 y = 2;</code>
-         */
-        public int getY() {
-          return y_;
-        }
-        /**
-         * <code>required int32 y = 2;</code>
-         */
-        public Builder setY(int value) {
-          bitField0_ |= 0x00000002;
-          y_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>required int32 y = 2;</code>
-         */
-        public Builder clearY() {
-          bitField0_ = (bitField0_ & ~0x00000002);
-          y_ = 0;
-          onChanged();
-          return this;
-        }
-
-        // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.ClientAction.Point)
-      }
-
-      static {
-        defaultInstance = new Point(true);
-        defaultInstance.initFields();
-      }
-
-      // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.ClientAction.Point)
-    }
-
     private int bitField0_;
     // required .arch.galaxyeclipse.shared.protocol.ClientAction.ClientActionType type = 1;
     public static final int TYPE_FIELD_NUMBER = 1;
@@ -6329,55 +5209,33 @@ public final class GeProtocol {
       return type_;
     }
 
-    // optional .arch.galaxyeclipse.shared.protocol.ClientAction.Point point = 2;
-    public static final int POINT_FIELD_NUMBER = 2;
-    private arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.Point point_;
+    // optional int32 locationObjectId = 2;
+    public static final int LOCATIONOBJECTID_FIELD_NUMBER = 2;
+    private int locationObjectId_;
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.ClientAction.Point point = 2;</code>
+     * <code>optional int32 locationObjectId = 2;</code>
      */
-    public boolean hasPoint() {
+    public boolean hasLocationObjectId() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.ClientAction.Point point = 2;</code>
-     */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.Point getPoint() {
-      return point_;
-    }
-    /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.ClientAction.Point point = 2;</code>
-     */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.PointOrBuilder getPointOrBuilder() {
-      return point_;
-    }
-
-    // optional int32 locationObjectId = 3;
-    public static final int LOCATIONOBJECTID_FIELD_NUMBER = 3;
-    private int locationObjectId_;
-    /**
-     * <code>optional int32 locationObjectId = 3;</code>
-     */
-    public boolean hasLocationObjectId() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
-    }
-    /**
-     * <code>optional int32 locationObjectId = 3;</code>
+     * <code>optional int32 locationObjectId = 2;</code>
      */
     public int getLocationObjectId() {
       return locationObjectId_;
     }
 
-    // optional int32 locationObjectTypeId = 4;
-    public static final int LOCATIONOBJECTTYPEID_FIELD_NUMBER = 4;
+    // optional int32 locationObjectTypeId = 3;
+    public static final int LOCATIONOBJECTTYPEID_FIELD_NUMBER = 3;
     private int locationObjectTypeId_;
     /**
-     * <code>optional int32 locationObjectTypeId = 4;</code>
+     * <code>optional int32 locationObjectTypeId = 3;</code>
      */
     public boolean hasLocationObjectTypeId() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
+      return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>optional int32 locationObjectTypeId = 4;</code>
+     * <code>optional int32 locationObjectTypeId = 3;</code>
      */
     public int getLocationObjectTypeId() {
       return locationObjectTypeId_;
@@ -6385,7 +5243,6 @@ public final class GeProtocol {
 
     private void initFields() {
       type_ = arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.ClientActionType.ROTATE_LEFT;
-      point_ = arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.Point.getDefaultInstance();
       locationObjectId_ = 0;
       locationObjectTypeId_ = 0;
     }
@@ -6398,12 +5255,6 @@ public final class GeProtocol {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (hasPoint()) {
-        if (!getPoint().isInitialized()) {
-          memoizedIsInitialized = 0;
-          return false;
-        }
-      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -6415,13 +5266,10 @@ public final class GeProtocol {
         output.writeEnum(1, type_.getNumber());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeMessage(2, point_);
+        output.writeInt32(2, locationObjectId_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeInt32(3, locationObjectId_);
-      }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeInt32(4, locationObjectTypeId_);
+        output.writeInt32(3, locationObjectTypeId_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -6438,15 +5286,11 @@ public final class GeProtocol {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, point_);
+          .computeInt32Size(2, locationObjectId_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(3, locationObjectId_);
-      }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(4, locationObjectTypeId_);
+          .computeInt32Size(3, locationObjectTypeId_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -6556,7 +5400,6 @@ public final class GeProtocol {
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-          getPointFieldBuilder();
         }
       }
       private static Builder create() {
@@ -6567,16 +5410,10 @@ public final class GeProtocol {
         super.clear();
         type_ = arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.ClientActionType.ROTATE_LEFT;
         bitField0_ = (bitField0_ & ~0x00000001);
-        if (pointBuilder_ == null) {
-          point_ = arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.Point.getDefaultInstance();
-        } else {
-          pointBuilder_.clear();
-        }
-        bitField0_ = (bitField0_ & ~0x00000002);
         locationObjectId_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000002);
         locationObjectTypeId_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -6612,17 +5449,9 @@ public final class GeProtocol {
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        if (pointBuilder_ == null) {
-          result.point_ = point_;
-        } else {
-          result.point_ = pointBuilder_.build();
-        }
+        result.locationObjectId_ = locationObjectId_;
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
-        }
-        result.locationObjectId_ = locationObjectId_;
-        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
-          to_bitField0_ |= 0x00000008;
         }
         result.locationObjectTypeId_ = locationObjectTypeId_;
         result.bitField0_ = to_bitField0_;
@@ -6644,9 +5473,6 @@ public final class GeProtocol {
         if (other.hasType()) {
           setType(other.getType());
         }
-        if (other.hasPoint()) {
-          mergePoint(other.getPoint());
-        }
         if (other.hasLocationObjectId()) {
           setLocationObjectId(other.getLocationObjectId());
         }
@@ -6661,12 +5487,6 @@ public final class GeProtocol {
         if (!hasType()) {
           
           return false;
-        }
-        if (hasPoint()) {
-          if (!getPoint().isInitialized()) {
-            
-            return false;
-          }
         }
         return true;
       }
@@ -6726,184 +5546,67 @@ public final class GeProtocol {
         return this;
       }
 
-      // optional .arch.galaxyeclipse.shared.protocol.ClientAction.Point point = 2;
-      private arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.Point point_ = arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.Point.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.Point, arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.Point.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.PointOrBuilder> pointBuilder_;
+      // optional int32 locationObjectId = 2;
+      private int locationObjectId_ ;
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ClientAction.Point point = 2;</code>
+       * <code>optional int32 locationObjectId = 2;</code>
        */
-      public boolean hasPoint() {
+      public boolean hasLocationObjectId() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ClientAction.Point point = 2;</code>
-       */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.Point getPoint() {
-        if (pointBuilder_ == null) {
-          return point_;
-        } else {
-          return pointBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ClientAction.Point point = 2;</code>
-       */
-      public Builder setPoint(arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.Point value) {
-        if (pointBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          point_ = value;
-          onChanged();
-        } else {
-          pointBuilder_.setMessage(value);
-        }
-        bitField0_ |= 0x00000002;
-        return this;
-      }
-      /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ClientAction.Point point = 2;</code>
-       */
-      public Builder setPoint(
-          arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.Point.Builder builderForValue) {
-        if (pointBuilder_ == null) {
-          point_ = builderForValue.build();
-          onChanged();
-        } else {
-          pointBuilder_.setMessage(builderForValue.build());
-        }
-        bitField0_ |= 0x00000002;
-        return this;
-      }
-      /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ClientAction.Point point = 2;</code>
-       */
-      public Builder mergePoint(arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.Point value) {
-        if (pointBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) == 0x00000002) &&
-              point_ != arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.Point.getDefaultInstance()) {
-            point_ =
-              arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.Point.newBuilder(point_).mergeFrom(value).buildPartial();
-          } else {
-            point_ = value;
-          }
-          onChanged();
-        } else {
-          pointBuilder_.mergeFrom(value);
-        }
-        bitField0_ |= 0x00000002;
-        return this;
-      }
-      /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ClientAction.Point point = 2;</code>
-       */
-      public Builder clearPoint() {
-        if (pointBuilder_ == null) {
-          point_ = arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.Point.getDefaultInstance();
-          onChanged();
-        } else {
-          pointBuilder_.clear();
-        }
-        bitField0_ = (bitField0_ & ~0x00000002);
-        return this;
-      }
-      /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ClientAction.Point point = 2;</code>
-       */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.Point.Builder getPointBuilder() {
-        bitField0_ |= 0x00000002;
-        onChanged();
-        return getPointFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ClientAction.Point point = 2;</code>
-       */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.PointOrBuilder getPointOrBuilder() {
-        if (pointBuilder_ != null) {
-          return pointBuilder_.getMessageOrBuilder();
-        } else {
-          return point_;
-        }
-      }
-      /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ClientAction.Point point = 2;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.Point, arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.Point.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.PointOrBuilder> 
-          getPointFieldBuilder() {
-        if (pointBuilder_ == null) {
-          pointBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.Point, arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.Point.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.PointOrBuilder>(
-                  point_,
-                  getParentForChildren(),
-                  isClean());
-          point_ = null;
-        }
-        return pointBuilder_;
-      }
-
-      // optional int32 locationObjectId = 3;
-      private int locationObjectId_ ;
-      /**
-       * <code>optional int32 locationObjectId = 3;</code>
-       */
-      public boolean hasLocationObjectId() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
-      }
-      /**
-       * <code>optional int32 locationObjectId = 3;</code>
+       * <code>optional int32 locationObjectId = 2;</code>
        */
       public int getLocationObjectId() {
         return locationObjectId_;
       }
       /**
-       * <code>optional int32 locationObjectId = 3;</code>
+       * <code>optional int32 locationObjectId = 2;</code>
        */
       public Builder setLocationObjectId(int value) {
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000002;
         locationObjectId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 locationObjectId = 3;</code>
+       * <code>optional int32 locationObjectId = 2;</code>
        */
       public Builder clearLocationObjectId() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000002);
         locationObjectId_ = 0;
         onChanged();
         return this;
       }
 
-      // optional int32 locationObjectTypeId = 4;
+      // optional int32 locationObjectTypeId = 3;
       private int locationObjectTypeId_ ;
       /**
-       * <code>optional int32 locationObjectTypeId = 4;</code>
+       * <code>optional int32 locationObjectTypeId = 3;</code>
        */
       public boolean hasLocationObjectTypeId() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
+        return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>optional int32 locationObjectTypeId = 4;</code>
+       * <code>optional int32 locationObjectTypeId = 3;</code>
        */
       public int getLocationObjectTypeId() {
         return locationObjectTypeId_;
       }
       /**
-       * <code>optional int32 locationObjectTypeId = 4;</code>
+       * <code>optional int32 locationObjectTypeId = 3;</code>
        */
       public Builder setLocationObjectTypeId(int value) {
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000004;
         locationObjectTypeId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 locationObjectTypeId = 4;</code>
+       * <code>optional int32 locationObjectTypeId = 3;</code>
        */
       public Builder clearLocationObjectTypeId() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000004);
         locationObjectTypeId_ = 0;
         onChanged();
         return this;
@@ -7995,25 +6698,25 @@ public final class GeProtocol {
     com.google.protobuf.ByteString
         getNameBytes();
 
-    // required int32 width = 3;
+    // required float width = 3;
     /**
-     * <code>required int32 width = 3;</code>
+     * <code>required float width = 3;</code>
      */
     boolean hasWidth();
     /**
-     * <code>required int32 width = 3;</code>
+     * <code>required float width = 3;</code>
      */
-    int getWidth();
+    float getWidth();
 
-    // required int32 height = 4;
+    // required float height = 4;
     /**
-     * <code>required int32 height = 4;</code>
+     * <code>required float height = 4;</code>
      */
     boolean hasHeight();
     /**
-     * <code>required int32 height = 4;</code>
+     * <code>required float height = 4;</code>
      */
-    int getHeight();
+    float getHeight();
 
     // required .arch.galaxyeclipse.shared.protocol.LocationInfo.CachedObjects locationCachedObjects = 5;
     /**
@@ -8090,14 +6793,14 @@ public final class GeProtocol {
               name_ = input.readBytes();
               break;
             }
-            case 24: {
+            case 29: {
               bitField0_ |= 0x00000004;
-              width_ = input.readInt32();
+              width_ = input.readFloat();
               break;
             }
-            case 32: {
+            case 37: {
               bitField0_ |= 0x00000008;
-              height_ = input.readInt32();
+              height_ = input.readFloat();
               break;
             }
             case 42: {
@@ -8155,29 +6858,29 @@ public final class GeProtocol {
     public interface CachedObjectsOrBuilder
         extends com.google.protobuf.MessageOrBuilder {
 
-      // repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.CachedObjects.CachedObject objects = 1;
+      // repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.CachedObjects.CachedObject objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
        */
-      java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject> 
+      java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject> 
           getObjectsList();
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.CachedObjects.CachedObject objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
        */
-      arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject getObjects(int index);
+      arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject getObjects(int index);
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.CachedObjects.CachedObject objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
        */
       int getObjectsCount();
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.CachedObjects.CachedObject objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
        */
-      java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObjectOrBuilder> 
+      java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObjectOrBuilder> 
           getObjectsOrBuilderList();
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.CachedObjects.CachedObject objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
        */
-      arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObjectOrBuilder getObjectsOrBuilder(
+      arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObjectOrBuilder getObjectsOrBuilder(
           int index);
     }
     /**
@@ -8233,10 +6936,10 @@ public final class GeProtocol {
               }
               case 10: {
                 if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                  objects_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject>();
+                  objects_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject>();
                   mutable_bitField0_ |= 0x00000001;
                 }
-                objects_.add(input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject.PARSER, extensionRegistry));
+                objects_.add(input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject.PARSER, extensionRegistry));
                 break;
               }
             }
@@ -8281,709 +6984,38 @@ public final class GeProtocol {
         return PARSER;
       }
 
-      public interface CachedObjectOrBuilder
-          extends com.google.protobuf.MessageOrBuilder {
-
-        // required int32 objectId = 1;
-        /**
-         * <code>required int32 objectId = 1;</code>
-         */
-        boolean hasObjectId();
-        /**
-         * <code>required int32 objectId = 1;</code>
-         */
-        int getObjectId();
-
-        // required int32 positionX = 2;
-        /**
-         * <code>required int32 positionX = 2;</code>
-         */
-        boolean hasPositionX();
-        /**
-         * <code>required int32 positionX = 2;</code>
-         */
-        int getPositionX();
-
-        // required int32 positionY = 3;
-        /**
-         * <code>required int32 positionY = 3;</code>
-         */
-        boolean hasPositionY();
-        /**
-         * <code>required int32 positionY = 3;</code>
-         */
-        int getPositionY();
-
-        // required int32 objectTypeId = 4;
-        /**
-         * <code>required int32 objectTypeId = 4;</code>
-         */
-        boolean hasObjectTypeId();
-        /**
-         * <code>required int32 objectTypeId = 4;</code>
-         */
-        int getObjectTypeId();
-      }
-      /**
-       * Protobuf type {@code arch.galaxyeclipse.shared.protocol.LocationInfo.CachedObjects.CachedObject}
-       */
-      public static final class CachedObject extends
-          com.google.protobuf.GeneratedMessage
-          implements CachedObjectOrBuilder {
-        // Use CachedObject.newBuilder() to construct.
-        private CachedObject(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
-          super(builder);
-          this.unknownFields = builder.getUnknownFields();
-        }
-        private CachedObject(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-        private static final CachedObject defaultInstance;
-        public static CachedObject getDefaultInstance() {
-          return defaultInstance;
-        }
-
-        public CachedObject getDefaultInstanceForType() {
-          return defaultInstance;
-        }
-
-        private final com.google.protobuf.UnknownFieldSet unknownFields;
-        @java.lang.Override
-        public final com.google.protobuf.UnknownFieldSet
-            getUnknownFields() {
-          return this.unknownFields;
-        }
-        private CachedObject(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          initFields();
-          int mutable_bitField0_ = 0;
-          com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-              com.google.protobuf.UnknownFieldSet.newBuilder();
-          try {
-            boolean done = false;
-            while (!done) {
-              int tag = input.readTag();
-              switch (tag) {
-                case 0:
-                  done = true;
-                  break;
-                default: {
-                  if (!parseUnknownField(input, unknownFields,
-                                         extensionRegistry, tag)) {
-                    done = true;
-                  }
-                  break;
-                }
-                case 8: {
-                  bitField0_ |= 0x00000001;
-                  objectId_ = input.readInt32();
-                  break;
-                }
-                case 16: {
-                  bitField0_ |= 0x00000002;
-                  positionX_ = input.readInt32();
-                  break;
-                }
-                case 24: {
-                  bitField0_ |= 0x00000004;
-                  positionY_ = input.readInt32();
-                  break;
-                }
-                case 32: {
-                  bitField0_ |= 0x00000008;
-                  objectTypeId_ = input.readInt32();
-                  break;
-                }
-              }
-            }
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            throw e.setUnfinishedMessage(this);
-          } catch (java.io.IOException e) {
-            throw new com.google.protobuf.InvalidProtocolBufferException(
-                e.getMessage()).setUnfinishedMessage(this);
-          } finally {
-            this.unknownFields = unknownFields.build();
-            makeExtensionsImmutable();
-          }
-        }
-        public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_LocationInfo_CachedObjects_CachedObject_descriptor;
-        }
-
-        protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_LocationInfo_CachedObjects_CachedObject_fieldAccessorTable
-              .ensureFieldAccessorsInitialized(
-                  arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject.class, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject.Builder.class);
-        }
-
-        public static com.google.protobuf.Parser<CachedObject> PARSER =
-            new com.google.protobuf.AbstractParser<CachedObject>() {
-          public CachedObject parsePartialFrom(
-              com.google.protobuf.CodedInputStream input,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws com.google.protobuf.InvalidProtocolBufferException {
-            return new CachedObject(input, extensionRegistry);
-          }
-        };
-
-        @java.lang.Override
-        public com.google.protobuf.Parser<CachedObject> getParserForType() {
-          return PARSER;
-        }
-
-        private int bitField0_;
-        // required int32 objectId = 1;
-        public static final int OBJECTID_FIELD_NUMBER = 1;
-        private int objectId_;
-        /**
-         * <code>required int32 objectId = 1;</code>
-         */
-        public boolean hasObjectId() {
-          return ((bitField0_ & 0x00000001) == 0x00000001);
-        }
-        /**
-         * <code>required int32 objectId = 1;</code>
-         */
-        public int getObjectId() {
-          return objectId_;
-        }
-
-        // required int32 positionX = 2;
-        public static final int POSITIONX_FIELD_NUMBER = 2;
-        private int positionX_;
-        /**
-         * <code>required int32 positionX = 2;</code>
-         */
-        public boolean hasPositionX() {
-          return ((bitField0_ & 0x00000002) == 0x00000002);
-        }
-        /**
-         * <code>required int32 positionX = 2;</code>
-         */
-        public int getPositionX() {
-          return positionX_;
-        }
-
-        // required int32 positionY = 3;
-        public static final int POSITIONY_FIELD_NUMBER = 3;
-        private int positionY_;
-        /**
-         * <code>required int32 positionY = 3;</code>
-         */
-        public boolean hasPositionY() {
-          return ((bitField0_ & 0x00000004) == 0x00000004);
-        }
-        /**
-         * <code>required int32 positionY = 3;</code>
-         */
-        public int getPositionY() {
-          return positionY_;
-        }
-
-        // required int32 objectTypeId = 4;
-        public static final int OBJECTTYPEID_FIELD_NUMBER = 4;
-        private int objectTypeId_;
-        /**
-         * <code>required int32 objectTypeId = 4;</code>
-         */
-        public boolean hasObjectTypeId() {
-          return ((bitField0_ & 0x00000008) == 0x00000008);
-        }
-        /**
-         * <code>required int32 objectTypeId = 4;</code>
-         */
-        public int getObjectTypeId() {
-          return objectTypeId_;
-        }
-
-        private void initFields() {
-          objectId_ = 0;
-          positionX_ = 0;
-          positionY_ = 0;
-          objectTypeId_ = 0;
-        }
-        private byte memoizedIsInitialized = -1;
-        public final boolean isInitialized() {
-          byte isInitialized = memoizedIsInitialized;
-          if (isInitialized != -1) return isInitialized == 1;
-
-          if (!hasObjectId()) {
-            memoizedIsInitialized = 0;
-            return false;
-          }
-          if (!hasPositionX()) {
-            memoizedIsInitialized = 0;
-            return false;
-          }
-          if (!hasPositionY()) {
-            memoizedIsInitialized = 0;
-            return false;
-          }
-          if (!hasObjectTypeId()) {
-            memoizedIsInitialized = 0;
-            return false;
-          }
-          memoizedIsInitialized = 1;
-          return true;
-        }
-
-        public void writeTo(com.google.protobuf.CodedOutputStream output)
-                            throws java.io.IOException {
-          getSerializedSize();
-          if (((bitField0_ & 0x00000001) == 0x00000001)) {
-            output.writeInt32(1, objectId_);
-          }
-          if (((bitField0_ & 0x00000002) == 0x00000002)) {
-            output.writeInt32(2, positionX_);
-          }
-          if (((bitField0_ & 0x00000004) == 0x00000004)) {
-            output.writeInt32(3, positionY_);
-          }
-          if (((bitField0_ & 0x00000008) == 0x00000008)) {
-            output.writeInt32(4, objectTypeId_);
-          }
-          getUnknownFields().writeTo(output);
-        }
-
-        private int memoizedSerializedSize = -1;
-        public int getSerializedSize() {
-          int size = memoizedSerializedSize;
-          if (size != -1) return size;
-
-          size = 0;
-          if (((bitField0_ & 0x00000001) == 0x00000001)) {
-            size += com.google.protobuf.CodedOutputStream
-              .computeInt32Size(1, objectId_);
-          }
-          if (((bitField0_ & 0x00000002) == 0x00000002)) {
-            size += com.google.protobuf.CodedOutputStream
-              .computeInt32Size(2, positionX_);
-          }
-          if (((bitField0_ & 0x00000004) == 0x00000004)) {
-            size += com.google.protobuf.CodedOutputStream
-              .computeInt32Size(3, positionY_);
-          }
-          if (((bitField0_ & 0x00000008) == 0x00000008)) {
-            size += com.google.protobuf.CodedOutputStream
-              .computeInt32Size(4, objectTypeId_);
-          }
-          size += getUnknownFields().getSerializedSize();
-          memoizedSerializedSize = size;
-          return size;
-        }
-
-        private static final long serialVersionUID = 0L;
-        @java.lang.Override
-        protected java.lang.Object writeReplace()
-            throws java.io.ObjectStreamException {
-          return super.writeReplace();
-        }
-
-        public static arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject parseFrom(
-            com.google.protobuf.ByteString data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return PARSER.parseFrom(data);
-        }
-        public static arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject parseFrom(
-            com.google.protobuf.ByteString data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject parseFrom(byte[] data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return PARSER.parseFrom(data);
-        }
-        public static arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject parseFrom(
-            byte[] data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject parseFrom(java.io.InputStream input)
-            throws java.io.IOException {
-          return PARSER.parseFrom(input);
-        }
-        public static arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject parseFrom(
-            java.io.InputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-          return PARSER.parseFrom(input, extensionRegistry);
-        }
-        public static arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject parseDelimitedFrom(java.io.InputStream input)
-            throws java.io.IOException {
-          return PARSER.parseDelimitedFrom(input);
-        }
-        public static arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject parseDelimitedFrom(
-            java.io.InputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-          return PARSER.parseDelimitedFrom(input, extensionRegistry);
-        }
-        public static arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject parseFrom(
-            com.google.protobuf.CodedInputStream input)
-            throws java.io.IOException {
-          return PARSER.parseFrom(input);
-        }
-        public static arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject parseFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-          return PARSER.parseFrom(input, extensionRegistry);
-        }
-
-        public static Builder newBuilder() { return Builder.create(); }
-        public Builder newBuilderForType() { return newBuilder(); }
-        public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject prototype) {
-          return newBuilder().mergeFrom(prototype);
-        }
-        public Builder toBuilder() { return newBuilder(this); }
-
-        @java.lang.Override
-        protected Builder newBuilderForType(
-            com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-          Builder builder = new Builder(parent);
-          return builder;
-        }
-        /**
-         * Protobuf type {@code arch.galaxyeclipse.shared.protocol.LocationInfo.CachedObjects.CachedObject}
-         */
-        public static final class Builder extends
-            com.google.protobuf.GeneratedMessage.Builder<Builder>
-           implements arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObjectOrBuilder {
-          public static final com.google.protobuf.Descriptors.Descriptor
-              getDescriptor() {
-            return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_LocationInfo_CachedObjects_CachedObject_descriptor;
-          }
-
-          protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-              internalGetFieldAccessorTable() {
-            return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_LocationInfo_CachedObjects_CachedObject_fieldAccessorTable
-                .ensureFieldAccessorsInitialized(
-                    arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject.class, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject.Builder.class);
-          }
-
-          // Construct using arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject.newBuilder()
-          private Builder() {
-            maybeForceBuilderInitialization();
-          }
-
-          private Builder(
-              com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-            super(parent);
-            maybeForceBuilderInitialization();
-          }
-          private void maybeForceBuilderInitialization() {
-            if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-            }
-          }
-          private static Builder create() {
-            return new Builder();
-          }
-
-          public Builder clear() {
-            super.clear();
-            objectId_ = 0;
-            bitField0_ = (bitField0_ & ~0x00000001);
-            positionX_ = 0;
-            bitField0_ = (bitField0_ & ~0x00000002);
-            positionY_ = 0;
-            bitField0_ = (bitField0_ & ~0x00000004);
-            objectTypeId_ = 0;
-            bitField0_ = (bitField0_ & ~0x00000008);
-            return this;
-          }
-
-          public Builder clone() {
-            return create().mergeFrom(buildPartial());
-          }
-
-          public com.google.protobuf.Descriptors.Descriptor
-              getDescriptorForType() {
-            return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_LocationInfo_CachedObjects_CachedObject_descriptor;
-          }
-
-          public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject getDefaultInstanceForType() {
-            return arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject.getDefaultInstance();
-          }
-
-          public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject build() {
-            arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject result = buildPartial();
-            if (!result.isInitialized()) {
-              throw newUninitializedMessageException(result);
-            }
-            return result;
-          }
-
-          public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject buildPartial() {
-            arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject result = new arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject(this);
-            int from_bitField0_ = bitField0_;
-            int to_bitField0_ = 0;
-            if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-              to_bitField0_ |= 0x00000001;
-            }
-            result.objectId_ = objectId_;
-            if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-              to_bitField0_ |= 0x00000002;
-            }
-            result.positionX_ = positionX_;
-            if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-              to_bitField0_ |= 0x00000004;
-            }
-            result.positionY_ = positionY_;
-            if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
-              to_bitField0_ |= 0x00000008;
-            }
-            result.objectTypeId_ = objectTypeId_;
-            result.bitField0_ = to_bitField0_;
-            onBuilt();
-            return result;
-          }
-
-          public Builder mergeFrom(com.google.protobuf.Message other) {
-            if (other instanceof arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject) {
-              return mergeFrom((arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject)other);
-            } else {
-              super.mergeFrom(other);
-              return this;
-            }
-          }
-
-          public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject other) {
-            if (other == arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject.getDefaultInstance()) return this;
-            if (other.hasObjectId()) {
-              setObjectId(other.getObjectId());
-            }
-            if (other.hasPositionX()) {
-              setPositionX(other.getPositionX());
-            }
-            if (other.hasPositionY()) {
-              setPositionY(other.getPositionY());
-            }
-            if (other.hasObjectTypeId()) {
-              setObjectTypeId(other.getObjectTypeId());
-            }
-            this.mergeUnknownFields(other.getUnknownFields());
-            return this;
-          }
-
-          public final boolean isInitialized() {
-            if (!hasObjectId()) {
-              
-              return false;
-            }
-            if (!hasPositionX()) {
-              
-              return false;
-            }
-            if (!hasPositionY()) {
-              
-              return false;
-            }
-            if (!hasObjectTypeId()) {
-              
-              return false;
-            }
-            return true;
-          }
-
-          public Builder mergeFrom(
-              com.google.protobuf.CodedInputStream input,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws java.io.IOException {
-            arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject parsedMessage = null;
-            try {
-              parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-              parsedMessage = (arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject) e.getUnfinishedMessage();
-              throw e;
-            } finally {
-              if (parsedMessage != null) {
-                mergeFrom(parsedMessage);
-              }
-            }
-            return this;
-          }
-          private int bitField0_;
-
-          // required int32 objectId = 1;
-          private int objectId_ ;
-          /**
-           * <code>required int32 objectId = 1;</code>
-           */
-          public boolean hasObjectId() {
-            return ((bitField0_ & 0x00000001) == 0x00000001);
-          }
-          /**
-           * <code>required int32 objectId = 1;</code>
-           */
-          public int getObjectId() {
-            return objectId_;
-          }
-          /**
-           * <code>required int32 objectId = 1;</code>
-           */
-          public Builder setObjectId(int value) {
-            bitField0_ |= 0x00000001;
-            objectId_ = value;
-            onChanged();
-            return this;
-          }
-          /**
-           * <code>required int32 objectId = 1;</code>
-           */
-          public Builder clearObjectId() {
-            bitField0_ = (bitField0_ & ~0x00000001);
-            objectId_ = 0;
-            onChanged();
-            return this;
-          }
-
-          // required int32 positionX = 2;
-          private int positionX_ ;
-          /**
-           * <code>required int32 positionX = 2;</code>
-           */
-          public boolean hasPositionX() {
-            return ((bitField0_ & 0x00000002) == 0x00000002);
-          }
-          /**
-           * <code>required int32 positionX = 2;</code>
-           */
-          public int getPositionX() {
-            return positionX_;
-          }
-          /**
-           * <code>required int32 positionX = 2;</code>
-           */
-          public Builder setPositionX(int value) {
-            bitField0_ |= 0x00000002;
-            positionX_ = value;
-            onChanged();
-            return this;
-          }
-          /**
-           * <code>required int32 positionX = 2;</code>
-           */
-          public Builder clearPositionX() {
-            bitField0_ = (bitField0_ & ~0x00000002);
-            positionX_ = 0;
-            onChanged();
-            return this;
-          }
-
-          // required int32 positionY = 3;
-          private int positionY_ ;
-          /**
-           * <code>required int32 positionY = 3;</code>
-           */
-          public boolean hasPositionY() {
-            return ((bitField0_ & 0x00000004) == 0x00000004);
-          }
-          /**
-           * <code>required int32 positionY = 3;</code>
-           */
-          public int getPositionY() {
-            return positionY_;
-          }
-          /**
-           * <code>required int32 positionY = 3;</code>
-           */
-          public Builder setPositionY(int value) {
-            bitField0_ |= 0x00000004;
-            positionY_ = value;
-            onChanged();
-            return this;
-          }
-          /**
-           * <code>required int32 positionY = 3;</code>
-           */
-          public Builder clearPositionY() {
-            bitField0_ = (bitField0_ & ~0x00000004);
-            positionY_ = 0;
-            onChanged();
-            return this;
-          }
-
-          // required int32 objectTypeId = 4;
-          private int objectTypeId_ ;
-          /**
-           * <code>required int32 objectTypeId = 4;</code>
-           */
-          public boolean hasObjectTypeId() {
-            return ((bitField0_ & 0x00000008) == 0x00000008);
-          }
-          /**
-           * <code>required int32 objectTypeId = 4;</code>
-           */
-          public int getObjectTypeId() {
-            return objectTypeId_;
-          }
-          /**
-           * <code>required int32 objectTypeId = 4;</code>
-           */
-          public Builder setObjectTypeId(int value) {
-            bitField0_ |= 0x00000008;
-            objectTypeId_ = value;
-            onChanged();
-            return this;
-          }
-          /**
-           * <code>required int32 objectTypeId = 4;</code>
-           */
-          public Builder clearObjectTypeId() {
-            bitField0_ = (bitField0_ & ~0x00000008);
-            objectTypeId_ = 0;
-            onChanged();
-            return this;
-          }
-
-          // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.LocationInfo.CachedObjects.CachedObject)
-        }
-
-        static {
-          defaultInstance = new CachedObject(true);
-          defaultInstance.initFields();
-        }
-
-        // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.LocationInfo.CachedObjects.CachedObject)
-      }
-
-      // repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.CachedObjects.CachedObject objects = 1;
+      // repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;
       public static final int OBJECTS_FIELD_NUMBER = 1;
-      private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject> objects_;
+      private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject> objects_;
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.CachedObjects.CachedObject objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
        */
-      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject> getObjectsList() {
+      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject> getObjectsList() {
         return objects_;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.CachedObjects.CachedObject objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
        */
-      public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObjectOrBuilder> 
+      public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObjectOrBuilder> 
           getObjectsOrBuilderList() {
         return objects_;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.CachedObjects.CachedObject objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
        */
       public int getObjectsCount() {
         return objects_.size();
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.CachedObjects.CachedObject objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject getObjects(int index) {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject getObjects(int index) {
         return objects_.get(index);
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.CachedObjects.CachedObject objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObjectOrBuilder getObjectsOrBuilder(
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObjectOrBuilder getObjectsOrBuilder(
           int index) {
         return objects_.get(index);
       }
@@ -9258,23 +7290,23 @@ public final class GeProtocol {
         }
         private int bitField0_;
 
-        // repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.CachedObjects.CachedObject objects = 1;
-        private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject> objects_ =
+        // repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;
+        private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject> objects_ =
           java.util.Collections.emptyList();
         private void ensureObjectsIsMutable() {
           if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-            objects_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject>(objects_);
+            objects_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject>(objects_);
             bitField0_ |= 0x00000001;
            }
         }
 
         private com.google.protobuf.RepeatedFieldBuilder<
-            arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObjectOrBuilder> objectsBuilder_;
+            arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObjectOrBuilder> objectsBuilder_;
 
         /**
-         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.CachedObjects.CachedObject objects = 1;</code>
+         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
          */
-        public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject> getObjectsList() {
+        public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject> getObjectsList() {
           if (objectsBuilder_ == null) {
             return java.util.Collections.unmodifiableList(objects_);
           } else {
@@ -9282,7 +7314,7 @@ public final class GeProtocol {
           }
         }
         /**
-         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.CachedObjects.CachedObject objects = 1;</code>
+         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
          */
         public int getObjectsCount() {
           if (objectsBuilder_ == null) {
@@ -9292,9 +7324,9 @@ public final class GeProtocol {
           }
         }
         /**
-         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.CachedObjects.CachedObject objects = 1;</code>
+         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
          */
-        public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject getObjects(int index) {
+        public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject getObjects(int index) {
           if (objectsBuilder_ == null) {
             return objects_.get(index);
           } else {
@@ -9302,10 +7334,10 @@ public final class GeProtocol {
           }
         }
         /**
-         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.CachedObjects.CachedObject objects = 1;</code>
+         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
          */
         public Builder setObjects(
-            int index, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject value) {
+            int index, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject value) {
           if (objectsBuilder_ == null) {
             if (value == null) {
               throw new NullPointerException();
@@ -9319,10 +7351,10 @@ public final class GeProtocol {
           return this;
         }
         /**
-         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.CachedObjects.CachedObject objects = 1;</code>
+         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
          */
         public Builder setObjects(
-            int index, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject.Builder builderForValue) {
+            int index, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject.Builder builderForValue) {
           if (objectsBuilder_ == null) {
             ensureObjectsIsMutable();
             objects_.set(index, builderForValue.build());
@@ -9333,9 +7365,9 @@ public final class GeProtocol {
           return this;
         }
         /**
-         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.CachedObjects.CachedObject objects = 1;</code>
+         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
          */
-        public Builder addObjects(arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject value) {
+        public Builder addObjects(arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject value) {
           if (objectsBuilder_ == null) {
             if (value == null) {
               throw new NullPointerException();
@@ -9349,10 +7381,10 @@ public final class GeProtocol {
           return this;
         }
         /**
-         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.CachedObjects.CachedObject objects = 1;</code>
+         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
          */
         public Builder addObjects(
-            int index, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject value) {
+            int index, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject value) {
           if (objectsBuilder_ == null) {
             if (value == null) {
               throw new NullPointerException();
@@ -9366,10 +7398,10 @@ public final class GeProtocol {
           return this;
         }
         /**
-         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.CachedObjects.CachedObject objects = 1;</code>
+         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
          */
         public Builder addObjects(
-            arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject.Builder builderForValue) {
+            arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject.Builder builderForValue) {
           if (objectsBuilder_ == null) {
             ensureObjectsIsMutable();
             objects_.add(builderForValue.build());
@@ -9380,10 +7412,10 @@ public final class GeProtocol {
           return this;
         }
         /**
-         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.CachedObjects.CachedObject objects = 1;</code>
+         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
          */
         public Builder addObjects(
-            int index, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject.Builder builderForValue) {
+            int index, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject.Builder builderForValue) {
           if (objectsBuilder_ == null) {
             ensureObjectsIsMutable();
             objects_.add(index, builderForValue.build());
@@ -9394,10 +7426,10 @@ public final class GeProtocol {
           return this;
         }
         /**
-         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.CachedObjects.CachedObject objects = 1;</code>
+         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
          */
         public Builder addAllObjects(
-            java.lang.Iterable<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject> values) {
+            java.lang.Iterable<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject> values) {
           if (objectsBuilder_ == null) {
             ensureObjectsIsMutable();
             super.addAll(values, objects_);
@@ -9408,7 +7440,7 @@ public final class GeProtocol {
           return this;
         }
         /**
-         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.CachedObjects.CachedObject objects = 1;</code>
+         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
          */
         public Builder clearObjects() {
           if (objectsBuilder_ == null) {
@@ -9421,7 +7453,7 @@ public final class GeProtocol {
           return this;
         }
         /**
-         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.CachedObjects.CachedObject objects = 1;</code>
+         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
          */
         public Builder removeObjects(int index) {
           if (objectsBuilder_ == null) {
@@ -9434,16 +7466,16 @@ public final class GeProtocol {
           return this;
         }
         /**
-         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.CachedObjects.CachedObject objects = 1;</code>
+         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
          */
-        public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject.Builder getObjectsBuilder(
+        public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject.Builder getObjectsBuilder(
             int index) {
           return getObjectsFieldBuilder().getBuilder(index);
         }
         /**
-         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.CachedObjects.CachedObject objects = 1;</code>
+         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
          */
-        public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObjectOrBuilder getObjectsOrBuilder(
+        public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObjectOrBuilder getObjectsOrBuilder(
             int index) {
           if (objectsBuilder_ == null) {
             return objects_.get(index);  } else {
@@ -9451,9 +7483,9 @@ public final class GeProtocol {
           }
         }
         /**
-         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.CachedObjects.CachedObject objects = 1;</code>
+         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
          */
-        public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObjectOrBuilder> 
+        public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObjectOrBuilder> 
              getObjectsOrBuilderList() {
           if (objectsBuilder_ != null) {
             return objectsBuilder_.getMessageOrBuilderList();
@@ -9462,33 +7494,33 @@ public final class GeProtocol {
           }
         }
         /**
-         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.CachedObjects.CachedObject objects = 1;</code>
+         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
          */
-        public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject.Builder addObjectsBuilder() {
+        public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject.Builder addObjectsBuilder() {
           return getObjectsFieldBuilder().addBuilder(
-              arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject.getDefaultInstance());
+              arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject.getDefaultInstance());
         }
         /**
-         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.CachedObjects.CachedObject objects = 1;</code>
+         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
          */
-        public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject.Builder addObjectsBuilder(
+        public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject.Builder addObjectsBuilder(
             int index) {
           return getObjectsFieldBuilder().addBuilder(
-              index, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject.getDefaultInstance());
+              index, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject.getDefaultInstance());
         }
         /**
-         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.CachedObjects.CachedObject objects = 1;</code>
+         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject objects = 1;</code>
          */
-        public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject.Builder> 
+        public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject.Builder> 
              getObjectsBuilderList() {
           return getObjectsFieldBuilder().getBuilderList();
         }
         private com.google.protobuf.RepeatedFieldBuilder<
-            arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObjectOrBuilder> 
+            arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObjectOrBuilder> 
             getObjectsFieldBuilder() {
           if (objectsBuilder_ == null) {
             objectsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-                arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObject.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.CachedObjectOrBuilder>(
+                arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObjectOrBuilder>(
                     objects_,
                     ((bitField0_ & 0x00000001) == 0x00000001),
                     getParentForChildren(),
@@ -9507,6 +7539,766 @@ public final class GeProtocol {
       }
 
       // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.LocationInfo.CachedObjects)
+    }
+
+    public interface LocationObjectOrBuilder
+        extends com.google.protobuf.MessageOrBuilder {
+
+      // required int32 objectId = 1;
+      /**
+       * <code>required int32 objectId = 1;</code>
+       */
+      boolean hasObjectId();
+      /**
+       * <code>required int32 objectId = 1;</code>
+       */
+      int getObjectId();
+
+      // required int32 objectTypeId = 2;
+      /**
+       * <code>required int32 objectTypeId = 2;</code>
+       */
+      boolean hasObjectTypeId();
+      /**
+       * <code>required int32 objectTypeId = 2;</code>
+       */
+      int getObjectTypeId();
+
+      // required int32 nativeId = 3;
+      /**
+       * <code>required int32 nativeId = 3;</code>
+       */
+      boolean hasNativeId();
+      /**
+       * <code>required int32 nativeId = 3;</code>
+       */
+      int getNativeId();
+
+      // required float positionX = 4;
+      /**
+       * <code>required float positionX = 4;</code>
+       */
+      boolean hasPositionX();
+      /**
+       * <code>required float positionX = 4;</code>
+       */
+      float getPositionX();
+
+      // required float positionY = 5;
+      /**
+       * <code>required float positionY = 5;</code>
+       */
+      boolean hasPositionY();
+      /**
+       * <code>required float positionY = 5;</code>
+       */
+      float getPositionY();
+    }
+    /**
+     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject}
+     */
+    public static final class LocationObject extends
+        com.google.protobuf.GeneratedMessage
+        implements LocationObjectOrBuilder {
+      // Use LocationObject.newBuilder() to construct.
+      private LocationObject(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+        super(builder);
+        this.unknownFields = builder.getUnknownFields();
+      }
+      private LocationObject(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+      private static final LocationObject defaultInstance;
+      public static LocationObject getDefaultInstance() {
+        return defaultInstance;
+      }
+
+      public LocationObject getDefaultInstanceForType() {
+        return defaultInstance;
+      }
+
+      private final com.google.protobuf.UnknownFieldSet unknownFields;
+      @java.lang.Override
+      public final com.google.protobuf.UnknownFieldSet
+          getUnknownFields() {
+        return this.unknownFields;
+      }
+      private LocationObject(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        initFields();
+        int mutable_bitField0_ = 0;
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+            com.google.protobuf.UnknownFieldSet.newBuilder();
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default: {
+                if (!parseUnknownField(input, unknownFields,
+                                       extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+              case 8: {
+                bitField0_ |= 0x00000001;
+                objectId_ = input.readInt32();
+                break;
+              }
+              case 16: {
+                bitField0_ |= 0x00000002;
+                objectTypeId_ = input.readInt32();
+                break;
+              }
+              case 24: {
+                bitField0_ |= 0x00000004;
+                nativeId_ = input.readInt32();
+                break;
+              }
+              case 37: {
+                bitField0_ |= 0x00000008;
+                positionX_ = input.readFloat();
+                break;
+              }
+              case 45: {
+                bitField0_ |= 0x00000010;
+                positionY_ = input.readFloat();
+                break;
+              }
+            }
+          }
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(this);
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(
+              e.getMessage()).setUnfinishedMessage(this);
+        } finally {
+          this.unknownFields = unknownFields.build();
+          makeExtensionsImmutable();
+        }
+      }
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_LocationInfo_LocationObject_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_LocationInfo_LocationObject_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject.class, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject.Builder.class);
+      }
+
+      public static com.google.protobuf.Parser<LocationObject> PARSER =
+          new com.google.protobuf.AbstractParser<LocationObject>() {
+        public LocationObject parsePartialFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return new LocationObject(input, extensionRegistry);
+        }
+      };
+
+      @java.lang.Override
+      public com.google.protobuf.Parser<LocationObject> getParserForType() {
+        return PARSER;
+      }
+
+      private int bitField0_;
+      // required int32 objectId = 1;
+      public static final int OBJECTID_FIELD_NUMBER = 1;
+      private int objectId_;
+      /**
+       * <code>required int32 objectId = 1;</code>
+       */
+      public boolean hasObjectId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int32 objectId = 1;</code>
+       */
+      public int getObjectId() {
+        return objectId_;
+      }
+
+      // required int32 objectTypeId = 2;
+      public static final int OBJECTTYPEID_FIELD_NUMBER = 2;
+      private int objectTypeId_;
+      /**
+       * <code>required int32 objectTypeId = 2;</code>
+       */
+      public boolean hasObjectTypeId() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required int32 objectTypeId = 2;</code>
+       */
+      public int getObjectTypeId() {
+        return objectTypeId_;
+      }
+
+      // required int32 nativeId = 3;
+      public static final int NATIVEID_FIELD_NUMBER = 3;
+      private int nativeId_;
+      /**
+       * <code>required int32 nativeId = 3;</code>
+       */
+      public boolean hasNativeId() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required int32 nativeId = 3;</code>
+       */
+      public int getNativeId() {
+        return nativeId_;
+      }
+
+      // required float positionX = 4;
+      public static final int POSITIONX_FIELD_NUMBER = 4;
+      private float positionX_;
+      /**
+       * <code>required float positionX = 4;</code>
+       */
+      public boolean hasPositionX() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>required float positionX = 4;</code>
+       */
+      public float getPositionX() {
+        return positionX_;
+      }
+
+      // required float positionY = 5;
+      public static final int POSITIONY_FIELD_NUMBER = 5;
+      private float positionY_;
+      /**
+       * <code>required float positionY = 5;</code>
+       */
+      public boolean hasPositionY() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <code>required float positionY = 5;</code>
+       */
+      public float getPositionY() {
+        return positionY_;
+      }
+
+      private void initFields() {
+        objectId_ = 0;
+        objectTypeId_ = 0;
+        nativeId_ = 0;
+        positionX_ = 0F;
+        positionY_ = 0F;
+      }
+      private byte memoizedIsInitialized = -1;
+      public final boolean isInitialized() {
+        byte isInitialized = memoizedIsInitialized;
+        if (isInitialized != -1) return isInitialized == 1;
+
+        if (!hasObjectId()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+        if (!hasObjectTypeId()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+        if (!hasNativeId()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+        if (!hasPositionX()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+        if (!hasPositionY()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+        memoizedIsInitialized = 1;
+        return true;
+      }
+
+      public void writeTo(com.google.protobuf.CodedOutputStream output)
+                          throws java.io.IOException {
+        getSerializedSize();
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          output.writeInt32(1, objectId_);
+        }
+        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          output.writeInt32(2, objectTypeId_);
+        }
+        if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          output.writeInt32(3, nativeId_);
+        }
+        if (((bitField0_ & 0x00000008) == 0x00000008)) {
+          output.writeFloat(4, positionX_);
+        }
+        if (((bitField0_ & 0x00000010) == 0x00000010)) {
+          output.writeFloat(5, positionY_);
+        }
+        getUnknownFields().writeTo(output);
+      }
+
+      private int memoizedSerializedSize = -1;
+      public int getSerializedSize() {
+        int size = memoizedSerializedSize;
+        if (size != -1) return size;
+
+        size = 0;
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeInt32Size(1, objectId_);
+        }
+        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeInt32Size(2, objectTypeId_);
+        }
+        if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeInt32Size(3, nativeId_);
+        }
+        if (((bitField0_ & 0x00000008) == 0x00000008)) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeFloatSize(4, positionX_);
+        }
+        if (((bitField0_ & 0x00000010) == 0x00000010)) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeFloatSize(5, positionY_);
+        }
+        size += getUnknownFields().getSerializedSize();
+        memoizedSerializedSize = size;
+        return size;
+      }
+
+      private static final long serialVersionUID = 0L;
+      @java.lang.Override
+      protected java.lang.Object writeReplace()
+          throws java.io.ObjectStreamException {
+        return super.writeReplace();
+      }
+
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject parseFrom(
+          com.google.protobuf.ByteString data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject parseFrom(
+          com.google.protobuf.ByteString data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject parseFrom(byte[] data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject parseFrom(
+          byte[] data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject parseFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return PARSER.parseFrom(input);
+      }
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject parseFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return PARSER.parseFrom(input, extensionRegistry);
+      }
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject parseDelimitedFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return PARSER.parseDelimitedFrom(input);
+      }
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject parseDelimitedFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      }
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject parseFrom(
+          com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        return PARSER.parseFrom(input);
+      }
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject parseFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return PARSER.parseFrom(input, extensionRegistry);
+      }
+
+      public static Builder newBuilder() { return Builder.create(); }
+      public Builder newBuilderForType() { return newBuilder(); }
+      public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject prototype) {
+        return newBuilder().mergeFrom(prototype);
+      }
+      public Builder toBuilder() { return newBuilder(this); }
+
+      @java.lang.Override
+      protected Builder newBuilderForType(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        Builder builder = new Builder(parent);
+        return builder;
+      }
+      /**
+       * Protobuf type {@code arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject}
+       */
+      public static final class Builder extends
+          com.google.protobuf.GeneratedMessage.Builder<Builder>
+         implements arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObjectOrBuilder {
+        public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_LocationInfo_LocationObject_descriptor;
+        }
+
+        protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_LocationInfo_LocationObject_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject.class, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject.Builder.class);
+        }
+
+        // Construct using arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject.newBuilder()
+        private Builder() {
+          maybeForceBuilderInitialization();
+        }
+
+        private Builder(
+            com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          super(parent);
+          maybeForceBuilderInitialization();
+        }
+        private void maybeForceBuilderInitialization() {
+          if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          }
+        }
+        private static Builder create() {
+          return new Builder();
+        }
+
+        public Builder clear() {
+          super.clear();
+          objectId_ = 0;
+          bitField0_ = (bitField0_ & ~0x00000001);
+          objectTypeId_ = 0;
+          bitField0_ = (bitField0_ & ~0x00000002);
+          nativeId_ = 0;
+          bitField0_ = (bitField0_ & ~0x00000004);
+          positionX_ = 0F;
+          bitField0_ = (bitField0_ & ~0x00000008);
+          positionY_ = 0F;
+          bitField0_ = (bitField0_ & ~0x00000010);
+          return this;
+        }
+
+        public Builder clone() {
+          return create().mergeFrom(buildPartial());
+        }
+
+        public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_LocationInfo_LocationObject_descriptor;
+        }
+
+        public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject getDefaultInstanceForType() {
+          return arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject.getDefaultInstance();
+        }
+
+        public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject build() {
+          arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject result = buildPartial();
+          if (!result.isInitialized()) {
+            throw newUninitializedMessageException(result);
+          }
+          return result;
+        }
+
+        public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject buildPartial() {
+          arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject result = new arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject(this);
+          int from_bitField0_ = bitField0_;
+          int to_bitField0_ = 0;
+          if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+            to_bitField0_ |= 0x00000001;
+          }
+          result.objectId_ = objectId_;
+          if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+            to_bitField0_ |= 0x00000002;
+          }
+          result.objectTypeId_ = objectTypeId_;
+          if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+            to_bitField0_ |= 0x00000004;
+          }
+          result.nativeId_ = nativeId_;
+          if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+            to_bitField0_ |= 0x00000008;
+          }
+          result.positionX_ = positionX_;
+          if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+            to_bitField0_ |= 0x00000010;
+          }
+          result.positionY_ = positionY_;
+          result.bitField0_ = to_bitField0_;
+          onBuilt();
+          return result;
+        }
+
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+          if (other instanceof arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject) {
+            return mergeFrom((arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject)other);
+          } else {
+            super.mergeFrom(other);
+            return this;
+          }
+        }
+
+        public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject other) {
+          if (other == arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject.getDefaultInstance()) return this;
+          if (other.hasObjectId()) {
+            setObjectId(other.getObjectId());
+          }
+          if (other.hasObjectTypeId()) {
+            setObjectTypeId(other.getObjectTypeId());
+          }
+          if (other.hasNativeId()) {
+            setNativeId(other.getNativeId());
+          }
+          if (other.hasPositionX()) {
+            setPositionX(other.getPositionX());
+          }
+          if (other.hasPositionY()) {
+            setPositionY(other.getPositionY());
+          }
+          this.mergeUnknownFields(other.getUnknownFields());
+          return this;
+        }
+
+        public final boolean isInitialized() {
+          if (!hasObjectId()) {
+            
+            return false;
+          }
+          if (!hasObjectTypeId()) {
+            
+            return false;
+          }
+          if (!hasNativeId()) {
+            
+            return false;
+          }
+          if (!hasPositionX()) {
+            
+            return false;
+          }
+          if (!hasPositionY()) {
+            
+            return false;
+          }
+          return true;
+        }
+
+        public Builder mergeFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject parsedMessage = null;
+          try {
+            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            parsedMessage = (arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject) e.getUnfinishedMessage();
+            throw e;
+          } finally {
+            if (parsedMessage != null) {
+              mergeFrom(parsedMessage);
+            }
+          }
+          return this;
+        }
+        private int bitField0_;
+
+        // required int32 objectId = 1;
+        private int objectId_ ;
+        /**
+         * <code>required int32 objectId = 1;</code>
+         */
+        public boolean hasObjectId() {
+          return ((bitField0_ & 0x00000001) == 0x00000001);
+        }
+        /**
+         * <code>required int32 objectId = 1;</code>
+         */
+        public int getObjectId() {
+          return objectId_;
+        }
+        /**
+         * <code>required int32 objectId = 1;</code>
+         */
+        public Builder setObjectId(int value) {
+          bitField0_ |= 0x00000001;
+          objectId_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>required int32 objectId = 1;</code>
+         */
+        public Builder clearObjectId() {
+          bitField0_ = (bitField0_ & ~0x00000001);
+          objectId_ = 0;
+          onChanged();
+          return this;
+        }
+
+        // required int32 objectTypeId = 2;
+        private int objectTypeId_ ;
+        /**
+         * <code>required int32 objectTypeId = 2;</code>
+         */
+        public boolean hasObjectTypeId() {
+          return ((bitField0_ & 0x00000002) == 0x00000002);
+        }
+        /**
+         * <code>required int32 objectTypeId = 2;</code>
+         */
+        public int getObjectTypeId() {
+          return objectTypeId_;
+        }
+        /**
+         * <code>required int32 objectTypeId = 2;</code>
+         */
+        public Builder setObjectTypeId(int value) {
+          bitField0_ |= 0x00000002;
+          objectTypeId_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>required int32 objectTypeId = 2;</code>
+         */
+        public Builder clearObjectTypeId() {
+          bitField0_ = (bitField0_ & ~0x00000002);
+          objectTypeId_ = 0;
+          onChanged();
+          return this;
+        }
+
+        // required int32 nativeId = 3;
+        private int nativeId_ ;
+        /**
+         * <code>required int32 nativeId = 3;</code>
+         */
+        public boolean hasNativeId() {
+          return ((bitField0_ & 0x00000004) == 0x00000004);
+        }
+        /**
+         * <code>required int32 nativeId = 3;</code>
+         */
+        public int getNativeId() {
+          return nativeId_;
+        }
+        /**
+         * <code>required int32 nativeId = 3;</code>
+         */
+        public Builder setNativeId(int value) {
+          bitField0_ |= 0x00000004;
+          nativeId_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>required int32 nativeId = 3;</code>
+         */
+        public Builder clearNativeId() {
+          bitField0_ = (bitField0_ & ~0x00000004);
+          nativeId_ = 0;
+          onChanged();
+          return this;
+        }
+
+        // required float positionX = 4;
+        private float positionX_ ;
+        /**
+         * <code>required float positionX = 4;</code>
+         */
+        public boolean hasPositionX() {
+          return ((bitField0_ & 0x00000008) == 0x00000008);
+        }
+        /**
+         * <code>required float positionX = 4;</code>
+         */
+        public float getPositionX() {
+          return positionX_;
+        }
+        /**
+         * <code>required float positionX = 4;</code>
+         */
+        public Builder setPositionX(float value) {
+          bitField0_ |= 0x00000008;
+          positionX_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>required float positionX = 4;</code>
+         */
+        public Builder clearPositionX() {
+          bitField0_ = (bitField0_ & ~0x00000008);
+          positionX_ = 0F;
+          onChanged();
+          return this;
+        }
+
+        // required float positionY = 5;
+        private float positionY_ ;
+        /**
+         * <code>required float positionY = 5;</code>
+         */
+        public boolean hasPositionY() {
+          return ((bitField0_ & 0x00000010) == 0x00000010);
+        }
+        /**
+         * <code>required float positionY = 5;</code>
+         */
+        public float getPositionY() {
+          return positionY_;
+        }
+        /**
+         * <code>required float positionY = 5;</code>
+         */
+        public Builder setPositionY(float value) {
+          bitField0_ |= 0x00000010;
+          positionY_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>required float positionY = 5;</code>
+         */
+        public Builder clearPositionY() {
+          bitField0_ = (bitField0_ & ~0x00000010);
+          positionY_ = 0F;
+          onChanged();
+          return this;
+        }
+
+        // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject)
+      }
+
+      static {
+        defaultInstance = new LocationObject(true);
+        defaultInstance.initFields();
+      }
+
+      // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject)
     }
 
     private int bitField0_;
@@ -9569,35 +8361,35 @@ public final class GeProtocol {
       }
     }
 
-    // required int32 width = 3;
+    // required float width = 3;
     public static final int WIDTH_FIELD_NUMBER = 3;
-    private int width_;
+    private float width_;
     /**
-     * <code>required int32 width = 3;</code>
+     * <code>required float width = 3;</code>
      */
     public boolean hasWidth() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>required int32 width = 3;</code>
+     * <code>required float width = 3;</code>
      */
-    public int getWidth() {
+    public float getWidth() {
       return width_;
     }
 
-    // required int32 height = 4;
+    // required float height = 4;
     public static final int HEIGHT_FIELD_NUMBER = 4;
-    private int height_;
+    private float height_;
     /**
-     * <code>required int32 height = 4;</code>
+     * <code>required float height = 4;</code>
      */
     public boolean hasHeight() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
-     * <code>required int32 height = 4;</code>
+     * <code>required float height = 4;</code>
      */
-    public int getHeight() {
+    public float getHeight() {
       return height_;
     }
 
@@ -9626,8 +8418,8 @@ public final class GeProtocol {
     private void initFields() {
       locationId_ = 0;
       name_ = "";
-      width_ = 0;
-      height_ = 0;
+      width_ = 0F;
+      height_ = 0F;
       locationCachedObjects_ = arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.getDefaultInstance();
     }
     private byte memoizedIsInitialized = -1;
@@ -9673,10 +8465,10 @@ public final class GeProtocol {
         output.writeBytes(2, getNameBytes());
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeInt32(3, width_);
+        output.writeFloat(3, width_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeInt32(4, height_);
+        output.writeFloat(4, height_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         output.writeMessage(5, locationCachedObjects_);
@@ -9700,11 +8492,11 @@ public final class GeProtocol {
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(3, width_);
+          .computeFloatSize(3, width_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(4, height_);
+          .computeFloatSize(4, height_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
@@ -9831,9 +8623,9 @@ public final class GeProtocol {
         bitField0_ = (bitField0_ & ~0x00000001);
         name_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
-        width_ = 0;
+        width_ = 0F;
         bitField0_ = (bitField0_ & ~0x00000004);
-        height_ = 0;
+        height_ = 0F;
         bitField0_ = (bitField0_ & ~0x00000008);
         if (locationCachedObjectsBuilder_ == null) {
           locationCachedObjects_ = arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.CachedObjects.getDefaultInstance();
@@ -10084,68 +8876,68 @@ public final class GeProtocol {
         return this;
       }
 
-      // required int32 width = 3;
-      private int width_ ;
+      // required float width = 3;
+      private float width_ ;
       /**
-       * <code>required int32 width = 3;</code>
+       * <code>required float width = 3;</code>
        */
       public boolean hasWidth() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>required int32 width = 3;</code>
+       * <code>required float width = 3;</code>
        */
-      public int getWidth() {
+      public float getWidth() {
         return width_;
       }
       /**
-       * <code>required int32 width = 3;</code>
+       * <code>required float width = 3;</code>
        */
-      public Builder setWidth(int value) {
+      public Builder setWidth(float value) {
         bitField0_ |= 0x00000004;
         width_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required int32 width = 3;</code>
+       * <code>required float width = 3;</code>
        */
       public Builder clearWidth() {
         bitField0_ = (bitField0_ & ~0x00000004);
-        width_ = 0;
+        width_ = 0F;
         onChanged();
         return this;
       }
 
-      // required int32 height = 4;
-      private int height_ ;
+      // required float height = 4;
+      private float height_ ;
       /**
-       * <code>required int32 height = 4;</code>
+       * <code>required float height = 4;</code>
        */
       public boolean hasHeight() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
-       * <code>required int32 height = 4;</code>
+       * <code>required float height = 4;</code>
        */
-      public int getHeight() {
+      public float getHeight() {
         return height_;
       }
       /**
-       * <code>required int32 height = 4;</code>
+       * <code>required float height = 4;</code>
        */
-      public Builder setHeight(int value) {
+      public Builder setHeight(float value) {
         bitField0_ |= 0x00000008;
         height_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required int32 height = 4;</code>
+       * <code>required float height = 4;</code>
        */
       public Builder clearHeight() {
         bitField0_ = (bitField0_ & ~0x00000008);
-        height_ = 0;
+        height_ = 0F;
         onChanged();
         return this;
       }
@@ -22303,11 +21095,6 @@ public final class GeProtocol {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_arch_galaxyeclipse_shared_protocol_DynamicObjectsResponse_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_arch_galaxyeclipse_shared_protocol_DynamicObjectsResponse_LocationDynamicObject_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_arch_galaxyeclipse_shared_protocol_DynamicObjectsResponse_LocationDynamicObject_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_arch_galaxyeclipse_shared_protocol_ShipStateRequest_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -22322,11 +21109,6 @@ public final class GeProtocol {
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_arch_galaxyeclipse_shared_protocol_ClientAction_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_arch_galaxyeclipse_shared_protocol_ClientAction_Point_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_arch_galaxyeclipse_shared_protocol_ClientAction_Point_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
     internal_static_arch_galaxyeclipse_shared_protocol_AuthRequest_descriptor;
   private static
@@ -22348,10 +21130,10 @@ public final class GeProtocol {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_arch_galaxyeclipse_shared_protocol_LocationInfo_CachedObjects_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_arch_galaxyeclipse_shared_protocol_LocationInfo_CachedObjects_CachedObject_descriptor;
+    internal_static_arch_galaxyeclipse_shared_protocol_LocationInfo_LocationObject_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_arch_galaxyeclipse_shared_protocol_LocationInfo_CachedObjects_CachedObject_fieldAccessorTable;
+      internal_static_arch_galaxyeclipse_shared_protocol_LocationInfo_LocationObject_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
     internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfo_descriptor;
   private static
@@ -22456,90 +21238,84 @@ public final class GeProtocol {
       "\n\rLOCATION_INFO\020\036\022\020\n\014STARTUP_INFO\020\037\022\034\n\030S" +
       "HIP_STATIC_INFO_COMMAND\020 \022\025\n\021CHAT_SEND_M" +
       "ESSAGE\020<\022\030\n\024CHAR_RECEIVE_MESSAGE\020=\"\027\n\025Dy",
-      "namicObjectsRequest\"\363\001\n\026DynamicObjectsRe" +
-      "sponse\022a\n\007objects\030\001 \003(\0132P.arch.galaxyecl" +
-      "ipse.shared.protocol.DynamicObjectsRespo" +
-      "nse.LocationDynamicObject\032v\n\025LocationDyn" +
-      "amicObject\022\037\n\027locationDynamicObjectId\030\001 " +
-      "\002(\005\022\024\n\014objectTypeId\030\002 \002(\005\022\020\n\010nativeId\030\003 " +
-      "\002(\005\022\t\n\001x\030\004 \002(\005\022\t\n\001y\030\005 \002(\005\"\022\n\020ShipStateRe" +
-      "quest\"y\n\021ShipStateResponse\022\021\n\tmoveSpeed\030" +
-      "\001 \002(\005\022\025\n\rrotationSpeed\030\002 \002(\005\022\n\n\002hp\030\003 \002(\005" +
-      "\022\027\n\017armorDurability\030\004 \002(\005\022\025\n\rrotationAng",
-      "le\030\005 \002(\005\"\302\003\n\014ClientAction\022O\n\004type\030\001 \002(\0162" +
-      "A.arch.galaxyeclipse.shared.protocol.Cli" +
-      "entAction.ClientActionType\022E\n\005point\030\002 \001(" +
-      "\01326.arch.galaxyeclipse.shared.protocol.C" +
-      "lientAction.Point\022\030\n\020locationObjectId\030\003 " +
-      "\001(\005\022\034\n\024locationObjectTypeId\030\004 \001(\005\032\035\n\005Poi" +
-      "nt\022\t\n\001x\030\001 \002(\005\022\t\n\001y\030\002 \002(\005\"\302\001\n\020ClientActio" +
-      "nType\022\017\n\013ROTATE_LEFT\020\001\022\020\n\014ROTATE_RIGHT\020\002" +
-      "\022\010\n\004MOVE\020\003\022\010\n\004STOP\020\004\022\r\n\tMAP_CLICK\020\005\022\022\n\016M" +
-      "INI_MAP_CLICK\020\006\022\020\n\014OBJECT_CLICK\020\007\022\r\n\tLOO",
-      "T_PICK\020\010\022\020\n\014ATTACK_START\020\t\022\017\n\013ATTACK_STO" +
-      "P\020\n\022\020\n\014ROCKET_SHOOT\020\020\"1\n\013AuthRequest\022\020\n\010" +
-      "username\030\001 \002(\t\022\020\n\010password\030\002 \002(\t\"!\n\014Auth" +
-      "Response\022\021\n\tisSuccess\030\001 \002(\010\"\374\002\n\014Location" +
-      "Info\022\022\n\nlocationId\030\001 \002(\005\022\014\n\004name\030\002 \002(\t\022\r" +
-      "\n\005width\030\003 \002(\005\022\016\n\006height\030\004 \002(\005\022]\n\025locatio" +
-      "nCachedObjects\030\005 \002(\0132>.arch.galaxyeclips" +
-      "e.shared.protocol.LocationInfo.CachedObj" +
-      "ects\032\313\001\n\rCachedObjects\022\\\n\007objects\030\001 \003(\0132" +
-      "K.arch.galaxyeclipse.shared.protocol.Loc",
-      "ationInfo.CachedObjects.CachedObject\032\\\n\014" +
-      "CachedObject\022\020\n\010objectId\030\001 \002(\005\022\021\n\tpositi" +
-      "onX\030\002 \002(\005\022\021\n\tpositionY\030\003 \002(\005\022\024\n\014objectTy" +
-      "peId\030\004 \002(\005\"\330\t\n\016ShipStaticInfo\022\024\n\014moveMax" +
-      "Speed\030\001 \002(\005\022\030\n\020rotationMaxSpeed\030\002 \002(\005\022\035\n" +
-      "\025moveAccelerationSpeed\030\003 \002(\005\022\034\n\024rotation" +
-      "Acceleration\030\004 \002(\005\022\r\n\005armor\030\005 \002(\005\022\021\n\tene" +
-      "rgyMax\030\006 \002(\005\022\r\n\005hpMax\030\007 \002(\005\022\023\n\013energyReg" +
-      "en\030\010 \002(\005\022\017\n\007hpRegen\030\t \002(\005\022\014\n\004name\030\n \002(\t\022" +
-      "\027\n\017armorDurability\030\013 \002(\005\022\030\n\020weaponSlotsC",
-      "ount\030\014 \002(\005\022\027\n\017bonusSlotsCount\030\r \002(\005\022O\n\016i" +
-      "nventoryItems\030\016 \003(\01327.arch.galaxyeclipse" +
-      ".shared.protocol.ShipStaticInfo.Item\022J\n\t" +
-      "shipBonus\030\017 \003(\01327.arch.galaxyeclipse.sha" +
-      "red.protocol.ShipStaticInfo.Item\022L\n\013ship" +
-      "Weapons\030\020 \003(\01327.arch.galaxyeclipse.share" +
-      "d.protocol.ShipStaticInfo.Item\022K\n\nshipEn" +
-      "gine\030\021 \002(\01327.arch.galaxyeclipse.shared.p" +
-      "rotocol.ShipStaticInfo.Item\032\357\004\n\004Item\022\016\n\006" +
-      "itemId\030\001 \002(\005\022\014\n\004name\030\002 \002(\t\022\023\n\013descriptio",
-      "n\030\003 \002(\t\022\r\n\005price\030\004 \002(\005\022\022\n\nitemTypeId\030\005 \002" +
-      "(\005\022L\n\005bonus\030\006 \001(\0132=.arch.galaxyeclipse.s" +
-      "hared.protocol.ShipStaticInfo.Item.Bonus" +
-      "\022N\n\006weapon\030\007 \001(\0132>.arch.galaxyeclipse.sh" +
-      "ared.protocol.ShipStaticInfo.Item.Weapon" +
-      "\022N\n\006engine\030\010 \001(\0132>.arch.galaxyeclipse.sh" +
-      "ared.protocol.ShipStaticInfo.Item.Engine" +
-      "\0320\n\005Bonus\022\022\n\nbonusValue\030\001 \002(\005\022\023\n\013bonusTy" +
-      "peId\030\002 \002(\005\032j\n\006Weapon\022\016\n\006damage\030\001 \002(\005\022\022\n\n" +
-      "delaySpeed\030\002 \002(\005\022\023\n\013bulletSpeed\030\003 \002(\005\022\023\n",
-      "\013maxDistance\030\004 \002(\005\022\022\n\nenergyCost\030\005 \002(\005\032\204" +
-      "\001\n\006Engine\022\035\n\025moveAccelerationBonus\030\001 \002(\005" +
-      "\022\031\n\021moveMaxSpeedBonus\030\002 \002(\005\022!\n\031rotationA" +
-      "ccelerationBonus\030\003 \002(\005\022\035\n\025rotationMaxSpe" +
-      "edBonus\030\004 \002(\005\"\376\002\n\010TypesMap\022H\n\titemTypes\030" +
-      "\001 \003(\01325.arch.galaxyeclipse.shared.protoc" +
-      "ol.TypesMap.ItemType\022L\n\013weaponTypes\030\002 \003(" +
-      "\01327.arch.galaxyeclipse.shared.protocol.T" +
-      "ypesMap.WeaponType\022\\\n\023locationObjectType" +
-      "s\030\003 \003(\0132?.arch.galaxyeclipse.shared.prot",
-      "ocol.TypesMap.LocationObjectType\032$\n\010Item" +
-      "Type\022\n\n\002id\030\001 \002(\005\022\014\n\004name\030\002 \002(\t\032&\n\nWeapon" +
-      "Type\022\n\n\002id\030\001 \002(\005\022\014\n\004name\030\002 \002(\t\032.\n\022Locati" +
-      "onObjectType\022\n\n\002id\030\001 \002(\005\022\014\n\004name\030\002 \002(\t\"\341" +
-      "\001\n\013StartupInfo\022F\n\014locationInfo\030\001 \002(\01320.a" +
-      "rch.galaxyeclipse.shared.protocol.Locati" +
-      "onInfo\022>\n\010typesMap\030\002 \002(\0132,.arch.galaxyec" +
-      "lipse.shared.protocol.TypesMap\022J\n\016shipSt" +
-      "aticInfo\030\003 \002(\01322.arch.galaxyeclipse.shar" +
-      "ed.protocol.ShipStaticInfo\"2\n\025ShipStatic",
-      "InfoCommand\022\031\n\021serializedCommand\030\001 \002(\014\"\"" +
-      "\n\017ChatSendMessage\022\017\n\007message\030\001 \002(\t\"5\n\022Ch" +
-      "atReceiveMessage\022\017\n\007message\030\001 \002(\t\022\016\n\006sen" +
-      "der\030\002 \002(\tB\016B\nGeProtocolH\001"
+      "namicObjectsRequest\"j\n\026DynamicObjectsRes" +
+      "ponse\022P\n\007objects\030\001 \003(\0132?.arch.galaxyecli" +
+      "pse.shared.protocol.LocationInfo.Locatio" +
+      "nObject\"\022\n\020ShipStateRequest\"\237\001\n\021ShipStat" +
+      "eResponse\022\021\n\tmoveSpeed\030\001 \002(\005\022\025\n\rrotation" +
+      "Speed\030\002 \002(\005\022\n\n\002hp\030\003 \002(\005\022\027\n\017armorDurabili" +
+      "ty\030\004 \002(\005\022\025\n\rrotationAngle\030\005 \002(\005\022\021\n\tposit" +
+      "ionX\030\006 \002(\002\022\021\n\tpositionY\030\007 \002(\002\"\271\002\n\014Client" +
+      "Action\022O\n\004type\030\001 \002(\0162A.arch.galaxyeclips" +
+      "e.shared.protocol.ClientAction.ClientAct",
+      "ionType\022\030\n\020locationObjectId\030\002 \001(\005\022\034\n\024loc" +
+      "ationObjectTypeId\030\003 \001(\005\"\237\001\n\020ClientAction" +
+      "Type\022\017\n\013ROTATE_LEFT\020\001\022\020\n\014ROTATE_RIGHT\020\002\022" +
+      "\010\n\004MOVE\020\003\022\010\n\004STOP\020\004\022\020\n\014OBJECT_CLICK\020\007\022\r\n" +
+      "\tLOOT_PICK\020\010\022\020\n\014ATTACK_START\020\t\022\017\n\013ATTACK" +
+      "_STOP\020\n\022\020\n\014ROCKET_SHOOT\020\020\"1\n\013AuthRequest" +
+      "\022\020\n\010username\030\001 \002(\t\022\020\n\010password\030\002 \002(\t\"!\n\014" +
+      "AuthResponse\022\021\n\tisSuccess\030\001 \002(\010\"\203\003\n\014Loca" +
+      "tionInfo\022\022\n\nlocationId\030\001 \002(\005\022\014\n\004name\030\002 \002" +
+      "(\t\022\r\n\005width\030\003 \002(\002\022\016\n\006height\030\004 \002(\002\022]\n\025loc",
+      "ationCachedObjects\030\005 \002(\0132>.arch.galaxyec" +
+      "lipse.shared.protocol.LocationInfo.Cache" +
+      "dObjects\032a\n\rCachedObjects\022P\n\007objects\030\001 \003" +
+      "(\0132?.arch.galaxyeclipse.shared.protocol." +
+      "LocationInfo.LocationObject\032p\n\016LocationO" +
+      "bject\022\020\n\010objectId\030\001 \002(\005\022\024\n\014objectTypeId\030" +
+      "\002 \002(\005\022\020\n\010nativeId\030\003 \002(\005\022\021\n\tpositionX\030\004 \002" +
+      "(\002\022\021\n\tpositionY\030\005 \002(\002\"\330\t\n\016ShipStaticInfo" +
+      "\022\024\n\014moveMaxSpeed\030\001 \002(\005\022\030\n\020rotationMaxSpe" +
+      "ed\030\002 \002(\005\022\035\n\025moveAccelerationSpeed\030\003 \002(\005\022",
+      "\034\n\024rotationAcceleration\030\004 \002(\005\022\r\n\005armor\030\005" +
+      " \002(\005\022\021\n\tenergyMax\030\006 \002(\005\022\r\n\005hpMax\030\007 \002(\005\022\023" +
+      "\n\013energyRegen\030\010 \002(\005\022\017\n\007hpRegen\030\t \002(\005\022\014\n\004" +
+      "name\030\n \002(\t\022\027\n\017armorDurability\030\013 \002(\005\022\030\n\020w" +
+      "eaponSlotsCount\030\014 \002(\005\022\027\n\017bonusSlotsCount" +
+      "\030\r \002(\005\022O\n\016inventoryItems\030\016 \003(\01327.arch.ga" +
+      "laxyeclipse.shared.protocol.ShipStaticIn" +
+      "fo.Item\022J\n\tshipBonus\030\017 \003(\01327.arch.galaxy" +
+      "eclipse.shared.protocol.ShipStaticInfo.I" +
+      "tem\022L\n\013shipWeapons\030\020 \003(\01327.arch.galaxyec",
+      "lipse.shared.protocol.ShipStaticInfo.Ite" +
+      "m\022K\n\nshipEngine\030\021 \002(\01327.arch.galaxyeclip" +
+      "se.shared.protocol.ShipStaticInfo.Item\032\357" +
+      "\004\n\004Item\022\016\n\006itemId\030\001 \002(\005\022\014\n\004name\030\002 \002(\t\022\023\n" +
+      "\013description\030\003 \002(\t\022\r\n\005price\030\004 \002(\005\022\022\n\nite" +
+      "mTypeId\030\005 \002(\005\022L\n\005bonus\030\006 \001(\0132=.arch.gala" +
+      "xyeclipse.shared.protocol.ShipStaticInfo" +
+      ".Item.Bonus\022N\n\006weapon\030\007 \001(\0132>.arch.galax" +
+      "yeclipse.shared.protocol.ShipStaticInfo." +
+      "Item.Weapon\022N\n\006engine\030\010 \001(\0132>.arch.galax",
+      "yeclipse.shared.protocol.ShipStaticInfo." +
+      "Item.Engine\0320\n\005Bonus\022\022\n\nbonusValue\030\001 \002(\005" +
+      "\022\023\n\013bonusTypeId\030\002 \002(\005\032j\n\006Weapon\022\016\n\006damag" +
+      "e\030\001 \002(\005\022\022\n\ndelaySpeed\030\002 \002(\005\022\023\n\013bulletSpe" +
+      "ed\030\003 \002(\005\022\023\n\013maxDistance\030\004 \002(\005\022\022\n\nenergyC" +
+      "ost\030\005 \002(\005\032\204\001\n\006Engine\022\035\n\025moveAcceleration" +
+      "Bonus\030\001 \002(\005\022\031\n\021moveMaxSpeedBonus\030\002 \002(\005\022!" +
+      "\n\031rotationAccelerationBonus\030\003 \002(\005\022\035\n\025rot" +
+      "ationMaxSpeedBonus\030\004 \002(\005\"\376\002\n\010TypesMap\022H\n" +
+      "\titemTypes\030\001 \003(\01325.arch.galaxyeclipse.sh",
+      "ared.protocol.TypesMap.ItemType\022L\n\013weapo" +
+      "nTypes\030\002 \003(\01327.arch.galaxyeclipse.shared" +
+      ".protocol.TypesMap.WeaponType\022\\\n\023locatio" +
+      "nObjectTypes\030\003 \003(\0132?.arch.galaxyeclipse." +
+      "shared.protocol.TypesMap.LocationObjectT" +
+      "ype\032$\n\010ItemType\022\n\n\002id\030\001 \002(\005\022\014\n\004name\030\002 \002(" +
+      "\t\032&\n\nWeaponType\022\n\n\002id\030\001 \002(\005\022\014\n\004name\030\002 \002(" +
+      "\t\032.\n\022LocationObjectType\022\n\n\002id\030\001 \002(\005\022\014\n\004n" +
+      "ame\030\002 \002(\t\"\341\001\n\013StartupInfo\022F\n\014locationInf" +
+      "o\030\001 \002(\01320.arch.galaxyeclipse.shared.prot",
+      "ocol.LocationInfo\022>\n\010typesMap\030\002 \002(\0132,.ar" +
+      "ch.galaxyeclipse.shared.protocol.TypesMa" +
+      "p\022J\n\016shipStaticInfo\030\003 \002(\01322.arch.galaxye" +
+      "clipse.shared.protocol.ShipStaticInfo\"2\n" +
+      "\025ShipStaticInfoCommand\022\031\n\021serializedComm" +
+      "and\030\001 \002(\014\"\"\n\017ChatSendMessage\022\017\n\007message\030" +
+      "\001 \002(\t\"5\n\022ChatReceiveMessage\022\017\n\007message\030\001" +
+      " \002(\t\022\016\n\006sender\030\002 \002(\tB\016B\nGeProtocolH\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -22564,12 +21340,6 @@ public final class GeProtocol {
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_arch_galaxyeclipse_shared_protocol_DynamicObjectsResponse_descriptor,
               new java.lang.String[] { "Objects", });
-          internal_static_arch_galaxyeclipse_shared_protocol_DynamicObjectsResponse_LocationDynamicObject_descriptor =
-            internal_static_arch_galaxyeclipse_shared_protocol_DynamicObjectsResponse_descriptor.getNestedTypes().get(0);
-          internal_static_arch_galaxyeclipse_shared_protocol_DynamicObjectsResponse_LocationDynamicObject_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_arch_galaxyeclipse_shared_protocol_DynamicObjectsResponse_LocationDynamicObject_descriptor,
-              new java.lang.String[] { "LocationDynamicObjectId", "ObjectTypeId", "NativeId", "X", "Y", });
           internal_static_arch_galaxyeclipse_shared_protocol_ShipStateRequest_descriptor =
             getDescriptor().getMessageTypes().get(3);
           internal_static_arch_galaxyeclipse_shared_protocol_ShipStateRequest_fieldAccessorTable = new
@@ -22581,19 +21351,13 @@ public final class GeProtocol {
           internal_static_arch_galaxyeclipse_shared_protocol_ShipStateResponse_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_arch_galaxyeclipse_shared_protocol_ShipStateResponse_descriptor,
-              new java.lang.String[] { "MoveSpeed", "RotationSpeed", "Hp", "ArmorDurability", "RotationAngle", });
+              new java.lang.String[] { "MoveSpeed", "RotationSpeed", "Hp", "ArmorDurability", "RotationAngle", "PositionX", "PositionY", });
           internal_static_arch_galaxyeclipse_shared_protocol_ClientAction_descriptor =
             getDescriptor().getMessageTypes().get(5);
           internal_static_arch_galaxyeclipse_shared_protocol_ClientAction_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_arch_galaxyeclipse_shared_protocol_ClientAction_descriptor,
-              new java.lang.String[] { "Type", "Point", "LocationObjectId", "LocationObjectTypeId", });
-          internal_static_arch_galaxyeclipse_shared_protocol_ClientAction_Point_descriptor =
-            internal_static_arch_galaxyeclipse_shared_protocol_ClientAction_descriptor.getNestedTypes().get(0);
-          internal_static_arch_galaxyeclipse_shared_protocol_ClientAction_Point_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_arch_galaxyeclipse_shared_protocol_ClientAction_Point_descriptor,
-              new java.lang.String[] { "X", "Y", });
+              new java.lang.String[] { "Type", "LocationObjectId", "LocationObjectTypeId", });
           internal_static_arch_galaxyeclipse_shared_protocol_AuthRequest_descriptor =
             getDescriptor().getMessageTypes().get(6);
           internal_static_arch_galaxyeclipse_shared_protocol_AuthRequest_fieldAccessorTable = new
@@ -22618,12 +21382,12 @@ public final class GeProtocol {
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_arch_galaxyeclipse_shared_protocol_LocationInfo_CachedObjects_descriptor,
               new java.lang.String[] { "Objects", });
-          internal_static_arch_galaxyeclipse_shared_protocol_LocationInfo_CachedObjects_CachedObject_descriptor =
-            internal_static_arch_galaxyeclipse_shared_protocol_LocationInfo_CachedObjects_descriptor.getNestedTypes().get(0);
-          internal_static_arch_galaxyeclipse_shared_protocol_LocationInfo_CachedObjects_CachedObject_fieldAccessorTable = new
+          internal_static_arch_galaxyeclipse_shared_protocol_LocationInfo_LocationObject_descriptor =
+            internal_static_arch_galaxyeclipse_shared_protocol_LocationInfo_descriptor.getNestedTypes().get(1);
+          internal_static_arch_galaxyeclipse_shared_protocol_LocationInfo_LocationObject_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_arch_galaxyeclipse_shared_protocol_LocationInfo_CachedObjects_CachedObject_descriptor,
-              new java.lang.String[] { "ObjectId", "PositionX", "PositionY", "ObjectTypeId", });
+              internal_static_arch_galaxyeclipse_shared_protocol_LocationInfo_LocationObject_descriptor,
+              new java.lang.String[] { "ObjectId", "ObjectTypeId", "NativeId", "PositionX", "PositionY", });
           internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfo_descriptor =
             getDescriptor().getMessageTypes().get(9);
           internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfo_fieldAccessorTable = new

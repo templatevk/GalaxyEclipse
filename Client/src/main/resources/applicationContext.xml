@@ -7,16 +7,11 @@
     <bean class="arch.galaxyeclipse.client.window.ClientWindow"/>
 
     <!-- Network -->
-    <bean class="arch.galaxyeclipse.client.network.ClientNetworkManager">
-        <constructor-arg>
-            <bean class="arch.galaxyeclipse.client.network.ClientChannelHandlerFactory"/>
-        </constructor-arg>
-    </bean>
+    <bean class="arch.galaxyeclipse.client.network.ClientNetworkManager"/>
 
     <!-- Other -->
-    <bean class="arch.galaxyeclipse.client.stage.ui.StageUiFactory"/>
+    <bean class="arch.galaxyeclipse.client.resource.CachingResourceLoader" lazy-init="true"/>
     <bean class="arch.galaxyeclipse.client.data.ShipStaticInfoHolder"/>
-    <bean class="arch.galaxyeclipse.client.data.LocationInfoHolder"/>
-    <bean class="arch.galaxyeclipse.client.resources.CachingResourceLoaderFactory"/>
     <bean class="arch.galaxyeclipse.shared.types.DictionaryTypesMapper"/>
+    <bean class="arch.galaxyeclipse.client.data.LocationInfoHolder"/>
 </beans>

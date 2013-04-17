@@ -7,6 +7,7 @@ message Packet {
     enum Type {
         DYNAMIC_OBJECTS_REQUEST     = 1;
         DYNAMIC_OBJECTS_RESPONSE    = 2;
+
         SHIP_STATE_REQUEST          = 3;
         SHIP_STATE_RESPONSE         = 4;
 
@@ -45,16 +46,10 @@ message DynamicObjectsRequest {
 
 }
 message DynamicObjectsResponse {
-    repeated LocationDynamicObject objects = 1;
-
-    message LocationDynamicObject {
-        required int32 locationDynamicObjectId  = 1;
-        required int32 objectTypeId             = 2;
-        required int32 nativeId                 = 3;
-        required int32 x                        = 4;
-        required int32 y                        = 5;
-    }
+    repeated LocationInfo.LocationObject objects = 1;
 }
+
+
 message ShipStateRequest {
 
 }
@@ -64,6 +59,8 @@ message ShipStateResponse {
     required int32 hp               = 3;
     required int32 armorDurability  = 4;
     required int32 rotationAngle    = 5;
+    required float positionX        = 6;
+    required float positionY        = 7;
 }
 
 
@@ -75,8 +72,6 @@ message ClientAction {
         MOVE            = 3;
         STOP            = 4;
 
-        MAP_CLICK       = 5;
-        MINI_MAP_CLICK  = 6;
         OBJECT_CLICK    = 7;       // LBM
         LOOT_PICK       = 8;       // RMB
 
@@ -89,14 +84,8 @@ message ClientAction {
 
     required ClientActionType   type                    = 1;
 
-    optional Point              point                   = 2;
-    optional int32              locationObjectId        = 3;
-    optional int32              locationObjectTypeId    = 4;
-
-    message Point {
-        required int32 x = 1;
-        required int32 y = 2;
-    }
+    optional int32              locationObjectId        = 2;
+    optional int32              locationObjectTypeId    = 3;
 }
 
 
@@ -112,19 +101,20 @@ message AuthResponse {
 message LocationInfo {
     required int32                  locationId              = 1;
     required string                 name                    = 2;
-    required int32                  width                   = 3;
-    required int32                  height                  = 4;
+    required float                  width                   = 3;
+    required float                  height                  = 4;
     required CachedObjects          locationCachedObjects   = 5;
 
     message CachedObjects {
-        repeated CachedObject objects = 1;
+        repeated LocationObject objects = 1;
+    }
 
-        message CachedObject {
-            required int32 objectId     = 1;
-            required int32 positionX    = 2;
-            required int32 positionY    = 3;
-            required int32 objectTypeId = 4;
-        }
+    message LocationObject {
+        required int32 objectId     = 1;
+        required int32 objectTypeId = 2;
+        required int32 nativeId     = 3;
+        required float positionX    = 4;
+        required float positionY    = 5;
     }
 }
 message ShipStaticInfo {

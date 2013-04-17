@@ -1,6 +1,6 @@
 package arch.galaxyeclipse.client.stage.ui;
 
-import arch.galaxyeclipse.client.resources.*;
+import arch.galaxyeclipse.client.resource.*;
 import arch.galaxyeclipse.shared.context.*;
 import com.badlogic.gdx.graphics.*;
 import com.badlogic.gdx.scenes.scene2d.*;
@@ -21,8 +21,7 @@ class DefaultButtonBuilder implements IButtonBuilder {
         text = "";
         listener = new ClickListener();
 
-        IResourceLoader resourceLoader = ContextHolder.INSTANCE
-                .getBean(IResourceLoaderFactory.class).createResourceLoader();
+        IResourceLoader resourceLoader = ContextHolder.INSTANCE.getBean(IResourceLoader.class);
 
         style = new TextButton.TextButtonStyle();
         style.up = new TextureRegionDrawable(resourceLoader.findRegion("ui/btnUp"));

@@ -1,6 +1,7 @@
 package arch.galaxyeclipse.server.data.model;
 
 import javax.persistence.*;
+import java.util.*;
 
 /**
  *
@@ -80,30 +81,6 @@ public class ShipState {
         this.shipStateArmorDurability = shipStateArmorDurability;
     }
 
-    private int playerId;
-
-    @Column(name = "player_id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
-    @Basic
-    public int getPlayerId() {
-        return playerId;
-    }
-
-    public void setPlayerId(int playerId) {
-        this.playerId = playerId;
-    }
-
-    private int locationObjectId;
-
-    @Column(name = "location_object_id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
-    @Basic
-    public int getLocationObjectId() {
-        return locationObjectId;
-    }
-
-    public void setLocationObjectId(int locationObjectId) {
-        this.locationObjectId = locationObjectId;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -111,8 +88,6 @@ public class ShipState {
 
         ShipState shipState = (ShipState) o;
 
-        if (locationObjectId != shipState.locationObjectId) return false;
-        if (playerId != shipState.playerId) return false;
         if (shipStateArmorDurability != shipState.shipStateArmorDurability) return false;
         if (shipStateHp != shipState.shipStateHp) return false;
         if (shipStateId != shipState.shipStateId) return false;
@@ -131,32 +106,17 @@ public class ShipState {
         result = 31 * result + shipStateRotationAngle;
         result = 31 * result + shipStateHp;
         result = 31 * result + shipStateArmorDurability;
-        result = 31 * result + playerId;
-        result = 31 * result + locationObjectId;
         return result;
     }
 
-    private Player player;
+    private Set<Player> players;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "player_id", referencedColumnName = "player_id", nullable = false, insertable = false, updatable = false)
-    public Player getPlayer() {
-        return player;
+    @OneToMany(mappedBy = "shipState", fetch = FetchType.LAZY)
+    public Set<Player> getPlayers() {
+        return players;
     }
 
-    public void setPlayer(Player player) {
-        this.player = player;
-    }
-
-    private LocationObject locationObject;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "location_object_id", referencedColumnName = "location_object_id", nullable = false, insertable = false, updatable = false)
-    public LocationObject getLocationObject() {
-        return locationObject;
-    }
-
-    public void setLocationObject(LocationObject locationObjectByLocationObjectId) {
-        this.locationObject = locationObjectByLocationObjectId;
+    public void setPlayers(Set<Player> players) {
+        this.players = players;
     }
 }

@@ -4,13 +4,12 @@ import arch.galaxyeclipse.shared.network.*;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.*;
 import arch.galaxyeclipse.shared.util.*;
 
-class ClientChannelHandlerFactory implements IClientChannelHandlerFactory {
-	public ClientChannelHandlerFactory() {
+class ClientChannelHandlerFactory {
+	private ClientChannelHandlerFactory() {
 		
 	}
-	
-	@Override
-	public IChannelHandler createHandler(ICommand<Packet> incomingPacketDispatcherCommand) {
+
+	public static IChannelHandler createHandler(ICommand<Packet> incomingPacketDispatcherCommand) {
 		return new ClientChannelHandler(incomingPacketDispatcherCommand);
 	}
 }

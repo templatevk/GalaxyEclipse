@@ -14,7 +14,7 @@ import static arch.galaxyeclipse.server.network.handler.PacketHandlerFactory.*;
 class ServerChannelHandler extends AbstractProtobufChannelHandler
 		implements IServerChannelHandler {
 
-    private PacketHandlerFactory packetProcessorFactory;
+    private PacketHandlerFactory packetHandlerFactory;
     private PlayerInfoHolder playerInfoHolder;
 
     private IMonitoringNetworkManager monitoringNetworkManager;
@@ -24,8 +24,6 @@ class ServerChannelHandler extends AbstractProtobufChannelHandler
     public ServerChannelHandler() {		
         monitoringNetworkManager = ContextHolder.INSTANCE.getBean(
                 IMonitoringNetworkManager.class);
-        packetProcessorFactory = ContextHolder.INSTANCE.getBean(
-                PacketHandlerFactory.class);
         playerInfoHolder = new PlayerInfoHolder();
         incomingPacketDispatcherCommand = new ICommand<Packet>() {
             @Override
@@ -51,7 +49,7 @@ class ServerChannelHandler extends AbstractProtobufChannelHandler
 
         monitoringNetworkManager.registerServerChannelHandler(this);
 
-		statefulPacketHandler = packetProcessorFactory.createStatefulPacketHandler(this);
+		statefulPacketHandler = packetHandlerFactory.createStatefulPacketHandler(this);
 	}
 
     @Override

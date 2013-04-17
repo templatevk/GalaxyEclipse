@@ -11,13 +11,12 @@ import java.util.*;
  *
  */
 @Slf4j
-class DictionaryTypesMapperHelper implements IDictionaryTypesMapperHelper {
-    public DictionaryTypesMapperHelper() {
+public class DictionaryTypesMapperHelper {
+    private DictionaryTypesMapperHelper() {
 
     }
 
-    @Override
-    public Map<Integer, String> getBonusTypes() {
+    private static Map<Integer, String> getBonusTypes() {
         Map<Integer, String> result = new HashMap<>();
 
         for (BonusType type : new CriteriaUnitOfWork<>(BonusType.class).execute()) {
@@ -26,8 +25,7 @@ class DictionaryTypesMapperHelper implements IDictionaryTypesMapperHelper {
         return result;
     }
 
-    @Override
-    public Map<Integer, String> getItemTypes() {
+    private static Map<Integer, String> getItemTypes() {
         Map<Integer, String> result = new HashMap<>();
 
         for (ItemType type : new CriteriaUnitOfWork<>(ItemType.class).execute()) {
@@ -36,8 +34,7 @@ class DictionaryTypesMapperHelper implements IDictionaryTypesMapperHelper {
         return result;
     }
 
-    @Override
-    public Map<Integer, String> getWeaponTypes() {
+    private static Map<Integer, String> getWeaponTypes() {
         Map<Integer, String> result = new HashMap<>();
 
         for (WeaponType type : new CriteriaUnitOfWork<>(WeaponType.class).execute()) {
@@ -46,8 +43,7 @@ class DictionaryTypesMapperHelper implements IDictionaryTypesMapperHelper {
         return result;
     }
 
-    @Override
-    public Map<Integer, String> getLocationObjectTypes() {
+    private static Map<Integer, String> getLocationObjectTypes() {
         Map<Integer, String> result = new HashMap<>();
 
         for (LocationObjectType type : new CriteriaUnitOfWork<>(
@@ -57,8 +53,7 @@ class DictionaryTypesMapperHelper implements IDictionaryTypesMapperHelper {
         return result;
     }
 
-    @Override
-    public Map<Integer, String> getLocationObjectBehaviorTypes() {
+    private static Map<Integer, String> getLocationObjectBehaviorTypes() {
         Map<Integer, String> result = new HashMap<>();
 
         for (LocationObjectBehaviorType type : new CriteriaUnitOfWork<>(
@@ -68,10 +63,10 @@ class DictionaryTypesMapperHelper implements IDictionaryTypesMapperHelper {
         return result;
     }
 
-    @Override
-    public void fillAll(DictionaryTypesMapper dictionaryTypesMapper) {
+    public static void fillAll(DictionaryTypesMapper dictionaryTypesMapper) {
         if (DictionaryTypesMapperHelper.log.isDebugEnabled()) {
-            DictionaryTypesMapperHelper.log.debug(LogUtils.getObjectInfo(this) + " filling in dictionary types");
+            DictionaryTypesMapperHelper.log.debug(LogUtils.getObjectInfo(DictionaryTypesMapper.class)
+                    + " filling in dictionary types");
         }
 
         dictionaryTypesMapper.fillItemTypes(getItemTypes());

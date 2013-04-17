@@ -151,16 +151,16 @@ create function get_default_location_name()
 //
 
 create function get_default_position_x()
-  returns integer deterministic
+  returns float deterministic
   begin
-    return 2000;
+    return 100;
   end
 //
 
 create function get_default_position_y()
-  returns integer deterministic
+  returns float deterministic
   begin
-    return 2000;
+    return 100;
   end
 
 # //

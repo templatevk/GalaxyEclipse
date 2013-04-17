@@ -13,12 +13,11 @@ import java.util.*;
  *
  */
 @Slf4j
-public class PlayerCriteriaTest extends AbstractTestNGServerTest {
+public class PlayerQueryTest extends AbstractTestNGServerTest {
     @Test
-    public void startupInfoCriteriaTest() {
+    public void startupInfoQueryTest() {
         long start = Calendar.getInstance().getTimeInMillis();
 
-        start = Calendar.getInstance().getTimeInMillis();
         Player p2 = new UnitOfWork<Player>() {
             @Override
             protected void doWork(Session session) {
@@ -28,13 +27,13 @@ public class PlayerCriteriaTest extends AbstractTestNGServerTest {
             }
         }.execute();
 
-
         System.out.println(Calendar.getInstance().getTimeInMillis() - start);
+
         System.out.println("ship state " + p2.getShipState().getShipStateId());
         System.out.println("ship state - location object " +
-                p2.getShipState().getLocationObject().getLocationId());
+                p2.getLocationObject().getLocationId());
         System.out.println("ship state - location object - location " +
-                p2.getShipState().getLocationObject().getLocation().getLocationId());
+                p2.getLocationObject().getLocation().getLocationId());
         if (p2.getInventoryItems().iterator().hasNext()) {
             System.out.println("inventory items - item " +
                     p2.getInventoryItems().iterator().next().getItem().getItemId());

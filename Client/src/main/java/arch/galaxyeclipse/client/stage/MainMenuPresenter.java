@@ -2,7 +2,7 @@ package arch.galaxyeclipse.client.stage;
 
 import arch.galaxyeclipse.client.data.*;
 import arch.galaxyeclipse.client.network.*;
-import arch.galaxyeclipse.client.resources.*;
+import arch.galaxyeclipse.client.resource.*;
 import arch.galaxyeclipse.client.stage.ui.*;
 import arch.galaxyeclipse.client.window.*;
 import arch.galaxyeclipse.shared.*;
@@ -95,12 +95,12 @@ public class MainMenuPresenter extends ServerPacketListener implements IStagePre
     }
 
     private void processStartupInfo(StartupInfo startupInfo) {
-        ContextHolder.INSTANCE.getBean(IShipStaticInfoHolder.class)
-                .setShipStaticInfo(startupInfo.getShipStaticInfo());
-        ContextHolder.INSTANCE.getBean(ILocationInfoHolder.class)
-                .setLocationInfo(startupInfo.getLocationInfo());
-
         processTypesMap(startupInfo.getTypesMap());
+
+        ContextHolder.INSTANCE.getBean(ShipStaticInfoHolder.class)
+                .setShipStaticInfo(startupInfo.getShipStaticInfo());
+        ContextHolder.INSTANCE.getBean(LocationInfoHolder.class)
+                .setLocationInfo(startupInfo.getLocationInfo());
     }
 
     private void processTypesMap(TypesMap typesMap) {
@@ -166,19 +166,18 @@ public class MainMenuPresenter extends ServerPacketListener implements IStagePre
         private Table innerTable;
 
         public MainMenuStage(final MainMenuPresenter presenter) {
-            IStageUiFactory stageUiFactory = ContextHolder.INSTANCE.getBean(IStageUiFactory.class);
-            IResourceLoader resourceLoader = ContextHolder.INSTANCE
-                    .getBean(IResourceLoaderFactory.class).createResourceLoader();
 
-            usernameTxt = stageUiFactory.createTextFieldBuilder()
+            IResourceLoader resourceLoader = ContextHolder.INSTANCE
+                    .getBean(IResourceLoader.class);
+
+            usernameTxt = StageUiFactory.createTextFieldBuilder()
                     .setWidth(TEXTFIELD_WIDTH).setHeight(TEXTFIELD_HEIGHT)
                     .setMessageText("Enter your username").build();
-            passwordTxt = stageUiFactory.createTextFieldBuilder()
+            passwordTxt = StageUiFactory.createTextFieldBuilder()
                     .setWidth(TEXTFIELD_WIDTH).setHeight(TEXTFIELD_HEIGHT)
                     .setMessageText("Enter your password").setPasswordMode(true)
                     .setPasswordCharacter('*').build();
-
-            connectBtn = stageUiFactory.createButtonBuilder().setText("Connect")
+            connectBtn = StageUiFactory.createButtonBuilder().setText("Connect")
                     .setClickCommand(presenter.connectButtonCommand).build();
 
 
@@ -200,10 +199,6 @@ public class MainMenuPresenter extends ServerPacketListener implements IStagePre
             innerTable.add(connectBtn).expand(true, false).space(TABLE_SPACING);
             innerTable.setOrigin(innerTable.getPrefWidth() / 2,
                     innerTable.getPrefHeight() / 2);
-
-
-            // TODO test if we can click/process scaled actors
-            // add(new Image())
         }
 
         @Override

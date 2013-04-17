@@ -1,7 +1,7 @@
 package arch.galaxyeclipse.client.stage.ui;
 
 import arch.galaxyeclipse.client.*;
-import arch.galaxyeclipse.client.resources.*;
+import arch.galaxyeclipse.client.resource.*;
 import arch.galaxyeclipse.shared.context.*;
 import com.badlogic.gdx.graphics.*;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
@@ -26,7 +26,7 @@ class DefaultTextFieldBuilder implements ITextFieldBuilder {
         passwordCharacter = '*';
 
         IResourceLoader resourceLoader = ContextHolder.INSTANCE
-                .getBean(IResourceLoaderFactory.class).createResourceLoader();
+                .getBean(IResourceLoader.class);
 
         Drawable carret = new TextureRegionDrawable(resourceLoader.findRegion("ui/carret"));
         textFieldStyle = new TextField.TextFieldStyle(

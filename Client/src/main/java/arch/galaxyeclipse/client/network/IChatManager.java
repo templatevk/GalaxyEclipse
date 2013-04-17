@@ -1,8 +1,9 @@
 package arch.galaxyeclipse.client.network;
 
-/**
- * Responsible for sending chat messages.
- */
+import java.util.*;
+
 public interface IChatManager {
     void sendMessage(String message);
+
+    List<String> getChatHistory();
 }
