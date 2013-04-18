@@ -434,25 +434,17 @@ public final class GeProtocol {
        */
       STARTUP_INFO(8, 31),
       /**
-       * <code>SHIP_STATIC_INFO = 32;</code>
+       * <code>SHIP_STATIC_INFO_COMMAND = 32;</code>
        */
-      SHIP_STATIC_INFO(9, 32),
-      /**
-       * <code>SHIP_STATIC_INFO_COMMAND = 33;</code>
-       */
-      SHIP_STATIC_INFO_COMMAND(10, 33),
-      /**
-       * <code>TYPES_MAP = 34;</code>
-       */
-      TYPES_MAP(11, 34),
+      SHIP_STATIC_INFO_COMMAND(9, 32),
       /**
        * <code>CHAT_SEND_MESSAGE = 60;</code>
        */
-      CHAT_SEND_MESSAGE(12, 60),
+      CHAT_SEND_MESSAGE(10, 60),
       /**
        * <code>CHAR_RECEIVE_MESSAGE = 61;</code>
        */
-      CHAR_RECEIVE_MESSAGE(13, 61),
+      CHAR_RECEIVE_MESSAGE(11, 61),
       ;
 
       /**
@@ -492,17 +484,9 @@ public final class GeProtocol {
        */
       public static final int STARTUP_INFO_VALUE = 31;
       /**
-       * <code>SHIP_STATIC_INFO = 32;</code>
+       * <code>SHIP_STATIC_INFO_COMMAND = 32;</code>
        */
-      public static final int SHIP_STATIC_INFO_VALUE = 32;
-      /**
-       * <code>SHIP_STATIC_INFO_COMMAND = 33;</code>
-       */
-      public static final int SHIP_STATIC_INFO_COMMAND_VALUE = 33;
-      /**
-       * <code>TYPES_MAP = 34;</code>
-       */
-      public static final int TYPES_MAP_VALUE = 34;
+      public static final int SHIP_STATIC_INFO_COMMAND_VALUE = 32;
       /**
        * <code>CHAT_SEND_MESSAGE = 60;</code>
        */
@@ -526,9 +510,7 @@ public final class GeProtocol {
           case 17: return AUTH_RESPONSE;
           case 30: return LOCATION_INFO;
           case 31: return STARTUP_INFO;
-          case 32: return SHIP_STATIC_INFO;
-          case 33: return SHIP_STATIC_INFO_COMMAND;
-          case 34: return TYPES_MAP;
+          case 32: return SHIP_STATIC_INFO_COMMAND;
           case 60: return CHAT_SEND_MESSAGE;
           case 61: return CHAR_RECEIVE_MESSAGE;
           default: return null;
@@ -15494,79 +15476,104 @@ public final class GeProtocol {
   public interface TypesMapOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // repeated .arch.galaxyeclipse.shared.protocol.TypesMap.ItemType itemTypes = 1;
+    // repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type itemTypes = 1;
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.ItemType itemTypes = 1;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type itemTypes = 1;</code>
      */
-    java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType> 
+    java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type> 
         getItemTypesList();
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.ItemType itemTypes = 1;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type itemTypes = 1;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType getItemTypes(int index);
+    arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type getItemTypes(int index);
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.ItemType itemTypes = 1;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type itemTypes = 1;</code>
      */
     int getItemTypesCount();
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.ItemType itemTypes = 1;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type itemTypes = 1;</code>
      */
-    java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemTypeOrBuilder> 
+    java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.TypeOrBuilder> 
         getItemTypesOrBuilderList();
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.ItemType itemTypes = 1;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type itemTypes = 1;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemTypeOrBuilder getItemTypesOrBuilder(
+    arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.TypeOrBuilder getItemTypesOrBuilder(
         int index);
 
-    // repeated .arch.galaxyeclipse.shared.protocol.TypesMap.WeaponType weaponTypes = 2;
+    // repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type weaponTypes = 2;
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.WeaponType weaponTypes = 2;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type weaponTypes = 2;</code>
      */
-    java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType> 
+    java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type> 
         getWeaponTypesList();
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.WeaponType weaponTypes = 2;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type weaponTypes = 2;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType getWeaponTypes(int index);
+    arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type getWeaponTypes(int index);
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.WeaponType weaponTypes = 2;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type weaponTypes = 2;</code>
      */
     int getWeaponTypesCount();
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.WeaponType weaponTypes = 2;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type weaponTypes = 2;</code>
      */
-    java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponTypeOrBuilder> 
+    java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.TypeOrBuilder> 
         getWeaponTypesOrBuilderList();
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.WeaponType weaponTypes = 2;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type weaponTypes = 2;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponTypeOrBuilder getWeaponTypesOrBuilder(
+    arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.TypeOrBuilder getWeaponTypesOrBuilder(
         int index);
 
-    // repeated .arch.galaxyeclipse.shared.protocol.TypesMap.LocationObjectType locationObjectTypes = 3;
+    // repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type locationObjectTypes = 3;
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.LocationObjectType locationObjectTypes = 3;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type locationObjectTypes = 3;</code>
      */
-    java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType> 
+    java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type> 
         getLocationObjectTypesList();
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.LocationObjectType locationObjectTypes = 3;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type locationObjectTypes = 3;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType getLocationObjectTypes(int index);
+    arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type getLocationObjectTypes(int index);
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.LocationObjectType locationObjectTypes = 3;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type locationObjectTypes = 3;</code>
      */
     int getLocationObjectTypesCount();
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.LocationObjectType locationObjectTypes = 3;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type locationObjectTypes = 3;</code>
      */
-    java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectTypeOrBuilder> 
+    java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.TypeOrBuilder> 
         getLocationObjectTypesOrBuilderList();
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.LocationObjectType locationObjectTypes = 3;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type locationObjectTypes = 3;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectTypeOrBuilder getLocationObjectTypesOrBuilder(
+    arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.TypeOrBuilder getLocationObjectTypesOrBuilder(
+        int index);
+
+    // repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type bonusTypes = 4;
+    /**
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type bonusTypes = 4;</code>
+     */
+    java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type> 
+        getBonusTypesList();
+    /**
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type bonusTypes = 4;</code>
+     */
+    arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type getBonusTypes(int index);
+    /**
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type bonusTypes = 4;</code>
+     */
+    int getBonusTypesCount();
+    /**
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type bonusTypes = 4;</code>
+     */
+    java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.TypeOrBuilder> 
+        getBonusTypesOrBuilderList();
+    /**
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type bonusTypes = 4;</code>
+     */
+    arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.TypeOrBuilder getBonusTypesOrBuilder(
         int index);
   }
   /**
@@ -15622,26 +15629,34 @@ public final class GeProtocol {
             }
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                itemTypes_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType>();
+                itemTypes_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type>();
                 mutable_bitField0_ |= 0x00000001;
               }
-              itemTypes_.add(input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType.PARSER, extensionRegistry));
+              itemTypes_.add(input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.PARSER, extensionRegistry));
               break;
             }
             case 18: {
               if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-                weaponTypes_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType>();
+                weaponTypes_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type>();
                 mutable_bitField0_ |= 0x00000002;
               }
-              weaponTypes_.add(input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType.PARSER, extensionRegistry));
+              weaponTypes_.add(input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.PARSER, extensionRegistry));
               break;
             }
             case 26: {
               if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-                locationObjectTypes_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType>();
+                locationObjectTypes_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type>();
                 mutable_bitField0_ |= 0x00000004;
               }
-              locationObjectTypes_.add(input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType.PARSER, extensionRegistry));
+              locationObjectTypes_.add(input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.PARSER, extensionRegistry));
+              break;
+            }
+            case 34: {
+              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+                bonusTypes_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type>();
+                mutable_bitField0_ |= 0x00000008;
+              }
+              bonusTypes_.add(input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.PARSER, extensionRegistry));
               break;
             }
           }
@@ -15660,6 +15675,9 @@ public final class GeProtocol {
         }
         if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
           locationObjectTypes_ = java.util.Collections.unmodifiableList(locationObjectTypes_);
+        }
+        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+          bonusTypes_ = java.util.Collections.unmodifiableList(bonusTypes_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -15692,7 +15710,7 @@ public final class GeProtocol {
       return PARSER;
     }
 
-    public interface ItemTypeOrBuilder
+    public interface TypeOrBuilder
         extends com.google.protobuf.MessageOrBuilder {
 
       // required int32 id = 1;
@@ -15721,24 +15739,24 @@ public final class GeProtocol {
           getNameBytes();
     }
     /**
-     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.TypesMap.ItemType}
+     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.TypesMap.Type}
      */
-    public static final class ItemType extends
+    public static final class Type extends
         com.google.protobuf.GeneratedMessage
-        implements ItemTypeOrBuilder {
-      // Use ItemType.newBuilder() to construct.
-      private ItemType(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+        implements TypeOrBuilder {
+      // Use Type.newBuilder() to construct.
+      private Type(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
         super(builder);
         this.unknownFields = builder.getUnknownFields();
       }
-      private ItemType(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+      private Type(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
-      private static final ItemType defaultInstance;
-      public static ItemType getDefaultInstance() {
+      private static final Type defaultInstance;
+      public static Type getDefaultInstance() {
         return defaultInstance;
       }
 
-      public ItemType getDefaultInstanceForType() {
+      public Type getDefaultInstanceForType() {
         return defaultInstance;
       }
 
@@ -15748,7 +15766,7 @@ public final class GeProtocol {
           getUnknownFields() {
         return this.unknownFields;
       }
-      private ItemType(
+      private Type(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
@@ -15795,28 +15813,28 @@ public final class GeProtocol {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_TypesMap_ItemType_descriptor;
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_TypesMap_Type_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_TypesMap_ItemType_fieldAccessorTable
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_TypesMap_Type_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType.class, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType.Builder.class);
+                arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.class, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.Builder.class);
       }
 
-      public static com.google.protobuf.Parser<ItemType> PARSER =
-          new com.google.protobuf.AbstractParser<ItemType>() {
-        public ItemType parsePartialFrom(
+      public static com.google.protobuf.Parser<Type> PARSER =
+          new com.google.protobuf.AbstractParser<Type>() {
+        public Type parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new ItemType(input, extensionRegistry);
+          return new Type(input, extensionRegistry);
         }
       };
 
       @java.lang.Override
-      public com.google.protobuf.Parser<ItemType> getParserForType() {
+      public com.google.protobuf.Parser<Type> getParserForType() {
         return PARSER;
       }
 
@@ -15939,53 +15957,53 @@ public final class GeProtocol {
         return super.writeReplace();
       }
 
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType parseFrom(
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type parseFrom(
           com.google.protobuf.ByteString data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType parseFrom(
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type parseFrom(
           com.google.protobuf.ByteString data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType parseFrom(byte[] data)
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type parseFrom(byte[] data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType parseFrom(
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type parseFrom(
           byte[] data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType parseFrom(java.io.InputStream input)
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type parseFrom(java.io.InputStream input)
           throws java.io.IOException {
         return PARSER.parseFrom(input);
       }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType parseFrom(
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type parseFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return PARSER.parseFrom(input, extensionRegistry);
       }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType parseDelimitedFrom(java.io.InputStream input)
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type parseDelimitedFrom(java.io.InputStream input)
           throws java.io.IOException {
         return PARSER.parseDelimitedFrom(input);
       }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType parseDelimitedFrom(
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type parseDelimitedFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return PARSER.parseDelimitedFrom(input, extensionRegistry);
       }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType parseFrom(
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type parseFrom(
           com.google.protobuf.CodedInputStream input)
           throws java.io.IOException {
         return PARSER.parseFrom(input);
       }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType parseFrom(
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type parseFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
@@ -15994,7 +16012,7 @@ public final class GeProtocol {
 
       public static Builder newBuilder() { return Builder.create(); }
       public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType prototype) {
+      public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type prototype) {
         return newBuilder().mergeFrom(prototype);
       }
       public Builder toBuilder() { return newBuilder(this); }
@@ -16006,24 +16024,24 @@ public final class GeProtocol {
         return builder;
       }
       /**
-       * Protobuf type {@code arch.galaxyeclipse.shared.protocol.TypesMap.ItemType}
+       * Protobuf type {@code arch.galaxyeclipse.shared.protocol.TypesMap.Type}
        */
       public static final class Builder extends
           com.google.protobuf.GeneratedMessage.Builder<Builder>
-         implements arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemTypeOrBuilder {
+         implements arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.TypeOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_TypesMap_ItemType_descriptor;
+          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_TypesMap_Type_descriptor;
         }
 
         protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_TypesMap_ItemType_fieldAccessorTable
+          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_TypesMap_Type_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
-                  arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType.class, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType.Builder.class);
+                  arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.class, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.Builder.class);
         }
 
-        // Construct using arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType.newBuilder()
+        // Construct using arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.newBuilder()
         private Builder() {
           maybeForceBuilderInitialization();
         }
@@ -16056,23 +16074,23 @@ public final class GeProtocol {
 
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_TypesMap_ItemType_descriptor;
+          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_TypesMap_Type_descriptor;
         }
 
-        public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType getDefaultInstanceForType() {
-          return arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType.getDefaultInstance();
+        public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type getDefaultInstanceForType() {
+          return arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.getDefaultInstance();
         }
 
-        public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType build() {
-          arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType result = buildPartial();
+        public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type build() {
+          arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type result = buildPartial();
           if (!result.isInitialized()) {
             throw newUninitializedMessageException(result);
           }
           return result;
         }
 
-        public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType buildPartial() {
-          arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType result = new arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType(this);
+        public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type buildPartial() {
+          arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type result = new arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type(this);
           int from_bitField0_ = bitField0_;
           int to_bitField0_ = 0;
           if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -16089,16 +16107,16 @@ public final class GeProtocol {
         }
 
         public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType) {
-            return mergeFrom((arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType)other);
+          if (other instanceof arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type) {
+            return mergeFrom((arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type)other);
           } else {
             super.mergeFrom(other);
             return this;
           }
         }
 
-        public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType other) {
-          if (other == arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType.getDefaultInstance()) return this;
+        public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type other) {
+          if (other == arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.getDefaultInstance()) return this;
           if (other.hasId()) {
             setId(other.getId());
           }
@@ -16127,11 +16145,11 @@ public final class GeProtocol {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType parsedMessage = null;
+          arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type parsedMessage = null;
           try {
             parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType) e.getUnfinishedMessage();
+            parsedMessage = (arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type) e.getUnfinishedMessage();
             throw e;
           } finally {
             if (parsedMessage != null) {
@@ -16249,1265 +16267,166 @@ public final class GeProtocol {
           return this;
         }
 
-        // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.TypesMap.ItemType)
+        // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.TypesMap.Type)
       }
 
       static {
-        defaultInstance = new ItemType(true);
+        defaultInstance = new Type(true);
         defaultInstance.initFields();
       }
 
-      // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.TypesMap.ItemType)
+      // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.TypesMap.Type)
     }
 
-    public interface WeaponTypeOrBuilder
-        extends com.google.protobuf.MessageOrBuilder {
-
-      // required int32 id = 1;
-      /**
-       * <code>required int32 id = 1;</code>
-       */
-      boolean hasId();
-      /**
-       * <code>required int32 id = 1;</code>
-       */
-      int getId();
-
-      // required string name = 2;
-      /**
-       * <code>required string name = 2;</code>
-       */
-      boolean hasName();
-      /**
-       * <code>required string name = 2;</code>
-       */
-      java.lang.String getName();
-      /**
-       * <code>required string name = 2;</code>
-       */
-      com.google.protobuf.ByteString
-          getNameBytes();
-    }
-    /**
-     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.TypesMap.WeaponType}
-     */
-    public static final class WeaponType extends
-        com.google.protobuf.GeneratedMessage
-        implements WeaponTypeOrBuilder {
-      // Use WeaponType.newBuilder() to construct.
-      private WeaponType(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
-        super(builder);
-        this.unknownFields = builder.getUnknownFields();
-      }
-      private WeaponType(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-      private static final WeaponType defaultInstance;
-      public static WeaponType getDefaultInstance() {
-        return defaultInstance;
-      }
-
-      public WeaponType getDefaultInstanceForType() {
-        return defaultInstance;
-      }
-
-      private final com.google.protobuf.UnknownFieldSet unknownFields;
-      @java.lang.Override
-      public final com.google.protobuf.UnknownFieldSet
-          getUnknownFields() {
-        return this.unknownFields;
-      }
-      private WeaponType(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        initFields();
-        int mutable_bitField0_ = 0;
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              default: {
-                if (!parseUnknownField(input, unknownFields,
-                                       extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-              case 8: {
-                bitField0_ |= 0x00000001;
-                id_ = input.readInt32();
-                break;
-              }
-              case 18: {
-                bitField0_ |= 0x00000002;
-                name_ = input.readBytes();
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e.getMessage()).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_TypesMap_WeaponType_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_TypesMap_WeaponType_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType.class, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType.Builder.class);
-      }
-
-      public static com.google.protobuf.Parser<WeaponType> PARSER =
-          new com.google.protobuf.AbstractParser<WeaponType>() {
-        public WeaponType parsePartialFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return new WeaponType(input, extensionRegistry);
-        }
-      };
-
-      @java.lang.Override
-      public com.google.protobuf.Parser<WeaponType> getParserForType() {
-        return PARSER;
-      }
-
-      private int bitField0_;
-      // required int32 id = 1;
-      public static final int ID_FIELD_NUMBER = 1;
-      private int id_;
-      /**
-       * <code>required int32 id = 1;</code>
-       */
-      public boolean hasId() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      /**
-       * <code>required int32 id = 1;</code>
-       */
-      public int getId() {
-        return id_;
-      }
-
-      // required string name = 2;
-      public static final int NAME_FIELD_NUMBER = 2;
-      private java.lang.Object name_;
-      /**
-       * <code>required string name = 2;</code>
-       */
-      public boolean hasName() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      /**
-       * <code>required string name = 2;</code>
-       */
-      public java.lang.String getName() {
-        java.lang.Object ref = name_;
-        if (ref instanceof java.lang.String) {
-          return (java.lang.String) ref;
-        } else {
-          com.google.protobuf.ByteString bs = 
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            name_ = s;
-          }
-          return s;
-        }
-      }
-      /**
-       * <code>required string name = 2;</code>
-       */
-      public com.google.protobuf.ByteString
-          getNameBytes() {
-        java.lang.Object ref = name_;
-        if (ref instanceof java.lang.String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          name_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-
-      private void initFields() {
-        id_ = 0;
-        name_ = "";
-      }
-      private byte memoizedIsInitialized = -1;
-      public final boolean isInitialized() {
-        byte isInitialized = memoizedIsInitialized;
-        if (isInitialized != -1) return isInitialized == 1;
-
-        if (!hasId()) {
-          memoizedIsInitialized = 0;
-          return false;
-        }
-        if (!hasName()) {
-          memoizedIsInitialized = 0;
-          return false;
-        }
-        memoizedIsInitialized = 1;
-        return true;
-      }
-
-      public void writeTo(com.google.protobuf.CodedOutputStream output)
-                          throws java.io.IOException {
-        getSerializedSize();
-        if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          output.writeInt32(1, id_);
-        }
-        if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          output.writeBytes(2, getNameBytes());
-        }
-        getUnknownFields().writeTo(output);
-      }
-
-      private int memoizedSerializedSize = -1;
-      public int getSerializedSize() {
-        int size = memoizedSerializedSize;
-        if (size != -1) return size;
-
-        size = 0;
-        if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(1, id_);
-        }
-        if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeBytesSize(2, getNameBytes());
-        }
-        size += getUnknownFields().getSerializedSize();
-        memoizedSerializedSize = size;
-        return size;
-      }
-
-      private static final long serialVersionUID = 0L;
-      @java.lang.Override
-      protected java.lang.Object writeReplace()
-          throws java.io.ObjectStreamException {
-        return super.writeReplace();
-      }
-
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType parseFrom(
-          com.google.protobuf.ByteString data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType parseFrom(
-          com.google.protobuf.ByteString data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType parseFrom(byte[] data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType parseFrom(
-          byte[] data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType parseFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return PARSER.parseFrom(input);
-      }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType parseFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return PARSER.parseFrom(input, extensionRegistry);
-      }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType parseDelimitedFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return PARSER.parseDelimitedFrom(input);
-      }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType parseDelimitedFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return PARSER.parseDelimitedFrom(input, extensionRegistry);
-      }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType parseFrom(
-          com.google.protobuf.CodedInputStream input)
-          throws java.io.IOException {
-        return PARSER.parseFrom(input);
-      }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType parseFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return PARSER.parseFrom(input, extensionRegistry);
-      }
-
-      public static Builder newBuilder() { return Builder.create(); }
-      public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType prototype) {
-        return newBuilder().mergeFrom(prototype);
-      }
-      public Builder toBuilder() { return newBuilder(this); }
-
-      @java.lang.Override
-      protected Builder newBuilderForType(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-        Builder builder = new Builder(parent);
-        return builder;
-      }
-      /**
-       * Protobuf type {@code arch.galaxyeclipse.shared.protocol.TypesMap.WeaponType}
-       */
-      public static final class Builder extends
-          com.google.protobuf.GeneratedMessage.Builder<Builder>
-         implements arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponTypeOrBuilder {
-        public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_TypesMap_WeaponType_descriptor;
-        }
-
-        protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_TypesMap_WeaponType_fieldAccessorTable
-              .ensureFieldAccessorsInitialized(
-                  arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType.class, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType.Builder.class);
-        }
-
-        // Construct using arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType.newBuilder()
-        private Builder() {
-          maybeForceBuilderInitialization();
-        }
-
-        private Builder(
-            com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-          super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-          }
-        }
-        private static Builder create() {
-          return new Builder();
-        }
-
-        public Builder clear() {
-          super.clear();
-          id_ = 0;
-          bitField0_ = (bitField0_ & ~0x00000001);
-          name_ = "";
-          bitField0_ = (bitField0_ & ~0x00000002);
-          return this;
-        }
-
-        public Builder clone() {
-          return create().mergeFrom(buildPartial());
-        }
-
-        public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_TypesMap_WeaponType_descriptor;
-        }
-
-        public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType getDefaultInstanceForType() {
-          return arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType.getDefaultInstance();
-        }
-
-        public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType build() {
-          arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType result = buildPartial();
-          if (!result.isInitialized()) {
-            throw newUninitializedMessageException(result);
-          }
-          return result;
-        }
-
-        public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType buildPartial() {
-          arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType result = new arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType(this);
-          int from_bitField0_ = bitField0_;
-          int to_bitField0_ = 0;
-          if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-            to_bitField0_ |= 0x00000001;
-          }
-          result.id_ = id_;
-          if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-            to_bitField0_ |= 0x00000002;
-          }
-          result.name_ = name_;
-          result.bitField0_ = to_bitField0_;
-          onBuilt();
-          return result;
-        }
-
-        public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType) {
-            return mergeFrom((arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType)other);
-          } else {
-            super.mergeFrom(other);
-            return this;
-          }
-        }
-
-        public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType other) {
-          if (other == arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType.getDefaultInstance()) return this;
-          if (other.hasId()) {
-            setId(other.getId());
-          }
-          if (other.hasName()) {
-            bitField0_ |= 0x00000002;
-            name_ = other.name_;
-            onChanged();
-          }
-          this.mergeUnknownFields(other.getUnknownFields());
-          return this;
-        }
-
-        public final boolean isInitialized() {
-          if (!hasId()) {
-            
-            return false;
-          }
-          if (!hasName()) {
-            
-            return false;
-          }
-          return true;
-        }
-
-        public Builder mergeFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-          arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType parsedMessage = null;
-          try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType) e.getUnfinishedMessage();
-            throw e;
-          } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
-          return this;
-        }
-        private int bitField0_;
-
-        // required int32 id = 1;
-        private int id_ ;
-        /**
-         * <code>required int32 id = 1;</code>
-         */
-        public boolean hasId() {
-          return ((bitField0_ & 0x00000001) == 0x00000001);
-        }
-        /**
-         * <code>required int32 id = 1;</code>
-         */
-        public int getId() {
-          return id_;
-        }
-        /**
-         * <code>required int32 id = 1;</code>
-         */
-        public Builder setId(int value) {
-          bitField0_ |= 0x00000001;
-          id_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>required int32 id = 1;</code>
-         */
-        public Builder clearId() {
-          bitField0_ = (bitField0_ & ~0x00000001);
-          id_ = 0;
-          onChanged();
-          return this;
-        }
-
-        // required string name = 2;
-        private java.lang.Object name_ = "";
-        /**
-         * <code>required string name = 2;</code>
-         */
-        public boolean hasName() {
-          return ((bitField0_ & 0x00000002) == 0x00000002);
-        }
-        /**
-         * <code>required string name = 2;</code>
-         */
-        public java.lang.String getName() {
-          java.lang.Object ref = name_;
-          if (!(ref instanceof java.lang.String)) {
-            java.lang.String s = ((com.google.protobuf.ByteString) ref)
-                .toStringUtf8();
-            name_ = s;
-            return s;
-          } else {
-            return (java.lang.String) ref;
-          }
-        }
-        /**
-         * <code>required string name = 2;</code>
-         */
-        public com.google.protobuf.ByteString
-            getNameBytes() {
-          java.lang.Object ref = name_;
-          if (ref instanceof String) {
-            com.google.protobuf.ByteString b = 
-                com.google.protobuf.ByteString.copyFromUtf8(
-                    (java.lang.String) ref);
-            name_ = b;
-            return b;
-          } else {
-            return (com.google.protobuf.ByteString) ref;
-          }
-        }
-        /**
-         * <code>required string name = 2;</code>
-         */
-        public Builder setName(
-            java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
-          name_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>required string name = 2;</code>
-         */
-        public Builder clearName() {
-          bitField0_ = (bitField0_ & ~0x00000002);
-          name_ = getDefaultInstance().getName();
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>required string name = 2;</code>
-         */
-        public Builder setNameBytes(
-            com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
-          name_ = value;
-          onChanged();
-          return this;
-        }
-
-        // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.TypesMap.WeaponType)
-      }
-
-      static {
-        defaultInstance = new WeaponType(true);
-        defaultInstance.initFields();
-      }
-
-      // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.TypesMap.WeaponType)
-    }
-
-    public interface LocationObjectTypeOrBuilder
-        extends com.google.protobuf.MessageOrBuilder {
-
-      // required int32 id = 1;
-      /**
-       * <code>required int32 id = 1;</code>
-       */
-      boolean hasId();
-      /**
-       * <code>required int32 id = 1;</code>
-       */
-      int getId();
-
-      // required string name = 2;
-      /**
-       * <code>required string name = 2;</code>
-       */
-      boolean hasName();
-      /**
-       * <code>required string name = 2;</code>
-       */
-      java.lang.String getName();
-      /**
-       * <code>required string name = 2;</code>
-       */
-      com.google.protobuf.ByteString
-          getNameBytes();
-    }
-    /**
-     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.TypesMap.LocationObjectType}
-     */
-    public static final class LocationObjectType extends
-        com.google.protobuf.GeneratedMessage
-        implements LocationObjectTypeOrBuilder {
-      // Use LocationObjectType.newBuilder() to construct.
-      private LocationObjectType(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
-        super(builder);
-        this.unknownFields = builder.getUnknownFields();
-      }
-      private LocationObjectType(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-      private static final LocationObjectType defaultInstance;
-      public static LocationObjectType getDefaultInstance() {
-        return defaultInstance;
-      }
-
-      public LocationObjectType getDefaultInstanceForType() {
-        return defaultInstance;
-      }
-
-      private final com.google.protobuf.UnknownFieldSet unknownFields;
-      @java.lang.Override
-      public final com.google.protobuf.UnknownFieldSet
-          getUnknownFields() {
-        return this.unknownFields;
-      }
-      private LocationObjectType(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        initFields();
-        int mutable_bitField0_ = 0;
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              default: {
-                if (!parseUnknownField(input, unknownFields,
-                                       extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-              case 8: {
-                bitField0_ |= 0x00000001;
-                id_ = input.readInt32();
-                break;
-              }
-              case 18: {
-                bitField0_ |= 0x00000002;
-                name_ = input.readBytes();
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e.getMessage()).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_TypesMap_LocationObjectType_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_TypesMap_LocationObjectType_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType.class, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType.Builder.class);
-      }
-
-      public static com.google.protobuf.Parser<LocationObjectType> PARSER =
-          new com.google.protobuf.AbstractParser<LocationObjectType>() {
-        public LocationObjectType parsePartialFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return new LocationObjectType(input, extensionRegistry);
-        }
-      };
-
-      @java.lang.Override
-      public com.google.protobuf.Parser<LocationObjectType> getParserForType() {
-        return PARSER;
-      }
-
-      private int bitField0_;
-      // required int32 id = 1;
-      public static final int ID_FIELD_NUMBER = 1;
-      private int id_;
-      /**
-       * <code>required int32 id = 1;</code>
-       */
-      public boolean hasId() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      /**
-       * <code>required int32 id = 1;</code>
-       */
-      public int getId() {
-        return id_;
-      }
-
-      // required string name = 2;
-      public static final int NAME_FIELD_NUMBER = 2;
-      private java.lang.Object name_;
-      /**
-       * <code>required string name = 2;</code>
-       */
-      public boolean hasName() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      /**
-       * <code>required string name = 2;</code>
-       */
-      public java.lang.String getName() {
-        java.lang.Object ref = name_;
-        if (ref instanceof java.lang.String) {
-          return (java.lang.String) ref;
-        } else {
-          com.google.protobuf.ByteString bs = 
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            name_ = s;
-          }
-          return s;
-        }
-      }
-      /**
-       * <code>required string name = 2;</code>
-       */
-      public com.google.protobuf.ByteString
-          getNameBytes() {
-        java.lang.Object ref = name_;
-        if (ref instanceof java.lang.String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          name_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-
-      private void initFields() {
-        id_ = 0;
-        name_ = "";
-      }
-      private byte memoizedIsInitialized = -1;
-      public final boolean isInitialized() {
-        byte isInitialized = memoizedIsInitialized;
-        if (isInitialized != -1) return isInitialized == 1;
-
-        if (!hasId()) {
-          memoizedIsInitialized = 0;
-          return false;
-        }
-        if (!hasName()) {
-          memoizedIsInitialized = 0;
-          return false;
-        }
-        memoizedIsInitialized = 1;
-        return true;
-      }
-
-      public void writeTo(com.google.protobuf.CodedOutputStream output)
-                          throws java.io.IOException {
-        getSerializedSize();
-        if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          output.writeInt32(1, id_);
-        }
-        if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          output.writeBytes(2, getNameBytes());
-        }
-        getUnknownFields().writeTo(output);
-      }
-
-      private int memoizedSerializedSize = -1;
-      public int getSerializedSize() {
-        int size = memoizedSerializedSize;
-        if (size != -1) return size;
-
-        size = 0;
-        if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(1, id_);
-        }
-        if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeBytesSize(2, getNameBytes());
-        }
-        size += getUnknownFields().getSerializedSize();
-        memoizedSerializedSize = size;
-        return size;
-      }
-
-      private static final long serialVersionUID = 0L;
-      @java.lang.Override
-      protected java.lang.Object writeReplace()
-          throws java.io.ObjectStreamException {
-        return super.writeReplace();
-      }
-
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType parseFrom(
-          com.google.protobuf.ByteString data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType parseFrom(
-          com.google.protobuf.ByteString data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType parseFrom(byte[] data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType parseFrom(
-          byte[] data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType parseFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return PARSER.parseFrom(input);
-      }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType parseFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return PARSER.parseFrom(input, extensionRegistry);
-      }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType parseDelimitedFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return PARSER.parseDelimitedFrom(input);
-      }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType parseDelimitedFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return PARSER.parseDelimitedFrom(input, extensionRegistry);
-      }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType parseFrom(
-          com.google.protobuf.CodedInputStream input)
-          throws java.io.IOException {
-        return PARSER.parseFrom(input);
-      }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType parseFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return PARSER.parseFrom(input, extensionRegistry);
-      }
-
-      public static Builder newBuilder() { return Builder.create(); }
-      public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType prototype) {
-        return newBuilder().mergeFrom(prototype);
-      }
-      public Builder toBuilder() { return newBuilder(this); }
-
-      @java.lang.Override
-      protected Builder newBuilderForType(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-        Builder builder = new Builder(parent);
-        return builder;
-      }
-      /**
-       * Protobuf type {@code arch.galaxyeclipse.shared.protocol.TypesMap.LocationObjectType}
-       */
-      public static final class Builder extends
-          com.google.protobuf.GeneratedMessage.Builder<Builder>
-         implements arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectTypeOrBuilder {
-        public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_TypesMap_LocationObjectType_descriptor;
-        }
-
-        protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_TypesMap_LocationObjectType_fieldAccessorTable
-              .ensureFieldAccessorsInitialized(
-                  arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType.class, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType.Builder.class);
-        }
-
-        // Construct using arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType.newBuilder()
-        private Builder() {
-          maybeForceBuilderInitialization();
-        }
-
-        private Builder(
-            com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-          super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-          }
-        }
-        private static Builder create() {
-          return new Builder();
-        }
-
-        public Builder clear() {
-          super.clear();
-          id_ = 0;
-          bitField0_ = (bitField0_ & ~0x00000001);
-          name_ = "";
-          bitField0_ = (bitField0_ & ~0x00000002);
-          return this;
-        }
-
-        public Builder clone() {
-          return create().mergeFrom(buildPartial());
-        }
-
-        public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_TypesMap_LocationObjectType_descriptor;
-        }
-
-        public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType getDefaultInstanceForType() {
-          return arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType.getDefaultInstance();
-        }
-
-        public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType build() {
-          arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType result = buildPartial();
-          if (!result.isInitialized()) {
-            throw newUninitializedMessageException(result);
-          }
-          return result;
-        }
-
-        public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType buildPartial() {
-          arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType result = new arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType(this);
-          int from_bitField0_ = bitField0_;
-          int to_bitField0_ = 0;
-          if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-            to_bitField0_ |= 0x00000001;
-          }
-          result.id_ = id_;
-          if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-            to_bitField0_ |= 0x00000002;
-          }
-          result.name_ = name_;
-          result.bitField0_ = to_bitField0_;
-          onBuilt();
-          return result;
-        }
-
-        public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType) {
-            return mergeFrom((arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType)other);
-          } else {
-            super.mergeFrom(other);
-            return this;
-          }
-        }
-
-        public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType other) {
-          if (other == arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType.getDefaultInstance()) return this;
-          if (other.hasId()) {
-            setId(other.getId());
-          }
-          if (other.hasName()) {
-            bitField0_ |= 0x00000002;
-            name_ = other.name_;
-            onChanged();
-          }
-          this.mergeUnknownFields(other.getUnknownFields());
-          return this;
-        }
-
-        public final boolean isInitialized() {
-          if (!hasId()) {
-            
-            return false;
-          }
-          if (!hasName()) {
-            
-            return false;
-          }
-          return true;
-        }
-
-        public Builder mergeFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-          arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType parsedMessage = null;
-          try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType) e.getUnfinishedMessage();
-            throw e;
-          } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
-          return this;
-        }
-        private int bitField0_;
-
-        // required int32 id = 1;
-        private int id_ ;
-        /**
-         * <code>required int32 id = 1;</code>
-         */
-        public boolean hasId() {
-          return ((bitField0_ & 0x00000001) == 0x00000001);
-        }
-        /**
-         * <code>required int32 id = 1;</code>
-         */
-        public int getId() {
-          return id_;
-        }
-        /**
-         * <code>required int32 id = 1;</code>
-         */
-        public Builder setId(int value) {
-          bitField0_ |= 0x00000001;
-          id_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>required int32 id = 1;</code>
-         */
-        public Builder clearId() {
-          bitField0_ = (bitField0_ & ~0x00000001);
-          id_ = 0;
-          onChanged();
-          return this;
-        }
-
-        // required string name = 2;
-        private java.lang.Object name_ = "";
-        /**
-         * <code>required string name = 2;</code>
-         */
-        public boolean hasName() {
-          return ((bitField0_ & 0x00000002) == 0x00000002);
-        }
-        /**
-         * <code>required string name = 2;</code>
-         */
-        public java.lang.String getName() {
-          java.lang.Object ref = name_;
-          if (!(ref instanceof java.lang.String)) {
-            java.lang.String s = ((com.google.protobuf.ByteString) ref)
-                .toStringUtf8();
-            name_ = s;
-            return s;
-          } else {
-            return (java.lang.String) ref;
-          }
-        }
-        /**
-         * <code>required string name = 2;</code>
-         */
-        public com.google.protobuf.ByteString
-            getNameBytes() {
-          java.lang.Object ref = name_;
-          if (ref instanceof String) {
-            com.google.protobuf.ByteString b = 
-                com.google.protobuf.ByteString.copyFromUtf8(
-                    (java.lang.String) ref);
-            name_ = b;
-            return b;
-          } else {
-            return (com.google.protobuf.ByteString) ref;
-          }
-        }
-        /**
-         * <code>required string name = 2;</code>
-         */
-        public Builder setName(
-            java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
-          name_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>required string name = 2;</code>
-         */
-        public Builder clearName() {
-          bitField0_ = (bitField0_ & ~0x00000002);
-          name_ = getDefaultInstance().getName();
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>required string name = 2;</code>
-         */
-        public Builder setNameBytes(
-            com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
-          name_ = value;
-          onChanged();
-          return this;
-        }
-
-        // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.TypesMap.LocationObjectType)
-      }
-
-      static {
-        defaultInstance = new LocationObjectType(true);
-        defaultInstance.initFields();
-      }
-
-      // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.TypesMap.LocationObjectType)
-    }
-
-    // repeated .arch.galaxyeclipse.shared.protocol.TypesMap.ItemType itemTypes = 1;
+    // repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type itemTypes = 1;
     public static final int ITEMTYPES_FIELD_NUMBER = 1;
-    private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType> itemTypes_;
+    private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type> itemTypes_;
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.ItemType itemTypes = 1;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type itemTypes = 1;</code>
      */
-    public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType> getItemTypesList() {
+    public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type> getItemTypesList() {
       return itemTypes_;
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.ItemType itemTypes = 1;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type itemTypes = 1;</code>
      */
-    public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemTypeOrBuilder> 
+    public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.TypeOrBuilder> 
         getItemTypesOrBuilderList() {
       return itemTypes_;
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.ItemType itemTypes = 1;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type itemTypes = 1;</code>
      */
     public int getItemTypesCount() {
       return itemTypes_.size();
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.ItemType itemTypes = 1;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type itemTypes = 1;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType getItemTypes(int index) {
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type getItemTypes(int index) {
       return itemTypes_.get(index);
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.ItemType itemTypes = 1;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type itemTypes = 1;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemTypeOrBuilder getItemTypesOrBuilder(
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.TypeOrBuilder getItemTypesOrBuilder(
         int index) {
       return itemTypes_.get(index);
     }
 
-    // repeated .arch.galaxyeclipse.shared.protocol.TypesMap.WeaponType weaponTypes = 2;
+    // repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type weaponTypes = 2;
     public static final int WEAPONTYPES_FIELD_NUMBER = 2;
-    private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType> weaponTypes_;
+    private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type> weaponTypes_;
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.WeaponType weaponTypes = 2;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type weaponTypes = 2;</code>
      */
-    public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType> getWeaponTypesList() {
+    public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type> getWeaponTypesList() {
       return weaponTypes_;
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.WeaponType weaponTypes = 2;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type weaponTypes = 2;</code>
      */
-    public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponTypeOrBuilder> 
+    public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.TypeOrBuilder> 
         getWeaponTypesOrBuilderList() {
       return weaponTypes_;
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.WeaponType weaponTypes = 2;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type weaponTypes = 2;</code>
      */
     public int getWeaponTypesCount() {
       return weaponTypes_.size();
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.WeaponType weaponTypes = 2;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type weaponTypes = 2;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType getWeaponTypes(int index) {
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type getWeaponTypes(int index) {
       return weaponTypes_.get(index);
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.WeaponType weaponTypes = 2;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type weaponTypes = 2;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponTypeOrBuilder getWeaponTypesOrBuilder(
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.TypeOrBuilder getWeaponTypesOrBuilder(
         int index) {
       return weaponTypes_.get(index);
     }
 
-    // repeated .arch.galaxyeclipse.shared.protocol.TypesMap.LocationObjectType locationObjectTypes = 3;
+    // repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type locationObjectTypes = 3;
     public static final int LOCATIONOBJECTTYPES_FIELD_NUMBER = 3;
-    private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType> locationObjectTypes_;
+    private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type> locationObjectTypes_;
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.LocationObjectType locationObjectTypes = 3;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type locationObjectTypes = 3;</code>
      */
-    public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType> getLocationObjectTypesList() {
+    public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type> getLocationObjectTypesList() {
       return locationObjectTypes_;
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.LocationObjectType locationObjectTypes = 3;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type locationObjectTypes = 3;</code>
      */
-    public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectTypeOrBuilder> 
+    public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.TypeOrBuilder> 
         getLocationObjectTypesOrBuilderList() {
       return locationObjectTypes_;
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.LocationObjectType locationObjectTypes = 3;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type locationObjectTypes = 3;</code>
      */
     public int getLocationObjectTypesCount() {
       return locationObjectTypes_.size();
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.LocationObjectType locationObjectTypes = 3;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type locationObjectTypes = 3;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType getLocationObjectTypes(int index) {
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type getLocationObjectTypes(int index) {
       return locationObjectTypes_.get(index);
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.LocationObjectType locationObjectTypes = 3;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type locationObjectTypes = 3;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectTypeOrBuilder getLocationObjectTypesOrBuilder(
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.TypeOrBuilder getLocationObjectTypesOrBuilder(
         int index) {
       return locationObjectTypes_.get(index);
+    }
+
+    // repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type bonusTypes = 4;
+    public static final int BONUSTYPES_FIELD_NUMBER = 4;
+    private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type> bonusTypes_;
+    /**
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type bonusTypes = 4;</code>
+     */
+    public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type> getBonusTypesList() {
+      return bonusTypes_;
+    }
+    /**
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type bonusTypes = 4;</code>
+     */
+    public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.TypeOrBuilder> 
+        getBonusTypesOrBuilderList() {
+      return bonusTypes_;
+    }
+    /**
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type bonusTypes = 4;</code>
+     */
+    public int getBonusTypesCount() {
+      return bonusTypes_.size();
+    }
+    /**
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type bonusTypes = 4;</code>
+     */
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type getBonusTypes(int index) {
+      return bonusTypes_.get(index);
+    }
+    /**
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type bonusTypes = 4;</code>
+     */
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.TypeOrBuilder getBonusTypesOrBuilder(
+        int index) {
+      return bonusTypes_.get(index);
     }
 
     private void initFields() {
       itemTypes_ = java.util.Collections.emptyList();
       weaponTypes_ = java.util.Collections.emptyList();
       locationObjectTypes_ = java.util.Collections.emptyList();
+      bonusTypes_ = java.util.Collections.emptyList();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -17532,6 +16451,12 @@ public final class GeProtocol {
           return false;
         }
       }
+      for (int i = 0; i < getBonusTypesCount(); i++) {
+        if (!getBonusTypes(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -17547,6 +16472,9 @@ public final class GeProtocol {
       }
       for (int i = 0; i < locationObjectTypes_.size(); i++) {
         output.writeMessage(3, locationObjectTypes_.get(i));
+      }
+      for (int i = 0; i < bonusTypes_.size(); i++) {
+        output.writeMessage(4, bonusTypes_.get(i));
       }
       getUnknownFields().writeTo(output);
     }
@@ -17568,6 +16496,10 @@ public final class GeProtocol {
       for (int i = 0; i < locationObjectTypes_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, locationObjectTypes_.get(i));
+      }
+      for (int i = 0; i < bonusTypes_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, bonusTypes_.get(i));
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -17680,6 +16612,7 @@ public final class GeProtocol {
           getItemTypesFieldBuilder();
           getWeaponTypesFieldBuilder();
           getLocationObjectTypesFieldBuilder();
+          getBonusTypesFieldBuilder();
         }
       }
       private static Builder create() {
@@ -17705,6 +16638,12 @@ public final class GeProtocol {
           bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           locationObjectTypesBuilder_.clear();
+        }
+        if (bonusTypesBuilder_ == null) {
+          bonusTypes_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000008);
+        } else {
+          bonusTypesBuilder_.clear();
         }
         return this;
       }
@@ -17759,6 +16698,15 @@ public final class GeProtocol {
           result.locationObjectTypes_ = locationObjectTypes_;
         } else {
           result.locationObjectTypes_ = locationObjectTypesBuilder_.build();
+        }
+        if (bonusTypesBuilder_ == null) {
+          if (((bitField0_ & 0x00000008) == 0x00000008)) {
+            bonusTypes_ = java.util.Collections.unmodifiableList(bonusTypes_);
+            bitField0_ = (bitField0_ & ~0x00000008);
+          }
+          result.bonusTypes_ = bonusTypes_;
+        } else {
+          result.bonusTypes_ = bonusTypesBuilder_.build();
         }
         onBuilt();
         return result;
@@ -17853,6 +16801,32 @@ public final class GeProtocol {
             }
           }
         }
+        if (bonusTypesBuilder_ == null) {
+          if (!other.bonusTypes_.isEmpty()) {
+            if (bonusTypes_.isEmpty()) {
+              bonusTypes_ = other.bonusTypes_;
+              bitField0_ = (bitField0_ & ~0x00000008);
+            } else {
+              ensureBonusTypesIsMutable();
+              bonusTypes_.addAll(other.bonusTypes_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.bonusTypes_.isEmpty()) {
+            if (bonusTypesBuilder_.isEmpty()) {
+              bonusTypesBuilder_.dispose();
+              bonusTypesBuilder_ = null;
+              bonusTypes_ = other.bonusTypes_;
+              bitField0_ = (bitField0_ & ~0x00000008);
+              bonusTypesBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getBonusTypesFieldBuilder() : null;
+            } else {
+              bonusTypesBuilder_.addAllMessages(other.bonusTypes_);
+            }
+          }
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
@@ -17872,6 +16846,12 @@ public final class GeProtocol {
         }
         for (int i = 0; i < getLocationObjectTypesCount(); i++) {
           if (!getLocationObjectTypes(i).isInitialized()) {
+            
+            return false;
+          }
+        }
+        for (int i = 0; i < getBonusTypesCount(); i++) {
+          if (!getBonusTypes(i).isInitialized()) {
             
             return false;
           }
@@ -17898,23 +16878,23 @@ public final class GeProtocol {
       }
       private int bitField0_;
 
-      // repeated .arch.galaxyeclipse.shared.protocol.TypesMap.ItemType itemTypes = 1;
-      private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType> itemTypes_ =
+      // repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type itemTypes = 1;
+      private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type> itemTypes_ =
         java.util.Collections.emptyList();
       private void ensureItemTypesIsMutable() {
         if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-          itemTypes_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType>(itemTypes_);
+          itemTypes_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type>(itemTypes_);
           bitField0_ |= 0x00000001;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemTypeOrBuilder> itemTypesBuilder_;
+          arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.TypeOrBuilder> itemTypesBuilder_;
 
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.ItemType itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type itemTypes = 1;</code>
        */
-      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType> getItemTypesList() {
+      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type> getItemTypesList() {
         if (itemTypesBuilder_ == null) {
           return java.util.Collections.unmodifiableList(itemTypes_);
         } else {
@@ -17922,7 +16902,7 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.ItemType itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type itemTypes = 1;</code>
        */
       public int getItemTypesCount() {
         if (itemTypesBuilder_ == null) {
@@ -17932,9 +16912,9 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.ItemType itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type itemTypes = 1;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType getItemTypes(int index) {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type getItemTypes(int index) {
         if (itemTypesBuilder_ == null) {
           return itemTypes_.get(index);
         } else {
@@ -17942,10 +16922,10 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.ItemType itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type itemTypes = 1;</code>
        */
       public Builder setItemTypes(
-          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType value) {
+          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type value) {
         if (itemTypesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -17959,10 +16939,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.ItemType itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type itemTypes = 1;</code>
        */
       public Builder setItemTypes(
-          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType.Builder builderForValue) {
+          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.Builder builderForValue) {
         if (itemTypesBuilder_ == null) {
           ensureItemTypesIsMutable();
           itemTypes_.set(index, builderForValue.build());
@@ -17973,9 +16953,9 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.ItemType itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type itemTypes = 1;</code>
        */
-      public Builder addItemTypes(arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType value) {
+      public Builder addItemTypes(arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type value) {
         if (itemTypesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -17989,10 +16969,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.ItemType itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type itemTypes = 1;</code>
        */
       public Builder addItemTypes(
-          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType value) {
+          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type value) {
         if (itemTypesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -18006,10 +16986,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.ItemType itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type itemTypes = 1;</code>
        */
       public Builder addItemTypes(
-          arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType.Builder builderForValue) {
+          arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.Builder builderForValue) {
         if (itemTypesBuilder_ == null) {
           ensureItemTypesIsMutable();
           itemTypes_.add(builderForValue.build());
@@ -18020,10 +17000,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.ItemType itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type itemTypes = 1;</code>
        */
       public Builder addItemTypes(
-          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType.Builder builderForValue) {
+          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.Builder builderForValue) {
         if (itemTypesBuilder_ == null) {
           ensureItemTypesIsMutable();
           itemTypes_.add(index, builderForValue.build());
@@ -18034,10 +17014,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.ItemType itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type itemTypes = 1;</code>
        */
       public Builder addAllItemTypes(
-          java.lang.Iterable<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType> values) {
+          java.lang.Iterable<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type> values) {
         if (itemTypesBuilder_ == null) {
           ensureItemTypesIsMutable();
           super.addAll(values, itemTypes_);
@@ -18048,7 +17028,7 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.ItemType itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type itemTypes = 1;</code>
        */
       public Builder clearItemTypes() {
         if (itemTypesBuilder_ == null) {
@@ -18061,7 +17041,7 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.ItemType itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type itemTypes = 1;</code>
        */
       public Builder removeItemTypes(int index) {
         if (itemTypesBuilder_ == null) {
@@ -18074,16 +17054,16 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.ItemType itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type itemTypes = 1;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType.Builder getItemTypesBuilder(
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.Builder getItemTypesBuilder(
           int index) {
         return getItemTypesFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.ItemType itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type itemTypes = 1;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemTypeOrBuilder getItemTypesOrBuilder(
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.TypeOrBuilder getItemTypesOrBuilder(
           int index) {
         if (itemTypesBuilder_ == null) {
           return itemTypes_.get(index);  } else {
@@ -18091,9 +17071,9 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.ItemType itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type itemTypes = 1;</code>
        */
-      public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemTypeOrBuilder> 
+      public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.TypeOrBuilder> 
            getItemTypesOrBuilderList() {
         if (itemTypesBuilder_ != null) {
           return itemTypesBuilder_.getMessageOrBuilderList();
@@ -18102,33 +17082,33 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.ItemType itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type itemTypes = 1;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType.Builder addItemTypesBuilder() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.Builder addItemTypesBuilder() {
         return getItemTypesFieldBuilder().addBuilder(
-            arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType.getDefaultInstance());
+            arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.getDefaultInstance());
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.ItemType itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type itemTypes = 1;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType.Builder addItemTypesBuilder(
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.Builder addItemTypesBuilder(
           int index) {
         return getItemTypesFieldBuilder().addBuilder(
-            index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType.getDefaultInstance());
+            index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.getDefaultInstance());
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.ItemType itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type itemTypes = 1;</code>
        */
-      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType.Builder> 
+      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.Builder> 
            getItemTypesBuilderList() {
         return getItemTypesFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemTypeOrBuilder> 
+          arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.TypeOrBuilder> 
           getItemTypesFieldBuilder() {
         if (itemTypesBuilder_ == null) {
           itemTypesBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemType.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.ItemTypeOrBuilder>(
+              arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.TypeOrBuilder>(
                   itemTypes_,
                   ((bitField0_ & 0x00000001) == 0x00000001),
                   getParentForChildren(),
@@ -18138,23 +17118,23 @@ public final class GeProtocol {
         return itemTypesBuilder_;
       }
 
-      // repeated .arch.galaxyeclipse.shared.protocol.TypesMap.WeaponType weaponTypes = 2;
-      private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType> weaponTypes_ =
+      // repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type weaponTypes = 2;
+      private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type> weaponTypes_ =
         java.util.Collections.emptyList();
       private void ensureWeaponTypesIsMutable() {
         if (!((bitField0_ & 0x00000002) == 0x00000002)) {
-          weaponTypes_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType>(weaponTypes_);
+          weaponTypes_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type>(weaponTypes_);
           bitField0_ |= 0x00000002;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponTypeOrBuilder> weaponTypesBuilder_;
+          arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.TypeOrBuilder> weaponTypesBuilder_;
 
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.WeaponType weaponTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type weaponTypes = 2;</code>
        */
-      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType> getWeaponTypesList() {
+      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type> getWeaponTypesList() {
         if (weaponTypesBuilder_ == null) {
           return java.util.Collections.unmodifiableList(weaponTypes_);
         } else {
@@ -18162,7 +17142,7 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.WeaponType weaponTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type weaponTypes = 2;</code>
        */
       public int getWeaponTypesCount() {
         if (weaponTypesBuilder_ == null) {
@@ -18172,9 +17152,9 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.WeaponType weaponTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type weaponTypes = 2;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType getWeaponTypes(int index) {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type getWeaponTypes(int index) {
         if (weaponTypesBuilder_ == null) {
           return weaponTypes_.get(index);
         } else {
@@ -18182,10 +17162,10 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.WeaponType weaponTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type weaponTypes = 2;</code>
        */
       public Builder setWeaponTypes(
-          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType value) {
+          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type value) {
         if (weaponTypesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -18199,10 +17179,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.WeaponType weaponTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type weaponTypes = 2;</code>
        */
       public Builder setWeaponTypes(
-          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType.Builder builderForValue) {
+          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.Builder builderForValue) {
         if (weaponTypesBuilder_ == null) {
           ensureWeaponTypesIsMutable();
           weaponTypes_.set(index, builderForValue.build());
@@ -18213,9 +17193,9 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.WeaponType weaponTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type weaponTypes = 2;</code>
        */
-      public Builder addWeaponTypes(arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType value) {
+      public Builder addWeaponTypes(arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type value) {
         if (weaponTypesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -18229,10 +17209,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.WeaponType weaponTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type weaponTypes = 2;</code>
        */
       public Builder addWeaponTypes(
-          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType value) {
+          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type value) {
         if (weaponTypesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -18246,10 +17226,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.WeaponType weaponTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type weaponTypes = 2;</code>
        */
       public Builder addWeaponTypes(
-          arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType.Builder builderForValue) {
+          arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.Builder builderForValue) {
         if (weaponTypesBuilder_ == null) {
           ensureWeaponTypesIsMutable();
           weaponTypes_.add(builderForValue.build());
@@ -18260,10 +17240,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.WeaponType weaponTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type weaponTypes = 2;</code>
        */
       public Builder addWeaponTypes(
-          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType.Builder builderForValue) {
+          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.Builder builderForValue) {
         if (weaponTypesBuilder_ == null) {
           ensureWeaponTypesIsMutable();
           weaponTypes_.add(index, builderForValue.build());
@@ -18274,10 +17254,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.WeaponType weaponTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type weaponTypes = 2;</code>
        */
       public Builder addAllWeaponTypes(
-          java.lang.Iterable<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType> values) {
+          java.lang.Iterable<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type> values) {
         if (weaponTypesBuilder_ == null) {
           ensureWeaponTypesIsMutable();
           super.addAll(values, weaponTypes_);
@@ -18288,7 +17268,7 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.WeaponType weaponTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type weaponTypes = 2;</code>
        */
       public Builder clearWeaponTypes() {
         if (weaponTypesBuilder_ == null) {
@@ -18301,7 +17281,7 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.WeaponType weaponTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type weaponTypes = 2;</code>
        */
       public Builder removeWeaponTypes(int index) {
         if (weaponTypesBuilder_ == null) {
@@ -18314,16 +17294,16 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.WeaponType weaponTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type weaponTypes = 2;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType.Builder getWeaponTypesBuilder(
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.Builder getWeaponTypesBuilder(
           int index) {
         return getWeaponTypesFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.WeaponType weaponTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type weaponTypes = 2;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponTypeOrBuilder getWeaponTypesOrBuilder(
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.TypeOrBuilder getWeaponTypesOrBuilder(
           int index) {
         if (weaponTypesBuilder_ == null) {
           return weaponTypes_.get(index);  } else {
@@ -18331,9 +17311,9 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.WeaponType weaponTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type weaponTypes = 2;</code>
        */
-      public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponTypeOrBuilder> 
+      public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.TypeOrBuilder> 
            getWeaponTypesOrBuilderList() {
         if (weaponTypesBuilder_ != null) {
           return weaponTypesBuilder_.getMessageOrBuilderList();
@@ -18342,33 +17322,33 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.WeaponType weaponTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type weaponTypes = 2;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType.Builder addWeaponTypesBuilder() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.Builder addWeaponTypesBuilder() {
         return getWeaponTypesFieldBuilder().addBuilder(
-            arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType.getDefaultInstance());
+            arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.getDefaultInstance());
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.WeaponType weaponTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type weaponTypes = 2;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType.Builder addWeaponTypesBuilder(
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.Builder addWeaponTypesBuilder(
           int index) {
         return getWeaponTypesFieldBuilder().addBuilder(
-            index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType.getDefaultInstance());
+            index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.getDefaultInstance());
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.WeaponType weaponTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type weaponTypes = 2;</code>
        */
-      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType.Builder> 
+      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.Builder> 
            getWeaponTypesBuilderList() {
         return getWeaponTypesFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponTypeOrBuilder> 
+          arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.TypeOrBuilder> 
           getWeaponTypesFieldBuilder() {
         if (weaponTypesBuilder_ == null) {
           weaponTypesBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponType.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.WeaponTypeOrBuilder>(
+              arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.TypeOrBuilder>(
                   weaponTypes_,
                   ((bitField0_ & 0x00000002) == 0x00000002),
                   getParentForChildren(),
@@ -18378,23 +17358,23 @@ public final class GeProtocol {
         return weaponTypesBuilder_;
       }
 
-      // repeated .arch.galaxyeclipse.shared.protocol.TypesMap.LocationObjectType locationObjectTypes = 3;
-      private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType> locationObjectTypes_ =
+      // repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type locationObjectTypes = 3;
+      private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type> locationObjectTypes_ =
         java.util.Collections.emptyList();
       private void ensureLocationObjectTypesIsMutable() {
         if (!((bitField0_ & 0x00000004) == 0x00000004)) {
-          locationObjectTypes_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType>(locationObjectTypes_);
+          locationObjectTypes_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type>(locationObjectTypes_);
           bitField0_ |= 0x00000004;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectTypeOrBuilder> locationObjectTypesBuilder_;
+          arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.TypeOrBuilder> locationObjectTypesBuilder_;
 
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.LocationObjectType locationObjectTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type locationObjectTypes = 3;</code>
        */
-      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType> getLocationObjectTypesList() {
+      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type> getLocationObjectTypesList() {
         if (locationObjectTypesBuilder_ == null) {
           return java.util.Collections.unmodifiableList(locationObjectTypes_);
         } else {
@@ -18402,7 +17382,7 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.LocationObjectType locationObjectTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type locationObjectTypes = 3;</code>
        */
       public int getLocationObjectTypesCount() {
         if (locationObjectTypesBuilder_ == null) {
@@ -18412,9 +17392,9 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.LocationObjectType locationObjectTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type locationObjectTypes = 3;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType getLocationObjectTypes(int index) {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type getLocationObjectTypes(int index) {
         if (locationObjectTypesBuilder_ == null) {
           return locationObjectTypes_.get(index);
         } else {
@@ -18422,10 +17402,10 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.LocationObjectType locationObjectTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type locationObjectTypes = 3;</code>
        */
       public Builder setLocationObjectTypes(
-          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType value) {
+          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type value) {
         if (locationObjectTypesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -18439,10 +17419,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.LocationObjectType locationObjectTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type locationObjectTypes = 3;</code>
        */
       public Builder setLocationObjectTypes(
-          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType.Builder builderForValue) {
+          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.Builder builderForValue) {
         if (locationObjectTypesBuilder_ == null) {
           ensureLocationObjectTypesIsMutable();
           locationObjectTypes_.set(index, builderForValue.build());
@@ -18453,9 +17433,9 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.LocationObjectType locationObjectTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type locationObjectTypes = 3;</code>
        */
-      public Builder addLocationObjectTypes(arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType value) {
+      public Builder addLocationObjectTypes(arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type value) {
         if (locationObjectTypesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -18469,10 +17449,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.LocationObjectType locationObjectTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type locationObjectTypes = 3;</code>
        */
       public Builder addLocationObjectTypes(
-          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType value) {
+          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type value) {
         if (locationObjectTypesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -18486,10 +17466,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.LocationObjectType locationObjectTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type locationObjectTypes = 3;</code>
        */
       public Builder addLocationObjectTypes(
-          arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType.Builder builderForValue) {
+          arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.Builder builderForValue) {
         if (locationObjectTypesBuilder_ == null) {
           ensureLocationObjectTypesIsMutable();
           locationObjectTypes_.add(builderForValue.build());
@@ -18500,10 +17480,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.LocationObjectType locationObjectTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type locationObjectTypes = 3;</code>
        */
       public Builder addLocationObjectTypes(
-          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType.Builder builderForValue) {
+          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.Builder builderForValue) {
         if (locationObjectTypesBuilder_ == null) {
           ensureLocationObjectTypesIsMutable();
           locationObjectTypes_.add(index, builderForValue.build());
@@ -18514,10 +17494,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.LocationObjectType locationObjectTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type locationObjectTypes = 3;</code>
        */
       public Builder addAllLocationObjectTypes(
-          java.lang.Iterable<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType> values) {
+          java.lang.Iterable<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type> values) {
         if (locationObjectTypesBuilder_ == null) {
           ensureLocationObjectTypesIsMutable();
           super.addAll(values, locationObjectTypes_);
@@ -18528,7 +17508,7 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.LocationObjectType locationObjectTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type locationObjectTypes = 3;</code>
        */
       public Builder clearLocationObjectTypes() {
         if (locationObjectTypesBuilder_ == null) {
@@ -18541,7 +17521,7 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.LocationObjectType locationObjectTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type locationObjectTypes = 3;</code>
        */
       public Builder removeLocationObjectTypes(int index) {
         if (locationObjectTypesBuilder_ == null) {
@@ -18554,16 +17534,16 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.LocationObjectType locationObjectTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type locationObjectTypes = 3;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType.Builder getLocationObjectTypesBuilder(
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.Builder getLocationObjectTypesBuilder(
           int index) {
         return getLocationObjectTypesFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.LocationObjectType locationObjectTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type locationObjectTypes = 3;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectTypeOrBuilder getLocationObjectTypesOrBuilder(
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.TypeOrBuilder getLocationObjectTypesOrBuilder(
           int index) {
         if (locationObjectTypesBuilder_ == null) {
           return locationObjectTypes_.get(index);  } else {
@@ -18571,9 +17551,9 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.LocationObjectType locationObjectTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type locationObjectTypes = 3;</code>
        */
-      public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectTypeOrBuilder> 
+      public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.TypeOrBuilder> 
            getLocationObjectTypesOrBuilderList() {
         if (locationObjectTypesBuilder_ != null) {
           return locationObjectTypesBuilder_.getMessageOrBuilderList();
@@ -18582,33 +17562,33 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.LocationObjectType locationObjectTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type locationObjectTypes = 3;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType.Builder addLocationObjectTypesBuilder() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.Builder addLocationObjectTypesBuilder() {
         return getLocationObjectTypesFieldBuilder().addBuilder(
-            arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType.getDefaultInstance());
+            arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.getDefaultInstance());
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.LocationObjectType locationObjectTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type locationObjectTypes = 3;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType.Builder addLocationObjectTypesBuilder(
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.Builder addLocationObjectTypesBuilder(
           int index) {
         return getLocationObjectTypesFieldBuilder().addBuilder(
-            index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType.getDefaultInstance());
+            index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.getDefaultInstance());
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.LocationObjectType locationObjectTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type locationObjectTypes = 3;</code>
        */
-      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType.Builder> 
+      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.Builder> 
            getLocationObjectTypesBuilderList() {
         return getLocationObjectTypesFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectTypeOrBuilder> 
+          arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.TypeOrBuilder> 
           getLocationObjectTypesFieldBuilder() {
         if (locationObjectTypesBuilder_ == null) {
           locationObjectTypesBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectType.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.LocationObjectTypeOrBuilder>(
+              arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.TypeOrBuilder>(
                   locationObjectTypes_,
                   ((bitField0_ & 0x00000004) == 0x00000004),
                   getParentForChildren(),
@@ -18616,6 +17596,246 @@ public final class GeProtocol {
           locationObjectTypes_ = null;
         }
         return locationObjectTypesBuilder_;
+      }
+
+      // repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type bonusTypes = 4;
+      private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type> bonusTypes_ =
+        java.util.Collections.emptyList();
+      private void ensureBonusTypesIsMutable() {
+        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
+          bonusTypes_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type>(bonusTypes_);
+          bitField0_ |= 0x00000008;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.TypeOrBuilder> bonusTypesBuilder_;
+
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type bonusTypes = 4;</code>
+       */
+      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type> getBonusTypesList() {
+        if (bonusTypesBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(bonusTypes_);
+        } else {
+          return bonusTypesBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type bonusTypes = 4;</code>
+       */
+      public int getBonusTypesCount() {
+        if (bonusTypesBuilder_ == null) {
+          return bonusTypes_.size();
+        } else {
+          return bonusTypesBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type bonusTypes = 4;</code>
+       */
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type getBonusTypes(int index) {
+        if (bonusTypesBuilder_ == null) {
+          return bonusTypes_.get(index);
+        } else {
+          return bonusTypesBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type bonusTypes = 4;</code>
+       */
+      public Builder setBonusTypes(
+          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type value) {
+        if (bonusTypesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureBonusTypesIsMutable();
+          bonusTypes_.set(index, value);
+          onChanged();
+        } else {
+          bonusTypesBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type bonusTypes = 4;</code>
+       */
+      public Builder setBonusTypes(
+          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.Builder builderForValue) {
+        if (bonusTypesBuilder_ == null) {
+          ensureBonusTypesIsMutable();
+          bonusTypes_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          bonusTypesBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type bonusTypes = 4;</code>
+       */
+      public Builder addBonusTypes(arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type value) {
+        if (bonusTypesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureBonusTypesIsMutable();
+          bonusTypes_.add(value);
+          onChanged();
+        } else {
+          bonusTypesBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type bonusTypes = 4;</code>
+       */
+      public Builder addBonusTypes(
+          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type value) {
+        if (bonusTypesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureBonusTypesIsMutable();
+          bonusTypes_.add(index, value);
+          onChanged();
+        } else {
+          bonusTypesBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type bonusTypes = 4;</code>
+       */
+      public Builder addBonusTypes(
+          arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.Builder builderForValue) {
+        if (bonusTypesBuilder_ == null) {
+          ensureBonusTypesIsMutable();
+          bonusTypes_.add(builderForValue.build());
+          onChanged();
+        } else {
+          bonusTypesBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type bonusTypes = 4;</code>
+       */
+      public Builder addBonusTypes(
+          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.Builder builderForValue) {
+        if (bonusTypesBuilder_ == null) {
+          ensureBonusTypesIsMutable();
+          bonusTypes_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          bonusTypesBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type bonusTypes = 4;</code>
+       */
+      public Builder addAllBonusTypes(
+          java.lang.Iterable<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type> values) {
+        if (bonusTypesBuilder_ == null) {
+          ensureBonusTypesIsMutable();
+          super.addAll(values, bonusTypes_);
+          onChanged();
+        } else {
+          bonusTypesBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type bonusTypes = 4;</code>
+       */
+      public Builder clearBonusTypes() {
+        if (bonusTypesBuilder_ == null) {
+          bonusTypes_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000008);
+          onChanged();
+        } else {
+          bonusTypesBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type bonusTypes = 4;</code>
+       */
+      public Builder removeBonusTypes(int index) {
+        if (bonusTypesBuilder_ == null) {
+          ensureBonusTypesIsMutable();
+          bonusTypes_.remove(index);
+          onChanged();
+        } else {
+          bonusTypesBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type bonusTypes = 4;</code>
+       */
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.Builder getBonusTypesBuilder(
+          int index) {
+        return getBonusTypesFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type bonusTypes = 4;</code>
+       */
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.TypeOrBuilder getBonusTypesOrBuilder(
+          int index) {
+        if (bonusTypesBuilder_ == null) {
+          return bonusTypes_.get(index);  } else {
+          return bonusTypesBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type bonusTypes = 4;</code>
+       */
+      public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.TypeOrBuilder> 
+           getBonusTypesOrBuilderList() {
+        if (bonusTypesBuilder_ != null) {
+          return bonusTypesBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(bonusTypes_);
+        }
+      }
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type bonusTypes = 4;</code>
+       */
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.Builder addBonusTypesBuilder() {
+        return getBonusTypesFieldBuilder().addBuilder(
+            arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type bonusTypes = 4;</code>
+       */
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.Builder addBonusTypesBuilder(
+          int index) {
+        return getBonusTypesFieldBuilder().addBuilder(
+            index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMap.Type bonusTypes = 4;</code>
+       */
+      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.Builder> 
+           getBonusTypesBuilderList() {
+        return getBonusTypesFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.TypeOrBuilder> 
+          getBonusTypesFieldBuilder() {
+        if (bonusTypesBuilder_ == null) {
+          bonusTypesBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.Type.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMap.TypeOrBuilder>(
+                  bonusTypes_,
+                  ((bitField0_ & 0x00000008) == 0x00000008),
+                  getParentForChildren(),
+                  isClean());
+          bonusTypes_ = null;
+        }
+        return bonusTypesBuilder_;
       }
 
       // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.TypesMap)
@@ -21183,20 +20403,10 @@ public final class GeProtocol {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_arch_galaxyeclipse_shared_protocol_TypesMap_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_arch_galaxyeclipse_shared_protocol_TypesMap_ItemType_descriptor;
+    internal_static_arch_galaxyeclipse_shared_protocol_TypesMap_Type_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_arch_galaxyeclipse_shared_protocol_TypesMap_ItemType_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_arch_galaxyeclipse_shared_protocol_TypesMap_WeaponType_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_arch_galaxyeclipse_shared_protocol_TypesMap_WeaponType_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_arch_galaxyeclipse_shared_protocol_TypesMap_LocationObjectType_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_arch_galaxyeclipse_shared_protocol_TypesMap_LocationObjectType_fieldAccessorTable;
+      internal_static_arch_galaxyeclipse_shared_protocol_TypesMap_Type_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
     internal_static_arch_galaxyeclipse_shared_protocol_StartupInfo_descriptor;
   private static
@@ -21227,7 +20437,7 @@ public final class GeProtocol {
   static {
     java.lang.String[] descriptorData = {
       "\n\016messages.proto\022\"arch.galaxyeclipse.sha" +
-      "red.protocol\"\230\t\n\006Packet\022=\n\004type\030\001 \002(\0162/." +
+      "red.protocol\"\363\010\n\006Packet\022=\n\004type\030\001 \002(\0162/." +
       "arch.galaxyeclipse.shared.protocol.Packe" +
       "t.Type\022Y\n\026dynamicObjectsResponse\030\002 \001(\01329" +
       ".arch.galaxyeclipse.shared.protocol.Dyna" +
@@ -21248,93 +20458,91 @@ public final class GeProtocol {
       "sage\030\025 \001(\01323.arch.galaxyeclipse.shared.p",
       "rotocol.ChatSendMessage\022P\n\020typesMapRespo" +
       "nse\030\026 \001(\01326.arch.galaxyeclipse.shared.pr" +
-      "otocol.ChatReceiveMessage\"\303\002\n\004Type\022\033\n\027DY" +
+      "otocol.ChatReceiveMessage\"\236\002\n\004Type\022\033\n\027DY" +
       "NAMIC_OBJECTS_REQUEST\020\001\022\034\n\030DYNAMIC_OBJEC" +
       "TS_RESPONSE\020\002\022\026\n\022SHIP_STATE_REQUEST\020\003\022\027\n" +
       "\023SHIP_STATE_RESPONSE\020\004\022\021\n\rCLIENT_ACTION\020" +
       "\005\022\020\n\014AUTH_REQUEST\020\020\022\021\n\rAUTH_RESPONSE\020\021\022\021" +
-      "\n\rLOCATION_INFO\020\036\022\020\n\014STARTUP_INFO\020\037\022\024\n\020S" +
-      "HIP_STATIC_INFO\020 \022\034\n\030SHIP_STATIC_INFO_CO" +
-      "MMAND\020!\022\r\n\tTYPES_MAP\020\"\022\025\n\021CHAT_SEND_MESS",
-      "AGE\020<\022\030\n\024CHAR_RECEIVE_MESSAGE\020=\"\027\n\025Dynam" +
-      "icObjectsRequest\"j\n\026DynamicObjectsRespon" +
-      "se\022P\n\007objects\030\001 \003(\0132?.arch.galaxyeclipse" +
-      ".shared.protocol.LocationInfo.LocationOb" +
-      "ject\"\022\n\020ShipStateRequest\"\237\001\n\021ShipStateRe" +
-      "sponse\022\021\n\tmoveSpeed\030\001 \002(\005\022\025\n\rrotationSpe" +
-      "ed\030\002 \002(\005\022\n\n\002hp\030\003 \002(\005\022\027\n\017armorDurability\030" +
-      "\004 \002(\005\022\025\n\rrotationAngle\030\005 \002(\005\022\021\n\tposition" +
-      "X\030\006 \002(\002\022\021\n\tpositionY\030\007 \002(\002\"\271\002\n\014ClientAct" +
-      "ion\022O\n\004type\030\001 \002(\0162A.arch.galaxyeclipse.s",
-      "hared.protocol.ClientAction.ClientAction" +
-      "Type\022\030\n\020locationObjectId\030\002 \001(\005\022\034\n\024locati" +
-      "onObjectTypeId\030\003 \001(\005\"\237\001\n\020ClientActionTyp" +
-      "e\022\017\n\013ROTATE_LEFT\020\001\022\020\n\014ROTATE_RIGHT\020\002\022\010\n\004" +
-      "MOVE\020\003\022\010\n\004STOP\020\004\022\020\n\014OBJECT_CLICK\020\007\022\r\n\tLO" +
-      "OT_PICK\020\010\022\020\n\014ATTACK_START\020\t\022\017\n\013ATTACK_ST" +
-      "OP\020\n\022\020\n\014ROCKET_SHOOT\020\020\"1\n\013AuthRequest\022\020\n" +
-      "\010username\030\001 \002(\t\022\020\n\010password\030\002 \002(\t\"!\n\014Aut" +
-      "hResponse\022\021\n\tisSuccess\030\001 \002(\010\"\203\003\n\014Locatio" +
-      "nInfo\022\022\n\nlocationId\030\001 \002(\005\022\014\n\004name\030\002 \002(\t\022",
-      "\r\n\005width\030\003 \002(\002\022\016\n\006height\030\004 \002(\002\022]\n\025locati" +
-      "onCachedObjects\030\005 \002(\0132>.arch.galaxyeclip" +
-      "se.shared.protocol.LocationInfo.CachedOb" +
-      "jects\032a\n\rCachedObjects\022P\n\007objects\030\001 \003(\0132" +
-      "?.arch.galaxyeclipse.shared.protocol.Loc" +
-      "ationInfo.LocationObject\032p\n\016LocationObje" +
-      "ct\022\020\n\010objectId\030\001 \002(\005\022\024\n\014objectTypeId\030\002 \002" +
-      "(\005\022\020\n\010nativeId\030\003 \002(\005\022\021\n\tpositionX\030\004 \002(\002\022" +
-      "\021\n\tpositionY\030\005 \002(\002\"\330\t\n\016ShipStaticInfo\022\024\n" +
-      "\014moveMaxSpeed\030\001 \002(\005\022\030\n\020rotationMaxSpeed\030",
-      "\002 \002(\005\022\035\n\025moveAccelerationSpeed\030\003 \002(\005\022\034\n\024" +
-      "rotationAcceleration\030\004 \002(\005\022\r\n\005armor\030\005 \002(" +
-      "\005\022\021\n\tenergyMax\030\006 \002(\005\022\r\n\005hpMax\030\007 \002(\005\022\023\n\013e" +
-      "nergyRegen\030\010 \002(\005\022\017\n\007hpRegen\030\t \002(\005\022\014\n\004nam" +
-      "e\030\n \002(\t\022\027\n\017armorDurability\030\013 \002(\005\022\030\n\020weap" +
-      "onSlotsCount\030\014 \002(\005\022\027\n\017bonusSlotsCount\030\r " +
-      "\002(\005\022O\n\016inventoryItems\030\016 \003(\01327.arch.galax" +
-      "yeclipse.shared.protocol.ShipStaticInfo." +
-      "Item\022J\n\tshipBonus\030\017 \003(\01327.arch.galaxyecl" +
-      "ipse.shared.protocol.ShipStaticInfo.Item",
-      "\022L\n\013shipWeapons\030\020 \003(\01327.arch.galaxyeclip" +
-      "se.shared.protocol.ShipStaticInfo.Item\022K" +
-      "\n\nshipEngine\030\021 \002(\01327.arch.galaxyeclipse." +
-      "shared.protocol.ShipStaticInfo.Item\032\357\004\n\004" +
-      "Item\022\016\n\006itemId\030\001 \002(\005\022\014\n\004name\030\002 \002(\t\022\023\n\013de" +
-      "scription\030\003 \002(\t\022\r\n\005price\030\004 \002(\005\022\022\n\nitemTy" +
-      "peId\030\005 \002(\005\022L\n\005bonus\030\006 \001(\0132=.arch.galaxye" +
-      "clipse.shared.protocol.ShipStaticInfo.It" +
-      "em.Bonus\022N\n\006weapon\030\007 \001(\0132>.arch.galaxyec" +
-      "lipse.shared.protocol.ShipStaticInfo.Ite",
-      "m.Weapon\022N\n\006engine\030\010 \001(\0132>.arch.galaxyec" +
+      "\n\rLOCATION_INFO\020\036\022\020\n\014STARTUP_INFO\020\037\022\034\n\030S" +
+      "HIP_STATIC_INFO_COMMAND\020 \022\025\n\021CHAT_SEND_M" +
+      "ESSAGE\020<\022\030\n\024CHAR_RECEIVE_MESSAGE\020=\"\027\n\025Dy",
+      "namicObjectsRequest\"j\n\026DynamicObjectsRes" +
+      "ponse\022P\n\007objects\030\001 \003(\0132?.arch.galaxyecli" +
+      "pse.shared.protocol.LocationInfo.Locatio" +
+      "nObject\"\022\n\020ShipStateRequest\"\237\001\n\021ShipStat" +
+      "eResponse\022\021\n\tmoveSpeed\030\001 \002(\005\022\025\n\rrotation" +
+      "Speed\030\002 \002(\005\022\n\n\002hp\030\003 \002(\005\022\027\n\017armorDurabili" +
+      "ty\030\004 \002(\005\022\025\n\rrotationAngle\030\005 \002(\005\022\021\n\tposit" +
+      "ionX\030\006 \002(\002\022\021\n\tpositionY\030\007 \002(\002\"\271\002\n\014Client" +
+      "Action\022O\n\004type\030\001 \002(\0162A.arch.galaxyeclips" +
+      "e.shared.protocol.ClientAction.ClientAct",
+      "ionType\022\030\n\020locationObjectId\030\002 \001(\005\022\034\n\024loc" +
+      "ationObjectTypeId\030\003 \001(\005\"\237\001\n\020ClientAction" +
+      "Type\022\017\n\013ROTATE_LEFT\020\001\022\020\n\014ROTATE_RIGHT\020\002\022" +
+      "\010\n\004MOVE\020\003\022\010\n\004STOP\020\004\022\020\n\014OBJECT_CLICK\020\007\022\r\n" +
+      "\tLOOT_PICK\020\010\022\020\n\014ATTACK_START\020\t\022\017\n\013ATTACK" +
+      "_STOP\020\n\022\020\n\014ROCKET_SHOOT\020\020\"1\n\013AuthRequest" +
+      "\022\020\n\010username\030\001 \002(\t\022\020\n\010password\030\002 \002(\t\"!\n\014" +
+      "AuthResponse\022\021\n\tisSuccess\030\001 \002(\010\"\203\003\n\014Loca" +
+      "tionInfo\022\022\n\nlocationId\030\001 \002(\005\022\014\n\004name\030\002 \002" +
+      "(\t\022\r\n\005width\030\003 \002(\002\022\016\n\006height\030\004 \002(\002\022]\n\025loc",
+      "ationCachedObjects\030\005 \002(\0132>.arch.galaxyec" +
+      "lipse.shared.protocol.LocationInfo.Cache" +
+      "dObjects\032a\n\rCachedObjects\022P\n\007objects\030\001 \003" +
+      "(\0132?.arch.galaxyeclipse.shared.protocol." +
+      "LocationInfo.LocationObject\032p\n\016LocationO" +
+      "bject\022\020\n\010objectId\030\001 \002(\005\022\024\n\014objectTypeId\030" +
+      "\002 \002(\005\022\020\n\010nativeId\030\003 \002(\005\022\021\n\tpositionX\030\004 \002" +
+      "(\002\022\021\n\tpositionY\030\005 \002(\002\"\330\t\n\016ShipStaticInfo" +
+      "\022\024\n\014moveMaxSpeed\030\001 \002(\005\022\030\n\020rotationMaxSpe" +
+      "ed\030\002 \002(\005\022\035\n\025moveAccelerationSpeed\030\003 \002(\005\022",
+      "\034\n\024rotationAcceleration\030\004 \002(\005\022\r\n\005armor\030\005" +
+      " \002(\005\022\021\n\tenergyMax\030\006 \002(\005\022\r\n\005hpMax\030\007 \002(\005\022\023" +
+      "\n\013energyRegen\030\010 \002(\005\022\017\n\007hpRegen\030\t \002(\005\022\014\n\004" +
+      "name\030\n \002(\t\022\027\n\017armorDurability\030\013 \002(\005\022\030\n\020w" +
+      "eaponSlotsCount\030\014 \002(\005\022\027\n\017bonusSlotsCount" +
+      "\030\r \002(\005\022O\n\016inventoryItems\030\016 \003(\01327.arch.ga" +
+      "laxyeclipse.shared.protocol.ShipStaticIn" +
+      "fo.Item\022J\n\tshipBonus\030\017 \003(\01327.arch.galaxy" +
+      "eclipse.shared.protocol.ShipStaticInfo.I" +
+      "tem\022L\n\013shipWeapons\030\020 \003(\01327.arch.galaxyec",
       "lipse.shared.protocol.ShipStaticInfo.Ite" +
-      "m.Engine\0320\n\005Bonus\022\022\n\nbonusValue\030\001 \002(\005\022\023\n" +
-      "\013bonusTypeId\030\002 \002(\005\032j\n\006Weapon\022\016\n\006damage\030\001" +
-      " \002(\005\022\022\n\ndelaySpeed\030\002 \002(\005\022\023\n\013bulletSpeed\030" +
-      "\003 \002(\005\022\023\n\013maxDistance\030\004 \002(\005\022\022\n\nenergyCost" +
-      "\030\005 \002(\005\032\204\001\n\006Engine\022\035\n\025moveAccelerationBon" +
-      "us\030\001 \002(\005\022\031\n\021moveMaxSpeedBonus\030\002 \002(\005\022!\n\031r" +
-      "otationAccelerationBonus\030\003 \002(\005\022\035\n\025rotati" +
-      "onMaxSpeedBonus\030\004 \002(\005\"\376\002\n\010TypesMap\022H\n\tit",
-      "emTypes\030\001 \003(\01325.arch.galaxyeclipse.share" +
-      "d.protocol.TypesMap.ItemType\022L\n\013weaponTy" +
-      "pes\030\002 \003(\01327.arch.galaxyeclipse.shared.pr" +
-      "otocol.TypesMap.WeaponType\022\\\n\023locationOb" +
-      "jectTypes\030\003 \003(\0132?.arch.galaxyeclipse.sha" +
-      "red.protocol.TypesMap.LocationObjectType" +
-      "\032$\n\010ItemType\022\n\n\002id\030\001 \002(\005\022\014\n\004name\030\002 \002(\t\032&" +
-      "\n\nWeaponType\022\n\n\002id\030\001 \002(\005\022\014\n\004name\030\002 \002(\t\032." +
-      "\n\022LocationObjectType\022\n\n\002id\030\001 \002(\005\022\014\n\004name" +
-      "\030\002 \002(\t\"\341\001\n\013StartupInfo\022F\n\014locationInfo\030\001",
-      " \002(\01320.arch.galaxyeclipse.shared.protoco" +
-      "l.LocationInfo\022>\n\010typesMap\030\002 \002(\0132,.arch." +
-      "galaxyeclipse.shared.protocol.TypesMap\022J" +
-      "\n\016shipStaticInfo\030\003 \002(\01322.arch.galaxyecli" +
-      "pse.shared.protocol.ShipStaticInfo\"2\n\025Sh" +
-      "ipStaticInfoCommand\022\031\n\021serializedCommand" +
-      "\030\001 \002(\014\"\"\n\017ChatSendMessage\022\017\n\007message\030\001 \002" +
-      "(\t\"5\n\022ChatReceiveMessage\022\017\n\007message\030\001 \002(" +
-      "\t\022\016\n\006sender\030\002 \002(\tB\016B\nGeProtocolH\001"
+      "m\022K\n\nshipEngine\030\021 \002(\01327.arch.galaxyeclip" +
+      "se.shared.protocol.ShipStaticInfo.Item\032\357" +
+      "\004\n\004Item\022\016\n\006itemId\030\001 \002(\005\022\014\n\004name\030\002 \002(\t\022\023\n" +
+      "\013description\030\003 \002(\t\022\r\n\005price\030\004 \002(\005\022\022\n\nite" +
+      "mTypeId\030\005 \002(\005\022L\n\005bonus\030\006 \001(\0132=.arch.gala" +
+      "xyeclipse.shared.protocol.ShipStaticInfo" +
+      ".Item.Bonus\022N\n\006weapon\030\007 \001(\0132>.arch.galax" +
+      "yeclipse.shared.protocol.ShipStaticInfo." +
+      "Item.Weapon\022N\n\006engine\030\010 \001(\0132>.arch.galax",
+      "yeclipse.shared.protocol.ShipStaticInfo." +
+      "Item.Engine\0320\n\005Bonus\022\022\n\nbonusValue\030\001 \002(\005" +
+      "\022\023\n\013bonusTypeId\030\002 \002(\005\032j\n\006Weapon\022\016\n\006damag" +
+      "e\030\001 \002(\005\022\022\n\ndelaySpeed\030\002 \002(\005\022\023\n\013bulletSpe" +
+      "ed\030\003 \002(\005\022\023\n\013maxDistance\030\004 \002(\005\022\022\n\nenergyC" +
+      "ost\030\005 \002(\005\032\204\001\n\006Engine\022\035\n\025moveAcceleration" +
+      "Bonus\030\001 \002(\005\022\031\n\021moveMaxSpeedBonus\030\002 \002(\005\022!" +
+      "\n\031rotationAccelerationBonus\030\003 \002(\005\022\035\n\025rot" +
+      "ationMaxSpeedBonus\030\004 \002(\005\"\321\002\n\010TypesMap\022D\n" +
+      "\titemTypes\030\001 \003(\01321.arch.galaxyeclipse.sh",
+      "ared.protocol.TypesMap.Type\022F\n\013weaponTyp" +
+      "es\030\002 \003(\01321.arch.galaxyeclipse.shared.pro" +
+      "tocol.TypesMap.Type\022N\n\023locationObjectTyp" +
+      "es\030\003 \003(\01321.arch.galaxyeclipse.shared.pro" +
+      "tocol.TypesMap.Type\022E\n\nbonusTypes\030\004 \003(\0132" +
+      "1.arch.galaxyeclipse.shared.protocol.Typ" +
+      "esMap.Type\032 \n\004Type\022\n\n\002id\030\001 \002(\005\022\014\n\004name\030\002" +
+      " \002(\t\"\341\001\n\013StartupInfo\022F\n\014locationInfo\030\001 \002" +
+      "(\01320.arch.galaxyeclipse.shared.protocol." +
+      "LocationInfo\022>\n\010typesMap\030\002 \002(\0132,.arch.ga",
+      "laxyeclipse.shared.protocol.TypesMap\022J\n\016" +
+      "shipStaticInfo\030\003 \002(\01322.arch.galaxyeclips" +
+      "e.shared.protocol.ShipStaticInfo\"2\n\025Ship" +
+      "StaticInfoCommand\022\031\n\021serializedCommand\030\001" +
+      " \002(\014\"\"\n\017ChatSendMessage\022\017\n\007message\030\001 \002(\t" +
+      "\"5\n\022ChatReceiveMessage\022\017\n\007message\030\001 \002(\t\022" +
+      "\016\n\006sender\030\002 \002(\tB\016B\nGeProtocolH\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -21442,24 +20650,12 @@ public final class GeProtocol {
           internal_static_arch_galaxyeclipse_shared_protocol_TypesMap_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_arch_galaxyeclipse_shared_protocol_TypesMap_descriptor,
-              new java.lang.String[] { "ItemTypes", "WeaponTypes", "LocationObjectTypes", });
-          internal_static_arch_galaxyeclipse_shared_protocol_TypesMap_ItemType_descriptor =
+              new java.lang.String[] { "ItemTypes", "WeaponTypes", "LocationObjectTypes", "BonusTypes", });
+          internal_static_arch_galaxyeclipse_shared_protocol_TypesMap_Type_descriptor =
             internal_static_arch_galaxyeclipse_shared_protocol_TypesMap_descriptor.getNestedTypes().get(0);
-          internal_static_arch_galaxyeclipse_shared_protocol_TypesMap_ItemType_fieldAccessorTable = new
+          internal_static_arch_galaxyeclipse_shared_protocol_TypesMap_Type_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_arch_galaxyeclipse_shared_protocol_TypesMap_ItemType_descriptor,
-              new java.lang.String[] { "Id", "Name", });
-          internal_static_arch_galaxyeclipse_shared_protocol_TypesMap_WeaponType_descriptor =
-            internal_static_arch_galaxyeclipse_shared_protocol_TypesMap_descriptor.getNestedTypes().get(1);
-          internal_static_arch_galaxyeclipse_shared_protocol_TypesMap_WeaponType_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_arch_galaxyeclipse_shared_protocol_TypesMap_WeaponType_descriptor,
-              new java.lang.String[] { "Id", "Name", });
-          internal_static_arch_galaxyeclipse_shared_protocol_TypesMap_LocationObjectType_descriptor =
-            internal_static_arch_galaxyeclipse_shared_protocol_TypesMap_descriptor.getNestedTypes().get(2);
-          internal_static_arch_galaxyeclipse_shared_protocol_TypesMap_LocationObjectType_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_arch_galaxyeclipse_shared_protocol_TypesMap_LocationObjectType_descriptor,
+              internal_static_arch_galaxyeclipse_shared_protocol_TypesMap_Type_descriptor,
               new java.lang.String[] { "Id", "Name", });
           internal_static_arch_galaxyeclipse_shared_protocol_StartupInfo_descriptor =
             getDescriptor().getMessageTypes().get(11);

@@ -124,7 +124,7 @@ create table inventory_item (
   inventory_item_id integer auto_increment primary key,
   amount            integer not null default 1,
   item_id           integer not null,
-  player_id         integer not null  , 
+  player_id         integer not null
 );
 
 

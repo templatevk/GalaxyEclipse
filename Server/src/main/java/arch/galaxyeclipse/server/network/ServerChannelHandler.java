@@ -28,7 +28,6 @@ class ServerChannelHandler extends AbstractProtobufChannelHandler
         incomingPacketDispatcherCommand = new ICommand<Packet>() {
             @Override
             public void perform(Packet packet) {
-
                 statefulPacketHandler.handle(packet);
             }
         };
@@ -49,7 +48,7 @@ class ServerChannelHandler extends AbstractProtobufChannelHandler
 
         monitoringNetworkManager.registerServerChannelHandler(this);
 
-		statefulPacketHandler = packetHandlerFactory.createStatefulPacketHandler(this);
+		statefulPacketHandler = PacketHandlerFactory.createStatefulPacketHandler(this);
 	}
 
     @Override

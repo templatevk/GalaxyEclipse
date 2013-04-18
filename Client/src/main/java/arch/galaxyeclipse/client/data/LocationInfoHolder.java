@@ -1,8 +1,10 @@
 package arch.galaxyeclipse.client.data;
 
 import arch.galaxyeclipse.shared.*;
+import arch.galaxyeclipse.shared.context.*;
 import arch.galaxyeclipse.shared.protocol.*;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.*;
+import arch.galaxyeclipse.shared.types.*;
 import com.google.common.collect.*;
 import lombok.*;
 import lombok.extern.slf4j.*;
@@ -34,6 +36,23 @@ public class LocationInfoHolder {
 
         List<LocationObject> objectsList = locationInfo.getLocationCachedObjects().getObjectsList();
         cachedObjects.addAll(objectsList);
+
+        if (log.isDebugEnabled()) {
+            log.debug("\tLocation " + locationInfo.getName());
+            log.debug("\tId " + locationInfo.getLocationId());
+            log.debug("\tWidth " + locationInfo.getWidth());
+            log.debug("\tHeight " + locationInfo.getHeight());
+
+            log.debug("Objects:");
+            DictionaryTypesMapper dictionaryTypesMapper = ContextHolder.INSTANCE
+                    .getBean(DictionaryTypesMapper.class);
+            for (LocationObject locationObject : objectsList) {
+                log.debug("\t" + dictionaryTypesMapper.getLocationObjectTypeById(
+                        locationObject.getObjectTypeId()));
+                log.debug("\tx = " + locationObject.getPositionX());
+                log.debug("\ty = " + locationObject.getPositionY());
+            }
+        }
     }
 
     public Multiset<LocationObject> getCachedObjects() {

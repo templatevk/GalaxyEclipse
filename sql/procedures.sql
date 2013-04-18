@@ -17,7 +17,7 @@ create procedure activate_player(player_id integer)
      location_id, position_x, position_y)
       values
       (get_location_object_behavior_type_id_by_name('ignored'),
-       get_location_object_type_id_by_name('player_flight'),
+       get_location_object_type_id_by_name('player'),
        ship_type_id, get_location_id_by_name(get_default_location_name()),
        get_default_position_x(), get_default_position_y());
     set location_object_id = (select last_insert_id());

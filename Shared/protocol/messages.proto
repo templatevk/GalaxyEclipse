@@ -173,23 +173,14 @@ message ShipStaticInfo {
     }
 }
 message TypesMap {
-    repeated ItemType itemTypes = 1;
-    repeated WeaponType weaponTypes = 2;
-    repeated LocationObjectType locationObjectTypes = 3;
+    repeated Type itemTypes             = 1;
+    repeated Type weaponTypes           = 2;
+    repeated Type locationObjectTypes   = 3;
+    repeated Type bonusTypes            = 4;
 
-    message ItemType {
-        required int32 id = 1;
-        required string name = 2;
-    }
-
-    message WeaponType {
-        required int32 id = 1;
-        required string name = 2;
-    }
-
-    message LocationObjectType {
-        required int32 id = 1;
-        required string name = 2;
+    message Type {
+        required int32 id       = 1;
+        required string name    = 2;
     }
 }
 message StartupInfo {

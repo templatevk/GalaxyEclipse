@@ -66,10 +66,11 @@ class DefaultButtonBuilder implements IButtonBuilder {
         button.addListener(new FocusListener() {
             @Override
             public void keyboardFocusChanged(FocusEvent event, Actor actor, boolean focused) {
-                if(focused)
+                if (focused) {
                     button.setColor(Color.GRAY);
-                else
+                } else {
                     button.setColor(Color.WHITE);
+                }
                 super.keyboardFocusChanged(event, actor, focused);
             }
         });

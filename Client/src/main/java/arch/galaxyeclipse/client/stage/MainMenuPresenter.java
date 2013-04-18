@@ -112,23 +112,29 @@ public class MainMenuPresenter extends ServerPacketListener implements IStagePre
                 .getBean(DictionaryTypesMapper.class);
 
         Map<Integer, String> itemTypes = new HashMap<>();
-        for (TypesMap.ItemType itemType : typesMap.getItemTypesList()) {
+        for (TypesMap.Type itemType : typesMap.getItemTypesList()) {
             itemTypes.put(itemType.getId(), itemType.getName());
         }
         dictionaryTypesMapper.fillItemTypes(itemTypes);
 
         Map<Integer, String> weaponTypes = new HashMap<>();
-        for (TypesMap.WeaponType weaponType : typesMap.getWeaponTypesList()) {
+        for (TypesMap.Type weaponType : typesMap.getWeaponTypesList()) {
             weaponTypes.put(weaponType.getId(), weaponType.getName());
         }
         dictionaryTypesMapper.fillWeaponTypes(weaponTypes);
 
         Map<Integer, String> locationObjectTypes = new HashMap<>();
-        for (TypesMap.LocationObjectType locationObjectType : typesMap
+        for (TypesMap.Type locationObjectType : typesMap
                 .getLocationObjectTypesList()) {
             locationObjectTypes.put(locationObjectType.getId(), locationObjectType.getName());
         }
         dictionaryTypesMapper.fillLocationObjectTypes(locationObjectTypes);
+
+        Map<Integer, String> bonusTypes = new HashMap<>();
+        for (TypesMap.Type bonusType : typesMap.getBonusTypesList()) {
+            bonusTypes.put(bonusType.getId(), bonusType.getName());
+        }
+        dictionaryTypesMapper.fillLocationObjectTypes(bonusTypes);
     }
 
     private void processAuthResponse(AuthResponse authResponse) {

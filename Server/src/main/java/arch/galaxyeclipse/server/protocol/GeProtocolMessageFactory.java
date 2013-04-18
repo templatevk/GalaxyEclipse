@@ -86,24 +86,21 @@ public class GeProtocolMessageFactory {
 
     public TypesMap createTypesMap() {
         TypesMap.Builder typesMapBuilder = TypesMap.newBuilder();
+        TypesMap.Type.Builder typeBuilder = TypesMap.Type.newBuilder();
 
-        TypesMap.ItemType.Builder itemTypeBuilder = TypesMap.ItemType.newBuilder();
         for (ItemTypesMapperType itemTypesMapperType : ItemTypesMapperType.values()) {
-            typesMapBuilder.addItemTypes(itemTypeBuilder.setName(itemTypesMapperType.toString())
+            typesMapBuilder.addItemTypes(typeBuilder.setName(itemTypesMapperType.toString())
                     .setId(dictionaryTypesMapper.getIdByItemType(itemTypesMapperType)));
         }
 
-        TypesMap.WeaponType.Builder weaponTypeBuilder = TypesMap.WeaponType.newBuilder();
         for (WeaponTypesMapperType weaponTypesMapperType : WeaponTypesMapperType.values()) {
-            typesMapBuilder.addWeaponTypes(weaponTypeBuilder.setName(weaponTypesMapperType.toString())
+            typesMapBuilder.addWeaponTypes(typeBuilder.setName(weaponTypesMapperType.toString())
                     .setId(dictionaryTypesMapper.getIdByWeaponType(weaponTypesMapperType)));
         }
 
-        TypesMap.LocationObjectType.Builder locationObjectTypeBuilder =
-                TypesMap.LocationObjectType.newBuilder();
         for (LocationObjectTypesMapperType locationObjectTypesMapperType :
                 LocationObjectTypesMapperType.values()) {
-            typesMapBuilder.addLocationObjectTypes(locationObjectTypeBuilder
+            typesMapBuilder.addLocationObjectTypes(typeBuilder
                     .setName(locationObjectTypesMapperType.toString())
                     .setId(dictionaryTypesMapper.getIdByLocationObjectType(
                             locationObjectTypesMapperType)));

@@ -6,11 +6,11 @@ import arch.galaxyeclipse.server.network.*;
  *
  */
 public class PacketHandlerFactory {
-    public PacketHandlerFactory() {
+    private PacketHandlerFactory() {
 
     }
 
-    public IStatefulPacketHandler createStatefulPacketHandler(
+    public static IStatefulPacketHandler createStatefulPacketHandler(
             IServerChannelHandler serverChannelHandler) {
         return new UnauthenticatedPacketHandler(serverChannelHandler);
     }
