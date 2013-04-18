@@ -1,12 +1,15 @@
 package arch.galaxyeclipse.client.window;
 
 import arch.galaxyeclipse.client.*;
+import arch.galaxyeclipse.client.resource.*;
 import arch.galaxyeclipse.client.stage.*;
 import arch.galaxyeclipse.shared.*;
 import com.badlogic.gdx.*;
 import com.badlogic.gdx.backends.lwjgl.*;
 import com.badlogic.gdx.graphics.*;
 import com.badlogic.gdx.math.*;
+
+import java.util.*;
 
 /**
  * OpenGL window delegating drawing to the stage set.
@@ -16,11 +19,11 @@ public class ClientWindow implements IClientWindow {
     private static final int VIRTUAL_HEIGHT = 320;
     private static final float ASPECT_RATIO = (float)VIRTUAL_WIDTH/(float)VIRTUAL_HEIGHT;
 
-    private StagePresenterFactory stagePresenterFactory;
 	private IStagePresenter stagePresenter;
 	private Rectangle viewport;
 	private int viewportHeight;
 	private int viewportWidth;
+    private List<IDestroyable> destroyables;
 
 	public ClientWindow() {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
@@ -34,7 +37,7 @@ public class ClientWindow implements IClientWindow {
 
 		new LwjglApplication(new ClientListener(), config);
 
-        stagePresenterFactory = new StagePresenterFactory();
+        destroyables = new ArrayList<>();
 	}
 
     @Override
@@ -57,6 +60,11 @@ public class ClientWindow implements IClientWindow {
 		return viewportWidth;
 	}
 
+    @Override
+    public void addDestroyable(IDestroyable destroyable) {
+        destroyables.add(destroyable);
+    }
+
     private class ClientListener implements ApplicationListener {
         public ClientListener() {
 
@@ -78,13 +86,15 @@ public class ClientWindow implements IClientWindow {
             Gdx.gl.glHint(GL10.GL_POLYGON_SMOOTH_HINT,          GL20.GL_NICEST);
             Gdx.gl.glHint(GL20.GL_FRAGMENT_SHADER,              GL20.GL_NICEST);
 
-            setStagePresenter(stagePresenterFactory.createStagePresenter(
+            setStagePresenter(StagePresenterFactory.createStagePresenter(
                     StagePresenterFactory.StagePresenterType.MAIN_MENU_PRESENTER));
         }
 
         @Override
         public void dispose() {
-
+            for (IDestroyable destroyable : destroyables) {
+                destroyable.destroy();
+            }
         }
 
         @Override

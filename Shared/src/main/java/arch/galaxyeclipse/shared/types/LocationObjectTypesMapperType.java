@@ -7,6 +7,5 @@ public enum LocationObjectTypesMapperType {
     ROCKET,
     ASTEROID,
     STATION,
-    PLAYER_FLIGHT,
-    PLAYER_STATION;
+    PLAYER;
 }

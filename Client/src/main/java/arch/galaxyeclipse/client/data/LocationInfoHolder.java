@@ -10,7 +10,7 @@ import lombok.extern.slf4j.*;
 import java.util.*;
 
 /**
- * TODO determine LocationInfo message processing, may be split StartupInfo and synch
+ *
  */
 @Slf4j
 public class LocationInfoHolder {

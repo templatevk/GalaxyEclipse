@@ -40,8 +40,7 @@ insert into location_object_type
   ('rocket'),
   ('asteroid'),
   ('station'),
-  ('player_flight'),  -- static behavior and player = offline,
-  ('player_station'); -- dynamic behavior and player = online
+  ('player');
 
 
 # location

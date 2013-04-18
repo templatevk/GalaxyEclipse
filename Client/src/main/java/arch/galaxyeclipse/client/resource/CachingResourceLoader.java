@@ -10,7 +10,7 @@ import java.util.*;
  * Texture atlas instance caching the regions, etc through HashMaps.
  */
 @Slf4j
-class CachingResourceLoader extends TextureAtlas implements IResourceLoader {
+class CachingResourceLoader extends TextureAtlas implements IResourceLoader, IDestroyable {
 	private Map<String, AtlasRegion> regions;
     private Map<String, BitmapFont> fonts;
 
@@ -19,6 +19,8 @@ class CachingResourceLoader extends TextureAtlas implements IResourceLoader {
 
         regions = new HashMap<>();
         fonts = new HashMap<>();
+
+        Destroyable.addDestroyable(this);
 	}
 	
 	@Override
@@ -47,5 +49,13 @@ class CachingResourceLoader extends TextureAtlas implements IResourceLoader {
                     Gdx.files.internal("assets/font1.png"), false);
         }
         return font;
+    }
+
+    @Override
+    public void destroy() {
+        for (BitmapFont font : fonts.values()) {
+            font.dispose();
+        }
+        super.dispose();
     }
 }

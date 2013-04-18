@@ -4,11 +4,11 @@ package arch.galaxyeclipse.client.stage;
  *
  */
 public class StagePresenterFactory {
-    public StagePresenterFactory() {
+    StagePresenterFactory() {
 
     }
 
-    public IStagePresenter createStagePresenter(StagePresenterType stagePresenterType) {
+    public static IStagePresenter createStagePresenter(StagePresenterType stagePresenterType) {
         switch (stagePresenterType) {
             case MAIN_MENU_PRESENTER:
                 return new MainMenuPresenter();
