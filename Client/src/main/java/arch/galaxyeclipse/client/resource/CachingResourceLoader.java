@@ -1,6 +1,7 @@
 package arch.galaxyeclipse.client.resource;
 
 import com.badlogic.gdx.*;
+import com.badlogic.gdx.graphics.*;
 import com.badlogic.gdx.graphics.g2d.*;
 import lombok.extern.slf4j.*;
 
@@ -45,8 +46,14 @@ class CachingResourceLoader extends TextureAtlas implements IResourceLoader, IDe
             if (log.isInfoEnabled()) {
                 log.info("Loading font " + path);
             }
-            font = new BitmapFont(Gdx.files.internal("assets/font1.fnt"),
-                    Gdx.files.internal("assets/font1.png"), false);
+
+            Texture fontTexture = new Texture(Gdx.files.internal(path + "_0.png"));
+            fontTexture.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.MipMapLinearLinear);
+            TextureRegion fontTextureRegion = new TextureRegion(fontTexture);
+            font = new BitmapFont(Gdx.files.internal(path + ".fnt"),
+                    fontTextureRegion, false);
+
+            fonts.put(path, font);
         }
         return font;
     }

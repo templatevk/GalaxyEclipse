@@ -2,7 +2,9 @@ package arch.galaxyeclipse.client.stage.ui;
 
 import arch.galaxyeclipse.client.resource.*;
 import arch.galaxyeclipse.shared.context.*;
+import com.badlogic.gdx.*;
 import com.badlogic.gdx.graphics.*;
+import com.badlogic.gdx.graphics.g2d.*;
 import com.badlogic.gdx.scenes.scene2d.*;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.*;
@@ -22,13 +24,14 @@ class DefaultButtonBuilder implements IButtonBuilder {
         listener = new ClickListener();
 
         IResourceLoader resourceLoader = ContextHolder.INSTANCE.getBean(IResourceLoader.class);
+        BitmapFont font = resourceLoader.getFont("assets/font_calibri_48px");
 
         style = new TextButton.TextButtonStyle();
         style.up = new TextureRegionDrawable(resourceLoader.findRegion("ui/btnUp"));
         style.down = new TextureRegionDrawable(resourceLoader.findRegion("ui/btnDown"));
-        style.font = resourceLoader.getFont("assets/font1.fnt");
-        style.fontColor = Color.BLACK;
-        style.downFontColor = Color.DARK_GRAY;
+        style.font = font;
+        style.fontColor = Color.WHITE;
+        style.downFontColor = Color.GRAY;
         style.pressedOffsetX = BUTTON_DOWN_OFFSET;
         style.pressedOffsetY = -BUTTON_DOWN_OFFSET;
     }
@@ -58,8 +61,31 @@ class DefaultButtonBuilder implements IButtonBuilder {
 
     @Override
     public TextButton build() {
-        TextButton button = new TextButton(text, style);
+        final TextButton button = new TextButton(text, style);
         button.addListener(listener);
+        button.addListener(new FocusListener() {
+            @Override
+            public void keyboardFocusChanged(FocusEvent event, Actor actor, boolean focused) {
+                if(focused)
+                    button.setColor(Color.GRAY);
+                else
+                    button.setColor(Color.WHITE);
+                super.keyboardFocusChanged(event, actor, focused);
+            }
+        });
+        button.addListener(new InputListener(){
+            @Override
+            public boolean keyTyped(InputEvent event, char character) {
+                switch(event.getKeyCode()) {
+                    case Input.Keys.ENTER:
+                        listener.clicked(event, 0, 0);
+                        break;
+                }
+
+                return super.keyTyped(event, character);
+            }
+        });
+
         return button;
     }
 }

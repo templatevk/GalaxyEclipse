@@ -1,5 +1,6 @@
 package arch.galaxyeclipse.client.util;
 
+import com.badlogic.gdx.graphics.*;
 import com.badlogic.gdx.tools.imagepacker.*;
 import com.badlogic.gdx.tools.imagepacker.TexturePacker2.*;
 
@@ -12,6 +13,8 @@ public class TexturePackerMain {
 		settings.pot = true;
 		settings.maxWidth = 4096;
 		settings.maxHeight = 4096;
+        settings.filterMin = Texture.TextureFilter.Linear;
+        settings.filterMag = Texture.TextureFilter.MipMapLinearLinear;
 		TexturePacker2.process(settings, "assets/textures", "assets/textures", "pack");
 	}
 }

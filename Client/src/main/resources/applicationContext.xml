@@ -5,7 +5,7 @@
 
     <!-- Rendering -->
     <bean class="arch.galaxyeclipse.client.window.ClientWindow"/>
-    <bean class="arch.galaxyeclipse.client.stage.render.ActorFactory"/>
+    <bean class="arch.galaxyeclipse.client.stage.render.ActorFactory" lazy-init="true"/>
 
     <!-- Network -->
     <bean class="arch.galaxyeclipse.client.network.ClientNetworkManager"/>

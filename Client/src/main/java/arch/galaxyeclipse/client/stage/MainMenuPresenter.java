@@ -199,6 +199,9 @@ public class MainMenuPresenter extends ServerPacketListener implements IStagePre
             innerTable.add(connectBtn).expand(true, false).space(TABLE_SPACING);
             innerTable.setOrigin(innerTable.getPrefWidth() / 2,
                     innerTable.getPrefHeight() / 2);
+
+            StageUiFactory.applyTabOrder(Arrays.<Actor>asList(usernameTxt, passwordTxt, connectBtn), this);
+            setKeyboardFocus(usernameTxt);
         }
 
         @Override

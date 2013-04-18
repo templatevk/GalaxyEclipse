@@ -3,7 +3,9 @@ package arch.galaxyeclipse.client.stage.ui;
 import arch.galaxyeclipse.client.*;
 import arch.galaxyeclipse.client.resource.*;
 import arch.galaxyeclipse.shared.context.*;
+import com.badlogic.gdx.*;
 import com.badlogic.gdx.graphics.*;
+import com.badlogic.gdx.graphics.g2d.*;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.*;
 
@@ -11,6 +13,9 @@ import com.badlogic.gdx.scenes.scene2d.utils.*;
  *
  */
 class DefaultTextFieldBuilder implements ITextFieldBuilder {
+    private static final int TEXT_PADDING_X = 20;
+    private static final int TEXT_PADDING_Y = -5;
+
     private String text;
     private String messageText;
     private float width;
@@ -29,8 +34,10 @@ class DefaultTextFieldBuilder implements ITextFieldBuilder {
                 .getBean(IResourceLoader.class);
 
         Drawable carret = new TextureRegionDrawable(resourceLoader.findRegion("ui/carret"));
-        textFieldStyle = new TextField.TextFieldStyle(
-                resourceLoader.getFont("assets/font1.fnt"), Color.RED, carret, carret,
+        Drawable selection = new TextureRegionDrawable(resourceLoader.findRegion("ui/selection"));
+        BitmapFont font = resourceLoader.getFont("assets/font_calibri_48px");
+
+        textFieldStyle = new TextField.TextFieldStyle(font, Color.RED, carret, selection,
                 new TextureRegionDrawable(resourceLoader.findRegion("ui/textField")));
         textFieldStyle.fontColor = Color.WHITE;
     }
@@ -73,11 +80,14 @@ class DefaultTextFieldBuilder implements ITextFieldBuilder {
 
     @Override
     public TextField build() {
-        CustomTextField textField = new CustomTextField(text, textFieldStyle,
-                width, height);
+        TextField textField = new TextField(text, textFieldStyle);
         textField.setPasswordMode(passwordMode);
         textField.setMessageText(messageText);
         textField.setPasswordCharacter(passwordCharacter);
+        textField.setCustomPrefWidth(width);
+        textField.setTextPaddingX(TEXT_PADDING_X);
+        textField.setTextPaddingY(TEXT_PADDING_Y);
+        textField.setFocusTraversal(false);
 
         if (GalaxyEclipseClient.getEnvType() == GalaxyEclipseClient.getEnvType().DEV
                 && "".equals(text)) {
