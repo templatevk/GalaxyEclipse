@@ -7,6 +7,7 @@ import arch.galaxyeclipse.client.stage.ui.*;
 import arch.galaxyeclipse.client.window.*;
 import arch.galaxyeclipse.shared.*;
 import arch.galaxyeclipse.shared.context.*;
+import arch.galaxyeclipse.shared.protocol.*;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.*;
 import arch.galaxyeclipse.shared.types.*;
 import arch.galaxyeclipse.shared.util.*;
@@ -29,12 +30,15 @@ public class MainMenuPresenter extends ServerPacketListener implements IStagePre
     private IClientWindow clientWindow;
 
     private MainMenuStage view;
-    private MainMenuModel model;
     private IButtonClickCommand connectButtonCommand;
+    private ShipStaticInfoHolder shipStaticInfoHolder;
+    private LocationInfoHolder locationInfoHolder;
 
     public MainMenuPresenter() {
-        clientWindow = ContextHolder.INSTANCE.getBean(IClientWindow.class);
-        networkManager = ContextHolder.INSTANCE.getBean(IClientNetworkManager.class);
+        clientWindow = ContextHolder.getBean(IClientWindow.class);
+        networkManager = ContextHolder.getBean(IClientNetworkManager.class);
+        locationInfoHolder = ContextHolder.getBean(LocationInfoHolder.class);
+        shipStaticInfoHolder = ContextHolder.getBean(ShipStaticInfoHolder.class);
 
         connectButtonCommand = new IButtonClickCommand() {
             @Override
@@ -68,7 +72,6 @@ public class MainMenuPresenter extends ServerPacketListener implements IStagePre
         networkManager.addPacketListener(this);
 
         view = new MainMenuStage(this);
-        model = new MainMenuModel();
     }
 
     @Override
@@ -97,10 +100,8 @@ public class MainMenuPresenter extends ServerPacketListener implements IStagePre
     private void processStartupInfo(StartupInfo startupInfo) {
         processTypesMap(startupInfo.getTypesMap());
 
-        ContextHolder.INSTANCE.getBean(ShipStaticInfoHolder.class)
-                .setShipStaticInfo(startupInfo.getShipStaticInfo());
-        ContextHolder.INSTANCE.getBean(LocationInfoHolder.class)
-                .setLocationInfo(startupInfo.getLocationInfo());
+        shipStaticInfoHolder.setShipStaticInfo(startupInfo.getShipStaticInfo());
+        locationInfoHolder.setLocationInfo(startupInfo.getLocationInfo());
     }
 
     private void processTypesMap(TypesMap typesMap) {
@@ -108,7 +109,7 @@ public class MainMenuPresenter extends ServerPacketListener implements IStagePre
             log.debug("Processing types map");
         }
 
-        DictionaryTypesMapper dictionaryTypesMapper = ContextHolder.INSTANCE
+        DictionaryTypesMapper dictionaryTypesMapper = ContextHolder
                 .getBean(DictionaryTypesMapper.class);
 
         Map<Integer, String> itemTypes = new HashMap<>();
@@ -172,9 +173,7 @@ public class MainMenuPresenter extends ServerPacketListener implements IStagePre
         private Table innerTable;
 
         public MainMenuStage(final MainMenuPresenter presenter) {
-
-            IResourceLoader resourceLoader = ContextHolder.INSTANCE
-                    .getBean(IResourceLoader.class);
+            IResourceLoader resourceLoader = ContextHolder.getBean(IResourceLoader.class);
 
             usernameTxt = StageUiFactory.createTextFieldBuilder()
                     .setWidth(TEXTFIELD_WIDTH).setHeight(TEXTFIELD_HEIGHT)
@@ -216,8 +215,36 @@ public class MainMenuPresenter extends ServerPacketListener implements IStagePre
         }
     }
 
-    @Data
-    private static class MainMenuModel {
+    private static class RequestSender extends Thread {
+        @Override
+        public void run() {
 
+        }
+
+        private static class ServerPacketListenerImpl extends ServerPacketListener {
+            private LocationInfoHolder locationInfoHolder;
+
+            public ServerPacketListenerImpl() {
+                locationInfoHolder = ContextHolder.getBean(LocationInfoHolder.class);
+            }
+
+            @Override
+            protected void onPacketReceivedImpl(Packet packet) {
+                switch (packet.getType()) {
+                    case DYNAMIC_OBJECTS_RESPONSE:
+                        processDynamicObjects(packet.getDynamicObjectsResponse());
+                        break;
+                }
+            }
+
+            private void processDynamicObjects(DynamicObjectsResponse dynamicObjectsResponse) {
+                locationInfoHolder.setDynamicObjects(dynamicObjectsResponse.getObjectsList());
+            }
+
+            @Override
+            public List<Packet.Type> getPacketTypes() {
+                return Arrays.asList(Packet.Type.DYNAMIC_OBJECTS_RESPONSE);
+            }
+        }
     }
 }

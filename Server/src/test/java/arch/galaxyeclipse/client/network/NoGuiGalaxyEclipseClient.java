@@ -1,6 +1,5 @@
 package arch.galaxyeclipse.client.network;
 
-import arch.galaxyeclipse.client.network.test.*;
 import arch.galaxyeclipse.shared.types.*;
 import lombok.*;
 
@@ -11,12 +10,12 @@ import java.util.*;
  */
 public class NoGuiGalaxyEclipseClient {
     @Getter
-    private ITestClientNetworkManager clientNetworkManager;
+    private TestClientNetworkManager clientNetworkManager;
     @Getter
     private DictionaryTypesMapper dictionaryTypesMapper;
 
     public NoGuiGalaxyEclipseClient() {
-        clientNetworkManager = new ClientNetworkManager();
+        clientNetworkManager = new TestClientNetworkManager();
         dictionaryTypesMapper = new DictionaryTypesMapper();
     }
 

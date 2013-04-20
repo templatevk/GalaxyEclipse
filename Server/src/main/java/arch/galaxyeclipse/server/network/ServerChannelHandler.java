@@ -22,7 +22,7 @@ class ServerChannelHandler extends AbstractProtobufChannelHandler
     private ICommand<Packet> incomingPacketDispatcherCommand;
 
     public ServerChannelHandler() {		
-        monitoringNetworkManager = ContextHolder.INSTANCE.getBean(
+        monitoringNetworkManager = ContextHolder.getBean(
                 IMonitoringNetworkManager.class);
         playerInfoHolder = new PlayerInfoHolder();
         incomingPacketDispatcherCommand = new ICommand<Packet>() {

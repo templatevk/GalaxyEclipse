@@ -19,7 +19,7 @@ public class GalaxyEclipseClient  {
 	
 	public void start() {
         StatusPrinter.print((LoggerContext)LoggerFactory.getILoggerFactory());
-        ContextHolder.INSTANCE.getClass();
+        ContextHolder.class.getClass();
 
         envType = SharedInfo.getEnvType();
         if (log.isInfoEnabled()) {

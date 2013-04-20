@@ -15,7 +15,7 @@ class LoadingStage extends AbstractGameStage {
     private Table innerTable;
 
     LoadingStage() {
-        IResourceLoader resourceLoader = ContextHolder.INSTANCE.getBean(IResourceLoader.class);
+        IResourceLoader resourceLoader = ContextHolder.getBean(IResourceLoader.class);
 
         rootTable = new Table();
         rootTable.setFillParent(true);

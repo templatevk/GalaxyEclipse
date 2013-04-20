@@ -31,9 +31,9 @@ class UnauthenticatedPacketHandler extends AbstractStubPacketHandler {
 	public UnauthenticatedPacketHandler(IServerChannelHandler serverChannelHandler) {
 		this.serverChannelHandler = serverChannelHandler;
 
-        dictionaryTypesMapper = ContextHolder.INSTANCE.getBean(DictionaryTypesMapper.class);
-		authenticator = ContextHolder.INSTANCE.getBean(IClientAuthenticator.class);
-        geProtocolMessageFactory = ContextHolder.INSTANCE.getBean(GeProtocolMessageFactory.class);
+        dictionaryTypesMapper = ContextHolder.getBean(DictionaryTypesMapper.class);
+		authenticator = ContextHolder.getBean(IClientAuthenticator.class);
+        geProtocolMessageFactory = ContextHolder.getBean(GeProtocolMessageFactory.class);
 	}
 
 	@Override

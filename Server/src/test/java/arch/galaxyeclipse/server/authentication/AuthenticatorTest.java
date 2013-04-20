@@ -13,7 +13,7 @@ public class AuthenticatorTest extends AbstractTestNGServerTest {
 
     @BeforeClass
     public void initDependencies() {
-        authenticator = ContextHolder.INSTANCE.getBean(IClientAuthenticator.class);
+        authenticator = ContextHolder.getBean(IClientAuthenticator.class);
     }
 
     @Test(groups = "fast")

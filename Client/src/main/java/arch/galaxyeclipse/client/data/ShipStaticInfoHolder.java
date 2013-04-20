@@ -20,7 +20,9 @@ public class ShipStaticInfoHolder extends ServerPacketListener {
     private DictionaryTypesMapper dictionaryTypesMapper;
 
     ShipStaticInfoHolder() {
-        dictionaryTypesMapper = ContextHolder.INSTANCE.getBean(DictionaryTypesMapper.class);
+        dictionaryTypesMapper = ContextHolder.getBean(DictionaryTypesMapper.class);
+
+        ContextHolder.getBean(IClientNetworkManager.class).addPacketListener(this);
     }
 
     @Override

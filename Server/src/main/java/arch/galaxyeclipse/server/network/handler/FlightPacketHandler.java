@@ -23,7 +23,7 @@ class FlightPacketHandler implements IStatefulPacketHandler {
     public FlightPacketHandler(IServerChannelHandler serverChannelHandler) {
         this.serverChannelHandler = serverChannelHandler;
 
-        dictionaryTypesMapper = ContextHolder.INSTANCE.getBean(DictionaryTypesMapper.class);
+        dictionaryTypesMapper = ContextHolder.getBean(DictionaryTypesMapper.class);
         playerInfoHolder = serverChannelHandler.getPlayerInfoHolder();
 	}
 

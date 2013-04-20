@@ -21,19 +21,19 @@ public final class GeProtocol {
      */
     arch.galaxyeclipse.shared.protocol.GeProtocol.Packet.Type getType();
 
-    // optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsRequest dynamicObjectsResponse = 2;
+    // optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse dynamicObjectsResponse = 2;
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsRequest dynamicObjectsResponse = 2;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse dynamicObjectsResponse = 2;</code>
      */
     boolean hasDynamicObjectsResponse();
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsRequest dynamicObjectsResponse = 2;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse dynamicObjectsResponse = 2;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequest getDynamicObjectsResponse();
+    arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse getDynamicObjectsResponse();
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsRequest dynamicObjectsResponse = 2;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse dynamicObjectsResponse = 2;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequestOrBuilder getDynamicObjectsResponseOrBuilder();
+    arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponseOrBuilder getDynamicObjectsResponseOrBuilder();
 
     // optional .arch.galaxyeclipse.shared.protocol.ShipStateResponse shipStateResponse = 3;
     /**
@@ -224,11 +224,11 @@ public final class GeProtocol {
               break;
             }
             case 18: {
-              arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequest.Builder subBuilder = null;
+              arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.Builder subBuilder = null;
               if (((bitField0_ & 0x00000002) == 0x00000002)) {
                 subBuilder = dynamicObjectsResponse_.toBuilder();
               }
-              dynamicObjectsResponse_ = input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequest.PARSER, extensionRegistry);
+              dynamicObjectsResponse_ = input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.PARSER, extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(dynamicObjectsResponse_);
                 dynamicObjectsResponse_ = subBuilder.buildPartial();
@@ -581,25 +581,25 @@ public final class GeProtocol {
       return type_;
     }
 
-    // optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsRequest dynamicObjectsResponse = 2;
+    // optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse dynamicObjectsResponse = 2;
     public static final int DYNAMICOBJECTSRESPONSE_FIELD_NUMBER = 2;
-    private arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequest dynamicObjectsResponse_;
+    private arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse dynamicObjectsResponse_;
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsRequest dynamicObjectsResponse = 2;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse dynamicObjectsResponse = 2;</code>
      */
     public boolean hasDynamicObjectsResponse() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsRequest dynamicObjectsResponse = 2;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse dynamicObjectsResponse = 2;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequest getDynamicObjectsResponse() {
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse getDynamicObjectsResponse() {
       return dynamicObjectsResponse_;
     }
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsRequest dynamicObjectsResponse = 2;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse dynamicObjectsResponse = 2;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequestOrBuilder getDynamicObjectsResponseOrBuilder() {
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponseOrBuilder getDynamicObjectsResponseOrBuilder() {
       return dynamicObjectsResponse_;
     }
 
@@ -803,7 +803,7 @@ public final class GeProtocol {
 
     private void initFields() {
       type_ = arch.galaxyeclipse.shared.protocol.GeProtocol.Packet.Type.DYNAMIC_OBJECTS_REQUEST;
-      dynamicObjectsResponse_ = arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequest.getDefaultInstance();
+      dynamicObjectsResponse_ = arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.getDefaultInstance();
       shipStateResponse_ = arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse.getDefaultInstance();
       clientAction_ = arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.getDefaultInstance();
       authRequest_ = arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest.getDefaultInstance();
@@ -822,6 +822,12 @@ public final class GeProtocol {
       if (!hasType()) {
         memoizedIsInitialized = 0;
         return false;
+      }
+      if (hasDynamicObjectsResponse()) {
+        if (!getDynamicObjectsResponse().isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
       }
       if (hasShipStateResponse()) {
         if (!getShipStateResponse().isInitialized()) {
@@ -1099,7 +1105,7 @@ public final class GeProtocol {
         type_ = arch.galaxyeclipse.shared.protocol.GeProtocol.Packet.Type.DYNAMIC_OBJECTS_REQUEST;
         bitField0_ = (bitField0_ & ~0x00000001);
         if (dynamicObjectsResponseBuilder_ == null) {
-          dynamicObjectsResponse_ = arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequest.getDefaultInstance();
+          dynamicObjectsResponse_ = arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.getDefaultInstance();
         } else {
           dynamicObjectsResponseBuilder_.clear();
         }
@@ -1328,6 +1334,12 @@ public final class GeProtocol {
           
           return false;
         }
+        if (hasDynamicObjectsResponse()) {
+          if (!getDynamicObjectsResponse().isInitialized()) {
+            
+            return false;
+          }
+        }
         if (hasShipStateResponse()) {
           if (!getShipStateResponse().isInitialized()) {
             
@@ -1440,20 +1452,20 @@ public final class GeProtocol {
         return this;
       }
 
-      // optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsRequest dynamicObjectsResponse = 2;
-      private arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequest dynamicObjectsResponse_ = arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequest.getDefaultInstance();
+      // optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse dynamicObjectsResponse = 2;
+      private arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse dynamicObjectsResponse_ = arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequest, arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequest.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequestOrBuilder> dynamicObjectsResponseBuilder_;
+          arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse, arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponseOrBuilder> dynamicObjectsResponseBuilder_;
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsRequest dynamicObjectsResponse = 2;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse dynamicObjectsResponse = 2;</code>
        */
       public boolean hasDynamicObjectsResponse() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsRequest dynamicObjectsResponse = 2;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse dynamicObjectsResponse = 2;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequest getDynamicObjectsResponse() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse getDynamicObjectsResponse() {
         if (dynamicObjectsResponseBuilder_ == null) {
           return dynamicObjectsResponse_;
         } else {
@@ -1461,9 +1473,9 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsRequest dynamicObjectsResponse = 2;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse dynamicObjectsResponse = 2;</code>
        */
-      public Builder setDynamicObjectsResponse(arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequest value) {
+      public Builder setDynamicObjectsResponse(arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse value) {
         if (dynamicObjectsResponseBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1477,10 +1489,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsRequest dynamicObjectsResponse = 2;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse dynamicObjectsResponse = 2;</code>
        */
       public Builder setDynamicObjectsResponse(
-          arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequest.Builder builderForValue) {
+          arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.Builder builderForValue) {
         if (dynamicObjectsResponseBuilder_ == null) {
           dynamicObjectsResponse_ = builderForValue.build();
           onChanged();
@@ -1491,14 +1503,14 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsRequest dynamicObjectsResponse = 2;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse dynamicObjectsResponse = 2;</code>
        */
-      public Builder mergeDynamicObjectsResponse(arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequest value) {
+      public Builder mergeDynamicObjectsResponse(arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse value) {
         if (dynamicObjectsResponseBuilder_ == null) {
           if (((bitField0_ & 0x00000002) == 0x00000002) &&
-              dynamicObjectsResponse_ != arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequest.getDefaultInstance()) {
+              dynamicObjectsResponse_ != arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.getDefaultInstance()) {
             dynamicObjectsResponse_ =
-              arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequest.newBuilder(dynamicObjectsResponse_).mergeFrom(value).buildPartial();
+              arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.newBuilder(dynamicObjectsResponse_).mergeFrom(value).buildPartial();
           } else {
             dynamicObjectsResponse_ = value;
           }
@@ -1510,11 +1522,11 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsRequest dynamicObjectsResponse = 2;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse dynamicObjectsResponse = 2;</code>
        */
       public Builder clearDynamicObjectsResponse() {
         if (dynamicObjectsResponseBuilder_ == null) {
-          dynamicObjectsResponse_ = arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequest.getDefaultInstance();
+          dynamicObjectsResponse_ = arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.getDefaultInstance();
           onChanged();
         } else {
           dynamicObjectsResponseBuilder_.clear();
@@ -1523,17 +1535,17 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsRequest dynamicObjectsResponse = 2;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse dynamicObjectsResponse = 2;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequest.Builder getDynamicObjectsResponseBuilder() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.Builder getDynamicObjectsResponseBuilder() {
         bitField0_ |= 0x00000002;
         onChanged();
         return getDynamicObjectsResponseFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsRequest dynamicObjectsResponse = 2;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse dynamicObjectsResponse = 2;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequestOrBuilder getDynamicObjectsResponseOrBuilder() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponseOrBuilder getDynamicObjectsResponseOrBuilder() {
         if (dynamicObjectsResponseBuilder_ != null) {
           return dynamicObjectsResponseBuilder_.getMessageOrBuilder();
         } else {
@@ -1541,14 +1553,14 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsRequest dynamicObjectsResponse = 2;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse dynamicObjectsResponse = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequest, arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequest.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequestOrBuilder> 
+          arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse, arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponseOrBuilder> 
           getDynamicObjectsResponseFieldBuilder() {
         if (dynamicObjectsResponseBuilder_ == null) {
           dynamicObjectsResponseBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequest, arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequest.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequestOrBuilder>(
+              arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse, arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponseOrBuilder>(
                   dynamicObjectsResponse_,
                   getParentForChildren(),
                   isClean());
@@ -20437,112 +20449,112 @@ public final class GeProtocol {
   static {
     java.lang.String[] descriptorData = {
       "\n\016messages.proto\022\"arch.galaxyeclipse.sha" +
-      "red.protocol\"\363\010\n\006Packet\022=\n\004type\030\001 \002(\0162/." +
+      "red.protocol\"\364\010\n\006Packet\022=\n\004type\030\001 \002(\0162/." +
       "arch.galaxyeclipse.shared.protocol.Packe" +
-      "t.Type\022Y\n\026dynamicObjectsResponse\030\002 \001(\01329" +
+      "t.Type\022Z\n\026dynamicObjectsResponse\030\002 \001(\0132:" +
       ".arch.galaxyeclipse.shared.protocol.Dyna" +
-      "micObjectsRequest\022P\n\021shipStateResponse\030\003" +
-      " \001(\01325.arch.galaxyeclipse.shared.protoco" +
-      "l.ShipStateResponse\022F\n\014clientAction\030\004 \001(" +
-      "\01320.arch.galaxyeclipse.shared.protocol.C" +
-      "lientAction\022D\n\013authRequest\030\020 \001(\0132/.arch.",
-      "galaxyeclipse.shared.protocol.AuthReques" +
-      "t\022F\n\014authResponse\030\021 \001(\01320.arch.galaxyecl" +
-      "ipse.shared.protocol.AuthResponse\022F\n\014loc" +
-      "ationInfo\030\022 \001(\01320.arch.galaxyeclipse.sha" +
-      "red.protocol.LocationInfo\022D\n\013startupInfo" +
-      "\030\023 \001(\0132/.arch.galaxyeclipse.shared.proto" +
-      "col.StartupInfo\022X\n\025gameInfoCommandHolder" +
-      "\030\024 \001(\01329.arch.galaxyeclipse.shared.proto" +
-      "col.ShipStaticInfoCommand\022L\n\017chatSendMes" +
-      "sage\030\025 \001(\01323.arch.galaxyeclipse.shared.p",
-      "rotocol.ChatSendMessage\022P\n\020typesMapRespo" +
-      "nse\030\026 \001(\01326.arch.galaxyeclipse.shared.pr" +
-      "otocol.ChatReceiveMessage\"\236\002\n\004Type\022\033\n\027DY" +
-      "NAMIC_OBJECTS_REQUEST\020\001\022\034\n\030DYNAMIC_OBJEC" +
-      "TS_RESPONSE\020\002\022\026\n\022SHIP_STATE_REQUEST\020\003\022\027\n" +
-      "\023SHIP_STATE_RESPONSE\020\004\022\021\n\rCLIENT_ACTION\020" +
-      "\005\022\020\n\014AUTH_REQUEST\020\020\022\021\n\rAUTH_RESPONSE\020\021\022\021" +
-      "\n\rLOCATION_INFO\020\036\022\020\n\014STARTUP_INFO\020\037\022\034\n\030S" +
-      "HIP_STATIC_INFO_COMMAND\020 \022\025\n\021CHAT_SEND_M" +
-      "ESSAGE\020<\022\030\n\024CHAR_RECEIVE_MESSAGE\020=\"\027\n\025Dy",
-      "namicObjectsRequest\"j\n\026DynamicObjectsRes" +
-      "ponse\022P\n\007objects\030\001 \003(\0132?.arch.galaxyecli" +
-      "pse.shared.protocol.LocationInfo.Locatio" +
-      "nObject\"\022\n\020ShipStateRequest\"\237\001\n\021ShipStat" +
-      "eResponse\022\021\n\tmoveSpeed\030\001 \002(\005\022\025\n\rrotation" +
-      "Speed\030\002 \002(\005\022\n\n\002hp\030\003 \002(\005\022\027\n\017armorDurabili" +
-      "ty\030\004 \002(\005\022\025\n\rrotationAngle\030\005 \002(\005\022\021\n\tposit" +
-      "ionX\030\006 \002(\002\022\021\n\tpositionY\030\007 \002(\002\"\271\002\n\014Client" +
-      "Action\022O\n\004type\030\001 \002(\0162A.arch.galaxyeclips" +
-      "e.shared.protocol.ClientAction.ClientAct",
-      "ionType\022\030\n\020locationObjectId\030\002 \001(\005\022\034\n\024loc" +
-      "ationObjectTypeId\030\003 \001(\005\"\237\001\n\020ClientAction" +
-      "Type\022\017\n\013ROTATE_LEFT\020\001\022\020\n\014ROTATE_RIGHT\020\002\022" +
-      "\010\n\004MOVE\020\003\022\010\n\004STOP\020\004\022\020\n\014OBJECT_CLICK\020\007\022\r\n" +
-      "\tLOOT_PICK\020\010\022\020\n\014ATTACK_START\020\t\022\017\n\013ATTACK" +
-      "_STOP\020\n\022\020\n\014ROCKET_SHOOT\020\020\"1\n\013AuthRequest" +
-      "\022\020\n\010username\030\001 \002(\t\022\020\n\010password\030\002 \002(\t\"!\n\014" +
-      "AuthResponse\022\021\n\tisSuccess\030\001 \002(\010\"\203\003\n\014Loca" +
-      "tionInfo\022\022\n\nlocationId\030\001 \002(\005\022\014\n\004name\030\002 \002" +
-      "(\t\022\r\n\005width\030\003 \002(\002\022\016\n\006height\030\004 \002(\002\022]\n\025loc",
-      "ationCachedObjects\030\005 \002(\0132>.arch.galaxyec" +
-      "lipse.shared.protocol.LocationInfo.Cache" +
-      "dObjects\032a\n\rCachedObjects\022P\n\007objects\030\001 \003" +
-      "(\0132?.arch.galaxyeclipse.shared.protocol." +
-      "LocationInfo.LocationObject\032p\n\016LocationO" +
-      "bject\022\020\n\010objectId\030\001 \002(\005\022\024\n\014objectTypeId\030" +
-      "\002 \002(\005\022\020\n\010nativeId\030\003 \002(\005\022\021\n\tpositionX\030\004 \002" +
-      "(\002\022\021\n\tpositionY\030\005 \002(\002\"\330\t\n\016ShipStaticInfo" +
-      "\022\024\n\014moveMaxSpeed\030\001 \002(\005\022\030\n\020rotationMaxSpe" +
-      "ed\030\002 \002(\005\022\035\n\025moveAccelerationSpeed\030\003 \002(\005\022",
-      "\034\n\024rotationAcceleration\030\004 \002(\005\022\r\n\005armor\030\005" +
-      " \002(\005\022\021\n\tenergyMax\030\006 \002(\005\022\r\n\005hpMax\030\007 \002(\005\022\023" +
-      "\n\013energyRegen\030\010 \002(\005\022\017\n\007hpRegen\030\t \002(\005\022\014\n\004" +
-      "name\030\n \002(\t\022\027\n\017armorDurability\030\013 \002(\005\022\030\n\020w" +
-      "eaponSlotsCount\030\014 \002(\005\022\027\n\017bonusSlotsCount" +
-      "\030\r \002(\005\022O\n\016inventoryItems\030\016 \003(\01327.arch.ga" +
-      "laxyeclipse.shared.protocol.ShipStaticIn" +
-      "fo.Item\022J\n\tshipBonus\030\017 \003(\01327.arch.galaxy" +
-      "eclipse.shared.protocol.ShipStaticInfo.I" +
-      "tem\022L\n\013shipWeapons\030\020 \003(\01327.arch.galaxyec",
-      "lipse.shared.protocol.ShipStaticInfo.Ite" +
-      "m\022K\n\nshipEngine\030\021 \002(\01327.arch.galaxyeclip" +
-      "se.shared.protocol.ShipStaticInfo.Item\032\357" +
-      "\004\n\004Item\022\016\n\006itemId\030\001 \002(\005\022\014\n\004name\030\002 \002(\t\022\023\n" +
-      "\013description\030\003 \002(\t\022\r\n\005price\030\004 \002(\005\022\022\n\nite" +
-      "mTypeId\030\005 \002(\005\022L\n\005bonus\030\006 \001(\0132=.arch.gala" +
-      "xyeclipse.shared.protocol.ShipStaticInfo" +
-      ".Item.Bonus\022N\n\006weapon\030\007 \001(\0132>.arch.galax" +
-      "yeclipse.shared.protocol.ShipStaticInfo." +
-      "Item.Weapon\022N\n\006engine\030\010 \001(\0132>.arch.galax",
-      "yeclipse.shared.protocol.ShipStaticInfo." +
-      "Item.Engine\0320\n\005Bonus\022\022\n\nbonusValue\030\001 \002(\005" +
-      "\022\023\n\013bonusTypeId\030\002 \002(\005\032j\n\006Weapon\022\016\n\006damag" +
-      "e\030\001 \002(\005\022\022\n\ndelaySpeed\030\002 \002(\005\022\023\n\013bulletSpe" +
-      "ed\030\003 \002(\005\022\023\n\013maxDistance\030\004 \002(\005\022\022\n\nenergyC" +
-      "ost\030\005 \002(\005\032\204\001\n\006Engine\022\035\n\025moveAcceleration" +
-      "Bonus\030\001 \002(\005\022\031\n\021moveMaxSpeedBonus\030\002 \002(\005\022!" +
-      "\n\031rotationAccelerationBonus\030\003 \002(\005\022\035\n\025rot" +
-      "ationMaxSpeedBonus\030\004 \002(\005\"\321\002\n\010TypesMap\022D\n" +
-      "\titemTypes\030\001 \003(\01321.arch.galaxyeclipse.sh",
-      "ared.protocol.TypesMap.Type\022F\n\013weaponTyp" +
-      "es\030\002 \003(\01321.arch.galaxyeclipse.shared.pro" +
-      "tocol.TypesMap.Type\022N\n\023locationObjectTyp" +
-      "es\030\003 \003(\01321.arch.galaxyeclipse.shared.pro" +
-      "tocol.TypesMap.Type\022E\n\nbonusTypes\030\004 \003(\0132" +
-      "1.arch.galaxyeclipse.shared.protocol.Typ" +
-      "esMap.Type\032 \n\004Type\022\n\n\002id\030\001 \002(\005\022\014\n\004name\030\002" +
-      " \002(\t\"\341\001\n\013StartupInfo\022F\n\014locationInfo\030\001 \002" +
+      "micObjectsResponse\022P\n\021shipStateResponse\030" +
+      "\003 \001(\01325.arch.galaxyeclipse.shared.protoc" +
+      "ol.ShipStateResponse\022F\n\014clientAction\030\004 \001" +
       "(\01320.arch.galaxyeclipse.shared.protocol." +
-      "LocationInfo\022>\n\010typesMap\030\002 \002(\0132,.arch.ga",
-      "laxyeclipse.shared.protocol.TypesMap\022J\n\016" +
-      "shipStaticInfo\030\003 \002(\01322.arch.galaxyeclips" +
-      "e.shared.protocol.ShipStaticInfo\"2\n\025Ship" +
-      "StaticInfoCommand\022\031\n\021serializedCommand\030\001" +
-      " \002(\014\"\"\n\017ChatSendMessage\022\017\n\007message\030\001 \002(\t" +
-      "\"5\n\022ChatReceiveMessage\022\017\n\007message\030\001 \002(\t\022" +
-      "\016\n\006sender\030\002 \002(\tB\016B\nGeProtocolH\001"
+      "ClientAction\022D\n\013authRequest\030\020 \001(\0132/.arch",
+      ".galaxyeclipse.shared.protocol.AuthReque" +
+      "st\022F\n\014authResponse\030\021 \001(\01320.arch.galaxyec" +
+      "lipse.shared.protocol.AuthResponse\022F\n\014lo" +
+      "cationInfo\030\022 \001(\01320.arch.galaxyeclipse.sh" +
+      "ared.protocol.LocationInfo\022D\n\013startupInf" +
+      "o\030\023 \001(\0132/.arch.galaxyeclipse.shared.prot" +
+      "ocol.StartupInfo\022X\n\025gameInfoCommandHolde" +
+      "r\030\024 \001(\01329.arch.galaxyeclipse.shared.prot" +
+      "ocol.ShipStaticInfoCommand\022L\n\017chatSendMe" +
+      "ssage\030\025 \001(\01323.arch.galaxyeclipse.shared.",
+      "protocol.ChatSendMessage\022P\n\020typesMapResp" +
+      "onse\030\026 \001(\01326.arch.galaxyeclipse.shared.p" +
+      "rotocol.ChatReceiveMessage\"\236\002\n\004Type\022\033\n\027D" +
+      "YNAMIC_OBJECTS_REQUEST\020\001\022\034\n\030DYNAMIC_OBJE" +
+      "CTS_RESPONSE\020\002\022\026\n\022SHIP_STATE_REQUEST\020\003\022\027" +
+      "\n\023SHIP_STATE_RESPONSE\020\004\022\021\n\rCLIENT_ACTION" +
+      "\020\005\022\020\n\014AUTH_REQUEST\020\020\022\021\n\rAUTH_RESPONSE\020\021\022" +
+      "\021\n\rLOCATION_INFO\020\036\022\020\n\014STARTUP_INFO\020\037\022\034\n\030" +
+      "SHIP_STATIC_INFO_COMMAND\020 \022\025\n\021CHAT_SEND_" +
+      "MESSAGE\020<\022\030\n\024CHAR_RECEIVE_MESSAGE\020=\"\027\n\025D",
+      "ynamicObjectsRequest\"j\n\026DynamicObjectsRe" +
+      "sponse\022P\n\007objects\030\001 \003(\0132?.arch.galaxyecl" +
+      "ipse.shared.protocol.LocationInfo.Locati" +
+      "onObject\"\022\n\020ShipStateRequest\"\237\001\n\021ShipSta" +
+      "teResponse\022\021\n\tmoveSpeed\030\001 \002(\005\022\025\n\rrotatio" +
+      "nSpeed\030\002 \002(\005\022\n\n\002hp\030\003 \002(\005\022\027\n\017armorDurabil" +
+      "ity\030\004 \002(\005\022\025\n\rrotationAngle\030\005 \002(\005\022\021\n\tposi" +
+      "tionX\030\006 \002(\002\022\021\n\tpositionY\030\007 \002(\002\"\271\002\n\014Clien" +
+      "tAction\022O\n\004type\030\001 \002(\0162A.arch.galaxyeclip" +
+      "se.shared.protocol.ClientAction.ClientAc",
+      "tionType\022\030\n\020locationObjectId\030\002 \001(\005\022\034\n\024lo" +
+      "cationObjectTypeId\030\003 \001(\005\"\237\001\n\020ClientActio" +
+      "nType\022\017\n\013ROTATE_LEFT\020\001\022\020\n\014ROTATE_RIGHT\020\002" +
+      "\022\010\n\004MOVE\020\003\022\010\n\004STOP\020\004\022\020\n\014OBJECT_CLICK\020\007\022\r" +
+      "\n\tLOOT_PICK\020\010\022\020\n\014ATTACK_START\020\t\022\017\n\013ATTAC" +
+      "K_STOP\020\n\022\020\n\014ROCKET_SHOOT\020\020\"1\n\013AuthReques" +
+      "t\022\020\n\010username\030\001 \002(\t\022\020\n\010password\030\002 \002(\t\"!\n" +
+      "\014AuthResponse\022\021\n\tisSuccess\030\001 \002(\010\"\203\003\n\014Loc" +
+      "ationInfo\022\022\n\nlocationId\030\001 \002(\005\022\014\n\004name\030\002 " +
+      "\002(\t\022\r\n\005width\030\003 \002(\002\022\016\n\006height\030\004 \002(\002\022]\n\025lo",
+      "cationCachedObjects\030\005 \002(\0132>.arch.galaxye" +
+      "clipse.shared.protocol.LocationInfo.Cach" +
+      "edObjects\032a\n\rCachedObjects\022P\n\007objects\030\001 " +
+      "\003(\0132?.arch.galaxyeclipse.shared.protocol" +
+      ".LocationInfo.LocationObject\032p\n\016Location" +
+      "Object\022\020\n\010objectId\030\001 \002(\005\022\024\n\014objectTypeId" +
+      "\030\002 \002(\005\022\020\n\010nativeId\030\003 \002(\005\022\021\n\tpositionX\030\004 " +
+      "\002(\002\022\021\n\tpositionY\030\005 \002(\002\"\330\t\n\016ShipStaticInf" +
+      "o\022\024\n\014moveMaxSpeed\030\001 \002(\005\022\030\n\020rotationMaxSp" +
+      "eed\030\002 \002(\005\022\035\n\025moveAccelerationSpeed\030\003 \002(\005",
+      "\022\034\n\024rotationAcceleration\030\004 \002(\005\022\r\n\005armor\030" +
+      "\005 \002(\005\022\021\n\tenergyMax\030\006 \002(\005\022\r\n\005hpMax\030\007 \002(\005\022" +
+      "\023\n\013energyRegen\030\010 \002(\005\022\017\n\007hpRegen\030\t \002(\005\022\014\n" +
+      "\004name\030\n \002(\t\022\027\n\017armorDurability\030\013 \002(\005\022\030\n\020" +
+      "weaponSlotsCount\030\014 \002(\005\022\027\n\017bonusSlotsCoun" +
+      "t\030\r \002(\005\022O\n\016inventoryItems\030\016 \003(\01327.arch.g" +
+      "alaxyeclipse.shared.protocol.ShipStaticI" +
+      "nfo.Item\022J\n\tshipBonus\030\017 \003(\01327.arch.galax" +
+      "yeclipse.shared.protocol.ShipStaticInfo." +
+      "Item\022L\n\013shipWeapons\030\020 \003(\01327.arch.galaxye",
+      "clipse.shared.protocol.ShipStaticInfo.It" +
+      "em\022K\n\nshipEngine\030\021 \002(\01327.arch.galaxyecli" +
+      "pse.shared.protocol.ShipStaticInfo.Item\032" +
+      "\357\004\n\004Item\022\016\n\006itemId\030\001 \002(\005\022\014\n\004name\030\002 \002(\t\022\023" +
+      "\n\013description\030\003 \002(\t\022\r\n\005price\030\004 \002(\005\022\022\n\nit" +
+      "emTypeId\030\005 \002(\005\022L\n\005bonus\030\006 \001(\0132=.arch.gal" +
+      "axyeclipse.shared.protocol.ShipStaticInf" +
+      "o.Item.Bonus\022N\n\006weapon\030\007 \001(\0132>.arch.gala" +
+      "xyeclipse.shared.protocol.ShipStaticInfo" +
+      ".Item.Weapon\022N\n\006engine\030\010 \001(\0132>.arch.gala",
+      "xyeclipse.shared.protocol.ShipStaticInfo" +
+      ".Item.Engine\0320\n\005Bonus\022\022\n\nbonusValue\030\001 \002(" +
+      "\005\022\023\n\013bonusTypeId\030\002 \002(\005\032j\n\006Weapon\022\016\n\006dama" +
+      "ge\030\001 \002(\005\022\022\n\ndelaySpeed\030\002 \002(\005\022\023\n\013bulletSp" +
+      "eed\030\003 \002(\005\022\023\n\013maxDistance\030\004 \002(\005\022\022\n\nenergy" +
+      "Cost\030\005 \002(\005\032\204\001\n\006Engine\022\035\n\025moveAcceleratio" +
+      "nBonus\030\001 \002(\005\022\031\n\021moveMaxSpeedBonus\030\002 \002(\005\022" +
+      "!\n\031rotationAccelerationBonus\030\003 \002(\005\022\035\n\025ro" +
+      "tationMaxSpeedBonus\030\004 \002(\005\"\321\002\n\010TypesMap\022D" +
+      "\n\titemTypes\030\001 \003(\01321.arch.galaxyeclipse.s",
+      "hared.protocol.TypesMap.Type\022F\n\013weaponTy" +
+      "pes\030\002 \003(\01321.arch.galaxyeclipse.shared.pr" +
+      "otocol.TypesMap.Type\022N\n\023locationObjectTy" +
+      "pes\030\003 \003(\01321.arch.galaxyeclipse.shared.pr" +
+      "otocol.TypesMap.Type\022E\n\nbonusTypes\030\004 \003(\013" +
+      "21.arch.galaxyeclipse.shared.protocol.Ty" +
+      "pesMap.Type\032 \n\004Type\022\n\n\002id\030\001 \002(\005\022\014\n\004name\030" +
+      "\002 \002(\t\"\341\001\n\013StartupInfo\022F\n\014locationInfo\030\001 " +
+      "\002(\01320.arch.galaxyeclipse.shared.protocol" +
+      ".LocationInfo\022>\n\010typesMap\030\002 \002(\0132,.arch.g",
+      "alaxyeclipse.shared.protocol.TypesMap\022J\n" +
+      "\016shipStaticInfo\030\003 \002(\01322.arch.galaxyeclip" +
+      "se.shared.protocol.ShipStaticInfo\"2\n\025Shi" +
+      "pStaticInfoCommand\022\031\n\021serializedCommand\030" +
+      "\001 \002(\014\"\"\n\017ChatSendMessage\022\017\n\007message\030\001 \002(" +
+      "\t\"5\n\022ChatReceiveMessage\022\017\n\007message\030\001 \002(\t" +
+      "\022\016\n\006sender\030\002 \002(\tB\016B\nGeProtocolH\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {

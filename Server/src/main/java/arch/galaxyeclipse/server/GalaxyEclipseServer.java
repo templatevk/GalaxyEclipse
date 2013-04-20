@@ -21,11 +21,11 @@ public class GalaxyEclipseServer {
 
     public void preconfigure() {
         StatusPrinter.print((LoggerContext) LoggerFactory.getILoggerFactory());
-        ContextHolder.INSTANCE.getClass();
+        ContextHolder.class.getClass();
 
         // Resolving dependencies
-        serverNetworkManager = ContextHolder.INSTANCE.getBean(IServerNetworkManager.class);
-        dictionaryTypesMapper = ContextHolder.INSTANCE.getBean(DictionaryTypesMapper.class);
+        serverNetworkManager = ContextHolder.getBean(IServerNetworkManager.class);
+        dictionaryTypesMapper = ContextHolder.getBean(DictionaryTypesMapper.class);
 
         // Dependencies initialization
         DictionaryTypesMapperHelper.fillAll(dictionaryTypesMapper);

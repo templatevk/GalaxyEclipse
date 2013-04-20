@@ -45,6 +45,6 @@ public abstract class UnitOfWork<T> {
 
     private static class SessionFactoryHolder {
         private static SessionFactory sessionFactory =
-                ContextHolder.INSTANCE.getBean(SessionFactory.class);
+                ContextHolder.getBean(SessionFactory.class);
     }
 }

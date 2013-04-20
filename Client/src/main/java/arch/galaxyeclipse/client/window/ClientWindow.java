@@ -1,9 +1,9 @@
 package arch.galaxyeclipse.client.window;
 
 import arch.galaxyeclipse.client.*;
-import arch.galaxyeclipse.client.resource.*;
 import arch.galaxyeclipse.client.stage.*;
 import arch.galaxyeclipse.shared.*;
+import arch.galaxyeclipse.shared.util.*;
 import com.badlogic.gdx.*;
 import com.badlogic.gdx.backends.lwjgl.*;
 import com.badlogic.gdx.graphics.*;

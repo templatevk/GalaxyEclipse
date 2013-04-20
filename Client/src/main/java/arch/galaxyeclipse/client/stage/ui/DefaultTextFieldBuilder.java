@@ -30,7 +30,7 @@ class DefaultTextFieldBuilder implements ITextFieldBuilder {
         passwordMode = false;
         passwordCharacter = '*';
 
-        IResourceLoader resourceLoader = ContextHolder.INSTANCE
+        IResourceLoader resourceLoader = ContextHolder
                 .getBean(IResourceLoader.class);
 
         Drawable carret = new TextureRegionDrawable(resourceLoader.findRegion("ui/carret"));

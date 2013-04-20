@@ -24,7 +24,7 @@ public class GeProtocolMessageFactory {
     private ShipStaticInfo.Item.Weapon.Builder getWeaponBuilder;
 
     public GeProtocolMessageFactory() {
-        dictionaryTypesMapper = ContextHolder.INSTANCE.getBean(DictionaryTypesMapper.class);
+        dictionaryTypesMapper = ContextHolder.getBean(DictionaryTypesMapper.class);
 
         getStaticObjectsBuilder = LocationInfo.CachedObjects.newBuilder();
         getStaticObjectBuilder = LocationInfo.LocationObject.newBuilder();

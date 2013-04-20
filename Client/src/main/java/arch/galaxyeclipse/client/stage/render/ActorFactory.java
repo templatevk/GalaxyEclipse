@@ -21,8 +21,8 @@ class ActorFactory implements IActorFactory {
 
 
     ActorFactory() {
-        resourceLoader = ContextHolder.INSTANCE.getBean(IResourceLoader.class);
-        dictionaryTypesMapper = ContextHolder.INSTANCE.getBean(DictionaryTypesMapper.class);
+        resourceLoader = ContextHolder.getBean(IResourceLoader.class);
+        dictionaryTypesMapper = ContextHolder.getBean(DictionaryTypesMapper.class);
     }
 
     @Override

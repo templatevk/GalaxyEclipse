@@ -16,7 +16,7 @@ public abstract class AbstractGameStage extends Stage {
     private IClientWindow clientWindow;
 
     protected AbstractGameStage() {
-        clientWindow = ContextHolder.INSTANCE.getBean(IClientWindow.class);
+        clientWindow = ContextHolder.getBean(IClientWindow.class);
     }
 
     // Root container we are going to scale if isManualScaling returns false

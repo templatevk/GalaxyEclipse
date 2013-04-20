@@ -23,7 +23,7 @@ class DefaultButtonBuilder implements IButtonBuilder {
         text = "";
         listener = new ClickListener();
 
-        IResourceLoader resourceLoader = ContextHolder.INSTANCE.getBean(IResourceLoader.class);
+        IResourceLoader resourceLoader = ContextHolder.getBean(IResourceLoader.class);
         BitmapFont font = resourceLoader.getFont("assets/font_calibri_48px");
 
         style = new TextButton.TextButtonStyle();

@@ -16,7 +16,7 @@ public class DictionaryTypesMapperHelperTest extends AbstractTestNGServerTest {
 
     @BeforeClass
     public void initDependencies() {
-        dictionaryTypesMapper = ContextHolder.INSTANCE.getBean(
+        dictionaryTypesMapper = ContextHolder.getBean(
                 DictionaryTypesMapper.class);
     }
 

@@ -43,16 +43,19 @@ public class LocationInfoHolder {
             log.debug("\tWidth " + locationInfo.getWidth());
             log.debug("\tHeight " + locationInfo.getHeight());
 
-            log.debug("Objects:");
-            DictionaryTypesMapper dictionaryTypesMapper = ContextHolder.INSTANCE
-                    .getBean(DictionaryTypesMapper.class);
-            for (LocationObject locationObject : objectsList) {
-                log.debug("\t" + dictionaryTypesMapper.getLocationObjectTypeById(
-                        locationObject.getObjectTypeId()));
-                log.debug("\tx = " + locationObject.getPositionX());
-                log.debug("\ty = " + locationObject.getPositionY());
-            }
+            outputObjects(objectsList);
         }
+    }
+
+    public void setDynamicObjects(List<LocationObject> locationObjects) {
+        if (log.isDebugEnabled()) {
+            log.debug("Dynamic objects update" + dynamicObjects.size());
+            outputObjects(locationObjects);
+        }
+
+        dynamicObjects = TreeMultiset.create(new LocationObjectOrdering());
+        dynamicObjects.addAll(locationObjects);
+
     }
 
     public Multiset<LocationObject> getCachedObjects() {
@@ -69,8 +72,20 @@ public class LocationInfoHolder {
         return locationObjects;
     }
 
+    private void outputObjects(List<LocationObject> locationObjects) {
+        log.debug("Objects:");
+        DictionaryTypesMapper dictionaryTypesMapper = ContextHolder
+                .getBean(DictionaryTypesMapper.class);
+        for (LocationObject locationObject : locationObjects) {
+            log.debug("\t" + dictionaryTypesMapper.getLocationObjectTypeById(
+                    locationObject.getObjectTypeId()));
+            log.debug("\tx = " + locationObject.getPositionX());
+            log.debug("\ty = " + locationObject.getPositionY());
+        }
+    }
+
     @Data
-    private class PositionPredicate implements com.google.common.base.Predicate<LocationObject> {
+    private static class PositionPredicate implements com.google.common.base.Predicate<LocationObject> {
          private Position position;
 
         @Override

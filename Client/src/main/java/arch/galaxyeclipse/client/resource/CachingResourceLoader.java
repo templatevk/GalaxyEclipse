@@ -1,5 +1,6 @@
 package arch.galaxyeclipse.client.resource;
 
+import arch.galaxyeclipse.shared.util.*;
 import com.badlogic.gdx.*;
 import com.badlogic.gdx.graphics.*;
 import com.badlogic.gdx.graphics.g2d.*;

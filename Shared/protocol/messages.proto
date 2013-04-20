@@ -26,7 +26,7 @@ message Packet {
 
     required Type                   type                    = 1;
 
-    optional DynamicObjectsRequest  dynamicObjectsResponse  = 2;
+    optional DynamicObjectsResponse dynamicObjectsResponse  = 2;
     optional ShipStateResponse      shipStateResponse       = 3;
     optional ClientAction           clientAction            = 4;
     

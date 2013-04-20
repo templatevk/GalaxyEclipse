@@ -1,7 +1,7 @@
 package arch.galaxyeclipse.client.window;
 
-import arch.galaxyeclipse.client.resource.*;
 import arch.galaxyeclipse.client.stage.*;
+import arch.galaxyeclipse.shared.util.*;
 
 /**
  *

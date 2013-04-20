@@ -1,4 +1,4 @@
-package arch.galaxyeclipse.client.resource;
+package arch.galaxyeclipse.shared.util;
 
 /**
  *
