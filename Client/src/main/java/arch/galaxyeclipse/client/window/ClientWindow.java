@@ -7,8 +7,10 @@ import com.badlogic.gdx.*;
 import com.badlogic.gdx.backends.lwjgl.*;
 import com.badlogic.gdx.graphics.*;
 import com.badlogic.gdx.math.*;
+import com.badlogic.gdx.scenes.scene2d.ui.*;
 
 import java.util.*;
+import java.util.List;
 
 /**
  * OpenGL window delegating drawing to the stage set.
@@ -113,13 +115,17 @@ class ClientWindow implements IClientWindow {
         }
 
         @Override
-        public void render() { // Clear the screen and draw the stage
+        public void render() {
             Gdx.gl.glClearColor(0, 0, 0.2f, 1);
             Gdx.gl.glViewport((int)viewport.x, (int)viewport.y,
                     (int)viewport.width, (int)viewport.height);
             Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 
             stagePresenter.getGameStage().draw();
+
+            if (EnvType.CURRENT == EnvType.DEV) {
+                Table.drawDebug(stagePresenter.getGameStage());
+            }
         }
 
         @Override

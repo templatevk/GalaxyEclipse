@@ -4,6 +4,7 @@ import arch.galaxyeclipse.client.resource.*;
 import arch.galaxyeclipse.shared.context.*;
 import arch.galaxyeclipse.shared.protocol.*;
 import arch.galaxyeclipse.shared.types.*;
+import com.badlogic.gdx.graphics.g2d.*;
 import com.badlogic.gdx.scenes.scene2d.utils.*;
 import lombok.extern.slf4j.*;
 

@@ -207,6 +207,11 @@ public class MainMenuPresenter extends ServerPacketListener implements IStagePre
             innerTable.setOrigin(innerTable.getPrefWidth() / 2,
                     innerTable.getPrefHeight() / 2);
 
+            if (EnvType.CURRENT == EnvType.DEV) {
+                rootTable.debug();
+                innerTable.debug();
+            }
+
             StageUiFactory.applyTabOrder(Arrays.<Actor>asList(
                     usernameTxt, passwordTxt, connectBtn), this);
             setKeyboardFocus(usernameTxt);

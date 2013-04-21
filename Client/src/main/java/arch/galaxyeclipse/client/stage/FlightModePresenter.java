@@ -3,14 +3,17 @@ package arch.galaxyeclipse.client.stage;
 import arch.galaxyeclipse.client.data.*;
 import arch.galaxyeclipse.client.network.*;
 import arch.galaxyeclipse.client.network.sender.*;
+import arch.galaxyeclipse.client.resource.*;
 import arch.galaxyeclipse.client.stage.render.*;
 import arch.galaxyeclipse.client.window.*;
+import arch.galaxyeclipse.shared.*;
 import arch.galaxyeclipse.shared.context.*;
 import arch.galaxyeclipse.shared.protocol.*;
 import arch.galaxyeclipse.shared.util.*;
 import com.badlogic.gdx.graphics.*;
 import com.badlogic.gdx.scenes.scene2d.*;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
+import com.badlogic.gdx.scenes.scene2d.utils.*;
 import lombok.extern.slf4j.*;
 
 import java.util.*;
@@ -98,20 +101,21 @@ public class FlightModePresenter implements IStagePresenter {
             this.presenter = presenter;
 
             clientWindow = ContextHolder.getBean(IClientWindow.class);
-
             gameActors = new ArrayList<>();
 
             gameActorsLayout = new Group();
-            gameActorsLayout.setColor(Color.GREEN);
-            gameActorsLayout.setBounds(0, 0, clientWindow.getViewportWidth(),
-                    clientWindow.getViewportHeight());
+            gameActorsLayout.setTransform(true);
 
-            // TODO determine the proper way to draw StageActor
             rootTable = new Table();
             rootTable.setFillParent(true);
-            rootTable.add(gameActorsLayout).expand().fill();
-            rootTable.setTransform(true);
+            rootTable.add(gameActorsLayout).width(clientWindow.getViewportWidth() / 2f)
+                    .height(clientWindow.getViewportHeight() / 2f);
+            rootTable.setTransform(false);
             addActor(rootTable);
+
+            if (EnvType.CURRENT == EnvType.DEV) {
+                rootTable.debug();
+            }
         }
 
         public void setGameActors(List<GameActor> gameActors) {
@@ -150,7 +154,7 @@ public class FlightModePresenter implements IStagePresenter {
 
         @Override
         protected Group getScaleGroup() {
-            return rootTable;
+            return gameActorsLayout;
         }
     }
 }

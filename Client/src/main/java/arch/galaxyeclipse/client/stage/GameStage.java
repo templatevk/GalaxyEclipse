@@ -1,8 +1,10 @@
 package arch.galaxyeclipse.client.stage;
 
 import arch.galaxyeclipse.client.window.*;
+import arch.galaxyeclipse.shared.*;
 import arch.galaxyeclipse.shared.context.*;
 import com.badlogic.gdx.scenes.scene2d.*;
+import com.badlogic.gdx.scenes.scene2d.ui.*;
 import lombok.extern.slf4j.*;
 
 /**
@@ -29,8 +31,8 @@ public abstract class GameStage extends Stage {
 
     public void resize(int width, int height) {
         setViewport(width, height, true);
-        float scaleX = width / ClientWindow.DEFAULT_WIDTH;
-        float scaleY = height / ClientWindow.DEFAULT_HEIGHT;
+        float scaleX = width / IClientWindow.DEFAULT_WIDTH;
+        float scaleY = height / IClientWindow.DEFAULT_HEIGHT;
 
         if (!isManualScaling()) {
             getScaleGroup().setScale(scaleX * DEFAULT_SCALE_COEF, scaleY * DEFAULT_SCALE_COEF);
@@ -39,6 +41,7 @@ public abstract class GameStage extends Stage {
                         + ", scaleY = " + scaleY * DEFAULT_SCALE_COEF);
             }
         }
+
         if (GameStage.log.isInfoEnabled()) {
             GameStage.log.info("width = " + width + ", height = " + height + ", viewportHeight = "
                     + clientWindow.getViewportHeight() + ", viewportWidth = "
