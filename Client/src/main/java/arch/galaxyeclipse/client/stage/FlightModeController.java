@@ -1,20 +1,16 @@
 package arch.galaxyeclipse.client.stage;
 
 import arch.galaxyeclipse.client.data.*;
+import arch.galaxyeclipse.client.data.Position;
 import arch.galaxyeclipse.client.network.*;
 import arch.galaxyeclipse.client.network.sender.*;
-import arch.galaxyeclipse.client.resource.*;
 import arch.galaxyeclipse.client.stage.render.*;
 import arch.galaxyeclipse.client.window.*;
-import arch.galaxyeclipse.shared.*;
 import arch.galaxyeclipse.shared.context.*;
 import arch.galaxyeclipse.shared.protocol.*;
 import arch.galaxyeclipse.shared.util.*;
-import com.badlogic.gdx.*;
-import com.badlogic.gdx.graphics.*;
 import com.badlogic.gdx.scenes.scene2d.*;
-import com.badlogic.gdx.scenes.scene2d.ui.*;
-import com.badlogic.gdx.scenes.scene2d.utils.*;
+import lombok.*;
 import lombok.extern.slf4j.*;
 
 import java.util.*;
@@ -24,11 +20,10 @@ import java.util.List;
  *
  */
 @Slf4j
-public class FlightModePresenter implements IStagePresenter {
+public class FlightModeController implements IStageProvider {
     private IClientNetworkManager networkManager;
     private IClientWindow clientWindow;
 
-    private FlightModeStage view;
     private ShipStaticInfoHolder shipStaticInfoHolder;
     private LocationInfoHolder locationInfoHolder;
     private ShipStateInfoHolder shipStateInfoHolder;
@@ -36,7 +31,10 @@ public class FlightModePresenter implements IStagePresenter {
     private ShipStateRequestSender shipStateRequestSender;
     private IActorFactory actorFactory;
 
-    public FlightModePresenter() {
+    private FlightModeStage view;
+    private FlightModeModel model;
+
+    public FlightModeController() {
         networkManager = ContextHolder.getBean(IClientNetworkManager.class);
         clientWindow = ContextHolder.getBean(IClientWindow.class);
         locationInfoHolder = ContextHolder.getBean(LocationInfoHolder.class);
@@ -45,6 +43,9 @@ public class FlightModePresenter implements IStagePresenter {
         actorFactory = ContextHolder.getBean(IActorFactory.class);
 
         initializeRequestSenders();
+
+        model = new FlightModeModel();
+        view = new FlightModeStage(this);
     }
 
     private void initializeRequestSenders() {
@@ -52,7 +53,7 @@ public class FlightModePresenter implements IStagePresenter {
         shipStateRequestSender.start();
 
         dynamicObjectsRequestSender = new DynamicObjectsRequestSender();
-        dynamicObjectsRequestSender.addPacketListener(new CommandPacketProcessingListener(
+        dynamicObjectsRequestSender.addPacketListener(new PacketProcessingListenerCommand(
                 GeProtocol.Packet.Type.DYNAMIC_OBJECTS_RESPONSE, new ICommand<GeProtocol.Packet>() {
             @Override
             public void perform(GeProtocol.Packet packet) {
@@ -61,20 +62,19 @@ public class FlightModePresenter implements IStagePresenter {
                 Set<GeProtocol.LocationInfo.LocationObject> locationObjects =
                         locationInfoHolder.getObjectsForRadius(position);
 
-                List<GameActor> gameActors = new ArrayList<>(locationObjects.size());
+                FlightModeModel model = new FlightModeModel(locationObjects.size());
                 for (GeProtocol.LocationInfo.LocationObject locationObject : locationObjects) {
-                    gameActors.add(actorFactory.createActor(locationObject));
+                    model.getGameActors().add(actorFactory.createActor(locationObject));
                 }
-                view.setGameActors(gameActors);
+                view.updateModel(model);
 
-                if (log.isDebugEnabled()) {
-                    log.debug("Added " + gameActors.size() + " actors to the flight stage");
+                if (FlightModeController.log.isDebugEnabled()) {
+                    FlightModeController.log.debug("Added " + model.getGameActors().size()
+                            + " actors to the flight stage");
                 }
             }
         }));
         dynamicObjectsRequestSender.start();
-
-        view = new FlightModeStage(this);
     }
 
     @Override
@@ -85,57 +85,60 @@ public class FlightModePresenter implements IStagePresenter {
     @Override
     public void detach() {
         dynamicObjectsRequestSender.interrupt();
+        shipStateRequestSender.interrupt();
     }
 
     private static class FlightModeStage extends GameStage {
         private IClientWindow clientWindow;
 
-        private Table rootTable;
+        private Group rootLayout;
         private Group gameActorsLayout;
-        private List<GameActor> gameActors;
-        private FlightModePresenter presenter;
 
-        private FlightModeStage(FlightModePresenter presenter) {
-            this.presenter = presenter;
+        private FlightModeController controller;
+        private FlightModeModel model;
 
+        private FlightModeStage(FlightModeController controller) {
+            this.controller = controller;
             clientWindow = ContextHolder.getBean(IClientWindow.class);
-            gameActors = new ArrayList<>();
+            model = new FlightModeModel();
 
             gameActorsLayout = new Group();
-            // TODO magic constant, manually fire resize event once
-            gameActorsLayout.setSize(400, 400);
             gameActorsLayout.setTransform(true);
 
-            rootTable = new Table();
-            rootTable.setFillParent(true);
-            rootTable.add(gameActorsLayout).width(clientWindow.getViewportWidth() / 2f)
-                    .height(clientWindow.getViewportHeight() / 2f);
-            rootTable.setTransform(false);
-            addActor(gameActorsLayout);
+            rootLayout = new Group();
+            rootLayout.addActor(gameActorsLayout);
+            rootLayout.setTransform(true);
+            addActor(rootLayout);
 
-
-            if (EnvType.CURRENT == EnvType.DEV) {
-                rootTable.debug();
-            }
+            forceResize();
         }
 
-        public void setGameActors(List<GameActor> gameActors) {
-            this.gameActors = gameActors;
+        public void updateModel(FlightModeModel model) {
+            this.model = model;
         }
 
         @Override
         public void resize(int width, int height) {
             super.resize(width, height);
-
-            // TODO is that right? got some work to do, finally it WORKS!!!!
-            gameActorsLayout.setBounds(0, 0, clientWindow.getViewportWidth(),
-                    clientWindow.getViewportHeight());
+            resize();
         }
+
+        private void resize() {
+            float width = clientWindow.getViewportWidth();
+            float height = clientWindow.getViewportHeight();
+
+            rootLayout.setSize(width, height);
+            rootLayout.setOrigin(width / 2f, height / 2f);
+
+            gameActorsLayout.setSize(width / 2f, height / 2f);
+            gameActorsLayout.setOrigin(width / 2f, height / 2f);
+        }
+
 
         @Override
         public void draw() {
             gameActorsLayout.clear();
-            for (GameActor gameActor : gameActors) {
+            for (GameActor gameActor : model.getGameActors()) {
                 gameActorsLayout.addActor(gameActor);
 
                 switch (gameActor.getActorType()) {
@@ -157,7 +160,20 @@ public class FlightModePresenter implements IStagePresenter {
 
         @Override
         protected Group getScaleGroup() {
-            return gameActorsLayout;
+            return rootLayout;
+        }
+    }
+
+    @Data
+    static class FlightModeModel {
+        private List<GameActor> gameActors = new ArrayList<>();
+
+        public FlightModeModel() {
+            gameActors = new ArrayList<>();
+        }
+
+        public FlightModeModel(int actorsCapacity) {
+            gameActors = new ArrayList<>(actorsCapacity);
         }
     }
 }

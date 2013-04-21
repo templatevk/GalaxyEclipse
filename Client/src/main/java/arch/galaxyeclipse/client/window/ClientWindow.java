@@ -8,6 +8,7 @@ import com.badlogic.gdx.backends.lwjgl.*;
 import com.badlogic.gdx.graphics.*;
 import com.badlogic.gdx.math.*;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
+import lombok.*;
 
 import java.util.*;
 import java.util.List;
@@ -22,11 +23,14 @@ class ClientWindow implements IClientWindow {
     private static final float PROD_WIDTH = 640;
     private static final float PROD_HEIGHT = 480;
 
-	private IStagePresenter stagePresenter;
-	private Rectangle viewport;
-	private int viewportHeight;
-	private int viewportWidth;
+	private IStageProvider stageProvider;
+    private Rectangle viewport;
     private List<IDestroyable> destroyables;
+
+	private @Getter int viewportHeight;
+	private @Getter int viewportWidth;
+    private @Getter int width;
+    private @Getter int height;
 
 	public ClientWindow() {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
@@ -50,24 +54,14 @@ class ClientWindow implements IClientWindow {
 	}
 
     @Override
-    public void setStagePresenter(IStagePresenter stagePresenter) {
-        if (this.stagePresenter != null) {
-            this.stagePresenter.detach();
+    public void setStageProvider(IStageProvider stageProvider) {
+        if (this.stageProvider != null) {
+            this.stageProvider.detach();
         }
-        this.stagePresenter = stagePresenter;
+        this.stageProvider = stageProvider;
 
-        Gdx.input.setInputProcessor(stagePresenter.getGameStage());
+        Gdx.input.setInputProcessor(stageProvider.getGameStage());
     }
-
-    @Override
-	public int getViewportHeight() {
-		return viewportHeight;
-	}
-
-    @Override
-	public int getViewportWidth() {
-		return viewportWidth;
-	}
 
     @Override
     public void addDestroyable(IDestroyable destroyable) {
@@ -95,8 +89,8 @@ class ClientWindow implements IClientWindow {
             Gdx.gl.glHint(GL10.GL_POLYGON_SMOOTH_HINT,          GL20.GL_NICEST);
             Gdx.gl.glHint(GL20.GL_FRAGMENT_SHADER,              GL20.GL_NICEST);
 
-            setStagePresenter(StagePresenterFactory.createStagePresenter(
-                    StagePresenterFactory.StagePresenterType.MAIN_MENU_PRESENTER));
+            setStageProvider(StageProviderFactory.createStageProvider(
+                    StageProviderFactory.StagePresenterType.MAIN_MENU_PROVIDER));
         }
 
         @Override
@@ -104,8 +98,8 @@ class ClientWindow implements IClientWindow {
             for (IDestroyable destroyable : destroyables) {
                 destroyable.destroy();
             }
-            if (stagePresenter != null) {
-                stagePresenter.detach();
+            if (stageProvider != null) {
+                stageProvider.detach();
             }
         }
 
@@ -121,18 +115,20 @@ class ClientWindow implements IClientWindow {
                     (int)viewport.width, (int)viewport.height);
             Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 
-            stagePresenter.getGameStage().draw();
+            stageProvider.getGameStage().draw();
 
             if (EnvType.CURRENT == EnvType.DEV) {
-                Table.drawDebug(stagePresenter.getGameStage());
+                Table.drawDebug(stageProvider.getGameStage());
             }
         }
 
         @Override
         public void resize(int width, int height) {
-            // Compute aspect ration, window size and viewport size
+            ClientWindow.this.width = width;
+            ClientWindow.this.height = height;
+
             float aspectRatio = (float)width / (float)height;
-            float scale = 1f;
+            float scale;
             Vector2 crop = new Vector2(0f, 0f);
 
             if(aspectRatio > ASPECT_RATIO) {
@@ -151,7 +147,7 @@ class ClientWindow implements IClientWindow {
             viewportWidth = (int)viewport.getWidth();
             viewportHeight = (int)viewport.getHeight();
 
-            stagePresenter.getGameStage().resize(width, height);
+            stageProvider.getGameStage().resize(width, height);
         }
 
         @Override

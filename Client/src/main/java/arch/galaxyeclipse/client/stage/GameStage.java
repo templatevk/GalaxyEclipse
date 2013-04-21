@@ -21,13 +21,7 @@ public abstract class GameStage extends Stage {
         clientWindow = ContextHolder.getBean(IClientWindow.class);
     }
 
-    // Root container we are going to scale if isManualScaling returns false
     protected abstract Group getScaleGroup();
-
-    // Override in derived classes to notify about manual scaling of the stage
-    protected boolean isManualScaling() {
-        return false;
-    }
 
     public void resize(int width, int height) {
         setViewport(width, height, true);
@@ -47,5 +41,13 @@ public abstract class GameStage extends Stage {
                     + clientWindow.getViewportHeight() + ", viewportWidth = "
                     + clientWindow.getViewportWidth());
         }
+    }
+
+    protected boolean isManualScaling() {
+        return false;
+    }
+
+    protected void forceResize() {
+        resize(clientWindow.getWidth(), clientWindow.getHeight());
     }
 }

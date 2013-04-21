@@ -64,6 +64,10 @@ abstract class RepeatablePacketSender extends SubscribableServerPacketListener {
                 while (!Thread.interrupted()) {
 
                 }
+
+                if (log.isDebugEnabled()) {
+                    log.debug(LogUtils.getObjectInfo(this) + " interrupted");
+                }
                 clientNetworkManager.removePacketListener(RepeatablePacketSender.this);
             } catch (Exception e) {
                 RepeatablePacketSender.log.error(LogUtils.getObjectInfo(this), e);

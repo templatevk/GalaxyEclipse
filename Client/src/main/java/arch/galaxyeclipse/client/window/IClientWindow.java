@@ -10,11 +10,12 @@ public interface IClientWindow {
     float DEFAULT_WIDTH = 1024;
     float DEFAULT_HEIGHT = 748;
 
-    void setStagePresenter(IStagePresenter stagePresenter);
-
-    int getViewportHeight();
-
-    int getViewportWidth() ;
+    void setStageProvider(IStageProvider stagePresenter);
 
     void addDestroyable(IDestroyable destroyable);
+
+    int getViewportHeight();
+    int getViewportWidth() ;
+    int getHeight();
+    int getWidth() ;
 }

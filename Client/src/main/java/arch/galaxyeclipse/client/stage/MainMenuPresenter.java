@@ -24,7 +24,7 @@ import java.util.List;
  *
  */
 @Slf4j
-public class MainMenuPresenter extends ServerPacketListener implements IStagePresenter {
+public class MainMenuPresenter extends ServerPacketListener implements IStageProvider {
     private IClientNetworkManager networkManager;
     private IClientWindow clientWindow;
 
@@ -101,7 +101,7 @@ public class MainMenuPresenter extends ServerPacketListener implements IStagePre
         shipStaticInfoHolder.setShipStaticInfo(startupInfo.getShipStaticInfo());
         locationInfoHolder.setLocationInfo(startupInfo.getLocationInfo());
 
-        clientWindow.setStagePresenter(new FlightModePresenter());
+        clientWindow.setStageProvider(new FlightModeController());
     }
 
     private void processTypesMap(TypesMap typesMap) {

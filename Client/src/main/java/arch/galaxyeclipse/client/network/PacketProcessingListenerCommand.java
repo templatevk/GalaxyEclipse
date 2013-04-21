@@ -8,11 +8,11 @@ import java.util.*;
 /**
  *
  */
-public class CommandPacketProcessingListener implements IPacketProcessingListener {
+public class PacketProcessingListenerCommand implements IPacketProcessingListener {
     private GeProtocol.Packet.Type packetType;
     private ICommand<GeProtocol.Packet> command;
 
-    public CommandPacketProcessingListener(GeProtocol.Packet.Type packetType,
+    public PacketProcessingListenerCommand(GeProtocol.Packet.Type packetType,
             ICommand<GeProtocol.Packet> command) {
         this.packetType = packetType;
         this.command = command;

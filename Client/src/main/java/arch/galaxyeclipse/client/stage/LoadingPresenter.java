@@ -9,7 +9,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.*;
 /**
  *
  */
-class LoadingPresenter implements IStagePresenter {
+class LoadingPresenter implements IStageProvider {
     private LoadingStage view;
 
     LoadingPresenter() {
