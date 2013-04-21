@@ -5,13 +5,7 @@ import arch.galaxyeclipse.shared.util.*;
 
 import java.net.*;
 
-public interface IClientNetworkManager {	
-	void addPacketListener(IServerPacketListener listener);
-	
-	void removePacketListener(IServerPacketListener listener);
-	
-	void removeListenerForType(IServerPacketListener listener, Packet.Type packetType);
-	
+public interface IClientNetworkManager extends IPacketSubscribable<IServerPacketListener> {
 	void sendPacket(Packet packet);
 	
 	void disconnect(ICallback<Boolean> callback);

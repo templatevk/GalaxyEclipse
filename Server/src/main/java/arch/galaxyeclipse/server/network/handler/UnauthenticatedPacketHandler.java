@@ -7,13 +7,10 @@ import arch.galaxyeclipse.server.network.*;
 import arch.galaxyeclipse.server.protocol.*;
 import arch.galaxyeclipse.shared.context.*;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.*;
-import arch.galaxyeclipse.shared.protocol.GeProtocol.Packet.*;
-import arch.galaxyeclipse.shared.protocol.GeProtocol.Packet.*;
 import arch.galaxyeclipse.shared.types.*;
 import lombok.*;
 import lombok.extern.slf4j.*;
 import org.hibernate.*;
-import org.hibernate.annotations.*;
 import org.hibernate.criterion.*;
 
 import java.util.*;
@@ -22,7 +19,7 @@ import java.util.*;
  * Processes the messages of unauthenticated players.
  */
 @Slf4j
-class UnauthenticatedPacketHandler extends AbstractStubPacketHandler {
+class UnauthenticatedPacketHandler extends StatefulPacketHandler {
     private DictionaryTypesMapper dictionaryTypesMapper;
     private IServerChannelHandler serverChannelHandler;
 	private IClientAuthenticator authenticator;
@@ -37,13 +34,13 @@ class UnauthenticatedPacketHandler extends AbstractStubPacketHandler {
 	}
 
 	@Override
-	public void handle(Packet packet) {
-
+	public boolean handle(Packet packet) {
         switch (packet.getType()) {
             case AUTH_REQUEST:
                 processAuthRequest(packet.getAuthRequest());
-                break;
+                return true;
         }
+        return false;
 	}
 
     private void processAuthRequest(AuthRequest authRequest) {
@@ -59,7 +56,9 @@ class UnauthenticatedPacketHandler extends AbstractStubPacketHandler {
             indicatePlayerOnline(startupInfoData.getPlayer());
 
             // TODO: Depending on the player state!
-            serverChannelHandler.setStatefulPacketHandler(new FlightPacketHandler(serverChannelHandler));
+            IStatefulPacketHandler statefulPacketHandler = new PacketHandlerFactory()
+                    .createStatefulPacketHandler(serverChannelHandler, GameModeType.FLIGHT);
+            serverChannelHandler.setStatefulPacketHandler(statefulPacketHandler);
         }
 
         if (UnauthenticatedPacketHandler.log.isDebugEnabled()) {
@@ -132,6 +131,7 @@ class UnauthenticatedPacketHandler extends AbstractStubPacketHandler {
                 setResult(startupInfoData);
             }
         }.execute();
+
         fillPlayerInfoHolder(startupInfoData);
 
         return startupInfoData;

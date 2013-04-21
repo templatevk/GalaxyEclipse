@@ -8,10 +8,8 @@ import arch.galaxyeclipse.shared.util.*;
 import lombok.extern.slf4j.*;
 import org.jboss.netty.channel.*;
 
-import static arch.galaxyeclipse.server.network.handler.PacketHandlerFactory.*;
-
 @Slf4j
-class ServerChannelHandler extends AbstractProtobufChannelHandler
+class ServerChannelHandler extends ProtobufChannelHandler
 		implements IServerChannelHandler {
 
     private PacketHandlerFactory packetHandlerFactory;
@@ -48,7 +46,7 @@ class ServerChannelHandler extends AbstractProtobufChannelHandler
 
         monitoringNetworkManager.registerServerChannelHandler(this);
 
-		statefulPacketHandler = PacketHandlerFactory.createStatefulPacketHandler(this);
+		statefulPacketHandler = new PacketHandlerFactory().createStatefulPacketHandler(this);
 	}
 
     @Override

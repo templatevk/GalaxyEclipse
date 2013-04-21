@@ -21,22 +21,22 @@ public class GalaxyEclipseServer {
 
     public void preconfigure() {
         StatusPrinter.print((LoggerContext) LoggerFactory.getILoggerFactory());
-        ContextHolder.class.getClass();
+        ContextHolder.INSTANCE.getClass();
 
-        // Resolving dependencies
         serverNetworkManager = ContextHolder.getBean(IServerNetworkManager.class);
         dictionaryTypesMapper = ContextHolder.getBean(DictionaryTypesMapper.class);
 
-        // Dependencies initialization
         DictionaryTypesMapperHelper.fillAll(dictionaryTypesMapper);
+
+        if (log.isInfoEnabled()) {
+            log.info("Server initialized for " + EnvType.CURRENT.toString() + " environment");
+        }
     }
 
-    // Performing full startup of the application
 	public void start() {
 		serverNetworkManager.startServer(SharedInfo.HOST, SharedInfo.PORT);
 	}
 
-    // Performing full shutdown of the application
 	public void stop() {
 		serverNetworkManager.stopServer();
 	}

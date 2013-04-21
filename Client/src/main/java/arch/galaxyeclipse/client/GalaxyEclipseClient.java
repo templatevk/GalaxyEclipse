@@ -10,20 +10,16 @@ import org.slf4j.*;
 
 @Slf4j
 public class GalaxyEclipseClient  {
-    @Getter
-    private static EnvType envType;
-
     public GalaxyEclipseClient() {
 
 	}
 	
 	public void start() {
         StatusPrinter.print((LoggerContext)LoggerFactory.getILoggerFactory());
-        ContextHolder.class.getClass();
+        ContextHolder.INSTANCE.getClass();
 
-        envType = SharedInfo.getEnvType();
         if (log.isInfoEnabled()) {
-            log.info("Client initialized for " + envType.toString() + " environment");
+            log.info("Client initialized for " + EnvType.CURRENT.toString() + " environment");
         }
 	}
 	

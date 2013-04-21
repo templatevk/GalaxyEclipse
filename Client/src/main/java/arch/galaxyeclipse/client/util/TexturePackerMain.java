@@ -11,8 +11,8 @@ public class TexturePackerMain {
 	public static void main(String args[]) {
 		Settings settings = new Settings();
 		settings.pot = true;
-		settings.maxWidth = 4096;
-		settings.maxHeight = 4096;
+		settings.maxWidth = 8192;
+		settings.maxHeight = 8192;
         settings.filterMin = Texture.TextureFilter.Linear;
         settings.filterMag = Texture.TextureFilter.MipMapLinearLinear;
 		TexturePacker2.process(settings, "assets/textures", "assets/textures", "pack");

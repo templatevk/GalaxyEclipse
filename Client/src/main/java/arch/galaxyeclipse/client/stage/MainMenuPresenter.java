@@ -7,7 +7,6 @@ import arch.galaxyeclipse.client.stage.ui.*;
 import arch.galaxyeclipse.client.window.*;
 import arch.galaxyeclipse.shared.*;
 import arch.galaxyeclipse.shared.context.*;
-import arch.galaxyeclipse.shared.protocol.*;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.*;
 import arch.galaxyeclipse.shared.types.*;
 import arch.galaxyeclipse.shared.util.*;
@@ -46,8 +45,8 @@ public class MainMenuPresenter extends ServerPacketListener implements IStagePre
                 ICallback<Boolean> connectionCallback = new ICallback<Boolean>() {
                     @Override
                     public void onOperationComplete(Boolean isConnected) {
-                        if (log.isInfoEnabled()) {
-                            log.info(LogUtils.getObjectInfo(this) + " connection callback"
+                        if (MainMenuPresenter.log.isInfoEnabled()) {
+                            MainMenuPresenter.log.info(LogUtils.getObjectInfo(this) + " connection callback"
                                     + ", result = " + isConnected);
                         }
 
@@ -75,18 +74,17 @@ public class MainMenuPresenter extends ServerPacketListener implements IStagePre
     }
 
     @Override
-    public AbstractGameStage getGameStage() {
+    public GameStage getGameStage() {
         return view;
     }
 
     @Override
     public void detach() {
         networkManager.removePacketListener(this);
-}
+    }
 
     @Override
     protected void onPacketReceivedImpl(Packet packet) {
-
         switch (packet.getType()) {
             case AUTH_RESPONSE:
                 processAuthResponse(packet.getAuthResponse());
@@ -102,11 +100,13 @@ public class MainMenuPresenter extends ServerPacketListener implements IStagePre
 
         shipStaticInfoHolder.setShipStaticInfo(startupInfo.getShipStaticInfo());
         locationInfoHolder.setLocationInfo(startupInfo.getLocationInfo());
+
+        clientWindow.setStagePresenter(new FlightModePresenter());
     }
 
     private void processTypesMap(TypesMap typesMap) {
-        if (log.isDebugEnabled()) {
-            log.debug("Processing types map");
+        if (MainMenuPresenter.log.isDebugEnabled()) {
+            MainMenuPresenter.log.debug("Processing types map");
         }
 
         DictionaryTypesMapper dictionaryTypesMapper = ContextHolder
@@ -135,18 +135,18 @@ public class MainMenuPresenter extends ServerPacketListener implements IStagePre
         for (TypesMap.Type bonusType : typesMap.getBonusTypesList()) {
             bonusTypes.put(bonusType.getId(), bonusType.getName());
         }
-        dictionaryTypesMapper.fillLocationObjectTypes(bonusTypes);
+        dictionaryTypesMapper.fillBonusTypes(bonusTypes);
     }
 
     private void processAuthResponse(AuthResponse authResponse) {
         boolean success = authResponse.getIsSuccess();
-        if (log.isInfoEnabled()) {
-            log.info("Authentication result = " + success);
+        if (MainMenuPresenter.log.isInfoEnabled()) {
+            MainMenuPresenter.log.info("Authentication result = " + success);
         }
 
         if (success) {
-            if (log.isDebugEnabled()) {
-                log.debug("Switching to loading stage");
+            if (MainMenuPresenter.log.isDebugEnabled()) {
+                MainMenuPresenter.log.debug("Switching to loading stage");
             }
             // TODO uncomment when stable
             // clientWindow.setStage(new LoadingStage());
@@ -160,10 +160,12 @@ public class MainMenuPresenter extends ServerPacketListener implements IStagePre
     }
 
     @Data
-    private static class MainMenuStage extends AbstractGameStage {
+    private static class MainMenuStage extends GameStage {
         private static final float TABLE_SPACING = 10;
         private static final float TEXTFIELD_WIDTH = 370;
         private static final float TEXTFIELD_HEIGHT = 100;
+        public static final int INNER_TABLE_WIDTH = 400;
+        public static final int INNER_TABLE_HEIGHT = 200;
 
         private MainMenuPresenter mainMenuPresenter;
         private Button connectBtn;
@@ -192,7 +194,7 @@ public class MainMenuPresenter extends ServerPacketListener implements IStagePre
             addActor(rootTable);
 
             innerTable = new Table();
-            innerTable.setBounds(0, 0, 400, 200);
+            innerTable.setBounds(0, 0, INNER_TABLE_WIDTH, INNER_TABLE_HEIGHT);
             innerTable.setTransform(true);
             rootTable.setTransform(false);
             rootTable.add(innerTable);
@@ -205,46 +207,14 @@ public class MainMenuPresenter extends ServerPacketListener implements IStagePre
             innerTable.setOrigin(innerTable.getPrefWidth() / 2,
                     innerTable.getPrefHeight() / 2);
 
-            StageUiFactory.applyTabOrder(Arrays.<Actor>asList(usernameTxt, passwordTxt, connectBtn), this);
+            StageUiFactory.applyTabOrder(Arrays.<Actor>asList(
+                    usernameTxt, passwordTxt, connectBtn), this);
             setKeyboardFocus(usernameTxt);
         }
 
         @Override
         protected Group getScaleGroup() {
             return innerTable;
-        }
-    }
-
-    private static class RequestSender extends Thread {
-        @Override
-        public void run() {
-
-        }
-
-        private static class ServerPacketListenerImpl extends ServerPacketListener {
-            private LocationInfoHolder locationInfoHolder;
-
-            public ServerPacketListenerImpl() {
-                locationInfoHolder = ContextHolder.getBean(LocationInfoHolder.class);
-            }
-
-            @Override
-            protected void onPacketReceivedImpl(Packet packet) {
-                switch (packet.getType()) {
-                    case DYNAMIC_OBJECTS_RESPONSE:
-                        processDynamicObjects(packet.getDynamicObjectsResponse());
-                        break;
-                }
-            }
-
-            private void processDynamicObjects(DynamicObjectsResponse dynamicObjectsResponse) {
-                locationInfoHolder.setDynamicObjects(dynamicObjectsResponse.getObjectsList());
-            }
-
-            @Override
-            public List<Packet.Type> getPacketTypes() {
-                return Arrays.asList(Packet.Type.DYNAMIC_OBJECTS_RESPONSE);
-            }
         }
     }
 }

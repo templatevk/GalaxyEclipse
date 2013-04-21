@@ -7,7 +7,7 @@ import lombok.extern.slf4j.*;
 import org.jboss.netty.channel.*;
 
 @Slf4j
-class ClientChannelHandler extends AbstractProtobufChannelHandler
+class ClientChannelHandler extends ProtobufChannelHandler
 		implements IChannelHandler {
     private ICommand<Packet> incomingPacketDispatcherCommand;
 

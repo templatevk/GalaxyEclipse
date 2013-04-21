@@ -17,11 +17,11 @@ class ServerNetworkManager implements IServerNetworkManager, IMonitoringNetworkM
     // All the connected clients
     private Set<IServerChannelHandler> serverChannelHandlers;
 
-	private AbstractProtobufChannelPipelineFactory channelPipelineFactory;
+	private ProtobufChannelPipelineFactory channelPipelineFactory;
     private ServerBootstrap bootstrap;
     private Channel serverChannel;
 
-	public ServerNetworkManager(AbstractProtobufChannelPipelineFactory channelPipelineFactory) {
+	public ServerNetworkManager(ProtobufChannelPipelineFactory channelPipelineFactory) {
 		this.channelPipelineFactory = channelPipelineFactory;
         serverChannelHandlers = new HashSet<>();
 	}

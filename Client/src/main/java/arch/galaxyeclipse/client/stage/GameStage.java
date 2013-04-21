@@ -10,12 +10,12 @@ import lombok.extern.slf4j.*;
  * Stages are obtained via the getStage method.
  */
 @Slf4j
-public abstract class AbstractGameStage extends Stage {
+public abstract class GameStage extends Stage {
     private static final float DEFAULT_SCALE_COEF = 0.5f;
 
     private IClientWindow clientWindow;
 
-    protected AbstractGameStage() {
+    protected GameStage() {
         clientWindow = ContextHolder.getBean(IClientWindow.class);
     }
 
@@ -34,13 +34,13 @@ public abstract class AbstractGameStage extends Stage {
 
         if (!isManualScaling()) {
             getScaleGroup().setScale(scaleX * DEFAULT_SCALE_COEF, scaleY * DEFAULT_SCALE_COEF);
-            if (log.isInfoEnabled()) {
-                log.info("scaleX = " + scaleX * DEFAULT_SCALE_COEF
+            if (GameStage.log.isInfoEnabled()) {
+                GameStage.log.info("scaleX = " + scaleX * DEFAULT_SCALE_COEF
                         + ", scaleY = " + scaleY * DEFAULT_SCALE_COEF);
             }
         }
-        if (log.isInfoEnabled()) {
-            log.info("width = " + width + ", height = " + height + ", viewportHeight = "
+        if (GameStage.log.isInfoEnabled()) {
+            GameStage.log.info("width = " + width + ", height = " + height + ", viewportHeight = "
                     + clientWindow.getViewportHeight() + ", viewportWidth = "
                     + clientWindow.getViewportWidth());
         }

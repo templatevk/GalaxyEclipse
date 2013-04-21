@@ -12,9 +12,9 @@ import lombok.extern.slf4j.*;
  */
 @Slf4j
 class ActorFactory implements IActorFactory {
-    private static final String FORMAT_SHIP_TYPE_IMAGE_PATH = // <id>
-            "ship_types/%1$i/image";
-    private static final String FORMAT_STATIC_OBJECT_IMAGE_PATH = // <object_type>, <id>
+    private static final String PLAYER_IMAGE_PATH = // <id>
+            "ship_types/%1$h/image";
+    private static final String STATIC_OBJECT_IMAGE_PATH = // <object_type>, <id>
             "static/%1$s/$2%h";
     private final DictionaryTypesMapper dictionaryTypesMapper;
     private IResourceLoader resourceLoader;
@@ -26,12 +26,11 @@ class ActorFactory implements IActorFactory {
     }
 
     @Override
-    public StageActor createActor(GeProtocol.LocationInfo.LocationObject locationObject) {
-        StageActor stageActor = new StageActor();
-
-        String path = null;
+    public GameActor createActor(GeProtocol.LocationInfo.LocationObject locationObject) {
         LocationObjectTypesMapperType objectType = dictionaryTypesMapper
                 .getLocationObjectTypeById(locationObject.getObjectTypeId());
+        String path = null;
+
         switch (objectType) {
             case ROCKET:
                 break;
@@ -40,13 +39,16 @@ class ActorFactory implements IActorFactory {
             case STATION:
                 break;
             case PLAYER:
+                path = String.format(PLAYER_IMAGE_PATH, locationObject.getNativeId());
                 break;
         }
 
-        // TODO
         Drawable drawable = new TextureRegionDrawable(resourceLoader.findRegion(path));
-        stageActor.setDrawable(drawable);
 
-        return stageActor;
+        GameActor gameActor = new GameActor(locationObject);
+        gameActor.setDrawable(drawable);
+        gameActor.setActorType(objectType);
+
+        return gameActor;
     }
 }

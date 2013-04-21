@@ -2,6 +2,7 @@ package arch.galaxyeclipse.client.stage.ui;
 
 import arch.galaxyeclipse.client.*;
 import arch.galaxyeclipse.client.resource.*;
+import arch.galaxyeclipse.shared.*;
 import arch.galaxyeclipse.shared.context.*;
 import com.badlogic.gdx.*;
 import com.badlogic.gdx.graphics.*;
@@ -89,7 +90,7 @@ class DefaultTextFieldBuilder implements ITextFieldBuilder {
         textField.setTextPaddingY(TEXT_PADDING_Y);
         textField.setFocusTraversal(false);
 
-        if (GalaxyEclipseClient.getEnvType() == GalaxyEclipseClient.getEnvType().DEV
+        if (EnvType.CURRENT  == EnvType.DEV
                 && "".equals(text)) {
             textField.setText("test");
         }

@@ -16,8 +16,8 @@
                 <configuration>
                     <encoding>UTF-8</encoding>
                     <filters>
-                        <filter>${server.resources.filter.host}</filter>
-                        <filter>${server.resources.filter.env}</filter>
+                        <filter>${filter.server.host}</filter>
+                        <filter>${filter.env}</filter>
                     </filters>
                 </configuration>
             </plugin>
@@ -28,7 +28,7 @@
                 <directory>src/main/resources</directory>
                 <filtering>true</filtering>
                 <includes>
-                    <include>**/*.xml</include>
+                    <include>**/*</include>
                 </includes>
             </resource>
             <resource>

@@ -13,7 +13,7 @@ import org.hibernate.*;
 * Handles packets of authenticated players.
 */
 @Slf4j
-class FlightPacketHandler implements IStatefulPacketHandler {
+class FlightPacketHandler implements IChannelAwarePacketHandler {
     private IServerChannelHandler serverChannelHandler;
     private DictionaryTypesMapper dictionaryTypesMapper;
 
@@ -28,8 +28,8 @@ class FlightPacketHandler implements IStatefulPacketHandler {
 	}
 
 	@Override
-	public void handle(Packet packet) {
-
+	public boolean handle(Packet packet) {
+        return false;
 	}
 
     @Override
@@ -39,6 +39,11 @@ class FlightPacketHandler implements IStatefulPacketHandler {
         }
 
         hibernatePlayer();
+    }
+
+    @Override
+    public IServerChannelHandler getServerChannelHandler() {
+        return serverChannelHandler;
     }
 
     private void hibernatePlayer() {

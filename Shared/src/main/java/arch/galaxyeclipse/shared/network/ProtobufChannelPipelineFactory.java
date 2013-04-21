@@ -9,7 +9,7 @@ import org.jboss.netty.handler.codec.protobuf.*;
  * Adds protobuf handlers and custom ones.
  */
 @Slf4j
-public abstract class AbstractProtobufChannelPipelineFactory implements ChannelPipelineFactory {
+public abstract class ProtobufChannelPipelineFactory implements ChannelPipelineFactory {
 	protected abstract void configureHandlers(ChannelPipeline pipeline);
 	
 	@Override
@@ -24,8 +24,8 @@ public abstract class AbstractProtobufChannelPipelineFactory implements ChannelP
 		pipeline.addLast("protobufEncoder", new ProtobufEncoder());
 		
 		configureHandlers(pipeline);
-        if (log.isInfoEnabled()) {
-		    log.info("Channel handlers configured");
+        if (ProtobufChannelPipelineFactory.log.isInfoEnabled()) {
+		    ProtobufChannelPipelineFactory.log.info("Channel handlers configured");
         }
 		
 		return pipeline;

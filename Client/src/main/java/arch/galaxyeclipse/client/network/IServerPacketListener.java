@@ -4,9 +4,6 @@ import arch.galaxyeclipse.shared.protocol.GeProtocol.*;
 
 import java.util.*;
 
-public interface IServerPacketListener {
+public interface IServerPacketListener extends ITypedPacketListener {
 	void onPacketReceived(Packet packet);
-
-	// Packet types willing to listen for
-	List<Packet.Type> getPacketTypes();
 }

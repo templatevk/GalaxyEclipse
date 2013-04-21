@@ -5,7 +5,7 @@ package arch.galaxyeclipse.shared.util;
  */
 public class StubCommand<T> implements ICommand<T> {
 	@Override
-	public void perform(T t) {
+	public void perform(T argument) {
 
 	}
 }

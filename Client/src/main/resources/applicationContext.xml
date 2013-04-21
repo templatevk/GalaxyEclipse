@@ -15,4 +15,5 @@
     <bean class="arch.galaxyeclipse.client.data.ShipStaticInfoHolder" lazy-init="true"/>
     <bean class="arch.galaxyeclipse.shared.types.DictionaryTypesMapper" lazy-init="true"/>
     <bean class="arch.galaxyeclipse.client.data.LocationInfoHolder" lazy-init="true"/>
+    <bean class="arch.galaxyeclipse.client.data.ShipStateInfoHolder" lazy-init="true"/>
 </beans>

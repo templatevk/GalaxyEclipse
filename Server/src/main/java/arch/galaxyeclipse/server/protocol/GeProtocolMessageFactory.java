@@ -16,7 +16,7 @@ public class GeProtocolMessageFactory {
 
     // Helper functions' builders
     private LocationInfo.CachedObjects.Builder getStaticObjectsBuilder;
-    private LocationInfo.LocationObject.Builder getStaticObjectBuilder;
+    private LocationInfo.LocationObject.Builder getLocationObjectBuilder;
 
     private ShipStaticInfo.Item.Builder getItemBuilder;
     private ShipStaticInfo.Item.Engine.Builder getEngineBuilder;
@@ -27,7 +27,7 @@ public class GeProtocolMessageFactory {
         dictionaryTypesMapper = ContextHolder.getBean(DictionaryTypesMapper.class);
 
         getStaticObjectsBuilder = LocationInfo.CachedObjects.newBuilder();
-        getStaticObjectBuilder = LocationInfo.LocationObject.newBuilder();
+        getLocationObjectBuilder = LocationInfo.LocationObject.newBuilder();
 
         getItemBuilder = ShipStaticInfo.Item.newBuilder();
         getEngineBuilder = ShipStaticInfo.Item.Engine.newBuilder();
@@ -109,24 +109,34 @@ public class GeProtocolMessageFactory {
         return typesMapBuilder.build();
     }
 
-    private LocationInfo.CachedObjects getCachedObjects(List<LocationObject> locationObjects) {
-        getStaticObjectsBuilder.clear();
-        getStaticObjectBuilder.clear();
+    public DynamicObjectsResponse createDynamicObjectsResponse(List<LocationObject> locationObjects) {
+        DynamicObjectsResponse.Builder dynamicObjectsResponseBuilder =
+                DynamicObjectsResponse.newBuilder();
 
         for (LocationObject locationObject : locationObjects) {
-            getStaticObjectsBuilder.addObjects(getStaticObjectBuilder
-                    .setObjectId(locationObject.getLocationObjectId())
-                    .setPositionX(locationObject.getPositionX())
-                    .setPositionY(locationObject.getPositionY())
-                    .setObjectTypeId(locationObject.getLocationObjectTypeId())
-                    .setNativeId(locationObject.getObjectNativeId()).build());
-            getStaticObjectBuilder.clear();
+            dynamicObjectsResponseBuilder.addObjects(getLocationObject(locationObject));
+        }
+
+        return dynamicObjectsResponseBuilder.build();
+    }
+
+    private LocationInfo.CachedObjects getCachedObjects(List<LocationObject> locationObjects) {
+        for (LocationObject locationObject : locationObjects) {
+            getStaticObjectsBuilder.addObjects(getLocationObject(locationObject));
         }
         return getStaticObjectsBuilder.build();
     }
 
+    private LocationInfo.LocationObject getLocationObject(LocationObject locationObject) {
+        return getLocationObjectBuilder
+                .setObjectId(locationObject.getLocationObjectId())
+                .setPositionX(locationObject.getPositionX())
+                .setPositionY(locationObject.getPositionY())
+                .setObjectTypeId(locationObject.getLocationObjectTypeId())
+                .setNativeId(locationObject.getObjectNativeId()).build();
+    }
+
     private ShipStaticInfo.Item getItem(Item item) {
-        getItemBuilder.clear();
         getItemBuilder.setItemId(item.getItemId())
                 .setName(item.getItemName())
                 .setDescription(item.getItemDescription())
@@ -163,5 +173,18 @@ public class GeProtocolMessageFactory {
         }
 
         return getItemBuilder.build();
+    }
+
+    public ShipStateResponse createShipStateResponse(ShipState shipState,
+            LocationObject locationObject) {
+        return ShipStateResponse.newBuilder()
+                .setHp(shipState.getShipStateHp())
+                .setArmorDurability(shipState.getShipStateArmorDurability())
+                .setRotationSpeed(shipState.getShipStateRotationSpeed())
+                .setRotationAngle(shipState.getShipStateRotationAngle())
+                .setMoveSpeed(shipState.getShipStateMoveSpeed())
+                .setPositionX(locationObject.getPositionX())
+                .setPositionY(locationObject.getPositionY())
+                .build();
     }
 }

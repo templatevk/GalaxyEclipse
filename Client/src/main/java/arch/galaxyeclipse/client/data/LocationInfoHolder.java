@@ -49,7 +49,7 @@ public class LocationInfoHolder {
 
     public void setDynamicObjects(List<LocationObject> locationObjects) {
         if (log.isDebugEnabled()) {
-            log.debug("Dynamic objects update" + dynamicObjects.size());
+            log.debug("Dynamic objects update, count = " + dynamicObjects.size());
             outputObjects(locationObjects);
         }
 

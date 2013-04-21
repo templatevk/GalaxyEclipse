@@ -14,7 +14,7 @@ import java.util.concurrent.*;
  * and processes the into seperate threads.
  */
 @Slf4j
-public abstract class AbstractProtobufChannelHandler extends SimpleChannelHandler
+public abstract class ProtobufChannelHandler extends SimpleChannelHandler
 		implements IChannelHandler {
 	private ConcurrentLinkedQueue<Packet> incomingPackets;
 	private InterruptableQueueDispatcher<Packet> incomingPacketDispatcher;
@@ -26,12 +26,12 @@ public abstract class AbstractProtobufChannelHandler extends SimpleChannelHandle
     @Getter(AccessLevel.PROTECTED)
     private Channel channel;
 
-    protected AbstractProtobufChannelHandler() {
+    protected ProtobufChannelHandler() {
         outgoingPacketDispatcherCommand = new ICommand<Packet>() {
             @Override
             public void perform(Packet packet) {
-                if (log.isTraceEnabled()) {
-                    log.trace("Sending packet from the outgoing queue " + packet.getType());
+                if (ProtobufChannelHandler.log.isTraceEnabled()) {
+                    ProtobufChannelHandler.log.trace("Sending packet from the outgoing queue " + packet.getType());
                 }
                 packetSender.send(packet);
             }
@@ -100,8 +100,8 @@ public abstract class AbstractProtobufChannelHandler extends SimpleChannelHandle
 			throws Exception {
 		// Get the packet and put to the received packets queue
 		Packet packet = (Packet)e.getMessage();
-        if (log.isTraceEnabled()) {
-            log.trace(LogUtils.getObjectInfo(this) + " put packet "
+        if (ProtobufChannelHandler.log.isTraceEnabled()) {
+            ProtobufChannelHandler.log.trace(LogUtils.getObjectInfo(this) + " put packet "
 			    	+ packet.getType() + " to the incoming queue");
         }
 		incomingPackets.add(packet);
@@ -110,13 +110,13 @@ public abstract class AbstractProtobufChannelHandler extends SimpleChannelHandle
 	@Override
 	public void exceptionCaught(ChannelHandlerContext ctx, ExceptionEvent e)
 			throws Exception {
-		log.error("Network error", e.getCause());
+		ProtobufChannelHandler.log.error("Network error", e.getCause());
 	}
 
 	@Override
 	public void sendPacket(Packet packet) {
-        if (log.isTraceEnabled()) {
-            log.trace(LogUtils.getObjectInfo(this) + " put packet "
+        if (ProtobufChannelHandler.log.isTraceEnabled()) {
+            ProtobufChannelHandler.log.trace(LogUtils.getObjectInfo(this) + " put packet "
 				    + packet.getType() + " to the outgoing queue");
         }
 		outgoingPackets.add(packet);

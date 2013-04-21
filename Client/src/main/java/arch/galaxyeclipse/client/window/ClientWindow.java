@@ -1,6 +1,5 @@
 package arch.galaxyeclipse.client.window;
 
-import arch.galaxyeclipse.client.*;
 import arch.galaxyeclipse.client.stage.*;
 import arch.galaxyeclipse.shared.*;
 import arch.galaxyeclipse.shared.util.*;
@@ -14,10 +13,12 @@ import java.util.*;
 /**
  * OpenGL window delegating drawing to the stage set.
  */
-public class ClientWindow implements IClientWindow {
+class ClientWindow implements IClientWindow {
     private static final int VIRTUAL_WIDTH = 480;
     private static final int VIRTUAL_HEIGHT = 320;
     private static final float ASPECT_RATIO = (float)VIRTUAL_WIDTH/(float)VIRTUAL_HEIGHT;
+    private static final float PROD_WIDTH = 640;
+    private static final float PROD_HEIGHT = 480;
 
 	private IStagePresenter stagePresenter;
 	private Rectangle viewport;
@@ -28,11 +29,17 @@ public class ClientWindow implements IClientWindow {
 	public ClientWindow() {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
 		config.title = "Galaxy Eclipse";
-		config.width = (int)DEFAULT_WIDTH;
-		config.height = (int)DEFAULT_HEIGHT;
 
-        if (GalaxyEclipseClient.getEnvType() == EnvType.PROD) {
-            config.fullscreen = true;
+        switch (EnvType.CURRENT) {
+            case DEV:
+                config.width = (int)DEFAULT_WIDTH;
+                config.height = (int)DEFAULT_HEIGHT;
+                break;
+            case PROD:
+                config.width = (int)PROD_WIDTH;
+                config.height = (int)PROD_HEIGHT;
+                config.fullscreen = true;
+                break;
         }
 
 		new LwjglApplication(new ClientListener(), config);
@@ -94,6 +101,9 @@ public class ClientWindow implements IClientWindow {
         public void dispose() {
             for (IDestroyable destroyable : destroyables) {
                 destroyable.destroy();
+            }
+            if (stagePresenter != null) {
+                stagePresenter.detach();
             }
         }
 

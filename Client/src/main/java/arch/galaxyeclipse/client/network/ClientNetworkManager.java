@@ -47,7 +47,7 @@ class ClientNetworkManager implements IClientNetworkManager {
 
         bootstrap = new ClientBootstrap(new NioClientSocketChannelFactory(
 				Executors.newCachedThreadPool(), Executors.newCachedThreadPool()));
-		bootstrap.setPipelineFactory(new AbstractProtobufChannelPipelineFactory() {
+		bootstrap.setPipelineFactory(new ProtobufChannelPipelineFactory() {
 			@Override
 			protected void configureHandlers(ChannelPipeline pipeline) {
 				pipeline.addLast("clientHanlder", channelHandler);
@@ -64,16 +64,16 @@ class ClientNetworkManager implements IClientNetworkManager {
         }
 
 		bootstrap.connect(address).addListener(new ChannelFutureListener() {
-			@Override
-			public void operationComplete(final ChannelFuture future) throws Exception {
+            @Override
+            public void operationComplete(final ChannelFuture future) throws Exception {
                 new DelayedRunnableExecutor(CONNECTION_TIMEOUT_MILLISECONDS, new Runnable() {
                     @Override
                     public void run() {
                         callback.onOperationComplete(channelHandler.isConnected());
                     }
                 }).start();
-			}
-		});
+            }
+        });
 	}
 	
 	@Override
@@ -97,14 +97,7 @@ class ClientNetworkManager implements IClientNetworkManager {
 	
 	@Override
 	public void removePacketListener(IServerPacketListener listener) {
-        if (log.isInfoEnabled()) {
-		    log.info("Removing listener " + listener + " of types");
-        }
-
-		for (Packet.Type packetType : listener.getPacketTypes()) {
-            if (log.isInfoEnabled()) {
-                log.info(packetType.toString());
-            }
+        for (Packet.Type packetType : listener.getPacketTypes()) {
             removeListenerForType(listener, packetType);
 		}
 	}
