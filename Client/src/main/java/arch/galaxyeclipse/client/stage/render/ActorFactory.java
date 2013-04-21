@@ -46,7 +46,7 @@ class ActorFactory implements IActorFactory {
 
         Drawable drawable = new TextureRegionDrawable(resourceLoader.findRegion(path));
 
-        GameActor gameActor = new GameActor(locationObject);
+        GameActor gameActor = new GameActor(drawable, locationObject);
         gameActor.setDrawable(drawable);
         gameActor.setActorType(objectType);
 

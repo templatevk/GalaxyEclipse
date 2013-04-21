@@ -10,6 +10,7 @@ import arch.galaxyeclipse.shared.*;
 import arch.galaxyeclipse.shared.context.*;
 import arch.galaxyeclipse.shared.protocol.*;
 import arch.galaxyeclipse.shared.util.*;
+import com.badlogic.gdx.*;
 import com.badlogic.gdx.graphics.*;
 import com.badlogic.gdx.scenes.scene2d.*;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
@@ -87,9 +88,6 @@ public class FlightModePresenter implements IStagePresenter {
     }
 
     private static class FlightModeStage extends GameStage {
-        public static final int INNER_TABLE_WIDTH = 400;
-        public static final int INNER_TABLE_HEIGHT = 200;
-
         private IClientWindow clientWindow;
 
         private Table rootTable;
@@ -104,6 +102,8 @@ public class FlightModePresenter implements IStagePresenter {
             gameActors = new ArrayList<>();
 
             gameActorsLayout = new Group();
+            // TODO magic constant, manually fire resize event once
+            gameActorsLayout.setSize(400, 400);
             gameActorsLayout.setTransform(true);
 
             rootTable = new Table();
@@ -111,7 +111,8 @@ public class FlightModePresenter implements IStagePresenter {
             rootTable.add(gameActorsLayout).width(clientWindow.getViewportWidth() / 2f)
                     .height(clientWindow.getViewportHeight() / 2f);
             rootTable.setTransform(false);
-            addActor(rootTable);
+            addActor(gameActorsLayout);
+
 
             if (EnvType.CURRENT == EnvType.DEV) {
                 rootTable.debug();
@@ -126,6 +127,7 @@ public class FlightModePresenter implements IStagePresenter {
         public void resize(int width, int height) {
             super.resize(width, height);
 
+            // TODO is that right? got some work to do, finally it WORKS!!!!
             gameActorsLayout.setBounds(0, 0, clientWindow.getViewportWidth(),
                     clientWindow.getViewportHeight());
         }
@@ -133,8 +135,10 @@ public class FlightModePresenter implements IStagePresenter {
         @Override
         public void draw() {
             gameActorsLayout.clear();
-            for (GameActor actor : gameActors) {
-                switch (actor.getActorType()) {
+            for (GameActor gameActor : gameActors) {
+                gameActorsLayout.addActor(gameActor);
+
+                switch (gameActor.getActorType()) {
                     case ROCKET:
                         break;
                     case ASTEROID:
@@ -142,11 +146,10 @@ public class FlightModePresenter implements IStagePresenter {
                     case STATION:
                         break;
                     case PLAYER:
-                        actor.setPosition(gameActorsLayout.getWidth() / 2f,
+                        gameActor.setPosition(gameActorsLayout.getWidth() / 2f,
                                 gameActorsLayout.getHeight() / 2f);
                         break;
                 }
-                gameActorsLayout.addActor(actor);
             }
 
             super.draw();
