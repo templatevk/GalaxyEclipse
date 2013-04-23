@@ -7,7 +7,7 @@ import lombok.*;
  */
 @Data
 @AllArgsConstructor
-public class Position {
+public class GePosition {
     private float x;
     private float y;
 }

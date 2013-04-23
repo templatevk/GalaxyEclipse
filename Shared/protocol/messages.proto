@@ -61,6 +61,7 @@ message ShipStateResponse {
     required int32 rotationAngle    = 5;
     required float positionX        = 6;
     required float positionY        = 7;
+    required int32 locationObjectId = 8;
 }
 
 

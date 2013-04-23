@@ -46,8 +46,8 @@ public class MainMenuPresenter extends ServerPacketListener implements IStagePro
                     @Override
                     public void onOperationComplete(Boolean isConnected) {
                         if (MainMenuPresenter.log.isInfoEnabled()) {
-                            MainMenuPresenter.log.info(LogUtils.getObjectInfo(this) + " connection callback"
-                                    + ", result = " + isConnected);
+                            MainMenuPresenter.log.info(LogUtils.getObjectInfo(this)
+                                    + " connection callback, result = " + isConnected);
                         }
 
                         if (isConnected) {
@@ -74,7 +74,7 @@ public class MainMenuPresenter extends ServerPacketListener implements IStagePro
     }
 
     @Override
-    public GameStage getGameStage() {
+    public AbstractGameStage getGameStage() {
         return view;
     }
 
@@ -160,7 +160,7 @@ public class MainMenuPresenter extends ServerPacketListener implements IStagePro
     }
 
     @Data
-    private static class MainMenuStage extends GameStage {
+    private static class MainMenuStage extends AbstractGameStage {
         private static final float TABLE_SPACING = 10;
         private static final float TEXTFIELD_WIDTH = 370;
         private static final float TEXTFIELD_HEIGHT = 100;

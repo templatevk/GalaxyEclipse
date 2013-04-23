@@ -13,4 +13,6 @@
     <logger name="org.springframework" level="INFO"/>
     <logger name="arch.galaxyeclipse.client.network" level="${log.network}"/>
     <logger name="arch.galaxyeclipse.shared.network" level="${log.network}"/>
+    <logger name="arch.galaxyeclipse.client.data" level="${log.data}"/>
+    <logger name="arch.galaxyeclipse.client.stage" level="${log.data}"/>
 </configuration>

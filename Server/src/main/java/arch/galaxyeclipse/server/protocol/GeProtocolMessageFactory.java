@@ -109,6 +109,20 @@ public class GeProtocolMessageFactory {
         return typesMapBuilder.build();
     }
 
+    public ShipStateResponse createShipStateResponse(ShipState shipState,
+            LocationObject locationObject) {
+        return ShipStateResponse.newBuilder()
+                .setHp(shipState.getShipStateHp())
+                .setArmorDurability(shipState.getShipStateArmorDurability())
+                .setRotationSpeed(shipState.getShipStateRotationSpeed())
+                .setRotationAngle(shipState.getShipStateRotationAngle())
+                .setMoveSpeed(shipState.getShipStateMoveSpeed())
+                .setPositionX(locationObject.getPositionX())
+                .setPositionY(locationObject.getPositionY())
+                .setLocationObjectId(locationObject.getLocationObjectId())
+                .build();
+    }
+
     public DynamicObjectsResponse createDynamicObjectsResponse(List<LocationObject> locationObjects) {
         DynamicObjectsResponse.Builder dynamicObjectsResponseBuilder =
                 DynamicObjectsResponse.newBuilder();
@@ -173,18 +187,5 @@ public class GeProtocolMessageFactory {
         }
 
         return getItemBuilder.build();
-    }
-
-    public ShipStateResponse createShipStateResponse(ShipState shipState,
-            LocationObject locationObject) {
-        return ShipStateResponse.newBuilder()
-                .setHp(shipState.getShipStateHp())
-                .setArmorDurability(shipState.getShipStateArmorDurability())
-                .setRotationSpeed(shipState.getShipStateRotationSpeed())
-                .setRotationAngle(shipState.getShipStateRotationAngle())
-                .setMoveSpeed(shipState.getShipStateMoveSpeed())
-                .setPositionX(locationObject.getPositionX())
-                .setPositionY(locationObject.getPositionY())
-                .build();
     }
 }

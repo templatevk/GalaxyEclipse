@@ -4,7 +4,7 @@ package arch.galaxyeclipse.client.stage;
  *
  */
 public interface IStageProvider {
-    GameStage getGameStage();
+    AbstractGameStage getGameStage();
 
     void detach();
 }

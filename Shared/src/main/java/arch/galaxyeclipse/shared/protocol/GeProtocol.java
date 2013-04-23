@@ -4009,6 +4009,16 @@ public final class GeProtocol {
      * <code>required float positionY = 7;</code>
      */
     float getPositionY();
+
+    // required int32 locationObjectId = 8;
+    /**
+     * <code>required int32 locationObjectId = 8;</code>
+     */
+    boolean hasLocationObjectId();
+    /**
+     * <code>required int32 locationObjectId = 8;</code>
+     */
+    int getLocationObjectId();
   }
   /**
    * Protobuf type {@code arch.galaxyeclipse.shared.protocol.ShipStateResponse}
@@ -4094,6 +4104,11 @@ public final class GeProtocol {
             case 61: {
               bitField0_ |= 0x00000040;
               positionY_ = input.readFloat();
+              break;
+            }
+            case 64: {
+              bitField0_ |= 0x00000080;
+              locationObjectId_ = input.readInt32();
               break;
             }
           }
@@ -4248,6 +4263,22 @@ public final class GeProtocol {
       return positionY_;
     }
 
+    // required int32 locationObjectId = 8;
+    public static final int LOCATIONOBJECTID_FIELD_NUMBER = 8;
+    private int locationObjectId_;
+    /**
+     * <code>required int32 locationObjectId = 8;</code>
+     */
+    public boolean hasLocationObjectId() {
+      return ((bitField0_ & 0x00000080) == 0x00000080);
+    }
+    /**
+     * <code>required int32 locationObjectId = 8;</code>
+     */
+    public int getLocationObjectId() {
+      return locationObjectId_;
+    }
+
     private void initFields() {
       moveSpeed_ = 0;
       rotationSpeed_ = 0;
@@ -4256,6 +4287,7 @@ public final class GeProtocol {
       rotationAngle_ = 0;
       positionX_ = 0F;
       positionY_ = 0F;
+      locationObjectId_ = 0;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -4290,6 +4322,10 @@ public final class GeProtocol {
         memoizedIsInitialized = 0;
         return false;
       }
+      if (!hasLocationObjectId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -4317,6 +4353,9 @@ public final class GeProtocol {
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
         output.writeFloat(7, positionY_);
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        output.writeInt32(8, locationObjectId_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -4354,6 +4393,10 @@ public final class GeProtocol {
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(7, positionY_);
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(8, locationObjectId_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -4485,6 +4528,8 @@ public final class GeProtocol {
         bitField0_ = (bitField0_ & ~0x00000020);
         positionY_ = 0F;
         bitField0_ = (bitField0_ & ~0x00000040);
+        locationObjectId_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000080);
         return this;
       }
 
@@ -4541,6 +4586,10 @@ public final class GeProtocol {
           to_bitField0_ |= 0x00000040;
         }
         result.positionY_ = positionY_;
+        if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
+          to_bitField0_ |= 0x00000080;
+        }
+        result.locationObjectId_ = locationObjectId_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -4578,6 +4627,9 @@ public final class GeProtocol {
         if (other.hasPositionY()) {
           setPositionY(other.getPositionY());
         }
+        if (other.hasLocationObjectId()) {
+          setLocationObjectId(other.getLocationObjectId());
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
@@ -4608,6 +4660,10 @@ public final class GeProtocol {
           return false;
         }
         if (!hasPositionY()) {
+          
+          return false;
+        }
+        if (!hasLocationObjectId()) {
           
           return false;
         }
@@ -4860,6 +4916,39 @@ public final class GeProtocol {
       public Builder clearPositionY() {
         bitField0_ = (bitField0_ & ~0x00000040);
         positionY_ = 0F;
+        onChanged();
+        return this;
+      }
+
+      // required int32 locationObjectId = 8;
+      private int locationObjectId_ ;
+      /**
+       * <code>required int32 locationObjectId = 8;</code>
+       */
+      public boolean hasLocationObjectId() {
+        return ((bitField0_ & 0x00000080) == 0x00000080);
+      }
+      /**
+       * <code>required int32 locationObjectId = 8;</code>
+       */
+      public int getLocationObjectId() {
+        return locationObjectId_;
+      }
+      /**
+       * <code>required int32 locationObjectId = 8;</code>
+       */
+      public Builder setLocationObjectId(int value) {
+        bitField0_ |= 0x00000080;
+        locationObjectId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 locationObjectId = 8;</code>
+       */
+      public Builder clearLocationObjectId() {
+        bitField0_ = (bitField0_ & ~0x00000080);
+        locationObjectId_ = 0;
         onChanged();
         return this;
       }
@@ -20481,80 +20570,81 @@ public final class GeProtocol {
       "ynamicObjectsRequest\"j\n\026DynamicObjectsRe" +
       "sponse\022P\n\007objects\030\001 \003(\0132?.arch.galaxyecl" +
       "ipse.shared.protocol.LocationInfo.Locati" +
-      "onObject\"\022\n\020ShipStateRequest\"\237\001\n\021ShipSta" +
+      "onObject\"\022\n\020ShipStateRequest\"\271\001\n\021ShipSta" +
       "teResponse\022\021\n\tmoveSpeed\030\001 \002(\005\022\025\n\rrotatio" +
       "nSpeed\030\002 \002(\005\022\n\n\002hp\030\003 \002(\005\022\027\n\017armorDurabil" +
       "ity\030\004 \002(\005\022\025\n\rrotationAngle\030\005 \002(\005\022\021\n\tposi" +
-      "tionX\030\006 \002(\002\022\021\n\tpositionY\030\007 \002(\002\"\271\002\n\014Clien" +
-      "tAction\022O\n\004type\030\001 \002(\0162A.arch.galaxyeclip" +
-      "se.shared.protocol.ClientAction.ClientAc",
-      "tionType\022\030\n\020locationObjectId\030\002 \001(\005\022\034\n\024lo" +
-      "cationObjectTypeId\030\003 \001(\005\"\237\001\n\020ClientActio" +
-      "nType\022\017\n\013ROTATE_LEFT\020\001\022\020\n\014ROTATE_RIGHT\020\002" +
-      "\022\010\n\004MOVE\020\003\022\010\n\004STOP\020\004\022\020\n\014OBJECT_CLICK\020\007\022\r" +
-      "\n\tLOOT_PICK\020\010\022\020\n\014ATTACK_START\020\t\022\017\n\013ATTAC" +
-      "K_STOP\020\n\022\020\n\014ROCKET_SHOOT\020\020\"1\n\013AuthReques" +
-      "t\022\020\n\010username\030\001 \002(\t\022\020\n\010password\030\002 \002(\t\"!\n" +
-      "\014AuthResponse\022\021\n\tisSuccess\030\001 \002(\010\"\203\003\n\014Loc" +
-      "ationInfo\022\022\n\nlocationId\030\001 \002(\005\022\014\n\004name\030\002 " +
-      "\002(\t\022\r\n\005width\030\003 \002(\002\022\016\n\006height\030\004 \002(\002\022]\n\025lo",
-      "cationCachedObjects\030\005 \002(\0132>.arch.galaxye" +
-      "clipse.shared.protocol.LocationInfo.Cach" +
-      "edObjects\032a\n\rCachedObjects\022P\n\007objects\030\001 " +
-      "\003(\0132?.arch.galaxyeclipse.shared.protocol" +
-      ".LocationInfo.LocationObject\032p\n\016Location" +
-      "Object\022\020\n\010objectId\030\001 \002(\005\022\024\n\014objectTypeId" +
-      "\030\002 \002(\005\022\020\n\010nativeId\030\003 \002(\005\022\021\n\tpositionX\030\004 " +
-      "\002(\002\022\021\n\tpositionY\030\005 \002(\002\"\330\t\n\016ShipStaticInf" +
-      "o\022\024\n\014moveMaxSpeed\030\001 \002(\005\022\030\n\020rotationMaxSp" +
-      "eed\030\002 \002(\005\022\035\n\025moveAccelerationSpeed\030\003 \002(\005",
-      "\022\034\n\024rotationAcceleration\030\004 \002(\005\022\r\n\005armor\030" +
-      "\005 \002(\005\022\021\n\tenergyMax\030\006 \002(\005\022\r\n\005hpMax\030\007 \002(\005\022" +
-      "\023\n\013energyRegen\030\010 \002(\005\022\017\n\007hpRegen\030\t \002(\005\022\014\n" +
-      "\004name\030\n \002(\t\022\027\n\017armorDurability\030\013 \002(\005\022\030\n\020" +
-      "weaponSlotsCount\030\014 \002(\005\022\027\n\017bonusSlotsCoun" +
-      "t\030\r \002(\005\022O\n\016inventoryItems\030\016 \003(\01327.arch.g" +
-      "alaxyeclipse.shared.protocol.ShipStaticI" +
-      "nfo.Item\022J\n\tshipBonus\030\017 \003(\01327.arch.galax" +
-      "yeclipse.shared.protocol.ShipStaticInfo." +
-      "Item\022L\n\013shipWeapons\030\020 \003(\01327.arch.galaxye",
-      "clipse.shared.protocol.ShipStaticInfo.It" +
-      "em\022K\n\nshipEngine\030\021 \002(\01327.arch.galaxyecli" +
-      "pse.shared.protocol.ShipStaticInfo.Item\032" +
-      "\357\004\n\004Item\022\016\n\006itemId\030\001 \002(\005\022\014\n\004name\030\002 \002(\t\022\023" +
-      "\n\013description\030\003 \002(\t\022\r\n\005price\030\004 \002(\005\022\022\n\nit" +
-      "emTypeId\030\005 \002(\005\022L\n\005bonus\030\006 \001(\0132=.arch.gal" +
-      "axyeclipse.shared.protocol.ShipStaticInf" +
-      "o.Item.Bonus\022N\n\006weapon\030\007 \001(\0132>.arch.gala" +
-      "xyeclipse.shared.protocol.ShipStaticInfo" +
-      ".Item.Weapon\022N\n\006engine\030\010 \001(\0132>.arch.gala",
-      "xyeclipse.shared.protocol.ShipStaticInfo" +
-      ".Item.Engine\0320\n\005Bonus\022\022\n\nbonusValue\030\001 \002(" +
-      "\005\022\023\n\013bonusTypeId\030\002 \002(\005\032j\n\006Weapon\022\016\n\006dama" +
-      "ge\030\001 \002(\005\022\022\n\ndelaySpeed\030\002 \002(\005\022\023\n\013bulletSp" +
-      "eed\030\003 \002(\005\022\023\n\013maxDistance\030\004 \002(\005\022\022\n\nenergy" +
-      "Cost\030\005 \002(\005\032\204\001\n\006Engine\022\035\n\025moveAcceleratio" +
-      "nBonus\030\001 \002(\005\022\031\n\021moveMaxSpeedBonus\030\002 \002(\005\022" +
-      "!\n\031rotationAccelerationBonus\030\003 \002(\005\022\035\n\025ro" +
-      "tationMaxSpeedBonus\030\004 \002(\005\"\321\002\n\010TypesMap\022D" +
-      "\n\titemTypes\030\001 \003(\01321.arch.galaxyeclipse.s",
-      "hared.protocol.TypesMap.Type\022F\n\013weaponTy" +
-      "pes\030\002 \003(\01321.arch.galaxyeclipse.shared.pr" +
-      "otocol.TypesMap.Type\022N\n\023locationObjectTy" +
-      "pes\030\003 \003(\01321.arch.galaxyeclipse.shared.pr" +
-      "otocol.TypesMap.Type\022E\n\nbonusTypes\030\004 \003(\013" +
-      "21.arch.galaxyeclipse.shared.protocol.Ty" +
-      "pesMap.Type\032 \n\004Type\022\n\n\002id\030\001 \002(\005\022\014\n\004name\030" +
-      "\002 \002(\t\"\341\001\n\013StartupInfo\022F\n\014locationInfo\030\001 " +
-      "\002(\01320.arch.galaxyeclipse.shared.protocol" +
-      ".LocationInfo\022>\n\010typesMap\030\002 \002(\0132,.arch.g",
-      "alaxyeclipse.shared.protocol.TypesMap\022J\n" +
-      "\016shipStaticInfo\030\003 \002(\01322.arch.galaxyeclip" +
-      "se.shared.protocol.ShipStaticInfo\"2\n\025Shi" +
-      "pStaticInfoCommand\022\031\n\021serializedCommand\030" +
-      "\001 \002(\014\"\"\n\017ChatSendMessage\022\017\n\007message\030\001 \002(" +
-      "\t\"5\n\022ChatReceiveMessage\022\017\n\007message\030\001 \002(\t" +
-      "\022\016\n\006sender\030\002 \002(\tB\016B\nGeProtocolH\001"
+      "tionX\030\006 \002(\002\022\021\n\tpositionY\030\007 \002(\002\022\030\n\020locati" +
+      "onObjectId\030\010 \002(\005\"\271\002\n\014ClientAction\022O\n\004typ" +
+      "e\030\001 \002(\0162A.arch.galaxyeclipse.shared.prot",
+      "ocol.ClientAction.ClientActionType\022\030\n\020lo" +
+      "cationObjectId\030\002 \001(\005\022\034\n\024locationObjectTy" +
+      "peId\030\003 \001(\005\"\237\001\n\020ClientActionType\022\017\n\013ROTAT" +
+      "E_LEFT\020\001\022\020\n\014ROTATE_RIGHT\020\002\022\010\n\004MOVE\020\003\022\010\n\004" +
+      "STOP\020\004\022\020\n\014OBJECT_CLICK\020\007\022\r\n\tLOOT_PICK\020\010\022" +
+      "\020\n\014ATTACK_START\020\t\022\017\n\013ATTACK_STOP\020\n\022\020\n\014RO" +
+      "CKET_SHOOT\020\020\"1\n\013AuthRequest\022\020\n\010username\030" +
+      "\001 \002(\t\022\020\n\010password\030\002 \002(\t\"!\n\014AuthResponse\022" +
+      "\021\n\tisSuccess\030\001 \002(\010\"\203\003\n\014LocationInfo\022\022\n\nl" +
+      "ocationId\030\001 \002(\005\022\014\n\004name\030\002 \002(\t\022\r\n\005width\030\003",
+      " \002(\002\022\016\n\006height\030\004 \002(\002\022]\n\025locationCachedOb" +
+      "jects\030\005 \002(\0132>.arch.galaxyeclipse.shared." +
+      "protocol.LocationInfo.CachedObjects\032a\n\rC" +
+      "achedObjects\022P\n\007objects\030\001 \003(\0132?.arch.gal" +
+      "axyeclipse.shared.protocol.LocationInfo." +
+      "LocationObject\032p\n\016LocationObject\022\020\n\010obje" +
+      "ctId\030\001 \002(\005\022\024\n\014objectTypeId\030\002 \002(\005\022\020\n\010nati" +
+      "veId\030\003 \002(\005\022\021\n\tpositionX\030\004 \002(\002\022\021\n\tpositio" +
+      "nY\030\005 \002(\002\"\330\t\n\016ShipStaticInfo\022\024\n\014moveMaxSp" +
+      "eed\030\001 \002(\005\022\030\n\020rotationMaxSpeed\030\002 \002(\005\022\035\n\025m",
+      "oveAccelerationSpeed\030\003 \002(\005\022\034\n\024rotationAc" +
+      "celeration\030\004 \002(\005\022\r\n\005armor\030\005 \002(\005\022\021\n\tenerg" +
+      "yMax\030\006 \002(\005\022\r\n\005hpMax\030\007 \002(\005\022\023\n\013energyRegen" +
+      "\030\010 \002(\005\022\017\n\007hpRegen\030\t \002(\005\022\014\n\004name\030\n \002(\t\022\027\n" +
+      "\017armorDurability\030\013 \002(\005\022\030\n\020weaponSlotsCou" +
+      "nt\030\014 \002(\005\022\027\n\017bonusSlotsCount\030\r \002(\005\022O\n\016inv" +
+      "entoryItems\030\016 \003(\01327.arch.galaxyeclipse.s" +
+      "hared.protocol.ShipStaticInfo.Item\022J\n\tsh" +
+      "ipBonus\030\017 \003(\01327.arch.galaxyeclipse.share" +
+      "d.protocol.ShipStaticInfo.Item\022L\n\013shipWe",
+      "apons\030\020 \003(\01327.arch.galaxyeclipse.shared." +
+      "protocol.ShipStaticInfo.Item\022K\n\nshipEngi" +
+      "ne\030\021 \002(\01327.arch.galaxyeclipse.shared.pro" +
+      "tocol.ShipStaticInfo.Item\032\357\004\n\004Item\022\016\n\006it" +
+      "emId\030\001 \002(\005\022\014\n\004name\030\002 \002(\t\022\023\n\013description\030" +
+      "\003 \002(\t\022\r\n\005price\030\004 \002(\005\022\022\n\nitemTypeId\030\005 \002(\005" +
+      "\022L\n\005bonus\030\006 \001(\0132=.arch.galaxyeclipse.sha" +
+      "red.protocol.ShipStaticInfo.Item.Bonus\022N" +
+      "\n\006weapon\030\007 \001(\0132>.arch.galaxyeclipse.shar" +
+      "ed.protocol.ShipStaticInfo.Item.Weapon\022N",
+      "\n\006engine\030\010 \001(\0132>.arch.galaxyeclipse.shar" +
+      "ed.protocol.ShipStaticInfo.Item.Engine\0320" +
+      "\n\005Bonus\022\022\n\nbonusValue\030\001 \002(\005\022\023\n\013bonusType" +
+      "Id\030\002 \002(\005\032j\n\006Weapon\022\016\n\006damage\030\001 \002(\005\022\022\n\nde" +
+      "laySpeed\030\002 \002(\005\022\023\n\013bulletSpeed\030\003 \002(\005\022\023\n\013m" +
+      "axDistance\030\004 \002(\005\022\022\n\nenergyCost\030\005 \002(\005\032\204\001\n" +
+      "\006Engine\022\035\n\025moveAccelerationBonus\030\001 \002(\005\022\031" +
+      "\n\021moveMaxSpeedBonus\030\002 \002(\005\022!\n\031rotationAcc" +
+      "elerationBonus\030\003 \002(\005\022\035\n\025rotationMaxSpeed" +
+      "Bonus\030\004 \002(\005\"\321\002\n\010TypesMap\022D\n\titemTypes\030\001 ",
+      "\003(\01321.arch.galaxyeclipse.shared.protocol" +
+      ".TypesMap.Type\022F\n\013weaponTypes\030\002 \003(\01321.ar" +
+      "ch.galaxyeclipse.shared.protocol.TypesMa" +
+      "p.Type\022N\n\023locationObjectTypes\030\003 \003(\01321.ar" +
+      "ch.galaxyeclipse.shared.protocol.TypesMa" +
+      "p.Type\022E\n\nbonusTypes\030\004 \003(\01321.arch.galaxy" +
+      "eclipse.shared.protocol.TypesMap.Type\032 \n" +
+      "\004Type\022\n\n\002id\030\001 \002(\005\022\014\n\004name\030\002 \002(\t\"\341\001\n\013Star" +
+      "tupInfo\022F\n\014locationInfo\030\001 \002(\01320.arch.gal" +
+      "axyeclipse.shared.protocol.LocationInfo\022",
+      ">\n\010typesMap\030\002 \002(\0132,.arch.galaxyeclipse.s" +
+      "hared.protocol.TypesMap\022J\n\016shipStaticInf" +
+      "o\030\003 \002(\01322.arch.galaxyeclipse.shared.prot" +
+      "ocol.ShipStaticInfo\"2\n\025ShipStaticInfoCom" +
+      "mand\022\031\n\021serializedCommand\030\001 \002(\014\"\"\n\017ChatS" +
+      "endMessage\022\017\n\007message\030\001 \002(\t\"5\n\022ChatRecei" +
+      "veMessage\022\017\n\007message\030\001 \002(\t\022\016\n\006sender\030\002 \002" +
+      "(\tB\016B\nGeProtocolH\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -20590,7 +20680,7 @@ public final class GeProtocol {
           internal_static_arch_galaxyeclipse_shared_protocol_ShipStateResponse_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_arch_galaxyeclipse_shared_protocol_ShipStateResponse_descriptor,
-              new java.lang.String[] { "MoveSpeed", "RotationSpeed", "Hp", "ArmorDurability", "RotationAngle", "PositionX", "PositionY", });
+              new java.lang.String[] { "MoveSpeed", "RotationSpeed", "Hp", "ArmorDurability", "RotationAngle", "PositionX", "PositionY", "LocationObjectId", });
           internal_static_arch_galaxyeclipse_shared_protocol_ClientAction_descriptor =
             getDescriptor().getMessageTypes().get(5);
           internal_static_arch_galaxyeclipse_shared_protocol_ClientAction_fieldAccessorTable = new

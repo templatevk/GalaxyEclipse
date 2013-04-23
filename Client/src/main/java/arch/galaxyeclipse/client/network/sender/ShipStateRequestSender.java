@@ -23,14 +23,7 @@ public class ShipStateRequestSender extends RepeatablePacketSender {
     @Override
     protected void processPacket(GeProtocol.Packet packet) {
         GeProtocol.ShipStateResponse shipStateResponse = packet.getShipStateResponse();
-
-        shipStateInfoHolder.setArmorDurability(shipStateResponse.getArmorDurability());
-        shipStateInfoHolder.setHp(shipStateResponse.getHp());
-        shipStateInfoHolder.setMoveSpeed(shipStateResponse.getMoveSpeed());
-        shipStateInfoHolder.setPositionX(shipStateResponse.getPositionX());
-        shipStateInfoHolder.setPositionY(shipStateResponse.getPositionY());
-        shipStateInfoHolder.setRotationAngle(shipStateResponse.getRotationAngle());
-        shipStateInfoHolder.setRotationSpeed(shipStateResponse.getRotationSpeed());
+        shipStateInfoHolder.setShipState(shipStateResponse);
     }
 
     @Override

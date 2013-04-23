@@ -17,9 +17,9 @@ import java.util.List;
  * OpenGL window delegating drawing to the stage set.
  */
 class ClientWindow implements IClientWindow {
-    private static final int VIRTUAL_WIDTH = 480;
-    private static final int VIRTUAL_HEIGHT = 320;
-    private static final float ASPECT_RATIO = (float)VIRTUAL_WIDTH/(float)VIRTUAL_HEIGHT;
+    private static final float VIRTUAL_WIDTH = 480;
+    private static final float VIRTUAL_HEIGHT = 320;
+    private static final float ASPECT_RATIO = VIRTUAL_WIDTH / VIRTUAL_HEIGHT;
     private static final float PROD_WIDTH = 640;
     private static final float PROD_HEIGHT = 480;
 
@@ -27,10 +27,10 @@ class ClientWindow implements IClientWindow {
     private Rectangle viewport;
     private List<IDestroyable> destroyables;
 
-	private @Getter int viewportHeight;
-	private @Getter int viewportWidth;
-    private @Getter int width;
-    private @Getter int height;
+	private @Getter float viewportHeight;
+	private @Getter float viewportWidth;
+    private @Getter float width;
+    private @Getter float height;
 
 	public ClientWindow() {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
@@ -75,7 +75,6 @@ class ClientWindow implements IClientWindow {
 
         @Override
         public void create() {
-            // Initializing OpenGL
             Gdx.gl.glDepthFunc(GL20.GL_LEQUAL);
             Gdx.gl.glEnable(GL10.GL_GENERATE_MIPMAP);
             Gdx.gl.glEnable(GL10.GL_LINE_SMOOTH);
@@ -132,22 +131,20 @@ class ClientWindow implements IClientWindow {
             Vector2 crop = new Vector2(0f, 0f);
 
             if(aspectRatio > ASPECT_RATIO) {
-                scale = (float)height/(float)VIRTUAL_HEIGHT;
-                crop.x = (width - VIRTUAL_WIDTH * scale)/2f;
+                scale = height / VIRTUAL_HEIGHT;
+                crop.x = (width - VIRTUAL_WIDTH * scale) / 2f;
             } else if(aspectRatio < ASPECT_RATIO) {
-                scale = (float)width/(float)VIRTUAL_WIDTH;
-                crop.y = (height - VIRTUAL_HEIGHT * scale)/2f;
+                scale = width / VIRTUAL_WIDTH;
+                crop.y = (height - VIRTUAL_HEIGHT * scale) / 2f;
             } else {
-                scale = (float)width/(float)VIRTUAL_WIDTH;
+                scale = width / VIRTUAL_WIDTH;
             }
 
-            float w = (float)VIRTUAL_WIDTH * scale;
-            float h = (float)VIRTUAL_HEIGHT * scale;
-            viewport = new Rectangle(crop.x, crop.y, w, h);
-            viewportWidth = (int)viewport.getWidth();
-            viewportHeight = (int)viewport.getHeight();
+            viewportWidth = VIRTUAL_WIDTH * scale;
+            viewportHeight = VIRTUAL_HEIGHT * scale;
+            viewport = new Rectangle(crop.x, crop.y, viewportWidth, viewportHeight);
 
-            stageProvider.getGameStage().resize(width, height);
+            stageProvider.getGameStage().resize(viewportWidth, viewportHeight);
         }
 
         @Override

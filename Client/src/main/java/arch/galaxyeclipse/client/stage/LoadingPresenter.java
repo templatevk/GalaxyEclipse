@@ -17,7 +17,7 @@ class LoadingPresenter implements IStageProvider {
     }
 
     @Override
-    public GameStage getGameStage() {
+    public AbstractGameStage getGameStage() {
         return view;
     }
 
@@ -26,7 +26,7 @@ class LoadingPresenter implements IStageProvider {
 
     }
 
-    private static class LoadingStage extends GameStage {
+    private static class LoadingStage extends AbstractGameStage {
         private Table rootTable;
         private Table innerTable;
 

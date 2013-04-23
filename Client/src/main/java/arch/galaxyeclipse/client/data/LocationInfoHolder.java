@@ -62,7 +62,7 @@ public class LocationInfoHolder {
         return cachedObjects;
     }
 
-    public Set<LocationObject> getObjectsForRadius(Position position) {
+    public Set<LocationObject> getObjectsForRadius(GePosition position) {
         positionPredicate.setPosition(position);
 
         Set<LocationObject> locationObjects = new HashSet<>();
@@ -86,14 +86,14 @@ public class LocationInfoHolder {
 
     @Data
     private static class PositionPredicate implements com.google.common.base.Predicate<LocationObject> {
-         private Position position;
+        private GePosition position;
 
         @Override
         public boolean apply(LocationObject input) {
-            float xAbs = input.getPositionX() - position.getX();
-            float yAbs = input.getPositionY();
-            return Math.abs(xAbs) < SharedInfo.DYNAMIC_OBJECT_QUERY_RADIUS
-                    && Math.abs(yAbs - position.getY()) < SharedInfo.DYNAMIC_OBJECT_QUERY_RADIUS;
+            float xAbs = Math.abs(input.getPositionX() - position.getX());
+            float yAbs = Math.abs(input.getPositionY() - position.getY());
+            return xAbs < SharedInfo.DYNAMIC_OBJECT_QUERY_RADIUS
+                    && yAbs < SharedInfo.DYNAMIC_OBJECT_QUERY_RADIUS;
         }
     }
 
