@@ -64,8 +64,8 @@ class ServerNetworkManager implements IServerNetworkManager, IMonitoringNetworkM
     public void registerServerChannelHandler(IServerChannelHandler handler) {
         serverChannelHandlers.add(handler);
 
-        if (log.isDebugEnabled()) {
-            log.debug(LogUtils.getObjectInfo(handler) + " registered, total handlers = "
+        if (log.isInfoEnabled()) {
+            log.info(LogUtils.getObjectInfo(handler) + " registered, total handlers = "
                     + serverChannelHandlers.size());
         }
     }
@@ -74,8 +74,8 @@ class ServerNetworkManager implements IServerNetworkManager, IMonitoringNetworkM
     public void unregisterServerChannelHandler(IServerChannelHandler handler) {
         serverChannelHandlers.remove(handler);
 
-        if (log.isDebugEnabled()) {
-            log.debug(LogUtils.getObjectInfo(handler) + " unregistered, total handlers = "
+        if (log.isInfoEnabled()) {
+            log.info(LogUtils.getObjectInfo(handler) + " unregistered, total handlers = "
                     + serverChannelHandlers.size());
         }
     }

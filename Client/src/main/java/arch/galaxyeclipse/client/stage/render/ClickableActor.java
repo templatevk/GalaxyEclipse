@@ -1,8 +1,6 @@
 package arch.galaxyeclipse.client.stage.render;
 
 import arch.galaxyeclipse.client.data.*;
-import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.*;
-import arch.galaxyeclipse.shared.types.*;
 import arch.galaxyeclipse.shared.util.*;
 import com.badlogic.gdx.scenes.scene2d.*;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
@@ -13,15 +11,20 @@ import lombok.*;
  *
  */
 @Data
-public class GameActor extends Image {
-    private LocationObject locationObject;
-    private LocationObjectTypesMapperType actorType;
+public class ClickableActor extends GeActor {
     private ICommand<GePosition> hitCommand;
 
-    public GameActor(Drawable drawable, LocationObject locationObject) {
+    public ClickableActor() {
+        this(null);
+    }
+
+    public ClickableActor(Drawable drawable) {
+        this(drawable, new StubCommand<GePosition>());
+    }
+
+    public ClickableActor(Drawable drawable, ICommand<GePosition> hitCommand) {
         super(drawable);
-        this.locationObject = locationObject;
-        hitCommand = new StubCommand<>();
+        this.hitCommand = hitCommand;
 
         setOrigin(getPrefWidth() / 2, getPrefHeight() / 2);
     }

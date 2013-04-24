@@ -4,9 +4,11 @@ import arch.galaxyeclipse.client.resource.*;
 import arch.galaxyeclipse.shared.context.*;
 import arch.galaxyeclipse.shared.protocol.*;
 import arch.galaxyeclipse.shared.types.*;
-import com.badlogic.gdx.graphics.g2d.*;
+import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.*;
 import lombok.extern.slf4j.*;
+
+import java.util.*;
 
 /**
  *
@@ -14,20 +16,24 @@ import lombok.extern.slf4j.*;
 @Slf4j
 class ActorFactory implements IActorFactory {
     private static final String PLAYER_IMAGE_PATH = // <id>
-            "ship_types/%1$h/image";
+            "ship_types/%h";
     private static final String STATIC_OBJECT_IMAGE_PATH = // <object_type>, <id>
-            "static/%1$s/$2%h";
+            "static/%s/%h";
+    private static final String LOCATION_BACKGROUND_IMAGE_PATH = // <id>
+            "locations/%h";
     private final DictionaryTypesMapper dictionaryTypesMapper;
     private IResourceLoader resourceLoader;
 
+    private Map<Integer, BackgroundActor> backgrounds;
 
     ActorFactory() {
+        backgrounds = new HashMap<>();
         resourceLoader = ContextHolder.getBean(IResourceLoader.class);
         dictionaryTypesMapper = ContextHolder.getBean(DictionaryTypesMapper.class);
     }
 
     @Override
-    public GameActor createActor(GeProtocol.LocationInfo.LocationObject locationObject) {
+    public LocationObjectActor createLocationObjectActor(GeProtocol.LocationInfo.LocationObject locationObject) {
         LocationObjectTypesMapperType objectType = dictionaryTypesMapper
                 .getLocationObjectTypeById(locationObject.getObjectTypeId());
         String path = null;
@@ -46,10 +52,25 @@ class ActorFactory implements IActorFactory {
 
         Drawable drawable = new TextureRegionDrawable(resourceLoader.findRegion(path));
 
-        GameActor gameActor = new GameActor(drawable, locationObject);
-        gameActor.setDrawable(drawable);
-        gameActor.setActorType(objectType);
+        LocationObjectActor locationObjectActor = new LocationObjectActor(
+                drawable, locationObject);
+        locationObjectActor.setDrawable(drawable);
+        locationObjectActor.setLocationObjectType(objectType);
 
-        return gameActor;
+        return locationObjectActor;
+    }
+
+    @Override
+    public BackgroundActor createBackgroundActor(int locationId) {
+        BackgroundActor background = backgrounds.get(locationId);
+
+        if (background == null) {
+            String path = String.format(LOCATION_BACKGROUND_IMAGE_PATH, locationId);
+            Drawable drawable = new TextureRegionDrawable(resourceLoader.findRegion(path));
+            background = new BackgroundActor(drawable);
+
+            backgrounds.put(locationId, background);
+        }
+        return background;
     }
 }

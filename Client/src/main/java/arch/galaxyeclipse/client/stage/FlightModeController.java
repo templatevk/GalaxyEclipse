@@ -7,12 +7,14 @@ import arch.galaxyeclipse.client.network.sender.*;
 import arch.galaxyeclipse.client.resource.*;
 import arch.galaxyeclipse.client.stage.render.*;
 import arch.galaxyeclipse.client.window.*;
+import arch.galaxyeclipse.shared.*;
 import arch.galaxyeclipse.shared.context.*;
 import arch.galaxyeclipse.shared.protocol.*;
 import arch.galaxyeclipse.shared.util.*;
 import com.badlogic.gdx.scenes.scene2d.*;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.*;
+import com.badlogic.gdx.utils.*;
 import lombok.*;
 import lombok.extern.slf4j.*;
 
@@ -35,7 +37,6 @@ public class FlightModeController implements IStageProvider {
     private IActorFactory actorFactory;
 
     private FlightModeStage view;
-    private FlightModeModel model;
 
     public FlightModeController() {
         networkManager = ContextHolder.getBean(IClientNetworkManager.class);
@@ -47,7 +48,6 @@ public class FlightModeController implements IStageProvider {
 
         initializeRequestSenders();
 
-        model = new FlightModeModel();
         view = new FlightModeStage(this);
     }
 
@@ -65,9 +65,11 @@ public class FlightModeController implements IStageProvider {
                 Set<GeProtocol.LocationInfo.LocationObject> locationObjects =
                         locationInfoHolder.getObjectsForRadius(position);
 
-                FlightModeModel model = new FlightModeModel(locationObjects.size());
+                int locationId = locationInfoHolder.getLocationId();
+                BackgroundActor background = actorFactory.createBackgroundActor(locationId);
+                FlightModeModel model = new FlightModeModel(locationObjects.size(), background);
                 for (GeProtocol.LocationInfo.LocationObject locationObject : locationObjects) {
-                    model.getGameActors().add(actorFactory.createActor(locationObject));
+                    model.getGameActors().add(actorFactory.createLocationObjectActor(locationObject));
                 }
                 view.updateModel(model);
 
@@ -101,43 +103,23 @@ public class FlightModeController implements IStageProvider {
 
         private FlightModeController controller;
         private FlightModeModel model;
-        // TODO
-        private Table actorsBackground;
-        private Table rootBackground;
 
         private FlightModeStage(FlightModeController controller) {
             this.controller = controller;
             this.model = new FlightModeModel();
+            this.model.setBackground(new BackgroundActor());
 
             locationInfoHolder = ContextHolder.getBean(LocationInfoHolder.class);
             shipStateInfoHolder = ContextHolder.getBean(ShipStateInfoHolder.class);
             shipStaticInfoHolder = ContextHolder.getBean(ShipStaticInfoHolder.class);
 
             gameActorsLayout = new Group();
-            gameActorsLayout.setTransform(true);
+            gameActorsLayout.setTransform(false);
 
             rootLayout = new Group();
             rootLayout.setTransform(false);
-
-            // TODO
-            IResourceLoader resourceLoader = ContextHolder.getBean(IResourceLoader.class);
-
-            actorsBackground = new Table();
-            actorsBackground.setBackground(new TextureRegionDrawable(
-                    resourceLoader.findRegion("ui/menu_login")));
-
-            rootBackground = new Table();
-            rootBackground.setBackground(new TextureRegionDrawable(
-                    resourceLoader.findRegion("ui/menu_login")));
-
-            rootLayout.addActor(rootBackground);
-
-
-
-
-
-
             rootLayout.addActor(gameActorsLayout);
+
             addActor(rootLayout);
 
             forceResize();
@@ -167,12 +149,6 @@ public class FlightModeController implements IStageProvider {
             gameActorsLayout.setSize(gameActorsLayoutWidth, gameActorsLayoutHeight);
             gameActorsLayout.setOrigin(gameActorsLayoutWidth / 2f, gameActorsLayoutHeight / 2f);
             gameActorsLayout.setPosition(gameActorsLayoutX, gameActorsLayoutY);
-
-            // TODO
-            actorsBackground.setSize(gameActorsLayoutWidth, gameActorsLayoutHeight);
-            actorsBackground.setPosition(0, 0);
-            rootBackground.setSize(viewportWidth, viewportHeight);
-            rootBackground.setPosition(0, 0);
         }
 
 
@@ -180,45 +156,45 @@ public class FlightModeController implements IStageProvider {
         public void draw() {
             gameActorsLayout.clear();
 
-            // TODO
-            if (actorsBackground != null) {
-                gameActorsLayout.addActor(actorsBackground);
-            }
-
-
-
-
-            for (GameActor gameActor : model.getGameActors()) {
-                gameActorsLayout.addActor(adjustActor(gameActor));
-            }
+            drawBackground();
+            drawActors();
 
             super.draw();
         }
 
-        private GameActor adjustActor(GameActor gameActor) {
-            switch (gameActor.getActorType()) {
-                case ROCKET:
-                    break;
-                case ASTEROID:
-                    break;
-                case STATION:
-                    break;
-                case PLAYER:
-                    boolean self = gameActor.getLocationObject().getObjectId() ==
-                            shipStateInfoHolder.getLocationObjectId();
-                    if (self) {
-                        float x = (gameActorsLayout.getWidth() - gameActor.getWidth()) / 2f;
-                        float y = (gameActorsLayout.getHeight() - gameActor.getHeight()) / 2f;
-                        gameActor.setPosition(x, y);
-                    } else {
+        private void drawBackground() {
+            BackgroundActor background = model.getBackground();
+            gameActorsLayout.addActor(background);
 
-                    }
-                    break;
+            background.setSize(gameActorsLayout.getWidth(), gameActorsLayout.getHeight());
+            background.setPosition(0, 0);
+        }
+
+        private void drawActors() {
+            for (LocationObjectActor gameActor : model.getGameActors()) {
+                gameActorsLayout.addActor(gameActor);
+
+                switch (gameActor.getLocationObjectType()) {
+                    case ROCKET:
+                        break;
+                    case ASTEROID:
+                        break;
+                    case STATION:
+                        break;
+                    case PLAYER:
+                        boolean self = gameActor.getLocationObject().getObjectId() ==
+                                shipStateInfoHolder.getLocationObjectId();
+                        if (self) {
+                            float x = (gameActorsLayout.getWidth() - gameActor.getWidth()) / 2f;
+                            float y = (gameActorsLayout.getHeight() - gameActor.getHeight()) / 2f;
+                            gameActor.setPosition(x, y);
+                        } else {
+
+                        }
+                        break;
+                }
+                gameActor.setScale(getScaleX(), getScaleY());
             }
-
-            gameActor.setScale(getScaleX(), getScaleY());
-
-            return gameActor;
         }
 
         @Override
@@ -228,15 +204,23 @@ public class FlightModeController implements IStageProvider {
     }
 
     @Data
-    static class FlightModeModel {
-        private List<GameActor> gameActors = new ArrayList<>();
+    private static class FlightModeModel {
+        private static final int ACRORS_SIZE = 0;
+
+        private List<LocationObjectActor> gameActors;
+        private BackgroundActor background;
 
         public FlightModeModel() {
-            gameActors = new ArrayList<>();
+            this(ACRORS_SIZE);
         }
 
         public FlightModeModel(int actorsCapacity) {
+            this(actorsCapacity, null);
+        }
+
+        public FlightModeModel(int actorsCapacity, BackgroundActor background) {
             gameActors = new ArrayList<>(actorsCapacity);
+            this.background = background;
         }
     }
 }

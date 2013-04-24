@@ -20,7 +20,6 @@ import java.util.concurrent.*;
  */
 @Slf4j
 class ClientNetworkManager implements IClientNetworkManager {
-	// Sleep interval to wait for connection result
 	protected static final int CONNECTION_TIMEOUT_MILLISECONDS = 300;
 
     @Getter(AccessLevel.PROTECTED)

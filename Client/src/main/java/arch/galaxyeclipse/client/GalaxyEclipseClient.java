@@ -4,6 +4,7 @@ import arch.galaxyeclipse.shared.*;
 import arch.galaxyeclipse.shared.context.*;
 import ch.qos.logback.classic.*;
 import ch.qos.logback.core.util.*;
+import com.badlogic.gdx.graphics.g2d.*;
 import lombok.*;
 import lombok.extern.slf4j.*;
 import org.slf4j.*;
