@@ -13,6 +13,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.*;
  *
  */
 class DefaultButtonBuilder implements IButtonBuilder {
+    public static final int TEXT_PADDING_Y = -10;
     private static final float BUTTON_DOWN_OFFSET = 2;
 
     private String text;
@@ -63,6 +64,7 @@ class DefaultButtonBuilder implements IButtonBuilder {
     public TextButton build() {
         final TextButton button = new TextButton(text, style);
         button.addListener(listener);
+        button.setTextPaddingY(TEXT_PADDING_Y);
         button.addListener(new FocusListener() {
             @Override
             public void keyboardFocusChanged(FocusEvent event, Actor actor, boolean focused) {
