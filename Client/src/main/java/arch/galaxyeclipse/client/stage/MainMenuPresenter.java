@@ -214,7 +214,7 @@ public class MainMenuPresenter extends ServerPacketListener implements IStagePro
 
             StageUiFactory.applyTabOrder(Arrays.<Actor>asList(
                     usernameTxt, passwordTxt, connectBtn), this);
-            StageUiFactory.setDefautButton(Arrays.<Actor>asList(
+            StageUiFactory.setDefaultButton(Arrays.<Actor>asList(
                     usernameTxt, passwordTxt),connectBtn);
             setKeyboardFocus(usernameTxt);
         }

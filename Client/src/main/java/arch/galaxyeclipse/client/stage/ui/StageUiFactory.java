@@ -37,7 +37,7 @@ public class StageUiFactory {
         addTabListener(actors.get(actors.size() - 1), actors.get(0), stage);
     }
 
-    public static void setDefautButton(List<Actor> actors, Button defaultButton) {
+    public static void setDefaultButton(List<Actor> actors, Button defaultButton) {
         for (int i = 0; i < actors.size(); i++) {
             Actor actor = actors.get(i);
             addEnterListener(actor, defaultButton);
