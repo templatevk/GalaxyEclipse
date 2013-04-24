@@ -331,7 +331,7 @@ public class TextField extends Widget {
 					}
 					if ((character == TAB || character == ENTER_ANDROID) && focusTraversal)
 						next(Gdx.input.isKeyPressed(Keys.SHIFT_LEFT) || Gdx.input.isKeyPressed(Keys.SHIFT_RIGHT));
-					if (font.containsCharacter(character)) {
+					if (font.containsCharacter(character) && character != ENTER_DESKTOP ) {
 						if (maxLength > 0 && text.length() + 1 > maxLength) {
 							return true;
 						}

@@ -1,8 +1,13 @@
 package arch.galaxyeclipse.client.stage.ui;
 
 import com.badlogic.gdx.*;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.*;
+import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.utils.Array;
+import lombok.extern.slf4j.*;
 
 import java.util.*;
 import java.util.List;
@@ -10,6 +15,7 @@ import java.util.List;
 /**
  *
  */
+@Slf4j
 public class StageUiFactory {
     private StageUiFactory() {
     }
@@ -26,19 +32,38 @@ public class StageUiFactory {
         for (int i = 0; i < actors.size() - 1; i++) {
             Actor from = actors.get(i);
             Actor to = actors.get(i + 1);
-            addListener(from, to, stage);
+            addTabListener(from, to, stage);
         }
-        addListener(actors.get(actors.size() - 1), actors.get(0), stage);
+        addTabListener(actors.get(actors.size() - 1), actors.get(0), stage);
     }
 
-    private static void addListener(final Actor from, final Actor to, final Stage stage) {
+    public static void setDefautCommand(List<Actor> actors,IButtonClickCommand command) {
+        for (int i = 0; i < actors.size(); i++) {
+            Actor actor = actors.get(i);
+            addEnterListener(actor,command);
+        }
+    }
+
+    private static void addTabListener(final Actor from, final Actor to, final Stage stage) {
         from.addListener(new InputListener() {
             @Override
             public boolean keyTyped(InputEvent event, char character) {
                 if (event.getKeyCode() == Input.Keys.TAB) {
                     stage.setKeyboardFocus(to);
                 }
+                return super.keyTyped(event, character);
+            }
+        });
+    }
 
+    private static void addEnterListener(final Actor actor,final IButtonClickCommand command)
+    {
+        actor.addListener(new InputListener() {
+            @Override
+            public boolean keyTyped(InputEvent event, char character) {
+                if (event.getKeyCode() == Input.Keys.ENTER) {
+                    command.execute(null,0,0);
+                }
                 return super.keyTyped(event, character);
             }
         });
