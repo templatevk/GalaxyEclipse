@@ -37,10 +37,10 @@ public class StageUiFactory {
         addTabListener(actors.get(actors.size() - 1), actors.get(0), stage);
     }
 
-    public static void setDefautCommand(List<Actor> actors,IButtonClickCommand command) {
+    public static void setDefautButton(List<Actor> actors, Button defaultButton) {
         for (int i = 0; i < actors.size(); i++) {
             Actor actor = actors.get(i);
-            addEnterListener(actor,command);
+            addEnterListener(actor, defaultButton);
         }
     }
 
@@ -56,15 +56,26 @@ public class StageUiFactory {
         });
     }
 
-    private static void addEnterListener(final Actor actor,final IButtonClickCommand command)
-    {
+    private static void addEnterListener(final Actor actor, final Button defaultButton){
         actor.addListener(new InputListener() {
             @Override
             public boolean keyTyped(InputEvent event, char character) {
                 if (event.getKeyCode() == Input.Keys.ENTER) {
-                    command.execute(null,0,0);
+                    defaultButton.getClickCommand().execute(null,0,0);
                 }
                 return super.keyTyped(event, character);
+            }
+
+            @Override
+            public boolean keyDown(InputEvent event, int keycode) {
+                defaultButton.setPressedStyle(true);
+                return super.keyDown(event, keycode);
+            }
+
+            @Override
+            public boolean keyUp(InputEvent event, int keycode) {
+                defaultButton.setPressedStyle(false);
+                return super.keyUp(event, keycode);
             }
         });
     }

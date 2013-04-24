@@ -16,6 +16,7 @@
 
 package com.badlogic.gdx.scenes.scene2d.ui;
 
+import arch.galaxyeclipse.client.stage.ui.IButtonClickCommand;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
@@ -26,6 +27,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Pools;
+import lombok.Getter;
 import lombok.Setter;
 
 /** A button is a {@link Table} with a checked state and additional {@link ButtonStyle style} fields for pressed, unpressed, and
@@ -42,8 +44,14 @@ public class Button extends Table {
 	ButtonGroup buttonGroup;
 	private ClickListener clickListener;
 
+    @Setter @Getter
+    private IButtonClickCommand clickCommand;
+
     @Setter
     private float textPaddingY = 0;
+
+    @Setter @Getter
+    private boolean pressedStyle = false;
 
 	public Button (Skin skin) {
 		super(skin);
@@ -178,7 +186,7 @@ public class Button extends Table {
 
 		Drawable background = null;
 		float offsetX = 0, offsetY = 0;
-		if (isPressed() && !isDisabled) {
+		if ((isPressed() && !isDisabled) || pressedStyle) {
 			background = style.down == null ? style.up : style.down;
 			offsetX = style.pressedOffsetX;
 			offsetY = style.pressedOffsetY-textPaddingY;

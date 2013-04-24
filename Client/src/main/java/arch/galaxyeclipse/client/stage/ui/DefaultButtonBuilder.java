@@ -18,6 +18,7 @@ class DefaultButtonBuilder implements IButtonBuilder {
 
     private String text;
     private ClickListener listener;
+    private IButtonClickCommand connectButtonCommand;
     private TextButton.TextButtonStyle style;
 
     public DefaultButtonBuilder() {
@@ -51,12 +52,7 @@ class DefaultButtonBuilder implements IButtonBuilder {
                 command.execute(e, x, y);
             }
         };
-        return this;
-    }
-
-    @Override
-    public IButtonBuilder setClickListener(ClickListener listener) {
-        this.listener = listener;
+        connectButtonCommand = command;
         return this;
     }
 
@@ -65,6 +61,7 @@ class DefaultButtonBuilder implements IButtonBuilder {
         final TextButton button = new TextButton(text, style);
         button.addListener(listener);
         button.setTextPaddingY(TEXT_PADDING_Y);
+        button.setClickCommand(connectButtonCommand);
         button.addListener(new FocusListener() {
             @Override
             public void keyboardFocusChanged(FocusEvent event, Actor actor, boolean focused) {

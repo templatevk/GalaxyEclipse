@@ -10,6 +10,4 @@ public interface IButtonBuilder extends IBuilder<TextButton> {
     IButtonBuilder setText(String text);
 
     IButtonBuilder setClickCommand(IButtonClickCommand command);
-
-    IButtonBuilder setClickListener(ClickListener listener);
 }
