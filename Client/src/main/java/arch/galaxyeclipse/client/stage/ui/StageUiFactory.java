@@ -68,13 +68,17 @@ public class StageUiFactory {
 
             @Override
             public boolean keyDown(InputEvent event, int keycode) {
-                defaultButton.setPressedStyle(true);
+                if (event.getKeyCode() == Input.Keys.ENTER) {
+                    defaultButton.setPressedStyle(true);
+                }
                 return super.keyDown(event, keycode);
             }
 
             @Override
             public boolean keyUp(InputEvent event, int keycode) {
-                defaultButton.setPressedStyle(false);
+                if (event.getKeyCode() == Input.Keys.ENTER) {
+                    defaultButton.setPressedStyle(false);
+                }
                 return super.keyUp(event, keycode);
             }
         });
