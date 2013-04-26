@@ -15,7 +15,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.*;
  *
  */
 class DefaultTextFieldBuilder implements ITextFieldBuilder {
-    private static final int TEXT_PADDING_X = 20;
+    private static final int TEXT_PADDING_X = 45;
     private static final int TEXT_PADDING_Y = -5;
 
     private String text;

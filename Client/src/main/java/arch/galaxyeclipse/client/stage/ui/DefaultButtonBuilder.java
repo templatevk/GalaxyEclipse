@@ -79,11 +79,29 @@ class DefaultButtonBuilder implements IButtonBuilder {
                 switch(event.getKeyCode()) {
                     case Input.Keys.ENTER:
                         listener.clicked(event, 0, 0);
+                        button.setPressedStyle(true);
                         break;
                 }
-
                 return super.keyTyped(event, character);
             }
+
+
+            @Override
+            public boolean keyDown(InputEvent event, int keycode) {
+                if (event.getKeyCode() == Input.Keys.ENTER) {
+                    button.setPressedStyle(true);
+                }
+                return super.keyDown(event, keycode);
+            }
+
+            @Override
+            public boolean keyUp(InputEvent event, int keycode) {
+                if (event.getKeyCode() == Input.Keys.ENTER) {
+                    button.setPressedStyle(false);
+                }
+                return super.keyUp(event, keycode);
+            }
+
         });
 
         return button;
