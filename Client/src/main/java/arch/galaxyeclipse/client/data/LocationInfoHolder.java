@@ -16,8 +16,10 @@ import java.util.*;
  */
 @Slf4j
 public class LocationInfoHolder {
-    @Getter
-    private GeProtocol.LocationInfo locationInfo;
+    private @Getter String name;
+    private @Getter int locationId;
+    private @Getter float width;
+    private @Getter float height;
     private Multiset<LocationObject> cachedObjects;
     private Multiset<LocationObject> dynamicObjects;
     private PositionPredicate positionPredicate;
@@ -32,16 +34,19 @@ public class LocationInfoHolder {
         if (LocationInfoHolder.log.isInfoEnabled()) {
             LocationInfoHolder.log.info("Updating location info");
         }
-        this.locationInfo = locationInfo;
+        name = locationInfo.getName();
+        locationId = locationInfo.getLocationId();
+        width = locationInfo.getWidth();
+        height = locationInfo.getHeight();
 
         List<LocationObject> objectsList = locationInfo.getLocationCachedObjects().getObjectsList();
         cachedObjects.addAll(objectsList);
 
         if (log.isDebugEnabled()) {
-            log.debug("\tLocation " + locationInfo.getName());
-            log.debug("\tId " + locationInfo.getLocationId());
-            log.debug("\tWidth " + locationInfo.getWidth());
-            log.debug("\tHeight " + locationInfo.getHeight());
+            log.debug("\tLocation " + name);
+            log.debug("\tId " + locationId);
+            log.debug("\tWidth " + width);
+            log.debug("\tHeight " + height);
 
             outputObjects(objectsList);
         }

@@ -24,8 +24,8 @@ public abstract class ProtobufChannelPipelineFactory implements ChannelPipelineF
 		pipeline.addLast("protobufEncoder", new ProtobufEncoder());
 		
 		configureHandlers(pipeline);
-        if (ProtobufChannelPipelineFactory.log.isInfoEnabled()) {
-		    ProtobufChannelPipelineFactory.log.info("Channel handlers configured");
+        if (ProtobufChannelPipelineFactory.log.isDebugEnabled()) {
+		    ProtobufChannelPipelineFactory.log.debug("Channel handlers configured");
         }
 		
 		return pipeline;
