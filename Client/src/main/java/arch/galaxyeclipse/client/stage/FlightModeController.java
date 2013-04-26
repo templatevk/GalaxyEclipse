@@ -65,9 +65,12 @@ public class FlightModeController implements IStageProvider {
                 Set<GeProtocol.LocationInfo.LocationObject> locationObjects =
                         locationInfoHolder.getObjectsForRadius(position);
 
-                int locationId = locationInfoHolder.getLocationId();
-                GeActor background = actorFactory.createBackgroundActor(locationId);
-                FlightModeModel model = new FlightModeModel(locationObjects.size(), background);
+//               TODO unstable
+//                int locationId = locationInfoHolder.getLocationId();
+//                GeActor background = actorFactory.createBackgroundActor(locationId);
+//                FlightModeModel model = new FlightModeModel(locationObjects.size(), background);
+
+                FlightModeModel model = new FlightModeModel(locationObjects.size());
                 for (GeProtocol.LocationInfo.LocationObject locationObject : locationObjects) {
                     model.getGameActors().add(actorFactory.createLocationObjectActor(locationObject));
                 }
@@ -155,8 +158,8 @@ public class FlightModeController implements IStageProvider {
         @Override
         public void draw() {
             gameActorsLayout.clear();
-
-            drawBackground();
+//            TODO unstable
+//            drawBackground();
             drawActors();
 
             super.draw();
@@ -165,15 +168,14 @@ public class FlightModeController implements IStageProvider {
         private void drawBackground() {
             GeActor background = model.getBackground();
             gameActorsLayout.addActor(background);
-
             background.setSize(gameActorsLayout.getWidth(), gameActorsLayout.getHeight());
             background.setPosition(0, 0);
         }
 
         private void drawActors() {
             StageInfo stageInfo = new StageInfo();
-            stageInfo.setHeight(getHeight());
-            stageInfo.setWidth(getWidth());
+            stageInfo.setHeight(gameActorsLayout.getHeight());
+            stageInfo.setWidth(gameActorsLayout.getWidth());
             stageInfo.setScaleY(getScaleY());
             stageInfo.setScaleX(getScaleX());
 

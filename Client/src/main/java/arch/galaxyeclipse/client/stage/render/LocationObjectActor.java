@@ -40,8 +40,8 @@ class LocationObjectActor extends ClickableActor {
                 break;
             case PLAYER:
                 if (getActorType() == ActorType.SELF) {
-                    float x = (stageInfo.getWidth() - stageInfo.getWidth()) / 2f;
-                    float y = (stageInfo.getHeight() - stageInfo.getHeight()) / 2f;
+                    float x = (stageInfo.getWidth() - getWidth()) / 2f;
+                    float y = (stageInfo.getHeight() - getHeight()) / 2f;
                     setPosition(x, y);
                 } else {
                 }

@@ -3,7 +3,6 @@ package arch.galaxyeclipse.client.stage.render;
 import arch.galaxyeclipse.client.data.*;
 import arch.galaxyeclipse.shared.*;
 import arch.galaxyeclipse.shared.util.*;
-import com.badlogic.gdx.scenes.scene2d.*;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.*;
 import lombok.*;
@@ -15,7 +14,7 @@ import lombok.extern.slf4j.*;
 @Slf4j
 class BackgroundActor extends ClickableActor {
 
-    // TODO because of delegation npe is thrown getPrefWidth()7m92ba7m92ba7m92ba
+    // TODO because of delegation npe is thrown from getPrefWidth()
     @Delegate
     private Table background;
 
