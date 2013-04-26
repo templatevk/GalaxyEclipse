@@ -20,12 +20,19 @@ abstract class RepeatablePacketSender extends SubscribableServerPacketListener {
     private ThreadWorker threadWorker;
     private GeProtocol.Packet.Type packetType;
     private int sleepMilliseconds;
+    private boolean retryOnException;
 
     public RepeatablePacketSender(GeProtocol.Packet.Type packetType,
             int sleepMilliseconds) {
+        this(packetType, sleepMilliseconds, false);
+    }
+
+    public RepeatablePacketSender(GeProtocol.Packet.Type packetType,
+            int sleepMilliseconds, boolean retryOnException) {
 
         this.packetType = packetType;
         this.sleepMilliseconds = sleepMilliseconds;
+        this.retryOnException = retryOnException;
 
         threadWorker = new ThreadWorker();
         clientNetworkManager = ContextHolder.getBean(IClientNetworkManager.class);
@@ -71,6 +78,13 @@ abstract class RepeatablePacketSender extends SubscribableServerPacketListener {
                 clientNetworkManager.removePacketListener(RepeatablePacketSender.this);
             } catch (Exception e) {
                 RepeatablePacketSender.log.error(LogUtils.getObjectInfo(this), e);
+                if (retryOnException) {
+                    if (log.isDebugEnabled()) {
+                        log.debug("Restarting afrer error");
+                    }
+                    threadWorker = new ThreadWorker();
+                    threadWorker.start();
+                }
             }
         }
     }

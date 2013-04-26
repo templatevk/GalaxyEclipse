@@ -11,7 +11,7 @@ import lombok.*;
  *
  */
 @Data
-public class ClickableActor extends GeActor {
+class ClickableActor extends GeActor {
     private ICommand<GePosition> hitCommand;
 
     public ClickableActor() {

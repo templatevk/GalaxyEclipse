@@ -9,16 +9,16 @@ import com.badlogic.gdx.scenes.scene2d.utils.*;
 /**
  *
  */
-class LoadingPresenter implements IStageProvider {
-    private LoadingStage view;
+class LoadingStageProvider implements IStageProvider {
+    private LoadingStage stage;
 
-    LoadingPresenter() {
-        view = new LoadingStage();
+    LoadingStageProvider() {
+        stage = new LoadingStage();
     }
 
     @Override
     public AbstractGameStage getGameStage() {
-        return view;
+        return stage;
     }
 
     @Override
@@ -26,24 +26,27 @@ class LoadingPresenter implements IStageProvider {
 
     }
 
-    private static class LoadingStage extends AbstractGameStage {
+    class LoadingStage extends AbstractGameStage {
         private Table rootTable;
         private Table innerTable;
 
         LoadingStage() {
             IResourceLoader resourceLoader = ContextHolder.getBean(IResourceLoader.class);
 
-            rootTable = new Table();
-            rootTable.setFillParent(true);
-            rootTable.setBackground(new TextureRegionDrawable(resourceLoader.findRegion("ui/menu_login")));
-            addActor(rootTable);
-
             innerTable = new Table();
             innerTable.setBounds(0, 0, 400, 200);
             innerTable.setTransform(true);
+            innerTable.setBackground(new TextureRegionDrawable(resourceLoader
+                    .findRegion("ui/progress")));
+
+            rootTable = new Table();
+            rootTable.setFillParent(true);
             rootTable.setTransform(false);
+            rootTable.setBackground(new TextureRegionDrawable(resourceLoader
+                    .findRegion("ui/menu_login")));
             rootTable.add(innerTable);
 
+            addActor(rootTable);
         }
 
         @Override

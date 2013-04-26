@@ -6,7 +6,7 @@ import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.*;
  * Responsible for retreiving pictures from the file system and creating Actors.
  */
 public interface IActorFactory {
-    LocationObjectActor createLocationObjectActor(LocationObject locationObject);
+    GeActor createLocationObjectActor(LocationObject locationObject);
 
-    BackgroundActor createBackgroundActor(int locationId);
+    GeActor createBackgroundActor(int locationId);
 }

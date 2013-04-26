@@ -15,16 +15,18 @@ import java.util.*;
  */
 @Slf4j
 class ActorFactory implements IActorFactory {
-    private static final String PLAYER_IMAGE_PATH = // <id>
+    private static final String PLAYER_IMAGE_PATH =  // <id>
             "ship_types/%h";
     private static final String STATIC_OBJECT_IMAGE_PATH = // <object_type>, <id>
             "static/%s/%h";
     private static final String LOCATION_BACKGROUND_IMAGE_PATH = // <id>
             "locations/%h";
+
     private final DictionaryTypesMapper dictionaryTypesMapper;
     private IResourceLoader resourceLoader;
 
     private Map<Integer, BackgroundActor> backgrounds;
+    private StageInfo stageInfo;
 
     ActorFactory() {
         backgrounds = new HashMap<>();

@@ -1,11 +1,9 @@
 package arch.galaxyeclipse.client.stage.ui;
 
 
-import arch.galaxyeclipse.client.*;
 import arch.galaxyeclipse.client.resource.*;
 import arch.galaxyeclipse.shared.*;
 import arch.galaxyeclipse.shared.context.*;
-import com.badlogic.gdx.*;
 import com.badlogic.gdx.graphics.*;
 import com.badlogic.gdx.graphics.g2d.*;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
@@ -91,8 +89,7 @@ class DefaultTextFieldBuilder implements ITextFieldBuilder {
         textField.setTextPaddingY(TEXT_PADDING_Y);
         textField.setFocusTraversal(false);
 
-        if (EnvType.CURRENT  == EnvType.DEV
-                && "".equals(text)) {
+        if (EnvType.CURRENT == EnvType.DEV && "".equals(text)) {
             textField.setText("test");
         }
 

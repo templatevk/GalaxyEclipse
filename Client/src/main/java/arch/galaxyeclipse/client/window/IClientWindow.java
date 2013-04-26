@@ -14,8 +14,6 @@ public interface IClientWindow {
 
     void addDestroyable(IDestroyable destroyable);
 
-    float getViewportHeight();
-    float getViewportWidth() ;
     float getHeight();
     float getWidth() ;
 }

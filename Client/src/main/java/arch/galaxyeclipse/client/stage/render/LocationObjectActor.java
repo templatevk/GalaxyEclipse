@@ -11,7 +11,7 @@ import lombok.*;
  *
  */
 @Data
-public class LocationObjectActor extends ClickableActor {
+class LocationObjectActor extends ClickableActor {
     private LocationObject locationObject;
     private LocationObjectTypesMapperType locationObjectType;
 
@@ -23,6 +23,30 @@ public class LocationObjectActor extends ClickableActor {
             ICommand<GePosition> hitCommand) {
         super(drawable, hitCommand);
         this.locationObject = locationObject;
-        setActorType(ActorType.LOCATION_OBJECT);
+
+        boolean self = locationObject.getObjectId() ==
+                getShipStateInfoHolder().getLocationObjectId();
+        setActorType(self ? ActorType.SELF : ActorType.PLAYER);
+    }
+
+    @Override
+    public void adjust(StageInfo stageInfo) {
+        switch (locationObjectType) {
+            case ROCKET:
+                break;
+            case ASTEROID:
+                break;
+            case STATION:
+                break;
+            case PLAYER:
+                if (getActorType() == ActorType.SELF) {
+                    float x = (stageInfo.getWidth() - stageInfo.getWidth()) / 2f;
+                    float y = (stageInfo.getHeight() - stageInfo.getHeight()) / 2f;
+                    setPosition(x, y);
+                } else {
+                }
+                break;
+        }
+        setScale(stageInfo.getScaleX(), stageInfo.getScaleY());
     }
 }

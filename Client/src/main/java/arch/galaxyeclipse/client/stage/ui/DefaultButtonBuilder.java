@@ -13,7 +13,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.*;
  *
  */
 class DefaultButtonBuilder implements IButtonBuilder {
-    public static final int TEXT_PADDING_Y = -10;
+    private static final int TEXT_PADDING_Y = -10;
     private static final float BUTTON_DOWN_OFFSET = 2;
 
     private String text;
@@ -73,10 +73,10 @@ class DefaultButtonBuilder implements IButtonBuilder {
                 super.keyboardFocusChanged(event, actor, focused);
             }
         });
-        button.addListener(new InputListener(){
+        button.addListener(new InputListener() {
             @Override
             public boolean keyTyped(InputEvent event, char character) {
-                switch(event.getKeyCode()) {
+                switch (event.getKeyCode()) {
                     case Input.Keys.ENTER:
                         listener.clicked(event, 0, 0);
                         button.setPressedStyle(true);

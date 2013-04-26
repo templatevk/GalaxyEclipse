@@ -3,6 +3,7 @@ package arch.galaxyeclipse.client.stage.render;
 import arch.galaxyeclipse.client.data.*;
 import arch.galaxyeclipse.shared.*;
 import arch.galaxyeclipse.shared.util.*;
+import com.badlogic.gdx.scenes.scene2d.*;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.*;
 import lombok.*;
@@ -12,18 +13,22 @@ import lombok.extern.slf4j.*;
  *
  */
 @Slf4j
-public class BackgroundActor extends Table {
+class BackgroundActor extends ClickableActor {
+
+    // TODO because of delegation npe is thrown getPrefWidth()7m92ba7m92ba7m92ba
     @Delegate
-    private ClickableActor clickableActor;
+    private Table background;
 
     public BackgroundActor() {
         this(null);
     }
 
     public BackgroundActor(Drawable drawable) {
-        setBackground(drawable);
-        clickableActor = new ClickableActor();
-        clickableActor.setHitCommand(new ICommand<GePosition>() {
+        super(drawable);
+        background = new Table();
+        background.setBackground(drawable);
+
+        setHitCommand(new ICommand<GePosition>() {
             @Override
             public void perform(GePosition argument) {
                 if (log.isDebugEnabled()) {
@@ -32,10 +37,10 @@ public class BackgroundActor extends Table {
                 }
             }
         });
-        clickableActor.setActorType(ActorType.BACKGROUND);
+        setActorType(ActorType.BACKGROUND);
 
         if (EnvType.CURRENT == EnvType.DEV) {
-            debug();
+            background.debug();
         }
     }
 }

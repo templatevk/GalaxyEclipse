@@ -187,7 +187,6 @@ public class MainMenuPresenter extends ServerPacketListener implements IStagePro
             connectBtn = StageUiFactory.createButtonBuilder().setText("Connect")
                     .setClickCommand(presenter.connectButtonCommand).build();
 
-
             rootTable = new Table();
             rootTable.setFillParent(true);
             rootTable.setBackground(new TextureRegionDrawable(resourceLoader.findRegion("ui/menu_login")));

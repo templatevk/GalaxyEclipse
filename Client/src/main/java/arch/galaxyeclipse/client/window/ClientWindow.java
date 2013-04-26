@@ -27,8 +27,6 @@ class ClientWindow implements IClientWindow {
     private Rectangle viewport;
     private List<IDestroyable> destroyables;
 
-	private @Getter float viewportHeight;
-	private @Getter float viewportWidth;
     private @Getter float width;
     private @Getter float height;
 
@@ -89,7 +87,7 @@ class ClientWindow implements IClientWindow {
             Gdx.gl.glHint(GL20.GL_FRAGMENT_SHADER,              GL20.GL_NICEST);
 
             setStageProvider(StageProviderFactory.createStageProvider(
-                    StageProviderFactory.StagePresenterType.MAIN_MENU_PROVIDER));
+                    StageProviderFactory.StagePresenterType.MAIN_MENU));
         }
 
         @Override
@@ -140,8 +138,8 @@ class ClientWindow implements IClientWindow {
                 scale = width / VIRTUAL_WIDTH;
             }
 
-            viewportWidth = VIRTUAL_WIDTH * scale;
-            viewportHeight = VIRTUAL_HEIGHT * scale;
+            float viewportWidth = VIRTUAL_WIDTH * scale;
+            float viewportHeight = VIRTUAL_HEIGHT * scale;
             viewport = new Rectangle(crop.x, crop.y, viewportWidth, viewportHeight);
 
             stageProvider.getGameStage().resize(viewportWidth, viewportHeight);
