@@ -6,11 +6,13 @@ import com.badlogic.gdx.scenes.scene2d.*;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.*;
 import lombok.*;
+import lombok.extern.slf4j.*;
 
 /**
  *
  */
 @Data
+@Slf4j
 abstract class ClickableActor extends GeActor {
     private ICommand<GePosition> hitCommand;
 
@@ -19,19 +21,16 @@ abstract class ClickableActor extends GeActor {
     }
 
     public ClickableActor(Drawable drawable) {
-        this(drawable, new StubCommand<GePosition>());
-    }
-
-    public ClickableActor(Drawable drawable, ICommand<GePosition> hitCommand) {
         super(drawable);
-        this.hitCommand = hitCommand;
+
+        hitCommand = new StubCommand<>();
+        addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                hitCommand.perform(new GePosition(x, y));
+            }
+        });
 
         setOrigin(getPrefWidth() / 2, getPrefHeight() / 2);
-    }
-
-    @Override
-    public Actor hit(float x, float y, boolean touchable) {
-        hitCommand.perform(new GePosition(x, y));
-        return super.hit(x, y, touchable);
     }
 }

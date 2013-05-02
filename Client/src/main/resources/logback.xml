@@ -14,5 +14,6 @@
     <logger name="arch.galaxyeclipse.client.network" level="${log.network}"/>
     <logger name="arch.galaxyeclipse.shared.network" level="${log.network}"/>
     <logger name="arch.galaxyeclipse.client.data" level="${log.data}"/>
-    <logger name="arch.galaxyeclipse.client.stage" level="${log.data}"/>
+    <logger name="arch.galaxyeclipse.client.stage" level="${log.stage}"/>
+    <logger name="arch.galaxyeclipse.client.stage.render" level="${log.stage.render}"/>
 </configuration>

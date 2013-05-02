@@ -6,10 +6,6 @@ import com.badlogic.gdx.scenes.scene2d.*;
 import lombok.*;
 import lombok.extern.slf4j.*;
 
-/**
- * Base class for all game stages. Performs scaling, resizing and aspect ration matching.
- * Stages are obtained via the getStage method.
- */
 @Slf4j
 public abstract class AbstractGameStage extends Stage {
     private static final float DEFAULT_SCALE_COEF = 0.5f;
@@ -21,8 +17,6 @@ public abstract class AbstractGameStage extends Stage {
     protected AbstractGameStage() {
         clientWindow = ContextHolder.getBean(IClientWindow.class);
     }
-
-    protected abstract Group getScaleGroup();
 
     public void resize(float viewportWidth, float viewportHeight) {
         setViewport(viewportWidth, viewportHeight, false);
@@ -43,6 +37,10 @@ public abstract class AbstractGameStage extends Stage {
                     + ", viewportWidth = " + viewportWidth
                     + ", viewportHeight = " + viewportHeight);
         }
+    }
+
+    protected Group getScaleGroup() {
+        return null;
     }
 
     protected boolean isManualScaling() {

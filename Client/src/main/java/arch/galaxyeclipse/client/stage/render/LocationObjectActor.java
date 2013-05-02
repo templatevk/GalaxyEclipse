@@ -21,8 +21,10 @@ class LocationObjectActor extends ClickableActor {
 
     public LocationObjectActor(Drawable drawable, LocationObject locationObject,
             ICommand<GePosition> hitCommand) {
-        super(drawable, hitCommand);
+        super(drawable);
         this.locationObject = locationObject;
+
+        setHitCommand(hitCommand);
 
         boolean self = locationObject.getObjectId() ==
                 getShipStateInfoHolder().getLocationObjectId();

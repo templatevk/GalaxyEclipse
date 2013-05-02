@@ -178,8 +178,8 @@ public class FlightModeController implements IStageProvider {
         }
 
         @Override
-        protected Group getScaleGroup() {
-            return rootLayout;
+        protected boolean isManualScaling() {
+            return true;
         }
     }
 

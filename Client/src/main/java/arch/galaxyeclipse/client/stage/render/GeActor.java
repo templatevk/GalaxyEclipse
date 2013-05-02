@@ -2,14 +2,17 @@ package arch.galaxyeclipse.client.stage.render;
 
 import arch.galaxyeclipse.client.data.*;
 import arch.galaxyeclipse.shared.context.*;
+import arch.galaxyeclipse.shared.util.*;
 import com.badlogic.gdx.scenes.scene2d.*;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.*;
 import lombok.*;
+import lombok.extern.slf4j.*;
 
 /**
  *
  */
+@Slf4j
 public class GeActor extends Image implements IGeActor {
     @Getter(AccessLevel.PROTECTED)
     private static ShipStateInfoHolder shipStateInfoHolder;
@@ -23,6 +26,7 @@ public class GeActor extends Image implements IGeActor {
     }
 
     public GeActor() {
+        this(null);
         actorType = ActorType.UNDEFINED;
     }
 
@@ -38,5 +42,17 @@ public class GeActor extends Image implements IGeActor {
     @Override
     public void adjust(StageInfo stageInfo) {
 
+    }
+
+    @Override
+    public Actor hit(float x, float y, boolean touchable) {
+        Actor hittedActor = super.hit(x, y, touchable);
+        if (hittedActor == this) {
+            if (log.isDebugEnabled()) {
+                log.debug(LogUtils.getObjectInfo(GeActor.this) +
+                        "hit (" + x + ", " + y + ")");
+            }
+        }
+        return hittedActor;
     }
 }
