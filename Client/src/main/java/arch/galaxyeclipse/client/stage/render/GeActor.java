@@ -2,6 +2,7 @@ package arch.galaxyeclipse.client.stage.render;
 
 import arch.galaxyeclipse.client.data.*;
 import arch.galaxyeclipse.shared.context.*;
+import com.badlogic.gdx.scenes.scene2d.*;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.*;
 import lombok.*;
@@ -9,7 +10,7 @@ import lombok.*;
 /**
  *
  */
-public class GeActor extends Image {
+public class GeActor extends Image implements IGeActor {
     @Getter(AccessLevel.PROTECTED)
     private static ShipStateInfoHolder shipStateInfoHolder;
 
@@ -29,6 +30,12 @@ public class GeActor extends Image {
         super(drawable);
     }
 
+    @Override
+    public Actor toActor() {
+        return this;
+    }
+
+    @Override
     public void adjust(StageInfo stageInfo) {
 
     }

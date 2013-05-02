@@ -65,15 +65,15 @@ public class FlightModeController implements IStageProvider {
                 Set<GeProtocol.LocationInfo.LocationObject> locationObjects =
                         locationInfoHolder.getObjectsForRadius(position);
 
-//               TODO unstable
-//                int locationId = locationInfoHolder.getLocationId();
-//                GeActor background = actorFactory.createBackgroundActor(locationId);
-//                FlightModeModel model = new FlightModeModel(locationObjects.size(), background);
-
                 FlightModeModel model = new FlightModeModel(locationObjects.size());
                 for (GeProtocol.LocationInfo.LocationObject locationObject : locationObjects) {
                     model.getGameActors().add(actorFactory.createLocationObjectActor(locationObject));
                 }
+
+                int locationId = locationInfoHolder.getLocationId();
+                IGeActor background = actorFactory.createBackgroundActor(locationId);
+                model.setBackground(background);
+
                 view.updateModel(model);
 
                 if (FlightModeController.log.isDebugEnabled()) {
@@ -158,31 +158,23 @@ public class FlightModeController implements IStageProvider {
         @Override
         public void draw() {
             gameActorsLayout.clear();
-//            TODO unstable
-//            drawBackground();
-            drawActors();
 
-            super.draw();
-        }
-
-        private void drawBackground() {
-            GeActor background = model.getBackground();
-            gameActorsLayout.addActor(background);
-            background.setSize(gameActorsLayout.getWidth(), gameActorsLayout.getHeight());
-            background.setPosition(0, 0);
-        }
-
-        private void drawActors() {
             StageInfo stageInfo = new StageInfo();
             stageInfo.setHeight(gameActorsLayout.getHeight());
             stageInfo.setWidth(gameActorsLayout.getWidth());
             stageInfo.setScaleY(getScaleY());
             stageInfo.setScaleX(getScaleX());
 
-            for (GeActor gameActor : model.getGameActors()) {
-                gameActorsLayout.addActor(gameActor);
+            IGeActor background = model.getBackground();
+            gameActorsLayout.addActor(background.toActor());
+            background.adjust(stageInfo);
+
+            for (IGeActor gameActor : model.getGameActors()) {
+                gameActorsLayout.addActor(gameActor.toActor());
                 gameActor.adjust(stageInfo);
             }
+
+            super.draw();
         }
 
         @Override
@@ -195,8 +187,8 @@ public class FlightModeController implements IStageProvider {
     private static class FlightModeModel {
         private static final int ACRORS_SIZE = 0;
 
-        private List<GeActor> gameActors;
-        private GeActor background;
+        private List<IGeActor> gameActors;
+        private IGeActor background;
 
         public FlightModeModel() {
             this(ACRORS_SIZE);
@@ -206,7 +198,7 @@ public class FlightModeController implements IStageProvider {
             this(actorsCapacity, null);
         }
 
-        public FlightModeModel(int actorsCapacity, GeActor background) {
+        public FlightModeModel(int actorsCapacity, IGeActor background) {
             gameActors = new ArrayList<>(actorsCapacity);
             this.background = background;
         }

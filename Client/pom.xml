@@ -73,6 +73,20 @@
         </dependency>
         <dependency>
             <groupId>libgdx</groupId>
+            <artifactId>libgdx-glfw</artifactId>
+            <version>0.9.8</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/../lib/libgdx/gdx-backend-jglfw.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>libgdx</groupId>
+            <artifactId>libgdx-glfw-natives</artifactId>
+            <version>0.9.8</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/../lib/libgdx/gdx-backend-jglfw-natives.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>libgdx</groupId>
             <artifactId>libgdx-ui</artifactId>
             <version>0.9.8</version>
             <scope>system</scope>

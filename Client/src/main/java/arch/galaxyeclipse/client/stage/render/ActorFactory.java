@@ -26,7 +26,6 @@ class ActorFactory implements IActorFactory {
     private IResourceLoader resourceLoader;
 
     private Map<Integer, BackgroundActor> backgrounds;
-    private StageInfo stageInfo;
 
     ActorFactory() {
         backgrounds = new HashMap<>();
@@ -63,16 +62,11 @@ class ActorFactory implements IActorFactory {
     }
 
     @Override
-    public BackgroundActor createBackgroundActor(int locationId) {
-        BackgroundActor background = backgrounds.get(locationId);
+    public IGeActor createBackgroundActor(int locationId) {
+        String path = String.format(LOCATION_BACKGROUND_IMAGE_PATH, locationId);
+        Drawable drawable = new TextureRegionDrawable(resourceLoader.findRegion(path));
+        BackgroundActor background = new BackgroundActor(drawable);
 
-        if (background == null) {
-            String path = String.format(LOCATION_BACKGROUND_IMAGE_PATH, locationId);
-            Drawable drawable = new TextureRegionDrawable(resourceLoader.findRegion(path));
-            background = new BackgroundActor(drawable);
-
-            backgrounds.put(locationId, background);
-        }
         return background;
     }
 }
