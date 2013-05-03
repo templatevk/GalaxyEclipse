@@ -115,10 +115,10 @@ public class GeProtocolMessageFactory {
                 .setHp(shipState.getShipStateHp())
                 .setArmorDurability(shipState.getShipStateArmorDurability())
                 .setRotationSpeed(shipState.getShipStateRotationSpeed())
-                .setRotationAngle(shipState.getShipStateRotationAngle())
                 .setMoveSpeed(shipState.getShipStateMoveSpeed())
                 .setPositionX(locationObject.getPositionX())
                 .setPositionY(locationObject.getPositionY())
+                .setRotationAngle(locationObject.getRotationAngle())
                 .setLocationObjectId(locationObject.getLocationObjectId())
                 .build();
     }
@@ -146,6 +146,7 @@ public class GeProtocolMessageFactory {
                 .setObjectId(locationObject.getLocationObjectId())
                 .setPositionX(locationObject.getPositionX())
                 .setPositionY(locationObject.getPositionY())
+                .setRotationAngle(locationObject.getRotationAngle())
                 .setObjectTypeId(locationObject.getLocationObjectTypeId())
                 .setNativeId(locationObject.getObjectNativeId()).build();
     }

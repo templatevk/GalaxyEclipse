@@ -1,6 +1,6 @@
 package arch.galaxyeclipse.client.window;
 
-import arch.galaxyeclipse.client.stage.*;
+import arch.galaxyeclipse.client.ui.provider.*;
 import arch.galaxyeclipse.shared.util.*;
 
 /**

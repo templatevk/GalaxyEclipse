@@ -41,17 +41,13 @@ public class WeaponType {
         WeaponType that = (WeaponType) o;
 
         if (weaponTypeId != that.weaponTypeId) return false;
-        if (weaponTypeName != null ? !weaponTypeName.equals(that.weaponTypeName) : that.weaponTypeName != null)
-            return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result = weaponTypeId;
-        result = 31 * result + (weaponTypeName != null ? weaponTypeName.hashCode() : 0);
-        return result;
+        return weaponTypeId;
     }
 
     private Set<Weapon> weapons;

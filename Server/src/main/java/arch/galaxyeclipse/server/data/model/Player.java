@@ -146,33 +146,14 @@ public class Player {
 
         Player player = (Player) o;
 
-        if (activated != player.activated) return false;
-        if (banned != player.banned) return false;
-        if (locationObjectId != player.locationObjectId) return false;
         if (playerId != player.playerId) return false;
-        if (shipConfigId != player.shipConfigId) return false;
-        if (shipStateId != player.shipStateId) return false;
-        if (!email.equals(player.email)) return false;
-        if (!nickname.equals(player.nickname)) return false;
-        if (!password.equals(player.password)) return false;
-        if (!username.equals(player.username)) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result = playerId;
-        result = 31 * result + username.hashCode();
-        result = 31 * result + password.hashCode();
-        result = 31 * result + nickname.hashCode();
-        result = 31 * result + email.hashCode();
-        result = 31 * result + (banned ? 1 : 0);
-        result = 31 * result + (activated ? 1 : 0);
-        result = 31 * result + shipStateId;
-        result = 31 * result + shipConfigId;
-        result = 31 * result + locationObjectId;
-        return result;
+        return playerId;
     }
 
     private Set<InventoryItem> inventoryItems;

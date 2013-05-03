@@ -56,7 +56,7 @@ class UnauthenticatedPacketHandler extends StatefulPacketHandler {
             indicatePlayerOnline(startupInfoData.getPlayer());
 
             // TODO: Depending on the player state!
-            IStatefulPacketHandler statefulPacketHandler = new PacketHandlerFactory()
+            IStatefulPacketHandler statefulPacketHandler = PacketHandlerFactory
                     .createStatefulPacketHandler(serverChannelHandler, GameModeType.FLIGHT);
             serverChannelHandler.setStatefulPacketHandler(statefulPacketHandler);
         }

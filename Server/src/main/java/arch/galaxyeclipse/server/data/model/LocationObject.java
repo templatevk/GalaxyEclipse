@@ -69,6 +69,18 @@ public class LocationObject {
         this.locationId = locationId;
     }
 
+    private float rotationAngle;
+
+    @Column(name = "rotation_angle", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
+    @Basic
+    public float getRotationAngle() {
+        return rotationAngle;
+    }
+
+    public void setRotationAngle(float rotationAngle) {
+        this.rotationAngle = rotationAngle;
+    }
+
     private float positionX;
 
     @Column(name = "position_x", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)

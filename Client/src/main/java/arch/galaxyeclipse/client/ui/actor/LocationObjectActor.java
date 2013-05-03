@@ -1,4 +1,4 @@
-package arch.galaxyeclipse.client.stage.render;
+package arch.galaxyeclipse.client.ui.actor;
 
 import arch.galaxyeclipse.client.data.*;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.*;
@@ -49,6 +49,7 @@ class LocationObjectActor extends ClickableActor {
                 }
                 break;
         }
+        setRotation(locationObject.getRotationAngle());
         setScale(stageInfo.getScaleX(), stageInfo.getScaleY());
     }
 }

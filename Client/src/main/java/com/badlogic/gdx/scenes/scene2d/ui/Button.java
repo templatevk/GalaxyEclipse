@@ -16,7 +16,7 @@
 
 package com.badlogic.gdx.scenes.scene2d.ui;
 
-import arch.galaxyeclipse.client.stage.ui.IButtonClickCommand;
+import arch.galaxyeclipse.client.ui.IButtonClickCommand;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Actor;

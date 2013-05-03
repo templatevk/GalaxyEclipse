@@ -52,19 +52,13 @@ public class PlayerActivationHash {
         PlayerActivationHash that = (PlayerActivationHash) o;
 
         if (playerActivationHashId != that.playerActivationHashId) return false;
-        if (playerId != that.playerId) return false;
-        if (activationHash != null ? !activationHash.equals(that.activationHash) : that.activationHash != null)
-            return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result = playerActivationHashId;
-        result = 31 * result + (activationHash != null ? activationHash.hashCode() : 0);
-        result = 31 * result + playerId;
-        return result;
+        return playerActivationHashId;
     }
 
     private Player player;

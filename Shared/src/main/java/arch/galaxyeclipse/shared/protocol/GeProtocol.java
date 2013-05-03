@@ -3950,15 +3950,15 @@ public final class GeProtocol {
      */
     int getMoveSpeed();
 
-    // required int32 rotationSpeed = 2;
+    // required float rotationSpeed = 2;
     /**
-     * <code>required int32 rotationSpeed = 2;</code>
+     * <code>required float rotationSpeed = 2;</code>
      */
     boolean hasRotationSpeed();
     /**
-     * <code>required int32 rotationSpeed = 2;</code>
+     * <code>required float rotationSpeed = 2;</code>
      */
-    int getRotationSpeed();
+    float getRotationSpeed();
 
     // required int32 hp = 3;
     /**
@@ -3980,15 +3980,15 @@ public final class GeProtocol {
      */
     int getArmorDurability();
 
-    // required int32 rotationAngle = 5;
+    // required float rotationAngle = 5;
     /**
-     * <code>required int32 rotationAngle = 5;</code>
+     * <code>required float rotationAngle = 5;</code>
      */
     boolean hasRotationAngle();
     /**
-     * <code>required int32 rotationAngle = 5;</code>
+     * <code>required float rotationAngle = 5;</code>
      */
-    int getRotationAngle();
+    float getRotationAngle();
 
     // required float positionX = 6;
     /**
@@ -4076,9 +4076,9 @@ public final class GeProtocol {
               moveSpeed_ = input.readInt32();
               break;
             }
-            case 16: {
+            case 21: {
               bitField0_ |= 0x00000002;
-              rotationSpeed_ = input.readInt32();
+              rotationSpeed_ = input.readFloat();
               break;
             }
             case 24: {
@@ -4091,9 +4091,9 @@ public final class GeProtocol {
               armorDurability_ = input.readInt32();
               break;
             }
-            case 40: {
+            case 45: {
               bitField0_ |= 0x00000010;
-              rotationAngle_ = input.readInt32();
+              rotationAngle_ = input.readFloat();
               break;
             }
             case 53: {
@@ -4167,19 +4167,19 @@ public final class GeProtocol {
       return moveSpeed_;
     }
 
-    // required int32 rotationSpeed = 2;
+    // required float rotationSpeed = 2;
     public static final int ROTATIONSPEED_FIELD_NUMBER = 2;
-    private int rotationSpeed_;
+    private float rotationSpeed_;
     /**
-     * <code>required int32 rotationSpeed = 2;</code>
+     * <code>required float rotationSpeed = 2;</code>
      */
     public boolean hasRotationSpeed() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>required int32 rotationSpeed = 2;</code>
+     * <code>required float rotationSpeed = 2;</code>
      */
-    public int getRotationSpeed() {
+    public float getRotationSpeed() {
       return rotationSpeed_;
     }
 
@@ -4215,19 +4215,19 @@ public final class GeProtocol {
       return armorDurability_;
     }
 
-    // required int32 rotationAngle = 5;
+    // required float rotationAngle = 5;
     public static final int ROTATIONANGLE_FIELD_NUMBER = 5;
-    private int rotationAngle_;
+    private float rotationAngle_;
     /**
-     * <code>required int32 rotationAngle = 5;</code>
+     * <code>required float rotationAngle = 5;</code>
      */
     public boolean hasRotationAngle() {
       return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
-     * <code>required int32 rotationAngle = 5;</code>
+     * <code>required float rotationAngle = 5;</code>
      */
-    public int getRotationAngle() {
+    public float getRotationAngle() {
       return rotationAngle_;
     }
 
@@ -4281,10 +4281,10 @@ public final class GeProtocol {
 
     private void initFields() {
       moveSpeed_ = 0;
-      rotationSpeed_ = 0;
+      rotationSpeed_ = 0F;
       hp_ = 0;
       armorDurability_ = 0;
-      rotationAngle_ = 0;
+      rotationAngle_ = 0F;
       positionX_ = 0F;
       positionY_ = 0F;
       locationObjectId_ = 0;
@@ -4337,7 +4337,7 @@ public final class GeProtocol {
         output.writeInt32(1, moveSpeed_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeInt32(2, rotationSpeed_);
+        output.writeFloat(2, rotationSpeed_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeInt32(3, hp_);
@@ -4346,7 +4346,7 @@ public final class GeProtocol {
         output.writeInt32(4, armorDurability_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        output.writeInt32(5, rotationAngle_);
+        output.writeFloat(5, rotationAngle_);
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
         output.writeFloat(6, positionX_);
@@ -4372,7 +4372,7 @@ public final class GeProtocol {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, rotationSpeed_);
+          .computeFloatSize(2, rotationSpeed_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
@@ -4384,7 +4384,7 @@ public final class GeProtocol {
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(5, rotationAngle_);
+          .computeFloatSize(5, rotationAngle_);
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
         size += com.google.protobuf.CodedOutputStream
@@ -4516,13 +4516,13 @@ public final class GeProtocol {
         super.clear();
         moveSpeed_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
-        rotationSpeed_ = 0;
+        rotationSpeed_ = 0F;
         bitField0_ = (bitField0_ & ~0x00000002);
         hp_ = 0;
         bitField0_ = (bitField0_ & ~0x00000004);
         armorDurability_ = 0;
         bitField0_ = (bitField0_ & ~0x00000008);
-        rotationAngle_ = 0;
+        rotationAngle_ = 0F;
         bitField0_ = (bitField0_ & ~0x00000010);
         positionX_ = 0F;
         bitField0_ = (bitField0_ & ~0x00000020);
@@ -4722,35 +4722,35 @@ public final class GeProtocol {
         return this;
       }
 
-      // required int32 rotationSpeed = 2;
-      private int rotationSpeed_ ;
+      // required float rotationSpeed = 2;
+      private float rotationSpeed_ ;
       /**
-       * <code>required int32 rotationSpeed = 2;</code>
+       * <code>required float rotationSpeed = 2;</code>
        */
       public boolean hasRotationSpeed() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>required int32 rotationSpeed = 2;</code>
+       * <code>required float rotationSpeed = 2;</code>
        */
-      public int getRotationSpeed() {
+      public float getRotationSpeed() {
         return rotationSpeed_;
       }
       /**
-       * <code>required int32 rotationSpeed = 2;</code>
+       * <code>required float rotationSpeed = 2;</code>
        */
-      public Builder setRotationSpeed(int value) {
+      public Builder setRotationSpeed(float value) {
         bitField0_ |= 0x00000002;
         rotationSpeed_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required int32 rotationSpeed = 2;</code>
+       * <code>required float rotationSpeed = 2;</code>
        */
       public Builder clearRotationSpeed() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        rotationSpeed_ = 0;
+        rotationSpeed_ = 0F;
         onChanged();
         return this;
       }
@@ -4821,35 +4821,35 @@ public final class GeProtocol {
         return this;
       }
 
-      // required int32 rotationAngle = 5;
-      private int rotationAngle_ ;
+      // required float rotationAngle = 5;
+      private float rotationAngle_ ;
       /**
-       * <code>required int32 rotationAngle = 5;</code>
+       * <code>required float rotationAngle = 5;</code>
        */
       public boolean hasRotationAngle() {
         return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
-       * <code>required int32 rotationAngle = 5;</code>
+       * <code>required float rotationAngle = 5;</code>
        */
-      public int getRotationAngle() {
+      public float getRotationAngle() {
         return rotationAngle_;
       }
       /**
-       * <code>required int32 rotationAngle = 5;</code>
+       * <code>required float rotationAngle = 5;</code>
        */
-      public Builder setRotationAngle(int value) {
+      public Builder setRotationAngle(float value) {
         bitField0_ |= 0x00000010;
         rotationAngle_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required int32 rotationAngle = 5;</code>
+       * <code>required float rotationAngle = 5;</code>
        */
       public Builder clearRotationAngle() {
         bitField0_ = (bitField0_ & ~0x00000010);
-        rotationAngle_ = 0;
+        rotationAngle_ = 0F;
         onChanged();
         return this;
       }
@@ -5150,17 +5150,13 @@ public final class GeProtocol {
        */
       LOOT_PICK(5, 8),
       /**
-       * <code>ATTACK_START = 9;</code>
+       * <code>ATTACK = 9;</code>
        *
        * <pre>
        * Space button
        * </pre>
        */
-      ATTACK_START(6, 9),
-      /**
-       * <code>ATTACK_STOP = 10;</code>
-       */
-      ATTACK_STOP(7, 10),
+      ATTACK(6, 9),
       /**
        * <code>ROCKET_SHOOT = 16;</code>
        *
@@ -5168,7 +5164,7 @@ public final class GeProtocol {
        * SHIFT
        * </pre>
        */
-      ROCKET_SHOOT(8, 16),
+      ROCKET_SHOOT(7, 16),
       ;
 
       /**
@@ -5208,17 +5204,13 @@ public final class GeProtocol {
        */
       public static final int LOOT_PICK_VALUE = 8;
       /**
-       * <code>ATTACK_START = 9;</code>
+       * <code>ATTACK = 9;</code>
        *
        * <pre>
        * Space button
        * </pre>
        */
-      public static final int ATTACK_START_VALUE = 9;
-      /**
-       * <code>ATTACK_STOP = 10;</code>
-       */
-      public static final int ATTACK_STOP_VALUE = 10;
+      public static final int ATTACK_VALUE = 9;
       /**
        * <code>ROCKET_SHOOT = 16;</code>
        *
@@ -5239,8 +5231,7 @@ public final class GeProtocol {
           case 4: return STOP;
           case 7: return OBJECT_CLICK;
           case 8: return LOOT_PICK;
-          case 9: return ATTACK_START;
-          case 10: return ATTACK_STOP;
+          case 9: return ATTACK;
           case 16: return ROCKET_SHOOT;
           default: return null;
         }
@@ -7694,6 +7685,16 @@ public final class GeProtocol {
        * <code>required float positionY = 5;</code>
        */
       float getPositionY();
+
+      // required float rotationAngle = 6;
+      /**
+       * <code>required float rotationAngle = 6;</code>
+       */
+      boolean hasRotationAngle();
+      /**
+       * <code>required float rotationAngle = 6;</code>
+       */
+      float getRotationAngle();
     }
     /**
      * Protobuf type {@code arch.galaxyeclipse.shared.protocol.LocationInfo.LocationObject}
@@ -7769,6 +7770,11 @@ public final class GeProtocol {
               case 45: {
                 bitField0_ |= 0x00000010;
                 positionY_ = input.readFloat();
+                break;
+              }
+              case 53: {
+                bitField0_ |= 0x00000020;
+                rotationAngle_ = input.readFloat();
                 break;
               }
             }
@@ -7891,12 +7897,29 @@ public final class GeProtocol {
         return positionY_;
       }
 
+      // required float rotationAngle = 6;
+      public static final int ROTATIONANGLE_FIELD_NUMBER = 6;
+      private float rotationAngle_;
+      /**
+       * <code>required float rotationAngle = 6;</code>
+       */
+      public boolean hasRotationAngle() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       * <code>required float rotationAngle = 6;</code>
+       */
+      public float getRotationAngle() {
+        return rotationAngle_;
+      }
+
       private void initFields() {
         objectId_ = 0;
         objectTypeId_ = 0;
         nativeId_ = 0;
         positionX_ = 0F;
         positionY_ = 0F;
+        rotationAngle_ = 0F;
       }
       private byte memoizedIsInitialized = -1;
       public final boolean isInitialized() {
@@ -7923,6 +7946,10 @@ public final class GeProtocol {
           memoizedIsInitialized = 0;
           return false;
         }
+        if (!hasRotationAngle()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
         memoizedIsInitialized = 1;
         return true;
       }
@@ -7944,6 +7971,9 @@ public final class GeProtocol {
         }
         if (((bitField0_ & 0x00000010) == 0x00000010)) {
           output.writeFloat(5, positionY_);
+        }
+        if (((bitField0_ & 0x00000020) == 0x00000020)) {
+          output.writeFloat(6, rotationAngle_);
         }
         getUnknownFields().writeTo(output);
       }
@@ -7973,6 +8003,10 @@ public final class GeProtocol {
         if (((bitField0_ & 0x00000010) == 0x00000010)) {
           size += com.google.protobuf.CodedOutputStream
             .computeFloatSize(5, positionY_);
+        }
+        if (((bitField0_ & 0x00000020) == 0x00000020)) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeFloatSize(6, rotationAngle_);
         }
         size += getUnknownFields().getSerializedSize();
         memoizedSerializedSize = size;
@@ -8100,6 +8134,8 @@ public final class GeProtocol {
           bitField0_ = (bitField0_ & ~0x00000008);
           positionY_ = 0F;
           bitField0_ = (bitField0_ & ~0x00000010);
+          rotationAngle_ = 0F;
+          bitField0_ = (bitField0_ & ~0x00000020);
           return this;
         }
 
@@ -8148,6 +8184,10 @@ public final class GeProtocol {
             to_bitField0_ |= 0x00000010;
           }
           result.positionY_ = positionY_;
+          if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+            to_bitField0_ |= 0x00000020;
+          }
+          result.rotationAngle_ = rotationAngle_;
           result.bitField0_ = to_bitField0_;
           onBuilt();
           return result;
@@ -8179,6 +8219,9 @@ public final class GeProtocol {
           if (other.hasPositionY()) {
             setPositionY(other.getPositionY());
           }
+          if (other.hasRotationAngle()) {
+            setRotationAngle(other.getRotationAngle());
+          }
           this.mergeUnknownFields(other.getUnknownFields());
           return this;
         }
@@ -8201,6 +8244,10 @@ public final class GeProtocol {
             return false;
           }
           if (!hasPositionY()) {
+            
+            return false;
+          }
+          if (!hasRotationAngle()) {
             
             return false;
           }
@@ -8387,6 +8434,39 @@ public final class GeProtocol {
         public Builder clearPositionY() {
           bitField0_ = (bitField0_ & ~0x00000010);
           positionY_ = 0F;
+          onChanged();
+          return this;
+        }
+
+        // required float rotationAngle = 6;
+        private float rotationAngle_ ;
+        /**
+         * <code>required float rotationAngle = 6;</code>
+         */
+        public boolean hasRotationAngle() {
+          return ((bitField0_ & 0x00000020) == 0x00000020);
+        }
+        /**
+         * <code>required float rotationAngle = 6;</code>
+         */
+        public float getRotationAngle() {
+          return rotationAngle_;
+        }
+        /**
+         * <code>required float rotationAngle = 6;</code>
+         */
+        public Builder setRotationAngle(float value) {
+          bitField0_ |= 0x00000020;
+          rotationAngle_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>required float rotationAngle = 6;</code>
+         */
+        public Builder clearRotationAngle() {
+          bitField0_ = (bitField0_ & ~0x00000020);
+          rotationAngle_ = 0F;
           onChanged();
           return this;
         }
@@ -9192,15 +9272,15 @@ public final class GeProtocol {
      */
     int getMoveMaxSpeed();
 
-    // required int32 rotationMaxSpeed = 2;
+    // required float rotationMaxSpeed = 2;
     /**
-     * <code>required int32 rotationMaxSpeed = 2;</code>
+     * <code>required float rotationMaxSpeed = 2;</code>
      */
     boolean hasRotationMaxSpeed();
     /**
-     * <code>required int32 rotationMaxSpeed = 2;</code>
+     * <code>required float rotationMaxSpeed = 2;</code>
      */
-    int getRotationMaxSpeed();
+    float getRotationMaxSpeed();
 
     // required int32 moveAccelerationSpeed = 3;
     /**
@@ -9212,15 +9292,15 @@ public final class GeProtocol {
      */
     int getMoveAccelerationSpeed();
 
-    // required int32 rotationAcceleration = 4;
+    // required float rotationAcceleration = 4;
     /**
-     * <code>required int32 rotationAcceleration = 4;</code>
+     * <code>required float rotationAcceleration = 4;</code>
      */
     boolean hasRotationAcceleration();
     /**
-     * <code>required int32 rotationAcceleration = 4;</code>
+     * <code>required float rotationAcceleration = 4;</code>
      */
-    int getRotationAcceleration();
+    float getRotationAcceleration();
 
     // required int32 armor = 5;
     /**
@@ -9474,9 +9554,9 @@ public final class GeProtocol {
               moveMaxSpeed_ = input.readInt32();
               break;
             }
-            case 16: {
+            case 21: {
               bitField0_ |= 0x00000002;
-              rotationMaxSpeed_ = input.readInt32();
+              rotationMaxSpeed_ = input.readFloat();
               break;
             }
             case 24: {
@@ -9484,9 +9564,9 @@ public final class GeProtocol {
               moveAccelerationSpeed_ = input.readInt32();
               break;
             }
-            case 32: {
+            case 37: {
               bitField0_ |= 0x00000008;
-              rotationAcceleration_ = input.readInt32();
+              rotationAcceleration_ = input.readFloat();
               break;
             }
             case 40: {
@@ -11154,25 +11234,25 @@ public final class GeProtocol {
          */
         int getMoveMaxSpeedBonus();
 
-        // required int32 rotationAccelerationBonus = 3;
+        // required float rotationAccelerationBonus = 3;
         /**
-         * <code>required int32 rotationAccelerationBonus = 3;</code>
+         * <code>required float rotationAccelerationBonus = 3;</code>
          */
         boolean hasRotationAccelerationBonus();
         /**
-         * <code>required int32 rotationAccelerationBonus = 3;</code>
+         * <code>required float rotationAccelerationBonus = 3;</code>
          */
-        int getRotationAccelerationBonus();
+        float getRotationAccelerationBonus();
 
-        // required int32 rotationMaxSpeedBonus = 4;
+        // required float rotationMaxSpeedBonus = 4;
         /**
-         * <code>required int32 rotationMaxSpeedBonus = 4;</code>
+         * <code>required float rotationMaxSpeedBonus = 4;</code>
          */
         boolean hasRotationMaxSpeedBonus();
         /**
-         * <code>required int32 rotationMaxSpeedBonus = 4;</code>
+         * <code>required float rotationMaxSpeedBonus = 4;</code>
          */
-        int getRotationMaxSpeedBonus();
+        float getRotationMaxSpeedBonus();
       }
       /**
        * Protobuf type {@code arch.galaxyeclipse.shared.protocol.ShipStaticInfo.Item.Engine}
@@ -11235,14 +11315,14 @@ public final class GeProtocol {
                   moveMaxSpeedBonus_ = input.readInt32();
                   break;
                 }
-                case 24: {
+                case 29: {
                   bitField0_ |= 0x00000004;
-                  rotationAccelerationBonus_ = input.readInt32();
+                  rotationAccelerationBonus_ = input.readFloat();
                   break;
                 }
-                case 32: {
+                case 37: {
                   bitField0_ |= 0x00000008;
-                  rotationMaxSpeedBonus_ = input.readInt32();
+                  rotationMaxSpeedBonus_ = input.readFloat();
                   break;
                 }
               }
@@ -11317,43 +11397,43 @@ public final class GeProtocol {
           return moveMaxSpeedBonus_;
         }
 
-        // required int32 rotationAccelerationBonus = 3;
+        // required float rotationAccelerationBonus = 3;
         public static final int ROTATIONACCELERATIONBONUS_FIELD_NUMBER = 3;
-        private int rotationAccelerationBonus_;
+        private float rotationAccelerationBonus_;
         /**
-         * <code>required int32 rotationAccelerationBonus = 3;</code>
+         * <code>required float rotationAccelerationBonus = 3;</code>
          */
         public boolean hasRotationAccelerationBonus() {
           return ((bitField0_ & 0x00000004) == 0x00000004);
         }
         /**
-         * <code>required int32 rotationAccelerationBonus = 3;</code>
+         * <code>required float rotationAccelerationBonus = 3;</code>
          */
-        public int getRotationAccelerationBonus() {
+        public float getRotationAccelerationBonus() {
           return rotationAccelerationBonus_;
         }
 
-        // required int32 rotationMaxSpeedBonus = 4;
+        // required float rotationMaxSpeedBonus = 4;
         public static final int ROTATIONMAXSPEEDBONUS_FIELD_NUMBER = 4;
-        private int rotationMaxSpeedBonus_;
+        private float rotationMaxSpeedBonus_;
         /**
-         * <code>required int32 rotationMaxSpeedBonus = 4;</code>
+         * <code>required float rotationMaxSpeedBonus = 4;</code>
          */
         public boolean hasRotationMaxSpeedBonus() {
           return ((bitField0_ & 0x00000008) == 0x00000008);
         }
         /**
-         * <code>required int32 rotationMaxSpeedBonus = 4;</code>
+         * <code>required float rotationMaxSpeedBonus = 4;</code>
          */
-        public int getRotationMaxSpeedBonus() {
+        public float getRotationMaxSpeedBonus() {
           return rotationMaxSpeedBonus_;
         }
 
         private void initFields() {
           moveAccelerationBonus_ = 0;
           moveMaxSpeedBonus_ = 0;
-          rotationAccelerationBonus_ = 0;
-          rotationMaxSpeedBonus_ = 0;
+          rotationAccelerationBonus_ = 0F;
+          rotationMaxSpeedBonus_ = 0F;
         }
         private byte memoizedIsInitialized = -1;
         public final boolean isInitialized() {
@@ -11390,10 +11470,10 @@ public final class GeProtocol {
             output.writeInt32(2, moveMaxSpeedBonus_);
           }
           if (((bitField0_ & 0x00000004) == 0x00000004)) {
-            output.writeInt32(3, rotationAccelerationBonus_);
+            output.writeFloat(3, rotationAccelerationBonus_);
           }
           if (((bitField0_ & 0x00000008) == 0x00000008)) {
-            output.writeInt32(4, rotationMaxSpeedBonus_);
+            output.writeFloat(4, rotationMaxSpeedBonus_);
           }
           getUnknownFields().writeTo(output);
         }
@@ -11414,11 +11494,11 @@ public final class GeProtocol {
           }
           if (((bitField0_ & 0x00000004) == 0x00000004)) {
             size += com.google.protobuf.CodedOutputStream
-              .computeInt32Size(3, rotationAccelerationBonus_);
+              .computeFloatSize(3, rotationAccelerationBonus_);
           }
           if (((bitField0_ & 0x00000008) == 0x00000008)) {
             size += com.google.protobuf.CodedOutputStream
-              .computeInt32Size(4, rotationMaxSpeedBonus_);
+              .computeFloatSize(4, rotationMaxSpeedBonus_);
           }
           size += getUnknownFields().getSerializedSize();
           memoizedSerializedSize = size;
@@ -11540,9 +11620,9 @@ public final class GeProtocol {
             bitField0_ = (bitField0_ & ~0x00000001);
             moveMaxSpeedBonus_ = 0;
             bitField0_ = (bitField0_ & ~0x00000002);
-            rotationAccelerationBonus_ = 0;
+            rotationAccelerationBonus_ = 0F;
             bitField0_ = (bitField0_ & ~0x00000004);
-            rotationMaxSpeedBonus_ = 0;
+            rotationMaxSpeedBonus_ = 0F;
             bitField0_ = (bitField0_ & ~0x00000008);
             return this;
           }
@@ -11725,68 +11805,68 @@ public final class GeProtocol {
             return this;
           }
 
-          // required int32 rotationAccelerationBonus = 3;
-          private int rotationAccelerationBonus_ ;
+          // required float rotationAccelerationBonus = 3;
+          private float rotationAccelerationBonus_ ;
           /**
-           * <code>required int32 rotationAccelerationBonus = 3;</code>
+           * <code>required float rotationAccelerationBonus = 3;</code>
            */
           public boolean hasRotationAccelerationBonus() {
             return ((bitField0_ & 0x00000004) == 0x00000004);
           }
           /**
-           * <code>required int32 rotationAccelerationBonus = 3;</code>
+           * <code>required float rotationAccelerationBonus = 3;</code>
            */
-          public int getRotationAccelerationBonus() {
+          public float getRotationAccelerationBonus() {
             return rotationAccelerationBonus_;
           }
           /**
-           * <code>required int32 rotationAccelerationBonus = 3;</code>
+           * <code>required float rotationAccelerationBonus = 3;</code>
            */
-          public Builder setRotationAccelerationBonus(int value) {
+          public Builder setRotationAccelerationBonus(float value) {
             bitField0_ |= 0x00000004;
             rotationAccelerationBonus_ = value;
             onChanged();
             return this;
           }
           /**
-           * <code>required int32 rotationAccelerationBonus = 3;</code>
+           * <code>required float rotationAccelerationBonus = 3;</code>
            */
           public Builder clearRotationAccelerationBonus() {
             bitField0_ = (bitField0_ & ~0x00000004);
-            rotationAccelerationBonus_ = 0;
+            rotationAccelerationBonus_ = 0F;
             onChanged();
             return this;
           }
 
-          // required int32 rotationMaxSpeedBonus = 4;
-          private int rotationMaxSpeedBonus_ ;
+          // required float rotationMaxSpeedBonus = 4;
+          private float rotationMaxSpeedBonus_ ;
           /**
-           * <code>required int32 rotationMaxSpeedBonus = 4;</code>
+           * <code>required float rotationMaxSpeedBonus = 4;</code>
            */
           public boolean hasRotationMaxSpeedBonus() {
             return ((bitField0_ & 0x00000008) == 0x00000008);
           }
           /**
-           * <code>required int32 rotationMaxSpeedBonus = 4;</code>
+           * <code>required float rotationMaxSpeedBonus = 4;</code>
            */
-          public int getRotationMaxSpeedBonus() {
+          public float getRotationMaxSpeedBonus() {
             return rotationMaxSpeedBonus_;
           }
           /**
-           * <code>required int32 rotationMaxSpeedBonus = 4;</code>
+           * <code>required float rotationMaxSpeedBonus = 4;</code>
            */
-          public Builder setRotationMaxSpeedBonus(int value) {
+          public Builder setRotationMaxSpeedBonus(float value) {
             bitField0_ |= 0x00000008;
             rotationMaxSpeedBonus_ = value;
             onChanged();
             return this;
           }
           /**
-           * <code>required int32 rotationMaxSpeedBonus = 4;</code>
+           * <code>required float rotationMaxSpeedBonus = 4;</code>
            */
           public Builder clearRotationMaxSpeedBonus() {
             bitField0_ = (bitField0_ & ~0x00000008);
-            rotationMaxSpeedBonus_ = 0;
+            rotationMaxSpeedBonus_ = 0F;
             onChanged();
             return this;
           }
@@ -13090,19 +13170,19 @@ public final class GeProtocol {
       return moveMaxSpeed_;
     }
 
-    // required int32 rotationMaxSpeed = 2;
+    // required float rotationMaxSpeed = 2;
     public static final int ROTATIONMAXSPEED_FIELD_NUMBER = 2;
-    private int rotationMaxSpeed_;
+    private float rotationMaxSpeed_;
     /**
-     * <code>required int32 rotationMaxSpeed = 2;</code>
+     * <code>required float rotationMaxSpeed = 2;</code>
      */
     public boolean hasRotationMaxSpeed() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>required int32 rotationMaxSpeed = 2;</code>
+     * <code>required float rotationMaxSpeed = 2;</code>
      */
-    public int getRotationMaxSpeed() {
+    public float getRotationMaxSpeed() {
       return rotationMaxSpeed_;
     }
 
@@ -13122,19 +13202,19 @@ public final class GeProtocol {
       return moveAccelerationSpeed_;
     }
 
-    // required int32 rotationAcceleration = 4;
+    // required float rotationAcceleration = 4;
     public static final int ROTATIONACCELERATION_FIELD_NUMBER = 4;
-    private int rotationAcceleration_;
+    private float rotationAcceleration_;
     /**
-     * <code>required int32 rotationAcceleration = 4;</code>
+     * <code>required float rotationAcceleration = 4;</code>
      */
     public boolean hasRotationAcceleration() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
-     * <code>required int32 rotationAcceleration = 4;</code>
+     * <code>required float rotationAcceleration = 4;</code>
      */
-    public int getRotationAcceleration() {
+    public float getRotationAcceleration() {
       return rotationAcceleration_;
     }
 
@@ -13453,9 +13533,9 @@ public final class GeProtocol {
 
     private void initFields() {
       moveMaxSpeed_ = 0;
-      rotationMaxSpeed_ = 0;
+      rotationMaxSpeed_ = 0F;
       moveAccelerationSpeed_ = 0;
-      rotationAcceleration_ = 0;
+      rotationAcceleration_ = 0F;
       armor_ = 0;
       energyMax_ = 0;
       hpMax_ = 0;
@@ -13564,13 +13644,13 @@ public final class GeProtocol {
         output.writeInt32(1, moveMaxSpeed_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeInt32(2, rotationMaxSpeed_);
+        output.writeFloat(2, rotationMaxSpeed_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeInt32(3, moveAccelerationSpeed_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeInt32(4, rotationAcceleration_);
+        output.writeFloat(4, rotationAcceleration_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         output.writeInt32(5, armor_);
@@ -13626,7 +13706,7 @@ public final class GeProtocol {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, rotationMaxSpeed_);
+          .computeFloatSize(2, rotationMaxSpeed_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
@@ -13634,7 +13714,7 @@ public final class GeProtocol {
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(4, rotationAcceleration_);
+          .computeFloatSize(4, rotationAcceleration_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
@@ -13810,11 +13890,11 @@ public final class GeProtocol {
         super.clear();
         moveMaxSpeed_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
-        rotationMaxSpeed_ = 0;
+        rotationMaxSpeed_ = 0F;
         bitField0_ = (bitField0_ & ~0x00000002);
         moveAccelerationSpeed_ = 0;
         bitField0_ = (bitField0_ & ~0x00000004);
-        rotationAcceleration_ = 0;
+        rotationAcceleration_ = 0F;
         bitField0_ = (bitField0_ & ~0x00000008);
         armor_ = 0;
         bitField0_ = (bitField0_ & ~0x00000010);
@@ -14265,35 +14345,35 @@ public final class GeProtocol {
         return this;
       }
 
-      // required int32 rotationMaxSpeed = 2;
-      private int rotationMaxSpeed_ ;
+      // required float rotationMaxSpeed = 2;
+      private float rotationMaxSpeed_ ;
       /**
-       * <code>required int32 rotationMaxSpeed = 2;</code>
+       * <code>required float rotationMaxSpeed = 2;</code>
        */
       public boolean hasRotationMaxSpeed() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>required int32 rotationMaxSpeed = 2;</code>
+       * <code>required float rotationMaxSpeed = 2;</code>
        */
-      public int getRotationMaxSpeed() {
+      public float getRotationMaxSpeed() {
         return rotationMaxSpeed_;
       }
       /**
-       * <code>required int32 rotationMaxSpeed = 2;</code>
+       * <code>required float rotationMaxSpeed = 2;</code>
        */
-      public Builder setRotationMaxSpeed(int value) {
+      public Builder setRotationMaxSpeed(float value) {
         bitField0_ |= 0x00000002;
         rotationMaxSpeed_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required int32 rotationMaxSpeed = 2;</code>
+       * <code>required float rotationMaxSpeed = 2;</code>
        */
       public Builder clearRotationMaxSpeed() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        rotationMaxSpeed_ = 0;
+        rotationMaxSpeed_ = 0F;
         onChanged();
         return this;
       }
@@ -14331,35 +14411,35 @@ public final class GeProtocol {
         return this;
       }
 
-      // required int32 rotationAcceleration = 4;
-      private int rotationAcceleration_ ;
+      // required float rotationAcceleration = 4;
+      private float rotationAcceleration_ ;
       /**
-       * <code>required int32 rotationAcceleration = 4;</code>
+       * <code>required float rotationAcceleration = 4;</code>
        */
       public boolean hasRotationAcceleration() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
-       * <code>required int32 rotationAcceleration = 4;</code>
+       * <code>required float rotationAcceleration = 4;</code>
        */
-      public int getRotationAcceleration() {
+      public float getRotationAcceleration() {
         return rotationAcceleration_;
       }
       /**
-       * <code>required int32 rotationAcceleration = 4;</code>
+       * <code>required float rotationAcceleration = 4;</code>
        */
-      public Builder setRotationAcceleration(int value) {
+      public Builder setRotationAcceleration(float value) {
         bitField0_ |= 0x00000008;
         rotationAcceleration_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required int32 rotationAcceleration = 4;</code>
+       * <code>required float rotationAcceleration = 4;</code>
        */
       public Builder clearRotationAcceleration() {
         bitField0_ = (bitField0_ & ~0x00000008);
-        rotationAcceleration_ = 0;
+        rotationAcceleration_ = 0F;
         onChanged();
         return this;
       }
@@ -20572,79 +20652,79 @@ public final class GeProtocol {
       "ipse.shared.protocol.LocationInfo.Locati" +
       "onObject\"\022\n\020ShipStateRequest\"\271\001\n\021ShipSta" +
       "teResponse\022\021\n\tmoveSpeed\030\001 \002(\005\022\025\n\rrotatio" +
-      "nSpeed\030\002 \002(\005\022\n\n\002hp\030\003 \002(\005\022\027\n\017armorDurabil" +
-      "ity\030\004 \002(\005\022\025\n\rrotationAngle\030\005 \002(\005\022\021\n\tposi" +
+      "nSpeed\030\002 \002(\002\022\n\n\002hp\030\003 \002(\005\022\027\n\017armorDurabil" +
+      "ity\030\004 \002(\005\022\025\n\rrotationAngle\030\005 \002(\002\022\021\n\tposi" +
       "tionX\030\006 \002(\002\022\021\n\tpositionY\030\007 \002(\002\022\030\n\020locati" +
-      "onObjectId\030\010 \002(\005\"\271\002\n\014ClientAction\022O\n\004typ" +
+      "onObjectId\030\010 \002(\005\"\242\002\n\014ClientAction\022O\n\004typ" +
       "e\030\001 \002(\0162A.arch.galaxyeclipse.shared.prot",
       "ocol.ClientAction.ClientActionType\022\030\n\020lo" +
       "cationObjectId\030\002 \001(\005\022\034\n\024locationObjectTy" +
-      "peId\030\003 \001(\005\"\237\001\n\020ClientActionType\022\017\n\013ROTAT" +
+      "peId\030\003 \001(\005\"\210\001\n\020ClientActionType\022\017\n\013ROTAT" +
       "E_LEFT\020\001\022\020\n\014ROTATE_RIGHT\020\002\022\010\n\004MOVE\020\003\022\010\n\004" +
       "STOP\020\004\022\020\n\014OBJECT_CLICK\020\007\022\r\n\tLOOT_PICK\020\010\022" +
-      "\020\n\014ATTACK_START\020\t\022\017\n\013ATTACK_STOP\020\n\022\020\n\014RO" +
-      "CKET_SHOOT\020\020\"1\n\013AuthRequest\022\020\n\010username\030" +
-      "\001 \002(\t\022\020\n\010password\030\002 \002(\t\"!\n\014AuthResponse\022" +
-      "\021\n\tisSuccess\030\001 \002(\010\"\203\003\n\014LocationInfo\022\022\n\nl" +
-      "ocationId\030\001 \002(\005\022\014\n\004name\030\002 \002(\t\022\r\n\005width\030\003",
-      " \002(\002\022\016\n\006height\030\004 \002(\002\022]\n\025locationCachedOb" +
-      "jects\030\005 \002(\0132>.arch.galaxyeclipse.shared." +
-      "protocol.LocationInfo.CachedObjects\032a\n\rC" +
-      "achedObjects\022P\n\007objects\030\001 \003(\0132?.arch.gal" +
-      "axyeclipse.shared.protocol.LocationInfo." +
-      "LocationObject\032p\n\016LocationObject\022\020\n\010obje" +
-      "ctId\030\001 \002(\005\022\024\n\014objectTypeId\030\002 \002(\005\022\020\n\010nati" +
-      "veId\030\003 \002(\005\022\021\n\tpositionX\030\004 \002(\002\022\021\n\tpositio" +
-      "nY\030\005 \002(\002\"\330\t\n\016ShipStaticInfo\022\024\n\014moveMaxSp" +
-      "eed\030\001 \002(\005\022\030\n\020rotationMaxSpeed\030\002 \002(\005\022\035\n\025m",
-      "oveAccelerationSpeed\030\003 \002(\005\022\034\n\024rotationAc" +
-      "celeration\030\004 \002(\005\022\r\n\005armor\030\005 \002(\005\022\021\n\tenerg" +
-      "yMax\030\006 \002(\005\022\r\n\005hpMax\030\007 \002(\005\022\023\n\013energyRegen" +
-      "\030\010 \002(\005\022\017\n\007hpRegen\030\t \002(\005\022\014\n\004name\030\n \002(\t\022\027\n" +
-      "\017armorDurability\030\013 \002(\005\022\030\n\020weaponSlotsCou" +
-      "nt\030\014 \002(\005\022\027\n\017bonusSlotsCount\030\r \002(\005\022O\n\016inv" +
-      "entoryItems\030\016 \003(\01327.arch.galaxyeclipse.s" +
-      "hared.protocol.ShipStaticInfo.Item\022J\n\tsh" +
-      "ipBonus\030\017 \003(\01327.arch.galaxyeclipse.share" +
-      "d.protocol.ShipStaticInfo.Item\022L\n\013shipWe",
-      "apons\030\020 \003(\01327.arch.galaxyeclipse.shared." +
-      "protocol.ShipStaticInfo.Item\022K\n\nshipEngi" +
-      "ne\030\021 \002(\01327.arch.galaxyeclipse.shared.pro" +
-      "tocol.ShipStaticInfo.Item\032\357\004\n\004Item\022\016\n\006it" +
-      "emId\030\001 \002(\005\022\014\n\004name\030\002 \002(\t\022\023\n\013description\030" +
-      "\003 \002(\t\022\r\n\005price\030\004 \002(\005\022\022\n\nitemTypeId\030\005 \002(\005" +
-      "\022L\n\005bonus\030\006 \001(\0132=.arch.galaxyeclipse.sha" +
-      "red.protocol.ShipStaticInfo.Item.Bonus\022N" +
-      "\n\006weapon\030\007 \001(\0132>.arch.galaxyeclipse.shar" +
-      "ed.protocol.ShipStaticInfo.Item.Weapon\022N",
-      "\n\006engine\030\010 \001(\0132>.arch.galaxyeclipse.shar" +
-      "ed.protocol.ShipStaticInfo.Item.Engine\0320" +
-      "\n\005Bonus\022\022\n\nbonusValue\030\001 \002(\005\022\023\n\013bonusType" +
-      "Id\030\002 \002(\005\032j\n\006Weapon\022\016\n\006damage\030\001 \002(\005\022\022\n\nde" +
-      "laySpeed\030\002 \002(\005\022\023\n\013bulletSpeed\030\003 \002(\005\022\023\n\013m" +
-      "axDistance\030\004 \002(\005\022\022\n\nenergyCost\030\005 \002(\005\032\204\001\n" +
-      "\006Engine\022\035\n\025moveAccelerationBonus\030\001 \002(\005\022\031" +
-      "\n\021moveMaxSpeedBonus\030\002 \002(\005\022!\n\031rotationAcc" +
-      "elerationBonus\030\003 \002(\005\022\035\n\025rotationMaxSpeed" +
-      "Bonus\030\004 \002(\005\"\321\002\n\010TypesMap\022D\n\titemTypes\030\001 ",
-      "\003(\01321.arch.galaxyeclipse.shared.protocol" +
-      ".TypesMap.Type\022F\n\013weaponTypes\030\002 \003(\01321.ar" +
-      "ch.galaxyeclipse.shared.protocol.TypesMa" +
-      "p.Type\022N\n\023locationObjectTypes\030\003 \003(\01321.ar" +
-      "ch.galaxyeclipse.shared.protocol.TypesMa" +
-      "p.Type\022E\n\nbonusTypes\030\004 \003(\01321.arch.galaxy" +
-      "eclipse.shared.protocol.TypesMap.Type\032 \n" +
-      "\004Type\022\n\n\002id\030\001 \002(\005\022\014\n\004name\030\002 \002(\t\"\341\001\n\013Star" +
-      "tupInfo\022F\n\014locationInfo\030\001 \002(\01320.arch.gal" +
-      "axyeclipse.shared.protocol.LocationInfo\022",
-      ">\n\010typesMap\030\002 \002(\0132,.arch.galaxyeclipse.s" +
-      "hared.protocol.TypesMap\022J\n\016shipStaticInf" +
-      "o\030\003 \002(\01322.arch.galaxyeclipse.shared.prot" +
-      "ocol.ShipStaticInfo\"2\n\025ShipStaticInfoCom" +
-      "mand\022\031\n\021serializedCommand\030\001 \002(\014\"\"\n\017ChatS" +
-      "endMessage\022\017\n\007message\030\001 \002(\t\"5\n\022ChatRecei" +
-      "veMessage\022\017\n\007message\030\001 \002(\t\022\016\n\006sender\030\002 \002" +
-      "(\tB\016B\nGeProtocolH\001"
+      "\n\n\006ATTACK\020\t\022\020\n\014ROCKET_SHOOT\020\020\"1\n\013AuthReq" +
+      "uest\022\020\n\010username\030\001 \002(\t\022\020\n\010password\030\002 \002(\t" +
+      "\"!\n\014AuthResponse\022\021\n\tisSuccess\030\001 \002(\010\"\233\003\n\014" +
+      "LocationInfo\022\022\n\nlocationId\030\001 \002(\005\022\014\n\004name" +
+      "\030\002 \002(\t\022\r\n\005width\030\003 \002(\002\022\016\n\006height\030\004 \002(\002\022]\n",
+      "\025locationCachedObjects\030\005 \002(\0132>.arch.gala" +
+      "xyeclipse.shared.protocol.LocationInfo.C" +
+      "achedObjects\032a\n\rCachedObjects\022P\n\007objects" +
+      "\030\001 \003(\0132?.arch.galaxyeclipse.shared.proto" +
+      "col.LocationInfo.LocationObject\032\207\001\n\016Loca" +
+      "tionObject\022\020\n\010objectId\030\001 \002(\005\022\024\n\014objectTy" +
+      "peId\030\002 \002(\005\022\020\n\010nativeId\030\003 \002(\005\022\021\n\tposition" +
+      "X\030\004 \002(\002\022\021\n\tpositionY\030\005 \002(\002\022\025\n\rrotationAn" +
+      "gle\030\006 \002(\002\"\330\t\n\016ShipStaticInfo\022\024\n\014moveMaxS" +
+      "peed\030\001 \002(\005\022\030\n\020rotationMaxSpeed\030\002 \002(\002\022\035\n\025",
+      "moveAccelerationSpeed\030\003 \002(\005\022\034\n\024rotationA" +
+      "cceleration\030\004 \002(\002\022\r\n\005armor\030\005 \002(\005\022\021\n\tener" +
+      "gyMax\030\006 \002(\005\022\r\n\005hpMax\030\007 \002(\005\022\023\n\013energyRege" +
+      "n\030\010 \002(\005\022\017\n\007hpRegen\030\t \002(\005\022\014\n\004name\030\n \002(\t\022\027" +
+      "\n\017armorDurability\030\013 \002(\005\022\030\n\020weaponSlotsCo" +
+      "unt\030\014 \002(\005\022\027\n\017bonusSlotsCount\030\r \002(\005\022O\n\016in" +
+      "ventoryItems\030\016 \003(\01327.arch.galaxyeclipse." +
+      "shared.protocol.ShipStaticInfo.Item\022J\n\ts" +
+      "hipBonus\030\017 \003(\01327.arch.galaxyeclipse.shar" +
+      "ed.protocol.ShipStaticInfo.Item\022L\n\013shipW",
+      "eapons\030\020 \003(\01327.arch.galaxyeclipse.shared" +
+      ".protocol.ShipStaticInfo.Item\022K\n\nshipEng" +
+      "ine\030\021 \002(\01327.arch.galaxyeclipse.shared.pr" +
+      "otocol.ShipStaticInfo.Item\032\357\004\n\004Item\022\016\n\006i" +
+      "temId\030\001 \002(\005\022\014\n\004name\030\002 \002(\t\022\023\n\013description" +
+      "\030\003 \002(\t\022\r\n\005price\030\004 \002(\005\022\022\n\nitemTypeId\030\005 \002(" +
+      "\005\022L\n\005bonus\030\006 \001(\0132=.arch.galaxyeclipse.sh" +
+      "ared.protocol.ShipStaticInfo.Item.Bonus\022" +
+      "N\n\006weapon\030\007 \001(\0132>.arch.galaxyeclipse.sha" +
+      "red.protocol.ShipStaticInfo.Item.Weapon\022",
+      "N\n\006engine\030\010 \001(\0132>.arch.galaxyeclipse.sha" +
+      "red.protocol.ShipStaticInfo.Item.Engine\032" +
+      "0\n\005Bonus\022\022\n\nbonusValue\030\001 \002(\005\022\023\n\013bonusTyp" +
+      "eId\030\002 \002(\005\032j\n\006Weapon\022\016\n\006damage\030\001 \002(\005\022\022\n\nd" +
+      "elaySpeed\030\002 \002(\005\022\023\n\013bulletSpeed\030\003 \002(\005\022\023\n\013" +
+      "maxDistance\030\004 \002(\005\022\022\n\nenergyCost\030\005 \002(\005\032\204\001" +
+      "\n\006Engine\022\035\n\025moveAccelerationBonus\030\001 \002(\005\022" +
+      "\031\n\021moveMaxSpeedBonus\030\002 \002(\005\022!\n\031rotationAc" +
+      "celerationBonus\030\003 \002(\002\022\035\n\025rotationMaxSpee" +
+      "dBonus\030\004 \002(\002\"\321\002\n\010TypesMap\022D\n\titemTypes\030\001",
+      " \003(\01321.arch.galaxyeclipse.shared.protoco" +
+      "l.TypesMap.Type\022F\n\013weaponTypes\030\002 \003(\01321.a" +
+      "rch.galaxyeclipse.shared.protocol.TypesM" +
+      "ap.Type\022N\n\023locationObjectTypes\030\003 \003(\01321.a" +
+      "rch.galaxyeclipse.shared.protocol.TypesM" +
+      "ap.Type\022E\n\nbonusTypes\030\004 \003(\01321.arch.galax" +
+      "yeclipse.shared.protocol.TypesMap.Type\032 " +
+      "\n\004Type\022\n\n\002id\030\001 \002(\005\022\014\n\004name\030\002 \002(\t\"\341\001\n\013Sta" +
+      "rtupInfo\022F\n\014locationInfo\030\001 \002(\01320.arch.ga" +
+      "laxyeclipse.shared.protocol.LocationInfo",
+      "\022>\n\010typesMap\030\002 \002(\0132,.arch.galaxyeclipse." +
+      "shared.protocol.TypesMap\022J\n\016shipStaticIn" +
+      "fo\030\003 \002(\01322.arch.galaxyeclipse.shared.pro" +
+      "tocol.ShipStaticInfo\"2\n\025ShipStaticInfoCo" +
+      "mmand\022\031\n\021serializedCommand\030\001 \002(\014\"\"\n\017Chat" +
+      "SendMessage\022\017\n\007message\030\001 \002(\t\"5\n\022ChatRece" +
+      "iveMessage\022\017\n\007message\030\001 \002(\t\022\016\n\006sender\030\002 " +
+      "\002(\tB\016B\nGeProtocolH\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -20716,7 +20796,7 @@ public final class GeProtocol {
           internal_static_arch_galaxyeclipse_shared_protocol_LocationInfo_LocationObject_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_arch_galaxyeclipse_shared_protocol_LocationInfo_LocationObject_descriptor,
-              new java.lang.String[] { "ObjectId", "ObjectTypeId", "NativeId", "PositionX", "PositionY", });
+              new java.lang.String[] { "ObjectId", "ObjectTypeId", "NativeId", "PositionX", "PositionY", "RotationAngle", });
           internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfo_descriptor =
             getDescriptor().getMessageTypes().get(9);
           internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfo_fieldAccessorTable = new

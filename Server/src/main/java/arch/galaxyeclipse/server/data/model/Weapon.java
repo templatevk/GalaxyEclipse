@@ -101,28 +101,14 @@ public class Weapon extends Item {
 
         Weapon weapon = (Weapon) o;
 
-        if (bulletSpeed != weapon.bulletSpeed) return false;
-        if (damage != weapon.damage) return false;
-        if (delaySpeed != weapon.delaySpeed) return false;
-        if (energyCost != weapon.energyCost) return false;
         if (itemId != weapon.itemId) return false;
-        if (maxDistance != weapon.maxDistance) return false;
-        if (weaponTypeId != weapon.weaponTypeId) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result = itemId;
-        result = 31 * result + damage;
-        result = 31 * result + delaySpeed;
-        result = 31 * result + bulletSpeed;
-        result = 31 * result + maxDistance;
-        result = 31 * result + energyCost;
-        result = 31 * result + weaponTypeId;
-        result = 31 * result + itemId;
-        return result;
+        return itemId;
     }
 
     private WeaponType weaponType;

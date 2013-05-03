@@ -51,8 +51,6 @@ public class ShipConfigWeaponSlot {
 
         ShipConfigWeaponSlot that = (ShipConfigWeaponSlot) o;
 
-        if (itemId != that.itemId) return false;
-        if (shipConfigId != that.shipConfigId) return false;
         if (shipConfigWeaponSlotId != that.shipConfigWeaponSlotId) return false;
 
         return true;
@@ -60,10 +58,7 @@ public class ShipConfigWeaponSlot {
 
     @Override
     public int hashCode() {
-        int result = shipConfigWeaponSlotId;
-        result = 31 * result + shipConfigId;
-        result = 31 * result + itemId;
-        return result;
+        return shipConfigWeaponSlotId;
     }
 
     private Item item;

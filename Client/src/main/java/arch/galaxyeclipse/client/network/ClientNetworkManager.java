@@ -13,6 +13,7 @@ import org.jboss.netty.channel.*;
 import org.jboss.netty.channel.socket.nio.*;
 
 import java.net.*;
+import java.util.*;
 import java.util.concurrent.*;
 
 /**
@@ -38,8 +39,11 @@ class ClientNetworkManager implements IClientNetworkManager {
                     log.debug("Notifying listeners for " + packet.getType());
                 }
 
-                for (IServerPacketListener listener : listeners.get(packet.getType())) {
-                    listener.onPacketReceived(packet);
+                Set<IServerPacketListener> packetListeners = listeners.get(packet.getType());
+                if (packetListeners != null) {
+                    for (IServerPacketListener listener : packetListeners) {
+                        listener.onPacketReceived(packet);
+                    }
                 }
             }
         });
@@ -65,7 +69,7 @@ class ClientNetworkManager implements IClientNetworkManager {
 		bootstrap.connect(address).addListener(new ChannelFutureListener() {
             @Override
             public void operationComplete(final ChannelFuture future) throws Exception {
-                new DelayedRunnableExecutor(CONNECTION_TIMEOUT_MILLISECONDS, new Runnable() {
+                new DelayedRunnableTask(CONNECTION_TIMEOUT_MILLISECONDS, new Runnable() {
                     @Override
                     public void run() {
                         callback.onOperationComplete(channelHandler.isConnected());
@@ -105,7 +109,7 @@ class ClientNetworkManager implements IClientNetworkManager {
 	public void removeListenerForType(IServerPacketListener listener,
 			Type packetType) {
         if (log.isInfoEnabled()) {
-            log.info("Removing listener " + listener + " of type");
+            log.info("Removing listener " + listener + " of type " + packetType);
         }
 
         listeners.get(packetType).remove(listener);

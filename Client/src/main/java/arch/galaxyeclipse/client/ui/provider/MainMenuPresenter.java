@@ -1,9 +1,9 @@
-package arch.galaxyeclipse.client.stage;
+package arch.galaxyeclipse.client.ui.provider;
 
 import arch.galaxyeclipse.client.data.*;
 import arch.galaxyeclipse.client.network.*;
-import arch.galaxyeclipse.client.resource.*;
-import arch.galaxyeclipse.client.stage.ui.*;
+import arch.galaxyeclipse.client.ui.*;
+import arch.galaxyeclipse.client.ui.view.*;
 import arch.galaxyeclipse.client.window.*;
 import arch.galaxyeclipse.shared.*;
 import arch.galaxyeclipse.shared.context.*;
@@ -11,8 +11,6 @@ import arch.galaxyeclipse.shared.protocol.GeProtocol.*;
 import arch.galaxyeclipse.shared.types.*;
 import arch.galaxyeclipse.shared.util.*;
 import com.badlogic.gdx.scenes.scene2d.*;
-import com.badlogic.gdx.scenes.scene2d.ui.*;
-import com.badlogic.gdx.scenes.scene2d.utils.*;
 import lombok.*;
 import lombok.extern.slf4j.*;
 
@@ -29,9 +27,10 @@ public class MainMenuPresenter extends ServerPacketListener implements IStagePro
     private IClientWindow clientWindow;
 
     private MainMenuStage view;
-    private IButtonClickCommand connectButtonCommand;
     private ShipStaticInfoHolder shipStaticInfoHolder;
     private LocationInfoHolder locationInfoHolder;
+
+    private @Getter IButtonClickCommand connectButtonCommand;
 
     public MainMenuPresenter() {
         clientWindow = ContextHolder.getBean(IClientWindow.class);
@@ -52,8 +51,8 @@ public class MainMenuPresenter extends ServerPacketListener implements IStagePro
 
                         if (isConnected) {
                             AuthRequest request = AuthRequest.newBuilder()
-                                    .setUsername(view.getUsernameTxt().getText())
-                                    .setPassword(view.getPasswordTxt().getText()).build();
+                                    .setUsername(view.getUsername())
+                                    .setPassword(view.getPassword()).build();
 
                             Packet authRequest = Packet.newBuilder()
                                     .setType(Packet.Type.AUTH_REQUEST)
@@ -157,70 +156,5 @@ public class MainMenuPresenter extends ServerPacketListener implements IStagePro
     public List<Packet.Type> getPacketTypes() {
         return Arrays.asList(Packet.Type.AUTH_RESPONSE,
                 Packet.Type.STARTUP_INFO);
-    }
-
-    @Data
-    private static class MainMenuStage extends AbstractGameStage {
-        private static final float TABLE_SPACING = 10;
-        private static final float TEXTFIELD_WIDTH = 370;
-        private static final float TEXTFIELD_HEIGHT = 100;
-        public static final int INNER_TABLE_WIDTH = 400;
-        public static final int INNER_TABLE_HEIGHT = 200;
-
-        private MainMenuPresenter mainMenuPresenter;
-        private Button connectBtn;
-        private TextField usernameTxt;
-        private TextField passwordTxt;
-        private Table rootTable;
-        private Table innerTable;
-
-        public MainMenuStage(final MainMenuPresenter presenter) {
-            IResourceLoader resourceLoader = ContextHolder.getBean(IResourceLoader.class);
-
-            usernameTxt = StageUiFactory.createTextFieldBuilder()
-                    .setWidth(TEXTFIELD_WIDTH).setHeight(TEXTFIELD_HEIGHT)
-                    .setMessageText("Enter your username").build();
-            passwordTxt = StageUiFactory.createTextFieldBuilder()
-                    .setWidth(TEXTFIELD_WIDTH).setHeight(TEXTFIELD_HEIGHT)
-                    .setMessageText("Enter your password").setPasswordMode(true)
-                    .setPasswordCharacter('*').build();
-            connectBtn = StageUiFactory.createButtonBuilder().setText("Connect")
-                    .setClickCommand(presenter.connectButtonCommand).build();
-
-            rootTable = new Table();
-            rootTable.setFillParent(true);
-            rootTable.setBackground(new TextureRegionDrawable(resourceLoader.findRegion("ui/menu_login")));
-            addActor(rootTable);
-
-            innerTable = new Table();
-            innerTable.setBounds(0, 0, INNER_TABLE_WIDTH, INNER_TABLE_HEIGHT);
-            innerTable.setTransform(true);
-            rootTable.setTransform(false);
-            rootTable.add(innerTable);
-
-            innerTable.add(usernameTxt).expand(true, false).space(TABLE_SPACING);
-            innerTable.row();
-            innerTable.add(passwordTxt).expand(true, false).space(TABLE_SPACING);
-            innerTable.row();
-            innerTable.add(connectBtn).expand(true, false).space(TABLE_SPACING);
-            innerTable.setOrigin(innerTable.getPrefWidth() / 2,
-                    innerTable.getPrefHeight() / 2);
-
-            if (EnvType.CURRENT == EnvType.DEV) {
-                rootTable.debug();
-                innerTable.debug();
-            }
-
-            StageUiFactory.applyTabOrder(Arrays.<Actor>asList(
-                    usernameTxt, passwordTxt, connectBtn), this);
-            StageUiFactory.setDefaultButton(Arrays.<Actor>asList(
-                    usernameTxt, passwordTxt),connectBtn);
-            setKeyboardFocus(usernameTxt);
-        }
-
-        @Override
-        protected Group getScaleGroup() {
-            return innerTable;
-        }
     }
 }

@@ -17,8 +17,8 @@
         <property name="hibernateProperties">
             <map>
                 <entry key="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
-                <entry key="hibernate.show_sql" value="{hibernate.show_sql}"/>
-                <entry key="hibernate.format_sql" value="hibernate.format_sql"/>
+                <entry key="hibernate.show_sql" value="${hibernate.show_sql}"/>
+                <entry key="hibernate.format_sql" value="${hibernate.format_sql}"/>
             </map>
         </property>
         <property name="annotatedClasses">

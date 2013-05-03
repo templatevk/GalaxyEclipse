@@ -10,17 +10,19 @@ public class PacketHandlerFactory {
 
     }
 
-    public IStatefulPacketHandler createStatefulPacketHandler(
+    public static IStatefulPacketHandler createStatefulPacketHandler(
             IServerChannelHandler serverChannelHandler) {
         return new UnauthenticatedPacketHandler(serverChannelHandler);
     }
 
-    IChannelAwarePacketHandler createStatefulPacketHandler(
+    static IChannelAwarePacketHandler createStatefulPacketHandler(
             IServerChannelHandler serverChannelHandler, GameModeType gameModeType) {
         switch (gameModeType) {
             case FLIGHT:
-                return new DynamicObjectsRequestHandler(new ShipStateRequestHandler(
-                        new FlightPacketHandler(serverChannelHandler)));
+                return new DynamicObjectsRequestHandler(
+                        new ShipStateRequestHandler(
+                        new ClientActionHandler(
+                        new FlightPacketHandler(serverChannelHandler))));
         }
         return null;
     }

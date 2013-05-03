@@ -129,27 +129,27 @@ public class ShipType {
         this.shipTypeMoveAcceleration = shipTypeMoveAcceleration;
     }
 
-    private int shipTypeRotationMaxSpeed;
+    private float shipTypeRotationMaxSpeed;
 
     @Column(name = "ship_type_rotation_max_speed", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     @Basic
-    public int getShipTypeRotationMaxSpeed() {
+    public float getShipTypeRotationMaxSpeed() {
         return shipTypeRotationMaxSpeed;
     }
 
-    public void setShipTypeRotationMaxSpeed(int shipTypeRotationMaxSpeed) {
+    public void setShipTypeRotationMaxSpeed(float shipTypeRotationMaxSpeed) {
         this.shipTypeRotationMaxSpeed = shipTypeRotationMaxSpeed;
     }
 
-    private int shipTypeRotationAcceleration;
+    private float shipTypeRotationAcceleration;
 
     @Column(name = "ship_type_rotation_acceleration", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     @Basic
-    public int getShipTypeRotationAcceleration() {
+    public float getShipTypeRotationAcceleration() {
         return shipTypeRotationAcceleration;
     }
 
-    public void setShipTypeRotationAcceleration(int shipTypeRotationAcceleration) {
+    public void setShipTypeRotationAcceleration(float shipTypeRotationAcceleration) {
         this.shipTypeRotationAcceleration = shipTypeRotationAcceleration;
     }
 
@@ -184,42 +184,14 @@ public class ShipType {
 
         ShipType shipType = (ShipType) o;
 
-        if (bonusSlotsCount != shipType.bonusSlotsCount) return false;
-        if (shipTypeArmor != shipType.shipTypeArmor) return false;
-        if (shipTypeArmorDurability != shipType.shipTypeArmorDurability) return false;
-        if (shipTypeEnergyMax != shipType.shipTypeEnergyMax) return false;
-        if (shipTypeEnergyRegen != shipType.shipTypeEnergyRegen) return false;
-        if (shipTypeHpMax != shipType.shipTypeHpMax) return false;
-        if (shipTypeHpRegen != shipType.shipTypeHpRegen) return false;
         if (shipTypeId != shipType.shipTypeId) return false;
-        if (shipTypeMoveAcceleration != shipType.shipTypeMoveAcceleration) return false;
-        if (shipTypeMoveMaxSpeed != shipType.shipTypeMoveMaxSpeed) return false;
-        if (shipTypeRotationAcceleration != shipType.shipTypeRotationAcceleration) return false;
-        if (shipTypeRotationMaxSpeed != shipType.shipTypeRotationMaxSpeed) return false;
-        if (weaponSlotsCount != shipType.weaponSlotsCount) return false;
-        if (shipTypeName != null ? !shipTypeName.equals(shipType.shipTypeName) : shipType.shipTypeName != null)
-            return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result = shipTypeId;
-        result = 31 * result + (shipTypeName != null ? shipTypeName.hashCode() : 0);
-        result = 31 * result + shipTypeArmor;
-        result = 31 * result + shipTypeArmorDurability;
-        result = 31 * result + shipTypeEnergyMax;
-        result = 31 * result + shipTypeHpMax;
-        result = 31 * result + shipTypeEnergyRegen;
-        result = 31 * result + shipTypeHpRegen;
-        result = 31 * result + shipTypeMoveMaxSpeed;
-        result = 31 * result + shipTypeMoveAcceleration;
-        result = 31 * result + shipTypeRotationMaxSpeed;
-        result = 31 * result + shipTypeRotationAcceleration;
-        result = 31 * result + weaponSlotsCount;
-        result = 31 * result + bonusSlotsCount;
-        return result;
+        return shipTypeId;
     }
 
     private Set<ShipConfig> shipConfigs;

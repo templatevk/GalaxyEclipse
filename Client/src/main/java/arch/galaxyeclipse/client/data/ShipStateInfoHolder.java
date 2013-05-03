@@ -11,10 +11,10 @@ import lombok.extern.slf4j.*;
 @Slf4j
 public class ShipStateInfoHolder {
     private int moveSpeed;
-    private int rotationSpeed;
+    private float rotationSpeed;
     private int hp;
     private int armorDurability;
-    private int rotationAngle;
+    private float rotationAngle;
     private float positionX;
     private float positionY;
     private int locationObjectId;

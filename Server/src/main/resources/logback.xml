@@ -6,13 +6,15 @@
         </encoder>
     </appender>
 
-    <root level="DEBUG">
+    <root level="INFO">
         <appender-ref ref="STDOUT" />
     </root>
 
-    <logger name="arch.galaxyeclipse.client" level="INFO"/>
-    <logger name="arch.galaxyeclipse.server.network" level="${log.network}"/>
-    <logger name="arch.galaxyeclipse.shared.network" level="${log.network}"/>
+    <logger name="arch.galaxyeclipse.client" level="${log.client.network}"/>
+    <logger name="arch.galaxyeclipse.shared.network" level="${log.shared.network}"/>
+
+    <logger name="arch.galaxyeclipse.server.network" level="${log.server.network}"/>
+    <logger name="arch.galaxyeclipse.server.network.handler" level="${log.server.network.handler}"/>
+
     <logger name="org.springframework" level="INFO"/>
-    <logger name="org.hibernate" level="INFO"/>
 </configuration>

@@ -1,15 +1,10 @@
-package arch.galaxyeclipse.client.stage.ui;
+package arch.galaxyeclipse.client.ui;
 
 import com.badlogic.gdx.*;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.*;
-import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
-import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.badlogic.gdx.utils.Array;
 import lombok.extern.slf4j.*;
 
-import java.util.*;
 import java.util.List;
 
 /**

@@ -1,19 +1,12 @@
 package arch.galaxyeclipse.client.network;
 
 import arch.galaxyeclipse.shared.*;
-import arch.galaxyeclipse.shared.network.*;
-import arch.galaxyeclipse.shared.protocol.GeProtocol.*;
-import arch.galaxyeclipse.shared.protocol.GeProtocol.Packet.*;
 import arch.galaxyeclipse.shared.thread.*;
 import arch.galaxyeclipse.shared.util.*;
-import com.google.common.collect.*;
 import lombok.extern.slf4j.*;
-import org.jboss.netty.bootstrap.*;
 import org.jboss.netty.channel.*;
-import org.jboss.netty.channel.socket.nio.*;
 
 import java.net.*;
-import java.util.concurrent.*;
 
 /**
  * Main class responsible for network communication using the GeProtocol.
@@ -49,7 +42,7 @@ class TestClientNetworkManager extends ClientNetworkManager implements IClientNe
                     }
 
                     // Waiting in the separate thread and notifying the caller trough the callback
-                    new DelayedRunnableExecutor(CONNECTION_TIMEOUT_MILLISECONDS, new Runnable() {
+                    new DelayedRunnableTask(CONNECTION_TIMEOUT_MILLISECONDS, new Runnable() {
                         @Override
                         public void run() {
                             if (!getChannelHandler().isConnected()) {

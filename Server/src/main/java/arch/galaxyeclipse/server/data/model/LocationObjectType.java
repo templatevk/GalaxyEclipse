@@ -41,17 +41,13 @@ public class LocationObjectType {
         LocationObjectType that = (LocationObjectType) o;
 
         if (locationObjectTypeId != that.locationObjectTypeId) return false;
-        if (objectTypeName != null ? !objectTypeName.equals(that.objectTypeName) : that.objectTypeName != null)
-            return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result = locationObjectTypeId;
-        result = 31 * result + (objectTypeName != null ? objectTypeName.hashCode() : 0);
-        return result;
+        return locationObjectTypeId;
     }
 
     private Set<LocationObject> locationObjects;

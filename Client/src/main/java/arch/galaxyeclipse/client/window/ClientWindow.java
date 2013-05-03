@@ -1,12 +1,15 @@
 package arch.galaxyeclipse.client.window;
 
-import arch.galaxyeclipse.client.stage.*;
+import arch.galaxyeclipse.client.ui.*;
+import arch.galaxyeclipse.client.ui.provider.*;
+import arch.galaxyeclipse.client.ui.view.*;
 import arch.galaxyeclipse.shared.*;
 import arch.galaxyeclipse.shared.util.*;
 import com.badlogic.gdx.*;
 import com.badlogic.gdx.backends.lwjgl.*;
 import com.badlogic.gdx.graphics.*;
 import com.badlogic.gdx.math.*;
+import com.badlogic.gdx.scenes.scene2d.*;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import lombok.*;
 
@@ -59,6 +62,22 @@ class ClientWindow implements IClientWindow {
         this.stageProvider = stageProvider;
 
         Gdx.input.setInputProcessor(stageProvider.getGameStage());
+
+        if (EnvType.CURRENT == EnvType.DEV) {
+            TextButton mainMenuBtn = StageUiFactory.createButtonBuilder()
+                    .setText("Main menu")
+                    .setClickCommand(new IButtonClickCommand() {
+                        @Override
+                        public void execute(InputEvent e, float x, float y) {
+                            IStageProvider provider = StageProviderFactory.createStageProvider(
+                                    StageProviderFactory.StagePresenterType.MAIN_MENU);
+                            setStageProvider(provider);
+                            provider.getGameStage().forceResize();
+                        }
+                    }).build();
+
+            stageProvider.getGameStage().addActor(mainMenuBtn);
+        }
     }
 
     @Override

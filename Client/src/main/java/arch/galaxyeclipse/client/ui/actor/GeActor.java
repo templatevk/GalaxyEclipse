@@ -1,4 +1,4 @@
-package arch.galaxyeclipse.client.stage.render;
+package arch.galaxyeclipse.client.ui.actor;
 
 import arch.galaxyeclipse.client.data.*;
 import arch.galaxyeclipse.shared.context.*;
@@ -48,8 +48,8 @@ public class GeActor extends Image implements IGeActor {
     public Actor hit(float x, float y, boolean touchable) {
         Actor hittedActor = super.hit(x, y, touchable);
         if (hittedActor == this) {
-            if (log.isDebugEnabled()) {
-                log.debug(LogUtils.getObjectInfo(GeActor.this) +
+            if (GeActor.log.isDebugEnabled()) {
+                GeActor.log.debug(LogUtils.getObjectInfo(GeActor.this) +
                         "hit (" + x + ", " + y + ")");
             }
         }

@@ -1,4 +1,4 @@
-package arch.galaxyeclipse.client.stage.render;
+package arch.galaxyeclipse.client.ui.actor;
 
 import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.*;
 

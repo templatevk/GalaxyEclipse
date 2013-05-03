@@ -26,6 +26,9 @@ class ServerChannelHandler extends ProtobufChannelHandler
         incomingPacketDispatcherCommand = new ICommand<Packet>() {
             @Override
             public void perform(Packet packet) {
+                if (log.isDebugEnabled()) {
+                    log.debug(LogUtils.getObjectInfo(this) + " " + packet.getType());
+                }
                 statefulPacketHandler.handle(packet);
             }
         };
@@ -46,7 +49,7 @@ class ServerChannelHandler extends ProtobufChannelHandler
 
         monitoringNetworkManager.registerServerChannelHandler(this);
 
-		statefulPacketHandler = new PacketHandlerFactory().createStatefulPacketHandler(this);
+		statefulPacketHandler = PacketHandlerFactory.createStatefulPacketHandler(this);
 	}
 
     @Override

@@ -33,15 +33,15 @@ public class ShipConfig {
         this.shipConfigMoveMaxSpeed = shipConfigMoveMaxSpeed;
     }
 
-    private int shipConfigRotationMaxSpeed;
+    private float shipConfigRotationMaxSpeed;
 
     @Column(name = "ship_config_rotation_max_speed", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     @Basic
-    public int getShipConfigRotationMaxSpeed() {
+    public float getShipConfigRotationMaxSpeed() {
         return shipConfigRotationMaxSpeed;
     }
 
-    public void setShipConfigRotationMaxSpeed(int shipConfigRotationMaxSpeed) {
+    public void setShipConfigRotationMaxSpeed(float shipConfigRotationMaxSpeed) {
         this.shipConfigRotationMaxSpeed = shipConfigRotationMaxSpeed;
     }
 
@@ -57,15 +57,15 @@ public class ShipConfig {
         this.shipConfigMoveAcceleration = shipConfigMoveAcceleration;
     }
 
-    private int shipConfigRotationAcceleration;
+    private float shipConfigRotationAcceleration;
 
     @Column(name = "ship_config_rotation_acceleration", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     @Basic
-    public int getShipConfigRotationAcceleration() {
+    public float getShipConfigRotationAcceleration() {
         return shipConfigRotationAcceleration;
     }
 
-    public void setShipConfigRotationAcceleration(int shipConfigRotationAcceleration) {
+    public void setShipConfigRotationAcceleration(float shipConfigRotationAcceleration) {
         this.shipConfigRotationAcceleration = shipConfigRotationAcceleration;
     }
 
@@ -160,37 +160,14 @@ public class ShipConfig {
 
         ShipConfig that = (ShipConfig) o;
 
-        if (engineItemId != that.engineItemId) return false;
-        if (shipConfigArmor != that.shipConfigArmor) return false;
-        if (shipConfigEnergyMax != that.shipConfigEnergyMax) return false;
-        if (shipConfigEnergyRegen != that.shipConfigEnergyRegen) return false;
-        if (shipConfigHpMax != that.shipConfigHpMax) return false;
-        if (shipConfigHpRegen != that.shipConfigHpRegen) return false;
         if (shipConfigId != that.shipConfigId) return false;
-        if (shipConfigMoveAcceleration != that.shipConfigMoveAcceleration) return false;
-        if (shipConfigMoveMaxSpeed != that.shipConfigMoveMaxSpeed) return false;
-        if (shipConfigRotationAcceleration != that.shipConfigRotationAcceleration) return false;
-        if (shipConfigRotationMaxSpeed != that.shipConfigRotationMaxSpeed) return false;
-        if (shipTypeId != that.shipTypeId) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result = shipConfigId;
-        result = 31 * result + shipConfigMoveMaxSpeed;
-        result = 31 * result + shipConfigRotationMaxSpeed;
-        result = 31 * result + shipConfigMoveAcceleration;
-        result = 31 * result + shipConfigRotationAcceleration;
-        result = 31 * result + shipConfigArmor;
-        result = 31 * result + shipConfigEnergyMax;
-        result = 31 * result + shipConfigHpMax;
-        result = 31 * result + shipConfigEnergyRegen;
-        result = 31 * result + shipConfigHpRegen;
-        result = 31 * result + shipTypeId;
-        result = 31 * result + engineItemId;
-        return result;
+        return shipConfigId;
     }
 
     private Item item;

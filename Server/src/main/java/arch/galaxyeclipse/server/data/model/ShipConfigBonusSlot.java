@@ -51,19 +51,14 @@ public class ShipConfigBonusSlot {
 
         ShipConfigBonusSlot that = (ShipConfigBonusSlot) o;
 
-        if (itemId != that.itemId) return false;
         if (shipConfigBonusSlotId != that.shipConfigBonusSlotId) return false;
-        if (shipConfigId != that.shipConfigId) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result = shipConfigBonusSlotId;
-        result = 31 * result + shipConfigId;
-        result = 31 * result + itemId;
-        return result;
+        return shipConfigBonusSlotId;
     }
 
     private Item item;

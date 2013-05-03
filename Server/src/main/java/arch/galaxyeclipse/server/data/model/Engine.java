@@ -35,27 +35,27 @@ public class Engine extends Item {
         this.moveMaxSpeedBonus = moveMaxSpeedBonus;
     }
 
-    private int rotationAccelerationBonus;
+    private float rotationAccelerationBonus;
 
     @Column(name = "rotation_acceleration_bonus", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     @Basic
-    public int getRotationAccelerationBonus() {
+    public float getRotationAccelerationBonus() {
         return rotationAccelerationBonus;
     }
 
-    public void setRotationAccelerationBonus(int rotationAccelerationBonus) {
+    public void setRotationAccelerationBonus(float rotationAccelerationBonus) {
         this.rotationAccelerationBonus = rotationAccelerationBonus;
     }
 
-    private int rotationMaxSpeedBonus;
+    private float rotationMaxSpeedBonus;
 
     @Column(name = "rotation_max_speed_bonus", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     @Basic
-    public int getRotationMaxSpeedBonus() {
+    public float getRotationMaxSpeedBonus() {
         return rotationMaxSpeedBonus;
     }
 
-    public void setRotationMaxSpeedBonus(int rotationMaxSpeedBonus) {
+    public void setRotationMaxSpeedBonus(float rotationMaxSpeedBonus) {
         this.rotationMaxSpeedBonus = rotationMaxSpeedBonus;
     }
 
@@ -79,22 +79,12 @@ public class Engine extends Item {
         Engine engine = (Engine) o;
 
         if (itemId != engine.itemId) return false;
-        if (moveAccelerationBonus != engine.moveAccelerationBonus) return false;
-        if (moveMaxSpeedBonus != engine.moveMaxSpeedBonus) return false;
-        if (rotationAccelerationBonus != engine.rotationAccelerationBonus) return false;
-        if (rotationMaxSpeedBonus != engine.rotationMaxSpeedBonus) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result = itemId;
-        result = 31 * result + moveAccelerationBonus;
-        result = 31 * result + moveMaxSpeedBonus;
-        result = 31 * result + rotationAccelerationBonus;
-        result = 31 * result + rotationMaxSpeedBonus;
-        result = 31 * result + itemId;
-        return result;
+        return itemId;
     }
 }

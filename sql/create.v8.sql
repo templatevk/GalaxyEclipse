@@ -26,7 +26,7 @@ create table player_activation_hash (
 create table ship_state (-- dynamic state of the shipType
   ship_state_id               integer auto_increment primary key,
   ship_state_move_speed       integer not null default 0,
-  ship_state_rotation_speed   integer not null default 0,
+  ship_state_rotation_speed   float   not null default 0,
   ship_state_hp               integer not null,
   ship_state_armor_durability integer not null
 );
@@ -41,17 +41,17 @@ create table ship_type (
   ship_type_hp_regen              integer     not null,
   ship_type_move_max_speed        integer     not null,
   ship_type_move_acceleration     integer     not null,
-  ship_type_rotation_max_speed    integer     not null,
-  ship_type_rotation_acceleration integer     not null,
+  ship_type_rotation_max_speed    float     not null,
+  ship_type_rotation_acceleration float       not null,
   weapon_slots_count              integer     not null,
   bonus_slots_count               integer     not null
 );
 create table ship_config (-- static state of the shipType
   ship_config_id                    integer auto_increment primary key,
   ship_config_move_max_speed        integer not null,
-  ship_config_rotation_max_speed    integer not null,
+  ship_config_rotation_max_speed    float not null,
   ship_config_move_acceleration     integer not null,
-  ship_config_rotation_acceleration integer not null,
+  ship_config_rotation_acceleration float   not null,
   ship_config_armor                 integer not null,
   ship_config_energy_max            integer not null,
   ship_config_hp_max                integer not null,
@@ -113,8 +113,8 @@ create table engine (
   engine_id                   integer auto_increment primary key,
   move_acceleration_bonus     integer not null,
   move_max_speed_bonus        integer not null,
-  rotation_acceleration_bonus integer not null,
-  rotation_max_speed_bonus    integer not null,
+  rotation_acceleration_bonus float   not null,
+  rotation_max_speed_bonus    float not null,
   item_id                     integer not null
 );
 
@@ -152,11 +152,6 @@ create table location_object_behavior_type (
   location_object_behavior_type_id integer auto_increment primary key,
   object_behavior_type_name        varchar(16) not null
 );
-
-create index location_object_behavior_type_index
-on location_object (location_object_behavior_type_id);
-create index location_object_location_position_index
-on location_object (location_id, position_x, position_y);
 
 alter table location_object
 add constraint fk_location_object_location foreign key (location_id) references location (location_id),

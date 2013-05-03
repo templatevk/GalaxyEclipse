@@ -1,4 +1,6 @@
-package arch.galaxyeclipse.client.stage;
+package arch.galaxyeclipse.client.ui.provider;
+
+import arch.galaxyeclipse.client.ui.view.*;
 
 /**
  *

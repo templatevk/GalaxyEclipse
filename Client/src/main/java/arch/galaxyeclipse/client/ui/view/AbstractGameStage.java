@@ -1,4 +1,4 @@
-package arch.galaxyeclipse.client.stage;
+package arch.galaxyeclipse.client.ui.view;
 
 import arch.galaxyeclipse.client.window.*;
 import arch.galaxyeclipse.shared.context.*;
@@ -39,15 +39,15 @@ public abstract class AbstractGameStage extends Stage {
         }
     }
 
+    public void forceResize() {
+        resize(clientWindow.getWidth(), clientWindow.getHeight());
+    }
+
     protected Group getScaleGroup() {
         return null;
     }
 
     protected boolean isManualScaling() {
         return false;
-    }
-
-    protected void forceResize() {
-        resize(clientWindow.getWidth(), clientWindow.getHeight());
     }
 }

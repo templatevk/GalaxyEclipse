@@ -400,7 +400,7 @@ public class TextField extends Widget {
 			renderOffset -= distance - visibleWidth;
 		}
 
-		// calculate first visible char based on render offset
+		// calculate first visible char based on actor offset
 		visibleTextStart = 0;
 		textOffset = 0;
 		float start = Math.abs(renderOffset);
@@ -415,7 +415,7 @@ public class TextField extends Widget {
 			}
 		}
 
-		// calculate last visible char based on visible width and render offset
+		// calculate last visible char based on visible width and actor offset
 		visibleTextEnd = Math.min(displayText.length(), cursor + 1);
 		for (; visibleTextEnd <= displayText.length(); visibleTextEnd++) {
 			if (glyphPositions.items[visibleTextEnd] - startPos > visibleWidth) break;
@@ -806,7 +806,7 @@ public class TextField extends Widget {
 		}
 	}
 
-	/** An interface for onscreen keyboards. Can invoke the default keyboard or render your own keyboard!
+	/** An interface for onscreen keyboards. Can invoke the default keyboard or actor your own keyboard!
 	 * @author mzechner */
 	static public interface OnscreenKeyboard {
 		public void show(boolean visible);

@@ -1,6 +1,10 @@
 package arch.galaxyeclipse.server.data.model;
 
+import org.hibernate.annotations.*;
+
 import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.*;
 
 /**
@@ -8,6 +12,7 @@ import java.util.*;
  */
 @Table(name = "ship_state", schema = "", catalog = "ge")
 @Entity
+@DynamicUpdate
 public class ShipState {
     private int shipStateId;
 
@@ -33,28 +38,16 @@ public class ShipState {
         this.shipStateMoveSpeed = shipStateMoveSpeed;
     }
 
-    private int shipStateRotationSpeed;
+    private float shipStateRotationSpeed;
 
     @Column(name = "ship_state_rotation_speed", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     @Basic
-    public int getShipStateRotationSpeed() {
+    public float getShipStateRotationSpeed() {
         return shipStateRotationSpeed;
     }
 
-    public void setShipStateRotationSpeed(int shipStateRotationSpeed) {
+    public void setShipStateRotationSpeed(float shipStateRotationSpeed) {
         this.shipStateRotationSpeed = shipStateRotationSpeed;
-    }
-
-    private int shipStateRotationAngle;
-
-    @Column(name = "ship_state_rotation_angle", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
-    @Basic
-    public int getShipStateRotationAngle() {
-        return shipStateRotationAngle;
-    }
-
-    public void setShipStateRotationAngle(int shipStateRotationAngle) {
-        this.shipStateRotationAngle = shipStateRotationAngle;
     }
 
     private int shipStateHp;
@@ -88,25 +81,14 @@ public class ShipState {
 
         ShipState shipState = (ShipState) o;
 
-        if (shipStateArmorDurability != shipState.shipStateArmorDurability) return false;
-        if (shipStateHp != shipState.shipStateHp) return false;
         if (shipStateId != shipState.shipStateId) return false;
-        if (shipStateMoveSpeed != shipState.shipStateMoveSpeed) return false;
-        if (shipStateRotationAngle != shipState.shipStateRotationAngle) return false;
-        if (shipStateRotationSpeed != shipState.shipStateRotationSpeed) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result = shipStateId;
-        result = 31 * result + shipStateMoveSpeed;
-        result = 31 * result + shipStateRotationSpeed;
-        result = 31 * result + shipStateRotationAngle;
-        result = 31 * result + shipStateHp;
-        result = 31 * result + shipStateArmorDurability;
-        return result;
+        return shipStateId;
     }
 
     private Set<Player> players;
