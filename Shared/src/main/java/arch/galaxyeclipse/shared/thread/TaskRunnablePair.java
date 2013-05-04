@@ -1,11 +1,8 @@
 package arch.galaxyeclipse.shared.thread;
 
-import lombok.*;
-
 /**
  *
  */
-@Data
 public class TaskRunnablePair<T extends Runnable> {
     private DelayedRunnableTask delayedRunnableTask;
     private T runnable;
@@ -46,6 +43,13 @@ public class TaskRunnablePair<T extends Runnable> {
         if (delayedRunnableTask != null) {
             delayedRunnableTask.interrupt();
             delayedRunnableTask = null;
+        }
+    }
+
+    public void setRunnable(T runnable) {
+        this.runnable = runnable;
+        if (delayedRunnableTask != null) {
+            delayedRunnableTask.setRunnable(runnable);
         }
     }
 }

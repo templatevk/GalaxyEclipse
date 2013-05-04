@@ -52,6 +52,7 @@ class UnauthenticatedPacketHandler extends StatefulPacketHandler {
             StartupInfoData startupInfoData = getStartupDataInfo(
                     authenticationResult.getPlayer().getPlayerId());
             sendStartupInfo(startupInfoData);
+            fillPlayerInfoHolder(startupInfoData);
 
             indicatePlayerOnline(startupInfoData.getPlayer());
 
@@ -131,8 +132,6 @@ class UnauthenticatedPacketHandler extends StatefulPacketHandler {
                 setResult(startupInfoData);
             }
         }.execute();
-
-        fillPlayerInfoHolder(startupInfoData);
 
         return startupInfoData;
     }

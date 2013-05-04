@@ -88,11 +88,6 @@ class DefaultTextFieldBuilder implements ITextFieldBuilder {
         textField.setTextPaddingX(TEXT_PADDING_X);
         textField.setTextPaddingY(TEXT_PADDING_Y);
         textField.setFocusTraversal(false);
-
-        if (EnvType.CURRENT == EnvType.DEV && "".equals(text)) {
-            textField.setText("test");
-        }
-
         return textField;
     }
 }

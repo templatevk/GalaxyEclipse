@@ -1,6 +1,6 @@
 package arch.galaxyeclipse.client.ui.actor;
 
-import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.*;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject;
 
 /**
  * Responsible for retreiving pictures from the file system and creating Actors.

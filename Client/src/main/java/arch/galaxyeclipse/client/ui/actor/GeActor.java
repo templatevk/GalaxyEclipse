@@ -55,4 +55,9 @@ public class GeActor extends Image implements IGeActor {
         }
         return hittedActor;
     }
+
+    @Override
+    public int compareTo(IGeActor actor) {
+        return actorType.compareTo(actor.getActorType());
+    }
 }

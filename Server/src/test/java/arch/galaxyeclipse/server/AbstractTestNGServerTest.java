@@ -16,7 +16,6 @@ public abstract class AbstractTestNGServerTest {
     @BeforeClass
     public static void startServer() {
         server = new GalaxyEclipseServer();
-        server.preconfigure();
         server.start();
     }
 

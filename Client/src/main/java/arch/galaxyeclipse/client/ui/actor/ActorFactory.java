@@ -1,13 +1,16 @@
 package arch.galaxyeclipse.client.ui.actor;
 
-import arch.galaxyeclipse.client.resource.*;
-import arch.galaxyeclipse.shared.context.*;
-import arch.galaxyeclipse.shared.protocol.*;
-import arch.galaxyeclipse.shared.types.*;
-import com.badlogic.gdx.scenes.scene2d.utils.*;
-import lombok.extern.slf4j.*;
+import arch.galaxyeclipse.client.resource.IResourceLoader;
+import arch.galaxyeclipse.shared.context.ContextHolder;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject;
+import arch.galaxyeclipse.shared.types.DictionaryTypesMapper;
+import arch.galaxyeclipse.shared.types.LocationObjectTypesMapperType;
+import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
+import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import lombok.extern.slf4j.Slf4j;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -33,7 +36,7 @@ class ActorFactory implements IActorFactory {
     }
 
     @Override
-    public LocationObjectActor createLocationObjectActor(GeProtocol.LocationInfo.LocationObject locationObject) {
+    public LocationObjectActor createLocationObjectActor(LocationObject locationObject) {
         LocationObjectTypesMapperType objectType = dictionaryTypesMapper
                 .getLocationObjectTypeById(locationObject.getObjectTypeId());
         String path = null;

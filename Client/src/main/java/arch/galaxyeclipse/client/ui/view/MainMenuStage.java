@@ -17,8 +17,8 @@ public class MainMenuStage extends AbstractGameStage {
     private static final float TEXTFIELD_HEIGHT = 100;
     public static final int INNER_TABLE_WIDTH = 400;
     public static final int INNER_TABLE_HEIGHT = 200;
+    public static final String TEST_PLAYER_LOGIN_PASSWORD = "test1";
 
-    private MainMenuPresenter mainMenuPresenter;
     private Button connectBtn;
     private TextField usernameTxt;
     private TextField passwordTxt;
@@ -60,10 +60,13 @@ public class MainMenuStage extends AbstractGameStage {
         if (EnvType.CURRENT == EnvType.DEV) {
             rootTable.debug();
             innerTable.debug();
+
+            usernameTxt.setText(TEST_PLAYER_LOGIN_PASSWORD);
+            passwordTxt.setText(TEST_PLAYER_LOGIN_PASSWORD);
         }
 
         StageUiFactory.applyTabOrder(Arrays.<Actor>asList(
-                usernameTxt, passwordTxt, connectBtn), null);
+                usernameTxt, passwordTxt, connectBtn), this);
         StageUiFactory.setDefaultButton(Arrays.<Actor>asList(
                 usernameTxt, passwordTxt), connectBtn);
         setKeyboardFocus(usernameTxt);

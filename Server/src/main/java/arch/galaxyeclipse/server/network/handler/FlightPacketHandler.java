@@ -55,9 +55,9 @@ class FlightPacketHandler implements IChannelAwarePacketHandler {
                 playerInfoHolder.getShipState().setShipStateRotationSpeed(0);
 
                 // Indicate player is offline
-                int idStatic = dictionaryTypesMapper.getIdByLocationObjectBehaviorType(
+                int idIgnored = dictionaryTypesMapper.getIdByLocationObjectBehaviorType(
                         LocationObjectBehaviorTypesMapperType.IGNORED);
-                playerInfoHolder.getLocationObject().setLocationObjectBehaviorTypeId(idStatic);
+                playerInfoHolder.getLocationObject().setLocationObjectBehaviorTypeId(idIgnored);
 
                 session.merge(playerInfoHolder.getShipState());
                 session.merge(playerInfoHolder.getLocationObject());

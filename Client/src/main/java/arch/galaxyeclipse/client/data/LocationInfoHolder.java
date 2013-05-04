@@ -1,15 +1,22 @@
 package arch.galaxyeclipse.client.data;
 
-import arch.galaxyeclipse.shared.*;
-import arch.galaxyeclipse.shared.context.*;
-import arch.galaxyeclipse.shared.protocol.*;
-import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.*;
-import arch.galaxyeclipse.shared.types.*;
-import com.google.common.collect.*;
-import lombok.*;
-import lombok.extern.slf4j.*;
+import arch.galaxyeclipse.shared.SharedInfo;
+import arch.galaxyeclipse.shared.context.ContextHolder;
+import arch.galaxyeclipse.shared.protocol.GeProtocol;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject;
+import arch.galaxyeclipse.shared.types.DictionaryTypesMapper;
+import com.google.common.base.Predicate;
+import com.google.common.collect.Collections2;
+import com.google.common.collect.Multiset;
+import com.google.common.collect.Ordering;
+import com.google.common.collect.TreeMultiset;
+import lombok.Data;
+import lombok.Delegate;
+import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -20,14 +27,14 @@ public class LocationInfoHolder {
     private @Getter int locationId;
     private @Getter float width;
     private @Getter float height;
-    private Multiset<LocationObject> cachedObjects;
-    private Multiset<LocationObject> dynamicObjects;
+    private TreeMultiset<LocationObject> cachedObjects;
+    private TreeMultiset<LocationObject> dynamicObjects;
     private PositionPredicate positionPredicate;
 
     LocationInfoHolder() {
         positionPredicate = new PositionPredicate();
-        cachedObjects = TreeMultiset.create(new LocationObjectOrdering());
-        dynamicObjects = TreeMultiset.create(new LocationObjectOrdering());
+        cachedObjects = TreeMultiset.create(new LocationObjectPositionOrdering());
+        dynamicObjects = TreeMultiset.create(new LocationObjectPositionOrdering());
     }
 
     public void setLocationInfo(GeProtocol.LocationInfo locationInfo) {
@@ -42,55 +49,55 @@ public class LocationInfoHolder {
         List<LocationObject> objectsList = locationInfo.getLocationCachedObjects().getObjectsList();
         cachedObjects.addAll(objectsList);
 
-        if (log.isDebugEnabled()) {
-            log.debug("\tLocation " + name);
-            log.debug("\tId " + locationId);
-            log.debug("\tWidth " + width);
-            log.debug("\tHeight " + height);
+        if (LocationInfoHolder.log.isDebugEnabled()) {
+            LocationInfoHolder.log.debug("\tLocation " + name);
+            LocationInfoHolder.log.debug("\tId " + locationId);
+            LocationInfoHolder.log.debug("\tWidth " + width);
+            LocationInfoHolder.log.debug("\tHeight " + height);
 
             outputObjects(objectsList);
         }
     }
 
     public void setDynamicObjects(List<LocationObject> locationObjects) {
-        if (log.isDebugEnabled()) {
-            log.debug("Dynamic objects update, count = " + dynamicObjects.size());
+        if (LocationInfoHolder.log.isDebugEnabled()) {
+            LocationInfoHolder.log.debug("Dynamic objects update, count = " + dynamicObjects.size());
             outputObjects(locationObjects);
         }
 
-        dynamicObjects = TreeMultiset.create(new LocationObjectOrdering());
+        dynamicObjects = TreeMultiset.create(new LocationObjectPositionOrdering());
         dynamicObjects.addAll(locationObjects);
-
     }
 
     public Multiset<LocationObject> getCachedObjects() {
         return cachedObjects;
     }
 
-    public Set<LocationObject> getObjectsForRadius(GePosition position) {
+    public List<LocationObject> getObjectsForRadius(GePosition position) {
         positionPredicate.setPosition(position);
 
-        Set<LocationObject> locationObjects = new HashSet<>();
-        locationObjects.addAll(Multisets.filter(cachedObjects, positionPredicate));
-        locationObjects.addAll(Multisets.filter(dynamicObjects, positionPredicate));
+        List<LocationObject> locationObjects = new ArrayList<>();
+        locationObjects.addAll(Collections2.filter(cachedObjects, positionPredicate));
+        locationObjects.addAll(Collections2.filter(dynamicObjects, positionPredicate));
 
         return locationObjects;
     }
 
     private void outputObjects(List<LocationObject> locationObjects) {
-        log.debug("Objects:");
+        LocationInfoHolder.log.debug("Objects:");
         DictionaryTypesMapper dictionaryTypesMapper = ContextHolder
                 .getBean(DictionaryTypesMapper.class);
         for (LocationObject locationObject : locationObjects) {
-            log.debug("\t" + dictionaryTypesMapper.getLocationObjectTypeById(
+            LocationInfoHolder.log.debug("\t" + dictionaryTypesMapper.getLocationObjectTypeById(
                     locationObject.getObjectTypeId()));
-            log.debug("\tx = " + locationObject.getPositionX());
-            log.debug("\ty = " + locationObject.getPositionY());
+            LocationInfoHolder.log.debug("\tx = " + locationObject.getPositionX());
+            LocationInfoHolder.log.debug("\ty = " + locationObject.getPositionY());
         }
     }
 
     @Data
-    private static class PositionPredicate implements com.google.common.base.Predicate<LocationObject> {
+    static class PositionPredicate implements Predicate<LocationObject> {
+        @Delegate
         private GePosition position;
 
         @Override
@@ -102,14 +109,16 @@ public class LocationInfoHolder {
         }
     }
 
-    private static class LocationObjectOrdering extends Ordering<LocationObject> {
+    static class LocationObjectPositionOrdering extends Ordering<LocationObject> {
         @Override
         public int compare(LocationObject left, LocationObject right) {
             return left.getPositionX() < right.getPositionX()
                     ? -1 : left.getPositionX() > right.getPositionX()
                     ? 1 : left.getPositionY() < right.getPositionY()
                     ? -1 : left.getPositionY() > right.getPositionY()
-                    ? 1 : 0;
+                    // Dirty hack, objectId will always be unique, doing that because guava's
+                    // TreeMultiset duplicates existing element instead of adding the new one :(
+                    ? 1 : left.getObjectId() - right.getObjectId();
         }
     }
 }

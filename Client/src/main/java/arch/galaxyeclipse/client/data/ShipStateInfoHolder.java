@@ -20,14 +20,14 @@ public class ShipStateInfoHolder {
     private int locationObjectId;
 
     public void setShipState(GeProtocol.ShipStateResponse shipStateResponse) {
-        setArmorDurability(shipStateResponse.getArmorDurability());
-        setHp(shipStateResponse.getHp());
-        setMoveSpeed(shipStateResponse.getMoveSpeed());
-        setPositionX(shipStateResponse.getPositionX());
-        setPositionY(shipStateResponse.getPositionY());
-        setRotationAngle(shipStateResponse.getRotationAngle());
-        setRotationSpeed(shipStateResponse.getRotationSpeed());
-        setLocationObjectId(shipStateResponse.getLocationObjectId());
+        armorDurability = shipStateResponse.getArmorDurability();
+        hp = shipStateResponse.getHp();
+        moveSpeed = shipStateResponse.getMoveSpeed();
+        positionX = shipStateResponse.getPositionX();
+        positionY = shipStateResponse.getPositionY();
+        rotationAngle = shipStateResponse.getRotationAngle();
+        rotationSpeed = shipStateResponse.getRotationSpeed();
+        locationObjectId = shipStateResponse.getLocationObjectId();
 
         if (log.isDebugEnabled()) {
             log.debug("Updating ship state");
@@ -38,6 +38,7 @@ public class ShipStateInfoHolder {
             log.debug("\tRotation angle " + rotationAngle);
             log.debug("\tGePosition x " + positionX);
             log.debug("\tGePosition y " + positionY);
+            log.debug("\tObject id " + locationObjectId);
         }
     }
 }

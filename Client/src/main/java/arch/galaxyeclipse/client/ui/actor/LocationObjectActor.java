@@ -1,11 +1,14 @@
 package arch.galaxyeclipse.client.ui.actor;
 
-import arch.galaxyeclipse.client.data.*;
-import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.*;
-import arch.galaxyeclipse.shared.types.*;
-import arch.galaxyeclipse.shared.util.*;
-import com.badlogic.gdx.scenes.scene2d.utils.*;
-import lombok.*;
+import arch.galaxyeclipse.client.data.GePosition;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject;
+import arch.galaxyeclipse.shared.types.LocationObjectTypesMapperType;
+import arch.galaxyeclipse.shared.util.ICommand;
+import arch.galaxyeclipse.shared.util.StubCommand;
+import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
+import lombok.Data;
+
+import static arch.galaxyeclipse.shared.SharedInfo.LOCATION_TO_SCREEN_COORDS_COEF;
 
 /**
  *
@@ -23,7 +26,6 @@ class LocationObjectActor extends ClickableActor {
             ICommand<GePosition> hitCommand) {
         super(drawable);
         this.locationObject = locationObject;
-
         setHitCommand(hitCommand);
 
         boolean self = locationObject.getObjectId() ==
@@ -41,14 +43,26 @@ class LocationObjectActor extends ClickableActor {
             case STATION:
                 break;
             case PLAYER:
-                if (getActorType() == ActorType.SELF) {
-                    float x = (stageInfo.getWidth() - getWidth()) / 2f;
-                    float y = (stageInfo.getHeight() - getHeight()) / 2f;
-                    setPosition(x, y);
-                } else {
-                }
                 break;
         }
+
+        float screenCenterX = (stageInfo.getWidth() - getWidth()) / 2f;
+        float screenCenterY = (stageInfo.getHeight() - getHeight()) / 2f;
+        if (getActorType() == ActorType.SELF) {
+            setPosition(screenCenterX, screenCenterY);
+        } else {
+            // TODO not tested!
+            float locationShipX = getShipStateInfoHolder().getPositionX();
+            float locationShipY = getShipStateInfoHolder().getPositionY();
+            float locationObjectX = locationObject.getPositionX();
+            float locationObjectY = locationObject.getPositionY();
+            float screenDiffX = (locationObjectX - locationShipX) * LOCATION_TO_SCREEN_COORDS_COEF;
+            float screenDiffY = (locationObjectY - locationShipY) * LOCATION_TO_SCREEN_COORDS_COEF;
+            float screenObjectX = screenCenterX + screenDiffX;
+            float screenObjectY = screenCenterY + screenDiffY;
+            setPosition(screenObjectX, screenObjectY);
+        }
+
         setRotation(locationObject.getRotationAngle());
         setScale(stageInfo.getScaleX(), stageInfo.getScaleY());
     }

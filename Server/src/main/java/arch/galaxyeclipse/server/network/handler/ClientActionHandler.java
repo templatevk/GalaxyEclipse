@@ -21,9 +21,7 @@ class ClientActionHandler extends PacketHandlerDecorator {
     private ShipState shipState;
     private LocationObject locationObject;
 
-    private RotatingTask rotatingTask;
-    private PostRotatingTask postRotatingTask;
-
+    private RotationTask rotationTask;
     private boolean rotating;
 
     public ClientActionHandler(IChannelAwarePacketHandler decoratedPacketHandler) {
@@ -34,9 +32,7 @@ class ClientActionHandler extends PacketHandlerDecorator {
         shipState = playerInfoHolder.getShipState();
         locationObject = playerInfoHolder.getLocationObject();
 
-        rotatingTask = new RotatingTask(playerInfoHolder);
-        postRotatingTask = new PostRotatingTask(playerInfoHolder);
-
+        rotationTask = new RotationTask(playerInfoHolder);
         rotating = false;
     }
 
@@ -68,154 +64,147 @@ class ClientActionHandler extends PacketHandlerDecorator {
         return false;
     }
 
+    @Override
+    public void onChannelClosed() {
+        rotationTask.stop();
+    }
+
     private void processRotation(GeProtocol.ClientAction clientAction) {
-        rotatingTask.setRotationType(clientAction.getType());
-        postRotatingTask.setRotationType(clientAction.getType());
-
-        if (!rotating) {
-            rotatingTask.start();
-            postRotatingTask.stop();
-        } else {
-            rotatingTask.stop();
-            postRotatingTask.start();
-        }
-
         rotating = !rotating;
+        rotationTask.setRotationType(clientAction.getType());
+        rotationTask.setRotating(rotating);
     }
 
-    @Data
-    private static class RotatingTask extends TaskRunnablePair<RotatingTask>
-            implements Runnable {
+    private static class RotationTask extends TaskRunnablePair<Runnable> {
         public static final int MAX_ANGLE = 360;
 
-        private GeProtocol.ClientAction.ClientActionType rotationType;
+        private @Setter GeProtocol.ClientAction.ClientActionType rotationType;
         private ShipConfig shipConfig;
         private ShipState shipState;
         private LocationObject locationObject;
+        private RotatingRunnable rotatingRunnable;
+        private PostRotatingRunnable postRotatingRunnable;
 
-        private RotatingTask(final PlayerInfoHolder playerInfoHolder) {
+        private RotationTask(PlayerInfoHolder playerInfoHolder) {
             super(CLIENT_ACTION_ROTATION_DELAY_MILLISECONDS, null, true, true);
-            setRunnable(this);
 
             shipConfig = playerInfoHolder.getShipConfig();
             shipState = playerInfoHolder.getShipState();
             locationObject = playerInfoHolder.getLocationObject();
+            rotatingRunnable = new RotatingRunnable();
+            postRotatingRunnable = new PostRotatingRunnable();
+
+            setRotating(false);
         }
 
-        @Override
-        public void run() {
-            float currentRotationSpeed = shipState.getShipStateRotationSpeed();
-
-            float rotationAcceleration = shipConfig.getShipConfigRotationAcceleration();
-            float maxRotationSpeed = shipConfig.getShipConfigRotationMaxSpeed();
-
-            switch (rotationType) {
-                case ROTATE_RIGHT:
-                    currentRotationSpeed -= rotationAcceleration;
-                    break;
-                case ROTATE_LEFT:
-                    currentRotationSpeed += rotationAcceleration;
-                    break;
+        public void setRotating(boolean rotating) {
+            if (rotating) {
+                setRunnable(rotatingRunnable);
+                start();
+            } else {
+                setRunnable(postRotatingRunnable);
             }
+        }
 
-            if (Math.abs(currentRotationSpeed) != maxRotationSpeed) {
-                if (Math.abs(currentRotationSpeed) > maxRotationSpeed) {
-                    currentRotationSpeed = Math.signum(currentRotationSpeed) * maxRotationSpeed;
+        private class RotatingRunnable implements Runnable {
+            @Override
+            public void run() {
+                float currentRotationSpeed = shipState.getShipStateRotationSpeed();
+
+                float rotationAcceleration = shipConfig.getShipConfigRotationAcceleration();
+                float maxRotationSpeed = shipConfig.getShipConfigRotationMaxSpeed();
+
+                switch (rotationType) {
+                    case ROTATE_RIGHT:
+                        currentRotationSpeed -= rotationAcceleration;
+                        break;
+                    case ROTATE_LEFT:
+                        currentRotationSpeed += rotationAcceleration;
+                        break;
                 }
-            }
-            shipState.setShipStateRotationSpeed(currentRotationSpeed);
 
-            float currentRotationAngle = locationObject.getRotationAngle();
-            currentRotationAngle += currentRotationSpeed;
-            if (currentRotationAngle > MAX_ANGLE) {
-                currentRotationAngle -= MAX_ANGLE;
-            } else if (currentRotationAngle < 0) {
-                currentRotationAngle = MAX_ANGLE + currentRotationAngle;
-            }
-
-            locationObject.setRotationAngle(currentRotationAngle);
-
-            if (log.isDebugEnabled()) {
-                log.debug(rotationType.toString());
-                log.debug("Rotation speed " + currentRotationSpeed);
-                log.debug("Rotation angle " + currentRotationAngle);
-            }
-
-            new UnitOfWork() {
-                @Override
-                protected void doWork(Session session) {
-                    session.merge(shipState);
-                    session.merge(locationObject);
-                }
-            }.execute();
-        }
-    }
-
-    @Data
-    private static class PostRotatingTask extends TaskRunnablePair implements Runnable {
-        public static final int MAX_ANGLE = 360;
-
-        private GeProtocol.ClientAction.ClientActionType rotationType;
-        private ShipConfig shipConfig;
-        private ShipState shipState;
-        private LocationObject locationObject;
-
-        private PostRotatingTask(final PlayerInfoHolder playerInfoHolder) {
-            super(CLIENT_ACTION_ROTATION_DELAY_MILLISECONDS, null, true, true);
-            setRunnable(this);
-
-            shipConfig = playerInfoHolder.getShipConfig();
-            shipState = playerInfoHolder.getShipState();
-            locationObject = playerInfoHolder.getLocationObject();
-        }
-
-        @Override
-        public void run() {
-            float currentRotationSpeed = shipState.getShipStateRotationSpeed();
-            float rotationAcceleration = shipConfig.getShipConfigRotationAcceleration();
-
-            switch (rotationType) {
-                case ROTATE_RIGHT:
-                    currentRotationSpeed += rotationAcceleration;
-                    if (currentRotationSpeed > 0) {
-                        currentRotationSpeed = 0;
-                        stop();
+                if (Math.abs(currentRotationSpeed) != maxRotationSpeed) {
+                    if (Math.abs(currentRotationSpeed) > maxRotationSpeed) {
+                        currentRotationSpeed = Math.signum(currentRotationSpeed) * maxRotationSpeed;
                     }
-                    break;
-                case ROTATE_LEFT:
-                    currentRotationSpeed -= rotationAcceleration;
-                    if (currentRotationSpeed < 0) {
-                        currentRotationSpeed = 0;
-                        stop();
-                    }
-                    break;
-            }
-
-            shipState.setShipStateRotationSpeed(currentRotationSpeed);
-
-            float currentRotationAngle = locationObject.getRotationAngle();
-            currentRotationAngle += currentRotationSpeed;
-            if (currentRotationAngle > MAX_ANGLE) {
-                currentRotationAngle -= MAX_ANGLE;
-            } else if (currentRotationAngle < 0) {
-                currentRotationAngle = MAX_ANGLE + currentRotationAngle;
-            }
-
-            locationObject.setRotationAngle(currentRotationAngle);
-
-            if (log.isDebugEnabled()) {
-                log.debug(rotationType.toString());
-                log.debug("Rotation speed " + currentRotationSpeed);
-                log.debug("Rotation angle " + currentRotationAngle);
-            }
-
-            new UnitOfWork() {
-                @Override
-                protected void doWork(Session session) {
-                    session.merge(shipState);
-                    session.merge(locationObject);
                 }
-            }.execute();
+                shipState.setShipStateRotationSpeed(currentRotationSpeed);
+
+                float currentRotationAngle = locationObject.getRotationAngle();
+                currentRotationAngle += currentRotationSpeed;
+                if (currentRotationAngle > MAX_ANGLE) {
+                    currentRotationAngle -= MAX_ANGLE;
+                } else if (currentRotationAngle < 0) {
+                    currentRotationAngle = MAX_ANGLE + currentRotationAngle;
+                }
+
+                locationObject.setRotationAngle(currentRotationAngle);
+
+                if (log.isDebugEnabled()) {
+                    log.debug(rotationType.toString());
+                    log.debug("Rotation speed " + currentRotationSpeed);
+                    log.debug("Rotation angle " + currentRotationAngle);
+                }
+
+                new UnitOfWork() {
+                    @Override
+                    protected void doWork(Session session) {
+                        session.merge(shipState);
+                        session.merge(locationObject);
+                    }
+                }.execute();
+            }
+        }
+
+        private class PostRotatingRunnable implements Runnable {
+            @Override
+            public void run() {
+                float currentRotationSpeed = shipState.getShipStateRotationSpeed();
+                float rotationAcceleration = shipConfig.getShipConfigRotationAcceleration();
+
+                switch (rotationType) {
+                    case ROTATE_RIGHT:
+                        currentRotationSpeed += rotationAcceleration;
+                        if (currentRotationSpeed > 0) {
+                            currentRotationSpeed = 0;
+                            stop();
+                        }
+                        break;
+                    case ROTATE_LEFT:
+                        currentRotationSpeed -= rotationAcceleration;
+                        if (currentRotationSpeed < 0) {
+                            currentRotationSpeed = 0;
+                            stop();
+                        }
+                        break;
+                }
+
+                shipState.setShipStateRotationSpeed(currentRotationSpeed);
+
+                float currentRotationAngle = locationObject.getRotationAngle();
+                currentRotationAngle += currentRotationSpeed;
+                if (currentRotationAngle > MAX_ANGLE) {
+                    currentRotationAngle -= MAX_ANGLE;
+                } else if (currentRotationAngle < 0) {
+                    currentRotationAngle = MAX_ANGLE + currentRotationAngle;
+                }
+
+                locationObject.setRotationAngle(currentRotationAngle);
+
+                if (log.isDebugEnabled()) {
+                    log.debug(rotationType.toString());
+                    log.debug("Rotation speed " + currentRotationSpeed);
+                    log.debug("Rotation angle " + currentRotationAngle);
+                }
+
+                new UnitOfWork() {
+                    @Override
+                    protected void doWork(Session session) {
+                        session.merge(shipState);
+                        session.merge(locationObject);
+                    }
+                }.execute();
+            }
         }
     }
 }

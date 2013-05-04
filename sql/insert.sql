@@ -129,6 +129,12 @@ insert into ship_type
 insert into player
 (username, password, nickname, email, banned, activated)
   values
-  ('test', md5('test'), 'test', 'test', 0, 1);
+  ('test1', md5('test1'), 'test1', 'test1', 0, 1),
+  ('test2', md5('test2'), 'test2', 'test2', 0, 1),
+  ('test3', md5('test3'), 'test3', 'test3', 0, 1),
+  ('test4', md5('test4'), 'test4', 'test4', 0, 1);
 
-call activate_player(get_player_id_by_username('test'));
+call activate_player(get_player_id_by_username('test1'));
+call activate_player(get_player_id_by_username('test2'));
+call activate_player(get_player_id_by_username('test3'));
+call activate_player(get_player_id_by_username('test4'));

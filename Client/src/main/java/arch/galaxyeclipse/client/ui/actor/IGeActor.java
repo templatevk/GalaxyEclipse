@@ -1,12 +1,11 @@
 package arch.galaxyeclipse.client.ui.actor;
 
-import com.badlogic.gdx.scenes.scene2d.*;
-import com.badlogic.gdx.scenes.scene2d.utils.*;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 
 /**
  *
  */
-public interface IGeActor extends Layout {
+public interface IGeActor extends Comparable<IGeActor> {
     void adjust(StageInfo stageInfo);
 
     ActorType getActorType();

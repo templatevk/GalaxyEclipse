@@ -1,18 +1,27 @@
 package arch.galaxyeclipse.client.ui.provider;
 
-import arch.galaxyeclipse.client.data.*;
-import arch.galaxyeclipse.client.network.*;
-import arch.galaxyeclipse.client.network.sender.*;
-import arch.galaxyeclipse.client.ui.actor.*;
-import arch.galaxyeclipse.client.ui.model.*;
-import arch.galaxyeclipse.client.ui.view.*;
-import arch.galaxyeclipse.client.window.*;
-import arch.galaxyeclipse.shared.context.*;
-import arch.galaxyeclipse.shared.protocol.*;
-import arch.galaxyeclipse.shared.util.*;
-import lombok.extern.slf4j.*;
+import arch.galaxyeclipse.client.data.GePosition;
+import arch.galaxyeclipse.client.data.LocationInfoHolder;
+import arch.galaxyeclipse.client.data.ShipStateInfoHolder;
+import arch.galaxyeclipse.client.data.ShipStaticInfoHolder;
+import arch.galaxyeclipse.client.network.IClientNetworkManager;
+import arch.galaxyeclipse.client.network.PacketProcessingListenerCommand;
+import arch.galaxyeclipse.client.network.sender.DynamicObjectsRequestSender;
+import arch.galaxyeclipse.client.network.sender.ShipStateRequestSender;
+import arch.galaxyeclipse.client.ui.actor.IActorFactory;
+import arch.galaxyeclipse.client.ui.actor.IGeActor;
+import arch.galaxyeclipse.client.ui.model.FlightModeModel;
+import arch.galaxyeclipse.client.ui.view.AbstractGameStage;
+import arch.galaxyeclipse.client.ui.view.FlightModeStage;
+import arch.galaxyeclipse.client.window.IClientWindow;
+import arch.galaxyeclipse.shared.context.ContextHolder;
+import arch.galaxyeclipse.shared.protocol.GeProtocol;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject;
+import arch.galaxyeclipse.shared.util.ICommand;
+import lombok.extern.slf4j.Slf4j;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.List;
 
 /**
  *
@@ -21,14 +30,12 @@ import java.util.*;
 public class FlightModeController implements IStageProvider {
     private IClientNetworkManager networkManager;
     private IClientWindow clientWindow;
-
     private ShipStaticInfoHolder shipStaticInfoHolder;
     private LocationInfoHolder locationInfoHolder;
     private ShipStateInfoHolder shipStateInfoHolder;
     private DynamicObjectsRequestSender dynamicObjectsRequestSender;
     private ShipStateRequestSender shipStateRequestSender;
     private IActorFactory actorFactory;
-
     private FlightModeStage view;
 
     public FlightModeController() {
@@ -55,11 +62,11 @@ public class FlightModeController implements IStageProvider {
             public void perform(GeProtocol.Packet packet) {
                 GePosition position = new GePosition(shipStateInfoHolder.getPositionX(),
                         shipStateInfoHolder.getPositionY());
-                Set<GeProtocol.LocationInfo.LocationObject> locationObjects =
+                List<LocationObject> locationObjects =
                         locationInfoHolder.getObjectsForRadius(position);
 
                 FlightModeModel model = new FlightModeModel(locationObjects.size());
-                for (GeProtocol.LocationInfo.LocationObject locationObject : locationObjects) {
+                for (LocationObject locationObject : locationObjects) {
                     model.getGameActors().add(actorFactory.createLocationObjectActor(locationObject));
                 }
 
@@ -67,6 +74,7 @@ public class FlightModeController implements IStageProvider {
                 IGeActor background = actorFactory.createBackgroundActor(locationId);
                 model.setBackground(background);
 
+                Collections.sort(model.getGameActors());
                 view.updateModel(model);
 
                 if (FlightModeController.log.isDebugEnabled()) {
