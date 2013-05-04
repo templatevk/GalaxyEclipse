@@ -11,27 +11,27 @@ import java.util.*;
 @DiscriminatorValue(value = Item.ENGINE_TYPE)
 @PrimaryKeyJoinColumn(name = "item_id")
 public class Engine extends Item {
-    private int moveAccelerationBonus;
+    private float moveAccelerationBonus;
 
     @Column(name = "move_acceleration_bonus", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     @Basic
-    public int getMoveAccelerationBonus() {
+    public float getMoveAccelerationBonus() {
         return moveAccelerationBonus;
     }
 
-    public void setMoveAccelerationBonus(int moveAccelerationBonus) {
+    public void setMoveAccelerationBonus(float moveAccelerationBonus) {
         this.moveAccelerationBonus = moveAccelerationBonus;
     }
 
-    private int moveMaxSpeedBonus;
+    private float moveMaxSpeedBonus;
 
     @Column(name = "move_max_speed_bonus", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     @Basic
-    public int getMoveMaxSpeedBonus() {
+    public float getMoveMaxSpeedBonus() {
         return moveMaxSpeedBonus;
     }
 
-    public void setMoveMaxSpeedBonus(int moveMaxSpeedBonus) {
+    public void setMoveMaxSpeedBonus(float moveMaxSpeedBonus) {
         this.moveMaxSpeedBonus = moveMaxSpeedBonus;
     }
 

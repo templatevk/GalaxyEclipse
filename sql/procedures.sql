@@ -1,3 +1,5 @@
+use ge;
+
 drop procedure if exists activate_player;
 
 delimiter //

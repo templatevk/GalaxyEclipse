@@ -1,19 +1,25 @@
 package arch.galaxyeclipse.client.window;
 
-import arch.galaxyeclipse.client.ui.*;
-import arch.galaxyeclipse.client.ui.provider.*;
-import arch.galaxyeclipse.client.ui.view.*;
-import arch.galaxyeclipse.shared.*;
-import arch.galaxyeclipse.shared.util.*;
-import com.badlogic.gdx.*;
-import com.badlogic.gdx.backends.lwjgl.*;
-import com.badlogic.gdx.graphics.*;
-import com.badlogic.gdx.math.*;
-import com.badlogic.gdx.scenes.scene2d.*;
-import com.badlogic.gdx.scenes.scene2d.ui.*;
-import lombok.*;
+import arch.galaxyeclipse.client.ui.IButtonClickCommand;
+import arch.galaxyeclipse.client.ui.StageUiFactory;
+import arch.galaxyeclipse.client.ui.provider.IStageProvider;
+import arch.galaxyeclipse.client.ui.provider.StageProviderFactory;
+import arch.galaxyeclipse.shared.EnvType;
+import arch.galaxyeclipse.shared.util.IDestroyable;
+import com.badlogic.gdx.ApplicationListener;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
+import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
+import com.badlogic.gdx.graphics.GL10;
+import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import lombok.Getter;
 
-import java.util.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -38,15 +44,18 @@ class ClientWindow implements IClientWindow {
 		config.title = "Galaxy Eclipse";
 
         switch (EnvType.CURRENT) {
+//            TODO switch to below commented case
+            case PROD:
             case DEV:
                 config.width = (int)DEFAULT_WIDTH;
                 config.height = (int)DEFAULT_HEIGHT;
                 break;
-            case PROD:
-                config.width = (int)PROD_WIDTH;
-                config.height = (int)PROD_HEIGHT;
-                config.fullscreen = true;
-                break;
+//            TODO uncomment!
+//            case PROD:
+//                config.width = (int)PROD_WIDTH;
+//                config.height = (int)PROD_HEIGHT;
+//                config.fullscreen = true;
+//                break;
         }
 
 		new LwjglApplication(new ClientListener(), config);

@@ -54,7 +54,7 @@ message ShipStateRequest {
 
 }
 message ShipStateResponse {
-    required int32 moveSpeed        = 1;
+    required float moveSpeed        = 1;
     required float rotationSpeed    = 2;
     required int32 hp               = 3;
     required int32 armorDurability  = 4;
@@ -120,9 +120,9 @@ message LocationInfo {
 }
 message ShipStaticInfo {
     // Ship config values
-    required int32          moveMaxSpeed            = 1;
+    required float          moveMaxSpeed            = 1;
     required float          rotationMaxSpeed        = 2;
-    required int32          moveAccelerationSpeed   = 3;
+    required float          moveAccelerationSpeed   = 3;
     required float          rotationAcceleration    = 4;
     required int32          armor                   = 5;
     required int32          energyMax               = 6;
@@ -166,8 +166,8 @@ message ShipStaticInfo {
         }
 
         message Engine {
-            required int32 moveAccelerationBonus        = 1;
-            required int32 moveMaxSpeedBonus            = 2;
+            required float moveAccelerationBonus        = 1;
+            required float moveMaxSpeedBonus            = 2;
             required float rotationAccelerationBonus    = 3;
             required float rotationMaxSpeedBonus        = 4;
         }

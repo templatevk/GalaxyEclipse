@@ -52,4 +52,8 @@ public class TaskRunnablePair<T extends Runnable> {
             delayedRunnableTask.setRunnable(runnable);
         }
     }
+
+    public boolean isAlive() {
+        return delayedRunnableTask != null && delayedRunnableTask.isAlive();
+    }
 }

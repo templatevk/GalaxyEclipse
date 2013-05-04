@@ -25,7 +25,7 @@ create table player_activation_hash (
 -- shipType info
 create table ship_state (-- dynamic state of the shipType
   ship_state_id               integer auto_increment primary key,
-  ship_state_move_speed       integer not null default 0,
+  ship_state_move_speed       float   not null default 0,
   ship_state_rotation_speed   float   not null default 0,
   ship_state_hp               integer not null,
   ship_state_armor_durability integer not null
@@ -39,18 +39,18 @@ create table ship_type (
   ship_type_hp_max                integer     not null,
   ship_type_energy_regen          integer     not null,
   ship_type_hp_regen              integer     not null,
-  ship_type_move_max_speed        integer     not null,
-  ship_type_move_acceleration     integer     not null,
-  ship_type_rotation_max_speed    float     not null,
+  ship_type_move_max_speed        float       not null,
+  ship_type_move_acceleration     float       not null,
+  ship_type_rotation_max_speed    float       not null,
   ship_type_rotation_acceleration float       not null,
   weapon_slots_count              integer     not null,
   bonus_slots_count               integer     not null
 );
 create table ship_config (-- static state of the shipType
   ship_config_id                    integer auto_increment primary key,
-  ship_config_move_max_speed        integer not null,
-  ship_config_rotation_max_speed    float not null,
-  ship_config_move_acceleration     integer not null,
+  ship_config_move_max_speed        float   not null,
+  ship_config_rotation_max_speed    float   not null,
+  ship_config_move_acceleration     float   not null,
   ship_config_rotation_acceleration float   not null,
   ship_config_armor                 integer not null,
   ship_config_energy_max            integer not null,
@@ -111,10 +111,10 @@ create table weapon (
 );
 create table engine (
   engine_id                   integer auto_increment primary key,
-  move_acceleration_bonus     integer not null,
-  move_max_speed_bonus        integer not null,
+  move_acceleration_bonus     float   not null,
+  move_max_speed_bonus        float   not null,
   rotation_acceleration_bonus float   not null,
-  rotation_max_speed_bonus    float not null,
+  rotation_max_speed_bonus    float   not null,
   item_id                     integer not null
 );
 

@@ -105,27 +105,27 @@ public class ShipType {
         this.shipTypeHpRegen = shipTypeHpRegen;
     }
 
-    private int shipTypeMoveMaxSpeed;
+    private float shipTypeMoveMaxSpeed;
 
     @Column(name = "ship_type_move_max_speed", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     @Basic
-    public int getShipTypeMoveMaxSpeed() {
+    public float getShipTypeMoveMaxSpeed() {
         return shipTypeMoveMaxSpeed;
     }
 
-    public void setShipTypeMoveMaxSpeed(int shipTypeMoveMaxSpeed) {
+    public void setShipTypeMoveMaxSpeed(float shipTypeMoveMaxSpeed) {
         this.shipTypeMoveMaxSpeed = shipTypeMoveMaxSpeed;
     }
 
-    private int shipTypeMoveAcceleration;
+    private float shipTypeMoveAcceleration;
 
     @Column(name = "ship_type_move_acceleration", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     @Basic
-    public int getShipTypeMoveAcceleration() {
+    public float getShipTypeMoveAcceleration() {
         return shipTypeMoveAcceleration;
     }
 
-    public void setShipTypeMoveAcceleration(int shipTypeMoveAcceleration) {
+    public void setShipTypeMoveAcceleration(float shipTypeMoveAcceleration) {
         this.shipTypeMoveAcceleration = shipTypeMoveAcceleration;
     }
 

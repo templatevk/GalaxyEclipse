@@ -1,15 +1,20 @@
 package arch.galaxyeclipse.server.network.handler;
 
-import arch.galaxyeclipse.server.data.*;
-import arch.galaxyeclipse.server.data.model.*;
-import arch.galaxyeclipse.shared.protocol.*;
-import arch.galaxyeclipse.shared.thread.*;
-import org.hibernate.*;
+import arch.galaxyeclipse.server.data.UnitOfWork;
+import arch.galaxyeclipse.server.data.model.LocationObject;
+import arch.galaxyeclipse.server.data.model.ShipConfig;
+import arch.galaxyeclipse.server.data.model.ShipState;
+import arch.galaxyeclipse.shared.protocol.GeProtocol;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.ClientActionType;
+import arch.galaxyeclipse.shared.thread.TaskRunnablePair;
+import com.badlogic.gdx.math.MathUtils;
+import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
+import org.hibernate.Session;
 
-import lombok.*;
-import lombok.extern.slf4j.*;
-
-import static arch.galaxyeclipse.shared.SharedInfo.*;
+import static arch.galaxyeclipse.shared.SharedInfo.CLIENT_ACTION_MOVE_DELAY_MILLISECONDS;
+import static arch.galaxyeclipse.shared.SharedInfo.CLIENT_ACTION_ROTATION_DELAY_MILLISECONDS;
+import static arch.galaxyeclipse.shared.SharedInfo.SHIP_MOVE_SPEED_TO_LOCATION_COORDS_COEF;
 
 /**
  *
@@ -21,8 +26,10 @@ class ClientActionHandler extends PacketHandlerDecorator {
     private ShipState shipState;
     private LocationObject locationObject;
 
-    private RotationTask rotationTask;
+    private MoveHandler moveHandler;
+    private RotationHandler rotationHandler;
     private boolean rotating;
+    private boolean moving;
 
     public ClientActionHandler(IChannelAwarePacketHandler decoratedPacketHandler) {
         super(decoratedPacketHandler);
@@ -32,7 +39,8 @@ class ClientActionHandler extends PacketHandlerDecorator {
         shipState = playerInfoHolder.getShipState();
         locationObject = playerInfoHolder.getLocationObject();
 
-        rotationTask = new RotationTask(playerInfoHolder);
+        moveHandler = new MoveHandler(playerInfoHolder);
+        rotationHandler = new RotationHandler(playerInfoHolder);
         rotating = false;
     }
 
@@ -41,14 +49,16 @@ class ClientActionHandler extends PacketHandlerDecorator {
         switch (packet.getType()) {
             case CLIENT_ACTION:
                 GeProtocol.ClientAction clientAction = packet.getClientAction();
-                switch (clientAction.getType()) {
+                ClientActionType clientActionType = clientAction.getType();
+
+                switch (clientActionType) {
                     case ROTATE_LEFT:
                     case ROTATE_RIGHT:
-                        processRotation(clientAction);
+                        processRotation(clientActionType);
                         break;
                     case MOVE:
-                        break;
                     case STOP:
+                        processMoving(clientActionType);
                         break;
                     case OBJECT_CLICK:
                         break;
@@ -59,6 +69,7 @@ class ClientActionHandler extends PacketHandlerDecorator {
                     case ROCKET_SHOOT:
                         break;
                 }
+
                 return true;
         }
         return false;
@@ -66,16 +77,22 @@ class ClientActionHandler extends PacketHandlerDecorator {
 
     @Override
     public void onChannelClosed() {
-        rotationTask.stop();
+        rotationHandler.stop();
     }
 
-    private void processRotation(GeProtocol.ClientAction clientAction) {
+    private void processMoving(ClientActionType moveType) {
+        moving = !moving;
+        moveHandler.setMoveType(moveType);
+        moveHandler.setMoving(moving);
+    }
+
+    private void processRotation(ClientActionType moveType) {
         rotating = !rotating;
-        rotationTask.setRotationType(clientAction.getType());
-        rotationTask.setRotating(rotating);
+        rotationHandler.setRotationType(moveType);
+        rotationHandler.setRotating(rotating);
     }
 
-    private static class RotationTask extends TaskRunnablePair<Runnable> {
+    private static class RotationHandler extends TaskRunnablePair<Runnable> {
         public static final int MAX_ANGLE = 360;
 
         private @Setter GeProtocol.ClientAction.ClientActionType rotationType;
@@ -85,7 +102,7 @@ class ClientActionHandler extends PacketHandlerDecorator {
         private RotatingRunnable rotatingRunnable;
         private PostRotatingRunnable postRotatingRunnable;
 
-        private RotationTask(PlayerInfoHolder playerInfoHolder) {
+        private RotationHandler(PlayerInfoHolder playerInfoHolder) {
             super(CLIENT_ACTION_ROTATION_DELAY_MILLISECONDS, null, true, true);
 
             shipConfig = playerInfoHolder.getShipConfig();
@@ -110,7 +127,6 @@ class ClientActionHandler extends PacketHandlerDecorator {
             @Override
             public void run() {
                 float currentRotationSpeed = shipState.getShipStateRotationSpeed();
-
                 float rotationAcceleration = shipConfig.getShipConfigRotationAcceleration();
                 float maxRotationSpeed = shipConfig.getShipConfigRotationMaxSpeed();
 
@@ -123,11 +139,10 @@ class ClientActionHandler extends PacketHandlerDecorator {
                         break;
                 }
 
-                if (Math.abs(currentRotationSpeed) != maxRotationSpeed) {
-                    if (Math.abs(currentRotationSpeed) > maxRotationSpeed) {
-                        currentRotationSpeed = Math.signum(currentRotationSpeed) * maxRotationSpeed;
-                    }
+                if (Math.abs(currentRotationSpeed) > maxRotationSpeed) {
+                    currentRotationSpeed = Math.signum(currentRotationSpeed) * maxRotationSpeed;
                 }
+
                 shipState.setShipStateRotationSpeed(currentRotationSpeed);
 
                 float currentRotationAngle = locationObject.getRotationAngle();
@@ -140,10 +155,10 @@ class ClientActionHandler extends PacketHandlerDecorator {
 
                 locationObject.setRotationAngle(currentRotationAngle);
 
-                if (log.isDebugEnabled()) {
-                    log.debug(rotationType.toString());
-                    log.debug("Rotation speed " + currentRotationSpeed);
-                    log.debug("Rotation angle " + currentRotationAngle);
+                if (ClientActionHandler.log.isDebugEnabled()) {
+                    ClientActionHandler.log.debug(rotationType.toString());
+                    ClientActionHandler.log.debug("Rotation speed " + currentRotationSpeed);
+                    ClientActionHandler.log.debug("Rotation angle " + currentRotationAngle);
                 }
 
                 new UnitOfWork() {
@@ -191,16 +206,129 @@ class ClientActionHandler extends PacketHandlerDecorator {
 
                 locationObject.setRotationAngle(currentRotationAngle);
 
-                if (log.isDebugEnabled()) {
-                    log.debug(rotationType.toString());
-                    log.debug("Rotation speed " + currentRotationSpeed);
-                    log.debug("Rotation angle " + currentRotationAngle);
+                if (ClientActionHandler.log.isDebugEnabled()) {
+                    ClientActionHandler.log.debug(rotationType.toString());
+                    ClientActionHandler.log.debug("Rotation speed " + currentRotationSpeed);
+                    ClientActionHandler.log.debug("Rotation angle " + currentRotationAngle);
                 }
 
                 new UnitOfWork() {
                     @Override
                     protected void doWork(Session session) {
                         session.merge(shipState);
+                        session.merge(locationObject);
+                    }
+                }.execute();
+            }
+        }
+    }
+
+    private static class MoveHandler {
+        private @Setter GeProtocol.ClientAction.ClientActionType moveType;
+        private ShipConfig shipConfig;
+        private ShipState shipState;
+        private LocationObject locationObject;
+        private SpeedTask speedTask;
+        private PositionTask positionTask;
+
+        private MoveHandler(PlayerInfoHolder playerInfoHolder) {
+            shipConfig = playerInfoHolder.getShipConfig();
+            shipState = playerInfoHolder.getShipState();
+            locationObject = playerInfoHolder.getLocationObject();
+
+            speedTask = new SpeedTask();
+            positionTask = new PositionTask();
+
+            setMoving(false);
+        }
+
+        public void setMoving(boolean moving) {
+            if (moving) {
+                if (!positionTask.isAlive()) {
+                    positionTask.start();
+                }
+                speedTask.start();
+            } else {
+                speedTask.stop();
+            }
+        }
+
+        private class SpeedTask extends TaskRunnablePair<Runnable> implements Runnable {
+            private SpeedTask() {
+                super(CLIENT_ACTION_MOVE_DELAY_MILLISECONDS, null, true, true);
+                setRunnable(this);
+            }
+
+            @Override
+            public void run() {
+                float currentMoveSpeed = shipState.getShipStateMoveSpeed();
+                float moveAcceleration = shipConfig.getShipConfigMoveAcceleration();
+                float maxMoveSpeed = shipConfig.getShipConfigMoveMaxSpeed();
+
+                switch (moveType) {
+                    case MOVE:
+                        currentMoveSpeed += moveAcceleration;
+                        break;
+                    case STOP:
+                        currentMoveSpeed -= moveAcceleration;
+                        if (currentMoveSpeed <= 0) {
+                            currentMoveSpeed = 0;
+                            speedTask.stop();
+                            positionTask.stop();
+                        }
+                        break;
+                }
+
+                if (currentMoveSpeed > maxMoveSpeed) {
+                    currentMoveSpeed = maxMoveSpeed;
+                }
+
+                shipState.setShipStateMoveSpeed(currentMoveSpeed);
+
+                if (ClientActionHandler.log.isDebugEnabled()) {
+                    ClientActionHandler.log.debug(moveType.toString());
+                    ClientActionHandler.log.debug("Move speed " + currentMoveSpeed);
+                }
+
+                new UnitOfWork() {
+                    @Override
+                    protected void doWork(Session session) {
+                        session.merge(shipState);
+                    }
+                }.execute();
+            }
+        }
+
+        private class PositionTask extends TaskRunnablePair<Runnable> implements Runnable {
+            private PositionTask() {
+                super(CLIENT_ACTION_MOVE_DELAY_MILLISECONDS, null, true, true);
+                setRunnable(this);
+            }
+
+            @Override
+            public void run() {
+                float currentMoveSpeed = shipState.getShipStateMoveSpeed();
+                float rotationAngle = locationObject.getRotationAngle();
+                float positionX = locationObject.getPositionX();
+                float positionY = locationObject.getPositionY();
+                float xDiff = currentMoveSpeed * MathUtils.sinDeg(rotationAngle);
+                float yDiff = currentMoveSpeed * MathUtils.cosDeg(rotationAngle);
+                positionX += xDiff * SHIP_MOVE_SPEED_TO_LOCATION_COORDS_COEF;
+                // -= here because of client rendering
+                positionY -= yDiff * SHIP_MOVE_SPEED_TO_LOCATION_COORDS_COEF;
+
+                locationObject.setPositionX(positionX);
+                locationObject.setPositionY(positionY);
+
+                if (ClientActionHandler.log.isDebugEnabled()) {
+                    ClientActionHandler.log.debug(moveType.toString());
+                    ClientActionHandler.log.debug("Position x " + positionX);
+                    ClientActionHandler.log.debug("Position y " + positionY);
+                }
+
+                new UnitOfWork() {
+                    @Override
+                    protected void doWork(Session session) {
                         session.merge(locationObject);
                     }
                 }.execute();

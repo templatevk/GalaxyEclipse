@@ -1,3 +1,5 @@
+use ge;
+
 # dictionaries
 insert into item_type
 (item_type_name)

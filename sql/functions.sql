@@ -1,3 +1,5 @@
+use ge;
+
 delimiter //
 
 # getter functions

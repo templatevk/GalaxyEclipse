@@ -1,5 +1,0 @@
-Hibernate:
-1. Nested association
-    a) FetchMode.JOIN without alias or restriction
-    b) Restriction with alias or nested criteria
-    c) HQL can do a) + b)

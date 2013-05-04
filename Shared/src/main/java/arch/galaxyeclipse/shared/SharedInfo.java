@@ -11,9 +11,10 @@ public class SharedInfo {
     public static final float DYNAMIC_OBJECT_QUERY_RADIUS = 50;
     public static final float LOCATION_TO_SCREEN_COORDS_COEF = 30;
 
+    public static final float SHIP_MOVE_SPEED_TO_LOCATION_COORDS_COEF = 0.01f;
+
     public static final long CLIENT_ACTION_ROTATION_DELAY_MILLISECONDS = 30;
-    public static final long CLIENT_ACTION_MOVE_DELAY_MILLISECONDS = 10;
-    public static final long CLIENT_ACTION_STOP_DELAY_MILLISECONDS = 10;
+    public static final long CLIENT_ACTION_MOVE_DELAY_MILLISECONDS = 30;
 
     private SharedInfo() {
 

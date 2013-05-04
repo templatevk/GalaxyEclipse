@@ -21,15 +21,15 @@ public class ShipConfig {
         this.shipConfigId = shipConfigId;
     }
 
-    private int shipConfigMoveMaxSpeed;
+    private float shipConfigMoveMaxSpeed;
 
     @Column(name = "ship_config_move_max_speed", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     @Basic
-    public int getShipConfigMoveMaxSpeed() {
+    public float getShipConfigMoveMaxSpeed() {
         return shipConfigMoveMaxSpeed;
     }
 
-    public void setShipConfigMoveMaxSpeed(int shipConfigMoveMaxSpeed) {
+    public void setShipConfigMoveMaxSpeed(float shipConfigMoveMaxSpeed) {
         this.shipConfigMoveMaxSpeed = shipConfigMoveMaxSpeed;
     }
 
@@ -45,15 +45,15 @@ public class ShipConfig {
         this.shipConfigRotationMaxSpeed = shipConfigRotationMaxSpeed;
     }
 
-    private int shipConfigMoveAcceleration;
+    private float shipConfigMoveAcceleration;
 
     @Column(name = "ship_config_move_acceleration", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     @Basic
-    public int getShipConfigMoveAcceleration() {
+    public float getShipConfigMoveAcceleration() {
         return shipConfigMoveAcceleration;
     }
 
-    public void setShipConfigMoveAcceleration(int shipConfigMoveAcceleration) {
+    public void setShipConfigMoveAcceleration(float shipConfigMoveAcceleration) {
         this.shipConfigMoveAcceleration = shipConfigMoveAcceleration;
     }
 
