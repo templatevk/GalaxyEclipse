@@ -4,17 +4,15 @@ import arch.galaxyeclipse.server.data.UnitOfWork;
 import arch.galaxyeclipse.server.data.model.LocationObject;
 import arch.galaxyeclipse.server.data.model.ShipConfig;
 import arch.galaxyeclipse.server.data.model.ShipState;
+import arch.galaxyeclipse.server.util.MathUtils;
 import arch.galaxyeclipse.shared.protocol.GeProtocol;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.ClientActionType;
 import arch.galaxyeclipse.shared.thread.TaskRunnablePair;
-import com.badlogic.gdx.math.MathUtils;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.Session;
 
-import static arch.galaxyeclipse.shared.SharedInfo.CLIENT_ACTION_MOVE_DELAY_MILLISECONDS;
-import static arch.galaxyeclipse.shared.SharedInfo.CLIENT_ACTION_ROTATION_DELAY_MILLISECONDS;
-import static arch.galaxyeclipse.shared.SharedInfo.SHIP_MOVE_SPEED_TO_LOCATION_COORDS_COEF;
+import static arch.galaxyeclipse.shared.SharedInfo.*;
 
 /**
  *

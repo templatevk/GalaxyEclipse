@@ -87,7 +87,6 @@
     <orderEntry type="library" name="Maven: org.projectlombok:lombok:0.11.6" level="project" />
     <orderEntry type="library" name="Maven: com.google.guava:guava:14.0.1" level="project" />
     <orderEntry type="library" name="Maven: com.github.peichhorn:lombok-pg:0.11.3" level="project" />
-    <orderEntry type="library" name="Maven: libgdx:libgdx:0.9.8" level="project" />
   </component>
 </module>
 

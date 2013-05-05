@@ -1,9 +1,12 @@
 package arch.galaxyeclipse.client.data;
 
-import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfo;
+import arch.galaxyeclipse.shared.protocol.ShipStaticInfoCommand;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.SerializationUtils;
 import org.testng.annotations.Test;
+
+import java.io.Serializable;
 
 /**
  *
@@ -12,14 +15,21 @@ import org.testng.annotations.Test;
 public class SerializationPerformanceTest {
     @Test
     public void testSerializationTime() throws Exception {
-        LocationObject locationObject = LocationObject.getDefaultInstance();
+        ShipStaticInfoCommand shipStaticInfoCommand = new TestCommand();
 
         long start = System.currentTimeMillis();
-        byte[] objectBytes = SerializationUtils.serialize(locationObject);
+        byte[] objectBytes = SerializationUtils.serialize(shipStaticInfoCommand);
         log.info("Serialization takes " + (System.currentTimeMillis() - start));
 
         start = System.currentTimeMillis();
-        locationObject = (LocationObject)SerializationUtils.deserialize(objectBytes);
+        shipStaticInfoCommand = (ShipStaticInfoCommand)SerializationUtils.deserialize(objectBytes);
         log.info("Deserialization takes " + (System.currentTimeMillis() - start));
+    }
+
+    class TestCommand implements ShipStaticInfoCommand, Serializable {
+        @Override
+        public void perform(ShipStaticInfo argument) {
+
+        }
     }
 }
