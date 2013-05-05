@@ -18,13 +18,12 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * OpenGL window delegating drawing to the stage set.
- */
+@Slf4j
 class ClientWindow implements IClientWindow {
     private static final float VIRTUAL_WIDTH = 480;
     private static final float VIRTUAL_HEIGHT = 320;
@@ -95,10 +94,6 @@ class ClientWindow implements IClientWindow {
     }
 
     private class ClientListener implements ApplicationListener {
-        public ClientListener() {
-
-        }
-
         @Override
         public void create() {
             Gdx.gl.glDepthFunc(GL20.GL_LEQUAL);
@@ -136,9 +131,9 @@ class ClientWindow implements IClientWindow {
         @Override
         public void render() {
             Gdx.gl.glClearColor(0, 0, 0.2f, 1);
+            Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
             Gdx.gl.glViewport((int)viewport.x, (int)viewport.y,
                     (int)viewport.width, (int)viewport.height);
-            Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 
             stageProvider.getGameStage().draw();
 
@@ -156,7 +151,7 @@ class ClientWindow implements IClientWindow {
             float scale;
             Vector2 crop = new Vector2(0f, 0f);
 
-            if(aspectRatio > ASPECT_RATIO) {
+            if (aspectRatio > ASPECT_RATIO) {
                 scale = height / VIRTUAL_HEIGHT;
                 crop.x = (width - VIRTUAL_WIDTH * scale) / 2f;
             } else if(aspectRatio < ASPECT_RATIO) {
