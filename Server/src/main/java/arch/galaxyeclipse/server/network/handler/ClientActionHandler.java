@@ -1,6 +1,6 @@
 package arch.galaxyeclipse.server.network.handler;
 
-import arch.galaxyeclipse.server.data.UnitOfWork;
+import arch.galaxyeclipse.server.data.HibernateUnitOfWork;
 import arch.galaxyeclipse.server.data.model.LocationObject;
 import arch.galaxyeclipse.server.data.model.ShipConfig;
 import arch.galaxyeclipse.server.data.model.ShipState;
@@ -159,7 +159,7 @@ class ClientActionHandler extends PacketHandlerDecorator {
                     ClientActionHandler.log.debug("Rotation angle " + currentRotationAngle);
                 }
 
-                new UnitOfWork() {
+                new HibernateUnitOfWork() {
                     @Override
                     protected void doWork(Session session) {
                         session.merge(shipState);
@@ -210,7 +210,7 @@ class ClientActionHandler extends PacketHandlerDecorator {
                     ClientActionHandler.log.debug("Rotation angle " + currentRotationAngle);
                 }
 
-                new UnitOfWork() {
+                new HibernateUnitOfWork() {
                     @Override
                     protected void doWork(Session session) {
                         session.merge(shipState);
@@ -288,7 +288,7 @@ class ClientActionHandler extends PacketHandlerDecorator {
                     ClientActionHandler.log.debug("Move speed " + currentMoveSpeed);
                 }
 
-                new UnitOfWork() {
+                new HibernateUnitOfWork() {
                     @Override
                     protected void doWork(Session session) {
                         session.merge(shipState);
@@ -324,7 +324,7 @@ class ClientActionHandler extends PacketHandlerDecorator {
                     ClientActionHandler.log.debug("Position y " + positionY);
                 }
 
-                new UnitOfWork() {
+                new HibernateUnitOfWork() {
                     @Override
                     protected void doWork(Session session) {
                         session.merge(locationObject);

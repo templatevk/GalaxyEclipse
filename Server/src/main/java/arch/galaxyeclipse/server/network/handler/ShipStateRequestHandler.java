@@ -31,7 +31,7 @@ class ShipStateRequestHandler extends PacketHandlerDecorator {
     }
 
     private void sendShipStateResponse() {
-        ShipState shipState = new UnitOfWork<ShipState>() {
+        ShipState shipState = new HibernateUnitOfWork<ShipState>() {
             @Override
             protected void doWork(Session session) {
                 int shipStateId = getServerChannelHandler().getPlayerInfoHolder()

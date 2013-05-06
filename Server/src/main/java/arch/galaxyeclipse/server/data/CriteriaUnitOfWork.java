@@ -7,7 +7,7 @@ import java.util.*;
 /**
  *
  */
-public class CriteriaUnitOfWork<T> extends UnitOfWork<List<T>> {
+public class CriteriaUnitOfWork<T> extends HibernateUnitOfWork<List<T>> {
     private Class<T> clazz;
 
     public CriteriaUnitOfWork(Class<T> clazz) {

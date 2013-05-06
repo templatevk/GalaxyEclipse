@@ -2,13 +2,9 @@ package arch.galaxyeclipse.server.authentication;
 
 import arch.galaxyeclipse.server.data.*;
 import arch.galaxyeclipse.server.data.model.*;
-import arch.galaxyeclipse.shared.context.*;
-import arch.galaxyeclipse.shared.types.*;
 import org.apache.commons.codec.digest.*;
 import org.hibernate.*;
 import org.hibernate.criterion.*;
-
-import java.util.*;
 
 /**
 *
@@ -21,7 +17,7 @@ class ClientAuthenticator implements IClientAuthenticator {
     @Override
     public AuthenticationResult authenticate(final String username,
             final String password) {
-        Player player = new UnitOfWork<Player>() {
+        Player player = new HibernateUnitOfWork<Player>() {
             @Override
             protected void doWork(Session session) {
                Player player = (Player)session.createCriteria(Player.class)
