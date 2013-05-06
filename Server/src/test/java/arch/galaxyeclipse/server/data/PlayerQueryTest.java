@@ -4,7 +4,6 @@ import arch.galaxyeclipse.server.*;
 import arch.galaxyeclipse.server.data.model.*;
 import lombok.extern.slf4j.*;
 import org.hibernate.*;
-import org.hibernate.criterion.*;
 import org.testng.annotations.*;
 
 import java.util.*;
@@ -18,7 +17,7 @@ public class PlayerQueryTest extends AbstractTestNGServerTest {
     public void startupInfoQueryTest() {
         long start = Calendar.getInstance().getTimeInMillis();
 
-        Player p2 = new UnitOfWork<Player>() {
+        Player p2 = new HibernateUnitOfWork<Player>() {
             @Override
             protected void doWork(Session session) {
                 setResult((Player)session.getNamedQuery("player.startupInfo")

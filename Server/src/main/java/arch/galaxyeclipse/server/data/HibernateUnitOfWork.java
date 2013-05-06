@@ -10,11 +10,11 @@ import org.hibernate.*;
  *
  */
 @Slf4j
-public abstract class UnitOfWork<T> {
+public abstract class HibernateUnitOfWork<T> {
     @Setter(AccessLevel.PROTECTED)
     private T result;
 
-    public UnitOfWork() {
+    public HibernateUnitOfWork() {
 
     }
 
@@ -32,10 +32,10 @@ public abstract class UnitOfWork<T> {
                 try {
                     tx.rollback();
                 } catch (Exception ex) {
-                    log.error("Error rolling back the transaction", ex);
+                    HibernateUnitOfWork.log.error("Error rolling back the transaction", ex);
                 }
             }
-            log.error("Error on " + LogUtils.getObjectInfo(this), e);
+            HibernateUnitOfWork.log.error("Error on " + LogUtils.getObjectInfo(this), e);
         } finally {
             session.close();
         }

@@ -10,25 +10,52 @@ import ch.qos.logback.core.util.*;
 import lombok.extern.slf4j.*;
 import org.hibernate.Session;
 import org.slf4j.*;
+import org.springframework.data.redis.connection.jedis.JedisConnection;
 
 @Slf4j
 public class GalaxyEclipseServer {
     private IServerNetworkManager serverNetworkManager;
     private DictionaryTypesMapper dictionaryTypesMapper;
-	
+
 	public GalaxyEclipseServer() {
 
 	}
 
+    public static void main(String[] args) throws Exception {
+        GalaxyEclipseServer server = new GalaxyEclipseServer();
+        try {
+            server.preconfigure();
+            server.start();
+        } catch (Exception e) {
+            log.error("Error during server startup", e);
+        }
+    }
+
     public void start() {
         preconfigure();
         hibernateAllPlayers();
+        clearRedisDb();
         serverNetworkManager.startServer(SharedInfo.HOST, SharedInfo.PORT);
     }
 
     public void stop() {
         serverNetworkManager.stopServer();
+        persistRedisDb();
         hibernateAllPlayers();
+        ContextHolder.INSTANCE.close();
+    }
+
+    private void clearRedisDb() {
+        new JedisUnitOfWork() {
+            @Override
+            protected void doWork(JedisConnection connection) {
+                connection.flushDb();
+            }
+        }.execute();
+    }
+
+    private void persistRedisDb() {
+
     }
 
     private void preconfigure() {
@@ -46,7 +73,7 @@ public class GalaxyEclipseServer {
     }
 
     private void hibernateAllPlayers() {
-        new UnitOfWork() {
+        new HibernateUnitOfWork() {
             @Override
             protected void doWork(Session session) {
                 // Stop the ships
@@ -68,14 +95,4 @@ public class GalaxyEclipseServer {
             log.info("All players have been hibernated");
         }
     }
-
-	public static void main(String[] args) throws Exception {
-        GalaxyEclipseServer server = new GalaxyEclipseServer();
-        try {
-            server.preconfigure();
-            server.start();
-        } catch (Exception e) {
-            log.error("Error during server startup", e);
-        }
-	}
 }

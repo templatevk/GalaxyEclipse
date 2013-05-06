@@ -37,7 +37,7 @@ class DynamicObjectsRequestHandler extends PacketHandlerDecorator {
     }
 
     private void processDynamicObjectsRequest() {
-        List<LocationObject> locationObjects = new UnitOfWork<List<LocationObject>>() {
+        List<LocationObject> locationObjects = new HibernateUnitOfWork<List<LocationObject>>() {
             @Override
             protected void doWork(Session session) {
                 LocationObject locationObject = getServerChannelHandler()

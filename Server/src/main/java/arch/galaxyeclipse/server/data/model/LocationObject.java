@@ -1,6 +1,7 @@
 package arch.galaxyeclipse.server.data.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.*;
 
 /**
@@ -8,7 +9,7 @@ import java.util.*;
  */
 @Table(name = "location_object", schema = "", catalog = "ge")
 @Entity
-public class LocationObject {
+public class LocationObject implements Serializable {
     private int locationObjectId;
 
     @Column(name = "location_object_id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)

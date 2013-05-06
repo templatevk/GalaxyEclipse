@@ -69,7 +69,7 @@ class UnauthenticatedPacketHandler extends StatefulPacketHandler {
     }
 
     private void indicatePlayerOnline(final Player player) {
-        new UnitOfWork() {
+        new HibernateUnitOfWork() {
             @Override
             protected void doWork(Session session) {
                 int idDynamic = dictionaryTypesMapper.getIdByLocationObjectBehaviorType(
@@ -105,7 +105,7 @@ class UnauthenticatedPacketHandler extends StatefulPacketHandler {
     }
 
     private StartupInfoData getStartupDataInfo(final int playerId) {
-        StartupInfoData startupInfoData = new UnitOfWork<StartupInfoData>() {
+        StartupInfoData startupInfoData = new HibernateUnitOfWork<StartupInfoData>() {
             @Override
             protected void doWork(Session session) {
                 StartupInfoData startupInfoData = new StartupInfoData();

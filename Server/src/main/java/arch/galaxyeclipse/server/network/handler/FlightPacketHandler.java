@@ -47,7 +47,7 @@ class FlightPacketHandler implements IChannelAwarePacketHandler {
     }
 
     private void hibernatePlayer() {
-        new UnitOfWork() {
+        new HibernateUnitOfWork() {
             @Override
             protected void doWork(Session session) {
                 // Stop the ship
