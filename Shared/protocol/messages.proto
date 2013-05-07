@@ -38,7 +38,7 @@ message Packet {
     optional ShipStaticInfoCommandPacket    gameInfoCommandHolder   = 20;
 
     optional ChatSendMessagePacket          chatSendMessage         = 21;
-    optional ChatReceiveMessagePacket       typesMapResponse        = 22;
+    optional ChatReceiveMessagePacket       chatReceiveMessage      = 22;
 }
 
 
