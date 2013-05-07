@@ -228,6 +228,19 @@
             </properties>
         </profile>
         <profile>
+            <id>dev_ui</id>
+            <activation>
+                <property>
+                    <name>env_ui</name>
+                    <value>dev_ui</value>
+                </property>
+            </activation>
+            <properties>
+                <env.type>DEV_UI</env.type>
+                <filter.env>${basedir}/src/main/resources/dev.properties</filter.env>
+            </properties>
+        </profile>
+        <profile>
             <id>prod</id>
             <activation>
                 <property>

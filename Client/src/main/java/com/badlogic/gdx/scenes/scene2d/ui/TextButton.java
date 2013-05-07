@@ -24,12 +24,17 @@ import com.badlogic.gdx.scenes.scene2d.utils.Align;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.esotericsoftware.tablelayout.Cell;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 
 /** A button with a child {@link Label} to display text.
  * @author Nathan Sweet */
+@Slf4j
 public class TextButton extends Button {
 	private final Label label;
 	private TextButtonStyle style;
+
+    @Setter
+    private float prefTextPaddingY;
 
 	public TextButton (String text, Skin skin) {
 		this(text, skin.get(TextButtonStyle.class));
@@ -81,6 +86,7 @@ public class TextButton extends Button {
 		else
 			fontColor = style.fontColor;
 		if (fontColor != null) label.getStyle().fontColor = fontColor;
+        super.setTextPaddingY(prefTextPaddingY * getScaleY());
 		super.draw(batch, parentAlpha);
 	}
 
@@ -99,6 +105,11 @@ public class TextButton extends Button {
 	public CharSequence getText () {
 		return label.getText();
 	}
+
+    @Override
+    public void setSize(float width, float height) {
+        super.setSize(width, height);
+    }
 
 	/** The style for a text button, see {@link TextButton}.
 	 * @author Nathan Sweet */

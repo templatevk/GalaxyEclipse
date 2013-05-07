@@ -244,7 +244,7 @@ public class Button extends Table {
 		return getPrefHeight();
 	}
 
-	/** The style for a button, see {@link Button}.
+    /** The style for a button, see {@link Button}.
 	 * @author mzechner */
 	static public class ButtonStyle {
 		/** Optional. */

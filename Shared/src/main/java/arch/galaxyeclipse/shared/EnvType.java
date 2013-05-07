@@ -11,6 +11,7 @@ import java.util.*;
 @Slf4j
 public enum EnvType {
     DEV,
+    DEV_UI,
     PROD;
 
     public static final EnvType CURRENT;

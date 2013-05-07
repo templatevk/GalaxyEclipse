@@ -749,7 +749,7 @@ public class TextField extends Widget {
 		this.rightAligned = rightAligned;
 	}
 
-	/** If true, the text in this text field will be shown as bullet characters. The font must have character 149 or this will have
+    /** If true, the text in this text field will be shown as bullet characters. The font must have character 149 or this will have
 	 * no affect. */
 	public void setPasswordMode (boolean passwordMode) {
 		this.passwordMode = passwordMode;

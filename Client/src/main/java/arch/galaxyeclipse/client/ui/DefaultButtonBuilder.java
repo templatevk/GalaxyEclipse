@@ -13,6 +13,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.*;
  *
  */
 class DefaultButtonBuilder implements IButtonBuilder {
+
     private static final int TEXT_PADDING_Y = -10;
     private static final float BUTTON_DOWN_OFFSET = 2;
 
@@ -24,18 +25,36 @@ class DefaultButtonBuilder implements IButtonBuilder {
     public DefaultButtonBuilder() {
         text = "";
         listener = new ClickListener();
-
-        IResourceLoader resourceLoader = ContextHolder.getBean(IResourceLoader.class);
-        BitmapFont font = resourceLoader.getFont("assets/font_calibri_48px");
-
         style = new TextButton.TextButtonStyle();
-        style.up = new TextureRegionDrawable(resourceLoader.findRegion("ui/btnUp"));
-        style.down = new TextureRegionDrawable(resourceLoader.findRegion("ui/btnDown"));
-        style.font = font;
-        style.fontColor = Color.WHITE;
-        style.downFontColor = Color.GRAY;
-        style.pressedOffsetX = BUTTON_DOWN_OFFSET;
-        style.pressedOffsetY = -BUTTON_DOWN_OFFSET;
+        IResourceLoader resourceLoader = ContextHolder.getBean(IResourceLoader.class);
+        style.font = resourceLoader.getFont("assets/font_calibri_36px");
+    }
+
+    @Override
+    public IButtonBuilder setType(ButtonType buttonType){
+        IResourceLoader resourceLoader = ContextHolder.getBean(IResourceLoader.class);
+        switch (buttonType)
+        {
+            case MainMenuButton:
+                this.style.up = new TextureRegionDrawable(resourceLoader.findRegion("ui/btnUp"));
+                this.style.down = new TextureRegionDrawable(resourceLoader.findRegion("ui/btnDown"));
+                this.style.font = resourceLoader.getFont("assets/font_calibri_48px");
+                this.style.fontColor = Color.WHITE;
+                this.style.downFontColor = Color.GRAY;
+                this.style.pressedOffsetX = BUTTON_DOWN_OFFSET;
+                this.style.pressedOffsetY = -BUTTON_DOWN_OFFSET;
+                break;
+            case GameChatHideButton:
+                this.style.up = new TextureRegionDrawable(resourceLoader.findRegion("ui/btnUpChat"));
+                this.style.down = new TextureRegionDrawable(resourceLoader.findRegion("ui/btnUpChat"));
+                this.style.font = resourceLoader.getFont("assets/font_calibri_36px");
+                this.style.fontColor = Color.WHITE;
+                this.style.downFontColor = Color.GRAY;
+                this.style.pressedOffsetX = BUTTON_DOWN_OFFSET;
+                this.style.pressedOffsetY = -BUTTON_DOWN_OFFSET;
+                break;
+        }
+        return this;
     }
 
     @Override
@@ -60,7 +79,7 @@ class DefaultButtonBuilder implements IButtonBuilder {
     public TextButton build() {
         final TextButton button = new TextButton(text, style);
         button.addListener(listener);
-        button.setTextPaddingY(TEXT_PADDING_Y);
+        button.setPrefTextPaddingY(TEXT_PADDING_Y);
         button.setClickCommand(connectButtonCommand);
         button.addListener(new FocusListener() {
             @Override

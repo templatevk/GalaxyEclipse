@@ -25,6 +25,8 @@ public class MainMenuStage extends AbstractGameStage {
     private Table rootTable;
     private Table innerTable;
 
+    Chat chat;
+
     public MainMenuStage(final MainMenuPresenter presenter) {
         IResourceLoader resourceLoader = ContextHolder.getBean(IResourceLoader.class);
 
@@ -36,6 +38,7 @@ public class MainMenuStage extends AbstractGameStage {
                 .setMessageText("Enter your password").setPasswordMode(true)
                 .setPasswordCharacter('*').build();
         connectBtn = StageUiFactory.createButtonBuilder().setText("Connect")
+                .setType(IButtonBuilder.ButtonType.MainMenuButton)
                 .setClickCommand(presenter.getConnectButtonCommand()).build();
 
         rootTable = new Table();
@@ -54,10 +57,11 @@ public class MainMenuStage extends AbstractGameStage {
         innerTable.add(passwordTxt).expand(true, false).space(TABLE_SPACING);
         innerTable.row();
         innerTable.add(connectBtn).expand(true, false).space(TABLE_SPACING);
+
         innerTable.setOrigin(innerTable.getPrefWidth() / 2,
                 innerTable.getPrefHeight() / 2);
 
-        if (EnvType.CURRENT == EnvType.DEV) {
+        if (EnvType.CURRENT == EnvType.DEV || EnvType.CURRENT == EnvType.DEV_UI) {
             rootTable.debug();
             innerTable.debug();
 

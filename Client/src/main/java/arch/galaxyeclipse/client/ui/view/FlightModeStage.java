@@ -1,11 +1,18 @@
 package arch.galaxyeclipse.client.ui.view;
 
 import arch.galaxyeclipse.client.data.*;
+import arch.galaxyeclipse.client.ui.Chat;
+import arch.galaxyeclipse.client.ui.IButtonBuilder;
+import arch.galaxyeclipse.client.ui.IButtonClickCommand;
+import arch.galaxyeclipse.client.ui.StageUiFactory;
 import arch.galaxyeclipse.client.ui.provider.*;
 import arch.galaxyeclipse.client.ui.actor.*;
 import arch.galaxyeclipse.client.ui.model.*;
 import arch.galaxyeclipse.shared.context.*;
 import com.badlogic.gdx.scenes.scene2d.*;
+import com.badlogic.gdx.scenes.scene2d.ui.Button;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 
 /**
  *
@@ -17,6 +24,15 @@ public class FlightModeStage extends AbstractGameStage {
 
     private Group rootLayout;
     private Group gameActorsLayout;
+
+    private Chat chat;
+    private Table chatBtnTable;
+    private Button chatBtn;
+
+    private final float CHAT_BUTTON_PADDING_BOTTOM = 10;
+    private final float CHAT_BUTTON_PADDING_LEFT = 10;
+    private final float CHAT_PADDING_BOTTOM = 65;
+    private final float CHAT_PADDING_LEFT = 10;
 
     private FlightModeController controller;
     private FlightModeModel model;
@@ -39,6 +55,29 @@ public class FlightModeStage extends AbstractGameStage {
 
         addActor(rootLayout);
         addListener(new ClientActionListener());
+
+        chat = new Chat();
+        chat.setX(CHAT_PADDING_LEFT);
+        chat.setY(CHAT_PADDING_BOTTOM);
+        rootLayout.addActor(chat);
+
+        chatBtn = StageUiFactory.createButtonBuilder().setText("CHAT")
+                .setType(IButtonBuilder.ButtonType.GameChatHideButton)
+                .setClickCommand(new IButtonClickCommand() {
+                    @Override
+                    public void execute(InputEvent e, float x, float y) {
+                        chat.setVisible(!chat.isVisible());
+                    }
+                }).build();
+
+        chatBtnTable = new Table();
+        chatBtnTable.setBounds(CHAT_BUTTON_PADDING_LEFT, CHAT_BUTTON_PADDING_BOTTOM,
+                chatBtn.getWidth(), chatBtn.getHeight());
+        chatBtnTable.setTransform(true);
+        rootLayout.addActor(chatBtnTable);
+
+        chatBtnTable.row();
+        chatBtnTable.add(chatBtn);
 
         forceResize();
     }
@@ -67,6 +106,15 @@ public class FlightModeStage extends AbstractGameStage {
         gameActorsLayout.setSize(gameActorsLayoutWidth, gameActorsLayoutHeight);
         gameActorsLayout.setOrigin(gameActorsLayoutWidth / 2f, gameActorsLayoutHeight / 2f);
         gameActorsLayout.setPosition(gameActorsLayoutX, gameActorsLayoutY);
+
+        chatBtnTable.setScale(getScaleX(), getScaleY());
+        chatBtnTable.setX(CHAT_BUTTON_PADDING_LEFT * getScaleX());
+        chatBtnTable.setY(CHAT_BUTTON_PADDING_BOTTOM * getScaleY());
+        chat.setSize(chat.getPrefWidth() * getScaleX(), chat.getPrefHeight() * getScaleY());
+        chat.setX(CHAT_PADDING_LEFT * getScaleX());
+        chat.setY(CHAT_PADDING_BOTTOM * getScaleX());
+
+        // TODO on chat focus remove input processing from stage
     }
 
 
