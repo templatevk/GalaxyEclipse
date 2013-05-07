@@ -1,16 +1,21 @@
 package arch.galaxyeclipse.server.network.handler;
 
-import arch.galaxyeclipse.server.data.*;
-import arch.galaxyeclipse.server.data.model.*;
-import arch.galaxyeclipse.server.protocol.*;
-import arch.galaxyeclipse.shared.*;
-import arch.galaxyeclipse.shared.context.*;
-import arch.galaxyeclipse.shared.protocol.*;
-import arch.galaxyeclipse.shared.types.*;
-import org.hibernate.*;
-import org.hibernate.criterion.*;
+import arch.galaxyeclipse.server.data.JedisSerializers.LocationObjectPacketSerializer;
+import arch.galaxyeclipse.server.data.RedisUnitOfWork;
+import arch.galaxyeclipse.server.data.PlayerInfoHolder;
+import arch.galaxyeclipse.server.protocol.GeProtocolMessageFactory;
+import arch.galaxyeclipse.shared.context.ContextHolder;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.Packet;
+import arch.galaxyeclipse.shared.types.DictionaryTypesMapper;
+import org.springframework.data.redis.connection.jedis.JedisConnection;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
+import static arch.galaxyeclipse.shared.SharedInfo.DYNAMIC_OBJECT_QUERY_RADIUS;
+import static arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse;
 
 /**
  *
@@ -27,7 +32,7 @@ class DynamicObjectsRequestHandler extends PacketHandlerDecorator {
     }
 
     @Override
-    protected boolean handleImp(GeProtocol.Packet packet) {
+    protected boolean handleImp(Packet packet) {
         switch (packet.getType()) {
             case DYNAMIC_OBJECTS_REQUEST:
                 processDynamicObjectsRequest();
@@ -37,33 +42,55 @@ class DynamicObjectsRequestHandler extends PacketHandlerDecorator {
     }
 
     private void processDynamicObjectsRequest() {
-        List<LocationObject> locationObjects = new HibernateUnitOfWork<List<LocationObject>>() {
+        List<LocationObjectPacket> lopList = new RedisUnitOfWork<List<LocationObjectPacket>>() {
             @Override
-            protected void doWork(Session session) {
-                LocationObject locationObject = getServerChannelHandler()
-                        .getPlayerInfoHolder().getLocationObject();
+            protected void doWork(JedisConnection connection) {
+                PlayerInfoHolder playerInfoHolder = getServerChannelHandler().getPlayerInfoHolder();
+                LocationObjectPacketSerializer lopSerializer = new LocationObjectPacketSerializer();
+                byte[] lopHashKey = playerInfoHolder.getLocationObjectPacketHashKey();
+                byte[] lopSortedSetXKey = playerInfoHolder.getLocationObjectPacketSortedSetXKey();
+                byte[] lopSortedSetYKey = playerInfoHolder.getLocationObjectPacketSortedSetYKey();
+                byte[] lopBufSetXKey = playerInfoHolder.getLocationObjectPacketBufSetXKey();
+                byte[] lopBufSetYKey = playerInfoHolder.getLocationObjectPacketBufSetYKey();
 
-                float x1 = locationObject.getPositionX() - SharedInfo.DYNAMIC_OBJECT_QUERY_RADIUS;
-                float x2 = locationObject.getPositionX() + SharedInfo.DYNAMIC_OBJECT_QUERY_RADIUS;
-                float y1 = locationObject.getPositionY() - SharedInfo.DYNAMIC_OBJECT_QUERY_RADIUS;
-                float y2 = locationObject.getPositionY() + SharedInfo.DYNAMIC_OBJECT_QUERY_RADIUS;
-                int dynamicBehaviorId = dictionaryTypesMapper.getIdByLocationObjectBehaviorType(
-                        LocationObjectBehaviorTypesMapperType.DYNAMIC);
-                List<LocationObject> locationObjects = session
-                        .createCriteria(LocationObject.class)
-                        .add(Restrictions.between("positionX", x1, x2))
-                        .add(Restrictions.between("positionY", y1, y2))
-                        .add(Restrictions.eq("locationObjectBehaviorTypeId", dynamicBehaviorId))
-                        .list();
+                byte[] lopBytes = connection.hGet(lopHashKey, lopHashKey);
+                LocationObjectPacket lop = lopSerializer.deserialize(lopBytes);
+                float positionX = lop.getPositionX();
+                float positionY = lop.getPositionY();
+                float x1 = positionX - DYNAMIC_OBJECT_QUERY_RADIUS;
+                float x2 = positionX + DYNAMIC_OBJECT_QUERY_RADIUS;
+                float y1 = positionY - DYNAMIC_OBJECT_QUERY_RADIUS;
+                float y2 = positionY + DYNAMIC_OBJECT_QUERY_RADIUS;
 
-                setResult(locationObjects);
+                Set<byte[]> xMatchingLops = connection.zRangeByScore(lopSortedSetXKey, x1, x2);
+                Set<byte[]> yMatchingLops = connection.zRangeByScore(lopSortedSetYKey, y1, y2);
+
+                connection.openPipeline();
+                connection.del(lopBufSetXKey);
+                for (byte[] xMatchingLop : xMatchingLops) {
+                    connection.sAdd(lopBufSetXKey, xMatchingLop);
+                }
+                connection.del(lopBufSetYKey);
+                for (byte[] yMatchingLop : yMatchingLops) {
+                    connection.sAdd(lopBufSetYKey, yMatchingLop);
+                }
+                connection.closePipeline();
+
+                List<LocationObjectPacket> resultLops = new ArrayList<>();
+                Set<byte[]> resultLopHashKeys = connection.sInter(lopBufSetXKey, lopBufSetYKey);
+                for (byte[] resultLopHashKey : resultLopHashKeys) {
+                    byte[] resultLopBytes = connection.hGet(resultLopHashKey, resultLopHashKey);
+                    LocationObjectPacket resultLop = lopSerializer.deserialize(resultLopBytes);
+                    resultLops.add(resultLop);
+                }
+                setResult(resultLops);
             }
         }.execute();
 
-        GeProtocol.DynamicObjectsResponse dynamicObjectsResponse =
-                geProtocolMessageFactory.createDynamicObjectsResponse(locationObjects);
-        GeProtocol.Packet packet = GeProtocol.Packet.newBuilder()
-                .setType(GeProtocol.Packet.Type.DYNAMIC_OBJECTS_RESPONSE)
+        DynamicObjectsResponse dynamicObjectsResponse = DynamicObjectsResponse
+                .newBuilder().addAllObjects(lopList).build();
+        Packet packet = Packet.newBuilder()
+                .setType(Packet.Type.DYNAMIC_OBJECTS_RESPONSE)
                 .setDynamicObjectsResponse(dynamicObjectsResponse)
                 .build();
         getServerChannelHandler().sendPacket(packet);

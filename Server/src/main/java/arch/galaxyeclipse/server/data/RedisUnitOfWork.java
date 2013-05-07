@@ -10,17 +10,14 @@ import org.springframework.data.redis.connection.jedis.JedisConnection;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 
 /**
- * Database structure:
- *      *** ShipStateResponse and LocationObjectPacket - stored in hash, key and field are the same,
- *      the value is the object itself
- *      *** LocationObjectPacket are stored in two sorted sets where scores are x and y coords
+ *
  */
 @Slf4j
-public abstract class JedisUnitOfWork<T> {
+public abstract class RedisUnitOfWork<T> {
     @Setter(AccessLevel.PROTECTED)
     private T result;
 
-    public JedisUnitOfWork() {
+    public RedisUnitOfWork() {
 
     }
 
@@ -33,12 +30,12 @@ public abstract class JedisUnitOfWork<T> {
         try {
             doWork(connection);
         } catch (Exception e) {
-            log.error("Error on " + LogUtils.getObjectInfo(this), e);
+            RedisUnitOfWork.log.error("Error on " + LogUtils.getObjectInfo(this), e);
         } finally {
             try {
                 connection.close();
             } catch (DataAccessException e) {
-                log.error("Error closing Jedis connection ", e);
+                RedisUnitOfWork.log.error("Error closing Jedis connection ", e);
             }
         }
 

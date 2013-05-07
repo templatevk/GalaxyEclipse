@@ -1,5 +1,6 @@
 package arch.galaxyeclipse.server.network;
 
+import arch.galaxyeclipse.server.data.PlayerInfoHolder;
 import arch.galaxyeclipse.server.network.handler.*;
 import arch.galaxyeclipse.shared.context.*;
 import arch.galaxyeclipse.shared.network.*;

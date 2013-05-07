@@ -7,10 +7,10 @@ import java.util.Arrays;
 /**
  *
  */
-public class JedisUnitOfWorkTest {
+public class RedisUnitOfWorkTest {
     @Test
     public void testBitOperators() throws Exception {
-        System.out.println(Arrays.toString(JedisOperations
-                .getLocationObjectKey(Integer.MAX_VALUE)));
+        System.out.println(Arrays.toString(RedisStorage
+                .getLocationObjectPacketHashKey(Integer.MAX_VALUE)));
     }
 }

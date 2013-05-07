@@ -3,10 +3,9 @@ package arch.galaxyeclipse.server.network.handler;
 import arch.galaxyeclipse.server.authentication.AuthenticationResult;
 import arch.galaxyeclipse.server.authentication.IClientAuthenticator;
 import arch.galaxyeclipse.server.data.HibernateUnitOfWork;
-import arch.galaxyeclipse.server.data.JedisOperations;
 import arch.galaxyeclipse.server.data.JedisSerializers.LocationObjectPacketSerializer;
-import arch.galaxyeclipse.server.data.JedisSerializers.ShipStateResponseSerializer;
-import arch.galaxyeclipse.server.data.JedisUnitOfWork;
+import arch.galaxyeclipse.server.data.PlayerInfoHolder;
+import arch.galaxyeclipse.server.data.RedisUnitOfWork;
 import arch.galaxyeclipse.server.data.model.Location;
 import arch.galaxyeclipse.server.data.model.LocationObject;
 import arch.galaxyeclipse.server.data.model.Player;
@@ -24,6 +23,8 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.data.redis.connection.jedis.JedisConnection;
 
 import java.util.List;
+
+import static arch.galaxyeclipse.server.data.RedisStorage.*;
 
 /**
  * Processes the messages of unauthenticated players.
@@ -152,30 +153,36 @@ class UnauthenticatedPacketHandler extends StatefulPacketHandler {
         playerInfoHolder.setShipState(startupInfoData.getPlayer().getShipState());
         playerInfoHolder.setLocationObject(startupInfoData.getPlayer().getLocationObject());
 
-        new JedisUnitOfWork() {
+        new RedisUnitOfWork() {
             @Override
             protected void doWork(JedisConnection connection) {
-                LocationObjectPacket locationObject = geProtocolMessageFactory
-                        .getLocationObject(playerInfoHolder.getLocationObject());
+                LocationObjectPacket lop = geProtocolMessageFactory.getLocationObject(
+                        playerInfoHolder.getLocationObject());
+                ShipStateResponse ssr = geProtocolMessageFactory.createShipStateResponse(
+                        playerInfoHolder.getShipState(), playerInfoHolder.getLocationObject());
                 LocationObjectPacketSerializer lopSerializer = new LocationObjectPacketSerializer();
-                int locationObjectId = playerInfoHolder.getLocationObject().getLocationObjectId();
-                byte[] locationObjectKey = JedisOperations.getLocationObjectKey(locationObjectId);
-                playerInfoHolder.setLocationObjectKey(locationObjectKey);
 
-                ShipStateResponse shipStateResponse = geProtocolMessageFactory
-                        .createShipStateResponse(playerInfoHolder.getShipState(),
-                                playerInfoHolder.getLocationObject());
-                ShipStateResponseSerializer ssrSerializer = new ShipStateResponseSerializer();
-                int shipStateId = playerInfoHolder.getShipState().getShipStateId();
-                byte[] shipStateResponseKey = JedisOperations.getShipStateResponseKey(shipStateId);
-                playerInfoHolder.setShipStateResponseKey(shipStateResponseKey);
+                int locationObjectId = playerInfoHolder.getLocationObject().getLocationObjectId();
+                int locationId = playerInfoHolder.getLocationObject().getLocationId();
+                byte[] lopHashKey = getLocationObjectPacketHashKey(locationObjectId);
+                byte[] lopSortedSetXKey = getLocationObjectPacketSortedSetXKey(locationId);
+                byte[] lopSortedSetYKey = getLocationObjectPacketSortedSetYKey(locationId);
 
                 connection.openPipeline();
-                connection.hSet(shipStateResponseKey, shipStateResponseKey,
-                        ssrSerializer.serialize(shipStateResponse));
-                connection.hSet(locationObjectKey, locationObjectKey,
-                        lopSerializer.serialize(locationObject));
+                connection.hSet(lopHashKey, lopHashKey,
+                        lopSerializer.serialize(lop));
+                connection.zAdd(lopSortedSetXKey, lop.getPositionX(), lopHashKey);
+                connection.zAdd(lopSortedSetYKey, lop.getPositionY(), lopHashKey);
                 connection.closePipeline();
+
+                playerInfoHolder.setLocationObjectPacketHashKey(lopHashKey);
+                playerInfoHolder.setLocationObjectPacketSortedSetXKey(lopSortedSetXKey);
+                playerInfoHolder.setLocationObjectPacketSortedSetYKey(lopSortedSetYKey);
+
+                byte[] lopBufSetXKey = getLocationObjectPacketBufSetXKey(locationObjectId);
+                byte[] lopBufSetYKey = getLocationObjectPacketBufSetYKey(locationObjectId);
+                playerInfoHolder.setLocationObjectPacketBufSetXKey(lopBufSetXKey);
+                playerInfoHolder.setLocationObjectPacketBufSetYKey(lopBufSetYKey);
             }
         }.execute();
     }

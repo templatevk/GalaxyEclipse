@@ -1,6 +1,8 @@
 package arch.galaxyeclipse.server.network.handler;
 
-import arch.galaxyeclipse.server.data.HibernateUnitOfWork;
+import arch.galaxyeclipse.server.data.JedisSerializers.LocationObjectPacketSerializer;
+import arch.galaxyeclipse.server.data.PlayerInfoHolder;
+import arch.galaxyeclipse.server.data.RedisUnitOfWork;
 import arch.galaxyeclipse.server.data.model.LocationObject;
 import arch.galaxyeclipse.server.data.model.ShipConfig;
 import arch.galaxyeclipse.server.data.model.ShipState;
@@ -8,10 +10,11 @@ import arch.galaxyeclipse.server.util.MathUtils;
 import arch.galaxyeclipse.shared.protocol.GeProtocol;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket.ClientActionType;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket;
 import arch.galaxyeclipse.shared.thread.TaskRunnablePair;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
-import org.hibernate.Session;
+import org.springframework.data.redis.connection.jedis.JedisConnection;
 
 import static arch.galaxyeclipse.shared.SharedInfo.*;
 
@@ -100,9 +103,11 @@ class ClientActionHandler extends PacketHandlerDecorator {
         private LocationObject locationObject;
         private RotatingRunnable rotatingRunnable;
         private PostRotatingRunnable postRotatingRunnable;
+        private PlayerInfoHolder playerInfoHolder;
 
         private RotationHandler(PlayerInfoHolder playerInfoHolder) {
             super(CLIENT_ACTION_ROTATION_DELAY_MILLISECONDS, null, true, true);
+            this.playerInfoHolder = playerInfoHolder;
 
             shipConfig = playerInfoHolder.getShipConfig();
             shipState = playerInfoHolder.getShipState();
@@ -122,6 +127,23 @@ class ClientActionHandler extends PacketHandlerDecorator {
             }
         }
 
+        private void update(final float rotationAngle) {
+            new RedisUnitOfWork() {
+                @Override
+                protected void doWork(JedisConnection connection) {
+                    LocationObjectPacketSerializer lopSerializer = new LocationObjectPacketSerializer();
+                    byte[] lopHashKey = playerInfoHolder.getLocationObjectPacketHashKey();
+
+                    byte[] lopBytes = connection.hGet(lopHashKey, lopHashKey);
+                    LocationObjectPacket lop = lopSerializer.deserialize(lopBytes);
+                    LocationObjectPacket newLop = LocationObjectPacket.newBuilder()
+                            .mergeFrom(lop).setRotationAngle(rotationAngle).build();
+
+                    connection.hSet(lopHashKey, lopHashKey, lopSerializer.serialize(newLop));
+                }
+            }.execute();
+        }
+
         private class RotatingRunnable implements Runnable {
             @Override
             public void run() {
@@ -137,11 +159,9 @@ class ClientActionHandler extends PacketHandlerDecorator {
                         currentRotationSpeed += rotationAcceleration;
                         break;
                 }
-
                 if (Math.abs(currentRotationSpeed) > maxRotationSpeed) {
                     currentRotationSpeed = Math.signum(currentRotationSpeed) * maxRotationSpeed;
                 }
-
                 shipState.setShipStateRotationSpeed(currentRotationSpeed);
 
                 float currentRotationAngle = locationObject.getRotationAngle();
@@ -151,7 +171,6 @@ class ClientActionHandler extends PacketHandlerDecorator {
                 } else if (currentRotationAngle < 0) {
                     currentRotationAngle = MAX_ANGLE + currentRotationAngle;
                 }
-
                 locationObject.setRotationAngle(currentRotationAngle);
 
                 if (ClientActionHandler.log.isDebugEnabled()) {
@@ -159,14 +178,7 @@ class ClientActionHandler extends PacketHandlerDecorator {
                     ClientActionHandler.log.debug("Rotation speed " + currentRotationSpeed);
                     ClientActionHandler.log.debug("Rotation angle " + currentRotationAngle);
                 }
-
-                new HibernateUnitOfWork() {
-                    @Override
-                    protected void doWork(Session session) {
-                        session.merge(shipState);
-                        session.merge(locationObject);
-                    }
-                }.execute();
+                update(currentRotationAngle);
             }
         }
 
@@ -192,7 +204,6 @@ class ClientActionHandler extends PacketHandlerDecorator {
                         }
                         break;
                 }
-
                 shipState.setShipStateRotationSpeed(currentRotationSpeed);
 
                 float currentRotationAngle = locationObject.getRotationAngle();
@@ -202,7 +213,6 @@ class ClientActionHandler extends PacketHandlerDecorator {
                 } else if (currentRotationAngle < 0) {
                     currentRotationAngle = MAX_ANGLE + currentRotationAngle;
                 }
-
                 locationObject.setRotationAngle(currentRotationAngle);
 
                 if (ClientActionHandler.log.isDebugEnabled()) {
@@ -210,14 +220,7 @@ class ClientActionHandler extends PacketHandlerDecorator {
                     ClientActionHandler.log.debug("Rotation speed " + currentRotationSpeed);
                     ClientActionHandler.log.debug("Rotation angle " + currentRotationAngle);
                 }
-
-                new HibernateUnitOfWork() {
-                    @Override
-                    protected void doWork(Session session) {
-                        session.merge(shipState);
-                        session.merge(locationObject);
-                    }
-                }.execute();
+                update(currentRotationAngle);
             }
         }
     }
@@ -229,8 +232,10 @@ class ClientActionHandler extends PacketHandlerDecorator {
         private LocationObject locationObject;
         private SpeedTask speedTask;
         private PositionTask positionTask;
+        private PlayerInfoHolder playerInfoHolder;
 
         private MoveHandler(PlayerInfoHolder playerInfoHolder) {
+            this.playerInfoHolder = playerInfoHolder;
             shipConfig = playerInfoHolder.getShipConfig();
             shipState = playerInfoHolder.getShipState();
             locationObject = playerInfoHolder.getLocationObject();
@@ -288,13 +293,6 @@ class ClientActionHandler extends PacketHandlerDecorator {
                     ClientActionHandler.log.debug(moveType.toString());
                     ClientActionHandler.log.debug("Move speed " + currentMoveSpeed);
                 }
-
-                new HibernateUnitOfWork() {
-                    @Override
-                    protected void doWork(Session session) {
-                        session.merge(shipState);
-                    }
-                }.execute();
             }
         }
 
@@ -325,10 +323,22 @@ class ClientActionHandler extends PacketHandlerDecorator {
                     ClientActionHandler.log.debug("Position y " + positionY);
                 }
 
-                new HibernateUnitOfWork() {
+                final float newPositionX = positionX;
+                final float newPositionY = positionY;
+                new RedisUnitOfWork() {
                     @Override
-                    protected void doWork(Session session) {
-                        session.merge(locationObject);
+                    protected void doWork(JedisConnection connection) {
+                        LocationObjectPacketSerializer lopSerializer = new LocationObjectPacketSerializer();
+                        byte[] lopHashKey = playerInfoHolder.getLocationObjectPacketHashKey();
+
+                        byte[] lopBytes = connection.hGet(lopHashKey, lopHashKey);
+                        LocationObjectPacket lop = lopSerializer.deserialize(lopBytes);
+                        LocationObjectPacket newLop = LocationObjectPacket.newBuilder()
+                                .mergeFrom(lop)
+                                .setPositionX(newPositionX)
+                                .setPositionY(newPositionY).build();
+
+                        connection.hSet(lopHashKey, lopHashKey, lopSerializer.serialize(newLop));
                     }
                 }.execute();
             }
