@@ -189,6 +189,7 @@
 	</dependencyManagement>
 
 	<profiles>
+        <!-- TODO seperate server and client profiles -->
         <profile>
             <id>localhost</id>
             <activation>

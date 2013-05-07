@@ -21,7 +21,7 @@ message Packet {
         SHIP_STATIC_INFO_COMMAND    = 32;
 
         CHAT_SEND_MESSAGE           = 60;
-        CHAR_RECEIVE_MESSAGE        = 61;
+        CHAT_RECEIVE_MESSAGE        = 61;
     }
 
     required Type                       type                    = 1;
