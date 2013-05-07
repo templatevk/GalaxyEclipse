@@ -94,7 +94,7 @@ public class MainMenuPresenter extends ServerPacketListener implements IStagePro
         }
     }
 
-    private void processStartupInfo(StartupInfo startupInfo) {
+    private void processStartupInfo(StartupInfoPacket startupInfo) {
         processTypesMap(startupInfo.getTypesMap());
 
         shipStaticInfoHolder.setShipStaticInfo(startupInfo.getShipStaticInfo());
@@ -103,7 +103,7 @@ public class MainMenuPresenter extends ServerPacketListener implements IStagePro
         clientWindow.setStageProvider(new FlightModeController());
     }
 
-    private void processTypesMap(TypesMap typesMap) {
+    private void processTypesMap(TypesMapPacket typesMap) {
         if (MainMenuPresenter.log.isDebugEnabled()) {
             MainMenuPresenter.log.debug("Processing types map");
         }
@@ -112,26 +112,26 @@ public class MainMenuPresenter extends ServerPacketListener implements IStagePro
                 .getBean(DictionaryTypesMapper.class);
 
         Map<Integer, String> itemTypes = new HashMap<>();
-        for (TypesMap.Type itemType : typesMap.getItemTypesList()) {
+        for (TypesMapPacket.Type itemType : typesMap.getItemTypesList()) {
             itemTypes.put(itemType.getId(), itemType.getName());
         }
         dictionaryTypesMapper.fillItemTypes(itemTypes);
 
         Map<Integer, String> weaponTypes = new HashMap<>();
-        for (TypesMap.Type weaponType : typesMap.getWeaponTypesList()) {
+        for (TypesMapPacket.Type weaponType : typesMap.getWeaponTypesList()) {
             weaponTypes.put(weaponType.getId(), weaponType.getName());
         }
         dictionaryTypesMapper.fillWeaponTypes(weaponTypes);
 
         Map<Integer, String> locationObjectTypes = new HashMap<>();
-        for (TypesMap.Type locationObjectType : typesMap
+        for (TypesMapPacket.Type locationObjectType : typesMap
                 .getLocationObjectTypesList()) {
             locationObjectTypes.put(locationObjectType.getId(), locationObjectType.getName());
         }
         dictionaryTypesMapper.fillLocationObjectTypes(locationObjectTypes);
 
         Map<Integer, String> bonusTypes = new HashMap<>();
-        for (TypesMap.Type bonusType : typesMap.getBonusTypesList()) {
+        for (TypesMapPacket.Type bonusType : typesMap.getBonusTypesList()) {
             bonusTypes.put(bonusType.getId(), bonusType.getName());
         }
         dictionaryTypesMapper.fillBonusTypes(bonusTypes);

@@ -1,9 +1,9 @@
 package arch.galaxyeclipse.server.data;
 
 import arch.galaxyeclipse.server.AbstractTestNGServerTest;
+import arch.galaxyeclipse.server.data.JedisSerializers.LocationObjectPacketSerializer;
 import arch.galaxyeclipse.shared.context.ContextHolder;
-import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject;
-import com.google.protobuf.InvalidProtocolBufferException;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket;
 import lombok.extern.slf4j.Slf4j;
 import org.fest.assertions.Assertions;
 import org.springframework.dao.DataAccessException;
@@ -12,8 +12,6 @@ import org.springframework.data.redis.connection.jedis.JedisConnection;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.serializer.RedisSerializer;
-import org.springframework.data.redis.serializer.SerializationException;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -34,20 +32,20 @@ public class RedisTest extends AbstractTestNGServerTest {
     private static final int MIN_SCORE = 2;
     private static final int MAX_SCORE = 4;
 
-    private LocationObject lo1;
-    private LocationObject lo2;
-    private LocationObject lo3;
-    private LocationObject lo4;
-    private LocationObject lo5;
-    private List<LocationObject> locationObjects;
+    private LocationObjectPacket lo1;
+    private LocationObjectPacket lo2;
+    private LocationObjectPacket lo3;
+    private LocationObjectPacket lo4;
+    private LocationObjectPacket lo5;
+    private List<LocationObjectPacket> locationObjects;
 
     @BeforeMethod
     public void setUp() throws Exception {
-        lo1 = LocationObject.newBuilder().setPositionX(1).setPositionY(1).setNativeId(1).setObjectId(1).setObjectTypeId(1).setRotationAngle(1).build();
-        lo2 = LocationObject.newBuilder().setPositionX(2).setPositionY(2).setNativeId(1).setObjectId(1).setObjectTypeId(1).setRotationAngle(1).build();
-        lo3 = LocationObject.newBuilder().setPositionX(3).setPositionY(3).setNativeId(1).setObjectId(1).setObjectTypeId(1).setRotationAngle(1).build();
-        lo4 = LocationObject.newBuilder().setPositionX(4).setPositionY(4).setNativeId(1).setObjectId(1).setObjectTypeId(1).setRotationAngle(1).build();
-        lo5 = LocationObject.newBuilder().setPositionX(5).setPositionY(5).setNativeId(1).setObjectId(1).setObjectTypeId(1).setRotationAngle(1).build();
+        lo1 = LocationObjectPacket.newBuilder().setPositionX(1).setPositionY(1).setNativeId(1).setObjectId(1).setObjectTypeId(1).setRotationAngle(1).build();
+        lo2 = LocationObjectPacket.newBuilder().setPositionX(2).setPositionY(2).setNativeId(1).setObjectId(1).setObjectTypeId(1).setRotationAngle(1).build();
+        lo3 = LocationObjectPacket.newBuilder().setPositionX(3).setPositionY(3).setNativeId(1).setObjectId(1).setObjectTypeId(1).setRotationAngle(1).build();
+        lo4 = LocationObjectPacket.newBuilder().setPositionX(4).setPositionY(4).setNativeId(1).setObjectId(1).setObjectTypeId(1).setRotationAngle(1).build();
+        lo5 = LocationObjectPacket.newBuilder().setPositionX(5).setPositionY(5).setNativeId(1).setObjectId(1).setObjectTypeId(1).setRotationAngle(1).build();
         locationObjects = Arrays.asList(lo1, lo2, lo3, lo4, lo5);
         ContextHolder.getBean(JedisConnectionFactory.class).getConnection().flushDb();
     }
@@ -62,12 +60,12 @@ public class RedisTest extends AbstractTestNGServerTest {
 
         JedisConnectionFactory jedisConnectionFactory = ContextHolder.getBean(
                 JedisConnectionFactory.class);
-        CustomLocationObjectSerializer serializer = new CustomLocationObjectSerializer();
+        LocationObjectPacketSerializer serializer = new LocationObjectPacketSerializer();
         JedisConnection connection = jedisConnectionFactory.getConnection();
 
         connection.openPipeline();
         long start = System.currentTimeMillis();
-        for (LocationObject locationObject : locationObjects) {
+        for (LocationObjectPacket locationObject : locationObjects) {
             connection.zAdd(xKey, locationObject.getPositionX(),
                     serializer.serialize(locationObject));
             connection.zAdd(yKey, locationObject.getPositionX(),
@@ -95,18 +93,18 @@ public class RedisTest extends AbstractTestNGServerTest {
                 ". Damn, thats incredibly fast and awesome!");
     }
 
-//    @Test
+    @Test
     public void testRedisTemplate() throws Exception {
-        final RedisTemplate<Integer, LocationObject> redisTemplate = ContextHolder
+        final RedisTemplate<Integer, LocationObjectPacket> redisTemplate = ContextHolder
                 .getBean(RedisTemplate.class);
-        redisTemplate.setValueSerializer(new CustomLocationObjectSerializer());
+        redisTemplate.setValueSerializer(new LocationObjectPacketSerializer());
 
         long start = System.currentTimeMillis();
         redisTemplate.execute(new RedisCallback<Object>() {
             @Override
             public Object doInRedis(RedisConnection connection) throws DataAccessException {
                 connection.openPipeline();
-                for (LocationObject locationObject : locationObjects) {
+                for (LocationObjectPacket locationObject : locationObjects) {
                     redisTemplate.boundZSetOps(OBJECT_X_ZSET).add(locationObject,
                             locationObject.getPositionX());
                     redisTemplate.boundZSetOps(OBJECT_Y_ZSET).add(locationObject,
@@ -117,20 +115,20 @@ public class RedisTest extends AbstractTestNGServerTest {
         });
         log.info("Serialized " + (System.currentTimeMillis() - start));
 
-        Set<LocationObject> objectsX = redisTemplate.boundZSetOps(OBJECT_X_ZSET)
+        Set<LocationObjectPacket> objectsX = redisTemplate.boundZSetOps(OBJECT_X_ZSET)
                 .rangeByScore(MIN_SCORE, MAX_SCORE);
-        for (LocationObject locationObject : objectsX) {
+        for (LocationObjectPacket locationObject : objectsX) {
             redisTemplate.boundSetOps(OBJECT_X_BUF_SET).add(locationObject);
         }
 
-        Set<LocationObject> objectsY = redisTemplate.boundZSetOps(OBJECT_Y_ZSET)
+        Set<LocationObjectPacket> objectsY = redisTemplate.boundZSetOps(OBJECT_Y_ZSET)
                 .rangeByScore(MIN_SCORE, MAX_SCORE);
-        for (LocationObject locationObject : objectsY) {
+        for (LocationObjectPacket locationObject : objectsY) {
             redisTemplate.boundSetOps(OBJECT_Y_BUF_SET).add(locationObject);
         }
         log.info("Buf done " + (System.currentTimeMillis() - start));
 
-        Set<LocationObject> resultObjects = redisTemplate.boundSetOps(OBJECT_Y_BUF_SET)
+        Set<LocationObjectPacket> resultObjects = redisTemplate.boundSetOps(OBJECT_Y_BUF_SET)
                 .intersect(OBJECT_X_BUF_SET);
         log.info("Operation took exactly " + (System.currentTimeMillis() - start) +
                 ". Damn, thats incredibly fast and awesome!");
@@ -138,27 +136,5 @@ public class RedisTest extends AbstractTestNGServerTest {
         Assertions.assertThat(resultObjects)
                 .hasSize(3)
                 .containsOnly(lo2, lo3, lo4);
-    }
-
-    private static class CustomLocationObjectSerializer implements RedisSerializer {
-        @Override
-        public byte[] serialize(Object o) throws SerializationException {
-            long start = System.currentTimeMillis();
-            byte[] bytes = ((LocationObject) o).toByteArray();
-//            log.info("Serialization took " + (System.currentTimeMillis() - start));
-            return bytes;
-        }
-
-        @Override
-        public Object deserialize(byte[] bytes) throws SerializationException {
-            try {
-                long start = System.currentTimeMillis();
-                LocationObject locationObject = LocationObject.parseFrom(bytes);
-//                log.info("Deserialization took " + (System.currentTimeMillis() - start));
-                return locationObject;
-            } catch (InvalidProtocolBufferException e) {
-                throw new RuntimeException("Deserialization error ", e);
-            }
-        }
     }
 }

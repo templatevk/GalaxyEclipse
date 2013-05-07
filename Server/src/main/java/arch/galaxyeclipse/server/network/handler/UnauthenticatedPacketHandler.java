@@ -1,19 +1,29 @@
 package arch.galaxyeclipse.server.network.handler;
 
-import arch.galaxyeclipse.server.authentication.*;
-import arch.galaxyeclipse.server.data.*;
-import arch.galaxyeclipse.server.data.model.*;
-import arch.galaxyeclipse.server.network.*;
-import arch.galaxyeclipse.server.protocol.*;
-import arch.galaxyeclipse.shared.context.*;
+import arch.galaxyeclipse.server.authentication.AuthenticationResult;
+import arch.galaxyeclipse.server.authentication.IClientAuthenticator;
+import arch.galaxyeclipse.server.data.HibernateUnitOfWork;
+import arch.galaxyeclipse.server.data.JedisOperations;
+import arch.galaxyeclipse.server.data.JedisSerializers.LocationObjectPacketSerializer;
+import arch.galaxyeclipse.server.data.JedisSerializers.ShipStateResponseSerializer;
+import arch.galaxyeclipse.server.data.JedisUnitOfWork;
+import arch.galaxyeclipse.server.data.model.Location;
+import arch.galaxyeclipse.server.data.model.LocationObject;
+import arch.galaxyeclipse.server.data.model.Player;
+import arch.galaxyeclipse.server.network.IServerChannelHandler;
+import arch.galaxyeclipse.server.protocol.GeProtocolMessageFactory;
+import arch.galaxyeclipse.shared.context.ContextHolder;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.*;
-import arch.galaxyeclipse.shared.types.*;
-import lombok.*;
-import lombok.extern.slf4j.*;
-import org.hibernate.*;
-import org.hibernate.criterion.*;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket;
+import arch.galaxyeclipse.shared.types.DictionaryTypesMapper;
+import arch.galaxyeclipse.shared.types.LocationObjectBehaviorTypesMapperType;
+import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
+import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
+import org.springframework.data.redis.connection.jedis.JedisConnection;
 
-import java.util.*;
+import java.util.List;
 
 /**
  * Processes the messages of unauthenticated players.
@@ -25,7 +35,7 @@ class UnauthenticatedPacketHandler extends StatefulPacketHandler {
 	private IClientAuthenticator authenticator;
     private GeProtocolMessageFactory geProtocolMessageFactory;
 
-	public UnauthenticatedPacketHandler(IServerChannelHandler serverChannelHandler) {
+    public UnauthenticatedPacketHandler(IServerChannelHandler serverChannelHandler) {
 		this.serverChannelHandler = serverChannelHandler;
 
         dictionaryTypesMapper = ContextHolder.getBean(DictionaryTypesMapper.class);
@@ -51,10 +61,9 @@ class UnauthenticatedPacketHandler extends StatefulPacketHandler {
         if (authenticationResult.isSuccess()) {
             StartupInfoData startupInfoData = getStartupDataInfo(
                     authenticationResult.getPlayer().getPlayerId());
-            sendStartupInfo(startupInfoData);
-            fillPlayerInfoHolder(startupInfoData);
-
             indicatePlayerOnline(startupInfoData.getPlayer());
+            processStartupInfoData(startupInfoData);
+            sendStartupInfo(startupInfoData);
 
             // TODO: Depending on the player state!
             IStatefulPacketHandler statefulPacketHandler = PacketHandlerFactory
@@ -83,7 +92,7 @@ class UnauthenticatedPacketHandler extends StatefulPacketHandler {
     }
 
     private void sendStartupInfo(StartupInfoData startupInfoData) {
-        StartupInfo startupInfo = StartupInfo.newBuilder()
+        StartupInfoPacket startupInfo = StartupInfoPacket.newBuilder()
                 .setShipStaticInfo(geProtocolMessageFactory.createShipStaticInfo(
                         startupInfoData.getPlayer()))
                 .setLocationInfo(geProtocolMessageFactory.createLocationInfo(
@@ -136,12 +145,39 @@ class UnauthenticatedPacketHandler extends StatefulPacketHandler {
         return startupInfoData;
     }
 
-    private void fillPlayerInfoHolder(StartupInfoData startupInfoData) {
-        PlayerInfoHolder playerInfoHolder = serverChannelHandler.getPlayerInfoHolder();
+    private void processStartupInfoData(StartupInfoData startupInfoData) {
+        final PlayerInfoHolder playerInfoHolder = serverChannelHandler.getPlayerInfoHolder();
         playerInfoHolder.setPlayer(startupInfoData.getPlayer());
         playerInfoHolder.setShipConfig(startupInfoData.getPlayer().getShipConfig());
         playerInfoHolder.setShipState(startupInfoData.getPlayer().getShipState());
         playerInfoHolder.setLocationObject(startupInfoData.getPlayer().getLocationObject());
+
+        new JedisUnitOfWork() {
+            @Override
+            protected void doWork(JedisConnection connection) {
+                LocationObjectPacket locationObject = geProtocolMessageFactory
+                        .getLocationObject(playerInfoHolder.getLocationObject());
+                LocationObjectPacketSerializer lopSerializer = new LocationObjectPacketSerializer();
+                int locationObjectId = playerInfoHolder.getLocationObject().getLocationObjectId();
+                byte[] locationObjectKey = JedisOperations.getLocationObjectKey(locationObjectId);
+                playerInfoHolder.setLocationObjectKey(locationObjectKey);
+
+                ShipStateResponse shipStateResponse = geProtocolMessageFactory
+                        .createShipStateResponse(playerInfoHolder.getShipState(),
+                                playerInfoHolder.getLocationObject());
+                ShipStateResponseSerializer ssrSerializer = new ShipStateResponseSerializer();
+                int shipStateId = playerInfoHolder.getShipState().getShipStateId();
+                byte[] shipStateResponseKey = JedisOperations.getShipStateResponseKey(shipStateId);
+                playerInfoHolder.setShipStateResponseKey(shipStateResponseKey);
+
+                connection.openPipeline();
+                connection.hSet(shipStateResponseKey, shipStateResponseKey,
+                        ssrSerializer.serialize(shipStateResponse));
+                connection.hSet(locationObjectKey, locationObjectKey,
+                        lopSerializer.serialize(locationObject));
+                connection.closePipeline();
+            }
+        }.execute();
     }
 
     @Data

@@ -2,7 +2,7 @@ package arch.galaxyeclipse.client.ui.actor;
 
 import arch.galaxyeclipse.client.resource.IResourceLoader;
 import arch.galaxyeclipse.shared.context.ContextHolder;
-import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket;
 import arch.galaxyeclipse.shared.types.DictionaryTypesMapper;
 import arch.galaxyeclipse.shared.types.LocationObjectTypesMapperType;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
@@ -36,7 +36,7 @@ class ActorFactory implements IActorFactory {
     }
 
     @Override
-    public LocationObjectActor createLocationObjectActor(LocationObject locationObject) {
+    public LocationObjectActor createLocationObjectActor(LocationObjectPacket locationObject) {
         LocationObjectTypesMapperType objectType = dictionaryTypesMapper
                 .getLocationObjectTypeById(locationObject.getObjectTypeId());
         String path = null;

@@ -16,7 +16,7 @@ import arch.galaxyeclipse.client.ui.view.FlightModeStage;
 import arch.galaxyeclipse.client.window.IClientWindow;
 import arch.galaxyeclipse.shared.context.ContextHolder;
 import arch.galaxyeclipse.shared.protocol.GeProtocol;
-import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket;
 import arch.galaxyeclipse.shared.util.ICommand;
 import lombok.extern.slf4j.Slf4j;
 
@@ -62,11 +62,11 @@ public class FlightModeController implements IStageProvider {
             public void perform(GeProtocol.Packet packet) {
                 GePosition position = new GePosition(shipStateInfoHolder.getPositionX(),
                         shipStateInfoHolder.getPositionY());
-                List<LocationObject> locationObjects =
+                List<LocationObjectPacket> locationObjects =
                         locationInfoHolder.getObjectsForRadius(position);
 
                 FlightModeModel model = new FlightModeModel(locationObjects.size());
-                for (LocationObject locationObject : locationObjects) {
+                for (LocationObjectPacket locationObject : locationObjects) {
                     model.getGameActors().add(actorFactory.createLocationObjectActor(locationObject));
                 }
 

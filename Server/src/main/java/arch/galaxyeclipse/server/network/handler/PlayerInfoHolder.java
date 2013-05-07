@@ -12,4 +12,6 @@ public class PlayerInfoHolder {
     private ShipState shipState;
     private ShipConfig shipConfig;
     private LocationObject locationObject;
+    private byte[] locationObjectKey;
+    private byte[] shipStateResponseKey;
 }

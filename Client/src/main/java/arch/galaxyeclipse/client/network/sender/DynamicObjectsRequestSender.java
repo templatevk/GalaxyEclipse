@@ -32,7 +32,7 @@ public class DynamicObjectsRequestSender extends RepeatablePacketSender {
 
     @Override
     protected void processPacket(GeProtocol.Packet packet) {
-        List<GeProtocol.LocationInfo.LocationObject> objectsList = packet
+        List<GeProtocol.LocationInfoPacket.LocationObjectPacket> objectsList = packet
                 .getDynamicObjectsResponse().getObjectsList();
         locationInfoHolder.setDynamicObjects(objectsList);
     }

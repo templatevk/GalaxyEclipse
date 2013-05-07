@@ -1,12 +1,12 @@
 package arch.galaxyeclipse.server.network.handler;
 
-import arch.galaxyeclipse.server.data.*;
-import arch.galaxyeclipse.server.data.model.*;
-import arch.galaxyeclipse.server.protocol.*;
-import arch.galaxyeclipse.shared.context.*;
-import arch.galaxyeclipse.shared.protocol.*;
-import org.hibernate.*;
-import org.hibernate.criterion.*;
+import arch.galaxyeclipse.server.data.JedisSerializers.ShipStateResponseSerializer;
+import arch.galaxyeclipse.server.data.JedisUnitOfWork;
+import arch.galaxyeclipse.server.protocol.GeProtocolMessageFactory;
+import arch.galaxyeclipse.shared.context.ContextHolder;
+import arch.galaxyeclipse.shared.protocol.GeProtocol;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse;
+import org.springframework.data.redis.connection.jedis.JedisConnection;
 
 /**
  *
@@ -31,23 +31,15 @@ class ShipStateRequestHandler extends PacketHandlerDecorator {
     }
 
     private void sendShipStateResponse() {
-        ShipState shipState = new HibernateUnitOfWork<ShipState>() {
+        ShipStateResponse shipStateResponse = new JedisUnitOfWork<ShipStateResponse>() {
             @Override
-            protected void doWork(Session session) {
-                int shipStateId = getServerChannelHandler().getPlayerInfoHolder()
-                        .getPlayer().getShipStateId();
-
-                setResult((ShipState) session
-                        .createCriteria(ShipState.class)
-                        .add(Restrictions.eq("shipStateId", shipStateId))
-                        .uniqueResult());
+            protected void doWork(JedisConnection connection) {
+                ShipStateResponseSerializer serializer = new ShipStateResponseSerializer();
+                byte[] key = getServerChannelHandler().getPlayerInfoHolder().getShipStateResponseKey();
+                byte[] shipStateResponseBytes = connection.hGet(key, key);
+                setResult(serializer.deserialize(shipStateResponseBytes));
             }
         }.execute();
-
-        LocationObject locationObject = getServerChannelHandler()
-                .getPlayerInfoHolder().getLocationObject();
-        GeProtocol.ShipStateResponse shipStateResponse = geProtocolMessageFactory
-                .createShipStateResponse(shipState, locationObject);
 
         GeProtocol.Packet packet = GeProtocol.Packet.newBuilder()
                 .setType(GeProtocol.Packet.Type.SHIP_STATE_RESPONSE)

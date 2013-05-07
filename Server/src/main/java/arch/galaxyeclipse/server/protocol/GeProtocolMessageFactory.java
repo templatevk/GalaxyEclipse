@@ -1,12 +1,20 @@
 package arch.galaxyeclipse.server.protocol;
 
 import arch.galaxyeclipse.server.data.model.*;
-import arch.galaxyeclipse.server.data.model.LocationObject;
-import arch.galaxyeclipse.shared.context.*;
+import arch.galaxyeclipse.shared.context.ContextHolder;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.*;
-import arch.galaxyeclipse.shared.types.*;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket;
+import arch.galaxyeclipse.shared.types.DictionaryTypesMapper;
+import arch.galaxyeclipse.shared.types.ItemTypesMapperType;
+import arch.galaxyeclipse.shared.types.LocationObjectTypesMapperType;
+import arch.galaxyeclipse.shared.types.WeaponTypesMapperType;
 
-import java.util.*;
+import java.util.List;
 
 /**
  * Convenience class to build protobuf messages
@@ -15,31 +23,31 @@ public class GeProtocolMessageFactory {
     private DictionaryTypesMapper dictionaryTypesMapper;
 
     // Helper functions' builders
-    private LocationInfo.CachedObjects.Builder getStaticObjectsBuilder;
-    private LocationInfo.LocationObject.Builder getLocationObjectBuilder;
+    private CachedObjectsPacket.Builder getStaticObjectsBuilder;
+    private LocationObjectPacket.Builder getLocationObjectBuilder;
 
-    private ShipStaticInfo.Item.Builder getItemBuilder;
-    private ShipStaticInfo.Item.Engine.Builder getEngineBuilder;
-    private ShipStaticInfo.Item.Bonus.Builder getBonusBuilder;
-    private ShipStaticInfo.Item.Weapon.Builder getWeaponBuilder;
+    private ItemPacket.Builder getItemBuilder;
+    private EnginePacket.Builder getEngineBuilder;
+    private BonusPacket.Builder getBonusBuilder;
+    private WeaponPacket.Builder getWeaponBuilder;
 
     public GeProtocolMessageFactory() {
         dictionaryTypesMapper = ContextHolder.getBean(DictionaryTypesMapper.class);
 
-        getStaticObjectsBuilder = LocationInfo.CachedObjects.newBuilder();
-        getLocationObjectBuilder = LocationInfo.LocationObject.newBuilder();
+        getStaticObjectsBuilder = CachedObjectsPacket.newBuilder();
+        getLocationObjectBuilder = LocationObjectPacket.newBuilder();
 
-        getItemBuilder = ShipStaticInfo.Item.newBuilder();
-        getEngineBuilder = ShipStaticInfo.Item.Engine.newBuilder();
-        getBonusBuilder = ShipStaticInfo.Item.Bonus.newBuilder();
-        getWeaponBuilder = ShipStaticInfo.Item.Weapon.newBuilder();
+        getItemBuilder = ItemPacket.newBuilder();
+        getEngineBuilder = EnginePacket.newBuilder();
+        getBonusBuilder = BonusPacket.newBuilder();
+        getWeaponBuilder = WeaponPacket.newBuilder();
     }
 
-    public ShipStaticInfo createShipStaticInfo(final Player player) {
+    public ShipStaticInfoPacket createShipStaticInfo(final Player player) {
         ShipConfig shipConfig = player.getShipConfig();
         ShipType shipType = shipConfig.getShipType();
 
-        ShipStaticInfo.Builder shipStaticInfoBuilder = ShipStaticInfo.newBuilder();
+        ShipStaticInfoPacket.Builder shipStaticInfoBuilder = ShipStaticInfoPacket.newBuilder();
         shipStaticInfoBuilder
                 // ship config values
                 .setMoveMaxSpeed(shipConfig.getShipConfigMoveMaxSpeed())
@@ -74,19 +82,19 @@ public class GeProtocolMessageFactory {
         return shipStaticInfoBuilder.build();
     }
 
-    public LocationInfo createLocationInfo(Location location,
+    public LocationInfoPacket createLocationInfo(Location location,
             List<LocationObject> locationCachedObjects) {
 
-        return LocationInfo.newBuilder().setLocationId(location.getLocationId())
+        return LocationInfoPacket.newBuilder().setLocationId(location.getLocationId())
                 .setName(location.getLocationName())
                 .setHeight(location.getLocationHeight())
                 .setWidth(location.getLocationWidth())
                 .setLocationCachedObjects(getCachedObjects(locationCachedObjects)).build();
     }
 
-    public TypesMap createTypesMap() {
-        TypesMap.Builder typesMapBuilder = TypesMap.newBuilder();
-        TypesMap.Type.Builder typeBuilder = TypesMap.Type.newBuilder();
+    public TypesMapPacket createTypesMap() {
+        TypesMapPacket.Builder typesMapBuilder = TypesMapPacket.newBuilder();
+        TypesMapPacket.Type.Builder typeBuilder = TypesMapPacket.Type.newBuilder();
 
         for (ItemTypesMapperType itemTypesMapperType : ItemTypesMapperType.values()) {
             typesMapBuilder.addItemTypes(typeBuilder.setName(itemTypesMapperType.toString())
@@ -134,7 +142,7 @@ public class GeProtocolMessageFactory {
         return dynamicObjectsResponseBuilder.build();
     }
 
-    public LocationInfo.LocationObject getLocationObject(LocationObject locationObject) {
+    public LocationObjectPacket getLocationObject(LocationObject locationObject) {
         return getLocationObjectBuilder
                 .setObjectId(locationObject.getLocationObjectId())
                 .setPositionX(locationObject.getPositionX())
@@ -144,14 +152,14 @@ public class GeProtocolMessageFactory {
                 .setNativeId(locationObject.getObjectNativeId()).build();
     }
 
-    private LocationInfo.CachedObjects getCachedObjects(List<LocationObject> locationObjects) {
+    private CachedObjectsPacket getCachedObjects(List<LocationObject> locationObjects) {
         for (LocationObject locationObject : locationObjects) {
             getStaticObjectsBuilder.addObjects(getLocationObject(locationObject));
         }
         return getStaticObjectsBuilder.build();
     }
 
-    private ShipStaticInfo.Item getItem(Item item) {
+    private ItemPacket getItem(Item item) {
         getItemBuilder.setItemId(item.getItemId())
                 .setName(item.getItemName())
                 .setDescription(item.getItemDescription())
