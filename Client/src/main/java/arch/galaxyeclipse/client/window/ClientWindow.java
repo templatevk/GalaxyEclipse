@@ -50,7 +50,6 @@ class ClientWindow implements IClientWindow {
                 config.width = (int)DEFAULT_WIDTH;
                 config.height = (int)DEFAULT_HEIGHT;
                 break;
-//            TODO uncomment!
 //            case PROD:
 //                config.width = (int)PROD_WIDTH;
 //                config.height = (int)PROD_HEIGHT;

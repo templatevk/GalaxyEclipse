@@ -10,7 +10,10 @@ import org.springframework.data.redis.connection.jedis.JedisConnection;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 
 /**
- *
+ * Database structure:
+ *      *** ShipStateResponse and LocationObjectPacket - stored in hash, key and field are the same,
+ *      the value is the object itself
+ *      *** LocationObjectPacket are stored in two sorted sets where scores are x and y coords
  */
 @Slf4j
 public abstract class JedisUnitOfWork<T> {

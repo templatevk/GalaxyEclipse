@@ -442,9 +442,9 @@ public final class GeProtocol {
        */
       CHAT_SEND_MESSAGE(10, 60),
       /**
-       * <code>CHAR_RECEIVE_MESSAGE = 61;</code>
+       * <code>CHAT_RECEIVE_MESSAGE = 61;</code>
        */
-      CHAR_RECEIVE_MESSAGE(11, 61),
+      CHAT_RECEIVE_MESSAGE(11, 61),
       ;
 
       /**
@@ -492,9 +492,9 @@ public final class GeProtocol {
        */
       public static final int CHAT_SEND_MESSAGE_VALUE = 60;
       /**
-       * <code>CHAR_RECEIVE_MESSAGE = 61;</code>
+       * <code>CHAT_RECEIVE_MESSAGE = 61;</code>
        */
-      public static final int CHAR_RECEIVE_MESSAGE_VALUE = 61;
+      public static final int CHAT_RECEIVE_MESSAGE_VALUE = 61;
 
 
       public final int getNumber() { return value; }
@@ -512,7 +512,7 @@ public final class GeProtocol {
           case 31: return STARTUP_INFO;
           case 32: return SHIP_STATIC_INFO_COMMAND;
           case 60: return CHAT_SEND_MESSAGE;
-          case 61: return CHAR_RECEIVE_MESSAGE;
+          case 61: return CHAT_RECEIVE_MESSAGE;
           default: return null;
         }
       }
@@ -20647,7 +20647,7 @@ public final class GeProtocol {
       "\022\020\n\014AUTH_REQUEST\020\020\022\021\n\rAUTH_RESPONSE\020\021\022\021\n" +
       "\rLOCATION_INFO\020\036\022\020\n\014STARTUP_INFO\020\037\022\034\n\030SH" +
       "IP_STATIC_INFO_COMMAND\020 \022\025\n\021CHAT_SEND_ME",
-      "SSAGE\020<\022\030\n\024CHAR_RECEIVE_MESSAGE\020=\"\027\n\025Dyn" +
+      "SSAGE\020<\022\030\n\024CHAT_RECEIVE_MESSAGE\020=\"\027\n\025Dyn" +
       "amicObjectsRequest\"v\n\026DynamicObjectsResp" +
       "onse\022\\\n\007objects\030\001 \003(\0132K.arch.galaxyeclip" +
       "se.shared.protocol.LocationInfoPacket.Lo" +
