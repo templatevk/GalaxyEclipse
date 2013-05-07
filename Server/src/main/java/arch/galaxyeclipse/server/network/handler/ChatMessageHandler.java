@@ -11,10 +11,10 @@ import org.springframework.data.redis.connection.jedis.JedisConnection;
 /**
  *
  */
-class ShipStateRequestHandler extends PacketHandlerDecorator {
+class ChatMessageHandler extends PacketHandlerDecorator {
     private GeProtocolMessageFactory geProtocolMessageFactory;
 
-    ShipStateRequestHandler(IChannelAwarePacketHandler decoratedPacketHandler) {
+    ChatMessageHandler(IChannelAwarePacketHandler decoratedPacketHandler) {
         super(decoratedPacketHandler);
 
         geProtocolMessageFactory = ContextHolder.getBean(GeProtocolMessageFactory.class);

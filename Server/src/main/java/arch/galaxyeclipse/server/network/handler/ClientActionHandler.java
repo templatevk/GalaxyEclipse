@@ -6,7 +6,8 @@ import arch.galaxyeclipse.server.data.model.ShipConfig;
 import arch.galaxyeclipse.server.data.model.ShipState;
 import arch.galaxyeclipse.server.util.MathUtils;
 import arch.galaxyeclipse.shared.protocol.GeProtocol;
-import arch.galaxyeclipse.shared.protocol.GeProtocol.ClientAction.ClientActionType;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket.ClientActionType;
 import arch.galaxyeclipse.shared.thread.TaskRunnablePair;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -46,7 +47,7 @@ class ClientActionHandler extends PacketHandlerDecorator {
     protected boolean handleImp(GeProtocol.Packet packet) {
         switch (packet.getType()) {
             case CLIENT_ACTION:
-                GeProtocol.ClientAction clientAction = packet.getClientAction();
+                ClientActionPacket clientAction = packet.getClientAction();
                 ClientActionType clientActionType = clientAction.getType();
 
                 switch (clientActionType) {
@@ -93,7 +94,7 @@ class ClientActionHandler extends PacketHandlerDecorator {
     private static class RotationHandler extends TaskRunnablePair<Runnable> {
         public static final int MAX_ANGLE = 360;
 
-        private @Setter GeProtocol.ClientAction.ClientActionType rotationType;
+        private @Setter ClientActionType rotationType;
         private ShipConfig shipConfig;
         private ShipState shipState;
         private LocationObject locationObject;
@@ -222,7 +223,7 @@ class ClientActionHandler extends PacketHandlerDecorator {
     }
 
     private static class MoveHandler {
-        private @Setter GeProtocol.ClientAction.ClientActionType moveType;
+        private @Setter ClientActionType moveType;
         private ShipConfig shipConfig;
         private ShipState shipState;
         private LocationObject locationObject;

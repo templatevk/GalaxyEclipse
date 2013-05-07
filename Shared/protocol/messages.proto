@@ -21,24 +21,24 @@ message Packet {
         SHIP_STATIC_INFO_COMMAND    = 32;
 
         CHAT_SEND_MESSAGE           = 60;
-        CHAT_RECEIVE_MESSAGE        = 61;
+        CHAR_RECEIVE_MESSAGE        = 61;
     }
 
-    required Type                   type                    = 1;
+    required Type                       type                    = 1;
 
-    optional DynamicObjectsResponse dynamicObjectsResponse  = 2;
-    optional ShipStateResponse      shipStateResponse       = 3;
-    optional ClientAction           clientAction            = 4;
-    
-    optional AuthRequest            authRequest             = 16;
-    optional AuthResponse           authResponse            = 17;
+    optional DynamicObjectsResponse         dynamicObjectsResponse  = 2;
+    optional ShipStateResponse              shipStateResponse       = 3;
+    optional ClientActionPacket             clientAction            = 4;
 
-    optional LocationInfo           locationInfo            = 18;
-    optional StartupInfo            startupInfo             = 19;
-    optional ShipStaticInfoCommand  gameInfoCommandHolder   = 20;
+    optional AuthRequest                    authRequest             = 16;
+    optional AuthResponse                   authResponse            = 17;
 
-    optional ChatSendMessage        chatSendMessage         = 21;
-    optional ChatReceiveMessage     chatReceiveMessage      = 22;
+    optional LocationInfoPacket             locationInfo            = 18;
+    optional StartupInfoPacket              startupInfo             = 19;
+    optional ShipStaticInfoCommandPacket    gameInfoCommandHolder   = 20;
+
+    optional ChatSendMessagePacket          chatSendMessage         = 21;
+    optional ChatReceiveMessagePacket       chatReceiveMessage      = 22;
 }
 
 
@@ -46,7 +46,7 @@ message DynamicObjectsRequest {
 
 }
 message DynamicObjectsResponse {
-    repeated LocationInfo.LocationObject objects = 1;
+    repeated LocationInfoPacket.LocationObjectPacket objects = 1;
 }
 
 
@@ -65,7 +65,7 @@ message ShipStateResponse {
 }
 
 
-message ClientAction {
+message ClientActionPacket {
     enum ClientActionType {
         // A S W D
         ROTATE_LEFT     = 1;
@@ -98,18 +98,18 @@ message AuthResponse {
 }
 
 
-message LocationInfo {
+message LocationInfoPacket {
     required int32                  locationId              = 1;
     required string                 name                    = 2;
     required float                  width                   = 3;
     required float                  height                  = 4;
-    required CachedObjects          locationCachedObjects   = 5;
+    required CachedObjectsPacket    locationCachedObjects   = 5;
 
-    message CachedObjects {
-        repeated LocationObject objects = 1;
+    message CachedObjectsPacket {
+        repeated LocationObjectPacket objects = 1;
     }
 
-    message LocationObject {
+    message LocationObjectPacket {
         required int32 objectId         = 1;
         required int32 objectTypeId     = 2;
         required int32 nativeId         = 3;
@@ -118,7 +118,7 @@ message LocationInfo {
         required float rotationAngle    = 6;
     }
 }
-message ShipStaticInfo {
+message ShipStaticInfoPacket {
     // Ship config values
     required float          moveMaxSpeed            = 1;
     required float          rotationMaxSpeed        = 2;
@@ -136,28 +136,28 @@ message ShipStaticInfo {
     required int32          weaponSlotsCount        = 12;
     required int32          bonusSlotsCount         = 13;
 
-    repeated Item           inventoryItems          = 14;
-    repeated Item           shipBonus               = 15;
-    repeated Item           shipWeapons             = 16;
-    required Item           shipEngine              = 17;
+    repeated ItemPacket     inventoryItems          = 14;
+    repeated ItemPacket     shipBonus               = 15;
+    repeated ItemPacket     shipWeapons             = 16;
+    required ItemPacket     shipEngine              = 17;
 
-    message Item {
+    message ItemPacket {
         required int32  itemId      = 1;
         required string name        = 2;
         required string description = 3;
         required int32  price       = 4;
         required int32  itemTypeId  = 5;
 
-        optional Bonus  bonus       = 6;
-        optional Weapon weapon      = 7;
-        optional Engine engine      = 8;
+        optional BonusPacket  bonus       = 6;
+        optional WeaponPacket weapon      = 7;
+        optional EnginePacket engine      = 8;
 
-        message Bonus {
+        message BonusPacket {
             required int32 bonusValue   = 1;
             required int32 bonusTypeId  = 2;
         }
 
-        message Weapon {
+        message WeaponPacket {
             required int32 damage       = 1;
             required int32 delaySpeed   = 2;
             required int32 bulletSpeed  = 3;
@@ -165,7 +165,7 @@ message ShipStaticInfo {
             required int32 energyCost   = 5;
         }
 
-        message Engine {
+        message EnginePacket {
             required float moveAccelerationBonus        = 1;
             required float moveMaxSpeedBonus            = 2;
             required float rotationAccelerationBonus    = 3;
@@ -173,7 +173,7 @@ message ShipStaticInfo {
         }
     }
 }
-message TypesMap {
+message TypesMapPacket {
     repeated Type itemTypes             = 1;
     repeated Type weaponTypes           = 2;
     repeated Type locationObjectTypes   = 3;
@@ -184,20 +184,20 @@ message TypesMap {
         required string name    = 2;
     }
 }
-message StartupInfo {
-    required LocationInfo   locationInfo    = 1;
-    required TypesMap       typesMap        = 2;
-    required ShipStaticInfo shipStaticInfo  = 3;
+message StartupInfoPacket {
+    required LocationInfoPacket   locationInfo    = 1;
+    required TypesMapPacket       typesMap        = 2;
+    required ShipStaticInfoPacket shipStaticInfo  = 3;
 }
-message ShipStaticInfoCommand {
+message ShipStaticInfoCommandPacket {
     required bytes serializedCommand = 1;
 }
 
 
-message ChatSendMessage {
+message ChatSendMessagePacket {
     required string message = 1;
 }
-message ChatReceiveMessage {
+message ChatReceiveMessagePacket {
     required string message = 1;
     required string sender  = 2;
 }
