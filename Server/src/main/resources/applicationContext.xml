@@ -73,7 +73,6 @@
     <bean class="arch.galaxyeclipse.server.authentication.ClientAuthenticator" scope="prototype"/>
     <bean class="arch.galaxyeclipse.server.network.handler.PacketHandlerFactory" scope="prototype"/>
     <bean class="arch.galaxyeclipse.server.protocol.GeProtocolMessageFactory" scope="prototype"/>
-    <bean class="arch.galaxyeclipse.server.data.JedisOperations" scope="prototype"/>
 
     <bean class="arch.galaxyeclipse.shared.types.DictionaryTypesMapper"/>
 </beans>

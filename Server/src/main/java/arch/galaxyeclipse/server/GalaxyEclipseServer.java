@@ -46,7 +46,7 @@ public class GalaxyEclipseServer {
     }
 
     private void clearRedisDb() {
-        new JedisUnitOfWork() {
+        new RedisUnitOfWork() {
             @Override
             protected void doWork(JedisConnection connection) {
                 connection.flushDb();

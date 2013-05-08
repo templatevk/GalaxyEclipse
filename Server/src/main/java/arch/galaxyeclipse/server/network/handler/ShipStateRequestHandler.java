@@ -1,12 +1,12 @@
 package arch.galaxyeclipse.server.network.handler;
 
-import arch.galaxyeclipse.server.data.JedisSerializers.ShipStateResponseSerializer;
-import arch.galaxyeclipse.server.data.JedisUnitOfWork;
+import arch.galaxyeclipse.server.data.PlayerInfoHolder;
+import arch.galaxyeclipse.server.data.model.LocationObject;
+import arch.galaxyeclipse.server.data.model.ShipState;
 import arch.galaxyeclipse.server.protocol.GeProtocolMessageFactory;
 import arch.galaxyeclipse.shared.context.ContextHolder;
 import arch.galaxyeclipse.shared.protocol.GeProtocol;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse;
-import org.springframework.data.redis.connection.jedis.JedisConnection;
 
 /**
  *
@@ -31,16 +31,12 @@ class ShipStateRequestHandler extends PacketHandlerDecorator {
     }
 
     private void sendShipStateResponse() {
-        ShipStateResponse shipStateResponse = new JedisUnitOfWork<ShipStateResponse>() {
-            @Override
-            protected void doWork(JedisConnection connection) {
-                ShipStateResponseSerializer serializer = new ShipStateResponseSerializer();
-                byte[] key = getServerChannelHandler().getPlayerInfoHolder().getShipStateResponseKey();
-                byte[] shipStateResponseBytes = connection.hGet(key, key);
-                setResult(serializer.deserialize(shipStateResponseBytes));
-            }
-        }.execute();
+        PlayerInfoHolder playerInfoHolder = getServerChannelHandler().getPlayerInfoHolder();
+        ShipState shipState = playerInfoHolder.getShipState();
+        LocationObject locationObject = playerInfoHolder.getLocationObject();
 
+        ShipStateResponse shipStateResponse = geProtocolMessageFactory
+                .createShipStateResponse(shipState, locationObject);
         GeProtocol.Packet packet = GeProtocol.Packet.newBuilder()
                 .setType(GeProtocol.Packet.Type.SHIP_STATE_RESPONSE)
                 .setShipStateResponse(shipStateResponse)
