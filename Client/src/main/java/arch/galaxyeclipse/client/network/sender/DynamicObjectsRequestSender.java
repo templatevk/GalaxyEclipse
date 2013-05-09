@@ -1,10 +1,10 @@
 package arch.galaxyeclipse.client.network.sender;
 
-import arch.galaxyeclipse.client.data.*;
-import arch.galaxyeclipse.shared.context.*;
-import arch.galaxyeclipse.shared.protocol.*;
+import arch.galaxyeclipse.client.data.LocationInfoHolder;
+import arch.galaxyeclipse.shared.context.ContextHolder;
+import arch.galaxyeclipse.shared.protocol.GeProtocol;
 
-import java.util.*;
+import java.util.List;
 
 /**
  *

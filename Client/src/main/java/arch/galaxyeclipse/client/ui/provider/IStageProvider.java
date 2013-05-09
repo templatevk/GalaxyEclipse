@@ -1,6 +1,6 @@
 package arch.galaxyeclipse.client.ui.provider;
 
-import arch.galaxyeclipse.client.ui.view.*;
+import arch.galaxyeclipse.client.ui.view.AbstractGameStage;
 
 /**
  *

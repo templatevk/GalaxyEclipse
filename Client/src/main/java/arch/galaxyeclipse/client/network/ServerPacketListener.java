@@ -1,12 +1,9 @@
 package arch.galaxyeclipse.client.network;
 
-import arch.galaxyeclipse.shared.protocol.*;
-import arch.galaxyeclipse.shared.protocol.GeProtocol.*;
-import arch.galaxyeclipse.shared.util.*;
-import com.google.common.collect.*;
-import lombok.extern.slf4j.*;
-
-import java.util.*;
+import arch.galaxyeclipse.shared.protocol.GeProtocol;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.Packet;
+import arch.galaxyeclipse.shared.util.LogUtils;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  *

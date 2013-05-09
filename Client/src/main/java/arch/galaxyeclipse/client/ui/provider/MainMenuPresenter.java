@@ -1,22 +1,28 @@
 package arch.galaxyeclipse.client.ui.provider;
 
-import arch.galaxyeclipse.client.data.*;
-import arch.galaxyeclipse.client.network.*;
-import arch.galaxyeclipse.client.ui.*;
-import arch.galaxyeclipse.client.ui.view.*;
-import arch.galaxyeclipse.client.window.*;
-import arch.galaxyeclipse.shared.*;
-import arch.galaxyeclipse.shared.context.*;
+import arch.galaxyeclipse.client.data.LocationInfoHolder;
+import arch.galaxyeclipse.client.data.ShipStaticInfoHolder;
+import arch.galaxyeclipse.client.network.IClientNetworkManager;
+import arch.galaxyeclipse.client.network.ServerPacketListener;
+import arch.galaxyeclipse.client.ui.IButtonClickCommand;
+import arch.galaxyeclipse.client.ui.view.AbstractGameStage;
+import arch.galaxyeclipse.client.ui.view.MainMenuStage;
+import arch.galaxyeclipse.client.window.IClientWindow;
+import arch.galaxyeclipse.shared.SharedInfo;
+import arch.galaxyeclipse.shared.context.ContextHolder;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.*;
-import arch.galaxyeclipse.shared.types.*;
-import arch.galaxyeclipse.shared.util.*;
-import com.badlogic.gdx.scenes.scene2d.*;
-import lombok.*;
-import lombok.extern.slf4j.*;
+import arch.galaxyeclipse.shared.types.DictionaryTypesMapper;
+import arch.galaxyeclipse.shared.util.ICallback;
+import arch.galaxyeclipse.shared.util.LogUtils;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
 
-import java.net.*;
-import java.util.*;
+import java.net.InetSocketAddress;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  *

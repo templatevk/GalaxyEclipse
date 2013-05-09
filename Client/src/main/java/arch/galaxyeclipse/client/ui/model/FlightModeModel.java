@@ -1,9 +1,10 @@
 package arch.galaxyeclipse.client.ui.model;
 
-import arch.galaxyeclipse.client.ui.actor.*;
-import lombok.*;
+import arch.galaxyeclipse.client.ui.actor.IGeActor;
+import lombok.Data;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *

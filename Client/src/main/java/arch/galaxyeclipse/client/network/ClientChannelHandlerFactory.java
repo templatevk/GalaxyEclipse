@@ -1,8 +1,8 @@
 package arch.galaxyeclipse.client.network;
 
-import arch.galaxyeclipse.shared.network.*;
-import arch.galaxyeclipse.shared.protocol.GeProtocol.*;
-import arch.galaxyeclipse.shared.util.*;
+import arch.galaxyeclipse.shared.network.IChannelHandler;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.Packet;
+import arch.galaxyeclipse.shared.util.ICommand;
 
 class ClientChannelHandlerFactory {
 	private ClientChannelHandlerFactory() {

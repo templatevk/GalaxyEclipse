@@ -1,8 +1,8 @@
 package arch.galaxyeclipse.client.network;
 
-import arch.galaxyeclipse.shared.protocol.*;
+import arch.galaxyeclipse.shared.protocol.GeProtocol;
 
-import java.util.*;
+import java.util.List;
 
 /**
  *

@@ -1,8 +1,8 @@
 package arch.galaxyeclipse.client.util;
 
-import arch.galaxyeclipse.client.window.*;
-import arch.galaxyeclipse.shared.context.*;
-import arch.galaxyeclipse.shared.util.*;
+import arch.galaxyeclipse.client.window.IClientWindow;
+import arch.galaxyeclipse.shared.context.ContextHolder;
+import arch.galaxyeclipse.shared.util.IDestroyable;
 
 /**
  *

@@ -1,10 +1,12 @@
 package arch.galaxyeclipse.client.ui.view;
 
-import arch.galaxyeclipse.client.window.*;
-import arch.galaxyeclipse.shared.context.*;
-import com.badlogic.gdx.scenes.scene2d.*;
-import lombok.*;
-import lombok.extern.slf4j.*;
+import arch.galaxyeclipse.client.window.IClientWindow;
+import arch.galaxyeclipse.shared.context.ContextHolder;
+import com.badlogic.gdx.scenes.scene2d.Group;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public abstract class AbstractGameStage extends Stage {

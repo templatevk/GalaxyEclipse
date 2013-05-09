@@ -1,13 +1,11 @@
 package arch.galaxyeclipse.client;
 
-import arch.galaxyeclipse.shared.*;
-import arch.galaxyeclipse.shared.context.*;
-import ch.qos.logback.classic.*;
-import ch.qos.logback.core.util.*;
-import com.badlogic.gdx.graphics.g2d.*;
-import lombok.*;
-import lombok.extern.slf4j.*;
-import org.slf4j.*;
+import arch.galaxyeclipse.shared.EnvType;
+import arch.galaxyeclipse.shared.context.ContextHolder;
+import ch.qos.logback.classic.LoggerContext;
+import ch.qos.logback.core.util.StatusPrinter;
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.LoggerFactory;
 
 @Slf4j
 public class GalaxyEclipseClient  {

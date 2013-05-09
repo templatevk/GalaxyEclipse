@@ -1,50 +1,49 @@
 package arch.galaxyeclipse.client.ui;
 
 import arch.galaxyeclipse.client.network.IClientNetworkManager;
+import arch.galaxyeclipse.client.network.IServerPacketListener;
 import arch.galaxyeclipse.client.resource.IResourceLoader;
 import arch.galaxyeclipse.shared.context.ContextHolder;
 import arch.galaxyeclipse.shared.protocol.GeProtocol;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.BitmapFont.TextBounds;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.scenes.scene2d.*;
-import com.badlogic.gdx.scenes.scene2d.ui.*;
-import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.InputListener;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
-import com.badlogic.gdx.utils.*;
-import com.badlogic.gdx.utils.Timer.Task;
-import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
-import java.lang.StringBuilder;
+import java.util.Arrays;
+import java.util.List;
+
 @Slf4j
-public class Chat extends Table {
+public class ChatWidget extends Table implements IServerPacketListener {
 
     private final int DEFAULT_WIDTH = 570;
     private final int DEFAULT_HEIGHT = 591;
+    private final int DEFAULT_MESSAGES_FIELD_WIDTH = 520;
+    private final int DEFAULT_MESSAGES_FIELD_HEIGHT = 370;
     private final int DEFAULT_TEXT_FIELD_PADDING_BOTTOM = 80;
     private final int DEFAULT_TEXT_FIELD_PADDING_LEFT = 10;
+    private final int DEFAULT_MESSAGES_FIELD_PADDING_BOTTOM = 150;
+    private final int DEFAULT_MESSAGES_FIELD_PADDING_LEFT = 25;
     private final int TEXT_FIELD_TEXT_PADDING_X = 10;
     private final int TEXT_FIELD_TEXT_PADDING_Y = -10;
 
     private Drawable background;
     private TextField textField;
-
-    private InputListener inputListener;
     private Table textFieldTable;
-    private Label label;
+    private Label messagesField;
+    private Table messagesFieldTable;
 
-    private IClientNetworkManager networkManager;
+    private IClientNetworkManager networkManager ;
 
-    public Chat() {
+    public ChatWidget() {
         networkManager = ContextHolder.getBean(IClientNetworkManager.class);
 
         IResourceLoader resourceLoader = ContextHolder.getBean(IResourceLoader.class);
@@ -80,13 +79,12 @@ public class Chat extends Table {
             public boolean keyTyped(InputEvent event, char character) {
                 switch (event.getKeyCode()){
                     case Keys.ENTER:
-                        label.setText(textField.getText());
-                        GeProtocol.ChatSendMessage message = GeProtocol.ChatSendMessage.newBuilder()
+                        GeProtocol.ChatSendMessagePacket messagePacket = GeProtocol.ChatSendMessagePacket.newBuilder()
                                 .setMessage(textField.getText()).build();
-                        GeProtocol.Packet messagePacket = GeProtocol.Packet.newBuilder()
+                        GeProtocol.Packet packet = GeProtocol.Packet.newBuilder()
                                 .setType(GeProtocol.Packet.Type.CHAT_SEND_MESSAGE)
-                                .setChatSendMessage(message).build();
-                        networkManager.sendPacket(messagePacket);
+                                .setChatSendMessage(messagePacket).build();
+                        networkManager.sendPacket(packet);
                         textField.setText("");
                         break;
                     case Keys.ESCAPE:
@@ -96,11 +94,17 @@ public class Chat extends Table {
             }
         });
 
-        Label.LabelStyle labelStyle = new Label.LabelStyle(font,Color.RED);
-        label = new Label("TEST_LABEL",labelStyle);
-        addActor(label);
-        label.setY(200);
-        label.setX(20);
+        Label.LabelStyle labelStyle = new Label.LabelStyle(font,Color.WHITE);
+        messagesField = new Label("",labelStyle);
+        messagesField.setY(0);
+        messagesField.setX(0);
+        messagesField.setWrap(true);
+        messagesField.setWidth(DEFAULT_MESSAGES_FIELD_WIDTH);
+        messagesField.setHeight(DEFAULT_MESSAGES_FIELD_HEIGHT);
+        messagesField.setAlignment(-1, -1);
+        addActor(messagesField);
+
+        networkManager.addPacketListener(this);
     }
 
     @Override
@@ -110,6 +114,10 @@ public class Chat extends Table {
         textFieldTable.setScale(scaleX,scaleY);
         textFieldTable.setX(DEFAULT_TEXT_FIELD_PADDING_LEFT * scaleX);
         textFieldTable.setY(DEFAULT_TEXT_FIELD_PADDING_BOTTOM * scaleY);
+        messagesField.setFontScale(scaleX,scaleY);
+        messagesField.setHeight(DEFAULT_MESSAGES_FIELD_HEIGHT * scaleY);
+        messagesField.setX(DEFAULT_MESSAGES_FIELD_PADDING_LEFT * scaleX);
+        messagesField.setY(DEFAULT_MESSAGES_FIELD_PADDING_BOTTOM * scaleY);
         super.setSize(width, height);
     }
 
@@ -130,5 +138,20 @@ public class Chat extends Table {
         super.draw(batch, parentAlpha);
     }
 
+    @Override
+    public List<GeProtocol.Packet.Type> getPacketTypes() {
+        return Arrays.asList(GeProtocol.Packet.Type.CHAT_RECEIVE_MESSAGE);
+    }
 
+    @Override
+    public void onPacketReceived(GeProtocol.Packet packet) {
+        switch (packet.getType()) {
+            case CHAT_RECEIVE_MESSAGE:
+                GeProtocol.ChatReceiveMessagePacket messagePacket = packet.getChatReceiveMessage();
+                messagesField.setText(messagesField.getText() +
+                        messagePacket.getSender() + " : " + messagePacket.getMessage());
+                break;
+        }
+
+    }
 }

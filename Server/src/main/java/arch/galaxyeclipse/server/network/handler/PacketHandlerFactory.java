@@ -22,7 +22,8 @@ public class PacketHandlerFactory {
                 return new DynamicObjectsRequestHandler(
                         new ShipStateRequestHandler(
                         new ClientActionHandler(
-                        new FlightPacketHandler(serverChannelHandler))));
+                        new ChatMessageHandler(
+                        new FlightPacketHandler(serverChannelHandler)))));
         }
         return null;
     }

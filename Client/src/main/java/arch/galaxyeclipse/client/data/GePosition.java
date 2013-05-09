@@ -1,6 +1,7 @@
 package arch.galaxyeclipse.client.data;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
 /**
  *
