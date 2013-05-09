@@ -1,13 +1,13 @@
 package arch.galaxyeclipse.client.ui;
 
 
-import arch.galaxyeclipse.client.resource.*;
-import arch.galaxyeclipse.shared.*;
-import arch.galaxyeclipse.shared.context.*;
-import com.badlogic.gdx.graphics.*;
-import com.badlogic.gdx.graphics.g2d.*;
-import com.badlogic.gdx.scenes.scene2d.ui.*;
-import com.badlogic.gdx.scenes.scene2d.utils.*;
+import arch.galaxyeclipse.client.resource.IResourceLoader;
+import arch.galaxyeclipse.shared.context.ContextHolder;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.scenes.scene2d.ui.TextField;
+import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
+import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 
 /**
  *

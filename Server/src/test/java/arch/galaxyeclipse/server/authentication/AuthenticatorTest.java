@@ -1,9 +1,10 @@
 package arch.galaxyeclipse.server.authentication;
 
-import arch.galaxyeclipse.server.*;
-import arch.galaxyeclipse.shared.context.*;
-import org.fest.assertions.*;
-import org.testng.annotations.*;
+import arch.galaxyeclipse.server.AbstractTestNGServerTest;
+import arch.galaxyeclipse.shared.context.ContextHolder;
+import org.fest.assertions.Assertions;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 /**
  *

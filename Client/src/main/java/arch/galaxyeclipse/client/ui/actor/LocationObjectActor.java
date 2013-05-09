@@ -1,7 +1,7 @@
 package arch.galaxyeclipse.client.ui.actor;
 
 import arch.galaxyeclipse.client.data.GePosition;
-import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket;
 import arch.galaxyeclipse.shared.types.LocationObjectTypesMapperType;
 import arch.galaxyeclipse.shared.util.ICommand;
 import arch.galaxyeclipse.shared.util.StubCommand;
@@ -15,14 +15,14 @@ import static arch.galaxyeclipse.shared.SharedInfo.LOCATION_TO_SCREEN_COORDS_COE
  */
 @Data
 class LocationObjectActor extends ClickableActor {
-    private LocationObject locationObject;
+    private LocationObjectPacket locationObject;
     private LocationObjectTypesMapperType locationObjectType;
 
-    public LocationObjectActor(Drawable drawable, LocationObject locationObject) {
+    public LocationObjectActor(Drawable drawable, LocationObjectPacket locationObject) {
         this(drawable, locationObject, new StubCommand<GePosition>());
     }
 
-    public LocationObjectActor(Drawable drawable, LocationObject locationObject,
+    public LocationObjectActor(Drawable drawable, LocationObjectPacket locationObject,
             ICommand<GePosition> hitCommand) {
         super(drawable);
         this.locationObject = locationObject;

@@ -1,7 +1,7 @@
 package arch.galaxyeclipse.server.authentication;
 
-import arch.galaxyeclipse.server.data.model.*;
-import lombok.*;
+import arch.galaxyeclipse.server.data.model.Player;
+import lombok.Data;
 
 /**
  * Result of the player authentication.

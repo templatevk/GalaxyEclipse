@@ -1,10 +1,10 @@
 package arch.galaxyeclipse.server.authentication;
 
-import arch.galaxyeclipse.server.data.*;
-import arch.galaxyeclipse.server.data.model.*;
-import org.apache.commons.codec.digest.*;
-import org.hibernate.*;
-import org.hibernate.criterion.*;
+import arch.galaxyeclipse.server.data.HibernateUnitOfWork;
+import arch.galaxyeclipse.server.data.model.Player;
+import org.apache.commons.codec.digest.DigestUtils;
+import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 
 /**
 *

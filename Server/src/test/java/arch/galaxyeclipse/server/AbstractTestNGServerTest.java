@@ -1,7 +1,8 @@
 package arch.galaxyeclipse.server;
 
-import org.apache.commons.codec.digest.*;
-import org.testng.annotations.*;
+import org.apache.commons.codec.digest.DigestUtils;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 
 /**
  * Base class for server tests.

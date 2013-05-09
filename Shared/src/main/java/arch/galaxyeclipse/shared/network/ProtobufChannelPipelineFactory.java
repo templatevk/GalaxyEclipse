@@ -1,9 +1,14 @@
 package arch.galaxyeclipse.shared.network;
 
-import arch.galaxyeclipse.shared.protocol.GeProtocol.*;
-import lombok.extern.slf4j.*;
-import org.jboss.netty.channel.*;
-import org.jboss.netty.handler.codec.protobuf.*;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.Packet;
+import lombok.extern.slf4j.Slf4j;
+import org.jboss.netty.channel.ChannelPipeline;
+import org.jboss.netty.channel.ChannelPipelineFactory;
+import org.jboss.netty.channel.Channels;
+import org.jboss.netty.handler.codec.protobuf.ProtobufDecoder;
+import org.jboss.netty.handler.codec.protobuf.ProtobufEncoder;
+import org.jboss.netty.handler.codec.protobuf.ProtobufVarint32FrameDecoder;
+import org.jboss.netty.handler.codec.protobuf.ProtobufVarint32LengthFieldPrepender;
 
 /**
  * Adds protobuf handlers and custom ones.

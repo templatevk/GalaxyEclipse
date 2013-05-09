@@ -1,22 +1,28 @@
 package arch.galaxyeclipse.client.ui.provider;
 
-import arch.galaxyeclipse.client.data.*;
-import arch.galaxyeclipse.client.network.*;
-import arch.galaxyeclipse.client.ui.*;
-import arch.galaxyeclipse.client.ui.view.*;
-import arch.galaxyeclipse.client.window.*;
-import arch.galaxyeclipse.shared.*;
-import arch.galaxyeclipse.shared.context.*;
+import arch.galaxyeclipse.client.data.LocationInfoHolder;
+import arch.galaxyeclipse.client.data.ShipStaticInfoHolder;
+import arch.galaxyeclipse.client.network.IClientNetworkManager;
+import arch.galaxyeclipse.client.network.ServerPacketListener;
+import arch.galaxyeclipse.client.ui.IButtonClickCommand;
+import arch.galaxyeclipse.client.ui.view.AbstractGameStage;
+import arch.galaxyeclipse.client.ui.view.MainMenuStage;
+import arch.galaxyeclipse.client.window.IClientWindow;
+import arch.galaxyeclipse.shared.SharedInfo;
+import arch.galaxyeclipse.shared.context.ContextHolder;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.*;
-import arch.galaxyeclipse.shared.types.*;
-import arch.galaxyeclipse.shared.util.*;
-import com.badlogic.gdx.scenes.scene2d.*;
-import lombok.*;
-import lombok.extern.slf4j.*;
+import arch.galaxyeclipse.shared.types.DictionaryTypesMapper;
+import arch.galaxyeclipse.shared.util.ICallback;
+import arch.galaxyeclipse.shared.util.LogUtils;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
 
-import java.net.*;
-import java.util.*;
+import java.net.InetSocketAddress;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -94,7 +100,7 @@ public class MainMenuPresenter extends ServerPacketListener implements IStagePro
         }
     }
 
-    private void processStartupInfo(StartupInfo startupInfo) {
+    private void processStartupInfo(StartupInfoPacket startupInfo) {
         processTypesMap(startupInfo.getTypesMap());
 
         shipStaticInfoHolder.setShipStaticInfo(startupInfo.getShipStaticInfo());
@@ -103,7 +109,7 @@ public class MainMenuPresenter extends ServerPacketListener implements IStagePro
         clientWindow.setStageProvider(new FlightModeController());
     }
 
-    private void processTypesMap(TypesMap typesMap) {
+    private void processTypesMap(TypesMapPacket typesMap) {
         if (MainMenuPresenter.log.isDebugEnabled()) {
             MainMenuPresenter.log.debug("Processing types map");
         }
@@ -112,26 +118,26 @@ public class MainMenuPresenter extends ServerPacketListener implements IStagePro
                 .getBean(DictionaryTypesMapper.class);
 
         Map<Integer, String> itemTypes = new HashMap<>();
-        for (TypesMap.Type itemType : typesMap.getItemTypesList()) {
+        for (TypesMapPacket.Type itemType : typesMap.getItemTypesList()) {
             itemTypes.put(itemType.getId(), itemType.getName());
         }
         dictionaryTypesMapper.fillItemTypes(itemTypes);
 
         Map<Integer, String> weaponTypes = new HashMap<>();
-        for (TypesMap.Type weaponType : typesMap.getWeaponTypesList()) {
+        for (TypesMapPacket.Type weaponType : typesMap.getWeaponTypesList()) {
             weaponTypes.put(weaponType.getId(), weaponType.getName());
         }
         dictionaryTypesMapper.fillWeaponTypes(weaponTypes);
 
         Map<Integer, String> locationObjectTypes = new HashMap<>();
-        for (TypesMap.Type locationObjectType : typesMap
+        for (TypesMapPacket.Type locationObjectType : typesMap
                 .getLocationObjectTypesList()) {
             locationObjectTypes.put(locationObjectType.getId(), locationObjectType.getName());
         }
         dictionaryTypesMapper.fillLocationObjectTypes(locationObjectTypes);
 
         Map<Integer, String> bonusTypes = new HashMap<>();
-        for (TypesMap.Type bonusType : typesMap.getBonusTypesList()) {
+        for (TypesMapPacket.Type bonusType : typesMap.getBonusTypesList()) {
             bonusTypes.put(bonusType.getId(), bonusType.getName());
         }
         dictionaryTypesMapper.fillBonusTypes(bonusTypes);

@@ -1,6 +1,6 @@
 package arch.galaxyeclipse.client.ui.actor;
 
-import lombok.*;
+import lombok.Data;
 
 /**
  *

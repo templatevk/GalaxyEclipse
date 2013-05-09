@@ -1,20 +1,28 @@
 package arch.galaxyeclipse.client.network;
 
-import arch.galaxyeclipse.shared.network.*;
-import arch.galaxyeclipse.shared.protocol.GeProtocol.*;
-import arch.galaxyeclipse.shared.protocol.GeProtocol.Packet.*;
-import arch.galaxyeclipse.shared.thread.*;
-import arch.galaxyeclipse.shared.util.*;
-import com.google.common.collect.*;
-import lombok.*;
-import lombok.extern.slf4j.*;
-import org.jboss.netty.bootstrap.*;
-import org.jboss.netty.channel.*;
-import org.jboss.netty.channel.socket.nio.*;
+import arch.galaxyeclipse.shared.network.IChannelHandler;
+import arch.galaxyeclipse.shared.network.ProtobufChannelPipelineFactory;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.Packet;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.Packet.Type;
+import arch.galaxyeclipse.shared.thread.DelayedRunnableTask;
+import arch.galaxyeclipse.shared.util.ICallback;
+import arch.galaxyeclipse.shared.util.ICommand;
+import arch.galaxyeclipse.shared.util.LogUtils;
+import arch.galaxyeclipse.shared.util.StubCallback;
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.SetMultimap;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
+import org.jboss.netty.bootstrap.ClientBootstrap;
+import org.jboss.netty.channel.ChannelFuture;
+import org.jboss.netty.channel.ChannelFutureListener;
+import org.jboss.netty.channel.ChannelPipeline;
+import org.jboss.netty.channel.socket.nio.NioClientSocketChannelFactory;
 
-import java.net.*;
-import java.util.*;
-import java.util.concurrent.*;
+import java.net.SocketAddress;
+import java.util.Set;
+import java.util.concurrent.Executors;
 
 /**
  * Main class responsible for network communication using the GeProtocol.

@@ -1,6 +1,7 @@
 package arch.galaxyeclipse.client.resource;
 
-import com.badlogic.gdx.graphics.g2d.*;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 
 /**
  *

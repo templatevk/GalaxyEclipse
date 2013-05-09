@@ -1,6 +1,6 @@
 package arch.galaxyeclipse.server.network.handler;
 
-import arch.galaxyeclipse.server.network.*;
+import arch.galaxyeclipse.server.network.IServerChannelHandler;
 
 /**
  *
@@ -22,7 +22,8 @@ public class PacketHandlerFactory {
                 return new DynamicObjectsRequestHandler(
                         new ShipStateRequestHandler(
                         new ClientActionHandler(
-                        new FlightPacketHandler(serverChannelHandler))));
+                        new ChatMessageHandler(
+                        new FlightPacketHandler(serverChannelHandler)))));
         }
         return null;
     }

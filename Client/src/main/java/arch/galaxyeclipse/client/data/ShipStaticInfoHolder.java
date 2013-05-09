@@ -1,14 +1,20 @@
 package arch.galaxyeclipse.client.data;
 
-import arch.galaxyeclipse.client.network.*;
-import arch.galaxyeclipse.shared.context.*;
-import arch.galaxyeclipse.shared.protocol.*;
-import arch.galaxyeclipse.shared.types.*;
-import lombok.*;
-import lombok.extern.slf4j.*;
-import org.springframework.util.*;
+import arch.galaxyeclipse.client.network.IClientNetworkManager;
+import arch.galaxyeclipse.client.network.ServerPacketListener;
+import arch.galaxyeclipse.shared.context.ContextHolder;
+import arch.galaxyeclipse.shared.protocol.GeProtocol;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket;
+import arch.galaxyeclipse.shared.protocol.ShipStaticInfoCommand;
+import arch.galaxyeclipse.shared.types.DictionaryTypesMapper;
+import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.util.SerializationUtils;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  *
@@ -16,7 +22,7 @@ import java.util.*;
 @Slf4j
 public class ShipStaticInfoHolder extends ServerPacketListener {
     @Getter
-    private GeProtocol.ShipStaticInfo shipStaticInfo;
+    private GeProtocol.ShipStaticInfoPacket ShipStaticInfoPacket;
     private DictionaryTypesMapper dictionaryTypesMapper;
 
     ShipStaticInfoHolder() {
@@ -29,9 +35,10 @@ public class ShipStaticInfoHolder extends ServerPacketListener {
     protected void onPacketReceivedImpl(GeProtocol.Packet packet) {
         switch (packet.getType()) {
             case SHIP_STATIC_INFO_COMMAND:
-                ShipStaticInfoCommand command = (ShipStaticInfoCommand)SerializationUtils.deserialize(
-                        packet.getGameInfoCommandHolder().getSerializedCommand().toByteArray());
-                command.perform(shipStaticInfo);
+                ShipStaticInfoCommand command = (ShipStaticInfoCommand)
+                        SerializationUtils.deserialize(packet.getGameInfoCommandHolder()
+                                .getSerializedCommand().toByteArray());
+                command.perform(ShipStaticInfoPacket);
                 break;
         }
     }
@@ -41,60 +48,63 @@ public class ShipStaticInfoHolder extends ServerPacketListener {
         return Arrays.asList(GeProtocol.Packet.Type.SHIP_STATIC_INFO_COMMAND);
     }
 
-    public void setShipStaticInfo(GeProtocol.ShipStaticInfo shipStaticInfo) {
+    public void setShipStaticInfo(GeProtocol.ShipStaticInfoPacket ShipStaticInfoPacket) {
         if (log.isInfoEnabled()) {
             log.info("Updating ship static info");
         }
-        this.shipStaticInfo = shipStaticInfo;
+        this.ShipStaticInfoPacket = ShipStaticInfoPacket;
 
         if (log.isDebugEnabled()) {
-            log.debug("\tName " + shipStaticInfo.getName());
-            log.debug("\tArmor " + shipStaticInfo.getArmor());
-            log.debug("\tArmor durability " + shipStaticInfo.getArmorDurability());
-            log.debug("\tEnergy max " + shipStaticInfo.getEnergyMax());
-            log.debug("\tEnergy regen " + shipStaticInfo.getEnergyRegen());
-            log.debug("\tHp max " + shipStaticInfo.getHpMax());
-            log.debug("\tHp regen " + shipStaticInfo.getHpRegen());
-            log.debug("\tMove max speed " + shipStaticInfo.getMoveMaxSpeed());
-            log.debug("\tMove acceleration speed " + shipStaticInfo.getMoveAccelerationSpeed());
-            log.debug("\tRotation max speed " + shipStaticInfo.getRotationMaxSpeed());
-            log.debug("\tRotation acceleration speed " + shipStaticInfo.getRotationAcceleration());
+            log.debug("\tName " + ShipStaticInfoPacket.getName());
+            log.debug("\tArmor " + ShipStaticInfoPacket.getArmor());
+            log.debug("\tArmor durability " + ShipStaticInfoPacket.getArmorDurability());
+            log.debug("\tEnergy max " + ShipStaticInfoPacket.getEnergyMax());
+            log.debug("\tEnergy regen " + ShipStaticInfoPacket.getEnergyRegen());
+            log.debug("\tHp max " + ShipStaticInfoPacket.getHpMax());
+            log.debug("\tHp regen " + ShipStaticInfoPacket.getHpRegen());
+            log.debug("\tMove max speed " + ShipStaticInfoPacket.getMoveMaxSpeed());
+            log.debug("\tMove acceleration speed " + ShipStaticInfoPacket.getMoveAccelerationSpeed());
+            log.debug("\tRotation max speed " + ShipStaticInfoPacket.getRotationMaxSpeed());
+            log.debug("\tRotation acceleration speed " + ShipStaticInfoPacket.getRotationAcceleration());
 
             log.debug("\tEngine");
-            outputItemInfo(shipStaticInfo.getShipEngine());
+            outputItemInfo(ShipStaticInfoPacket.getShipEngine());
 
             log.debug("\tInventory items");
-            for (GeProtocol.ShipStaticInfo.Item item : shipStaticInfo.getInventoryItemsList()) {
+            for (GeProtocol.ShipStaticInfoPacket.ItemPacket item : ShipStaticInfoPacket
+                    .getInventoryItemsList()) {
                 outputItemInfo(item);
             }
 
             log.debug("\tBonus slots");
-            for (GeProtocol.ShipStaticInfo.Item item : shipStaticInfo.getShipBonusList()) {
+            for (GeProtocol.ShipStaticInfoPacket.ItemPacket item : ShipStaticInfoPacket
+                    .getShipBonusList()) {
                 outputItemInfo(item);
             }
 
             log.debug("\tWeapon slots");
-            for (GeProtocol.ShipStaticInfo.Item item : shipStaticInfo.getShipWeaponsList()) {
+            for (GeProtocol.ShipStaticInfoPacket.ItemPacket item : ShipStaticInfoPacket
+                    .getShipWeaponsList()) {
                 outputItemInfo(item);
             }
         }
     }
 
-    private void outputItemInfo(GeProtocol.ShipStaticInfo.Item item) {
+    private void outputItemInfo(GeProtocol.ShipStaticInfoPacket.ItemPacket item) {
         log.debug("\t\tName" + item.getName());
         log.debug("\t\tDescription" + item.getDescription());
         log.debug("\t\tPrice" + item.getPrice());
 
         switch (dictionaryTypesMapper.getItemTypeById(item.getItemTypeId())) {
             case ENGINE:
-                GeProtocol.ShipStaticInfo.Item.Engine engine = item.getEngine();
+                EnginePacket engine = item.getEngine();
                 log.debug("\t\tMove acceleration bonus " + engine.getMoveAccelerationBonus());
                 log.debug("\t\tMove max speed bonus " + engine.getMoveMaxSpeedBonus());
                 log.debug("\t\tRotation acceleration bonus " + engine.getRotationAccelerationBonus());
                 log.debug("\t\tRotation max speed bonus " + engine.getRotationMaxSpeedBonus());
                 break;
             case WEAPON:
-                GeProtocol.ShipStaticInfo.Item.Weapon weapon = item.getWeapon();
+                WeaponPacket weapon = item.getWeapon();
                 log.debug("\t\tBullet speed " + weapon.getBulletSpeed());
                 log.debug("\t\tDamage " + weapon.getDamage());
                 log.debug("\t\tDelay speed " + weapon.getDelaySpeed());
@@ -102,7 +112,7 @@ public class ShipStaticInfoHolder extends ServerPacketListener {
                 log.debug("\t\tMax distance " + weapon.getMaxDistance());
                 break;
             case BONUS:
-                GeProtocol.ShipStaticInfo.Item.Bonus bonus = item.getBonus();
+                BonusPacket bonus = item.getBonus();
                 log.debug("\t\tValue " + bonus.getBonusValue());
                 log.debug("\t\tType " + dictionaryTypesMapper.getBonusTypeById(
                         bonus.getBonusTypeId()));

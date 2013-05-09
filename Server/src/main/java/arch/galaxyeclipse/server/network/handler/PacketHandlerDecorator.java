@@ -1,8 +1,8 @@
 package arch.galaxyeclipse.server.network.handler;
 
-import arch.galaxyeclipse.server.network.*;
-import arch.galaxyeclipse.shared.protocol.*;
-import lombok.extern.slf4j.*;
+import arch.galaxyeclipse.server.network.IServerChannelHandler;
+import arch.galaxyeclipse.shared.protocol.GeProtocol;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  *

@@ -1,5 +1,6 @@
 package arch.galaxyeclipse.client.window;
 
+import arch.galaxyeclipse.client.ui.IButtonBuilder;
 import arch.galaxyeclipse.client.ui.IButtonClickCommand;
 import arch.galaxyeclipse.client.ui.StageUiFactory;
 import arch.galaxyeclipse.client.ui.provider.IStageProvider;
@@ -26,7 +27,7 @@ import java.util.List;
 @Slf4j
 class ClientWindow implements IClientWindow {
     private static final float VIRTUAL_WIDTH = 480;
-    private static final float VIRTUAL_HEIGHT = 320;
+    private static final float VIRTUAL_HEIGHT = 360;
     private static final float ASPECT_RATIO = VIRTUAL_WIDTH / VIRTUAL_HEIGHT;
     private static final float PROD_WIDTH = 640;
     private static final float PROD_HEIGHT = 480;
@@ -49,7 +50,6 @@ class ClientWindow implements IClientWindow {
                 config.width = (int)DEFAULT_WIDTH;
                 config.height = (int)DEFAULT_HEIGHT;
                 break;
-//            TODO uncomment!
 //            case PROD:
 //                config.width = (int)PROD_WIDTH;
 //                config.height = (int)PROD_HEIGHT;
@@ -74,6 +74,7 @@ class ClientWindow implements IClientWindow {
         if (EnvType.CURRENT == EnvType.DEV) {
             TextButton mainMenuBtn = StageUiFactory.createButtonBuilder()
                     .setText("Main menu")
+                    .setType(IButtonBuilder.ButtonType.MainMenuButton)
                     .setClickCommand(new IButtonClickCommand() {
                         @Override
                         public void execute(InputEvent e, float x, float y) {

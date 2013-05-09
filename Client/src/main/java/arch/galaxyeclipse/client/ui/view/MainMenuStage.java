@@ -1,15 +1,20 @@
 package arch.galaxyeclipse.client.ui.view;
 
-import arch.galaxyeclipse.client.resource.*;
-import arch.galaxyeclipse.client.ui.provider.*;
-import arch.galaxyeclipse.client.ui.*;
-import arch.galaxyeclipse.shared.*;
-import arch.galaxyeclipse.shared.context.*;
-import com.badlogic.gdx.scenes.scene2d.*;
-import com.badlogic.gdx.scenes.scene2d.ui.*;
-import com.badlogic.gdx.scenes.scene2d.utils.*;
+import arch.galaxyeclipse.client.resource.IResourceLoader;
+import arch.galaxyeclipse.client.ui.ChatWidget;
+import arch.galaxyeclipse.client.ui.IButtonBuilder;
+import arch.galaxyeclipse.client.ui.StageUiFactory;
+import arch.galaxyeclipse.client.ui.provider.MainMenuPresenter;
+import arch.galaxyeclipse.shared.EnvType;
+import arch.galaxyeclipse.shared.context.ContextHolder;
+import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.Group;
+import com.badlogic.gdx.scenes.scene2d.ui.Button;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.ui.TextField;
+import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 
-import java.util.*;
+import java.util.Arrays;
 
 public class MainMenuStage extends AbstractGameStage {
     private static final float TABLE_SPACING = 10;
@@ -25,6 +30,8 @@ public class MainMenuStage extends AbstractGameStage {
     private Table rootTable;
     private Table innerTable;
 
+    ChatWidget chatWidget;
+
     public MainMenuStage(final MainMenuPresenter presenter) {
         IResourceLoader resourceLoader = ContextHolder.getBean(IResourceLoader.class);
 
@@ -36,6 +43,7 @@ public class MainMenuStage extends AbstractGameStage {
                 .setMessageText("Enter your password").setPasswordMode(true)
                 .setPasswordCharacter('*').build();
         connectBtn = StageUiFactory.createButtonBuilder().setText("Connect")
+                .setType(IButtonBuilder.ButtonType.MainMenuButton)
                 .setClickCommand(presenter.getConnectButtonCommand()).build();
 
         rootTable = new Table();
@@ -54,10 +62,11 @@ public class MainMenuStage extends AbstractGameStage {
         innerTable.add(passwordTxt).expand(true, false).space(TABLE_SPACING);
         innerTable.row();
         innerTable.add(connectBtn).expand(true, false).space(TABLE_SPACING);
+
         innerTable.setOrigin(innerTable.getPrefWidth() / 2,
                 innerTable.getPrefHeight() / 2);
 
-        if (EnvType.CURRENT == EnvType.DEV) {
+        if (EnvType.CURRENT == EnvType.DEV || EnvType.CURRENT == EnvType.DEV_UI) {
             rootTable.debug();
             innerTable.debug();
 

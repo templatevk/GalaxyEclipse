@@ -1,10 +1,8 @@
 package arch.galaxyeclipse.shared.thread;
 
-import arch.galaxyeclipse.shared.util.*;
-import lombok.*;
-import lombok.extern.slf4j.*;
-
-import java.io.*;
+import arch.galaxyeclipse.shared.util.LogUtils;
+import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Represents a thread that will execute submitted runnable after the submitted 

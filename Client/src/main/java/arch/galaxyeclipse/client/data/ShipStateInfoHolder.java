@@ -1,8 +1,8 @@
 package arch.galaxyeclipse.client.data;
 
-import arch.galaxyeclipse.shared.protocol.*;
-import lombok.*;
-import lombok.extern.slf4j.*;
+import arch.galaxyeclipse.shared.protocol.GeProtocol;
+import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  *

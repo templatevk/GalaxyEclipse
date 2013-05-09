@@ -1,8 +1,8 @@
 package arch.galaxyeclipse.client.ui.actor;
 
-import com.badlogic.gdx.scenes.scene2d.*;
-import com.badlogic.gdx.scenes.scene2d.utils.*;
-import lombok.extern.slf4j.*;
+import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  *

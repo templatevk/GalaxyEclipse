@@ -1,7 +1,7 @@
 package arch.galaxyeclipse.client.window;
 
-import arch.galaxyeclipse.client.ui.provider.*;
-import arch.galaxyeclipse.shared.util.*;
+import arch.galaxyeclipse.client.ui.provider.IStageProvider;
+import arch.galaxyeclipse.shared.util.IDestroyable;
 
 /**
  *

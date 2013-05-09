@@ -2,15 +2,12 @@ package arch.galaxyeclipse.client.ui.actor;
 
 import arch.galaxyeclipse.client.resource.IResourceLoader;
 import arch.galaxyeclipse.shared.context.ContextHolder;
-import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket;
 import arch.galaxyeclipse.shared.types.DictionaryTypesMapper;
 import arch.galaxyeclipse.shared.types.LocationObjectTypesMapperType;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import lombok.extern.slf4j.Slf4j;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  *
@@ -27,16 +24,13 @@ class ActorFactory implements IActorFactory {
     private final DictionaryTypesMapper dictionaryTypesMapper;
     private IResourceLoader resourceLoader;
 
-    private Map<Integer, BackgroundActor> backgrounds;
-
     ActorFactory() {
-        backgrounds = new HashMap<>();
         resourceLoader = ContextHolder.getBean(IResourceLoader.class);
         dictionaryTypesMapper = ContextHolder.getBean(DictionaryTypesMapper.class);
     }
 
     @Override
-    public LocationObjectActor createLocationObjectActor(LocationObject locationObject) {
+    public LocationObjectActor createLocationObjectActor(LocationObjectPacket locationObject) {
         LocationObjectTypesMapperType objectType = dictionaryTypesMapper
                 .getLocationObjectTypeById(locationObject.getObjectTypeId());
         String path = null;

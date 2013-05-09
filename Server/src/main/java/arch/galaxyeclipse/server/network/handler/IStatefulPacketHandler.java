@@ -1,6 +1,6 @@
 package arch.galaxyeclipse.server.network.handler;
 
-import arch.galaxyeclipse.shared.protocol.GeProtocol.*;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.Packet;
 
 /**
  * Strategy for handling player packets.

@@ -1,7 +1,7 @@
 package arch.galaxyeclipse.server.data.model;
 
 import javax.persistence.*;
-import java.util.*;
+import java.util.Set;
 
 /**
  *

@@ -1,9 +1,9 @@
 package arch.galaxyeclipse.shared;
 
-import lombok.extern.slf4j.*;
+import lombok.extern.slf4j.Slf4j;
 
-import java.io.*;
-import java.util.*;
+import java.io.FileReader;
+import java.util.Properties;
 
 /**
  *
@@ -11,6 +11,7 @@ import java.util.*;
 @Slf4j
 public enum EnvType {
     DEV,
+    DEV_UI,
     PROD;
 
     public static final EnvType CURRENT;

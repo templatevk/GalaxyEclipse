@@ -1,8 +1,9 @@
 package arch.galaxyeclipse.shared.types;
 
-import lombok.extern.slf4j.*;
+import lombok.extern.slf4j.Slf4j;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Maps values from dictionary tables, name-id and id-name associations. 

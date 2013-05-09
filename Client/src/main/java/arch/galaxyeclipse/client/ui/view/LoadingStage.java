@@ -1,10 +1,10 @@
 package arch.galaxyeclipse.client.ui.view;
 
-import arch.galaxyeclipse.client.resource.*;
-import arch.galaxyeclipse.shared.context.*;
-import com.badlogic.gdx.scenes.scene2d.*;
-import com.badlogic.gdx.scenes.scene2d.ui.*;
-import com.badlogic.gdx.scenes.scene2d.utils.*;
+import arch.galaxyeclipse.client.resource.IResourceLoader;
+import arch.galaxyeclipse.shared.context.ContextHolder;
+import com.badlogic.gdx.scenes.scene2d.Group;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 
 /**
  *

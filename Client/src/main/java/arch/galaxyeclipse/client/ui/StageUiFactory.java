@@ -1,9 +1,12 @@
 package arch.galaxyeclipse.client.ui;
 
-import com.badlogic.gdx.*;
-import com.badlogic.gdx.scenes.scene2d.*;
-import com.badlogic.gdx.scenes.scene2d.ui.*;
-import lombok.extern.slf4j.*;
+import com.badlogic.gdx.Input;
+import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.InputListener;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Button;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
 
@@ -33,8 +36,7 @@ public class StageUiFactory {
     }
 
     public static void setDefaultButton(List<Actor> actors, Button defaultButton) {
-        for (int i = 0; i < actors.size(); i++) {
-            Actor actor = actors.get(i);
+        for (Actor actor : actors) {
             addEnterListener(actor, defaultButton);
         }
     }

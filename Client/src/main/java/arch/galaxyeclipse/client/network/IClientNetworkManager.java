@@ -1,9 +1,9 @@
 package arch.galaxyeclipse.client.network;
 
-import arch.galaxyeclipse.shared.protocol.GeProtocol.*;
-import arch.galaxyeclipse.shared.util.*;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.Packet;
+import arch.galaxyeclipse.shared.util.ICallback;
 
-import java.net.*;
+import java.net.SocketAddress;
 
 public interface IClientNetworkManager extends IPacketSubscribable<IServerPacketListener> {
 	void sendPacket(Packet packet);

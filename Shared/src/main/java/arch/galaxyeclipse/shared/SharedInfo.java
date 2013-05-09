@@ -13,8 +13,8 @@ public class SharedInfo {
 
     public static final float SHIP_MOVE_SPEED_TO_LOCATION_COORDS_COEF = 0.01f;
 
-    public static final long CLIENT_ACTION_ROTATION_DELAY_MILLISECONDS = 20;
-    public static final long CLIENT_ACTION_MOVE_DELAY_MILLISECONDS = 20;
+    public static final long CLIENT_ACTION_ROTATION_DELAY_MILLISECONDS = 10;
+    public static final long CLIENT_ACTION_MOVE_DELAY_MILLISECONDS = 10;
 
     private SharedInfo() {
 

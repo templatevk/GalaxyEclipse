@@ -3,7 +3,7 @@ package arch.galaxyeclipse.client.data;
 import arch.galaxyeclipse.shared.SharedInfo;
 import arch.galaxyeclipse.shared.context.ContextHolder;
 import arch.galaxyeclipse.shared.protocol.GeProtocol;
-import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfo.LocationObject;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket;
 import arch.galaxyeclipse.shared.types.DictionaryTypesMapper;
 import com.google.common.base.Predicate;
 import com.google.common.collect.Collections2;
@@ -27,8 +27,8 @@ public class LocationInfoHolder {
     private @Getter int locationId;
     private @Getter float width;
     private @Getter float height;
-    private TreeMultiset<LocationObject> cachedObjects;
-    private TreeMultiset<LocationObject> dynamicObjects;
+    private TreeMultiset<LocationObjectPacket> cachedObjects;
+    private TreeMultiset<LocationObjectPacket> dynamicObjects;
     private PositionPredicate positionPredicate;
 
     LocationInfoHolder() {
@@ -37,7 +37,7 @@ public class LocationInfoHolder {
         dynamicObjects = TreeMultiset.create(new LocationObjectPositionOrdering());
     }
 
-    public void setLocationInfo(GeProtocol.LocationInfo locationInfo) {
+    public void setLocationInfo(GeProtocol.LocationInfoPacket locationInfo) {
         if (LocationInfoHolder.log.isInfoEnabled()) {
             LocationInfoHolder.log.info("Updating location info");
         }
@@ -46,7 +46,8 @@ public class LocationInfoHolder {
         width = locationInfo.getWidth();
         height = locationInfo.getHeight();
 
-        List<LocationObject> objectsList = locationInfo.getLocationCachedObjects().getObjectsList();
+        List<LocationObjectPacket> objectsList = locationInfo.getLocationCachedObjects()
+                .getObjectsList();
         cachedObjects.addAll(objectsList);
 
         if (LocationInfoHolder.log.isDebugEnabled()) {
@@ -59,7 +60,7 @@ public class LocationInfoHolder {
         }
     }
 
-    public void setDynamicObjects(List<LocationObject> locationObjects) {
+    public void setDynamicObjects(List<LocationObjectPacket> locationObjects) {
         if (LocationInfoHolder.log.isDebugEnabled()) {
             LocationInfoHolder.log.debug("Dynamic objects update, count = " + dynamicObjects.size());
             outputObjects(locationObjects);
@@ -69,25 +70,25 @@ public class LocationInfoHolder {
         dynamicObjects.addAll(locationObjects);
     }
 
-    public Multiset<LocationObject> getCachedObjects() {
+    public Multiset<LocationObjectPacket> getCachedObjects() {
         return cachedObjects;
     }
 
-    public List<LocationObject> getObjectsForRadius(GePosition position) {
+    public List<LocationObjectPacket> getObjectsForRadius(GePosition position) {
         positionPredicate.setPosition(position);
 
-        List<LocationObject> locationObjects = new ArrayList<>();
+        List<LocationObjectPacket> locationObjects = new ArrayList<>();
         locationObjects.addAll(Collections2.filter(cachedObjects, positionPredicate));
         locationObjects.addAll(Collections2.filter(dynamicObjects, positionPredicate));
 
         return locationObjects;
     }
 
-    private void outputObjects(List<LocationObject> locationObjects) {
+    private void outputObjects(List<LocationObjectPacket> locationObjects) {
         LocationInfoHolder.log.debug("Objects:");
         DictionaryTypesMapper dictionaryTypesMapper = ContextHolder
                 .getBean(DictionaryTypesMapper.class);
-        for (LocationObject locationObject : locationObjects) {
+        for (LocationObjectPacket locationObject : locationObjects) {
             LocationInfoHolder.log.debug("\t" + dictionaryTypesMapper.getLocationObjectTypeById(
                     locationObject.getObjectTypeId()));
             LocationInfoHolder.log.debug("\tx = " + locationObject.getPositionX());
@@ -96,12 +97,12 @@ public class LocationInfoHolder {
     }
 
     @Data
-    static class PositionPredicate implements Predicate<LocationObject> {
+    static class PositionPredicate implements Predicate<LocationObjectPacket> {
         @Delegate
         private GePosition position;
 
         @Override
-        public boolean apply(LocationObject input) {
+        public boolean apply(LocationObjectPacket input) {
             float xAbs = Math.abs(input.getPositionX() - position.getX());
             float yAbs = Math.abs(input.getPositionY() - position.getY());
             return xAbs < SharedInfo.DYNAMIC_OBJECT_QUERY_RADIUS
@@ -109,9 +110,9 @@ public class LocationInfoHolder {
         }
     }
 
-    static class LocationObjectPositionOrdering extends Ordering<LocationObject> {
+    static class LocationObjectPositionOrdering extends Ordering<LocationObjectPacket> {
         @Override
-        public int compare(LocationObject left, LocationObject right) {
+        public int compare(LocationObjectPacket left, LocationObjectPacket right) {
             return left.getPositionX() < right.getPositionX()
                     ? -1 : left.getPositionX() > right.getPositionX()
                     ? 1 : left.getPositionY() < right.getPositionY()

@@ -1,13 +1,16 @@
 package arch.galaxyeclipse.shared.network;
 
-import arch.galaxyeclipse.shared.protocol.GeProtocol.*;
-import arch.galaxyeclipse.shared.thread.*;
-import arch.galaxyeclipse.shared.util.*;
-import lombok.*;
-import lombok.extern.slf4j.*;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.Packet;
+import arch.galaxyeclipse.shared.thread.InterruptableQueueDispatcher;
+import arch.galaxyeclipse.shared.util.ICallback;
+import arch.galaxyeclipse.shared.util.ICommand;
+import arch.galaxyeclipse.shared.util.LogUtils;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
 import org.jboss.netty.channel.*;
 
-import java.util.concurrent.*;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
  * Base class for handling @see Channel data. Puts sent/received packets into queues

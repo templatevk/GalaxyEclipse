@@ -1,13 +1,16 @@
 package arch.galaxyeclipse.client.resource;
 
-import arch.galaxyeclipse.client.util.*;
-import arch.galaxyeclipse.shared.util.*;
-import com.badlogic.gdx.*;
-import com.badlogic.gdx.graphics.*;
-import com.badlogic.gdx.graphics.g2d.*;
-import lombok.extern.slf4j.*;
+import arch.galaxyeclipse.client.util.Destroyable;
+import arch.galaxyeclipse.shared.util.IDestroyable;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import lombok.extern.slf4j.Slf4j;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Texture atlas instance caching the regions, etc through HashMaps.

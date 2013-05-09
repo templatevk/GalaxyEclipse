@@ -1,9 +1,7 @@
 package arch.galaxyeclipse.server.data.model;
 
-import arch.galaxyeclipse.shared.util.*;
-
 import javax.persistence.*;
-import java.util.*;
+import java.util.Set;
 
 /**
  *
