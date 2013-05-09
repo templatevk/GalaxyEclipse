@@ -2,7 +2,7 @@ package arch.galaxyeclipse.server.network;
 
 import arch.galaxyeclipse.shared.network.ProtobufChannelPipelineFactory;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.Packet;
-import arch.galaxyeclipse.shared.util.LogUtils;
+import arch.galaxyeclipse.shared.common.LogUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.jboss.netty.bootstrap.ServerBootstrap;
 import org.jboss.netty.channel.Channel;

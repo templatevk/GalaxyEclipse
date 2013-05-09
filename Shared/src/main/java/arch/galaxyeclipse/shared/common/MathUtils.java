@@ -14,7 +14,7 @@
  * limitations under the License.
  ******************************************************************************/
 
-package arch.galaxyeclipse.server.util;
+package arch.galaxyeclipse.shared.common;
 
 import java.util.Random;
 

@@ -1,7 +1,6 @@
 package arch.galaxyeclipse.server.util;
 
-
-import com.sun.javafx.geom.Point2D;
+import arch.galaxyeclipse.shared.common.GePosition;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -66,25 +65,25 @@ public class PopulateObjectsLocation {
                 Integer.parseInt(prop.getProperty("max_objects_count"));
     }
 
-    private Point2D setDistanceXY(String OBJECT_DISTANCE) {
-        Point2D point = new Point2D();
+    private GePosition setDistanceXY(String OBJECT_DISTANCE) {
+        GePosition position = new GePosition();
         Distance distance =
                 Distance.valueOf(prop.getProperty("object_native_id." + OBJECT_DISTANCE));
         switch (distance){
             case FAR:
-                point.x = new Random().nextInt(Integer.parseInt(FAR_COORDS[0]));
-                point.y = new Random().nextInt(Integer.parseInt(FAR_COORDS[1]));
+                position.setX(new Random().nextInt(Integer.parseInt(FAR_COORDS[0])));
+                position.setY(new Random().nextInt(Integer.parseInt(FAR_COORDS[1])));
                 break;
-            case MIDDLE:
-                point.x = new Random().nextInt(Integer.parseInt(MIDDLE_COORDS[0]));
-                point.y = new Random().nextInt(Integer.parseInt(MIDDLE_COORDS[1]));
-                break;
-            case CLOSE:
-                point.x = new Random().nextInt(Integer.parseInt(CLOSE_COORDS[0]));
-                point.y = new Random().nextInt(Integer.parseInt(CLOSE_COORDS[1]));
-                break;
+//            case MIDDLE:
+//                position.x = new Random().nextInt(Integer.parseInt(MIDDLE_COORDS[0]));
+//                position.y = new Random().nextInt(Integer.parseInt(MIDDLE_COORDS[1]));
+//                break;
+//            case CLOSE:
+//                position.x = new Random().nextInt(Integer.parseInt(CLOSE_COORDS[0]));
+//                position.y = new Random().nextInt(Integer.parseInt(CLOSE_COORDS[1]));
+//                break;
         }
-        return point;
+        return position;
     }
 
 
@@ -113,8 +112,8 @@ public class PopulateObjectsLocation {
             middle+= OBJECT_NATIVE_ID[rand_native_id] + ",";
             middle+= rotation_angle + ",";
 
-            middle+= setDistanceXY(OBJECT_NATIVE_ID[rand_native_id]).x + ",";
-            middle+= setDistanceXY(OBJECT_NATIVE_ID[rand_native_id]).y + ",";
+//            middle+= setDistanceXY(OBJECT_NATIVE_ID[rand_native_id]).x + ",";
+//            middle+= setDistanceXY(OBJECT_NATIVE_ID[rand_native_id]).y + ",";
             middle+= LOCATION_ID + "),\n(";
 
             end += middle;

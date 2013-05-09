@@ -1,7 +1,7 @@
 package arch.galaxyeclipse.client.network;
 
 import arch.galaxyeclipse.shared.protocol.GeProtocol.Packet;
-import arch.galaxyeclipse.shared.util.ICallback;
+import arch.galaxyeclipse.shared.common.ICallback;
 
 import java.net.SocketAddress;
 

@@ -68,18 +68,21 @@ message ShipStateResponse {
 message ClientActionPacket {
     enum ClientActionType {
         // A S W D
-        ROTATE_LEFT     = 1;
-        ROTATE_RIGHT    = 2;
-        MOVE            = 3;
-        STOP            = 4;
+        ROTATE_LEFT_UP      = 1;
+        ROTATE_LEFT_DOWN    = 2;
+        ROTATE_RIGHT_UP     = 3;
+        ROTATE_RIGHT_DOWN   = 4;
+        MOVE_UP             = 5;
+        MOVE_DOWN           = 6;
+        STOP_UP             = 7;
+        STOP_DOWN           = 8;
 
-        OBJECT_CLICK    = 7;       // LBM
-        LOOT_PICK       = 8;       // RMB
+        OBJECT_CLICK        = 9;   // LBM
+        LOOT_PICK           = 10;  // RMB
 
-        // Space button
-        ATTACK          = 9;
+        ATTACK              = 11;  // Space button
 
-        ROCKET_SHOOT    = 16;      // SHIFT
+        ROCKET_SHOOT        = 16;  // SHIFT
     }
 
     required ClientActionType   type                    = 1;

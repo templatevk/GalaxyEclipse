@@ -6,10 +6,12 @@ import arch.galaxyeclipse.shared.protocol.GeProtocol;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.InputEvent.Type;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import lombok.extern.slf4j.Slf4j;
 
 import static arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket.ClientActionType;
+import static arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket.ClientActionType.*;
 
 @Slf4j
 class ClientActionListener extends InputListener {
@@ -32,22 +34,22 @@ class ClientActionListener extends InputListener {
     protected boolean checkKeys(InputEvent event) {
         switch (event.getKeyCode()) {
             case Input.Keys.SHIFT_LEFT:
-                sendPacket(ClientActionType.ROCKET_SHOOT);
+                sendPacket(ROCKET_SHOOT);
                 return true;
             case Input.Keys.SPACE:
-                sendPacket(ClientActionType.ATTACK);
+                sendPacket(ATTACK);
                 return true;
             case Input.Keys.W:
-                sendPacket(ClientActionType.MOVE);
-                return true;
-            case Input.Keys.A:
-                sendPacket(ClientActionType.ROTATE_LEFT);
+                sendPacket(event.getType() == Type.keyUp ? MOVE_UP : MOVE_DOWN);
                 return true;
             case Input.Keys.S:
-                sendPacket(ClientActionType.STOP);
+                sendPacket(event.getType() == Type.keyUp ? STOP_UP : STOP_DOWN);
+                return true;
+            case Input.Keys.A:
+                sendPacket(event.getType() == Type.keyUp ? ROTATE_LEFT_UP : ROTATE_LEFT_DOWN);
                 return true;
             case Input.Keys.D:
-                sendPacket(ClientActionType.ROTATE_RIGHT);
+                sendPacket(event.getType() == Type.keyUp ? ROTATE_RIGHT_UP : ROTATE_RIGHT_DOWN);
                 return true;
         }
         return false;

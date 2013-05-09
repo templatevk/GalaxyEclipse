@@ -1,6 +1,6 @@
 package arch.galaxyeclipse.shared.thread;
 
-import arch.galaxyeclipse.shared.util.LogUtils;
+import arch.galaxyeclipse.shared.common.LogUtils;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
@@ -9,7 +9,7 @@ import lombok.extern.slf4j.Slf4j;
  * milliseconds delay.
  */
 @Slf4j
-public class DelayedRunnableTask extends Thread {
+public class DelayedRunnableTask extends AbstractGeRunnable implements GeRunnable {
 	private long millisecondsDelay;
     private boolean repeat;
     private boolean sleepAfter;
@@ -22,7 +22,7 @@ public class DelayedRunnableTask extends Thread {
 
 	public DelayedRunnableTask(long millisecondsDelay, Runnable runnable,
             boolean repeat, boolean sleepAfter) {
-		this.millisecondsDelay = millisecondsDelay;
+        this.millisecondsDelay = millisecondsDelay;
 		this.runnable = runnable;
         this.repeat = repeat;
         this.sleepAfter = sleepAfter;

@@ -1,7 +1,7 @@
 package arch.galaxyeclipse.client.resource;
 
 import arch.galaxyeclipse.client.util.Destroyable;
-import arch.galaxyeclipse.shared.util.IDestroyable;
+import arch.galaxyeclipse.shared.common.IDestroyable;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
