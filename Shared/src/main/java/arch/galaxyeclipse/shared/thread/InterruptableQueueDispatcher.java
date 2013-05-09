@@ -1,9 +1,10 @@
 package arch.galaxyeclipse.shared.thread;
 
-import arch.galaxyeclipse.shared.util.*;
-import lombok.extern.slf4j.*;
+import arch.galaxyeclipse.shared.util.ICommand;
+import arch.galaxyeclipse.shared.util.StubCommand;
+import lombok.extern.slf4j.Slf4j;
 
-import java.util.*;
+import java.util.AbstractQueue;
 
 /**
  * Thread processing the queue passed applying the passed command to the queue items.

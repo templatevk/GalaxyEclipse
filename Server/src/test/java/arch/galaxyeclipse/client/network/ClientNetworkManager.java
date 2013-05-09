@@ -1,12 +1,15 @@
 package arch.galaxyeclipse.client.network;
 
-import arch.galaxyeclipse.shared.*;
-import arch.galaxyeclipse.shared.thread.*;
-import arch.galaxyeclipse.shared.util.*;
-import lombok.extern.slf4j.*;
-import org.jboss.netty.channel.*;
+import arch.galaxyeclipse.shared.SharedInfo;
+import arch.galaxyeclipse.shared.thread.DelayedRunnableTask;
+import arch.galaxyeclipse.shared.util.ICallback;
+import arch.galaxyeclipse.shared.util.StubCallback;
+import lombok.extern.slf4j.Slf4j;
+import org.jboss.netty.channel.ChannelFuture;
+import org.jboss.netty.channel.ChannelFutureListener;
 
-import java.net.*;
+import java.net.InetSocketAddress;
+import java.net.SocketAddress;
 
 /**
  * Main class responsible for network communication using the GeProtocol.

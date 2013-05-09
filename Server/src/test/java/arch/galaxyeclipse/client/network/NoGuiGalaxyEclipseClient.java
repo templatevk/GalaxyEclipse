@@ -1,9 +1,10 @@
 package arch.galaxyeclipse.client.network;
 
-import arch.galaxyeclipse.shared.types.*;
-import lombok.*;
+import arch.galaxyeclipse.shared.types.DictionaryTypesMapper;
+import lombok.Getter;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Represents client without gui.

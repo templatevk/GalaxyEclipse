@@ -189,7 +189,6 @@
 	</dependencyManagement>
 
 	<profiles>
-        <!-- TODO seperate server and client profiles -->
         <profile>
             <id>localhost</id>
             <activation>
@@ -232,7 +231,7 @@
             <id>dev_ui</id>
             <activation>
                 <property>
-                    <name>env_ui</name>
+                    <name>env</name>
                     <value>dev_ui</value>
                 </property>
             </activation>

@@ -1,8 +1,8 @@
 package arch.galaxyeclipse.server.network.handler;
 
 import arch.galaxyeclipse.server.data.JedisSerializers.LocationObjectPacketSerializer;
-import arch.galaxyeclipse.server.data.RedisUnitOfWork;
 import arch.galaxyeclipse.server.data.PlayerInfoHolder;
+import arch.galaxyeclipse.server.data.RedisUnitOfWork;
 import arch.galaxyeclipse.server.protocol.GeProtocolMessageFactory;
 import arch.galaxyeclipse.shared.context.ContextHolder;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket;

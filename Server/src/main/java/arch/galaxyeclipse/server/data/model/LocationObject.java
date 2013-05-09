@@ -2,7 +2,7 @@ package arch.galaxyeclipse.server.data.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.*;
+import java.util.Set;
 
 /**
  *

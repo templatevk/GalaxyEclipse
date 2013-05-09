@@ -3,8 +3,6 @@ package arch.galaxyeclipse.client.ui.provider;
 import arch.galaxyeclipse.client.data.GePosition;
 import arch.galaxyeclipse.client.data.LocationInfoHolder;
 import arch.galaxyeclipse.client.data.ShipStateInfoHolder;
-import arch.galaxyeclipse.client.data.ShipStaticInfoHolder;
-import arch.galaxyeclipse.client.network.IClientNetworkManager;
 import arch.galaxyeclipse.client.network.PacketProcessingListenerCommand;
 import arch.galaxyeclipse.client.network.sender.DynamicObjectsRequestSender;
 import arch.galaxyeclipse.client.network.sender.ShipStateRequestSender;
@@ -13,7 +11,7 @@ import arch.galaxyeclipse.client.ui.actor.IGeActor;
 import arch.galaxyeclipse.client.ui.model.FlightModeModel;
 import arch.galaxyeclipse.client.ui.view.AbstractGameStage;
 import arch.galaxyeclipse.client.ui.view.FlightModeStage;
-import arch.galaxyeclipse.client.window.IClientWindow;
+import arch.galaxyeclipse.shared.EnvType;
 import arch.galaxyeclipse.shared.context.ContextHolder;
 import arch.galaxyeclipse.shared.protocol.GeProtocol;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket;
@@ -28,9 +26,6 @@ import java.util.List;
  */
 @Slf4j
 public class FlightModeController implements IStageProvider {
-    private IClientNetworkManager networkManager;
-    private IClientWindow clientWindow;
-    private ShipStaticInfoHolder shipStaticInfoHolder;
     private LocationInfoHolder locationInfoHolder;
     private ShipStateInfoHolder shipStateInfoHolder;
     private DynamicObjectsRequestSender dynamicObjectsRequestSender;
@@ -39,14 +34,13 @@ public class FlightModeController implements IStageProvider {
     private FlightModeStage view;
 
     public FlightModeController() {
-        networkManager = ContextHolder.getBean(IClientNetworkManager.class);
-        clientWindow = ContextHolder.getBean(IClientWindow.class);
         actorFactory = ContextHolder.getBean(IActorFactory.class);
         locationInfoHolder = ContextHolder.getBean(LocationInfoHolder.class);
         shipStateInfoHolder = ContextHolder.getBean(ShipStateInfoHolder.class);
-        shipStaticInfoHolder = ContextHolder.getBean(ShipStaticInfoHolder.class);
 
-        initializeRequestSenders();
+        if (EnvType.CURRENT != EnvType.DEV_UI) {
+            initializeRequestSenders();
+        }
 
         view = new FlightModeStage(this);
     }
@@ -93,7 +87,9 @@ public class FlightModeController implements IStageProvider {
 
     @Override
     public void detach() {
-        dynamicObjectsRequestSender.interrupt();
-        shipStateRequestSender.interrupt();
+        if (EnvType.CURRENT != EnvType.DEV_UI) {
+            dynamicObjectsRequestSender.interrupt();
+            shipStateRequestSender.interrupt();
+        }
     }
 }

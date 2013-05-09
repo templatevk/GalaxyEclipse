@@ -1,11 +1,9 @@
 package arch.galaxyeclipse.server.data.model;
 
-import org.hibernate.annotations.*;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import java.util.*;
+import java.util.Set;
 
 /**
  *

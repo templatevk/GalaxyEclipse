@@ -1,6 +1,6 @@
 package arch.galaxyeclipse.server.network.handler;
 
-import arch.galaxyeclipse.server.network.*;
+import arch.galaxyeclipse.server.network.IServerChannelHandler;
 
 /**
  *

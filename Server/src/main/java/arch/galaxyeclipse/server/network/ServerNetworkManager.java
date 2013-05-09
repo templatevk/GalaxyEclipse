@@ -1,16 +1,18 @@
 package arch.galaxyeclipse.server.network;
 
-import arch.galaxyeclipse.shared.network.*;
-import arch.galaxyeclipse.shared.protocol.GeProtocol.*;
-import arch.galaxyeclipse.shared.util.*;
-import lombok.extern.slf4j.*;
-import org.jboss.netty.bootstrap.*;
-import org.jboss.netty.channel.*;
-import org.jboss.netty.channel.socket.nio.*;
+import arch.galaxyeclipse.shared.network.ProtobufChannelPipelineFactory;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.Packet;
+import arch.galaxyeclipse.shared.util.LogUtils;
+import lombok.extern.slf4j.Slf4j;
+import org.jboss.netty.bootstrap.ServerBootstrap;
+import org.jboss.netty.channel.Channel;
+import org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory;
 
-import java.net.*;
-import java.util.*;
-import java.util.concurrent.*;
+import java.net.InetSocketAddress;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.concurrent.Executors;
 
 @Slf4j
 class ServerNetworkManager implements IServerNetworkManager, IMonitoringNetworkManager {

@@ -36,8 +36,7 @@ public class StageUiFactory {
     }
 
     public static void setDefaultButton(List<Actor> actors, Button defaultButton) {
-        for (int i = 0; i < actors.size(); i++) {
-            Actor actor = actors.get(i);
+        for (Actor actor : actors) {
             addEnterListener(actor, defaultButton);
         }
     }

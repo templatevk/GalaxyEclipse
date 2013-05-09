@@ -23,7 +23,6 @@ import java.util.List;
 
 @Slf4j
 public class ChatWidget extends Table implements IServerPacketListener {
-
     private final int DEFAULT_WIDTH = 570;
     private final int DEFAULT_HEIGHT = 591;
     private final int DEFAULT_MESSAGES_FIELD_WIDTH = 520;
@@ -39,9 +38,8 @@ public class ChatWidget extends Table implements IServerPacketListener {
     private TextField textField;
     private Table textFieldTable;
     private Label messagesField;
-    private Table messagesFieldTable;
 
-    private IClientNetworkManager networkManager ;
+    private IClientNetworkManager networkManager;
 
     public ChatWidget() {
         networkManager = ContextHolder.getBean(IClientNetworkManager.class);
@@ -55,8 +53,8 @@ public class ChatWidget extends Table implements IServerPacketListener {
         Drawable carret = new TextureRegionDrawable(resourceLoader.findRegion("ui/carret"));
         Drawable selection = new TextureRegionDrawable(resourceLoader.findRegion("ui/selection"));
         BitmapFont font = resourceLoader.getFont("assets/font_calibri_36px");
-        TextField.TextFieldStyle textFieldStyle= new TextField.TextFieldStyle(font,Color.WHITE,carret,selection,textFieldBackground);
-        textField = new TextField("",textFieldStyle);
+        TextField.TextFieldStyle textFieldStyle = new TextField.TextFieldStyle(font, Color.WHITE, carret, selection, textFieldBackground);
+        textField = new TextField("", textFieldStyle);
         textField.setWidth(textFieldBackground.getMinWidth());
         textField.setHeight(textFieldBackground.getMinHeight());
         textField.setCustomPrefWidth(textFieldBackground.getMinWidth());
@@ -74,10 +72,10 @@ public class ChatWidget extends Table implements IServerPacketListener {
         textFieldTable.row();
         textFieldTable.add(textField);
 
-        textField.addListener(new InputListener(){
+        textField.addListener(new InputListener() {
             @Override
             public boolean keyTyped(InputEvent event, char character) {
-                switch (event.getKeyCode()){
+                switch (event.getKeyCode()) {
                     case Keys.ENTER:
                         GeProtocol.ChatSendMessagePacket messagePacket = GeProtocol.ChatSendMessagePacket.newBuilder()
                                 .setMessage(textField.getText()).build();
@@ -94,8 +92,8 @@ public class ChatWidget extends Table implements IServerPacketListener {
             }
         });
 
-        Label.LabelStyle labelStyle = new Label.LabelStyle(font,Color.WHITE);
-        messagesField = new Label("",labelStyle);
+        Label.LabelStyle labelStyle = new Label.LabelStyle(font, Color.WHITE);
+        messagesField = new Label("", labelStyle);
         messagesField.setY(0);
         messagesField.setX(0);
         messagesField.setWrap(true);
@@ -111,10 +109,10 @@ public class ChatWidget extends Table implements IServerPacketListener {
     public void setSize(float width, float height) {
         float scaleX = width / getPrefWidth();
         float scaleY = height / getPrefHeight();
-        textFieldTable.setScale(scaleX,scaleY);
+        textFieldTable.setScale(scaleX, scaleY);
         textFieldTable.setX(DEFAULT_TEXT_FIELD_PADDING_LEFT * scaleX);
         textFieldTable.setY(DEFAULT_TEXT_FIELD_PADDING_BOTTOM * scaleY);
-        messagesField.setFontScale(scaleX,scaleY);
+        messagesField.setFontScale(scaleX, scaleY);
         messagesField.setHeight(DEFAULT_MESSAGES_FIELD_HEIGHT * scaleY);
         messagesField.setX(DEFAULT_MESSAGES_FIELD_PADDING_LEFT * scaleX);
         messagesField.setY(DEFAULT_MESSAGES_FIELD_PADDING_BOTTOM * scaleY);
@@ -152,6 +150,5 @@ public class ChatWidget extends Table implements IServerPacketListener {
                         messagePacket.getSender() + " : " + messagePacket.getMessage());
                 break;
         }
-
     }
 }

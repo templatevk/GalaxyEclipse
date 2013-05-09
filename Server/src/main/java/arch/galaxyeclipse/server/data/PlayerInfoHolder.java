@@ -1,7 +1,10 @@
 package arch.galaxyeclipse.server.data;
 
-import arch.galaxyeclipse.server.data.model.*;
-import lombok.*;
+import arch.galaxyeclipse.server.data.model.LocationObject;
+import arch.galaxyeclipse.server.data.model.Player;
+import arch.galaxyeclipse.server.data.model.ShipConfig;
+import arch.galaxyeclipse.server.data.model.ShipState;
+import lombok.Data;
 
 /**
  *

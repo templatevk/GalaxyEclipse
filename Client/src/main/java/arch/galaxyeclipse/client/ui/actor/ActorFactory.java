@@ -9,9 +9,6 @@ import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  *
  */
@@ -27,10 +24,7 @@ class ActorFactory implements IActorFactory {
     private final DictionaryTypesMapper dictionaryTypesMapper;
     private IResourceLoader resourceLoader;
 
-    private Map<Integer, BackgroundActor> backgrounds;
-
     ActorFactory() {
-        backgrounds = new HashMap<>();
         resourceLoader = ContextHolder.getBean(IResourceLoader.class);
         dictionaryTypesMapper = ContextHolder.getBean(DictionaryTypesMapper.class);
     }
