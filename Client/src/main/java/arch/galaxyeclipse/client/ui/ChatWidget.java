@@ -12,6 +12,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
@@ -38,6 +39,10 @@ public class ChatWidget extends Table implements IServerPacketListener {
     private TextField textField;
     private Table textFieldTable;
     private Label messagesField;
+    private ScrollPane messagesScrollPane;
+
+    private Table scrollTable;
+    private Label.LabelStyle labelStyle;
 
     private IClientNetworkManager networkManager;
 
@@ -92,15 +97,27 @@ public class ChatWidget extends Table implements IServerPacketListener {
             }
         });
 
-        Label.LabelStyle labelStyle = new Label.LabelStyle(font, Color.WHITE);
+        labelStyle = new Label.LabelStyle(font, Color.WHITE);
         messagesField = new Label("", labelStyle);
-        messagesField.setY(0);
-        messagesField.setX(0);
         messagesField.setWrap(true);
-        messagesField.setWidth(DEFAULT_MESSAGES_FIELD_WIDTH);
-        messagesField.setHeight(DEFAULT_MESSAGES_FIELD_HEIGHT);
+        messagesField.setBounds(DEFAULT_MESSAGES_FIELD_PADDING_LEFT, DEFAULT_MESSAGES_FIELD_PADDING_BOTTOM,
+                DEFAULT_MESSAGES_FIELD_WIDTH, DEFAULT_MESSAGES_FIELD_HEIGHT);
         messagesField.setAlignment(-1, -1);
-        addActor(messagesField);
+        //addActor(messagesField);
+
+        scrollTable = new Table();
+
+        ScrollPane.ScrollPaneStyle scrollPaneStyle = new ScrollPane.ScrollPaneStyle();
+        scrollPaneStyle.vScroll= new TextureRegionDrawable(resourceLoader.findRegion("ui/carret"));
+        scrollPaneStyle.vScrollKnob= new TextureRegionDrawable(resourceLoader.findRegion("ui/carret"));
+        messagesScrollPane = new ScrollPane(messagesField,scrollPaneStyle);
+        messagesScrollPane.setBounds(DEFAULT_MESSAGES_FIELD_PADDING_LEFT, DEFAULT_MESSAGES_FIELD_PADDING_BOTTOM,
+                DEFAULT_MESSAGES_FIELD_WIDTH, DEFAULT_MESSAGES_FIELD_HEIGHT);
+
+        messagesScrollPane.setScrollingDisabled(true,false);
+        messagesScrollPane.setSmoothScrolling(true);
+        messagesScrollPane.setScrollbarsOnTop(true);
+        addActor(messagesScrollPane);
 
         networkManager.addPacketListener(this);
     }
@@ -113,9 +130,14 @@ public class ChatWidget extends Table implements IServerPacketListener {
         textFieldTable.setX(DEFAULT_TEXT_FIELD_PADDING_LEFT * scaleX);
         textFieldTable.setY(DEFAULT_TEXT_FIELD_PADDING_BOTTOM * scaleY);
         messagesField.setFontScale(scaleX, scaleY);
-        messagesField.setHeight(DEFAULT_MESSAGES_FIELD_HEIGHT * scaleY);
-        messagesField.setX(DEFAULT_MESSAGES_FIELD_PADDING_LEFT * scaleX);
-        messagesField.setY(DEFAULT_MESSAGES_FIELD_PADDING_BOTTOM * scaleY);
+        messagesField.setBounds(DEFAULT_MESSAGES_FIELD_PADDING_LEFT * scaleX,
+                DEFAULT_MESSAGES_FIELD_PADDING_BOTTOM * scaleY,
+                DEFAULT_MESSAGES_FIELD_WIDTH,
+                DEFAULT_MESSAGES_FIELD_HEIGHT * scaleY);
+        messagesScrollPane.setBounds(DEFAULT_MESSAGES_FIELD_PADDING_LEFT * scaleX,
+                DEFAULT_MESSAGES_FIELD_PADDING_BOTTOM * scaleY,
+                DEFAULT_MESSAGES_FIELD_WIDTH,
+                DEFAULT_MESSAGES_FIELD_HEIGHT * scaleY);
         super.setSize(width, height);
     }
 
@@ -145,9 +167,14 @@ public class ChatWidget extends Table implements IServerPacketListener {
     public void onPacketReceived(GeProtocol.Packet packet) {
         switch (packet.getType()) {
             case CHAT_RECEIVE_MESSAGE:
+                messagesScrollPane.setScrollY(messagesScrollPane.getMaxY());
+                messagesScrollPane.setScrollX(messagesScrollPane.getMaxX());
                 GeProtocol.ChatReceiveMessagePacket messagePacket = packet.getChatReceiveMessage();
                 messagesField.setText(messagesField.getText() +
-                        messagePacket.getSender() + " : " + messagePacket.getMessage());
+                        messagePacket.getSender() + " : " + messagePacket.getMessage() + "\n");
+                log.debug("--- messagesScrollPane.getScrollY() = "+messagesScrollPane.getScrollY());
+                log.debug("--- messagesScrollPane.getMaxY()  = " + messagesScrollPane.getMaxY());
+                log.debug("--- messagesScrollPane.getVisualScrollY()  = " +messagesScrollPane.getVisualScrollY());
                 break;
         }
     }
