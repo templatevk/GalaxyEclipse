@@ -4,7 +4,7 @@ import arch.galaxyeclipse.client.network.IClientNetworkManager;
 import arch.galaxyeclipse.client.network.SubscribableServerPacketListener;
 import arch.galaxyeclipse.shared.context.ContextHolder;
 import arch.galaxyeclipse.shared.protocol.GeProtocol;
-import arch.galaxyeclipse.shared.util.LogUtils;
+import arch.galaxyeclipse.shared.common.LogUtils;
 import lombok.AccessLevel;
 import lombok.Delegate;
 import lombok.Getter;

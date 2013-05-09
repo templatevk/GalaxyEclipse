@@ -1,8 +1,8 @@
 package arch.galaxyeclipse.client.ui.actor;
 
-import arch.galaxyeclipse.client.data.GePosition;
-import arch.galaxyeclipse.shared.util.ICommand;
-import arch.galaxyeclipse.shared.util.StubCommand;
+import arch.galaxyeclipse.shared.common.GePosition;
+import arch.galaxyeclipse.shared.common.ICommand;
+import arch.galaxyeclipse.shared.common.StubCommand;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;

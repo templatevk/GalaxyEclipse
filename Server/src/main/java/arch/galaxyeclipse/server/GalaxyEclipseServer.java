@@ -7,6 +7,7 @@ import arch.galaxyeclipse.server.network.IServerNetworkManager;
 import arch.galaxyeclipse.shared.EnvType;
 import arch.galaxyeclipse.shared.SharedInfo;
 import arch.galaxyeclipse.shared.context.ContextHolder;
+import arch.galaxyeclipse.shared.thread.GeExecutor;
 import arch.galaxyeclipse.shared.types.DictionaryTypesMapper;
 import arch.galaxyeclipse.shared.types.LocationObjectBehaviorTypesMapperType;
 import ch.qos.logback.classic.LoggerContext;
@@ -44,6 +45,7 @@ public class GalaxyEclipseServer {
 
     public void stop() {
         serverNetworkManager.stopServer();
+        ContextHolder.getBean(GeExecutor.class).shutdownNow();
         persistRedisDb();
         hibernateAllPlayers();
         ContextHolder.INSTANCE.close();

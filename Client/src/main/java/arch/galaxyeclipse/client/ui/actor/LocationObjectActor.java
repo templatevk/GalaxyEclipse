@@ -1,10 +1,10 @@
 package arch.galaxyeclipse.client.ui.actor;
 
-import arch.galaxyeclipse.client.data.GePosition;
+import arch.galaxyeclipse.shared.common.GePosition;
+import arch.galaxyeclipse.shared.common.ICommand;
+import arch.galaxyeclipse.shared.common.StubCommand;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket;
 import arch.galaxyeclipse.shared.types.LocationObjectTypesMapperType;
-import arch.galaxyeclipse.shared.util.ICommand;
-import arch.galaxyeclipse.shared.util.StubCommand;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import lombok.Data;
 

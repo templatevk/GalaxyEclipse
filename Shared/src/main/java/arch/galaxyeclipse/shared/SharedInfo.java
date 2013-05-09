@@ -15,6 +15,7 @@ public class SharedInfo {
 
     public static final long CLIENT_ACTION_ROTATION_DELAY_MILLISECONDS = 10;
     public static final long CLIENT_ACTION_MOVE_DELAY_MILLISECONDS = 10;
+    public static final long CLIENT_ACTION_SPEED_DELAY_MILLISECONDS = 100;
 
     private SharedInfo() {
 

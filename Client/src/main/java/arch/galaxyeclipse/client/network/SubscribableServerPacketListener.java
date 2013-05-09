@@ -1,7 +1,7 @@
 package arch.galaxyeclipse.client.network;
 
 import arch.galaxyeclipse.shared.protocol.GeProtocol;
-import arch.galaxyeclipse.shared.util.LogUtils;
+import arch.galaxyeclipse.shared.common.LogUtils;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import lombok.extern.slf4j.Slf4j;

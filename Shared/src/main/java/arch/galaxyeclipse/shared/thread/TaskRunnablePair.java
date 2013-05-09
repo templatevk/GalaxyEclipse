@@ -1,9 +1,12 @@
 package arch.galaxyeclipse.shared.thread;
 
+import arch.galaxyeclipse.shared.context.ContextHolder;
+
 /**
  *
  */
 public class TaskRunnablePair<T extends Runnable> {
+    private final GeExecutor geExecutor;
     private DelayedRunnableTask delayedRunnableTask;
     private T runnable;
     private long millisecondsDelay;
@@ -24,6 +27,7 @@ public class TaskRunnablePair<T extends Runnable> {
 
     public TaskRunnablePair(long millisecondsDelay, T runnable,
             boolean repeat, boolean sleepAfter) {
+        this.geExecutor = ContextHolder.getBean(GeExecutor.class);
         this.millisecondsDelay = millisecondsDelay;
         this.runnable = runnable;
         this.repeat = repeat;

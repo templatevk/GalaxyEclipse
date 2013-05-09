@@ -1,6 +1,7 @@
 package arch.galaxyeclipse.client.data;
 
 import arch.galaxyeclipse.shared.SharedInfo;
+import arch.galaxyeclipse.shared.common.GePosition;
 import arch.galaxyeclipse.shared.context.ContextHolder;
 import arch.galaxyeclipse.shared.protocol.GeProtocol;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket;

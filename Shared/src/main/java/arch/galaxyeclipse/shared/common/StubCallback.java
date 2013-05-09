@@ -1,4 +1,4 @@
-package arch.galaxyeclipse.shared.util;
+package arch.galaxyeclipse.shared.common;
 
 /**
  * No action callback.
