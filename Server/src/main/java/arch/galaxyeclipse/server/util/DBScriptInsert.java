@@ -1,4 +1,6 @@
 package arch.galaxyeclipse.server.util;
+import lombok.extern.slf4j.Slf4j;
+
 import java.sql.*;
 import javax.sql.*;
 
@@ -9,6 +11,8 @@ import javax.sql.*;
  * Time: 15:57
  * To change this template use File | Settings | File Templates.
  */
+
+@Slf4j
 public class DBScriptInsert {
     private Connection con = null;
     private Statement statement= null;
@@ -23,26 +27,26 @@ public class DBScriptInsert {
             statement = con.createStatement();
             System.out.println ("Database connection established");
         }
-        catch (SQLException e) {
-            e.printStackTrace();
+        catch (SQLException ex) {
+            log.error(ex.getMessage());
         }
         catch(Exception ex){
-            System.out.println("DataBase connection error." + ex.getMessage());
+            log.error("DataBase connection error." + ex.getMessage());
         }
     }
 
     public void executeScript(String script){
         try{
-            System.out.println("Inserting script to database...");
+            log.info("Inserting script to database...");
             final int ROWS_COUNT = statement.executeUpdate(script, Statement.RETURN_GENERATED_KEYS);
-            System.out.println("Script executed successfully.");
-            System.out.println("Rows inserted: " + ROWS_COUNT);
+            log.info("Script executed successfully.");
+            log.info("Rows inserted: " + ROWS_COUNT);
         }
-        catch(SQLException  e){
-            System.out.println("Script insert error. " + e.getMessage());
+        catch(SQLException ex){
+            log.error("Script insert error. " + ex.getMessage());
         }
-        catch(Exception e){
-            e.printStackTrace();
+        catch(Exception ex){
+            log.error(ex.getMessage());
         }
         finally{
             try{
