@@ -8,7 +8,7 @@ import arch.galaxyeclipse.shared.types.LocationObjectTypesMapperType;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import lombok.Data;
 
-import static arch.galaxyeclipse.shared.SharedInfo.LOCATION_TO_SCREEN_COORDS_COEF;
+import static arch.galaxyeclipse.shared.GeConstants.LOCATION_TO_SCREEN_COORDS_COEF;
 
 /**
  *

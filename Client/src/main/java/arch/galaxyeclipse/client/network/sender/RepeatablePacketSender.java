@@ -3,8 +3,8 @@ package arch.galaxyeclipse.client.network.sender;
 import arch.galaxyeclipse.client.network.IClientNetworkManager;
 import arch.galaxyeclipse.client.network.SubscribableServerPacketListener;
 import arch.galaxyeclipse.shared.context.ContextHolder;
-import arch.galaxyeclipse.shared.protocol.GeProtocol;
-import arch.galaxyeclipse.shared.common.LogUtils;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.Packet;
+import arch.galaxyeclipse.shared.thread.DelayedRunnableTask;
 import lombok.AccessLevel;
 import lombok.Delegate;
 import lombok.Getter;
@@ -17,80 +17,33 @@ import java.util.List;
  *
  */
 @Slf4j
-abstract class RepeatablePacketSender extends SubscribableServerPacketListener {
+abstract class RepeatablePacketSender extends SubscribableServerPacketListener
+        implements Runnable {
+
     @Getter(AccessLevel.PROTECTED)
     private IClientNetworkManager clientNetworkManager;
+    private Packet.Type packetType;
     @Delegate
-    private ThreadWorker threadWorker;
-    private GeProtocol.Packet.Type packetType;
-    private int sleepMilliseconds;
-    private boolean retryOnException;
+    private DelayedRunnableTask packetSendingTask;
 
-    public RepeatablePacketSender(GeProtocol.Packet.Type packetType,
-            int sleepMilliseconds) {
-        this(packetType, sleepMilliseconds, false);
-    }
-
-    public RepeatablePacketSender(GeProtocol.Packet.Type packetType,
-            int sleepMilliseconds, boolean retryOnException) {
-
+    public RepeatablePacketSender(Packet.Type packetType,
+            long sleepMilliseconds) {
         this.packetType = packetType;
-        this.sleepMilliseconds = sleepMilliseconds;
-        this.retryOnException = retryOnException;
-
-        threadWorker = new ThreadWorker();
-        clientNetworkManager = ContextHolder.getBean(IClientNetworkManager.class);
+        this.clientNetworkManager = ContextHolder.getBean(IClientNetworkManager.class);
+        this.packetSendingTask = new DelayedRunnableTask(sleepMilliseconds,
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        sendRequest();
+                    }
+                }, true, true);
     }
 
     @Override
-    public List<GeProtocol.Packet.Type> getPacketTypes() {
+    public List<Packet.Type> getPacketTypes() {
         return Arrays.asList(packetType);
     }
 
-    @Override
-    protected void onPacketReceivedImpl(GeProtocol.Packet packet) {
-        processPacket(packet);
-        try {
-            Thread.sleep(sleepMilliseconds);
-        } catch (InterruptedException e) {
-            RepeatablePacketSender.log.error("Error during sleeping", e);
-        }
-        sendRequest();
-    }
-
-    protected abstract void processPacket(GeProtocol.Packet packet);
-
     protected abstract void sendRequest();
-
-
-    private class ThreadWorker extends Thread {
-        private ThreadWorker() {
-
-        }
-
-        @Override
-        public void run() {
-            try {
-                sendRequest();
-                while (!Thread.interrupted()) {
-
-                }
-
-                if (log.isDebugEnabled()) {
-                    log.debug(LogUtils.getObjectInfo(this) + " interrupted");
-                }
-                clientNetworkManager.removePacketListener(RepeatablePacketSender.this);
-            } catch (Exception e) {
-                RepeatablePacketSender.log.error(LogUtils.getObjectInfo(this), e);
-                if (retryOnException) {
-                    if (log.isDebugEnabled()) {
-                        log.debug("Restarting afrer error");
-                    }
-                    threadWorker = new ThreadWorker();
-                    threadWorker.start();
-                }
-            }
-        }
-    }
 }
 

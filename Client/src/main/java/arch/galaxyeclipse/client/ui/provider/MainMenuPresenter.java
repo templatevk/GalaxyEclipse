@@ -8,7 +8,7 @@ import arch.galaxyeclipse.client.ui.IButtonClickCommand;
 import arch.galaxyeclipse.client.ui.view.AbstractGameStage;
 import arch.galaxyeclipse.client.ui.view.MainMenuStage;
 import arch.galaxyeclipse.client.window.IClientWindow;
-import arch.galaxyeclipse.shared.SharedInfo;
+import arch.galaxyeclipse.shared.GeConstants;
 import arch.galaxyeclipse.shared.context.ContextHolder;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.*;
 import arch.galaxyeclipse.shared.types.DictionaryTypesMapper;
@@ -69,7 +69,7 @@ public class MainMenuPresenter extends ServerPacketListener implements IStagePro
                     }
                 };
                 networkManager.connect(new InetSocketAddress(
-                        SharedInfo.HOST, SharedInfo.PORT), connectionCallback);
+                        GeConstants.HOST, GeConstants.PORT), connectionCallback);
             }
         };
 

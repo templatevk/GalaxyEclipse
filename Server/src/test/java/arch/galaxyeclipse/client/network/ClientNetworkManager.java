@@ -1,6 +1,6 @@
 package arch.galaxyeclipse.client.network;
 
-import arch.galaxyeclipse.shared.SharedInfo;
+import arch.galaxyeclipse.shared.GeConstants;
 import arch.galaxyeclipse.shared.thread.DelayedRunnableTask;
 import arch.galaxyeclipse.shared.common.ICallback;
 import arch.galaxyeclipse.shared.common.StubCallback;
@@ -25,7 +25,7 @@ class TestClientNetworkManager extends ClientNetworkManager implements IClientNe
     }
 
     public void testConnect(boolean wait) {
-        testConnect(new InetSocketAddress(SharedInfo.HOST, SharedInfo.PORT), wait);
+        testConnect(new InetSocketAddress(GeConstants.HOST, GeConstants.PORT), wait);
     }
 
     public void testConnect(SocketAddress address, boolean wait) {

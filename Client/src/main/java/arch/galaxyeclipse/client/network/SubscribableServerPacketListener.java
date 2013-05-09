@@ -39,8 +39,8 @@ public abstract class SubscribableServerPacketListener extends ServerPacketListe
             processingListeners.put(packetType, listener);
 
             if (SubscribableServerPacketListener.log.isDebugEnabled()) {
-                SubscribableServerPacketListener.log.debug(LogUtils.getObjectInfo(listener) + " subscribed for "
-                        + packetType.toString() + " processing listening");
+                SubscribableServerPacketListener.log.debug(LogUtils.getObjectInfo(listener)
+                        + " subscribed for " + packetType.toString() + " processing listening");
             }
         }
     }
@@ -50,8 +50,8 @@ public abstract class SubscribableServerPacketListener extends ServerPacketListe
         processingListeners.get(packetType).remove(listener);
 
         if (SubscribableServerPacketListener.log.isDebugEnabled()) {
-            SubscribableServerPacketListener.log.debug(LogUtils.getObjectInfo(listener) + " unsubscribed from "
-                    + packetType.toString() + " processing listening");
+            SubscribableServerPacketListener.log.debug(LogUtils.getObjectInfo(listener)
+                    + " unsubscribed from " + packetType.toString() + " processing listening");
         }
     }
 

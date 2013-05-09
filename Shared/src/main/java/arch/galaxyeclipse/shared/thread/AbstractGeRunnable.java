@@ -5,7 +5,7 @@ import java.util.concurrent.Future;
 /**
  *
  */
-abstract class AbstractGeRunnable implements GeRunnable {
+public abstract class AbstractGeRunnable implements GeRunnable {
     private Future<?> future;
 
     protected AbstractGeRunnable() {
