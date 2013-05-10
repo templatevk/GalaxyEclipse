@@ -25,7 +25,7 @@ abstract class PacketHandlerDecorator extends StatefulPacketHandler
     }
 
     @Override
-    public boolean handle(GeProtocol.Packet packet) {
+    public final boolean handle(GeProtocol.Packet packet) {
         if (!handleImp(packet)) {
             return decoratedPacketHandler.handle(packet);
         }
@@ -37,7 +37,7 @@ abstract class PacketHandlerDecorator extends StatefulPacketHandler
     }
 
     @Override
-    public void onChannelClosed() {
+    public final void onChannelClosed() {
         onChannelClosedImpl();
         decoratedPacketHandler.onChannelClosed();
     }

@@ -8,6 +8,10 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
+    <properties>
+        <filter.server.host>${basedir}/src/main/resources/local.properties</filter.server.host>
+    </properties>
+
     <build>
         <plugins>
             <plugin>
