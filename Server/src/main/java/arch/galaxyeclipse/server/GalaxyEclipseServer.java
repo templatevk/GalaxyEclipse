@@ -2,7 +2,6 @@ package arch.galaxyeclipse.server;
 
 import arch.galaxyeclipse.server.data.DictionaryTypesMapperHelper;
 import arch.galaxyeclipse.server.data.HibernateUnitOfWork;
-import arch.galaxyeclipse.server.data.RedisUnitOfWork;
 import arch.galaxyeclipse.server.network.IServerNetworkManager;
 import arch.galaxyeclipse.shared.EnvType;
 import arch.galaxyeclipse.shared.GeConstants;
@@ -15,7 +14,6 @@ import ch.qos.logback.core.util.StatusPrinter;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.Session;
 import org.slf4j.LoggerFactory;
-import org.springframework.data.redis.connection.jedis.JedisConnection;
 
 @Slf4j
 public class GalaxyEclipseServer {
@@ -39,29 +37,14 @@ public class GalaxyEclipseServer {
     public void start() {
         preconfigure();
         hibernateAllPlayers();
-        clearRedisDb();
         serverNetworkManager.startServer(GeConstants.HOST, GeConstants.PORT);
     }
 
     public void stop() {
         serverNetworkManager.stopServer();
         ContextHolder.getBean(GeExecutor.class).shutdownNow();
-        persistRedisDb();
         hibernateAllPlayers();
         ContextHolder.INSTANCE.close();
-    }
-
-    private void clearRedisDb() {
-        new RedisUnitOfWork() {
-            @Override
-            protected void doWork(JedisConnection connection) {
-                connection.flushDb();
-            }
-        }.execute();
-    }
-
-    private void persistRedisDb() {
-
     }
 
     private void preconfigure() {

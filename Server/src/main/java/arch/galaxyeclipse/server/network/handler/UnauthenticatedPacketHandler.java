@@ -3,28 +3,25 @@ package arch.galaxyeclipse.server.network.handler;
 import arch.galaxyeclipse.server.authentication.AuthenticationResult;
 import arch.galaxyeclipse.server.authentication.IClientAuthenticator;
 import arch.galaxyeclipse.server.data.HibernateUnitOfWork;
-import arch.galaxyeclipse.server.data.JedisSerializers.LocationObjectPacketSerializer;
 import arch.galaxyeclipse.server.data.PlayerInfoHolder;
-import arch.galaxyeclipse.server.data.RedisUnitOfWork;
 import arch.galaxyeclipse.server.data.model.Location;
 import arch.galaxyeclipse.server.data.model.LocationObject;
 import arch.galaxyeclipse.server.data.model.Player;
 import arch.galaxyeclipse.server.network.IServerChannelHandler;
 import arch.galaxyeclipse.server.protocol.GeProtocolMessageFactory;
 import arch.galaxyeclipse.shared.context.ContextHolder;
-import arch.galaxyeclipse.shared.protocol.GeProtocol.*;
-import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.Packet;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket;
 import arch.galaxyeclipse.shared.types.DictionaryTypesMapper;
 import arch.galaxyeclipse.shared.types.LocationObjectBehaviorTypesMapperType;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
-import org.springframework.data.redis.connection.jedis.JedisConnection;
 
 import java.util.List;
-
-import static arch.galaxyeclipse.server.data.RedisStorage.*;
 
 /**
  * Processes the messages of unauthenticated players.
@@ -152,39 +149,6 @@ class UnauthenticatedPacketHandler extends StatefulPacketHandler {
         playerInfoHolder.setShipConfig(startupInfoData.getPlayer().getShipConfig());
         playerInfoHolder.setShipState(startupInfoData.getPlayer().getShipState());
         playerInfoHolder.setLocationObject(startupInfoData.getPlayer().getLocationObject());
-
-        new RedisUnitOfWork() {
-            @Override
-            protected void doWork(JedisConnection connection) {
-                LocationObjectPacket lop = geProtocolMessageFactory.getLocationObject(
-                        playerInfoHolder.getLocationObject());
-                ShipStateResponse ssr = geProtocolMessageFactory.createShipStateResponse(
-                        playerInfoHolder.getShipState(), playerInfoHolder.getLocationObject());
-                LocationObjectPacketSerializer lopSerializer = new LocationObjectPacketSerializer();
-
-                int locationObjectId = playerInfoHolder.getLocationObject().getLocationObjectId();
-                int locationId = playerInfoHolder.getLocationObject().getLocationId();
-                byte[] lopHashKey = getLocationObjectPacketHashKey(locationObjectId);
-                byte[] lopSortedSetXKey = getLocationObjectPacketSortedSetXKey(locationId);
-                byte[] lopSortedSetYKey = getLocationObjectPacketSortedSetYKey(locationId);
-
-                connection.openPipeline();
-                connection.hSet(lopHashKey, lopHashKey,
-                        lopSerializer.serialize(lop));
-                connection.zAdd(lopSortedSetXKey, lop.getPositionX(), lopHashKey);
-                connection.zAdd(lopSortedSetYKey, lop.getPositionY(), lopHashKey);
-                connection.closePipeline();
-
-                playerInfoHolder.setLocationObjectPacketHashKey(lopHashKey);
-                playerInfoHolder.setLocationObjectPacketSortedSetXKey(lopSortedSetXKey);
-                playerInfoHolder.setLocationObjectPacketSortedSetYKey(lopSortedSetYKey);
-
-                byte[] lopBufSetXKey = getLocationObjectPacketBufSetXKey(locationObjectId);
-                byte[] lopBufSetYKey = getLocationObjectPacketBufSetYKey(locationObjectId);
-                playerInfoHolder.setLocationObjectPacketBufSetXKey(lopBufSetXKey);
-                playerInfoHolder.setLocationObjectPacketBufSetYKey(lopBufSetYKey);
-            }
-        }.execute();
     }
 
     @Data
