@@ -15,7 +15,7 @@ import arch.galaxyeclipse.shared.thread.TaskRunnablePair;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.connection.jedis.JedisConnection;
 
-import static arch.galaxyeclipse.shared.SharedInfo.*;
+import static arch.galaxyeclipse.shared.GeConstants.*;
 
 /**
  *
@@ -75,6 +75,7 @@ class ClientActionHandler extends PacketHandlerDecorator {
     @Override
     public void onChannelClosed() {
         rotationHandler.stop();
+        moveHandler.stop();
     }
 
     private void processMoving(ClientActionType moveType) {
@@ -256,6 +257,11 @@ class ClientActionHandler extends PacketHandlerDecorator {
                     speedTask.stop();
                     break;
             }
+        }
+
+        public void stop() {
+            speedTask.stop();
+            positionTask.stop();
         }
 
         private class SpeedTask extends TaskRunnablePair<Runnable> implements Runnable {
