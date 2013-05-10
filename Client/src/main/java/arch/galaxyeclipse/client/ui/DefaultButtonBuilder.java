@@ -48,8 +48,35 @@ class DefaultButtonBuilder implements IButtonBuilder {
                 this.style.pressedOffsetY = -BUTTON_DOWN_OFFSET;
                 break;
             case GameChatHideButton:
-                this.style.up = new TextureRegionDrawable(resourceLoader.findRegion("ui/btnUpChat"));
-                this.style.down = new TextureRegionDrawable(resourceLoader.findRegion("ui/btnUpChat"));
+                this.style.up = new TextureRegionDrawable(resourceLoader.findRegion("ui/chat/btnUpChat"));
+                this.style.down = new TextureRegionDrawable(resourceLoader.findRegion("ui/chat/btnUpChat"));
+                this.style.font = resourceLoader.getFont("assets/font_calibri_36px");
+                this.style.fontColor = Color.WHITE;
+                this.style.downFontColor = Color.GRAY;
+                this.style.pressedOffsetX = BUTTON_DOWN_OFFSET;
+                this.style.pressedOffsetY = -BUTTON_DOWN_OFFSET;
+                break;
+            case GameChatInnerScrollUpButton:
+                this.style.up = new TextureRegionDrawable(resourceLoader.findRegion("ui/chat/btnChatScrollUp"));
+                this.style.down = new TextureRegionDrawable(resourceLoader.findRegion("ui/chat/btnChatScrollUp"));
+                this.style.font = resourceLoader.getFont("assets/font_calibri_36px");
+                this.style.fontColor = Color.WHITE;
+                this.style.downFontColor = Color.GRAY;
+                this.style.pressedOffsetX = BUTTON_DOWN_OFFSET;
+                this.style.pressedOffsetY = -BUTTON_DOWN_OFFSET;
+                break;
+            case GameChatInnerScrollDownButton:
+                this.style.up = new TextureRegionDrawable(resourceLoader.findRegion("ui/chat/btnChatScrollDown"));
+                this.style.down = new TextureRegionDrawable(resourceLoader.findRegion("ui/chat/btnChatScrollDown"));
+                this.style.font = resourceLoader.getFont("assets/font_calibri_36px");
+                this.style.fontColor = Color.WHITE;
+                this.style.downFontColor = Color.GRAY;
+                this.style.pressedOffsetX = BUTTON_DOWN_OFFSET;
+                this.style.pressedOffsetY = -BUTTON_DOWN_OFFSET;
+                break;
+            case GameChatInnerAutoScrollButton:
+                this.style.up = new TextureRegionDrawable(resourceLoader.findRegion("ui/chat/btnChatAutoScroll"));
+                this.style.down = new TextureRegionDrawable(resourceLoader.findRegion("ui/chat/btnChatAutoScroll"));
                 this.style.font = resourceLoader.getFont("assets/font_calibri_36px");
                 this.style.fontColor = Color.WHITE;
                 this.style.downFontColor = Color.GRAY;

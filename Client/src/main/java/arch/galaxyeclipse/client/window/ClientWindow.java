@@ -139,6 +139,8 @@ class ClientWindow implements IClientWindow {
             Gdx.gl.glViewport((int)viewport.x, (int)viewport.y,
                     (int)viewport.width, (int)viewport.height);
 
+            stageProvider.getGameStage().act(Gdx.graphics.getDeltaTime());
+
             stageProvider.getGameStage().draw();
 
             if (EnvType.CURRENT == EnvType.DEV) {
