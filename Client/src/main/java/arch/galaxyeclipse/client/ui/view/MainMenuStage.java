@@ -1,7 +1,6 @@
 package arch.galaxyeclipse.client.ui.view;
 
 import arch.galaxyeclipse.client.resource.IResourceLoader;
-import arch.galaxyeclipse.client.ui.ChatWidget;
 import arch.galaxyeclipse.client.ui.IButtonBuilder;
 import arch.galaxyeclipse.client.ui.StageUiFactory;
 import arch.galaxyeclipse.client.ui.provider.MainMenuPresenter;
@@ -29,8 +28,6 @@ public class MainMenuStage extends AbstractGameStage {
     private TextField passwordTxt;
     private Table rootTable;
     private Table innerTable;
-
-    ChatWidget chatWidget;
 
     public MainMenuStage(final MainMenuPresenter presenter) {
         IResourceLoader resourceLoader = ContextHolder.getBean(IResourceLoader.class);

@@ -11,15 +11,15 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.badlogic.gdx.scenes.scene2d.ui.Table;
-import com.badlogic.gdx.scenes.scene2d.ui.TextField;
+import com.badlogic.gdx.scenes.scene2d.ui.*;
+import com.badlogic.gdx.scenes.scene2d.utils.DragScrollListener;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Arrays;
 import java.util.List;
+
 
 @Slf4j
 public class ChatWidget extends Table implements IServerPacketListener {
@@ -33,26 +33,48 @@ public class ChatWidget extends Table implements IServerPacketListener {
     private final int DEFAULT_MESSAGES_FIELD_PADDING_LEFT = 25;
     private final int TEXT_FIELD_TEXT_PADDING_X = 10;
     private final int TEXT_FIELD_TEXT_PADDING_Y = -10;
+    private final int CHAT_BUTTON_SCROLL_UP_PADDING_LEFT = 160;
+    private final int CHAT_BUTTON_SCROLL_UP_PADDING_BOTTOM = 28;
+    private final int CHAT_BUTTON_SCROLL_DOWN_PADDING_LEFT = 72;
+    private final int CHAT_BUTTON_SCROLL_DOWN_PADDING_BOTTOM = 28;
+    private final int CHAT_BUTTON_AUTO_SCROLL_PADDING_LEFT = 10;
+    private final int CHAT_BUTTON_AUTO_SCROLL_PADDING_BOTTOM = 28;
+
+    private float fontHeight;
+
+    IResourceLoader resourceLoader;
 
     private Drawable background;
     private TextField textField;
     private Table textFieldTable;
     private Label messagesField;
-
+    private ScrollPane messagesScrollPane;
+    private Label.LabelStyle labelStyle;
+    TextButton scrollUpBtn;
+    Table scrollUpBtnTable;
+    TextButton scrollDownBtn;
+    Table scrollDownBtnTable;
+    TextButton autoScrollBtn;
+    Table autoScrollBtnTable;
     private IClientNetworkManager networkManager;
+
+    private boolean isAutoScrollEnabled;
 
     public ChatWidget() {
         networkManager = ContextHolder.getBean(IClientNetworkManager.class);
 
-        IResourceLoader resourceLoader = ContextHolder.getBean(IResourceLoader.class);
-        background = new TextureRegionDrawable(resourceLoader.findRegion("ui/chat"));
+        isAutoScrollEnabled = true;
+
+        resourceLoader = ContextHolder.getBean(IResourceLoader.class);
+        background = new TextureRegionDrawable(resourceLoader.findRegion("ui/chat/chat"));
         setWidth(getPrefWidth());
         setHeight(getPrefHeight());
 
-        Drawable textFieldBackground = new TextureRegionDrawable(resourceLoader.findRegion("ui/chatTextField"));
+        Drawable textFieldBackground = new TextureRegionDrawable(resourceLoader.findRegion("ui/chat/chatTextField"));
         Drawable carret = new TextureRegionDrawable(resourceLoader.findRegion("ui/carret"));
         Drawable selection = new TextureRegionDrawable(resourceLoader.findRegion("ui/selection"));
         BitmapFont font = resourceLoader.getFont("assets/font_calibri_36px");
+        fontHeight = font.getLineHeight();
         TextField.TextFieldStyle textFieldStyle = new TextField.TextFieldStyle(font, Color.WHITE, carret, selection, textFieldBackground);
         textField = new TextField("", textFieldStyle);
         textField.setWidth(textFieldBackground.getMinWidth());
@@ -92,17 +114,108 @@ public class ChatWidget extends Table implements IServerPacketListener {
             }
         });
 
-        Label.LabelStyle labelStyle = new Label.LabelStyle(font, Color.WHITE);
+        labelStyle = new Label.LabelStyle(font, Color.WHITE);
         messagesField = new Label("", labelStyle);
-        messagesField.setY(0);
-        messagesField.setX(0);
         messagesField.setWrap(true);
-        messagesField.setWidth(DEFAULT_MESSAGES_FIELD_WIDTH);
-        messagesField.setHeight(DEFAULT_MESSAGES_FIELD_HEIGHT);
+        messagesField.setBounds(DEFAULT_MESSAGES_FIELD_PADDING_LEFT, DEFAULT_MESSAGES_FIELD_PADDING_BOTTOM,
+                DEFAULT_MESSAGES_FIELD_WIDTH, DEFAULT_MESSAGES_FIELD_HEIGHT);
         messagesField.setAlignment(-1, -1);
-        addActor(messagesField);
+
+        ScrollPane.ScrollPaneStyle scrollPaneStyle = new ScrollPane.ScrollPaneStyle();
+        scrollPaneStyle.vScrollKnob = new TextureRegionDrawable(resourceLoader.findRegion("ui/chat/chatVerticalScroll"));
+        messagesScrollPane = new ScrollPane(messagesField,scrollPaneStyle);
+        messagesScrollPane.setBounds(DEFAULT_MESSAGES_FIELD_PADDING_LEFT, DEFAULT_MESSAGES_FIELD_PADDING_BOTTOM,
+                DEFAULT_MESSAGES_FIELD_WIDTH, DEFAULT_MESSAGES_FIELD_HEIGHT);
+        addActor(messagesScrollPane);
+        messagesScrollPane.addListener(new DragScrollListener(messagesScrollPane){
+            @Override
+            public boolean scrolled(InputEvent event, float x, float y, int amount) {
+                if(isAutoScrollEnabled)
+                    disableAutoScroll();
+                return super.scrolled(event, x, y, amount);    //To change body of overridden methods use File | Settings | File Templates.
+            }
+        });
+
+        messagesScrollPane.setMySinglePropertyListener(new IPropertyListener<Float>() {
+            @Override
+            public void onPropertyChanged(Float newValue) {
+                if(isAutoScrollEnabled)
+                    messagesScrollPane.setScrollY(newValue);
+            }
+        });
+
+        scrollUpBtn = StageUiFactory.createButtonBuilder()
+                .setType(IButtonBuilder.ButtonType.GameChatInnerScrollUpButton)
+                .setClickCommand(new IButtonClickCommand() {
+                    @Override
+                    public void execute(InputEvent e, float x, float y) {
+                        messagesScrollPane.setScrollY(messagesScrollPane.getScrollY() - fontHeight);
+                        if(isAutoScrollEnabled)
+                            disableAutoScroll();
+                    }
+                }).build();
+
+        scrollUpBtnTable = new Table();
+        scrollUpBtnTable.setBounds(CHAT_BUTTON_SCROLL_UP_PADDING_LEFT, CHAT_BUTTON_SCROLL_UP_PADDING_BOTTOM,
+                scrollUpBtn.getWidth(), scrollUpBtn.getHeight());
+        scrollUpBtnTable.setTransform(true);
+        scrollUpBtnTable.row();
+        scrollUpBtnTable.add(scrollUpBtn);
+
+        addActor(scrollUpBtnTable);
+
+        scrollDownBtn = StageUiFactory.createButtonBuilder()
+                .setType(IButtonBuilder.ButtonType.GameChatInnerScrollDownButton)
+                .setClickCommand(new IButtonClickCommand() {
+                    @Override
+                    public void execute(InputEvent e, float x, float y) {
+                        messagesScrollPane.setScrollY(messagesScrollPane.getScrollY() + fontHeight);
+                        if(isAutoScrollEnabled)
+                            disableAutoScroll();
+                    }
+                }).build();
+
+        scrollDownBtnTable = new Table();
+        scrollDownBtnTable.setBounds(CHAT_BUTTON_SCROLL_DOWN_PADDING_LEFT, CHAT_BUTTON_SCROLL_DOWN_PADDING_BOTTOM,
+                scrollDownBtn.getWidth(), scrollDownBtn.getHeight());
+        scrollDownBtnTable.setTransform(true);
+        scrollDownBtnTable.row();
+        scrollDownBtnTable.add(scrollDownBtn);
+
+        addActor(scrollDownBtnTable);
+
+        autoScrollBtn = StageUiFactory.createButtonBuilder()
+                .setType(IButtonBuilder.ButtonType.GameChatInnerAutoScrollButton)
+                .setClickCommand(new IButtonClickCommand() {
+                    @Override
+                    public void execute(InputEvent e, float x, float y) {
+                        if(!isAutoScrollEnabled){
+                            enableAutoScroll();
+                            messagesScrollPane.setScrollY(messagesScrollPane.getMaxY());
+                        }
+                    }
+                }).build();
+
+        autoScrollBtnTable = new Table();
+        autoScrollBtnTable.setBounds(CHAT_BUTTON_AUTO_SCROLL_PADDING_LEFT, CHAT_BUTTON_AUTO_SCROLL_PADDING_BOTTOM,
+                autoScrollBtn.getWidth(), autoScrollBtn.getHeight());
+        autoScrollBtnTable.setTransform(true);
+        autoScrollBtnTable.row();
+        autoScrollBtnTable.add(autoScrollBtn);
+
+        addActor(autoScrollBtnTable);
 
         networkManager.addPacketListener(this);
+    }
+
+    private void enableAutoScroll() {
+        isAutoScrollEnabled = true;
+        autoScrollBtn.getStyle().up = new TextureRegionDrawable(resourceLoader.findRegion("ui/chat/btnChatAutoScroll"));
+    }
+
+    private void disableAutoScroll() {
+        isAutoScrollEnabled = false;
+        autoScrollBtn.getStyle().up = new TextureRegionDrawable(resourceLoader.findRegion("ui/chat/btnChatAutoScrollDeactivated"));
     }
 
     @Override
@@ -112,10 +225,18 @@ public class ChatWidget extends Table implements IServerPacketListener {
         textFieldTable.setScale(scaleX, scaleY);
         textFieldTable.setX(DEFAULT_TEXT_FIELD_PADDING_LEFT * scaleX);
         textFieldTable.setY(DEFAULT_TEXT_FIELD_PADDING_BOTTOM * scaleY);
-        messagesField.setFontScale(scaleX, scaleY);
-        messagesField.setHeight(DEFAULT_MESSAGES_FIELD_HEIGHT * scaleY);
-        messagesField.setX(DEFAULT_MESSAGES_FIELD_PADDING_LEFT * scaleX);
-        messagesField.setY(DEFAULT_MESSAGES_FIELD_PADDING_BOTTOM * scaleY);
+        messagesScrollPane.setScale(scaleX, scaleY) ;
+        messagesScrollPane.setX(DEFAULT_MESSAGES_FIELD_PADDING_LEFT * scaleX);
+        messagesScrollPane.setY(DEFAULT_MESSAGES_FIELD_PADDING_BOTTOM * scaleY);
+        scrollUpBtnTable.setScale(scaleX, scaleY) ;
+        scrollUpBtnTable.setX(CHAT_BUTTON_SCROLL_UP_PADDING_LEFT * scaleX);
+        scrollUpBtnTable.setY(CHAT_BUTTON_SCROLL_UP_PADDING_BOTTOM * scaleY);
+        scrollDownBtnTable.setScale(scaleX, scaleY) ;
+        scrollDownBtnTable.setX(CHAT_BUTTON_SCROLL_DOWN_PADDING_LEFT * scaleX);
+        scrollDownBtnTable.setY(CHAT_BUTTON_SCROLL_DOWN_PADDING_BOTTOM * scaleY);
+        autoScrollBtnTable.setScale(scaleX, scaleY) ;
+        autoScrollBtnTable.setX(CHAT_BUTTON_AUTO_SCROLL_PADDING_LEFT * scaleX);
+        autoScrollBtnTable.setY(CHAT_BUTTON_AUTO_SCROLL_PADDING_BOTTOM * scaleY);
         super.setSize(width, height);
     }
 
@@ -147,7 +268,9 @@ public class ChatWidget extends Table implements IServerPacketListener {
             case CHAT_RECEIVE_MESSAGE:
                 GeProtocol.ChatReceiveMessagePacket messagePacket = packet.getChatReceiveMessage();
                 messagesField.setText(messagesField.getText() +
-                        messagePacket.getSender() + " : " + messagePacket.getMessage());
+                        messagePacket.getSender() + " : " + messagePacket.getMessage() + "\n");
+//                if (isAutoScrollEnabled)
+//                    messagesScrollPane.setScrollY(messagesScrollPane.getMaxY());
                 break;
         }
     }

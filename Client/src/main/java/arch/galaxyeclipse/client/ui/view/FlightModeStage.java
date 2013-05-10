@@ -78,10 +78,10 @@ public class FlightModeStage extends AbstractGameStage {
         chatBtnTable.setBounds(CHAT_BUTTON_PADDING_LEFT, CHAT_BUTTON_PADDING_BOTTOM,
                 chatBtn.getWidth(), chatBtn.getHeight());
         chatBtnTable.setTransform(true);
-        rootLayout.addActor(chatBtnTable);
-
         chatBtnTable.row();
         chatBtnTable.add(chatBtn);
+
+        rootLayout.addActor(chatBtnTable);
 
         forceResize();
     }
