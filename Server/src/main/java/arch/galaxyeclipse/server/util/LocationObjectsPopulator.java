@@ -26,7 +26,6 @@ public class LocationObjectsPopulator {
     private String[] farCoords;
     private String[] closeCoords;
     private String[] middleCoords;
-    private String[] objNativeId;
     private Integer[] objectNativeId;
     private int locationObjectBehaviorTypeId;
     private int locationObjectTypeId;
@@ -68,7 +67,7 @@ public class LocationObjectsPopulator {
         locationObjectTypeId = Integer.parseInt(prop.getProperty("location_object_type_id"));
         maxObjectsCount = Integer.parseInt(prop.getProperty("max_objects_count"));
         locationId = Integer.parseInt(prop.getProperty("location_id"));
-        objNativeId = prop.getProperty("object_native_id").split(",");
+        String[] objNativeId = prop.getProperty("object_native_id").split(",");
         objectNativeId = new Integer[objNativeId.length];
 
         distances = new HashMap<>();
@@ -139,6 +138,7 @@ public class LocationObjectsPopulator {
         }
         end = end.substring(0, end.length() - 3);
         script = start + end;
+        System.out.println(script);
     }
 
     public final String getScript() {
@@ -149,8 +149,8 @@ public class LocationObjectsPopulator {
         LocationObjectsPopulator obj = new LocationObjectsPopulator();
         obj.generateScript();
 
-        DbScriptExecutor db = new DbScriptExecutor();
-        db.executeScript(obj.getScript());
+        //DbScriptExecutor db = new DbScriptExecutor();
+        //db.executeScript(obj.getScript());
     }
 
     private enum DistanceType {
