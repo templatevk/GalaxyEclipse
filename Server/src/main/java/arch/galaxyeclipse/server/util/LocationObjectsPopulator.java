@@ -26,11 +26,14 @@ public class LocationObjectsPopulator {
     private static final float MAX_DEGREES = 360f;
 
     private Properties prop;
+<<<<<<< HEAD
+=======
+    private static final String PROP_FILENAME = "obj_script.properties";
+>>>>>>> remotes/origin/dev
     private String script;
     private String[] farCoords;
     private String[] closeCoords;
     private String[] middleCoords;
-    private String[] objNativeId;
     private Integer[] objectNativeId;
     private int locationObjectBehaviorTypeId;
     private int locationObjectTypeId;
@@ -47,7 +50,11 @@ public class LocationObjectsPopulator {
     private void loadPropertiesFile() {
         prop = new Properties();
         try {
+<<<<<<< HEAD
             prop.load(new FileInputStream(PROP_FILE_NAME));
+=======
+            prop.load(new FileInputStream(PROP_FILENAME));
+>>>>>>> remotes/origin/dev
         } catch (FileNotFoundException ex) {
             log.error(ex.getMessage());
         } catch (IOException ex) {
@@ -72,7 +79,7 @@ public class LocationObjectsPopulator {
         locationObjectTypeId = Integer.parseInt(prop.getProperty("location_object_type_id"));
         maxObjectsCount = Integer.parseInt(prop.getProperty("max_objects_count"));
         locationId = Integer.parseInt(prop.getProperty("location_id"));
-        objNativeId = prop.getProperty("object_native_id").split(",");
+        String[] objNativeId = prop.getProperty("object_native_id").split(",");
         objectNativeId = new Integer[objNativeId.length];
 
         distances = new HashMap<>();
