@@ -24,12 +24,7 @@ import java.util.Random;
 public class LocationObjectsPopulator {
     private static final String PROP_FILE_NAME = "obj_script.properties";
     private static final float MAX_DEGREES = 360f;
-
     private Properties prop;
-<<<<<<< HEAD
-=======
-    private static final String PROP_FILENAME = "obj_script.properties";
->>>>>>> remotes/origin/dev
     private String script;
     private String[] farCoords;
     private String[] closeCoords;
@@ -50,11 +45,7 @@ public class LocationObjectsPopulator {
     private void loadPropertiesFile() {
         prop = new Properties();
         try {
-<<<<<<< HEAD
             prop.load(new FileInputStream(PROP_FILE_NAME));
-=======
-            prop.load(new FileInputStream(PROP_FILENAME));
->>>>>>> remotes/origin/dev
         } catch (FileNotFoundException ex) {
             log.error(ex.getMessage());
         } catch (IOException ex) {

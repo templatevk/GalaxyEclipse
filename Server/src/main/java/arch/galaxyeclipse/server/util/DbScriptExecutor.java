@@ -22,12 +22,7 @@ public class DbScriptExecutor {
     private static final String PROP_FILE_NAME = "local.properties";
 
     private Properties prop;
-<<<<<<< HEAD
     private Statement statement;
-=======
-    private static final String PROP_FILENAME = "local.properties";
-    private Statement statement = null;
->>>>>>> remotes/origin/dev
     private String jdbcDriver;
     private String username, password;
     private String dbname;
@@ -39,11 +34,7 @@ public class DbScriptExecutor {
     private void loadPropertiesFile() {
         prop = new Properties();
         try {
-<<<<<<< HEAD
             prop.load(new FileInputStream(PROP_FILE_NAME));
-=======
-            prop.load(new FileInputStream(PROP_FILENAME));
->>>>>>> remotes/origin/dev
             jdbcDriver = prop.getProperty("db.driver_class");
             dbname = prop.getProperty("db.url");
             username = prop.getProperty("db.username");
