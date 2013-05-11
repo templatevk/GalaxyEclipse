@@ -123,14 +123,14 @@ public class ChatWidget extends Table implements IServerPacketListener {
 
         ScrollPane.ScrollPaneStyle scrollPaneStyle = new ScrollPane.ScrollPaneStyle();
         scrollPaneStyle.vScrollKnob = new TextureRegionDrawable(resourceLoader.findRegion("ui/chat/chatVerticalScroll"));
-        messagesScrollPane = new ScrollPane(messagesField,scrollPaneStyle);
+        messagesScrollPane = new ScrollPane(messagesField, scrollPaneStyle);
         messagesScrollPane.setBounds(DEFAULT_MESSAGES_FIELD_PADDING_LEFT, DEFAULT_MESSAGES_FIELD_PADDING_BOTTOM,
                 DEFAULT_MESSAGES_FIELD_WIDTH, DEFAULT_MESSAGES_FIELD_HEIGHT);
         addActor(messagesScrollPane);
-        messagesScrollPane.addListener(new DragScrollListener(messagesScrollPane){
+        messagesScrollPane.addListener(new DragScrollListener(messagesScrollPane) {
             @Override
             public boolean scrolled(InputEvent event, float x, float y, int amount) {
-                if(isAutoScrollEnabled)
+                if (isAutoScrollEnabled)
                     disableAutoScroll();
                 return super.scrolled(event, x, y, amount);    //To change body of overridden methods use File | Settings | File Templates.
             }
@@ -139,8 +139,9 @@ public class ChatWidget extends Table implements IServerPacketListener {
         messagesScrollPane.setMySinglePropertyListener(new IPropertyListener<Float>() {
             @Override
             public void onPropertyChanged(Float newValue) {
-                if(isAutoScrollEnabled)
+                if (isAutoScrollEnabled) {
                     messagesScrollPane.setScrollY(newValue);
+                }
             }
         });
 
@@ -150,8 +151,9 @@ public class ChatWidget extends Table implements IServerPacketListener {
                     @Override
                     public void execute(InputEvent e, float x, float y) {
                         messagesScrollPane.setScrollY(messagesScrollPane.getScrollY() - fontHeight);
-                        if(isAutoScrollEnabled)
+                        if (isAutoScrollEnabled) {
                             disableAutoScroll();
+                        }
                     }
                 }).build();
 
@@ -170,8 +172,9 @@ public class ChatWidget extends Table implements IServerPacketListener {
                     @Override
                     public void execute(InputEvent e, float x, float y) {
                         messagesScrollPane.setScrollY(messagesScrollPane.getScrollY() + fontHeight);
-                        if(isAutoScrollEnabled)
+                        if (isAutoScrollEnabled) {
                             disableAutoScroll();
+                        }
                     }
                 }).build();
 
@@ -189,7 +192,7 @@ public class ChatWidget extends Table implements IServerPacketListener {
                 .setClickCommand(new IButtonClickCommand() {
                     @Override
                     public void execute(InputEvent e, float x, float y) {
-                        if(!isAutoScrollEnabled){
+                        if (!isAutoScrollEnabled) {
                             enableAutoScroll();
                             messagesScrollPane.setScrollY(messagesScrollPane.getMaxY());
                         }
@@ -225,16 +228,16 @@ public class ChatWidget extends Table implements IServerPacketListener {
         textFieldTable.setScale(scaleX, scaleY);
         textFieldTable.setX(DEFAULT_TEXT_FIELD_PADDING_LEFT * scaleX);
         textFieldTable.setY(DEFAULT_TEXT_FIELD_PADDING_BOTTOM * scaleY);
-        messagesScrollPane.setScale(scaleX, scaleY) ;
+        messagesScrollPane.setScale(scaleX, scaleY);
         messagesScrollPane.setX(DEFAULT_MESSAGES_FIELD_PADDING_LEFT * scaleX);
         messagesScrollPane.setY(DEFAULT_MESSAGES_FIELD_PADDING_BOTTOM * scaleY);
-        scrollUpBtnTable.setScale(scaleX, scaleY) ;
+        scrollUpBtnTable.setScale(scaleX, scaleY);
         scrollUpBtnTable.setX(CHAT_BUTTON_SCROLL_UP_PADDING_LEFT * scaleX);
         scrollUpBtnTable.setY(CHAT_BUTTON_SCROLL_UP_PADDING_BOTTOM * scaleY);
-        scrollDownBtnTable.setScale(scaleX, scaleY) ;
+        scrollDownBtnTable.setScale(scaleX, scaleY);
         scrollDownBtnTable.setX(CHAT_BUTTON_SCROLL_DOWN_PADDING_LEFT * scaleX);
         scrollDownBtnTable.setY(CHAT_BUTTON_SCROLL_DOWN_PADDING_BOTTOM * scaleY);
-        autoScrollBtnTable.setScale(scaleX, scaleY) ;
+        autoScrollBtnTable.setScale(scaleX, scaleY);
         autoScrollBtnTable.setX(CHAT_BUTTON_AUTO_SCROLL_PADDING_LEFT * scaleX);
         autoScrollBtnTable.setY(CHAT_BUTTON_AUTO_SCROLL_PADDING_BOTTOM * scaleY);
         super.setSize(width, height);
