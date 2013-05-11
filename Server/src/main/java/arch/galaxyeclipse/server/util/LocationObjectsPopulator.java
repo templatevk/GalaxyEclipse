@@ -2,13 +2,15 @@ package arch.galaxyeclipse.server.util;
 
 
 import arch.galaxyeclipse.shared.common.GePosition;
-import com.sun.javafx.geom.Point2D;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Properties;
+import java.util.Random;
 
 
 /**
@@ -20,8 +22,10 @@ import java.util.*;
  */
 @Slf4j
 public class LocationObjectsPopulator {
+    private static final String PROP_FILE_NAME = "obj_script.properties";
+    private static final float MAX_DEGREES = 360f;
+
     private Properties prop;
-    private final String propFileName = "obj_script.properties";
     private String script;
     private String[] farCoords;
     private String[] closeCoords;
@@ -43,7 +47,7 @@ public class LocationObjectsPopulator {
     private void loadPropertiesFile() {
         prop = new Properties();
         try {
-            prop.load(new FileInputStream(propFileName));
+            prop.load(new FileInputStream(PROP_FILE_NAME));
         } catch (FileNotFoundException ex) {
             log.error(ex.getMessage());
         } catch (IOException ex) {
@@ -103,7 +107,6 @@ public class LocationObjectsPopulator {
     }
 
     private void generateScript() {
-        final float MAX_DEGREES = 360f;
         float rotation_angle;
         int rand_native_id;
         GePosition point;
