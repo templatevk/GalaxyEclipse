@@ -138,7 +138,6 @@ public class LocationObjectsPopulator {
         }
         end = end.substring(0, end.length() - 3);
         script = start + end;
-        System.out.println(script);
     }
 
     public final String getScript() {
@@ -149,8 +148,8 @@ public class LocationObjectsPopulator {
         LocationObjectsPopulator obj = new LocationObjectsPopulator();
         obj.generateScript();
 
-        //DbScriptExecutor db = new DbScriptExecutor();
-        //db.executeScript(obj.getScript());
+        DbScriptExecutor db = new DbScriptExecutor();
+        db.executeScript(obj.getScript());
     }
 
     private enum DistanceType {
