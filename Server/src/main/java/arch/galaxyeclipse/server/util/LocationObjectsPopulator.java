@@ -21,7 +21,7 @@ import java.util.*;
 @Slf4j
 public class LocationObjectsPopulator {
     private Properties prop;
-    private final String propFileName = "obj_script.properties";
+    private static final String PROP_FILENAME = "obj_script.properties";
     private String script;
     private String[] farCoords;
     private String[] closeCoords;
@@ -42,7 +42,7 @@ public class LocationObjectsPopulator {
     private void loadPropertiesFile() {
         prop = new Properties();
         try {
-            prop.load(new FileInputStream(propFileName));
+            prop.load(new FileInputStream(PROP_FILENAME));
         } catch (FileNotFoundException ex) {
             log.error(ex.getMessage());
         } catch (IOException ex) {

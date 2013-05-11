@@ -19,7 +19,7 @@ import javax.sql.*;
 @Slf4j
 public class DbScriptExecutor {
     private Properties prop;
-    private final String propFileName = "local.properties";
+    private static final String PROP_FILENAME = "local.properties";
     private Statement statement = null;
     private String jdbcDriver;
     private String username, password;
@@ -31,17 +31,13 @@ public class DbScriptExecutor {
     private void loadPropertiesFile() {
         prop = new Properties();
         try {
-            prop.load(new FileInputStream(propFileName));
+            prop.load(new FileInputStream(PROP_FILENAME));
             jdbcDriver = prop.getProperty("db.driver_class");
             dbname = prop.getProperty("db.url");
             username = prop.getProperty("db.username");
             password = prop.getProperty("db.password");
-        } catch (FileNotFoundException ex) {
-            log.error(ex.getMessage());
         } catch (IOException ex) {
-            log.error(ex.getMessage());
-        } catch (Exception ex) {
-            log.error(ex.getMessage());
+            log.error("Error loading properties file", ex);
         }
     }
 
