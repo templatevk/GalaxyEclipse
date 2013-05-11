@@ -139,7 +139,6 @@ public class LocationObjectsPopulator {
         }
         end = end.substring(0, end.length() - 3);
         script = start + end;
-        System.out.println(script);
     }
 
     public final String getScript() {
