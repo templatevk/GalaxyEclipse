@@ -1,7 +1,7 @@
 package arch.galaxyeclipse.shared.thread;
 
-import arch.galaxyeclipse.shared.util.ICommand;
-import arch.galaxyeclipse.shared.util.StubCommand;
+import arch.galaxyeclipse.shared.common.ICommand;
+import arch.galaxyeclipse.shared.common.StubCommand;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.AbstractQueue;
@@ -10,7 +10,7 @@ import java.util.AbstractQueue;
  * Thread processing the queue passed applying the passed command to the queue items.
  */
 @Slf4j
-public class InterruptableQueueDispatcher<T> extends Thread {
+public class InterruptableQueueDispatcher<T> extends AbstractGeRunnable implements GeRunnable {
 	private AbstractQueue<T> queue;
 	private ICommand<T> command;
 	private boolean yield;

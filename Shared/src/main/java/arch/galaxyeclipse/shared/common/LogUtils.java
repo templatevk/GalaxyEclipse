@@ -1,4 +1,4 @@
-package arch.galaxyeclipse.shared.util;
+package arch.galaxyeclipse.shared.common;
 
 public class LogUtils {
 	private LogUtils() {

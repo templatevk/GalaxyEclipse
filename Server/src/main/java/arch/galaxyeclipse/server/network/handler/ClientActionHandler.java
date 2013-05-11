@@ -6,17 +6,16 @@ import arch.galaxyeclipse.server.data.RedisUnitOfWork;
 import arch.galaxyeclipse.server.data.model.LocationObject;
 import arch.galaxyeclipse.server.data.model.ShipConfig;
 import arch.galaxyeclipse.server.data.model.ShipState;
-import arch.galaxyeclipse.server.util.MathUtils;
+import arch.galaxyeclipse.shared.common.MathUtils;
 import arch.galaxyeclipse.shared.protocol.GeProtocol;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket.ClientActionType;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket;
 import arch.galaxyeclipse.shared.thread.TaskRunnablePair;
-import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.connection.jedis.JedisConnection;
 
-import static arch.galaxyeclipse.shared.SharedInfo.*;
+import static arch.galaxyeclipse.shared.GeConstants.*;
 
 /**
  *
@@ -24,26 +23,17 @@ import static arch.galaxyeclipse.shared.SharedInfo.*;
 @Slf4j
 class ClientActionHandler extends PacketHandlerDecorator {
     private PlayerInfoHolder playerInfoHolder;
-    private ShipConfig shipConfig;
-    private ShipState shipState;
-    private LocationObject locationObject;
 
     private MoveHandler moveHandler;
     private RotationHandler rotationHandler;
-    private boolean rotating;
-    private boolean moving;
 
     public ClientActionHandler(IChannelAwarePacketHandler decoratedPacketHandler) {
         super(decoratedPacketHandler);
 
         playerInfoHolder = getServerChannelHandler().getPlayerInfoHolder();
-        shipConfig = playerInfoHolder.getShipConfig();
-        shipState = playerInfoHolder.getShipState();
-        locationObject = playerInfoHolder.getLocationObject();
 
         moveHandler = new MoveHandler(playerInfoHolder);
         rotationHandler = new RotationHandler(playerInfoHolder);
-        rotating = false;
     }
 
     @Override
@@ -54,12 +44,17 @@ class ClientActionHandler extends PacketHandlerDecorator {
                 ClientActionType clientActionType = clientAction.getType();
 
                 switch (clientActionType) {
-                    case ROTATE_LEFT:
-                    case ROTATE_RIGHT:
+                    case ROTATE_LEFT_DOWN:
+                    case ROTATE_LEFT_UP:
+                    case ROTATE_RIGHT_DOWN:
+                    case ROTATE_RIGHT_UP:
                         processRotation(clientActionType);
                         break;
-                    case MOVE:
-                    case STOP:
+                    case MOVE_UP:
+                    case MOVE_DOWN:
+                    case STOP_UP:
+                    case STOP_DOWN:
+                        processMoving(clientActionType);
                         processMoving(clientActionType);
                         break;
                     case OBJECT_CLICK:
@@ -80,24 +75,21 @@ class ClientActionHandler extends PacketHandlerDecorator {
     @Override
     public void onChannelClosed() {
         rotationHandler.stop();
+        moveHandler.stop();
     }
 
     private void processMoving(ClientActionType moveType) {
-        moving = !moving;
         moveHandler.setMoveType(moveType);
-        moveHandler.setMoving(moving);
     }
 
     private void processRotation(ClientActionType moveType) {
-        rotating = !rotating;
         rotationHandler.setRotationType(moveType);
-        rotationHandler.setRotating(rotating);
     }
 
     private static class RotationHandler extends TaskRunnablePair<Runnable> {
         public static final int MAX_ANGLE = 360;
 
-        private @Setter ClientActionType rotationType;
+        private ClientActionType rotationType;
         private ShipConfig shipConfig;
         private ShipState shipState;
         private LocationObject locationObject;
@@ -114,16 +106,21 @@ class ClientActionHandler extends PacketHandlerDecorator {
             locationObject = playerInfoHolder.getLocationObject();
             rotatingRunnable = new RotatingRunnable();
             postRotatingRunnable = new PostRotatingRunnable();
-
-            setRotating(false);
         }
 
-        public void setRotating(boolean rotating) {
-            if (rotating) {
-                setRunnable(rotatingRunnable);
-                start();
-            } else {
-                setRunnable(postRotatingRunnable);
+        public void setRotationType(ClientActionType rotationType) {
+            this.rotationType = rotationType;
+
+            switch (rotationType) {
+                case ROTATE_LEFT_DOWN:
+                case ROTATE_RIGHT_DOWN:
+                    setRunnable(rotatingRunnable);
+                    start();
+                    break;
+                case ROTATE_LEFT_UP:
+                case ROTATE_RIGHT_UP:
+                    setRunnable(postRotatingRunnable);
+                    break;
             }
         }
 
@@ -152,10 +149,10 @@ class ClientActionHandler extends PacketHandlerDecorator {
                 float maxRotationSpeed = shipConfig.getShipConfigRotationMaxSpeed();
 
                 switch (rotationType) {
-                    case ROTATE_RIGHT:
+                    case ROTATE_RIGHT_DOWN:
                         currentRotationSpeed -= rotationAcceleration;
                         break;
-                    case ROTATE_LEFT:
+                    case ROTATE_LEFT_DOWN:
                         currentRotationSpeed += rotationAcceleration;
                         break;
                 }
@@ -189,14 +186,14 @@ class ClientActionHandler extends PacketHandlerDecorator {
                 float rotationAcceleration = shipConfig.getShipConfigRotationAcceleration();
 
                 switch (rotationType) {
-                    case ROTATE_RIGHT:
+                    case ROTATE_RIGHT_UP:
                         currentRotationSpeed += rotationAcceleration;
                         if (currentRotationSpeed > 0) {
                             currentRotationSpeed = 0;
                             stop();
                         }
                         break;
-                    case ROTATE_LEFT:
+                    case ROTATE_LEFT_UP:
                         currentRotationSpeed -= rotationAcceleration;
                         if (currentRotationSpeed < 0) {
                             currentRotationSpeed = 0;
@@ -226,7 +223,7 @@ class ClientActionHandler extends PacketHandlerDecorator {
     }
 
     private static class MoveHandler {
-        private @Setter ClientActionType moveType;
+        private ClientActionType moveType;
         private ShipConfig shipConfig;
         private ShipState shipState;
         private LocationObject locationObject;
@@ -242,24 +239,34 @@ class ClientActionHandler extends PacketHandlerDecorator {
 
             speedTask = new SpeedTask();
             positionTask = new PositionTask();
-
-            setMoving(false);
         }
 
-        public void setMoving(boolean moving) {
-            if (moving) {
-                if (!positionTask.isAlive()) {
-                    positionTask.start();
-                }
-                speedTask.start();
-            } else {
-                speedTask.stop();
+        public void setMoveType(ClientActionType moveType) {
+            this.moveType = moveType;
+
+            switch (moveType) {
+                case MOVE_DOWN:
+                case STOP_DOWN:
+                    if (!positionTask.isAlive()) {
+                        positionTask.start();
+                    }
+                    speedTask.start();
+                    break;
+                case MOVE_UP:
+                case STOP_UP:
+                    speedTask.stop();
+                    break;
             }
+        }
+
+        public void stop() {
+            speedTask.stop();
+            positionTask.stop();
         }
 
         private class SpeedTask extends TaskRunnablePair<Runnable> implements Runnable {
             private SpeedTask() {
-                super(CLIENT_ACTION_MOVE_DELAY_MILLISECONDS, null, true, true);
+                super(CLIENT_ACTION_SPEED_DELAY_MILLISECONDS, null, true, true);
                 setRunnable(this);
             }
 
@@ -270,10 +277,10 @@ class ClientActionHandler extends PacketHandlerDecorator {
                 float maxMoveSpeed = shipConfig.getShipConfigMoveMaxSpeed();
 
                 switch (moveType) {
-                    case MOVE:
+                    case MOVE_DOWN:
                         currentMoveSpeed += moveAcceleration;
                         break;
-                    case STOP:
+                    case STOP_DOWN:
                         currentMoveSpeed -= moveAcceleration;
                         if (currentMoveSpeed <= 0) {
                             currentMoveSpeed = 0;

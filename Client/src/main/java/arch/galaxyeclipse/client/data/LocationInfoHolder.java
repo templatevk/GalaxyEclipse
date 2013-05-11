@@ -1,6 +1,7 @@
 package arch.galaxyeclipse.client.data;
 
-import arch.galaxyeclipse.shared.SharedInfo;
+import arch.galaxyeclipse.shared.GeConstants;
+import arch.galaxyeclipse.shared.common.GePosition;
 import arch.galaxyeclipse.shared.context.ContextHolder;
 import arch.galaxyeclipse.shared.protocol.GeProtocol;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket;
@@ -105,8 +106,8 @@ public class LocationInfoHolder {
         public boolean apply(LocationObjectPacket input) {
             float xAbs = Math.abs(input.getPositionX() - position.getX());
             float yAbs = Math.abs(input.getPositionY() - position.getY());
-            return xAbs < SharedInfo.DYNAMIC_OBJECT_QUERY_RADIUS
-                    && yAbs < SharedInfo.DYNAMIC_OBJECT_QUERY_RADIUS;
+            return xAbs < GeConstants.DYNAMIC_OBJECT_QUERY_RADIUS
+                    && yAbs < GeConstants.DYNAMIC_OBJECT_QUERY_RADIUS;
         }
     }
 

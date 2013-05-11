@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import static arch.galaxyeclipse.shared.SharedInfo.DYNAMIC_OBJECT_QUERY_RADIUS;
+import static arch.galaxyeclipse.shared.GeConstants.DYNAMIC_OBJECT_QUERY_RADIUS;
 import static arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse;
 
 /**

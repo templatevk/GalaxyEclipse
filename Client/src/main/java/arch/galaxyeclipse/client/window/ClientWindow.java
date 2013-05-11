@@ -6,7 +6,9 @@ import arch.galaxyeclipse.client.ui.StageUiFactory;
 import arch.galaxyeclipse.client.ui.provider.IStageProvider;
 import arch.galaxyeclipse.client.ui.provider.StageProviderFactory;
 import arch.galaxyeclipse.shared.EnvType;
-import arch.galaxyeclipse.shared.util.IDestroyable;
+import arch.galaxyeclipse.shared.common.IDestroyable;
+import arch.galaxyeclipse.shared.context.ContextHolder;
+import arch.galaxyeclipse.shared.thread.GeExecutor;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
@@ -122,6 +124,7 @@ class ClientWindow implements IClientWindow {
             if (stageProvider != null) {
                 stageProvider.detach();
             }
+            ContextHolder.getBean(GeExecutor.class).shutdownNow();
         }
 
         @Override

@@ -1,7 +1,7 @@
 package arch.galaxyeclipse.shared.protocol;
 
 import arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket;
-import arch.galaxyeclipse.shared.util.ICommand;
+import arch.galaxyeclipse.shared.common.ICommand;
 
 import java.io.Serializable;
 

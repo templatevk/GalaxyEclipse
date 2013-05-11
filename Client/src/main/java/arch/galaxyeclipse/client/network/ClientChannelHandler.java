@@ -3,7 +3,7 @@ package arch.galaxyeclipse.client.network;
 import arch.galaxyeclipse.shared.network.IChannelHandler;
 import arch.galaxyeclipse.shared.network.ProtobufChannelHandler;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.Packet;
-import arch.galaxyeclipse.shared.util.ICommand;
+import arch.galaxyeclipse.shared.common.ICommand;
 import lombok.extern.slf4j.Slf4j;
 import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.channel.ChannelStateEvent;

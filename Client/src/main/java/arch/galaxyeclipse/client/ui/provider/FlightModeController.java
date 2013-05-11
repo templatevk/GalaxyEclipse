@@ -1,6 +1,5 @@
 package arch.galaxyeclipse.client.ui.provider;
 
-import arch.galaxyeclipse.client.data.GePosition;
 import arch.galaxyeclipse.client.data.LocationInfoHolder;
 import arch.galaxyeclipse.client.data.ShipStateInfoHolder;
 import arch.galaxyeclipse.client.network.PacketProcessingListenerCommand;
@@ -12,10 +11,11 @@ import arch.galaxyeclipse.client.ui.model.FlightModeModel;
 import arch.galaxyeclipse.client.ui.view.AbstractGameStage;
 import arch.galaxyeclipse.client.ui.view.FlightModeStage;
 import arch.galaxyeclipse.shared.EnvType;
+import arch.galaxyeclipse.shared.common.GePosition;
+import arch.galaxyeclipse.shared.common.ICommand;
 import arch.galaxyeclipse.shared.context.ContextHolder;
 import arch.galaxyeclipse.shared.protocol.GeProtocol;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket;
-import arch.galaxyeclipse.shared.util.ICommand;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Collections;

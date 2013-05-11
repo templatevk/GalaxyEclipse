@@ -1,7 +1,7 @@
 package arch.galaxyeclipse.client.network;
 
 import arch.galaxyeclipse.shared.protocol.GeProtocol;
-import arch.galaxyeclipse.shared.util.LogUtils;
+import arch.galaxyeclipse.shared.common.LogUtils;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import lombok.extern.slf4j.Slf4j;
@@ -39,8 +39,8 @@ public abstract class SubscribableServerPacketListener extends ServerPacketListe
             processingListeners.put(packetType, listener);
 
             if (SubscribableServerPacketListener.log.isDebugEnabled()) {
-                SubscribableServerPacketListener.log.debug(LogUtils.getObjectInfo(listener) + " subscribed for "
-                        + packetType.toString() + " processing listening");
+                SubscribableServerPacketListener.log.debug(LogUtils.getObjectInfo(listener)
+                        + " subscribed for " + packetType.toString() + " processing listening");
             }
         }
     }
@@ -50,8 +50,8 @@ public abstract class SubscribableServerPacketListener extends ServerPacketListe
         processingListeners.get(packetType).remove(listener);
 
         if (SubscribableServerPacketListener.log.isDebugEnabled()) {
-            SubscribableServerPacketListener.log.debug(LogUtils.getObjectInfo(listener) + " unsubscribed from "
-                    + packetType.toString() + " processing listening");
+            SubscribableServerPacketListener.log.debug(LogUtils.getObjectInfo(listener)
+                    + " unsubscribed from " + packetType.toString() + " processing listening");
         }
     }
 

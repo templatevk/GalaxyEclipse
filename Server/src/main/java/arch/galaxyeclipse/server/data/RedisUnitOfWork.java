@@ -1,7 +1,7 @@
 package arch.galaxyeclipse.server.data;
 
 import arch.galaxyeclipse.shared.context.ContextHolder;
-import arch.galaxyeclipse.shared.util.LogUtils;
+import arch.galaxyeclipse.shared.common.LogUtils;
 import lombok.AccessLevel;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;

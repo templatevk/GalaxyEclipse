@@ -2,7 +2,7 @@ package arch.galaxyeclipse.client.ui.actor;
 
 import arch.galaxyeclipse.client.data.ShipStateInfoHolder;
 import arch.galaxyeclipse.shared.context.ContextHolder;
-import arch.galaxyeclipse.shared.util.LogUtils;
+import arch.galaxyeclipse.shared.common.LogUtils;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;

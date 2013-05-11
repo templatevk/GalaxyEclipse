@@ -13,14 +13,14 @@ import javax.sql.*;
  */
 
 @Slf4j
-public class DBScriptInsert {
+public class DbScriptExecutor {
     private Connection con = null;
     private Statement statement= null;
     private final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
     private final String username = "root", password = "";
     private final String dbname = "jdbc:mysql://localhost/ge";
 
-    public  DBScriptInsert(){
+    public DbScriptExecutor(){
         try {
             Class.forName(JDBC_DRIVER);
             con = DriverManager.getConnection(dbname,username,password);
@@ -28,25 +28,25 @@ public class DBScriptInsert {
             System.out.println ("Database connection established");
         }
         catch (SQLException ex) {
-            log.error(ex.getMessage());
+            DbScriptExecutor.log.error(ex.getMessage());
         }
         catch(Exception ex){
-            log.error("DataBase connection error." + ex.getMessage());
+            DbScriptExecutor.log.error("DataBase connection error." + ex.getMessage());
         }
     }
 
     public void executeScript(String script){
         try{
-            log.info("Inserting script to database...");
+            DbScriptExecutor.log.info("Inserting script to database...");
             final int ROWS_COUNT = statement.executeUpdate(script, Statement.RETURN_GENERATED_KEYS);
-            log.info("Script executed successfully.");
-            log.info("Rows inserted: " + ROWS_COUNT);
+            DbScriptExecutor.log.info("Script executed successfully.");
+            DbScriptExecutor.log.info("Rows inserted: " + ROWS_COUNT);
         }
         catch(SQLException ex){
-            log.error("Script insert error. " + ex.getMessage());
+            DbScriptExecutor.log.error("Script insert error. " + ex.getMessage());
         }
         catch(Exception ex){
-            log.error(ex.getMessage());
+            DbScriptExecutor.log.error(ex.getMessage());
         }
         finally{
             try{
