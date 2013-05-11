@@ -2,7 +2,6 @@ package arch.galaxyeclipse.server.network.handler;
 
 import arch.galaxyeclipse.server.data.HibernateUnitOfWork;
 import arch.galaxyeclipse.server.data.PlayerInfoHolder;
-import arch.galaxyeclipse.server.data.model.Player;
 import arch.galaxyeclipse.server.network.IServerChannelHandler;
 import arch.galaxyeclipse.shared.context.ContextHolder;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.Packet;
@@ -20,7 +19,6 @@ class FlightPacketHandler implements IChannelAwarePacketHandler {
     private DictionaryTypesMapper dictionaryTypesMapper;
 
     private PlayerInfoHolder playerInfoHolder;
-    private Player player;
 
     public FlightPacketHandler(IServerChannelHandler serverChannelHandler) {
         this.serverChannelHandler = serverChannelHandler;

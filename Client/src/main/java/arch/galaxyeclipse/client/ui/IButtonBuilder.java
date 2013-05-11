@@ -10,7 +10,10 @@ public interface IButtonBuilder extends IBuilder<TextButton> {
     enum ButtonType
     {
         MainMenuButton,
-        GameChatHideButton
+        GameChatHideButton,
+        GameChatInnerScrollUpButton,
+        GameChatInnerScrollDownButton,
+        GameChatInnerAutoScrollButton
     }
     IButtonBuilder setType(ButtonType buttonType);
 

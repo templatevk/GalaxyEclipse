@@ -1,8 +1,6 @@
 package arch.galaxyeclipse.server.network.handler;
 
-import arch.galaxyeclipse.server.data.JedisSerializers.LocationObjectPacketSerializer;
 import arch.galaxyeclipse.server.data.PlayerInfoHolder;
-import arch.galaxyeclipse.server.data.RedisUnitOfWork;
 import arch.galaxyeclipse.server.data.model.LocationObject;
 import arch.galaxyeclipse.server.data.model.ShipConfig;
 import arch.galaxyeclipse.server.data.model.ShipState;
@@ -10,10 +8,8 @@ import arch.galaxyeclipse.shared.common.MathUtils;
 import arch.galaxyeclipse.shared.protocol.GeProtocol;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket.ClientActionType;
-import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket;
 import arch.galaxyeclipse.shared.thread.TaskRunnablePair;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.redis.connection.jedis.JedisConnection;
 
 import static arch.galaxyeclipse.shared.GeConstants.*;
 
@@ -73,7 +69,7 @@ class ClientActionHandler extends PacketHandlerDecorator {
     }
 
     @Override
-    public void onChannelClosed() {
+    protected void onChannelClosedImpl() {
         rotationHandler.stop();
         moveHandler.stop();
     }
@@ -95,11 +91,9 @@ class ClientActionHandler extends PacketHandlerDecorator {
         private LocationObject locationObject;
         private RotatingRunnable rotatingRunnable;
         private PostRotatingRunnable postRotatingRunnable;
-        private PlayerInfoHolder playerInfoHolder;
 
         private RotationHandler(PlayerInfoHolder playerInfoHolder) {
             super(CLIENT_ACTION_ROTATION_DELAY_MILLISECONDS, null, true, true);
-            this.playerInfoHolder = playerInfoHolder;
 
             shipConfig = playerInfoHolder.getShipConfig();
             shipState = playerInfoHolder.getShipState();
@@ -122,23 +116,6 @@ class ClientActionHandler extends PacketHandlerDecorator {
                     setRunnable(postRotatingRunnable);
                     break;
             }
-        }
-
-        private void update(final float rotationAngle) {
-            new RedisUnitOfWork() {
-                @Override
-                protected void doWork(JedisConnection connection) {
-                    LocationObjectPacketSerializer lopSerializer = new LocationObjectPacketSerializer();
-                    byte[] lopHashKey = playerInfoHolder.getLocationObjectPacketHashKey();
-
-                    byte[] lopBytes = connection.hGet(lopHashKey, lopHashKey);
-                    LocationObjectPacket lop = lopSerializer.deserialize(lopBytes);
-                    LocationObjectPacket newLop = LocationObjectPacket.newBuilder()
-                            .mergeFrom(lop).setRotationAngle(rotationAngle).build();
-
-                    connection.hSet(lopHashKey, lopHashKey, lopSerializer.serialize(newLop));
-                }
-            }.execute();
         }
 
         private class RotatingRunnable implements Runnable {
@@ -175,7 +152,6 @@ class ClientActionHandler extends PacketHandlerDecorator {
                     ClientActionHandler.log.debug("Rotation speed " + currentRotationSpeed);
                     ClientActionHandler.log.debug("Rotation angle " + currentRotationAngle);
                 }
-                update(currentRotationAngle);
             }
         }
 
@@ -217,7 +193,6 @@ class ClientActionHandler extends PacketHandlerDecorator {
                     ClientActionHandler.log.debug("Rotation speed " + currentRotationSpeed);
                     ClientActionHandler.log.debug("Rotation angle " + currentRotationAngle);
                 }
-                update(currentRotationAngle);
             }
         }
     }
@@ -229,10 +204,8 @@ class ClientActionHandler extends PacketHandlerDecorator {
         private LocationObject locationObject;
         private SpeedTask speedTask;
         private PositionTask positionTask;
-        private PlayerInfoHolder playerInfoHolder;
 
         private MoveHandler(PlayerInfoHolder playerInfoHolder) {
-            this.playerInfoHolder = playerInfoHolder;
             shipConfig = playerInfoHolder.getShipConfig();
             shipState = playerInfoHolder.getShipState();
             locationObject = playerInfoHolder.getLocationObject();
@@ -329,25 +302,6 @@ class ClientActionHandler extends PacketHandlerDecorator {
                     ClientActionHandler.log.debug("Position x " + positionX);
                     ClientActionHandler.log.debug("Position y " + positionY);
                 }
-
-                final float newPositionX = positionX;
-                final float newPositionY = positionY;
-                new RedisUnitOfWork() {
-                    @Override
-                    protected void doWork(JedisConnection connection) {
-                        LocationObjectPacketSerializer lopSerializer = new LocationObjectPacketSerializer();
-                        byte[] lopHashKey = playerInfoHolder.getLocationObjectPacketHashKey();
-
-                        byte[] lopBytes = connection.hGet(lopHashKey, lopHashKey);
-                        LocationObjectPacket lop = lopSerializer.deserialize(lopBytes);
-                        LocationObjectPacket newLop = LocationObjectPacket.newBuilder()
-                                .mergeFrom(lop)
-                                .setPositionX(newPositionX)
-                                .setPositionY(newPositionY).build();
-
-                        connection.hSet(lopHashKey, lopHashKey, lopSerializer.serialize(newLop));
-                    }
-                }.execute();
             }
         }
     }

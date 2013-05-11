@@ -114,24 +114,13 @@ public class LocationObject implements Serializable {
         LocationObject that = (LocationObject) o;
 
         if (locationId != that.locationId) return false;
-        if (locationObjectBehaviorTypeId != that.locationObjectBehaviorTypeId) return false;
-        if (locationObjectId != that.locationObjectId) return false;
-        if (locationObjectTypeId != that.locationObjectTypeId) return false;
-        if (objectNativeId != that.objectNativeId) return false;
-        if (positionX != that.positionX) return false;
-        if (positionY != that.positionY) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result = locationObjectId;
-        result = 31 * result + locationObjectBehaviorTypeId;
-        result = 31 * result + locationObjectTypeId;
-        result = 31 * result + objectNativeId;
-        result = 31 * result + locationId;
-        return result;
+        return locationObjectId;
     }
 
     private Location location;

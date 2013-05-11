@@ -190,31 +190,6 @@
 
 	<profiles>
         <profile>
-            <id>localhost</id>
-            <activation>
-                <property>
-                    <name>host</name>
-                    <value>local</value>
-                </property>
-            </activation>
-            <properties>
-                <filter.server.host>${basedir}/src/main/resources/local.properties</filter.server.host>
-            </properties>
-        </profile>
-        <profile>
-            <id>remote</id>
-            <activation>
-                <property>
-                    <name>host</name>
-                    <value>remote</value>
-                </property>
-            </activation>
-            <properties>
-                <filter.server.host>${basedir}/src/main/resources/remote.properties</filter.server.host>
-            </properties>
-        </profile>
-
-        <profile>
             <id>dev</id>
             <activation>
                 <property>
