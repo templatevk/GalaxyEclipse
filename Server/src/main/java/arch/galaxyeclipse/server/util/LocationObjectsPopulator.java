@@ -39,11 +39,12 @@ public class LocationObjectsPopulator {
     private boolean deleteScriptFile;
     private boolean execute;
     private Random rand;
-    private Integer[] objectNativeId;
+    private Integer objectDescriptionsCount;
     private int locationObjectBehaviorTypeId;
     private int locationId;
-    private Map<Integer, Integer> distances;
-    private Map<Integer, Integer> objectsTypesId;
+    private Map<Integer, Integer> objectsCount;
+    private Map<Integer, Integer> objectsTypeId;
+    private Map<Integer, Integer> objectsNativeId;
 
     public LocationObjectsPopulator() {
         loadPropertiesFile();
@@ -89,6 +90,11 @@ public class LocationObjectsPopulator {
     }
 
     private void initializeVariables() {
+        rand = new Random();
+        objectsCount = new HashMap<>();
+        objectsTypeId = new HashMap<>();
+        objectsNativeId = new HashMap<>();
+
         fileName = prop.getProperty("script.filename");
         dstDir = prop.getProperty("script.dst_dir");
         databaseName = prop.getProperty("script.db");
@@ -99,37 +105,20 @@ public class LocationObjectsPopulator {
         locationId = Integer.parseInt(prop.getProperty("location.id"));
         locationWidth = Float.valueOf(prop.getProperty("location.width"));
         locationHeight = Float.valueOf(prop.getProperty("location.height"));
-        String[] objNativeId = prop.getProperty("object_native_id").split(",");
-        objectNativeId = new Integer[objNativeId.length];
-        rand = new Random();
+        objectDescriptionsCount = Integer.valueOf(prop.getProperty(
+                "object_descriptions_count"));
 
-        distances = new HashMap<>();
-        objectsTypesId = new HashMap<>();
-        for(int i = 0; i < objNativeId.length; i++) {
-            objectNativeId[i] = Integer.valueOf(objNativeId[i]);
-        }
-
-        for (int i = 0; i < objectNativeId.length; i++) {
+        for (int i = 0; i < objectDescriptionsCount; i++) {
             Integer objCount = Integer.valueOf(prop.getProperty(
-                    "object_native_id." + objectNativeId[i]));
+                    "object." + i + ".count"));
             Integer objTypeId = Integer.valueOf(prop.getProperty(
-                    "object_native_id." + objectNativeId[i] + ".type"));
-            distances.put(objectNativeId[i], objCount);
-            objectsTypesId.put(objectNativeId[i], objTypeId);
+                    "object." + i + ".type_id"));
+            Integer objNativeId = Integer.valueOf(prop.getProperty(
+                    "object." + i + ".type_id"));
+            objectsCount.put(i, objCount);
+            objectsTypeId.put(i, objTypeId);
+            objectsNativeId.put(i, objNativeId);
         }
-    }
-
-    private GePosition[] setDistanceXY(int objectNativeId) {
-        int count = distances.get(objectNativeId);
-        GePosition[] position = new GePosition[count];
-
-        for(int i = 0; i < position.length; i++) {
-            position[i] = new GePosition();
-            position[i].setX(rand.nextFloat() * locationWidth);
-            position[i].setY(rand.nextFloat() * locationHeight);
-        }
-
-        return position;
     }
 
     private void generateScript() {
@@ -146,21 +135,27 @@ public class LocationObjectsPopulator {
                 "location_id)\n" +
                 "values\n(");
 
-        for (int i = 0; i < objectNativeId.length; i++) {
-            GePosition[] positions = setDistanceXY(objectNativeId[i]);
+        for (int i = 0; i < objectDescriptionsCount; i++) {
+            int count = objectsCount.get(i);
+            GePosition[] positions = new GePosition[count];
 
-            for(GePosition pos : positions) {
+            for(int j = 0; j < positions.length; j++) {
+                positions[j] = new GePosition();
+                positions[j].setX(rand.nextFloat() * locationWidth);
+                positions[j].setY(rand.nextFloat() * locationHeight);
+
                 float rotation_angle = rand.nextFloat() * MAX_DEGREES;
                 scriptBuilder.append(locationObjectBehaviorTypeId).append(", ");
-                scriptBuilder.append(objectsTypesId.get(objectNativeId[i])).append(", ");
-                scriptBuilder.append(objectNativeId[i]).append(", ");
+                scriptBuilder.append(objectsTypeId.get(i)).append(", ");
+                scriptBuilder.append(objectsNativeId.get(i)).append(", ");
                 scriptBuilder.append(rotation_angle).append(", ");
-                scriptBuilder.append(pos.getX()).append(", ");
-                scriptBuilder.append(pos.getY()).append(", ");
-                if (i != objectNativeId.length - 1) {
-                    scriptBuilder.append(locationId).append("),\n(");
-                } else {
+                scriptBuilder.append(positions[j].getX()).append(", ");
+                scriptBuilder.append(positions[j].getY()).append(", ");
+
+                if (i == objectDescriptionsCount - 1 && j == positions.length - 1) {
                     scriptBuilder.append(locationId).append(");");
+                } else {
+                    scriptBuilder.append(locationId).append("),\n(");
                 }
             }
         }

@@ -6,6 +6,8 @@ package arch.galaxyeclipse.shared.types;
 public enum LocationObjectTypesMapperType {
     ROCKET,
     ASTEROID,
+    STAR,
+    FOG,
     STATION,
     PLAYER;
 }

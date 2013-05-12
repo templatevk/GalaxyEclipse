@@ -45,7 +45,7 @@ class ClientWindow implements IClientWindow {
 
         if (log.isInfoEnabled()) {
             log.info("Setting display mode width " + desktopDisplayMode.width
-                    + "height " + desktopDisplayMode.height);
+                    + " height " + desktopDisplayMode.height);
         }
         config.title = "Galaxy Eclipse";
         switch (EnvType.CURRENT) {

@@ -91,9 +91,9 @@ public class ShipStaticInfoHolder extends ServerPacketListener {
     }
 
     private void outputItemInfo(GeProtocol.ShipStaticInfoPacket.ItemPacket item) {
-        log.debug("\t\tName" + item.getName());
-        log.debug("\t\tDescription" + item.getDescription());
-        log.debug("\t\tPrice" + item.getPrice());
+        log.debug("\t\tName " + item.getName());
+        log.debug("\t\tDescription " + item.getDescription());
+        log.debug("\t\tPrice " + item.getPrice());
 
         switch (dictionaryTypesMapper.getItemTypeById(item.getItemTypeId())) {
             case ENGINE:

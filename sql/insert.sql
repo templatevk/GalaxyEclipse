@@ -41,6 +41,8 @@ insert into location_object_type
   values
   ('rocket'),
   ('asteroid'),
+  ('star'),
+  ('fog'),
   ('station'),
   ('player');
 
