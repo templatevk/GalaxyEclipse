@@ -13,8 +13,10 @@ public interface IButtonBuilder extends IBuilder<TextButton> {
         GameChatHideButton,
         GameChatInnerScrollUpButton,
         GameChatInnerScrollDownButton,
-        GameChatInnerAutoScrollButton
+        GameChatInnerAutoScrollButton,
+        GameMiniMapHideButton
     }
+
     IButtonBuilder setType(ButtonType buttonType);
 
     IButtonBuilder setText(String text);

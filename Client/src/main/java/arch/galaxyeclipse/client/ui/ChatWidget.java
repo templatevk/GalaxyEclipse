@@ -26,7 +26,7 @@ public class ChatWidget extends Table implements IServerPacketListener {
     private final int DEFAULT_WIDTH = 570;
     private final int DEFAULT_HEIGHT = 591;
     private final int DEFAULT_MESSAGES_FIELD_WIDTH = 520;
-    private final int DEFAULT_MESSAGES_FIELD_HEIGHT = 370;
+    private final int DEFAULT_MESSAGES_FIELD_HEIGHT = 360;
     private final int DEFAULT_TEXT_FIELD_PADDING_BOTTOM = 80;
     private final int DEFAULT_TEXT_FIELD_PADDING_LEFT = 10;
     private final int DEFAULT_MESSAGES_FIELD_PADDING_BOTTOM = 150;

@@ -48,8 +48,8 @@ class DefaultButtonBuilder implements IButtonBuilder {
                 this.style.pressedOffsetY = -BUTTON_DOWN_OFFSET;
                 break;
             case GameChatHideButton:
-                this.style.up = new TextureRegionDrawable(resourceLoader.findRegion("ui/chat/btnUpChat"));
-                this.style.down = new TextureRegionDrawable(resourceLoader.findRegion("ui/chat/btnUpChat"));
+                this.style.up = new TextureRegionDrawable(resourceLoader.findRegion("ui/chat/btnChat"));
+                this.style.down = new TextureRegionDrawable(resourceLoader.findRegion("ui/chat/btnChat"));
                 this.style.font = resourceLoader.getFont("assets/font_calibri_36px");
                 this.style.fontColor = Color.WHITE;
                 this.style.downFontColor = Color.GRAY;
@@ -77,6 +77,15 @@ class DefaultButtonBuilder implements IButtonBuilder {
             case GameChatInnerAutoScrollButton:
                 this.style.up = new TextureRegionDrawable(resourceLoader.findRegion("ui/chat/btnChatAutoScroll"));
                 this.style.down = new TextureRegionDrawable(resourceLoader.findRegion("ui/chat/btnChatAutoScroll"));
+                this.style.font = resourceLoader.getFont("assets/font_calibri_36px");
+                this.style.fontColor = Color.WHITE;
+                this.style.downFontColor = Color.GRAY;
+                this.style.pressedOffsetX = BUTTON_DOWN_OFFSET;
+                this.style.pressedOffsetY = -BUTTON_DOWN_OFFSET;
+                break;
+            case GameMiniMapHideButton:
+                this.style.up = new TextureRegionDrawable(resourceLoader.findRegion("ui/minimap/btnMiniMap"));
+                this.style.down = new TextureRegionDrawable(resourceLoader.findRegion("ui/minimap/btnMiniMap"));
                 this.style.font = resourceLoader.getFont("assets/font_calibri_36px");
                 this.style.fontColor = Color.WHITE;
                 this.style.downFontColor = Color.GRAY;
