@@ -24,7 +24,6 @@ import java.util.Random;
 public class LocationObjectsPopulator {
     private static final String PROP_FILE_NAME = "obj_script.properties";
     private static final float MAX_DEGREES = 360f;
-    private static final int CYCLE_APPENDED_SYMBOLS_COUNT = 2;
 
     private Properties prop;
     private String script;
@@ -103,7 +102,7 @@ public class LocationObjectsPopulator {
 
         middleCoords =  prop.getProperty("MIDDLE").split(",");
         mCoordX = Float.valueOf(middleCoords[0]);
-        mCoordY = Float.valueOf(closeCoords[1]);
+        mCoordY = Float.valueOf(middleCoords[1]);
 
         locationObjectBehaviorTypeId = Integer.parseInt(prop.getProperty("location_object_behavior_type_id"));
         locationObjectTypeId = Integer.parseInt(prop.getProperty("location_object_type_id"));

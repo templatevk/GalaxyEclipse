@@ -19,7 +19,7 @@ import java.util.Properties;
 
 @Slf4j
 public class DbScriptExecutor {
-    private static final String PROP_FILENAME = "local.properties";
+    private static final String PROP_FILE_NAME = "local.properties";
 
     private Properties prop;
     private Statement statement;
@@ -52,7 +52,7 @@ public class DbScriptExecutor {
     private void loadPropertiesFile() {
         prop = new Properties();
         try {
-            prop.load(new FileInputStream(PROP_FILENAME));
+            prop.load(new FileInputStream(PROP_FILE_NAME));
             jdbcDriver = prop.getProperty("db.driver_class");
             dbname = prop.getProperty("db.url");
             username = prop.getProperty("db.username");
