@@ -1,8 +1,8 @@
 package arch.galaxyeclipse.client.ui;
 
+import arch.galaxyeclipse.client.data.IResourceLoader;
 import arch.galaxyeclipse.client.network.IClientNetworkManager;
 import arch.galaxyeclipse.client.network.IServerPacketListener;
-import arch.galaxyeclipse.client.resource.IResourceLoader;
 import arch.galaxyeclipse.shared.context.ContextHolder;
 import arch.galaxyeclipse.shared.protocol.GeProtocol;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -20,11 +20,10 @@ public class MiniMapWidget extends Table implements IServerPacketListener {
     private final int DEFAULT_WIDTH = 570;
     private final int DEFAULT_HEIGHT = 591;
 
-    IResourceLoader resourceLoader;
+    private IClientNetworkManager networkManager;
+    private IResourceLoader resourceLoader;
 
     private Drawable background;
-
-    private IClientNetworkManager networkManager;
 
     public MiniMapWidget() {
         networkManager = ContextHolder.getBean(IClientNetworkManager.class);

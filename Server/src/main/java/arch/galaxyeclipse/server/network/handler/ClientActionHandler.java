@@ -234,8 +234,8 @@ class ClientActionHandler extends PacketHandlerDecorator {
         public void setMoveType(ClientActionType moveType) {
             if (log.isTraceEnabled()) {
                 log.trace("Setting move type " + moveType);
-                moveActions.add(moveType);
             }
+            moveActions.add(moveType);
 
             switch (moveType) {
                 case MOVE_DOWN:

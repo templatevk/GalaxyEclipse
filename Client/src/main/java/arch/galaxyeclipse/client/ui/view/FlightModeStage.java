@@ -6,6 +6,7 @@ import arch.galaxyeclipse.client.data.ShipStaticInfoHolder;
 import arch.galaxyeclipse.client.network.IClientNetworkManager;
 import arch.galaxyeclipse.client.ui.ChatWidget;
 import arch.galaxyeclipse.client.ui.IButtonBuilder;
+import arch.galaxyeclipse.client.ui.IButtonBuilder.ButtonType;
 import arch.galaxyeclipse.client.ui.IButtonClickCommand;
 import arch.galaxyeclipse.client.ui.StageUiFactory;
 import arch.galaxyeclipse.client.ui.*;
@@ -104,7 +105,8 @@ public class FlightModeStage extends AbstractGameStage {
         rootLayout.addActor(miniMapWidget);
 
         miniMapBtn = StageUiFactory.createButtonBuilder().setText("MINIMAP")
-                .setType(IButtonBuilder.ButtonType.GameMiniMapHideButton)
+                // TODO
+                .setType(ButtonType.GAME_CHAT_HIDE_BUTTON)
                 .setClickCommand(new IButtonClickCommand() {
                     @Override
                     public void execute(InputEvent e, float x, float y) {
@@ -177,9 +179,11 @@ public class FlightModeStage extends AbstractGameStage {
         chatWidget.setSize(chatWidgetWidth, chatWidgetHeight);
         chatWidget.setX(CHAT_PADDING_LEFT * getScaleX());
         chatWidget.setY(CHAT_PADDING_BOTTOM * getScaleX());
+
         miniMapWidget.setSize(miniMapWidget.getPrefWidth() * getScaleX(), miniMapWidget.getPrefHeight() * getScaleY());
         miniMapWidget.setX(viewportWidth - miniMapWidget.getWidth() - (MINIMAP_PADDING_RIGHT * getScaleX()));
         miniMapWidget.setY(MINIMAP_PADDING_BOTTOM * getScaleX());
+
         miniMapBtnTable.setScale(getScaleX(), getScaleY());
         miniMapBtnTable.setX(viewportWidth - (miniMapBtnTable.getWidth() * getScaleX()) - (MINIMAP_BUTTON_PADDING_RIGHT * getScaleX()));
         miniMapBtnTable.setY(MINIMAP_BUTTON_PADDING_BOTTOM * getScaleY());

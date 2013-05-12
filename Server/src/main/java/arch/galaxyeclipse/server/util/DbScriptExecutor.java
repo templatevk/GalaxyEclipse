@@ -37,7 +37,7 @@ class DbScriptExecutor {
 
             statement = con.createStatement();
             DbScriptExecutor.log.info("Database connection established");
-            DbScriptExecutor.log.info("Executing script to database...");
+            DbScriptExecutor.log.info("Passing script to database...");
             final int ROWS_COUNT = statement.executeUpdate(script, Statement.RETURN_GENERATED_KEYS);
 
             DbScriptExecutor.log.info("Script executed successfully.");

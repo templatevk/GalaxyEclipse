@@ -3,7 +3,6 @@ package arch.galaxyeclipse.server.util;
 
 import arch.galaxyeclipse.shared.common.GePosition;
 import com.google.common.io.Files;
-import com.sun.org.apache.xml.internal.security.utils.resolver.implementations.ResolverAnonymous;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.File;
@@ -55,7 +54,6 @@ public class LocationObjectsPopulator {
     }
 
     public void populate() {
-        DbScriptExecutor executor = new DbScriptExecutor();
         generateScript();
         if (!deleteScriptFile) {
             try {
@@ -77,6 +75,7 @@ public class LocationObjectsPopulator {
             }
         }
         if (execute) {
+            DbScriptExecutor executor = new DbScriptExecutor();
             executor.executeScript(script);
         }
     }
@@ -99,7 +98,8 @@ public class LocationObjectsPopulator {
         deleteScriptFile = Boolean.valueOf(prop.getProperty("script.delete_file"));
         execute = Boolean.valueOf(prop.getProperty("script.execute"));
 
-        locationObjectBehaviorTypeId = Integer.parseInt(prop.getProperty("location_object_behavior_type_id"));
+        locationObjectBehaviorTypeId = Integer.parseInt(prop.getProperty(
+                "location_object_behavior_type_id"));
         locationObjectTypeId = Integer.parseInt(prop.getProperty("location_object_type_id"));
         locationId = Integer.parseInt(prop.getProperty("location.id"));
         locationWidth = Float.valueOf(prop.getProperty("location.width"));
@@ -114,7 +114,8 @@ public class LocationObjectsPopulator {
         }
 
         for (int i = 0; i < objectNativeId.length; i++) {
-            Integer objCount = Integer.valueOf(prop.getProperty("object_native_id." + objectNativeId[i]));
+            Integer objCount = Integer.valueOf(prop.getProperty(
+                    "object_native_id." + objectNativeId[i]));
             distances.put(objectNativeId[i], objCount);
         }
     }
@@ -123,11 +124,11 @@ public class LocationObjectsPopulator {
         int count = distances.get(objectNativeId);
         GePosition[] position = new GePosition[count];
 
-            for(int i = 0; i < position.length; i++) {
-                position[i] = new GePosition();
-                position[i].setX(rand.nextFloat() * locationWidth);
-                position[i].setY(rand.nextFloat() * locationHeight);
-            }
+        for(int i = 0; i < position.length; i++) {
+            position[i] = new GePosition();
+            position[i].setX(rand.nextFloat() * locationWidth);
+            position[i].setY(rand.nextFloat() * locationHeight);
+        }
 
         return position;
     }
