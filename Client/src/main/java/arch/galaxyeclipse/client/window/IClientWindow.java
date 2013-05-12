@@ -16,4 +16,6 @@ public interface IClientWindow {
 
     float getHeight();
     float getWidth() ;
+    float getViewportHeight();
+    float getViewportWidth() ;
 }

@@ -21,7 +21,7 @@ public abstract class AbstractGameStage extends Stage {
     }
 
     public void resize(float viewportWidth, float viewportHeight) {
-        setViewport(viewportWidth, viewportHeight, false);
+        setViewport(viewportWidth, viewportHeight, true);
 
         scaleX = viewportWidth / IClientWindow.DEFAULT_WIDTH * DEFAULT_SCALE_COEF;
         scaleY = viewportHeight / IClientWindow.DEFAULT_HEIGHT * DEFAULT_SCALE_COEF;
@@ -42,7 +42,7 @@ public abstract class AbstractGameStage extends Stage {
     }
 
     public void forceResize() {
-        resize(clientWindow.getWidth(), clientWindow.getHeight());
+        resize(clientWindow.getViewportWidth(), clientWindow.getViewportHeight());
     }
 
     protected Group getScaleGroup() {

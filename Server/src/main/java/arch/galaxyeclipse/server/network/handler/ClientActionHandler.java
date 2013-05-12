@@ -3,6 +3,7 @@ package arch.galaxyeclipse.server.network.handler;
 import arch.galaxyeclipse.server.data.DynamicObjectsHolder.LocationObjectsHolder;
 import arch.galaxyeclipse.server.data.PlayerInfoHolder;
 import arch.galaxyeclipse.server.data.model.ShipConfig;
+import arch.galaxyeclipse.shared.common.LogUtils;
 import arch.galaxyeclipse.shared.common.MathUtils;
 import arch.galaxyeclipse.shared.protocol.GeProtocol;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket;
@@ -17,7 +18,6 @@ import static arch.galaxyeclipse.shared.GeConstants.*;
 /**
  *
  */
-// TODO fix the bug: when client goes online rotation/speed/position handlers are still running
 @Slf4j
 class ClientActionHandler extends PacketHandlerDecorator {
     private PlayerInfoHolder playerInfoHolder;
@@ -106,10 +106,16 @@ class ClientActionHandler extends PacketHandlerDecorator {
 
         public void setRotationType(ClientActionType rotationType) {
             this.rotationType = rotationType;
+            if (log.isTraceEnabled()) {
+                log.trace("Setting rotation type " + rotationType);
+            }
 
             switch (rotationType) {
                 case ROTATE_LEFT_DOWN:
                 case ROTATE_RIGHT_DOWN:
+                    if (log.isTraceEnabled()) {
+                        log.trace("Starting " + LogUtils.getObjectInfo(this));
+                    }
                     setRunnable(rotatingRunnable);
                     start();
                     break;
@@ -149,10 +155,12 @@ class ClientActionHandler extends PacketHandlerDecorator {
                 }
                 lopBuilder.setRotationAngle(currentRotationAngle);
 
-                if (ClientActionHandler.log.isDebugEnabled()) {
-                    ClientActionHandler.log.debug(rotationType.toString());
-                    ClientActionHandler.log.debug("Rotation speed " + currentRotationSpeed);
-                    ClientActionHandler.log.debug("Rotation angle " + currentRotationAngle);
+                if (ClientActionHandler.log.isTraceEnabled()) {
+                    ClientActionHandler.log.trace(rotationType.toString());
+                    ClientActionHandler.log.trace("Rotation speed " + currentRotationSpeed
+                            + " object " + lopBuilder.getObjectId());
+                    ClientActionHandler.log.trace("Rotation angle " + currentRotationAngle
+                            + " object " + lopBuilder.getObjectId());
                 }
             }
         }
@@ -190,10 +198,12 @@ class ClientActionHandler extends PacketHandlerDecorator {
                 }
                 lopBuilder.setRotationAngle(currentRotationAngle);
 
-                if (ClientActionHandler.log.isDebugEnabled()) {
-                    ClientActionHandler.log.debug(rotationType.toString());
-                    ClientActionHandler.log.debug("Rotation speed " + currentRotationSpeed);
-                    ClientActionHandler.log.debug("Rotation angle " + currentRotationAngle);
+                if (ClientActionHandler.log.isTraceEnabled()) {
+                    ClientActionHandler.log.trace(rotationType.toString());
+                    ClientActionHandler.log.trace("Rotation speed " + currentRotationSpeed
+                            + " object " + lopBuilder.getObjectId());
+                    ClientActionHandler.log.trace("Rotation angle " + currentRotationAngle
+                            + " object " + lopBuilder.getObjectId());
                 }
             }
         }
@@ -220,23 +230,41 @@ class ClientActionHandler extends PacketHandlerDecorator {
 
         public void setMoveType(ClientActionType moveType) {
             this.moveType = moveType;
+            if (log.isTraceEnabled()) {
+                log.trace("Setting move type " + moveType);
+            }
 
             switch (moveType) {
                 case MOVE_DOWN:
                 case STOP_DOWN:
                     if (!positionTask.isAlive()) {
+                        if (log.isTraceEnabled()) {
+                            log.trace("Starting " + LogUtils.getObjectInfo(positionTask));
+                        }
                         positionTask.start();
                     }
-                    speedTask.start();
+                    if (!speedTask.isAlive()) {
+                        if (log.isTraceEnabled()) {
+                            log.trace("Starting " + LogUtils.getObjectInfo(speedTask));
+                        }
+                        speedTask.start();
+                    }
                     break;
                 case MOVE_UP:
                 case STOP_UP:
+                    if (log.isTraceEnabled()) {
+                        log.trace("Stopping " + LogUtils.getObjectInfo(speedTask));
+                    }
                     speedTask.stop();
                     break;
             }
         }
 
         public void stop() {
+            if (log.isTraceEnabled()) {
+                log.trace("Stopping " + LogUtils.getObjectInfo(speedTask));
+                log.trace("Stopping " + LogUtils.getObjectInfo(positionTask));
+            }
             speedTask.stop();
             positionTask.stop();
         }
@@ -259,9 +287,14 @@ class ClientActionHandler extends PacketHandlerDecorator {
                         break;
                     case STOP_DOWN:
                         currentMoveSpeed -= moveAcceleration;
+                    case STOP_UP:
                         if (currentMoveSpeed <= 0) {
                             currentMoveSpeed = 0;
-                            speedTask.stop();
+                            if (log.isTraceEnabled()) {
+                                log.trace("Stopping " + LogUtils.getObjectInfo(this));
+                                log.trace("Stopping " + LogUtils.getObjectInfo(positionTask));
+                            }
+                            stop();
                             positionTask.stop();
                         }
                         break;
@@ -273,9 +306,10 @@ class ClientActionHandler extends PacketHandlerDecorator {
 
                 ssrBuilder.setMoveSpeed(currentMoveSpeed);
 
-                if (ClientActionHandler.log.isDebugEnabled()) {
-                    ClientActionHandler.log.debug(moveType.toString());
-                    ClientActionHandler.log.debug("Move speed " + currentMoveSpeed);
+                if (ClientActionHandler.log.isTraceEnabled()) {
+                    ClientActionHandler.log.trace(moveType.toString());
+                    ClientActionHandler.log.trace("Move speed " + currentMoveSpeed
+                            + " object " + lopBuilder.getObjectId());
                 }
             }
         }
@@ -303,10 +337,12 @@ class ClientActionHandler extends PacketHandlerDecorator {
                 ssrBuilder.setPositionX(positionX);
                 ssrBuilder.setPositionY(positionY);
 
-                if (ClientActionHandler.log.isDebugEnabled()) {
-                    ClientActionHandler.log.debug(moveType.toString());
-                    ClientActionHandler.log.debug("Position x " + positionX);
-                    ClientActionHandler.log.debug("Position y " + positionY);
+                if (ClientActionHandler.log.isTraceEnabled()) {
+                    ClientActionHandler.log.trace(moveType.toString());
+                    ClientActionHandler.log.trace("Position x " + positionX
+                            + " object " + lopBuilder.getObjectId());
+                    ClientActionHandler.log.trace("Position y " + positionY
+                            + " object " + lopBuilder.getObjectId());
                 }
             }
         }
