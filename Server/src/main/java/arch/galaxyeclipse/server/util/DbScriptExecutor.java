@@ -1,4 +1,4 @@
-package arch.galaxyeclipse.server.data;
+package arch.galaxyeclipse.server.util;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -18,7 +18,7 @@ import java.util.Properties;
  */
 
 @Slf4j
-public class DbScriptExecutor {
+class DbScriptExecutor {
     private static final String PROP_FILENAME = "env/db.properties";
 
     private Properties prop;
