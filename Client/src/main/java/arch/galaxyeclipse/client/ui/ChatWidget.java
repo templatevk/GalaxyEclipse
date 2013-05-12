@@ -209,6 +209,7 @@ public class ChatWidget extends Table implements IServerPacketListener {
         autoScrollBtnTable.setTransform(true);
         autoScrollBtnTable.row();
         autoScrollBtnTable.add(autoScrollBtn);
+        addActor(autoScrollBtnTable);
 
         networkManager.addPacketListener(this);
     }
@@ -282,9 +283,6 @@ public class ChatWidget extends Table implements IServerPacketListener {
                 GeProtocol.ChatReceiveMessagePacket messagePacket = packet.getChatReceiveMessage();
                 messagesField.setText(messagesField.getText() +
                         messagePacket.getSender() + " : " + messagePacket.getMessage() + "\n");
-//                if (isAutoScrollEnabled) {
-//                    messagesScrollPane.setScrollY(messagesScrollPane.getMaxY());
-//                }
                 break;
         }
     }
