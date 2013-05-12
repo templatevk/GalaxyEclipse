@@ -6,7 +6,6 @@ import arch.galaxyeclipse.client.data.ShipStaticInfoHolder;
 import arch.galaxyeclipse.client.network.IClientNetworkManager;
 import arch.galaxyeclipse.client.ui.ChatWidget;
 import arch.galaxyeclipse.client.ui.IButtonBuilder;
-import arch.galaxyeclipse.client.ui.IButtonBuilder.ButtonType;
 import arch.galaxyeclipse.client.ui.IButtonClickCommand;
 import arch.galaxyeclipse.client.ui.StageUiFactory;
 import arch.galaxyeclipse.client.ui.*;
@@ -78,11 +77,8 @@ public class FlightModeStage extends AbstractGameStage {
         rootLayout.setTransform(false);
         rootLayout.addActor(gameActorsLayout);
         addActor(rootLayout);
-        addListener(new ClientActionListener());
 
         chatWidget = new ChatWidget();
-        chatWidget.setX(CHAT_PADDING_LEFT);
-        chatWidget.setY(CHAT_PADDING_BOTTOM);
         rootLayout.addActor(chatWidget);
 
         chatBtn = StageUiFactory.createButtonBuilder().setText("CHAT")
@@ -93,20 +89,21 @@ public class FlightModeStage extends AbstractGameStage {
                         chatWidget.setVisible(!chatWidget.isVisible());
                     }
                 }).build();
-
         chatBtnTable = new Table();
         chatBtnTable.setSize(chatBtn.getWidth() ,chatBtn.getHeight());
         chatBtnTable.setTransform(true);
         chatBtnTable.row();
-        chatBtnTable.add(chatBtn);        
+        chatBtnTable.add(chatBtn);
         rootLayout.addActor(chatBtnTable);
 
+
         miniMapWidget = new MiniMapWidget();
+        miniMapWidget.setX(CHAT_PADDING_LEFT);
+        miniMapWidget.setY(CHAT_PADDING_BOTTOM);
         rootLayout.addActor(miniMapWidget);
 
         miniMapBtn = StageUiFactory.createButtonBuilder().setText("MINIMAP")
-                // TODO
-                .setType(ButtonType.GAME_CHAT_HIDE_BUTTON)
+                .setType(IButtonBuilder.ButtonType.GAME_MINIMAP_HIDE_BUTTON)
                 .setClickCommand(new IButtonClickCommand() {
                     @Override
                     public void execute(InputEvent e, float x, float y) {
@@ -168,25 +165,33 @@ public class FlightModeStage extends AbstractGameStage {
         gameActorsLayout.setOrigin(gameActorsLayoutWidth / 2f, gameActorsLayoutHeight / 2f);
         gameActorsLayout.setPosition(gameActorsLayoutX, gameActorsLayoutY);
 
-        float chatBtnTableWidth = CHAT_BUTTON_PADDING_LEFT * getScaleX();
-        float chatBtnTableHeight = CHAT_BUTTON_PADDING_BOTTOM * getScaleY();
-        chatBtnTable.setScale(getScaleX(), getScaleY());
-        chatBtnTable.setX(chatBtnTableWidth);
-        chatBtnTable.setY(chatBtnTableHeight);
-
         float chatWidgetWidth = chatWidget.getPrefWidth() * getScaleX();
         float chatWidgetHeight = chatWidget.getPrefHeight() * getScaleY();
+        float chatWidgetX = CHAT_PADDING_LEFT * getScaleX();
+        float chatWidgetY = CHAT_PADDING_BOTTOM * getScaleX();
         chatWidget.setSize(chatWidgetWidth, chatWidgetHeight);
-        chatWidget.setX(CHAT_PADDING_LEFT * getScaleX());
-        chatWidget.setY(CHAT_PADDING_BOTTOM * getScaleX());
+        chatWidget.setX(chatWidgetX);
+        chatWidget.setY(chatWidgetY);
 
-        miniMapWidget.setSize(miniMapWidget.getPrefWidth() * getScaleX(), miniMapWidget.getPrefHeight() * getScaleY());
-        miniMapWidget.setX(viewportWidth - miniMapWidget.getWidth() - (MINIMAP_PADDING_RIGHT * getScaleX()));
-        miniMapWidget.setY(MINIMAP_PADDING_BOTTOM * getScaleX());
+        float chatBtnTableX = CHAT_BUTTON_PADDING_LEFT * getScaleX();
+        float chatBtnTableY = CHAT_BUTTON_PADDING_BOTTOM * getScaleY();
+        chatBtnTable.setScale(getScaleX(), getScaleY());
+        chatBtnTable.setX(chatBtnTableX);
+        chatBtnTable.setY(chatBtnTableY);
 
+        float miniMapWidgetWidth = miniMapWidget.getPrefWidth() * getScaleX();
+        float miniMapWidgetHeight = miniMapWidget.getPrefHeight() * getScaleY();
+        float miniMapWidgetX = viewportWidth - miniMapWidgetWidth - (MINIMAP_PADDING_RIGHT * getScaleX());
+        float miniMapWidgetY = MINIMAP_PADDING_BOTTOM * getScaleX();
+        miniMapWidget.setSize(miniMapWidgetWidth , miniMapWidgetHeight);
+        miniMapWidget.setX(miniMapWidgetX);
+        miniMapWidget.setY(miniMapWidgetY);
+
+        float miniMapBtnTableX = viewportWidth - (miniMapBtnTable.getWidth() * getScaleX()) - (MINIMAP_BUTTON_PADDING_RIGHT * getScaleX());
+        float miniMapBtnTableY = MINIMAP_BUTTON_PADDING_BOTTOM * getScaleY();
         miniMapBtnTable.setScale(getScaleX(), getScaleY());
-        miniMapBtnTable.setX(viewportWidth - (miniMapBtnTable.getWidth() * getScaleX()) - (MINIMAP_BUTTON_PADDING_RIGHT * getScaleX()));
-        miniMapBtnTable.setY(MINIMAP_BUTTON_PADDING_BOTTOM * getScaleY());
+        miniMapBtnTable.setX(miniMapBtnTableX);
+        miniMapBtnTable.setY(miniMapBtnTableY);
 
         if (EnvType.CURRENT == EnvType.DEV) {
             final float MAIN_MENU_BTN_COEF = 0.1f;

@@ -3,6 +3,7 @@ package arch.galaxyeclipse.client.ui;
 import arch.galaxyeclipse.client.data.IResourceLoader;
 import arch.galaxyeclipse.client.network.IClientNetworkManager;
 import arch.galaxyeclipse.client.network.IServerPacketListener;
+import arch.galaxyeclipse.client.resource.IResourceLoader;
 import arch.galaxyeclipse.shared.context.ContextHolder;
 import arch.galaxyeclipse.shared.protocol.GeProtocol;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
