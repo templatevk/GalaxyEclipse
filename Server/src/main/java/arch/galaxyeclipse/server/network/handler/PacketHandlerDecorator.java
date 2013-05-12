@@ -29,9 +29,9 @@ abstract class PacketHandlerDecorator extends StatefulPacketHandler
         if (!handleImp(packet)) {
             return decoratedPacketHandler.handle(packet);
         }
-        if (log.isDebugEnabled()) {
+        if (log.isTraceEnabled()) {
             String username = getServerChannelHandler().getPlayerInfoHolder().getPlayer().getUsername();
-            log.debug(username + " " + packet.getType());
+            log.trace(username + " " + packet.getType());
         }
         return true;
     }

@@ -73,12 +73,6 @@
                 <artifactId>Shared</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
-            <dependency>
-                <groupId>GalaxyEclipse</groupId>
-                <artifactId>Client</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
-                <scope>test</scope>
-            </dependency>
 
             <dependency>
                 <groupId>commons-dbcp</groupId>
@@ -199,7 +193,7 @@
             </activation>
             <properties>
                 <env.type>DEV</env.type>
-                <filter.env>${basedir}/src/main/resources/dev.properties</filter.env>
+                <filter.env>${basedir}/src/main/resources/env/dev.properties</filter.env>
             </properties>
         </profile>
         <profile>
@@ -212,7 +206,7 @@
             </activation>
             <properties>
                 <env.type>DEV_UI</env.type>
-                <filter.env>${basedir}/src/main/resources/dev.properties</filter.env>
+                <filter.env>${basedir}/src/main/resources/env/dev.properties</filter.env>
             </properties>
         </profile>
         <profile>
@@ -225,7 +219,7 @@
             </activation>
             <properties>
                 <env.type>PROD</env.type>
-                <filter.env>${basedir}/src/main/resources/prod.properties</filter.env>
+                <filter.env>${basedir}/src/main/resources/env/prod.properties</filter.env>
             </properties>
         </profile>
     </profiles>

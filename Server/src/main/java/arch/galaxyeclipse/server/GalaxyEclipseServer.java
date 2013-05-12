@@ -27,7 +27,6 @@ public class GalaxyEclipseServer {
     public static void main(String[] args) throws Exception {
         GalaxyEclipseServer server = new GalaxyEclipseServer();
         try {
-            server.preconfigure();
             server.start();
         } catch (Exception e) {
             log.error("Error during server startup", e);

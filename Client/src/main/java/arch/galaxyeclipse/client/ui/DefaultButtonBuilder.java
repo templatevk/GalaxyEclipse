@@ -1,6 +1,6 @@
 package arch.galaxyeclipse.client.ui;
 
-import arch.galaxyeclipse.client.resource.IResourceLoader;
+import arch.galaxyeclipse.client.data.IResourceLoader;
 import arch.galaxyeclipse.shared.context.ContextHolder;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Color;
@@ -10,13 +10,11 @@ import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.FocusListener;
-import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 
 /**
  *
  */
 class DefaultButtonBuilder implements IButtonBuilder {
-
     private static final int TEXT_PADDING_Y = -10;
     private static final float BUTTON_DOWN_OFFSET = 2;
 
@@ -34,65 +32,39 @@ class DefaultButtonBuilder implements IButtonBuilder {
     }
 
     @Override
-    public IButtonBuilder setType(ButtonType buttonType){
+    public IButtonBuilder setType(ButtonType buttonType) {
         IResourceLoader resourceLoader = ContextHolder.getBean(IResourceLoader.class);
-        switch (buttonType)
-        {
-            case MainMenuButton:
-                this.style.up = new TextureRegionDrawable(resourceLoader.findRegion("ui/btnUp"));
-                this.style.down = new TextureRegionDrawable(resourceLoader.findRegion("ui/btnDown"));
+        switch (buttonType) {
+            case MAIN_MENU_BUTTON:
+                this.style.up = resourceLoader.createDrawable("ui/btnUp");
+                this.style.down = resourceLoader.createDrawable("ui/btnDown");
                 this.style.font = resourceLoader.getFont("assets/font_calibri_48px");
-                this.style.fontColor = Color.WHITE;
-                this.style.downFontColor = Color.GRAY;
-                this.style.pressedOffsetX = BUTTON_DOWN_OFFSET;
-                this.style.pressedOffsetY = -BUTTON_DOWN_OFFSET;
                 break;
-            case GameChatHideButton:
-                this.style.up = new TextureRegionDrawable(resourceLoader.findRegion("ui/chat/btnChat"));
-                this.style.down = new TextureRegionDrawable(resourceLoader.findRegion("ui/chat/btnChat"));
+            case GAME_CHAT_HIDE_BUTTON:
+                this.style.up = resourceLoader.createDrawable("ui/chat/btnUpChat");
+                this.style.down = resourceLoader.createDrawable("ui/chat/btnUpChat");
                 this.style.font = resourceLoader.getFont("assets/font_calibri_36px");
-                this.style.fontColor = Color.WHITE;
-                this.style.downFontColor = Color.GRAY;
-                this.style.pressedOffsetX = BUTTON_DOWN_OFFSET;
-                this.style.pressedOffsetY = -BUTTON_DOWN_OFFSET;
                 break;
-            case GameChatInnerScrollUpButton:
-                this.style.up = new TextureRegionDrawable(resourceLoader.findRegion("ui/chat/btnChatScrollUp"));
-                this.style.down = new TextureRegionDrawable(resourceLoader.findRegion("ui/chat/btnChatScrollUp"));
+            case GAME_CHAT_INNER_SCROLL_UP_BUTTON:
+                this.style.up = resourceLoader.createDrawable("ui/chat/btnChatScrollUp");
+                this.style.down = resourceLoader.createDrawable("ui/chat/btnChatScrollUp");
                 this.style.font = resourceLoader.getFont("assets/font_calibri_36px");
-                this.style.fontColor = Color.WHITE;
-                this.style.downFontColor = Color.GRAY;
-                this.style.pressedOffsetX = BUTTON_DOWN_OFFSET;
-                this.style.pressedOffsetY = -BUTTON_DOWN_OFFSET;
                 break;
-            case GameChatInnerScrollDownButton:
-                this.style.up = new TextureRegionDrawable(resourceLoader.findRegion("ui/chat/btnChatScrollDown"));
-                this.style.down = new TextureRegionDrawable(resourceLoader.findRegion("ui/chat/btnChatScrollDown"));
+            case GAME_CHAT_INNER_SCROLL_DOWN_BUTTON:
+                this.style.up = resourceLoader.createDrawable("ui/chat/btnChatScrollDown");
+                this.style.down = resourceLoader.createDrawable("ui/chat/btnChatScrollDown");
                 this.style.font = resourceLoader.getFont("assets/font_calibri_36px");
-                this.style.fontColor = Color.WHITE;
-                this.style.downFontColor = Color.GRAY;
-                this.style.pressedOffsetX = BUTTON_DOWN_OFFSET;
-                this.style.pressedOffsetY = -BUTTON_DOWN_OFFSET;
                 break;
-            case GameChatInnerAutoScrollButton:
-                this.style.up = new TextureRegionDrawable(resourceLoader.findRegion("ui/chat/btnChatAutoScroll"));
-                this.style.down = new TextureRegionDrawable(resourceLoader.findRegion("ui/chat/btnChatAutoScroll"));
+            case GAME_CHAT_INNER_AUTO_SCROLL_BUTTON:
+                this.style.up = resourceLoader.createDrawable("ui/chat/btnChatAutoScroll");
+                this.style.down = resourceLoader.createDrawable("ui/chat/btnChatAutoScroll");
                 this.style.font = resourceLoader.getFont("assets/font_calibri_36px");
-                this.style.fontColor = Color.WHITE;
-                this.style.downFontColor = Color.GRAY;
-                this.style.pressedOffsetX = BUTTON_DOWN_OFFSET;
-                this.style.pressedOffsetY = -BUTTON_DOWN_OFFSET;
-                break;
-            case GameMiniMapHideButton:
-                this.style.up = new TextureRegionDrawable(resourceLoader.findRegion("ui/minimap/btnMiniMap"));
-                this.style.down = new TextureRegionDrawable(resourceLoader.findRegion("ui/minimap/btnMiniMap"));
-                this.style.font = resourceLoader.getFont("assets/font_calibri_36px");
-                this.style.fontColor = Color.WHITE;
-                this.style.downFontColor = Color.GRAY;
-                this.style.pressedOffsetX = BUTTON_DOWN_OFFSET;
-                this.style.pressedOffsetY = -BUTTON_DOWN_OFFSET;
                 break;
         }
+        this.style.fontColor = Color.WHITE;
+        this.style.downFontColor = Color.GRAY;
+        this.style.pressedOffsetX = BUTTON_DOWN_OFFSET;
+        this.style.pressedOffsetY = -BUTTON_DOWN_OFFSET;
         return this;
     }
 
@@ -143,7 +115,6 @@ class DefaultButtonBuilder implements IButtonBuilder {
                 return super.keyTyped(event, character);
             }
 
-
             @Override
             public boolean keyDown(InputEvent event, int keycode) {
                 if (event.getKeyCode() == Input.Keys.ENTER) {
@@ -159,9 +130,7 @@ class DefaultButtonBuilder implements IButtonBuilder {
                 }
                 return super.keyUp(event, keycode);
             }
-
         });
-
         return button;
     }
 }

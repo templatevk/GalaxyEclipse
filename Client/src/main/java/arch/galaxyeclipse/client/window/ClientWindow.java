@@ -1,8 +1,5 @@
 package arch.galaxyeclipse.client.window;
 
-import arch.galaxyeclipse.client.ui.IButtonBuilder;
-import arch.galaxyeclipse.client.ui.IButtonClickCommand;
-import arch.galaxyeclipse.client.ui.StageUiFactory;
 import arch.galaxyeclipse.client.ui.provider.IStageProvider;
 import arch.galaxyeclipse.client.ui.provider.StageProviderFactory;
 import arch.galaxyeclipse.shared.EnvType;
@@ -11,15 +8,14 @@ import arch.galaxyeclipse.shared.context.ContextHolder;
 import arch.galaxyeclipse.shared.thread.GeExecutor;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Graphics.DisplayMode;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
-import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
@@ -28,11 +24,9 @@ import java.util.List;
 
 @Slf4j
 class ClientWindow implements IClientWindow {
-    private static final float VIRTUAL_WIDTH = 480;
-    private static final float VIRTUAL_HEIGHT = 360;
-    private static final float ASPECT_RATIO = VIRTUAL_WIDTH / VIRTUAL_HEIGHT;
-    private static final float PROD_WIDTH = 640;
-    private static final float PROD_HEIGHT = 480;
+    private static final float VIRTUAL_WIDTH    = 4;
+    private static final float VIRTUAL_HEIGHT   = 3;
+    private static final float ASPECT_RATIO     = VIRTUAL_WIDTH / VIRTUAL_HEIGHT;
 
 	private IStageProvider stageProvider;
     private Rectangle viewport;
@@ -40,28 +34,38 @@ class ClientWindow implements IClientWindow {
 
     private @Getter float width;
     private @Getter float height;
+    private @Getter float viewportWidth;
+    private @Getter float viewportHeight;
 
-	public ClientWindow() {
+    public ClientWindow() {
+        this.destroyables = new ArrayList<>();
+
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-		config.title = "Galaxy Eclipse";
+        DisplayMode desktopDisplayMode = LwjglApplicationConfiguration.getDesktopDisplayMode();
 
+        if (log.isInfoEnabled()) {
+            log.info("Setting display mode width " + desktopDisplayMode.width
+                    + "height " + desktopDisplayMode.height);
+        }
+        config.title = "Galaxy Eclipse";
         switch (EnvType.CURRENT) {
-//            TODO switch to below commented case
-            case PROD:
             case DEV:
+                final int DEV_MODE_WIDTH = 800;
+                final int DEV_MODE_HEIGHT = (int)(DEV_MODE_WIDTH / ASPECT_RATIO);
+                config.width = DEV_MODE_WIDTH;
+                config.height = DEV_MODE_HEIGHT;
+                break;
+            case DEV_UI:
                 config.width = (int)DEFAULT_WIDTH;
                 config.height = (int)DEFAULT_HEIGHT;
                 break;
-//            case PROD:
-//                config.width = (int)PROD_WIDTH;
-//                config.height = (int)PROD_HEIGHT;
-//                config.fullscreen = true;
-//                break;
+            case PROD:
+                config.width = desktopDisplayMode.width;
+                config.height = desktopDisplayMode.height;
+                config.fullscreen = true;
+                break;
         }
-
 		new LwjglApplication(new ClientListener(), config);
-
-        destroyables = new ArrayList<>();
 	}
 
     @Override
@@ -72,23 +76,6 @@ class ClientWindow implements IClientWindow {
         this.stageProvider = stageProvider;
 
         Gdx.input.setInputProcessor(stageProvider.getGameStage());
-
-        if (EnvType.CURRENT == EnvType.DEV) {
-            TextButton mainMenuBtn = StageUiFactory.createButtonBuilder()
-                    .setText("Main menu")
-                    .setType(IButtonBuilder.ButtonType.MainMenuButton)
-                    .setClickCommand(new IButtonClickCommand() {
-                        @Override
-                        public void execute(InputEvent e, float x, float y) {
-                            IStageProvider provider = StageProviderFactory.createStageProvider(
-                                    StageProviderFactory.StagePresenterType.MAIN_MENU);
-                            setStageProvider(provider);
-                            provider.getGameStage().forceResize();
-                        }
-                    }).build();
-
-            stageProvider.getGameStage().addActor(mainMenuBtn);
-        }
     }
 
     @Override
@@ -111,6 +98,7 @@ class ClientWindow implements IClientWindow {
             Gdx.gl.glHint(GL10.GL_POINT_SMOOTH_HINT,            GL20.GL_NICEST);
             Gdx.gl.glHint(GL10.GL_POLYGON_SMOOTH_HINT,          GL20.GL_NICEST);
             Gdx.gl.glHint(GL20.GL_FRAGMENT_SHADER,              GL20.GL_NICEST);
+            glClear();
 
             setStageProvider(StageProviderFactory.createStageProvider(
                     StageProviderFactory.StagePresenterType.MAIN_MENU));
@@ -134,13 +122,9 @@ class ClientWindow implements IClientWindow {
 
         @Override
         public void render() {
-            Gdx.gl.glClearColor(0, 0, 0.2f, 1);
-            Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
-            Gdx.gl.glViewport((int)viewport.x, (int)viewport.y,
-                    (int)viewport.width, (int)viewport.height);
+            glClear();
 
             stageProvider.getGameStage().act(Gdx.graphics.getDeltaTime());
-
             stageProvider.getGameStage().draw();
 
             if (EnvType.CURRENT == EnvType.DEV) {
@@ -167,8 +151,8 @@ class ClientWindow implements IClientWindow {
                 scale = width / VIRTUAL_WIDTH;
             }
 
-            float viewportWidth = VIRTUAL_WIDTH * scale;
-            float viewportHeight = VIRTUAL_HEIGHT * scale;
+            viewportWidth = VIRTUAL_WIDTH * scale;
+            viewportHeight = VIRTUAL_HEIGHT * scale;
             viewport = new Rectangle(crop.x, crop.y, viewportWidth, viewportHeight);
 
             stageProvider.getGameStage().resize(viewportWidth, viewportHeight);
@@ -177,6 +161,15 @@ class ClientWindow implements IClientWindow {
         @Override
         public void resume() {
 
+        }
+
+        private void glClear() {
+            if (EnvType.CURRENT == EnvType.PROD) {
+                Gdx.gl.glClearColor(0, 0, 0, 1);
+            } else {
+                Gdx.gl.glClearColor(0, 0, 0.2f, 1);
+            }
+            Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
         }
     }
 }

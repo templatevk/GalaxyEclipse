@@ -11,7 +11,7 @@
     <bean class="arch.galaxyeclipse.client.network.ClientNetworkManager"/>
 
     <!-- Other -->
-    <bean class="arch.galaxyeclipse.client.resource.CachingResourceLoader" lazy-init="true"/>
+    <bean class="arch.galaxyeclipse.client.data.CachingResourceLoader" lazy-init="true"/>
     <bean class="arch.galaxyeclipse.shared.types.DictionaryTypesMapper" lazy-init="true"/>
     <bean class="arch.galaxyeclipse.client.data.ShipStaticInfoHolder" lazy-init="true"/>
     <bean class="arch.galaxyeclipse.client.data.LocationInfoHolder" lazy-init="true"/>

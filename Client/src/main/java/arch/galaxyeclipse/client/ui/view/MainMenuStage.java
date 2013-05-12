@@ -1,6 +1,6 @@
 package arch.galaxyeclipse.client.ui.view;
 
-import arch.galaxyeclipse.client.resource.IResourceLoader;
+import arch.galaxyeclipse.client.data.IResourceLoader;
 import arch.galaxyeclipse.client.ui.IButtonBuilder;
 import arch.galaxyeclipse.client.ui.StageUiFactory;
 import arch.galaxyeclipse.client.ui.provider.MainMenuPresenter;
@@ -11,7 +11,6 @@ import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField;
-import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 
 import java.util.Arrays;
 
@@ -34,18 +33,18 @@ public class MainMenuStage extends AbstractGameStage {
 
         usernameTxt = StageUiFactory.createTextFieldBuilder()
                 .setWidth(TEXTFIELD_WIDTH).setHeight(TEXTFIELD_HEIGHT)
-                .setMessageText("Enter your username").build();
+                .setMessageText("Your username").build();
         passwordTxt = StageUiFactory.createTextFieldBuilder()
                 .setWidth(TEXTFIELD_WIDTH).setHeight(TEXTFIELD_HEIGHT)
-                .setMessageText("Enter your password").setPasswordMode(true)
+                .setMessageText("Your password").setPasswordMode(true)
                 .setPasswordCharacter('*').build();
         connectBtn = StageUiFactory.createButtonBuilder().setText("Connect")
-                .setType(IButtonBuilder.ButtonType.MainMenuButton)
+                .setType(IButtonBuilder.ButtonType.MAIN_MENU_BUTTON)
                 .setClickCommand(presenter.getConnectButtonCommand()).build();
 
         rootTable = new Table();
         rootTable.setFillParent(true);
-        rootTable.setBackground(new TextureRegionDrawable(resourceLoader.findRegion("ui/menu_login")));
+        rootTable.setBackground(resourceLoader.createDrawable("ui/menu_login"));
         addActor(rootTable);
 
         innerTable = new Table();
@@ -64,8 +63,8 @@ public class MainMenuStage extends AbstractGameStage {
                 innerTable.getPrefHeight() / 2);
 
         if (EnvType.CURRENT == EnvType.DEV || EnvType.CURRENT == EnvType.DEV_UI) {
-            rootTable.debug();
-            innerTable.debug();
+//            rootTable.debug();
+//            innerTable.debug();
 
             usernameTxt.setText(TEST_PLAYER_LOGIN_PASSWORD);
             passwordTxt.setText(TEST_PLAYER_LOGIN_PASSWORD);
@@ -76,6 +75,8 @@ public class MainMenuStage extends AbstractGameStage {
         StageUiFactory.setDefaultButton(Arrays.<Actor>asList(
                 usernameTxt, passwordTxt), connectBtn);
         setKeyboardFocus(usernameTxt);
+
+        forceResize();
     }
 
     @Override

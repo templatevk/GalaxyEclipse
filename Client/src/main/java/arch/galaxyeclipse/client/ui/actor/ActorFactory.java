@@ -1,6 +1,6 @@
 package arch.galaxyeclipse.client.ui.actor;
 
-import arch.galaxyeclipse.client.resource.IResourceLoader;
+import arch.galaxyeclipse.client.data.IResourceLoader;
 import arch.galaxyeclipse.shared.context.ContextHolder;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket;
 import arch.galaxyeclipse.shared.types.DictionaryTypesMapper;

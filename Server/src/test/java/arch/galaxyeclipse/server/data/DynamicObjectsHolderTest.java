@@ -1,7 +1,10 @@
 package arch.galaxyeclipse.server.data;
 
-import arch.galaxyeclipse.server.data.model.LocationObject;
+import arch.galaxyeclipse.server.data.DynamicObjectsHolder.LocationObjectsHolder;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket.Builder;
 import org.fest.assertions.Assertions;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.Collection;
@@ -10,39 +13,60 @@ import java.util.Collection;
  *
  */
 public class DynamicObjectsHolderTest {
+
+    private Builder lopBuilder5;
+    private Builder lopBuilder4;
+    private Builder lopBuilder3;
+    private Builder lopBuilder2;
+    private Builder lopBuilder1;
+    private LocationObjectsHolder sut;
+
+    @BeforeMethod
+    public void setUp() throws Exception {
+        lopBuilder1 = LocationObjectPacket.newBuilder().setPositionX(100).setPositionY(100).setNativeId(1).setObjectId(1).setObjectTypeId(1).setRotationAngle(1);
+        lopBuilder2 = LocationObjectPacket.newBuilder().setPositionX(200).setPositionY(200).setNativeId(1).setObjectId(2).setObjectTypeId(1).setRotationAngle(1);
+        lopBuilder3 = LocationObjectPacket.newBuilder().setPositionX(300).setPositionY(300).setNativeId(1).setObjectId(3).setObjectTypeId(1).setRotationAngle(1);
+        lopBuilder4 = LocationObjectPacket.newBuilder().setPositionX(400).setPositionY(400).setNativeId(1).setObjectId(4).setObjectTypeId(1).setRotationAngle(1);
+        lopBuilder5 = LocationObjectPacket.newBuilder().setPositionX(500).setPositionY(500).setNativeId(1).setObjectId(5).setObjectTypeId(1).setRotationAngle(1);
+        sut = new DynamicObjectsHolder().getLocationObjectsHolder(1);
+    }
+
     @Test
-    public void testGetDynamicObjects() throws Exception {
-        LocationObject lo1 = new LocationObject();
-        LocationObject lo2 = new LocationObject();
-        LocationObject lo3 = new LocationObject();
-        lo1.setLocationId(1);
-        lo1.setLocationObjectId(1);
-        lo1.setPositionX(100);
-        lo1.setPositionY(100);
-        lo2.setLocationId(1);
-        lo2.setLocationObjectId(2);
-        lo2.setPositionX(900);
-        lo2.setPositionY(900);
-        lo3.setLocationId(1);
-        lo3.setLocationObjectId(3);
-        lo3.setPositionX(500);
-        lo3.setPositionY(500);
+    public void testDuplicates() throws Exception {
+        sut.addLopBuilder(lopBuilder1);
+        sut.addLopBuilder(lopBuilder2);
+        sut.addLopBuilder(lopBuilder3);
+        sut.addLopBuilder(lopBuilder4);
+        sut.addLopBuilder(lopBuilder5);
+        sut.addLopBuilder(lopBuilder5);
+        sut.addLopBuilder(lopBuilder5);
+        sut.addLopBuilder(lopBuilder5);
+        sut.addLopBuilder(lopBuilder5);
+        sut.addLopBuilder(lopBuilder5);
 
-        DynamicObjectsHolder sut = new DynamicObjectsHolder();
-        sut.addLocationObject(lo1);
-        sut.addLocationObject(lo3);
-        sut.addLocationObject(lo2);
+        Collection<Builder> matchingObjects = sut.getMatchingObjects(lopBuilder5);
+        Assertions.assertThat(matchingObjects)
+                .containsOnly(lopBuilder5)
+                .hasSize(1);
+    }
 
-        Collection<LocationObject> dynamicObjects1 = sut.getDynamicObjects(lo2);
-        Assertions.assertThat(dynamicObjects1)
-                .containsOnly(lo2);
+    @Test
+    public void testMatchingObjects() throws Exception {
+        sut.addLopBuilder(lopBuilder1);
+        sut.addLopBuilder(lopBuilder2);
+        sut.addLopBuilder(lopBuilder3);
 
-        lo2.setPositionX(110);
-        lo2.setPositionY(110);
+        Collection<Builder> matchingObjects1 = sut.getMatchingObjects(lopBuilder3);
+        Assertions.assertThat(matchingObjects1)
+                .containsOnly(lopBuilder3)
+                .hasSize(1);
 
-        Collection<LocationObject> dynamicObjects2 = sut.getDynamicObjects(lo2);
-        Assertions.assertThat(dynamicObjects2)
-                .containsOnly(lo1, lo2);
+        sut.updateLopBuilderX(lopBuilder3, 200);
+        sut.updateLopBuilderY(lopBuilder3, 200);
+        Collection<Builder> matchingObjects2 = sut.getMatchingObjects(lopBuilder3);
+        Assertions.assertThat(matchingObjects2)
+                .hasSize(2)
+                .containsOnly(lopBuilder2, lopBuilder3);
     }
 }
 
