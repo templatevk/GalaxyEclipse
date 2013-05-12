@@ -9,7 +9,7 @@
     </parent>
 
     <properties>
-        <filter.server.host>${basedir}/src/main/resources/local.properties</filter.server.host>
+        <filter.server.db>${basedir}/src/main/resources/env/db.properties</filter.server.db>
     </properties>
 
     <build>
@@ -20,7 +20,7 @@
                 <configuration>
                     <encoding>UTF-8</encoding>
                     <filters>
-                        <filter>${filter.server.host}</filter>
+                        <filter>${filter.server.db}</filter>
                         <filter>${filter.env}</filter>
                     </filters>
                 </configuration>
@@ -49,10 +49,6 @@
         <dependency>
             <groupId>GalaxyEclipse</groupId>
             <artifactId>Shared</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>GalaxyEclipse</groupId>
-            <artifactId>Client</artifactId>
         </dependency>
 
         <dependency>

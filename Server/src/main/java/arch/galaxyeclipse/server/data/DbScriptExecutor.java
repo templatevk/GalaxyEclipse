@@ -19,7 +19,7 @@ import java.util.Properties;
 
 @Slf4j
 public class DbScriptExecutor {
-    private static final String PROP_FILENAME = "local.properties";
+    private static final String PROP_FILENAME = "env/db.properties";
 
     private Properties prop;
     private Statement statement;

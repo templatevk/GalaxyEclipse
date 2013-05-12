@@ -1,6 +1,6 @@
 package arch.galaxyeclipse.client.ui.view;
 
-import arch.galaxyeclipse.client.resource.IResourceLoader;
+import arch.galaxyeclipse.client.data.IResourceLoader;
 import arch.galaxyeclipse.shared.context.ContextHolder;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;

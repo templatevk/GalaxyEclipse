@@ -3,6 +3,7 @@ package arch.galaxyeclipse.client.ui.view;
 import arch.galaxyeclipse.client.data.LocationInfoHolder;
 import arch.galaxyeclipse.client.data.ShipStateInfoHolder;
 import arch.galaxyeclipse.client.data.ShipStaticInfoHolder;
+import arch.galaxyeclipse.client.network.IClientNetworkManager;
 import arch.galaxyeclipse.client.ui.ChatWidget;
 import arch.galaxyeclipse.client.ui.IButtonBuilder;
 import arch.galaxyeclipse.client.ui.IButtonClickCommand;
@@ -12,15 +13,24 @@ import arch.galaxyeclipse.client.ui.actor.IGeActor;
 import arch.galaxyeclipse.client.ui.actor.StageInfo;
 import arch.galaxyeclipse.client.ui.model.FlightModeModel;
 import arch.galaxyeclipse.client.ui.provider.FlightModeController;
+import arch.galaxyeclipse.client.ui.provider.IStageProvider;
+import arch.galaxyeclipse.client.ui.provider.StageProviderFactory;
+import arch.galaxyeclipse.shared.EnvType;
+import arch.galaxyeclipse.shared.common.StubCallback;
 import arch.galaxyeclipse.shared.context.ContextHolder;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.utils.FocusListener;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  *
  */
+@Slf4j
 public class FlightModeStage extends AbstractGameStage {
     private ShipStaticInfoHolder shipStaticInfoHolder;
     private LocationInfoHolder locationInfoHolder;
@@ -32,6 +42,8 @@ public class FlightModeStage extends AbstractGameStage {
     private ChatWidget chatWidget;
     private Table chatBtnTable;
     private Button chatBtn;
+    // DEV MODE
+    private TextButton mainMenuBtn;
 
     private final float CHAT_BUTTON_PADDING_BOTTOM = 10;
     private final float CHAT_BUTTON_PADDING_LEFT = 10;
@@ -56,9 +68,7 @@ public class FlightModeStage extends AbstractGameStage {
         rootLayout = new Group();
         rootLayout.setTransform(false);
         rootLayout.addActor(gameActorsLayout);
-
         addActor(rootLayout);
-        addListener(new ClientActionListener());
 
         chatWidget = new ChatWidget();
         chatWidget.setX(CHAT_PADDING_LEFT);
@@ -66,7 +76,7 @@ public class FlightModeStage extends AbstractGameStage {
         rootLayout.addActor(chatWidget);
 
         chatBtn = StageUiFactory.createButtonBuilder().setText("CHAT")
-                .setType(IButtonBuilder.ButtonType.GameChatHideButton)
+                .setType(IButtonBuilder.ButtonType.GAME_CHAT_HIDE_BUTTON)
                 .setClickCommand(new IButtonClickCommand() {
                     @Override
                     public void execute(InputEvent e, float x, float y) {
@@ -80,10 +90,29 @@ public class FlightModeStage extends AbstractGameStage {
         chatBtnTable.setTransform(true);
         chatBtnTable.row();
         chatBtnTable.add(chatBtn);
-
         rootLayout.addActor(chatBtnTable);
 
+        if (EnvType.CURRENT == EnvType.DEV) {
+            mainMenuBtn = StageUiFactory.createButtonBuilder()
+                    .setText("")
+                    .setType(IButtonBuilder.ButtonType.MAIN_MENU_BUTTON)
+                    .setClickCommand(new IButtonClickCommand() {
+                        @Override
+                        public void execute(InputEvent e, float x, float y) {
+                            ContextHolder.getBean(IClientNetworkManager.class).disconnect(
+                                    new StubCallback<Boolean>());
+                            IStageProvider provider = StageProviderFactory.createStageProvider(
+                                    StageProviderFactory.StagePresenterType.MAIN_MENU);
+                            getClientWindow().setStageProvider(provider);
+                            provider.getGameStage().forceResize();
+                        }
+                    }).build();
+
+            rootLayout.addActor(mainMenuBtn);
+        }
+
         forceResize();
+        addListener(new ClientActionListener());
     }
 
     public void updateModel(FlightModeModel model) {
@@ -103,8 +132,8 @@ public class FlightModeStage extends AbstractGameStage {
         rootLayout.setOrigin(viewportWidth / 2f, viewportHeight / 2f);
         rootLayout.setPosition(rootLayoutX, rootLayoutY);
 
-        float gameActorsLayoutHeight = viewportHeight / 2f;
-        float gameActorsLayoutWidth = viewportWidth / 2f;
+        float gameActorsLayoutHeight = viewportHeight;
+        float gameActorsLayoutWidth = viewportWidth;
         float gameActorsLayoutX = (viewportWidth - gameActorsLayoutWidth) / 2f;
         float gameActorsLayoutY = (viewportHeight - gameActorsLayoutHeight) / 2f;
         gameActorsLayout.setSize(gameActorsLayoutWidth, gameActorsLayoutHeight);
@@ -117,8 +146,20 @@ public class FlightModeStage extends AbstractGameStage {
         chatWidget.setSize(chatWidget.getPrefWidth() * getScaleX(), chatWidget.getPrefHeight() * getScaleY());
         chatWidget.setX(CHAT_PADDING_LEFT * getScaleX());
         chatWidget.setY(CHAT_PADDING_BOTTOM * getScaleX());
+        chatWidget.addListener(new FocusListener() {
+            @Override
+            public void keyboardFocusChanged(FocusEvent event, Actor actor, boolean focused) {
+                log.info("Chat focused " + focused);
+                super.keyboardFocusChanged(event, actor, focused);
+            }
+        });
 
-        // TODO on chatWidget focus remove input processing from stage
+        if (EnvType.CURRENT == EnvType.DEV) {
+            mainMenuBtn.setWidth(viewportWidth / 10f);
+            mainMenuBtn.setHeight(viewportWidth / 10f);
+            mainMenuBtn.setX(rootLayout.getWidth() - mainMenuBtn.getWidth());
+            mainMenuBtn.setY(rootLayout.getHeight() - mainMenuBtn.getHeight());
+        }
     }
 
 

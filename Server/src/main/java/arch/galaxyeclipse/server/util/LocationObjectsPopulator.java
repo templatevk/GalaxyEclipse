@@ -6,7 +6,10 @@ import arch.galaxyeclipse.shared.common.GePosition;
 import com.google.common.io.Files;
 import lombok.extern.slf4j.Slf4j;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
@@ -31,6 +34,7 @@ public class LocationObjectsPopulator {
     private File scriptFile;
     private String dstDir;
     private String fileName;
+    private String databaseName;
     private boolean deleteScriptFile;
     private boolean execute;
     private String[] farCoords;
@@ -77,19 +81,20 @@ public class LocationObjectsPopulator {
     }
 
     private void loadPropertiesFile() {
-        prop = new Properties();
         try {
-            prop.load(new FileInputStream(PROP_FILE_NAME));
-        } catch (FileNotFoundException ex) {
-            log.error(ex.getMessage());
-        } catch (IOException ex) {
-            log.error(ex.getMessage());
+            InputStream propStream = getClass().getResourceAsStream(PROP_FILE_NAME);
+            prop = new Properties();
+            prop.load(propStream);
+        } catch (Exception e) {
+            log.error("Error loading " + PROP_FILE_NAME);
+            throw new InstantiationError();
         }
     }
 
     private void initializeVariables() {
         fileName = prop.getProperty("script.filename");
         dstDir = prop.getProperty("script.dst_dir");
+        databaseName = prop.getProperty("script.db");
         deleteScriptFile = Boolean.valueOf(prop.getProperty("script.delete_file"));
         execute = Boolean.valueOf(prop.getProperty("script.execute"));
 
@@ -147,6 +152,7 @@ public class LocationObjectsPopulator {
         Random rand = new Random();
         StringBuilder scriptBuilder = new StringBuilder();
         scriptBuilder.append(
+                "use " + databaseName + ";\n\n" +
                 "insert into location_object" +
                 "(\nlocation_object_behavior_type_id,\n" +
                 "location_object_type_id,\n" +

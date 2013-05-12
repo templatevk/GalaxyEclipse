@@ -2,18 +2,19 @@ package arch.galaxyeclipse.server.network.handler;
 
 import arch.galaxyeclipse.server.authentication.AuthenticationResult;
 import arch.galaxyeclipse.server.authentication.IClientAuthenticator;
+import arch.galaxyeclipse.server.data.DynamicObjectsHolder;
+import arch.galaxyeclipse.server.data.DynamicObjectsHolder.LocationObjectsHolder;
 import arch.galaxyeclipse.server.data.HibernateUnitOfWork;
 import arch.galaxyeclipse.server.data.PlayerInfoHolder;
 import arch.galaxyeclipse.server.data.model.Location;
 import arch.galaxyeclipse.server.data.model.LocationObject;
 import arch.galaxyeclipse.server.data.model.Player;
+import arch.galaxyeclipse.server.data.model.ShipState;
 import arch.galaxyeclipse.server.network.IServerChannelHandler;
 import arch.galaxyeclipse.server.protocol.GeProtocolMessageFactory;
 import arch.galaxyeclipse.shared.context.ContextHolder;
-import arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest;
-import arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse;
-import arch.galaxyeclipse.shared.protocol.GeProtocol.Packet;
-import arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.*;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket;
 import arch.galaxyeclipse.shared.types.DictionaryTypesMapper;
 import arch.galaxyeclipse.shared.types.LocationObjectBehaviorTypesMapperType;
 import lombok.Data;
@@ -31,14 +32,14 @@ class UnauthenticatedPacketHandler extends StatefulPacketHandler {
     private DictionaryTypesMapper dictionaryTypesMapper;
     private IServerChannelHandler serverChannelHandler;
 	private IClientAuthenticator authenticator;
-    private GeProtocolMessageFactory geProtocolMessageFactory;
+    private GeProtocolMessageFactory messageFactory;
 
     public UnauthenticatedPacketHandler(IServerChannelHandler serverChannelHandler) {
 		this.serverChannelHandler = serverChannelHandler;
 
         dictionaryTypesMapper = ContextHolder.getBean(DictionaryTypesMapper.class);
 		authenticator = ContextHolder.getBean(IClientAuthenticator.class);
-        geProtocolMessageFactory = ContextHolder.getBean(GeProtocolMessageFactory.class);
+        messageFactory = ContextHolder.getBean(GeProtocolMessageFactory.class);
 	}
 
 	@Override
@@ -91,12 +92,12 @@ class UnauthenticatedPacketHandler extends StatefulPacketHandler {
 
     private void sendStartupInfo(StartupInfoData startupInfoData) {
         StartupInfoPacket startupInfo = StartupInfoPacket.newBuilder()
-                .setShipStaticInfo(geProtocolMessageFactory.createShipStaticInfo(
+                .setShipStaticInfo(messageFactory.createShipStaticInfo(
                         startupInfoData.getPlayer()))
-                .setLocationInfo(geProtocolMessageFactory.createLocationInfo(
+                .setLocationInfo(messageFactory.createLocationInfo(
                         startupInfoData.getLocation(),
                         startupInfoData.getLocationCachedObjects()))
-                .setTypesMap(geProtocolMessageFactory.createTypesMap()).build();
+                .setTypesMap(messageFactory.createTypesMap()).build();
         Packet startupInfoPacket = Packet.newBuilder().setType(Packet.Type.STARTUP_INFO)
                 .setStartupInfo(startupInfo).build();
         serverChannelHandler.sendPacket(startupInfoPacket);
@@ -144,11 +145,29 @@ class UnauthenticatedPacketHandler extends StatefulPacketHandler {
     }
 
     private void processStartupInfoData(StartupInfoData startupInfoData) {
-        final PlayerInfoHolder playerInfoHolder = serverChannelHandler.getPlayerInfoHolder();
+        PlayerInfoHolder playerInfoHolder = serverChannelHandler.getPlayerInfoHolder();
+        LocationObject locationObject = startupInfoData.getPlayer().getLocationObject();
+        ShipState shipState = startupInfoData.getPlayer().getShipState();
+
+        LocationObjectPacket lop = messageFactory.getLocationObject(locationObject);
+        ShipStateResponse ssr = messageFactory.createShipStateResponse(shipState, locationObject);
+        LocationObjectPacket.Builder lopBuilder = LocationObjectPacket.newBuilder().mergeFrom(lop);
+        ShipStateResponse.Builder ssrBuilder = ShipStateResponse.newBuilder().mergeFrom(ssr);
+
+        int locationId = locationObject.getLocationId();
+        DynamicObjectsHolder dynamicObjectsHolder = ContextHolder.getBean(
+                DynamicObjectsHolder.class);
+        LocationObjectsHolder locationObjectsHolder = dynamicObjectsHolder
+                .getLocationObjectsHolder(locationId);
+        locationObjectsHolder.addLopBuilder(lopBuilder);
+
         playerInfoHolder.setPlayer(startupInfoData.getPlayer());
         playerInfoHolder.setShipConfig(startupInfoData.getPlayer().getShipConfig());
-        playerInfoHolder.setShipState(startupInfoData.getPlayer().getShipState());
-        playerInfoHolder.setLocationObject(startupInfoData.getPlayer().getLocationObject());
+        playerInfoHolder.setShipState(shipState);
+        playerInfoHolder.setLocationObjectsHolder(locationObjectsHolder);
+        playerInfoHolder.setLocationObject(locationObject);
+        playerInfoHolder.setLopBuilder(lopBuilder);
+        playerInfoHolder.setSsrBuilder(ssrBuilder);
     }
 
     @Data
