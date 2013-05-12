@@ -152,7 +152,7 @@ public class FlightModeStage extends AbstractGameStage {
 
     private void resizeLayout(float viewportWidth, float viewportHeight) {
         float rootLayoutX = (getClientWindow().getWidth() - viewportWidth) / 2f;
-        float rootLayoutY = 0;
+        float rootLayoutY = (getClientWindow().getHeight() - viewportHeight) / 2f;
         rootLayout.setSize(viewportWidth, viewportHeight);
         rootLayout.setOrigin(viewportWidth / 2f, viewportHeight / 2f);
         rootLayout.setPosition(rootLayoutX, rootLayoutY);
