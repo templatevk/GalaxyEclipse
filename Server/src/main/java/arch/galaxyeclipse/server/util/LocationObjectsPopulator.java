@@ -114,7 +114,7 @@ public class LocationObjectsPopulator {
             Integer objTypeId = Integer.valueOf(prop.getProperty(
                     "object." + i + ".type_id"));
             Integer objNativeId = Integer.valueOf(prop.getProperty(
-                    "object." + i + ".type_id"));
+                    "object." + i + ".native_id"));
             objectsCount.put(i, objCount);
             objectsTypeId.put(i, objTypeId);
             objectsNativeId.put(i, objNativeId);
