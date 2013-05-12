@@ -41,8 +41,8 @@ class DefaultButtonBuilder implements IButtonBuilder {
                 this.style.font = resourceLoader.getFont("assets/font_calibri_48px");
                 break;
             case GAME_CHAT_HIDE_BUTTON:
-                this.style.up = resourceLoader.createDrawable("ui/chat/btnUpChat");
-                this.style.down = resourceLoader.createDrawable("ui/chat/btnUpChat");
+                this.style.up = resourceLoader.createDrawable("ui/chat/btnChat");
+                this.style.down = resourceLoader.createDrawable("ui/chat/btnChat");
                 this.style.font = resourceLoader.getFont("assets/font_calibri_36px");
                 break;
             case GAME_CHAT_INNER_SCROLL_UP_BUTTON:
@@ -58,6 +58,11 @@ class DefaultButtonBuilder implements IButtonBuilder {
             case GAME_CHAT_INNER_AUTO_SCROLL_BUTTON:
                 this.style.up = resourceLoader.createDrawable("ui/chat/btnChatAutoScroll");
                 this.style.down = resourceLoader.createDrawable("ui/chat/btnChatAutoScroll");
+                this.style.font = resourceLoader.getFont("assets/font_calibri_36px");
+                break;
+            case GAME_MINIMAP_HIDE_BUTTON:
+                this.style.up = resourceLoader.createDrawable("ui/minimap/btnMiniMap");
+                this.style.down = resourceLoader.createDrawable("ui/minimap/btnMiniMap");
                 this.style.font = resourceLoader.getFont("assets/font_calibri_36px");
                 break;
         }
