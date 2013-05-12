@@ -23,7 +23,7 @@ public class TaskRunnablePair<T extends Runnable> {
     }
 
     public void start() {
-        if (delayedRunnableTask != null) {
+        if (isAlive()) {
             delayedRunnableTask.interrupt();
         }
         delayedRunnableTask = new DelayedRunnableTask(millisecondsDelay,
@@ -32,9 +32,8 @@ public class TaskRunnablePair<T extends Runnable> {
     }
 
     public void stop() {
-        if (delayedRunnableTask != null) {
+        if (isAlive()) {
             delayedRunnableTask.interrupt();
-            delayedRunnableTask = null;
         }
     }
 
