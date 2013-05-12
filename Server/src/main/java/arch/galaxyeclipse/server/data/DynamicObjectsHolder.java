@@ -1,10 +1,12 @@
 package arch.galaxyeclipse.server.data;
 
 import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket.Builder;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections.CollectionUtils;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentSkipListSet;
 
 import static arch.galaxyeclipse.shared.GeConstants.DYNAMIC_OBJECT_QUERY_RADIUS;
 
@@ -30,12 +32,12 @@ public class DynamicObjectsHolder {
     }
 
     public static class LocationObjectsHolder {
-        private TreeSet<LocationObjectPacket.Builder> locationObjectsX;
-        private TreeSet<LocationObjectPacket.Builder> locationObjectsY;
+        private NavigableSet<Builder> locationObjectsX;
+        private NavigableSet<LocationObjectPacket.Builder> locationObjectsY;
 
         private LocationObjectsHolder() {
-            locationObjectsX = new TreeSet<>(new LocationObjectXComparator());
-            locationObjectsY = new TreeSet<>(new LocationObjectYComparator());
+            locationObjectsX = new ConcurrentSkipListSet<>(new LocationObjectXComparator());
+            locationObjectsY = new ConcurrentSkipListSet<>(new LocationObjectYComparator());
         }
 
         public void addLopBuilder(LocationObjectPacket.Builder lopBuilder) {
@@ -78,17 +80,9 @@ public class DynamicObjectsHolder {
             y1.setPositionY(y1Pos);
             y2.setPositionY(y2Pos);
 
-            try {
-                NavigableSet xMatchingSet = ((TreeSet)locationObjectsX.clone())
-                        .subSet(x1, true, x2, true);
-                NavigableSet yMatchingSet = ((TreeSet)locationObjectsY.clone())
-                        .subSet(y1, true, y2, true);
-                return CollectionUtils.intersection(xMatchingSet, yMatchingSet);
-            } catch (Exception e) {
-                log.error("FATAL ERROR", e);
-                System.exit(0);
-                return null;
-            }
+            NavigableSet<Builder> xMatching = locationObjectsX.subSet(x1, true, x2, true);
+            NavigableSet<Builder> yMatching = locationObjectsY.subSet(y1, true, y2, true);
+            return CollectionUtils.intersection(xMatching, yMatching);
         }
 
         private static class LocationObjectXComparator

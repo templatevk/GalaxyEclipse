@@ -13,6 +13,8 @@ import arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse;
 import arch.galaxyeclipse.shared.thread.TaskRunnablePair;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.concurrent.ConcurrentLinkedQueue;
+
 import static arch.galaxyeclipse.shared.GeConstants.*;
 
 /**
@@ -210,13 +212,13 @@ class ClientActionHandler extends PacketHandlerDecorator {
     }
 
     private static class MoveHandler {
-        private ClientActionType moveType;
         private ShipConfig shipConfig;
         private ShipStateResponse.Builder ssrBuilder;
         private LocationObjectPacket.Builder lopBuilder;
         private SpeedTask speedTask;
         private PositionTask positionTask;
         private LocationObjectsHolder locationObjectsHolder;
+        private ConcurrentLinkedQueue<ClientActionType> moveActions;
 
         private MoveHandler(PlayerInfoHolder playerInfoHolder) {
             shipConfig = playerInfoHolder.getShipConfig();
@@ -226,12 +228,13 @@ class ClientActionHandler extends PacketHandlerDecorator {
 
             speedTask = new SpeedTask();
             positionTask = new PositionTask();
+            moveActions = new ConcurrentLinkedQueue<>();
         }
 
         public void setMoveType(ClientActionType moveType) {
-            this.moveType = moveType;
             if (log.isTraceEnabled()) {
                 log.trace("Setting move type " + moveType);
+                moveActions.add(moveType);
             }
 
             switch (moveType) {
@@ -250,13 +253,6 @@ class ClientActionHandler extends PacketHandlerDecorator {
                         speedTask.start();
                     }
                     break;
-                case MOVE_UP:
-                case STOP_UP:
-                    if (log.isTraceEnabled()) {
-                        log.trace("Stopping " + LogUtils.getObjectInfo(speedTask));
-                    }
-                    speedTask.stop();
-                    break;
             }
         }
 
@@ -270,6 +266,8 @@ class ClientActionHandler extends PacketHandlerDecorator {
         }
 
         private class SpeedTask extends TaskRunnablePair<Runnable> implements Runnable {
+            private ClientActionType moveType;
+
             private SpeedTask() {
                 super(CLIENT_ACTION_SPEED_DELAY_MILLISECONDS, null, true, true);
                 setRunnable(this);
@@ -281,36 +279,34 @@ class ClientActionHandler extends PacketHandlerDecorator {
                 float moveAcceleration = shipConfig.getShipConfigMoveAcceleration();
                 float maxMoveSpeed = shipConfig.getShipConfigMoveMaxSpeed();
 
-                switch (moveType) {
-                    case MOVE_DOWN:
-                        currentMoveSpeed += moveAcceleration;
-                        break;
-                    case STOP_DOWN:
-                        currentMoveSpeed -= moveAcceleration;
-                    case STOP_UP:
-                        if (currentMoveSpeed <= 0) {
-                            currentMoveSpeed = 0;
-                            if (log.isTraceEnabled()) {
-                                log.trace("Stopping " + LogUtils.getObjectInfo(this));
-                                log.trace("Stopping " + LogUtils.getObjectInfo(positionTask));
-                            }
-                            stop();
-                            positionTask.stop();
-                        }
-                        break;
-                }
+                do {
+                    moveType = moveActions.size() == 1 ? moveActions.peek() : moveActions.poll();
+                    switch (moveType) {
+                        case MOVE_DOWN:
+                            currentMoveSpeed += moveAcceleration;
+                            break;
+                        case STOP_DOWN:
+                            currentMoveSpeed -= moveAcceleration;
+                            break;
+                    }
+                } while (moveActions.size() > 1);
 
-                if (currentMoveSpeed > maxMoveSpeed) {
+                if (currentMoveSpeed <= 0) {
+                    currentMoveSpeed = 0;
+                    if (log.isTraceEnabled()) {
+                        log.trace("Stopping " + LogUtils.getObjectInfo(this));
+                        log.trace("Stopping " + LogUtils.getObjectInfo(positionTask));
+                    }
+                    speedTask.stop();
+                    positionTask.stop();
+                } else if (currentMoveSpeed > maxMoveSpeed) {
                     currentMoveSpeed = maxMoveSpeed;
                 }
-
-                ssrBuilder.setMoveSpeed(currentMoveSpeed);
-
                 if (ClientActionHandler.log.isTraceEnabled()) {
-                    ClientActionHandler.log.trace(moveType.toString());
                     ClientActionHandler.log.trace("Move speed " + currentMoveSpeed
                             + " object " + lopBuilder.getObjectId());
                 }
+                ssrBuilder.setMoveSpeed(currentMoveSpeed);
             }
         }
 
@@ -338,7 +334,6 @@ class ClientActionHandler extends PacketHandlerDecorator {
                 ssrBuilder.setPositionY(positionY);
 
                 if (ClientActionHandler.log.isTraceEnabled()) {
-                    ClientActionHandler.log.trace(moveType.toString());
                     ClientActionHandler.log.trace("Position x " + positionX
                             + " object " + lopBuilder.getObjectId());
                     ClientActionHandler.log.trace("Position y " + positionY

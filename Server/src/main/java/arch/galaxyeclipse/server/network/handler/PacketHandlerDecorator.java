@@ -29,11 +29,10 @@ abstract class PacketHandlerDecorator extends StatefulPacketHandler
         if (!handleImp(packet)) {
             return decoratedPacketHandler.handle(packet);
         }
-        // TODO UNCOMMENT!!!
-//        if (log.isTraceEnabled()) {
-//            String username = getServerChannelHandler().getPlayerInfoHolder().getPlayer().getUsername();
-//            log.trace(username + " " + packet.getType());
-//        }
+        if (log.isTraceEnabled()) {
+            String username = getServerChannelHandler().getPlayerInfoHolder().getPlayer().getUsername();
+            log.trace(username + " " + packet.getType());
+        }
         return true;
     }
 

@@ -14,7 +14,7 @@ public class GeConstants {
 
     public static final long CLIENT_ACTION_ROTATION_DELAY_MILLISECONDS = 10;
     public static final long CLIENT_ACTION_MOVE_DELAY_MILLISECONDS = 10;
-    public static final long CLIENT_ACTION_SPEED_DELAY_MILLISECONDS = 100;
+    public static final long CLIENT_ACTION_SPEED_DELAY_MILLISECONDS = 50;
     public static final long CLIENT_DYNAMIC_OBJECTS_REQUEST_INTERVAL_MILLISECONDS = 50;
     public static final long CLIENT_SHIP_STATE_REQUEST_INTERVAL_MILLISECONDS = 50;
 
