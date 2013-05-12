@@ -13,18 +13,6 @@ public class TaskRunnablePair<T extends Runnable> {
     private boolean repeat;
     private boolean sleepAfter;
 
-    public TaskRunnablePair() {
-        this(0);
-    }
-
-    public TaskRunnablePair(long millisecondsDelay) {
-        this(millisecondsDelay, null);
-    }
-
-    public TaskRunnablePair(long millisecondsDelay, T runnable) {
-        this(millisecondsDelay, runnable, false, false);
-    }
-
     public TaskRunnablePair(long millisecondsDelay, T runnable,
             boolean repeat, boolean sleepAfter) {
         this.geExecutor = ContextHolder.getBean(GeExecutor.class);

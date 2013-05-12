@@ -1,6 +1,7 @@
 package arch.galaxyeclipse.server.data;
 
 import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections.CollectionUtils;
 
 import java.util.*;
@@ -10,6 +11,7 @@ import static arch.galaxyeclipse.shared.GeConstants.DYNAMIC_OBJECT_QUERY_RADIUS;
 /**
  *
  */
+@Slf4j
 public class DynamicObjectsHolder {
     private Map<Integer, LocationObjectsHolder> locationObjectHolders;
 
@@ -76,12 +78,17 @@ public class DynamicObjectsHolder {
             y1.setPositionY(y1Pos);
             y2.setPositionY(y2Pos);
 
-
-            NavigableSet xMatchingSet = ((TreeSet)locationObjectsX.clone())
-                    .subSet(x1, true, x2, true);
-            NavigableSet yMatchingSet = ((TreeSet)locationObjectsY.clone())
-                    .subSet(y1, true, y2, true);
-            return CollectionUtils.intersection(xMatchingSet, yMatchingSet);
+            try {
+                NavigableSet xMatchingSet = ((TreeSet)locationObjectsX.clone())
+                        .subSet(x1, true, x2, true);
+                NavigableSet yMatchingSet = ((TreeSet)locationObjectsY.clone())
+                        .subSet(y1, true, y2, true);
+                return CollectionUtils.intersection(xMatchingSet, yMatchingSet);
+            } catch (Exception e) {
+                log.error("FATAL ERROR", e);
+                System.exit(0);
+                return null;
+            }
         }
 
         private static class LocationObjectXComparator

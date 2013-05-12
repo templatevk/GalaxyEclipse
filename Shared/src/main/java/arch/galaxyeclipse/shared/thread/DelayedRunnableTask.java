@@ -35,12 +35,12 @@ public class DelayedRunnableTask extends AbstractGeRunnable implements GeRunnabl
                 do {
                     runnable.run();
                     Thread.sleep(millisecondsDelay);
-                } while (repeat);
+                } while (repeat && !Thread.interrupted());
             } else {
                 do {
                     Thread.sleep(millisecondsDelay);
                     runnable.run();
-                } while (repeat);
+                } while (repeat && !Thread.interrupted());
             }
 		} catch (InterruptedException e) {
 

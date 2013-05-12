@@ -15,6 +15,7 @@ import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
@@ -33,8 +34,10 @@ class ClientWindow implements IClientWindow {
 
     private @Getter float width;
     private @Getter float height;
+    private @Getter float viewportWidth;
+    private @Getter float viewportHeight;
 
-	public ClientWindow() {
+    public ClientWindow() {
         this.destroyables = new ArrayList<>();
 
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
@@ -120,15 +123,12 @@ class ClientWindow implements IClientWindow {
         @Override
         public void render() {
             glClear();
-            Gdx.gl.glViewport((int)viewport.x, (int)viewport.y,
-                    (int)viewport.width, (int)viewport.height);
 
             stageProvider.getGameStage().act(Gdx.graphics.getDeltaTime());
-
             stageProvider.getGameStage().draw();
 
             if (EnvType.CURRENT == EnvType.DEV) {
-//                Table.drawDebug(stageProvider.getGameStage());
+                Table.drawDebug(stageProvider.getGameStage());
             }
         }
 
@@ -151,8 +151,8 @@ class ClientWindow implements IClientWindow {
                 scale = width / VIRTUAL_WIDTH;
             }
 
-            float viewportWidth = VIRTUAL_WIDTH * scale;
-            float viewportHeight = VIRTUAL_HEIGHT * scale;
+            viewportWidth = VIRTUAL_WIDTH * scale;
+            viewportHeight = VIRTUAL_HEIGHT * scale;
             viewport = new Rectangle(crop.x, crop.y, viewportWidth, viewportHeight);
 
             stageProvider.getGameStage().resize(viewportWidth, viewportHeight);
@@ -164,7 +164,11 @@ class ClientWindow implements IClientWindow {
         }
 
         private void glClear() {
-            Gdx.gl.glClearColor(0, 0, 0.2f, 1);
+            if (EnvType.CURRENT == EnvType.PROD) {
+                Gdx.gl.glClearColor(0, 0, 0, 1);
+            } else {
+                Gdx.gl.glClearColor(0, 0, 0.2f, 1);
+            }
             Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
         }
     }

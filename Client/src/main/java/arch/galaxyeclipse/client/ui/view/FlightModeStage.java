@@ -18,13 +18,11 @@ import arch.galaxyeclipse.client.ui.provider.StageProviderFactory;
 import arch.galaxyeclipse.shared.EnvType;
 import arch.galaxyeclipse.shared.common.StubCallback;
 import arch.galaxyeclipse.shared.context.ContextHolder;
-import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
-import com.badlogic.gdx.scenes.scene2d.utils.FocusListener;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -94,7 +92,7 @@ public class FlightModeStage extends AbstractGameStage {
 
         if (EnvType.CURRENT == EnvType.DEV) {
             mainMenuBtn = StageUiFactory.createButtonBuilder()
-                    .setText("")
+                    .setText("MM")
                     .setType(IButtonBuilder.ButtonType.MAIN_MENU_BUTTON)
                     .setClickCommand(new IButtonClickCommand() {
                         @Override
@@ -126,7 +124,7 @@ public class FlightModeStage extends AbstractGameStage {
     }
 
     private void resizeLayout(float viewportWidth, float viewportHeight) {
-        float rootLayoutX = 0;
+        float rootLayoutX = (getClientWindow().getWidth() - viewportWidth) / 2f;
         float rootLayoutY = 0;
         rootLayout.setSize(viewportWidth, viewportHeight);
         rootLayout.setOrigin(viewportWidth / 2f, viewportHeight / 2f);
@@ -140,25 +138,27 @@ public class FlightModeStage extends AbstractGameStage {
         gameActorsLayout.setOrigin(gameActorsLayoutWidth / 2f, gameActorsLayoutHeight / 2f);
         gameActorsLayout.setPosition(gameActorsLayoutX, gameActorsLayoutY);
 
+        float chatBtnTableWidth = CHAT_BUTTON_PADDING_LEFT * getScaleX();
+        float chatBtnTableHeight = CHAT_BUTTON_PADDING_BOTTOM * getScaleY();
         chatBtnTable.setScale(getScaleX(), getScaleY());
-        chatBtnTable.setX(CHAT_BUTTON_PADDING_LEFT * getScaleX());
-        chatBtnTable.setY(CHAT_BUTTON_PADDING_BOTTOM * getScaleY());
-        chatWidget.setSize(chatWidget.getPrefWidth() * getScaleX(), chatWidget.getPrefHeight() * getScaleY());
+        chatBtnTable.setX(chatBtnTableWidth);
+        chatBtnTable.setY(chatBtnTableHeight);
+
+        float chatWidgetWidth = chatWidget.getPrefWidth() * getScaleX();
+        float chatWidgetHeight = chatWidget.getPrefHeight() * getScaleY();
+        chatWidget.setSize(chatWidgetWidth, chatWidgetHeight);
         chatWidget.setX(CHAT_PADDING_LEFT * getScaleX());
         chatWidget.setY(CHAT_PADDING_BOTTOM * getScaleX());
-        chatWidget.addListener(new FocusListener() {
-            @Override
-            public void keyboardFocusChanged(FocusEvent event, Actor actor, boolean focused) {
-                log.info("Chat focused " + focused);
-                super.keyboardFocusChanged(event, actor, focused);
-            }
-        });
 
         if (EnvType.CURRENT == EnvType.DEV) {
-            mainMenuBtn.setWidth(viewportWidth / 10f);
-            mainMenuBtn.setHeight(viewportWidth / 10f);
-            mainMenuBtn.setX(rootLayout.getWidth() - mainMenuBtn.getWidth());
-            mainMenuBtn.setY(rootLayout.getHeight() - mainMenuBtn.getHeight());
+            final float MAIN_MENU_BTN_COEF = 0.1f;
+            mainMenuBtn.setWidth(viewportWidth * MAIN_MENU_BTN_COEF);
+            mainMenuBtn.setHeight(viewportWidth * MAIN_MENU_BTN_COEF);
+
+            float mainMenuBtnX = rootLayout.getWidth() - mainMenuBtn.getWidth();
+            float mainMenuBtnY = rootLayout.getHeight() - mainMenuBtn.getHeight();
+            mainMenuBtn.setX(mainMenuBtnX);
+            mainMenuBtn.setY(mainMenuBtnY);
         }
     }
 
