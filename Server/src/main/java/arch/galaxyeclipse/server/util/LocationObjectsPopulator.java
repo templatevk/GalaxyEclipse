@@ -38,15 +38,12 @@ public class LocationObjectsPopulator {
     private String databaseName;
     private boolean deleteScriptFile;
     private boolean execute;
-    private String[] farCoords;
-    private String[] closeCoords;
-    private String[] middleCoords;
     private Random rand;
     private Integer[] objectNativeId;
     private int locationObjectBehaviorTypeId;
-    private int locationObjectTypeId;
     private int locationId;
     private Map<Integer, Integer> distances;
+    private Map<Integer, Integer> objectsTypesId;
 
     public LocationObjectsPopulator() {
         loadPropertiesFile();
@@ -97,10 +94,8 @@ public class LocationObjectsPopulator {
         databaseName = prop.getProperty("script.db");
         deleteScriptFile = Boolean.valueOf(prop.getProperty("script.delete_file"));
         execute = Boolean.valueOf(prop.getProperty("script.execute"));
-
         locationObjectBehaviorTypeId = Integer.parseInt(prop.getProperty(
                 "location_object_behavior_type_id"));
-        locationObjectTypeId = Integer.parseInt(prop.getProperty("location_object_type_id"));
         locationId = Integer.parseInt(prop.getProperty("location.id"));
         locationWidth = Float.valueOf(prop.getProperty("location.width"));
         locationHeight = Float.valueOf(prop.getProperty("location.height"));
@@ -109,6 +104,7 @@ public class LocationObjectsPopulator {
         rand = new Random();
 
         distances = new HashMap<>();
+        objectsTypesId = new HashMap<>();
         for(int i = 0; i < objNativeId.length; i++) {
             objectNativeId[i] = Integer.valueOf(objNativeId[i]);
         }
@@ -116,7 +112,10 @@ public class LocationObjectsPopulator {
         for (int i = 0; i < objectNativeId.length; i++) {
             Integer objCount = Integer.valueOf(prop.getProperty(
                     "object_native_id." + objectNativeId[i]));
+            Integer objTypeId = Integer.valueOf(prop.getProperty(
+                    "object_native_id." + objectNativeId[i] + ".type"));
             distances.put(objectNativeId[i], objCount);
+            objectsTypesId.put(objectNativeId[i], objTypeId);
         }
     }
 
@@ -153,7 +152,7 @@ public class LocationObjectsPopulator {
             for(GePosition pos : positions) {
                 float rotation_angle = rand.nextFloat() * MAX_DEGREES;
                 scriptBuilder.append(locationObjectBehaviorTypeId).append(", ");
-                scriptBuilder.append(locationObjectTypeId).append(", ");
+                scriptBuilder.append(objectsTypesId.get(objectNativeId[i])).append(", ");
                 scriptBuilder.append(objectNativeId[i]).append(", ");
                 scriptBuilder.append(rotation_angle).append(", ");
                 scriptBuilder.append(pos.getX()).append(", ");
