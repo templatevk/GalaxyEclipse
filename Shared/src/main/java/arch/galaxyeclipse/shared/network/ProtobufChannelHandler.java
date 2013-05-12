@@ -84,7 +84,6 @@ public abstract class ProtobufChannelHandler extends SimpleChannelHandler
 	public void channelConnected(ChannelHandlerContext ctx, ChannelStateEvent e)
 		    throws Exception {
 		channel = e.getChannel();
-
         packetSender = new ChannelPacketSender(channel);
         preparePacketDispatchers();
 	}
@@ -93,7 +92,6 @@ public abstract class ProtobufChannelHandler extends SimpleChannelHandler
 	public void channelDisconnected(ChannelHandlerContext ctx,
 		    ChannelStateEvent e) throws Exception {
 		packetSender = new StubPacketSender();
-
         outgoingPacketDispatcher.interrupt();
 		incomingPacketDispatcher.interrupt();
 	}

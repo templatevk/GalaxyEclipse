@@ -1,4 +1,4 @@
-package arch.galaxyeclipse.client.resource;
+package arch.galaxyeclipse.client.data;
 
 import arch.galaxyeclipse.client.util.Destroyable;
 import arch.galaxyeclipse.shared.common.IDestroyable;
@@ -7,6 +7,8 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
+import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.HashMap;
@@ -34,8 +36,8 @@ class CachingResourceLoader extends TextureAtlas implements IResourceLoader, IDe
 		AtlasRegion region = regions.get(name);
 
         if (region == null) {
-            if (log.isInfoEnabled()) {
-                log.info("Loading region " + name);
+            if (CachingResourceLoader.log.isInfoEnabled()) {
+                CachingResourceLoader.log.info("Loading region " + name);
             }
 
 
@@ -50,12 +52,17 @@ class CachingResourceLoader extends TextureAtlas implements IResourceLoader, IDe
 	}
 
     @Override
+    public Drawable createDrawable(String path) {
+        return new TextureRegionDrawable(findRegion(path));
+    }
+
+    @Override
     public BitmapFont getFont(String path) {
         BitmapFont font = fonts.get(path);
 
         if (font == null) {
-            if (log.isInfoEnabled()) {
-                log.info("Loading font " + path);
+            if (CachingResourceLoader.log.isInfoEnabled()) {
+                CachingResourceLoader.log.info("Loading font " + path);
             }
 
             Texture fontTexture = new Texture(Gdx.files.internal(path + "_0.png"));

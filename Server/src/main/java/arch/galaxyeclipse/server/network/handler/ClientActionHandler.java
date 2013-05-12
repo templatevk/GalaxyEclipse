@@ -1,13 +1,14 @@
 package arch.galaxyeclipse.server.network.handler;
 
+import arch.galaxyeclipse.server.data.DynamicObjectsHolder.LocationObjectsHolder;
 import arch.galaxyeclipse.server.data.PlayerInfoHolder;
-import arch.galaxyeclipse.server.data.model.LocationObject;
 import arch.galaxyeclipse.server.data.model.ShipConfig;
-import arch.galaxyeclipse.server.data.model.ShipState;
 import arch.galaxyeclipse.shared.common.MathUtils;
 import arch.galaxyeclipse.shared.protocol.GeProtocol;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket.ClientActionType;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse;
 import arch.galaxyeclipse.shared.thread.TaskRunnablePair;
 import lombok.extern.slf4j.Slf4j;
 
@@ -16,6 +17,7 @@ import static arch.galaxyeclipse.shared.GeConstants.*;
 /**
  *
  */
+// TODO fix the bug: when client goes online rotation/speed/position handlers are still running
 @Slf4j
 class ClientActionHandler extends PacketHandlerDecorator {
     private PlayerInfoHolder playerInfoHolder;
@@ -87,8 +89,8 @@ class ClientActionHandler extends PacketHandlerDecorator {
 
         private ClientActionType rotationType;
         private ShipConfig shipConfig;
-        private ShipState shipState;
-        private LocationObject locationObject;
+        private ShipStateResponse.Builder ssrBuilder;
+        private LocationObjectPacket.Builder lopBuilder;
         private RotatingRunnable rotatingRunnable;
         private PostRotatingRunnable postRotatingRunnable;
 
@@ -96,8 +98,8 @@ class ClientActionHandler extends PacketHandlerDecorator {
             super(CLIENT_ACTION_ROTATION_DELAY_MILLISECONDS, null, true, true);
 
             shipConfig = playerInfoHolder.getShipConfig();
-            shipState = playerInfoHolder.getShipState();
-            locationObject = playerInfoHolder.getLocationObject();
+            ssrBuilder = playerInfoHolder.getSsrBuilder();
+            lopBuilder = playerInfoHolder.getLopBuilder();
             rotatingRunnable = new RotatingRunnable();
             postRotatingRunnable = new PostRotatingRunnable();
         }
@@ -121,7 +123,7 @@ class ClientActionHandler extends PacketHandlerDecorator {
         private class RotatingRunnable implements Runnable {
             @Override
             public void run() {
-                float currentRotationSpeed = shipState.getShipStateRotationSpeed();
+                float currentRotationSpeed = ssrBuilder.getRotationSpeed();
                 float rotationAcceleration = shipConfig.getShipConfigRotationAcceleration();
                 float maxRotationSpeed = shipConfig.getShipConfigRotationMaxSpeed();
 
@@ -136,16 +138,16 @@ class ClientActionHandler extends PacketHandlerDecorator {
                 if (Math.abs(currentRotationSpeed) > maxRotationSpeed) {
                     currentRotationSpeed = Math.signum(currentRotationSpeed) * maxRotationSpeed;
                 }
-                shipState.setShipStateRotationSpeed(currentRotationSpeed);
+                ssrBuilder.setRotationSpeed(currentRotationSpeed);
 
-                float currentRotationAngle = locationObject.getRotationAngle();
+                float currentRotationAngle = lopBuilder.getRotationAngle();
                 currentRotationAngle += currentRotationSpeed;
                 if (currentRotationAngle > MAX_ANGLE) {
                     currentRotationAngle -= MAX_ANGLE;
                 } else if (currentRotationAngle < 0) {
                     currentRotationAngle = MAX_ANGLE + currentRotationAngle;
                 }
-                locationObject.setRotationAngle(currentRotationAngle);
+                lopBuilder.setRotationAngle(currentRotationAngle);
 
                 if (ClientActionHandler.log.isDebugEnabled()) {
                     ClientActionHandler.log.debug(rotationType.toString());
@@ -158,7 +160,7 @@ class ClientActionHandler extends PacketHandlerDecorator {
         private class PostRotatingRunnable implements Runnable {
             @Override
             public void run() {
-                float currentRotationSpeed = shipState.getShipStateRotationSpeed();
+                float currentRotationSpeed = ssrBuilder.getRotationSpeed();
                 float rotationAcceleration = shipConfig.getShipConfigRotationAcceleration();
 
                 switch (rotationType) {
@@ -177,16 +179,16 @@ class ClientActionHandler extends PacketHandlerDecorator {
                         }
                         break;
                 }
-                shipState.setShipStateRotationSpeed(currentRotationSpeed);
+                ssrBuilder.setRotationSpeed(currentRotationSpeed);
 
-                float currentRotationAngle = locationObject.getRotationAngle();
+                float currentRotationAngle = lopBuilder.getRotationAngle();
                 currentRotationAngle += currentRotationSpeed;
                 if (currentRotationAngle > MAX_ANGLE) {
                     currentRotationAngle -= MAX_ANGLE;
                 } else if (currentRotationAngle < 0) {
                     currentRotationAngle = MAX_ANGLE + currentRotationAngle;
                 }
-                locationObject.setRotationAngle(currentRotationAngle);
+                lopBuilder.setRotationAngle(currentRotationAngle);
 
                 if (ClientActionHandler.log.isDebugEnabled()) {
                     ClientActionHandler.log.debug(rotationType.toString());
@@ -200,15 +202,17 @@ class ClientActionHandler extends PacketHandlerDecorator {
     private static class MoveHandler {
         private ClientActionType moveType;
         private ShipConfig shipConfig;
-        private ShipState shipState;
-        private LocationObject locationObject;
+        private ShipStateResponse.Builder ssrBuilder;
+        private LocationObjectPacket.Builder lopBuilder;
         private SpeedTask speedTask;
         private PositionTask positionTask;
+        private LocationObjectsHolder locationObjectsHolder;
 
         private MoveHandler(PlayerInfoHolder playerInfoHolder) {
             shipConfig = playerInfoHolder.getShipConfig();
-            shipState = playerInfoHolder.getShipState();
-            locationObject = playerInfoHolder.getLocationObject();
+            ssrBuilder = playerInfoHolder.getSsrBuilder();
+            lopBuilder = playerInfoHolder.getLopBuilder();
+            locationObjectsHolder = playerInfoHolder.getLocationObjectsHolder();
 
             speedTask = new SpeedTask();
             positionTask = new PositionTask();
@@ -245,7 +249,7 @@ class ClientActionHandler extends PacketHandlerDecorator {
 
             @Override
             public void run() {
-                float currentMoveSpeed = shipState.getShipStateMoveSpeed();
+                float currentMoveSpeed = ssrBuilder.getMoveSpeed();
                 float moveAcceleration = shipConfig.getShipConfigMoveAcceleration();
                 float maxMoveSpeed = shipConfig.getShipConfigMoveMaxSpeed();
 
@@ -267,7 +271,7 @@ class ClientActionHandler extends PacketHandlerDecorator {
                     currentMoveSpeed = maxMoveSpeed;
                 }
 
-                shipState.setShipStateMoveSpeed(currentMoveSpeed);
+                ssrBuilder.setMoveSpeed(currentMoveSpeed);
 
                 if (ClientActionHandler.log.isDebugEnabled()) {
                     ClientActionHandler.log.debug(moveType.toString());
@@ -284,18 +288,20 @@ class ClientActionHandler extends PacketHandlerDecorator {
 
             @Override
             public void run() {
-                float currentMoveSpeed = shipState.getShipStateMoveSpeed();
-                float rotationAngle = locationObject.getRotationAngle();
-                float positionX = locationObject.getPositionX();
-                float positionY = locationObject.getPositionY();
+                float currentMoveSpeed = ssrBuilder.getMoveSpeed();
+                float rotationAngle = lopBuilder.getRotationAngle();
+                float positionX = lopBuilder.getPositionX();
+                float positionY = lopBuilder.getPositionY();
                 float xDiff = currentMoveSpeed * MathUtils.sinDeg(rotationAngle);
                 float yDiff = currentMoveSpeed * MathUtils.cosDeg(rotationAngle);
                 positionX += xDiff * SHIP_MOVE_SPEED_TO_LOCATION_COORDS_COEF;
                 // -= here because of client rendering
                 positionY -= yDiff * SHIP_MOVE_SPEED_TO_LOCATION_COORDS_COEF;
 
-                locationObject.setPositionX(positionX);
-                locationObject.setPositionY(positionY);
+                locationObjectsHolder.updateLopBuilderX(lopBuilder, positionX);
+                locationObjectsHolder.updateLopBuilderY(lopBuilder, positionY);
+                ssrBuilder.setPositionX(positionX);
+                ssrBuilder.setPositionY(positionY);
 
                 if (ClientActionHandler.log.isDebugEnabled()) {
                     ClientActionHandler.log.debug(moveType.toString());

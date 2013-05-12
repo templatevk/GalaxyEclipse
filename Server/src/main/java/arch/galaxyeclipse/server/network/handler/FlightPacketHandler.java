@@ -1,9 +1,11 @@
 package arch.galaxyeclipse.server.network.handler;
 
+import arch.galaxyeclipse.server.data.DynamicObjectsHolder.LocationObjectsHolder;
 import arch.galaxyeclipse.server.data.HibernateUnitOfWork;
 import arch.galaxyeclipse.server.data.PlayerInfoHolder;
 import arch.galaxyeclipse.server.network.IServerChannelHandler;
 import arch.galaxyeclipse.shared.context.ContextHolder;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket.Builder;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.Packet;
 import arch.galaxyeclipse.shared.types.DictionaryTypesMapper;
 import arch.galaxyeclipse.shared.types.LocationObjectBehaviorTypesMapperType;
@@ -37,7 +39,9 @@ class FlightPacketHandler implements IChannelAwarePacketHandler {
         if (FlightPacketHandler.log.isDebugEnabled()) {
             FlightPacketHandler.log.debug("Channel closed during flight mode, hibernating player");
         }
-
+        Builder lopBuilder = playerInfoHolder.getLopBuilder();
+        LocationObjectsHolder locationObjectsHolder = playerInfoHolder.getLocationObjectsHolder();
+        locationObjectsHolder.removeLopBuilder(lopBuilder);
         hibernatePlayer();
     }
 

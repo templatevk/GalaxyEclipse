@@ -1,7 +1,7 @@
 package arch.galaxyeclipse.client.ui;
 
 
-import arch.galaxyeclipse.client.resource.IResourceLoader;
+import arch.galaxyeclipse.client.data.IResourceLoader;
 import arch.galaxyeclipse.shared.context.ContextHolder;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;

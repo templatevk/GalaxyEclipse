@@ -34,6 +34,7 @@ public class FlightModeController implements IStageProvider {
     private FlightModeStage view;
 
     public FlightModeController() {
+        view = new FlightModeStage(this);
         actorFactory = ContextHolder.getBean(IActorFactory.class);
         locationInfoHolder = ContextHolder.getBean(LocationInfoHolder.class);
         shipStateInfoHolder = ContextHolder.getBean(ShipStateInfoHolder.class);
@@ -41,8 +42,6 @@ public class FlightModeController implements IStageProvider {
         if (EnvType.CURRENT != EnvType.DEV_UI) {
             initializeRequestSenders();
         }
-
-        view = new FlightModeStage(this);
     }
 
     private void initializeRequestSenders() {

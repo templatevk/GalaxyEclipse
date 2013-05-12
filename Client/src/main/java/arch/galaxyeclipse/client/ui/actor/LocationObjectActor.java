@@ -51,13 +51,14 @@ class LocationObjectActor extends ClickableActor {
         if (getActorType() == ActorType.SELF) {
             setPosition(screenCenterX, screenCenterY);
         } else {
-            // TODO not tested!
             float locationShipX = getShipStateInfoHolder().getPositionX();
             float locationShipY = getShipStateInfoHolder().getPositionY();
             float locationObjectX = locationObject.getPositionX();
             float locationObjectY = locationObject.getPositionY();
             float screenDiffX = (locationObjectX - locationShipX) * LOCATION_TO_SCREEN_COORDS_COEF;
             float screenDiffY = (locationObjectY - locationShipY) * LOCATION_TO_SCREEN_COORDS_COEF;
+            screenDiffX *= stageInfo.getScaleX();
+            screenDiffY *= stageInfo.getScaleY();
             float screenObjectX = screenCenterX + screenDiffX;
             float screenObjectY = screenCenterY + screenDiffY;
             setPosition(screenObjectX, screenObjectY);
