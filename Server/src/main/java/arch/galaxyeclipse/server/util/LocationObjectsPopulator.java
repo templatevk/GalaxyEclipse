@@ -1,9 +1,9 @@
 package arch.galaxyeclipse.server.util;
 
 
-import arch.galaxyeclipse.server.data.DbScriptExecutor;
 import arch.galaxyeclipse.shared.common.GePosition;
 import com.google.common.io.Files;
+import com.sun.org.apache.xml.internal.security.utils.resolver.implementations.ResolverAnonymous;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.File;
@@ -23,15 +23,17 @@ import java.util.Random;
  * Time: 23:21
  * To change this template use File | Settings | File Templates.
  */
+
 @Slf4j
 public class LocationObjectsPopulator {
     private static final String PROP_FILE_NAME = "obj_script.properties";
     private static final float MAX_DEGREES = 360f;
-    private static final int CYCLE_APPENDED_SYMBOLS_COUNT = 2;
 
     private Properties prop;
     private String script;
     private File scriptFile;
+    private Float locationWidth;
+    private Float locationHeight;
     private String dstDir;
     private String fileName;
     private String databaseName;
@@ -40,13 +42,12 @@ public class LocationObjectsPopulator {
     private String[] farCoords;
     private String[] closeCoords;
     private String[] middleCoords;
+    private Random rand;
     private Integer[] objectNativeId;
     private int locationObjectBehaviorTypeId;
     private int locationObjectTypeId;
     private int locationId;
-    private int maxObjectsCount;
-    private Map<Integer, DistanceType> distances;
-    private float fCoordX, fCoordY, cCoordX, cCoordY, mCoordX, mCoordY;
+    private Map<Integer, Integer> distances;
 
     public LocationObjectsPopulator() {
         loadPropertiesFile();
@@ -98,24 +99,14 @@ public class LocationObjectsPopulator {
         deleteScriptFile = Boolean.valueOf(prop.getProperty("script.delete_file"));
         execute = Boolean.valueOf(prop.getProperty("script.execute"));
 
-        farCoords = prop.getProperty("FAR").split(",");
-        fCoordX = Float.valueOf(farCoords[0]);
-        fCoordY = Float.valueOf(farCoords[1]);
-
-        closeCoords = prop.getProperty("CLOSE").split(",");
-        cCoordX = Float.valueOf(closeCoords[0]);
-        cCoordY = Float.valueOf(closeCoords[1]);
-
-        middleCoords =  prop.getProperty("MIDDLE").split(",");
-        mCoordX = Float.valueOf(middleCoords[0]);
-        mCoordY = Float.valueOf(closeCoords[1]);
-
         locationObjectBehaviorTypeId = Integer.parseInt(prop.getProperty("location_object_behavior_type_id"));
         locationObjectTypeId = Integer.parseInt(prop.getProperty("location_object_type_id"));
-        maxObjectsCount = Integer.parseInt(prop.getProperty("max_objects_count"));
-        locationId = Integer.parseInt(prop.getProperty("location_id"));
+        locationId = Integer.parseInt(prop.getProperty("location.id"));
+        locationWidth = Float.valueOf(prop.getProperty("location.width"));
+        locationHeight = Float.valueOf(prop.getProperty("location.height"));
         String[] objNativeId = prop.getProperty("object_native_id").split(",");
         objectNativeId = new Integer[objNativeId.length];
+        rand = new Random();
 
         distances = new HashMap<>();
         for(int i = 0; i < objNativeId.length; i++) {
@@ -123,33 +114,25 @@ public class LocationObjectsPopulator {
         }
 
         for (int i = 0; i < objectNativeId.length; i++) {
-            String distanceValue = prop.getProperty("object_native_id." + objectNativeId[i]);
-            distances.put(objectNativeId[i], DistanceType.valueOf(distanceValue));
+            Integer objCount = Integer.valueOf(prop.getProperty("object_native_id." + objectNativeId[i]));
+            distances.put(objectNativeId[i], objCount);
         }
     }
 
-    private GePosition setDistanceXY(int objectDistance) {
-        GePosition position = new GePosition();
+    private GePosition[] setDistanceXY(int objectNativeId) {
+        int count = distances.get(objectNativeId);
+        GePosition[] position = new GePosition[count];
 
-        switch (distances.get(objectDistance)) {
-            case FAR:
-                position.setX(new Random().nextFloat() * fCoordX);
-                position.setY(new Random().nextFloat() * fCoordY);
-                break;
-            case MIDDLE:
-                position.setX(new Random().nextFloat() * mCoordX);
-                position.setY(new Random().nextFloat() * mCoordY);
-                break;
-            case CLOSE:
-                position.setX(new Random().nextFloat() * cCoordX);
-                position.setY(new Random().nextFloat() * cCoordY);
-                break;
-        }
+            for(int i = 0; i < position.length; i++) {
+                position[i] = new GePosition();
+                position[i].setX(rand.nextFloat() * locationWidth);
+                position[i].setY(rand.nextFloat() * locationHeight);
+            }
+
         return position;
     }
 
     private void generateScript() {
-        Random rand = new Random();
         StringBuilder scriptBuilder = new StringBuilder();
         scriptBuilder.append(
                 "use " + databaseName + ";\n\n" +
@@ -163,22 +146,22 @@ public class LocationObjectsPopulator {
                 "location_id)\n" +
                 "values\n(");
 
-        for (int i = 0; i < maxObjectsCount; i++) {
-            float rotation_angle = rand.nextFloat() * MAX_DEGREES;
-            int rand_native_id = rand.nextInt(objectNativeId.length);
-            GePosition point = setDistanceXY(objectNativeId[rand_native_id]);
+        for (int i = 0; i < objectNativeId.length; i++) {
+            GePosition[] positions = setDistanceXY(objectNativeId[i]);
 
-            scriptBuilder.append(locationObjectBehaviorTypeId).append(", ");
-            scriptBuilder.append(locationObjectTypeId).append(", ");
-            scriptBuilder.append(objectNativeId[rand_native_id]).append(", ");
-            scriptBuilder.append(rotation_angle).append(", ");
-            scriptBuilder.append(point.getX()).append(", ");
-            scriptBuilder.append(point.getY()).append(", ");
-
-            if (i != maxObjectsCount - 1) {
-                scriptBuilder.append(locationId).append("),\n(");
-            } else {
-                scriptBuilder.append(locationId).append(");");
+            for(GePosition pos : positions) {
+                float rotation_angle = rand.nextFloat() * MAX_DEGREES;
+                scriptBuilder.append(locationObjectBehaviorTypeId).append(", ");
+                scriptBuilder.append(locationObjectTypeId).append(", ");
+                scriptBuilder.append(objectNativeId[i]).append(", ");
+                scriptBuilder.append(rotation_angle).append(", ");
+                scriptBuilder.append(pos.getX()).append(", ");
+                scriptBuilder.append(pos.getY()).append(", ");
+                if (i != objectNativeId.length - 1) {
+                    scriptBuilder.append(locationId).append("),\n(");
+                } else {
+                    scriptBuilder.append(locationId).append(");");
+                }
             }
         }
         script = scriptBuilder.toString();
@@ -186,11 +169,5 @@ public class LocationObjectsPopulator {
 
     public static void main(String args[]) {
         new LocationObjectsPopulator().populate();
-    }
-
-    private enum DistanceType {
-        FAR,
-        MIDDLE,
-        CLOSE
     }
 }
