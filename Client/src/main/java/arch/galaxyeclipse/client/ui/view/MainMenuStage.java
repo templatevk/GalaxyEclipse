@@ -43,7 +43,6 @@ public class MainMenuStage extends AbstractGameStage {
                 .setClickCommand(presenter.getConnectButtonCommand()).build();
 
         rootTable = new Table();
-        rootTable.setFillParent(true);
         rootTable.setBackground(resourceLoader.createDrawable("ui/menu_login"));
         addActor(rootTable);
 
@@ -63,8 +62,8 @@ public class MainMenuStage extends AbstractGameStage {
                 innerTable.getPrefHeight() / 2);
 
         if (EnvType.CURRENT == EnvType.DEV || EnvType.CURRENT == EnvType.DEV_UI) {
-//            rootTable.debug();
-//            innerTable.debug();
+            rootTable.debug();
+            innerTable.debug();
 
             usernameTxt.setText(TEST_PLAYER_LOGIN_PASSWORD);
             passwordTxt.setText(TEST_PLAYER_LOGIN_PASSWORD);
@@ -77,6 +76,16 @@ public class MainMenuStage extends AbstractGameStage {
         setKeyboardFocus(usernameTxt);
 
         forceResize();
+    }
+
+    @Override
+    public void resize(float viewportWidth, float viewportHeight) {
+        float rootLayoutX = (getClientWindow().getWidth() - viewportWidth) / 2f;
+        float rootLayoutY = (getClientWindow().getHeight() - viewportHeight) / 2f;
+        rootTable.setSize(viewportWidth, viewportHeight);
+        rootTable.setPosition(rootLayoutX, rootLayoutY);
+        innerTable.setPosition((viewportWidth / 2f) - (innerTable.getWidth() / 2f), (viewportHeight / 2f) - (innerTable.getHeight() / 2f));
+        super.resize(viewportWidth, viewportHeight);    //To change body of overridden methods use File | Settings | File Templates.
     }
 
     @Override
