@@ -15,13 +15,13 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 class ActorFactory implements IActorFactory {
     private static final String PLAYER_IMAGE_PATH =  // <id>
-            "ship_type/%h";
+            "ship_type/%d";
     private static final String FOG_IMAGE_PATH = // <id>
-            "static/fog/%h";
+            "static/fog/%d";
     private static final String STAR_IMAGE_PATH = // <id>
-            "static/star/%h";
+            "static/star/%d";
     private static final String LOCATION_BACKGROUND_IMAGE_PATH = // <id>
-            "location/%h";
+            "location/%d";
 
     private final DictionaryTypesMapper dictionaryTypesMapper;
     private IResourceLoader resourceLoader;

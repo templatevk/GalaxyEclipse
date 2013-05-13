@@ -8,17 +8,15 @@ import arch.galaxyeclipse.client.ui.IButtonClickCommand;
 import arch.galaxyeclipse.client.ui.view.AbstractGameStage;
 import arch.galaxyeclipse.client.ui.view.MainMenuStage;
 import arch.galaxyeclipse.client.window.IClientWindow;
-import arch.galaxyeclipse.shared.GeConstants;
+import arch.galaxyeclipse.shared.common.ICallback;
+import arch.galaxyeclipse.shared.common.LogUtils;
 import arch.galaxyeclipse.shared.context.ContextHolder;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.*;
 import arch.galaxyeclipse.shared.types.DictionaryTypesMapper;
-import arch.galaxyeclipse.shared.common.ICallback;
-import arch.galaxyeclipse.shared.common.LogUtils;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
-import java.net.InetSocketAddress;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -68,8 +66,7 @@ public class MainMenuPresenter extends ServerPacketListener implements IStagePro
                         }
                     }
                 };
-                networkManager.connect(new InetSocketAddress(
-                        GeConstants.HOST, GeConstants.PORT), connectionCallback);
+                networkManager.connect(connectionCallback);
             }
         };
 

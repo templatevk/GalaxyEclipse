@@ -1,14 +1,15 @@
 package arch.galaxyeclipse.client.network;
 
+import arch.galaxyeclipse.shared.common.ICallback;
+import arch.galaxyeclipse.shared.common.ICommand;
+import arch.galaxyeclipse.shared.common.LogUtils;
+import arch.galaxyeclipse.shared.common.StubCallback;
 import arch.galaxyeclipse.shared.network.IChannelHandler;
 import arch.galaxyeclipse.shared.network.ProtobufChannelPipelineFactory;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.Packet;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.Packet.Type;
 import arch.galaxyeclipse.shared.thread.DelayedRunnableTask;
-import arch.galaxyeclipse.shared.common.ICallback;
-import arch.galaxyeclipse.shared.common.ICommand;
-import arch.galaxyeclipse.shared.common.LogUtils;
-import arch.galaxyeclipse.shared.common.StubCallback;
+import com.google.common.base.Preconditions;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.SetMultimap;
 import lombok.AccessLevel;
@@ -20,6 +21,7 @@ import org.jboss.netty.channel.ChannelFutureListener;
 import org.jboss.netty.channel.ChannelPipeline;
 import org.jboss.netty.channel.socket.nio.NioClientSocketChannelFactory;
 
+import java.net.InetSocketAddress;
 import java.net.SocketAddress;
 import java.util.Set;
 import java.util.concurrent.Executors;
@@ -29,15 +31,24 @@ import java.util.concurrent.Executors;
  */
 @Slf4j
 class ClientNetworkManager implements IClientNetworkManager {
-	protected static final int CONNECTION_TIMEOUT_MILLISECONDS = 300;
+    private static final int CONNECTION_TIMEOUT_MILLISECONDS = 300;
+    private static final String HOST_PROPERTY = "host";
+    private static final String PORT_PROPERTY = "port";
 
     @Getter(AccessLevel.PROTECTED)
 	private IChannelHandler channelHandler;
     @Getter(AccessLevel.PROTECTED)
 	private ClientBootstrap bootstrap;
 	private SetMultimap<Packet.Type, IServerPacketListener> listeners;
+    private SocketAddress hostAddress;
 	
 	public ClientNetworkManager() {
+        String host = System.getProperty(HOST_PROPERTY);
+        String port = System.getProperty(PORT_PROPERTY);
+        Preconditions.checkNotNull(host, "Network error, host property is not set");
+        Preconditions.checkNotNull(port, "Network error, port property is not set");
+        hostAddress = new InetSocketAddress(host, Integer.valueOf(port));
+
         listeners = HashMultimap.create();
 
         channelHandler = ClientChannelHandlerFactory.createHandler(new ICommand<Packet>() {
@@ -69,12 +80,12 @@ class ClientNetworkManager implements IClientNetworkManager {
 	}
 	
 	@Override
-	public void connect(SocketAddress address, final ICallback<Boolean> callback) {
+	public void connect(final ICallback<Boolean> callback) {
         if (channelHandler.isConnected()) {
             channelHandler.disconnect(new StubCallback<Boolean>());
         }
 
-		bootstrap.connect(address).addListener(new ChannelFutureListener() {
+		bootstrap.connect(hostAddress).addListener(new ChannelFutureListener() {
             @Override
             public void operationComplete(final ChannelFuture future) throws Exception {
                 new DelayedRunnableTask(CONNECTION_TIMEOUT_MILLISECONDS, new Runnable() {
