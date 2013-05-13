@@ -5,7 +5,7 @@ package arch.galaxyeclipse.shared;
  */
 public class GeConstants {
     public static final String HOST = "localhost";
-	public static final int PORT = 3724;
+	public static final int PORT = 7777;
 
     // Initial location location size is 1000.00 x 1000.00
     public static final float DYNAMIC_OBJECT_QUERY_RADIUS = 50;
