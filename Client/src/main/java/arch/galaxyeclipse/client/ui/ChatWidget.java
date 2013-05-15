@@ -26,8 +26,8 @@ import static arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacke
 public class ChatWidget extends Table implements IServerPacketListener {
     private static final int DEFAULT_WIDTH = 570;
     private static final int DEFAULT_HEIGHT = 591;
-    private static final int DEFAULT_MESSAGES_FIELD_WIDTH = 520;
-    private static final int DEFAULT_MESSAGES_FIELD_HEIGHT = 370;
+    private static final int DEFAULT_MESSAGES_FIELD_WIDTH = 500;
+    private static final int DEFAULT_MESSAGES_FIELD_HEIGHT = 350;
     private static final int DEFAULT_TEXT_FIELD_PADDING_BOTTOM = 80;
     private static final int DEFAULT_TEXT_FIELD_PADDING_LEFT = 10;
     private static final int DEFAULT_MESSAGES_FIELD_PADDING_BOTTOM = 150;
