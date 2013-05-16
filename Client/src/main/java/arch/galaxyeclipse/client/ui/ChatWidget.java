@@ -70,7 +70,7 @@ public class ChatWidget extends Table implements IServerPacketListener {
         Drawable textFieldBackground = resourceLoader.createDrawable("ui/chat/chatTextField");
         Drawable carret = resourceLoader.createDrawable("ui/carret");
         Drawable selection = resourceLoader.createDrawable("ui/selection");
-        BitmapFont font = resourceLoader.getFont("assets/font_calibri_36px");
+        BitmapFont font = resourceLoader.getFont("font_calibri_36px");
         fontHeight = font.getLineHeight();
 
         TextField.TextFieldStyle textFieldStyle = new TextField.TextFieldStyle(

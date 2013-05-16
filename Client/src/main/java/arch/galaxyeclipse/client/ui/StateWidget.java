@@ -40,7 +40,8 @@ public class StateWidget extends Table implements IServerPacketListener {
         setWidth(getPrefWidth());
         setHeight(getPrefHeight());
 
-        Label.LabelStyle hpLabelStyle = new Label.LabelStyle(resourceLoader.getFont("assets/font_calibri_36px"), Color.RED);
+        Label.LabelStyle hpLabelStyle = new Label.LabelStyle(
+                resourceLoader.getFont("font_calibri_36px"), Color.RED);
         hpLabel = new Label("",hpLabelStyle);
         hpLabelTable = new Table();
         hpLabelTable.setTransform(true);

@@ -6,6 +6,7 @@ import arch.galaxyeclipse.shared.EnvType;
 import arch.galaxyeclipse.shared.common.IDestroyable;
 import arch.galaxyeclipse.shared.context.ContextHolder;
 import arch.galaxyeclipse.shared.thread.GeExecutor;
+import arch.galaxyeclipse.shared.thread.TaskRunnablePair;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Graphics.DisplayMode;
@@ -24,11 +25,15 @@ import java.util.List;
 
 @Slf4j
 class ClientWindow implements IClientWindow {
+    public static final int RENDER_REQUEST_MILLISECONDS_DELAY = 25;
+
     private static final float VIRTUAL_WIDTH    = 4;
     private static final float VIRTUAL_HEIGHT   = 3;
     private static final float ASPECT_RATIO     = VIRTUAL_WIDTH / VIRTUAL_HEIGHT;
 
-	private IStageProvider stageProvider;
+    private TaskRunnablePair<RenderRequestRunnable> renderRequestTaskRunnablePair;
+    private GeExecutor executor;
+    private IStageProvider stageProvider;
     private Rectangle viewport;
     private List<IDestroyable> destroyables;
 
@@ -65,8 +70,8 @@ class ClientWindow implements IClientWindow {
                 config.fullscreen = true;
                 break;
         }
-		new LwjglApplication(new ClientListener(), config);
-	}
+        new LwjglApplication(new ClientListener(), config);
+    }
 
     @Override
     public void setStageProvider(IStageProvider stageProvider) {
@@ -102,6 +107,11 @@ class ClientWindow implements IClientWindow {
 
             setStageProvider(StageProviderFactory.createStageProvider(
                     StageProviderFactory.StagePresenterType.MAIN_MENU));
+
+            renderRequestTaskRunnablePair = new TaskRunnablePair<>(
+                    RENDER_REQUEST_MILLISECONDS_DELAY, new RenderRequestRunnable(),
+                    true, false);
+            renderRequestTaskRunnablePair.start();
         }
 
         @Override
@@ -170,6 +180,16 @@ class ClientWindow implements IClientWindow {
                 Gdx.gl.glClearColor(0, 0, 0.2f, 1);
             }
             Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
+        }
+    }
+
+    private class RenderRequestRunnable implements Runnable {
+        @Override
+        public void run() {
+            Gdx.graphics.requestRendering();
+            if (log.isTraceEnabled()) {
+                log.trace("Client rendering request");
+            }
         }
     }
 }

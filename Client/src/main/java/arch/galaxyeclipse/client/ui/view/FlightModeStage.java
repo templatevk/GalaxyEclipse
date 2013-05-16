@@ -24,6 +24,7 @@ import lombok.extern.slf4j.Slf4j;
 /**
  *
  */
+
 @Slf4j
 public class FlightModeStage extends AbstractGameStage {
     private ShipStaticInfoHolder shipStaticInfoHolder;

@@ -39,9 +39,9 @@ class DefaultButtonBuilder implements IButtonBuilder {
         style = new TextButton.TextButtonStyle();
         resourceLoader = ContextHolder.getBean(IResourceLoader.class);
         //Предварительно требуеться загрузить шрифты тут, непонятно почему. Решить.
-        resourceLoader.getFont("assets/font_calibri_48px");
-        resourceLoader.getFont("assets/font_calibri_36px");
-        resourceLoader.getFont("assets/font_impact_36px");
+        resourceLoader.getFont("font_calibri_48px");
+        resourceLoader.getFont("font_calibri_36px");
+        resourceLoader.getFont("font_impact_36px");
     }
 
     @Override
@@ -50,45 +50,45 @@ class DefaultButtonBuilder implements IButtonBuilder {
             case MAIN_MENU_BUTTON:
                 style.up = resourceLoader.createDrawable("ui/btnUp");
                 style.down = resourceLoader.createDrawable("ui/btnDown");
-                style.font = resourceLoader.getFont("assets/font_calibri_48px");
+                style.font = resourceLoader.getFont("font_calibri_48px");
                 break;
             case GAME_CHAT_HIDE_BUTTON:
                 style.up = resourceLoader.createDrawable("ui/chat/btnChat");
                 style.down = resourceLoader.createDrawable("ui/chat/btnChat");
-                style.font = resourceLoader.getFont("assets/font_impact_36px");
+                style.font = resourceLoader.getFont("font_impact_36px");
                 textCenterCorrectionY = CHAT_BUTTONTEXT_CENTER_CORRECTION_Y;
                 break;
             case GAME_CHAT_INNER_SCROLL_UP_BUTTON:
                 style.up = resourceLoader.createDrawable("ui/chat/btnChatScrollUp");
                 style.down = resourceLoader.createDrawable("ui/chat/btnChatScrollUp");
-                style.font = resourceLoader.getFont("assets/font_calibri_36px");
+                style.font = resourceLoader.getFont("font_calibri_36px");
                 break;
             case GAME_CHAT_INNER_SCROLL_DOWN_BUTTON:
                 style.up = resourceLoader.createDrawable("ui/chat/btnChatScrollDown");
                 style.down = resourceLoader.createDrawable("ui/chat/btnChatScrollDown");
-                style.font = resourceLoader.getFont("assets/font_impact_36px");
+                style.font = resourceLoader.getFont("font_impact_36px");
                 break;
             case GAME_CHAT_INNER_AUTO_SCROLL_BUTTON:
                 style.up = resourceLoader.createDrawable("ui/chat/btnChatAutoScroll");
                 style.down = resourceLoader.createDrawable("ui/chat/btnChatAutoScroll");
-                style.font = resourceLoader.getFont("assets/font_impact_36px");
+                style.font = resourceLoader.getFont("font_impact_36px");
                 break;
             case GAME_MINIMAP_HIDE_BUTTON:
                 style.up = resourceLoader.createDrawable("ui/minimap/btnMiniMap");
                 style.down = resourceLoader.createDrawable("ui/minimap/btnMiniMap");
-                style.font = resourceLoader.getFont("assets/font_impact_36px");
+                style.font = resourceLoader.getFont("font_impact_36px");
                 textCenterCorrectionY = MINIMAP_BUTTONTEXT_CENTER_CORRECTION_Y;
                 break;
             case GAME_STATE_HIDE_BUTTON:
                 style.up = resourceLoader.createDrawable("ui/state/btnState");
                 style.down = resourceLoader.createDrawable("ui/state/btnState");
-                style.font = resourceLoader.getFont("assets/font_impact_36px");
+                style.font = resourceLoader.getFont("font_impact_36px");
                 textCenterCorrectionY = STATE_BUTTONTEXT_CENTER_CORRECTION_Y;
                 break;
             case GAME_MAINMENU_HIDE_BUTTON:
                 style.up = resourceLoader.createDrawable("ui/btnMainMenu");
                 style.down = resourceLoader.createDrawable("ui/btnMainMenu");
-                style.font = resourceLoader.getFont("assets/font_impact_36px");
+                style.font = resourceLoader.getFont("font_impact_36px");
                 textCenterCorrectionY = MINIMAP_BUTTONTEXT_CENTER_CORRECTION_Y;
                 break;
         }
