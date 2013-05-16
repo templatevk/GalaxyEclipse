@@ -22,7 +22,7 @@ public class StateWidget extends Table implements IServerPacketListener {
     private final int DEFAULT_WIDTH = 398;
     private final int DEFAULT_HEIGHT = 345;
     private static final int HP_LABEL_PADDING_BOTTOM = 230;
-    private static final int HP_LABEL_PADDING_LEFT = 90;
+    private static final int HP_LABEL_PADDING_LEFT = 120;
 
     private IClientNetworkManager networkManager;
     private IResourceLoader resourceLoader;
@@ -57,8 +57,8 @@ public class StateWidget extends Table implements IServerPacketListener {
         float scaleY = height / getPrefHeight();
 
         hpLabelTable.setScale(scaleX,scaleY);
-        hpLabelTable.setX(HP_LABEL_PADDING_LEFT * scaleX);
-        hpLabelTable.setY(HP_LABEL_PADDING_BOTTOM * scaleY);
+        hpLabelTable.setX((float)HP_LABEL_PADDING_LEFT * scaleX);
+        hpLabelTable.setY((float)HP_LABEL_PADDING_BOTTOM * scaleY);
 
         super.setSize(width, height);
     }
