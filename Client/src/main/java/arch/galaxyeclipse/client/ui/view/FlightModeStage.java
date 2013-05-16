@@ -4,10 +4,6 @@ import arch.galaxyeclipse.client.data.LocationInfoHolder;
 import arch.galaxyeclipse.client.data.ShipStateInfoHolder;
 import arch.galaxyeclipse.client.data.ShipStaticInfoHolder;
 import arch.galaxyeclipse.client.network.IClientNetworkManager;
-import arch.galaxyeclipse.client.ui.ChatWidget;
-import arch.galaxyeclipse.client.ui.IButtonBuilder;
-import arch.galaxyeclipse.client.ui.IButtonClickCommand;
-import arch.galaxyeclipse.client.ui.StageUiFactory;
 import arch.galaxyeclipse.client.ui.*;
 import arch.galaxyeclipse.client.ui.actor.GeActor;
 import arch.galaxyeclipse.client.ui.actor.IGeActor;
@@ -19,6 +15,7 @@ import arch.galaxyeclipse.client.ui.provider.StageProviderFactory;
 import arch.galaxyeclipse.shared.EnvType;
 import arch.galaxyeclipse.shared.common.StubCallback;
 import arch.galaxyeclipse.shared.context.ContextHolder;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
@@ -156,6 +153,7 @@ public class FlightModeStage extends AbstractGameStage {
         rootLayout.setSize(viewportWidth, viewportHeight);
         rootLayout.setOrigin(viewportWidth / 2f, viewportHeight / 2f);
         rootLayout.setPosition(rootLayoutX, rootLayoutY);
+        getRoot().setCullingArea(new Rectangle(0, 0, rootLayout.getWidth(), rootLayout.getHeight()));
 
         float gameActorsLayoutHeight = viewportHeight;
         float gameActorsLayoutWidth = viewportWidth;

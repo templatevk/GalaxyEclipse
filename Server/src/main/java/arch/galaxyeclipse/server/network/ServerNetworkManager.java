@@ -55,12 +55,18 @@ class ServerNetworkManager implements IServerNetworkManager, IMonitoringNetworkM
 		if (serverChannel != null && serverChannel.isBound()) {
 			serverChannel.unbind();
 		}
+		serverChannel = bootstrap.bind(hostAddress);
 
         if (log.isInfoEnabled()) {
-		    log.info("Starting server on " + host + ":" + port);
+            log.info("Starting server on " + host + ":" + port);
+            log.info("Remote address " + serverChannel.getRemoteAddress());
+            log.info("Local address " + serverChannel.getLocalAddress());
+            log.info("Is bound " + serverChannel.isBound());
+            log.info("Is connected  " + serverChannel.isConnected());
+            log.info("Is open " + serverChannel.isOpen());
+            log.info("Is readable " + serverChannel.isReadable());
+            log.info("Is writable " + serverChannel.isWritable());
         }
-
-		serverChannel = bootstrap.bind(hostAddress);
 	}
 	
 	@Override

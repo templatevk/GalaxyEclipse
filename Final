@@ -1,0 +1,99 @@
+TODO
+ALEX
+	Переименовать в Ge
+	Бага туман
+    Loading stage with factory post-init callback
+    Star regions instead of 10k stars
+BEAN, GIRLS
+    Музыкальное сопровождение действий корабля
+    Фоновая музыка
+    Картинки пушек
+    Анимация двигателя корабля
+DIMA
+    CONSOLE
+    ADMIN COMMANDS (STOP SERVER, MESSANGING, SYSTEM, BROADCAST, PRIVATE),
+    COMMANDS AND ROLES
+JODA
+    REMOTE CLIENT CONNECTION
+    DECREASE CLIENT'S SYSTEM RESOURCCE USAGE
+    ANIMATION MODULE               `
+    SOUNDS AND MUSIC MODULE
+    RESOURCE LOADER API FOR MEDIA
+    REFACTOR TO LOGUTILS USAGE FOR LOGGING MESSAGES TO INVOKE FROM ADMIN
+        ABSTRACT GE_LOGGER, GELOGGER STRATEGY TO DECIDE UPON MESSAGES PRODUCED
+        GE_LOGGER STRATEGY FACTORY, GE_LOGGER FACTORY
+
+
+
+
+
+
+
+
+FINAL PRESENTATION
+Инструменты
+Сборка
+	Мавен   															    JODA
+Отрисовка
+	Libgdx, OPEN_GL                                                         DIMA
+Сеть
+	Netty, Protobuf                                                         DIMA
+Фреймворки
+    Netty, lombok, guava, DBCP, COMMONS COLLECTIONS, SPRING DATA,           BEAN
+        SPRING DATA REDIS, SPRING CORE, MYSQL_JAVA_CONNECTOR,               BEAN
+        SLF4J, LOGBACK, SPRING ORM, SPRING TX, HIBERNATE CORE,              BEAN
+        JUNIT, TESTNG, JMOCKIT, FEST_ASSERT, LIBGDX, PROTOBUF,              BEAN
+Cайт
+    PHP, ACTIVATION_PROC                                                    DIMA
+Данные
+	Java Collections - Protobuf Builders - Hiberbate - Database             ALEX
+	    Structure and Scripts - LocationObjectPopulator - MySQL	            ALEX
+	Redis															        JODA
+Логирование
+	Slf4j, Logback, Log4j, Политики логирования							    JODA
+Логика
+	СЕРВЕР
+	Аутентификация и Авторизация клиента сервером						    BEAN
+	Обработка сообщений клиента, декораторы, обработка сообщений            ALEX
+	    сервера, listener'ы                         					    ALEX
+	HibernateUnitOfWork, многопоточность (ExecutorService, Runnable,        JODA
+	    GeExecutor), модуль Shared                                          JODA
+    Параметры виртуальной машины, конфигурации запуска, компиляции,         JODA
+        JRebel, JProfiler, нагрузка системы приложением, ОС настройки,      JODA
+        настройки IDEA, интеграция с фреймворками, Git, Youtrack,           JODA
+        стратегии именования, bash_scripts                                  JODA
+Используемые шаблоны проектирования, MVC, MVP, UNIT_OF_WORK,                BEAN
+    FACTORY, BUILDER, DECORATOR, LISTENER, COMMAND, UTIL,                   BEAN
+    SINGLETON (Spring)                                                      BEAN
+Spring IoC, DI
+    SPRING CONTEXT, SPRING EXPRESSION LANGUAGE, DEPENDENCY INJECTION,       JODA
+    REFLEXION IN JAVA WITH IoC Container, ALTERNATIVES (GOOGLE GUICE)       JODA
+UI
+    SCENE2D, LAYOUTS, ACTOR, ACTOR FACTORY, FACTORY/BUILDER, TAB ORDER,     ALEX
+    KEY LISTNER, RENDERING FROM MODEL (FLIGHT MODE), ACTOR TYPES, SCALING,  JODA
+    ABSTRACT GAME STAGE, CLIENT WINDOW, OPEN_GL HINTS, TEXTURES, PACKER,    ALEX
+    IMAGE FOLDER STRUCTURE, Conv. over Conf, PROFILES AND CLIENT            JODA
+    RENDERING, CUSTOM WIDGETS, EDITED LIBGDX CLASSES, PHOTOSHOP, FONTS      ALEX
+SCRUM, TESTING, GIT REPO                                                    DIMA
+
+
+
+
+
+BEAN (JavaBean, Mister Bin, Binary (bin))
+JODA (Star Wars)
+ALEX (UI MASTA | PS 80 LVL)
+DIMA
+
+
+
+
+
+
+
+
+
+
+
+
+
