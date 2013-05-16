@@ -85,7 +85,7 @@ public class MainMenuStage extends AbstractGameStage {
         rootTable.setSize(viewportWidth, viewportHeight);
         rootTable.setPosition(rootLayoutX, rootLayoutY);
         innerTable.setPosition((viewportWidth / 2f) - (innerTable.getWidth() / 2f), (viewportHeight / 2f) - (innerTable.getHeight() / 2f));
-        super.resize(viewportWidth, viewportHeight);    //To change body of overridden methods use File | Settings | File Templates.
+        super.resize(viewportWidth, viewportHeight);
     }
 
     @Override
