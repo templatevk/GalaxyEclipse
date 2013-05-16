@@ -27,11 +27,14 @@ class ServerNetworkManager implements IServerNetworkManager, IMonitoringNetworkM
 	private ProtobufChannelPipelineFactory channelPipelineFactory;
     private ServerBootstrap bootstrap;
     private Channel serverChannel;
+
+    private final String host;
+    private final String port;
     private SocketAddress hostAddress;
 
     public ServerNetworkManager(ProtobufChannelPipelineFactory channelPipelineFactory) {
-        String host = System.getProperty(HOST_PROPERTY);
-        String port = System.getProperty(PORT_PROPERTY);
+        host = System.getProperty(HOST_PROPERTY);
+        port = System.getProperty(PORT_PROPERTY);
         Preconditions.checkNotNull(host, "Network error, host property is not set");
         Preconditions.checkNotNull(port, "Network error, port property is not set");
         hostAddress = new InetSocketAddress(host, Integer.valueOf(port));
@@ -41,7 +44,7 @@ class ServerNetworkManager implements IServerNetworkManager, IMonitoringNetworkM
 	}
 	
 	@Override
-	public void startServer(String host, int port) {
+	public void startServer() {
         // Initialize server bootstrap
         if (bootstrap == null) {
 			bootstrap = new ServerBootstrap(new NioServerSocketChannelFactory(

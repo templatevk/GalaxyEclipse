@@ -35,7 +35,7 @@ class DefaultTextFieldBuilder implements ITextFieldBuilder {
 
         Drawable carret = new TextureRegionDrawable(resourceLoader.findRegion("ui/carret"));
         Drawable selection = new TextureRegionDrawable(resourceLoader.findRegion("ui/selection"));
-        BitmapFont font = resourceLoader.getFont("assets/font_calibri_48px");
+        BitmapFont font = resourceLoader.getFont("font_calibri_48px");
 
         textFieldStyle = new TextField.TextFieldStyle(font, Color.RED, carret, selection,
                 new TextureRegionDrawable(resourceLoader.findRegion("ui/textField")));

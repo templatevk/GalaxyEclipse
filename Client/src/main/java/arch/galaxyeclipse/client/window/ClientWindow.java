@@ -187,8 +187,8 @@ class ClientWindow implements IClientWindow {
         @Override
         public void run() {
             Gdx.graphics.requestRendering();
-            if (log.isDebugEnabled()) {
-                log.debug("Client rendering request");
+            if (log.isTraceEnabled()) {
+                log.trace("Client rendering request");
             }
         }
     }
