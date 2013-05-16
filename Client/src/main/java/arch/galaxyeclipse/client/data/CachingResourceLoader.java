@@ -19,7 +19,9 @@ import java.util.Map;
  */
 @Slf4j
 class CachingResourceLoader extends TextureAtlas implements IResourceLoader, IDestroyable {
-	private Map<String, AtlasRegion> regions;
+    private static final String FONTS_LOCATIONS = "assets/fonts/";
+
+    private Map<String, AtlasRegion> regions;
     private Map<String, BitmapFont> fonts;
 
 	public CachingResourceLoader() {
@@ -65,10 +67,11 @@ class CachingResourceLoader extends TextureAtlas implements IResourceLoader, IDe
                 CachingResourceLoader.log.info("Loading font " + path);
             }
 
-            Texture fontTexture = new Texture(Gdx.files.internal(path + "_0.png"));
-            fontTexture.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.MipMapLinearLinear);
+            Texture fontTexture = new Texture(Gdx.files.internal(FONTS_LOCATIONS + path + "_0.png"));
+            fontTexture.setFilter(Texture.TextureFilter.Linear,
+                    Texture.TextureFilter.MipMapLinearLinear);
             TextureRegion fontTextureRegion = new TextureRegion(fontTexture);
-            font = new BitmapFont(Gdx.files.internal(path + ".fnt"),
+            font = new BitmapFont(Gdx.files.internal(FONTS_LOCATIONS + path + ".fnt"),
                     fontTextureRegion, false);
 
             fonts.put(path, font);

@@ -12,7 +12,6 @@ import arch.galaxyeclipse.client.ui.model.FlightModeModel;
 import arch.galaxyeclipse.client.ui.provider.FlightModeController;
 import arch.galaxyeclipse.client.ui.provider.IStageProvider;
 import arch.galaxyeclipse.client.ui.provider.StageProviderFactory;
-import arch.galaxyeclipse.shared.EnvType;
 import arch.galaxyeclipse.shared.common.StubCallback;
 import arch.galaxyeclipse.shared.context.ContextHolder;
 import com.badlogic.gdx.math.Rectangle;
@@ -26,6 +25,7 @@ import lombok.extern.slf4j.Slf4j;
 /**
  *
  */
+
 @Slf4j
 public class FlightModeStage extends AbstractGameStage {
     private ShipStaticInfoHolder shipStaticInfoHolder;
@@ -35,25 +35,45 @@ public class FlightModeStage extends AbstractGameStage {
     private Group rootLayout;
     private Group gameActorsLayout;
 
+    private BottomPanelWidget bottomPanelWidget;
+    private TopPanelWidget topPanelWidget;
     private ChatWidget chatWidget;
     private MiniMapWidget miniMapWidget;
+    private StateWidget stateWidget;
     private Table chatBtnTable;
     private Button chatBtn;    
     private Table miniMapBtnTable;
     private Button miniMapBtn;
-    
+    private Table stateBtnTable;
+    private Button stateBtn;
+    private Table mainMenuBtnTable;
+
     // DEV MODE
     private TextButton mainMenuBtn;
 
-    private final float CHAT_BUTTON_PADDING_BOTTOM = 10;
-    private final float CHAT_BUTTON_PADDING_LEFT = 10;
-    private final float CHAT_PADDING_BOTTOM = 65;
-    private final float CHAT_PADDING_LEFT = 10;
 
-    private final float MINIMAP_BUTTON_PADDING_BOTTOM = 10;
-    private final float MINIMAP_BUTTON_PADDING_RIGHT = 10;
-    private final float MINIMAP_PADDING_BOTTOM = 65;
-    private final float MINIMAP_PADDING_RIGHT = 10;
+    private final float HUD_PADDING = 15;
+
+    private final float CHAT_BUTTON_PADDING_BOTTOM = HUD_PADDING;
+    private final float CHAT_BUTTON_PADDING_LEFT = HUD_PADDING;
+    private final float CHAT_PADDING_BOTTOM = HUD_PADDING + 55;
+    private final float CHAT_PADDING_LEFT = HUD_PADDING;
+
+    private final float MINIMAP_BUTTON_PADDING_BOTTOM = HUD_PADDING;
+    private final float MINIMAP_BUTTON_PADDING_RIGHT = HUD_PADDING;
+    private final float MINIMAP_PADDING_BOTTOM = HUD_PADDING + 55;
+    private final float MINIMAP_PADDING_RIGHT = HUD_PADDING;
+
+    private final float STATE_BUTTON_PADDING_TOP = HUD_PADDING;
+    private final float STATE_BUTTON_PADDING_LEFT = HUD_PADDING;
+    private final float STATE_PADDING_TOP = HUD_PADDING + 55;
+    private final float STATE_PADDING_LEFT = HUD_PADDING;
+
+    private final float MAINMENU_BUTTON_PADDING_TOP = HUD_PADDING;
+    private final float MAINMENU_BUTTON_PADDING_RIGHT = HUD_PADDING;
+
+    private final float BOTTOMPANEL_PADDING_BOTTOM = 0;
+    private final float TOPPANEL_PADDING_TOP = 0;
 
     private FlightModeController controller;
     private FlightModeModel model;
@@ -77,6 +97,13 @@ public class FlightModeStage extends AbstractGameStage {
 
         chatWidget = new ChatWidget();
         rootLayout.addActor(chatWidget);
+
+
+        bottomPanelWidget = new BottomPanelWidget();
+        rootLayout.addActor(bottomPanelWidget);
+
+        topPanelWidget = new TopPanelWidget();
+        rootLayout.addActor(topPanelWidget);
 
         chatBtn = StageUiFactory.createButtonBuilder().setText("CHAT")
                 .setType(IButtonBuilder.ButtonType.GAME_CHAT_HIDE_BUTTON)
@@ -114,24 +141,45 @@ public class FlightModeStage extends AbstractGameStage {
         miniMapBtnTable.add(miniMapBtn);
         rootLayout.addActor(miniMapBtnTable);
 
-        if (EnvType.CURRENT == EnvType.DEV) {
-            mainMenuBtn = StageUiFactory.createButtonBuilder()
-                    .setText("MM")
-                    .setType(IButtonBuilder.ButtonType.MAIN_MENU_BUTTON)
-                    .setClickCommand(new IButtonClickCommand() {
-                        @Override
-                        public void execute(InputEvent e, float x, float y) {
-                            ContextHolder.getBean(IClientNetworkManager.class).disconnect(
-                                    new StubCallback<Boolean>());
-                            IStageProvider provider = StageProviderFactory.createStageProvider(
-                                    StageProviderFactory.StagePresenterType.MAIN_MENU);
-                            getClientWindow().setStageProvider(provider);
-                            provider.getGameStage().forceResize();
-                        }
-                    }).build();
+        stateWidget = new StateWidget();
+        rootLayout.addActor(stateWidget);
 
-            rootLayout.addActor(mainMenuBtn);
-        }
+        stateBtn = StageUiFactory.createButtonBuilder().setText("STATE")
+                .setType(IButtonBuilder.ButtonType.GAME_STATE_HIDE_BUTTON)
+                .setClickCommand(new IButtonClickCommand() {
+                    @Override
+                    public void execute(InputEvent e, float x, float y) {
+                        stateWidget.setVisible(!stateWidget.isVisible());
+                    }
+                }).build();
+        stateBtnTable = new Table();
+        stateBtnTable.setSize(stateBtn.getWidth() ,stateBtn.getHeight());
+        stateBtnTable.setTransform(true);
+        stateBtnTable.row();
+        stateBtnTable.add(stateBtn);
+        rootLayout.addActor(stateBtnTable);
+
+        mainMenuBtn = StageUiFactory.createButtonBuilder()
+                .setText("MENU")
+                .setType(IButtonBuilder.ButtonType.GAME_MAINMENU_HIDE_BUTTON)
+                .setClickCommand(new IButtonClickCommand() {
+                    @Override
+                    public void execute(InputEvent e, float x, float y) {
+                        ContextHolder.getBean(IClientNetworkManager.class).disconnect(
+                                new StubCallback<Boolean>());
+                        IStageProvider provider = StageProviderFactory.createStageProvider(
+                                StageProviderFactory.StagePresenterType.MAIN_MENU);
+                        getClientWindow().setStageProvider(provider);
+                        provider.getGameStage().forceResize();
+                    }
+                }).build();
+
+        mainMenuBtnTable = new Table();
+        mainMenuBtnTable.setSize(mainMenuBtn.getWidth() ,mainMenuBtn.getHeight());
+        mainMenuBtnTable.setTransform(true);
+        mainMenuBtnTable.row();
+        mainMenuBtnTable.add(mainMenuBtn);
+        rootLayout.addActor(mainMenuBtnTable);
 
         forceResize();
         addListener(new ClientActionListener());
@@ -163,6 +211,23 @@ public class FlightModeStage extends AbstractGameStage {
         gameActorsLayout.setOrigin(gameActorsLayoutWidth / 2f, gameActorsLayoutHeight / 2f);
         gameActorsLayout.setPosition(gameActorsLayoutX, gameActorsLayoutY);
 
+
+        float bottomPanelWidgetWidth = bottomPanelWidget.getPrefWidth() * getScaleX();
+        float bottomPanelWidgetHeight = bottomPanelWidget.getPrefHeight() * getScaleY();
+        float bottomPanelWidgetX = (viewportWidth / 2f) - (bottomPanelWidgetWidth / 2f);
+        float bottomPanelWidgetY = BOTTOMPANEL_PADDING_BOTTOM * getScaleY();
+        bottomPanelWidget.setSize(bottomPanelWidgetWidth , bottomPanelWidgetHeight);
+        bottomPanelWidget.setX(bottomPanelWidgetX);
+        bottomPanelWidget.setY(bottomPanelWidgetY);
+
+        float topPanelWidgetWidth = topPanelWidget.getPrefWidth() * getScaleX();
+        float topPanelWidgetHeight = topPanelWidget.getPrefHeight() * getScaleY();
+        float topPanelWidgetX = (viewportWidth / 2f) - (topPanelWidgetWidth / 2f);
+        float topPanelWidgetY = viewportHeight - topPanelWidgetHeight - TOPPANEL_PADDING_TOP * getScaleY();
+        topPanelWidget.setSize(topPanelWidgetWidth , topPanelWidgetHeight);
+        topPanelWidget.setX(topPanelWidgetX);
+        topPanelWidget.setY(topPanelWidgetY);
+
         float chatWidgetWidth = chatWidget.getPrefWidth() * getScaleX();
         float chatWidgetHeight = chatWidget.getPrefHeight() * getScaleY();
         float chatWidgetX = CHAT_PADDING_LEFT * getScaleX();
@@ -191,16 +256,29 @@ public class FlightModeStage extends AbstractGameStage {
         miniMapBtnTable.setX(miniMapBtnTableX);
         miniMapBtnTable.setY(miniMapBtnTableY);
 
-        if (EnvType.CURRENT == EnvType.DEV) {
-            final float MAIN_MENU_BTN_COEF = 0.1f;
-            mainMenuBtn.setWidth(viewportWidth * MAIN_MENU_BTN_COEF);
-            mainMenuBtn.setHeight(viewportWidth * MAIN_MENU_BTN_COEF);
+        float stateWidgetWidth = stateWidget.getPrefWidth() * getScaleX();
+        float stateWidgetHeight = stateWidget.getPrefHeight() * getScaleY();
+        float stateWidgetX = STATE_PADDING_LEFT * getScaleX();
+        float stateWidgetY =  viewportHeight - stateWidgetHeight - (STATE_PADDING_TOP * getScaleY());
+        stateWidget.setSize(stateWidgetWidth, stateWidgetHeight);
+        stateWidget.setX(stateWidgetX);
+        stateWidget.setY(stateWidgetY);
 
-            float mainMenuBtnX = rootLayout.getWidth() - mainMenuBtn.getWidth();
-            float mainMenuBtnY = rootLayout.getHeight() - mainMenuBtn.getHeight();
-            mainMenuBtn.setX(mainMenuBtnX);
-            mainMenuBtn.setY(mainMenuBtnY);
-        }
+        float stateBtnTableX = STATE_BUTTON_PADDING_LEFT * getScaleX();
+        float stateBtnTableY = viewportHeight - (stateBtnTable.getHeight() * getScaleY()) - (STATE_BUTTON_PADDING_TOP * getScaleY());
+        stateBtnTable.setScale(getScaleX(), getScaleY());
+        stateBtnTable.setX(stateBtnTableX);
+        stateBtnTable.setY(stateBtnTableY);
+
+        float mainMenuBtnTableX = viewportWidth
+                - (mainMenuBtnTable.getWidth() * getScaleX())
+                - (MAINMENU_BUTTON_PADDING_RIGHT * getScaleX());
+        float mainMenuBtnTableY = viewportHeight
+                - (mainMenuBtnTable.getHeight() * getScaleY())
+                - (MAINMENU_BUTTON_PADDING_TOP * getScaleY());
+        mainMenuBtnTable.setScale(getScaleX(), getScaleY());
+        mainMenuBtnTable.setX(mainMenuBtnTableX);
+        mainMenuBtnTable.setY(mainMenuBtnTableY);
     }
 
 
@@ -213,6 +291,9 @@ public class FlightModeStage extends AbstractGameStage {
         stageInfo.setWidth(gameActorsLayout.getWidth());
         stageInfo.setScaleY(getScaleY());
         stageInfo.setScaleX(getScaleX());
+
+        log.debug("----1 h="+getHeight()+" w="+getWidth());
+        log.debug("----2 h="+gameActorsLayout.getHeight()+" w="+gameActorsLayout.getWidth());
 
         IGeActor background = model.getBackground();
         gameActorsLayout.addActor(background.toActor());

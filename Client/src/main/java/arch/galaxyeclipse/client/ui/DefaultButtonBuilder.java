@@ -15,6 +15,12 @@ import com.badlogic.gdx.scenes.scene2d.utils.FocusListener;
  *
  */
 class DefaultButtonBuilder implements IButtonBuilder {
+
+    public static final int CHAT_BUTTONTEXT_CENTER_CORRECTION_Y = -15;
+    public static final int MINIMAP_BUTTONTEXT_CENTER_CORRECTION_Y = 15;
+    public static final int STATE_BUTTONTEXT_CENTER_CORRECTION_Y = -15;
+    public static final int MAINMENU_BUTTONTEXT_CENTER_CORRECTION_Y = 15;
+
     private static final int TEXT_PADDING_Y = -10;
     private static final float BUTTON_DOWN_OFFSET = 2;
 
@@ -23,53 +29,73 @@ class DefaultButtonBuilder implements IButtonBuilder {
     private IButtonClickCommand connectButtonCommand;
     private TextButton.TextButtonStyle style;
 
+    private int textCenterCorrectionY = 0;
+
+    private IResourceLoader resourceLoader;
+
     public DefaultButtonBuilder() {
         text = "";
         listener = new ClickListener();
         style = new TextButton.TextButtonStyle();
-        IResourceLoader resourceLoader = ContextHolder.getBean(IResourceLoader.class);
-        style.font = resourceLoader.getFont("assets/font_calibri_36px");
+        resourceLoader = ContextHolder.getBean(IResourceLoader.class);
+        //Предварительно требуеться загрузить шрифты тут, непонятно почему. Решить.
+        resourceLoader.getFont("font_calibri_48px");
+        resourceLoader.getFont("font_calibri_36px");
+        resourceLoader.getFont("font_impact_36px");
     }
 
     @Override
     public IButtonBuilder setType(ButtonType buttonType) {
-        IResourceLoader resourceLoader = ContextHolder.getBean(IResourceLoader.class);
         switch (buttonType) {
             case MAIN_MENU_BUTTON:
-                this.style.up = resourceLoader.createDrawable("ui/btnUp");
-                this.style.down = resourceLoader.createDrawable("ui/btnDown");
-                this.style.font = resourceLoader.getFont("assets/font_calibri_48px");
+                style.up = resourceLoader.createDrawable("ui/btnUp");
+                style.down = resourceLoader.createDrawable("ui/btnDown");
+                style.font = resourceLoader.getFont("font_calibri_48px");
                 break;
             case GAME_CHAT_HIDE_BUTTON:
-                this.style.up = resourceLoader.createDrawable("ui/chat/btnChat");
-                this.style.down = resourceLoader.createDrawable("ui/chat/btnChat");
-                this.style.font = resourceLoader.getFont("assets/font_calibri_36px");
+                style.up = resourceLoader.createDrawable("ui/chat/btnChat");
+                style.down = resourceLoader.createDrawable("ui/chat/btnChat");
+                style.font = resourceLoader.getFont("font_impact_36px");
+                textCenterCorrectionY = CHAT_BUTTONTEXT_CENTER_CORRECTION_Y;
                 break;
             case GAME_CHAT_INNER_SCROLL_UP_BUTTON:
-                this.style.up = resourceLoader.createDrawable("ui/chat/btnChatScrollUp");
-                this.style.down = resourceLoader.createDrawable("ui/chat/btnChatScrollUp");
-                this.style.font = resourceLoader.getFont("assets/font_calibri_36px");
+                style.up = resourceLoader.createDrawable("ui/chat/btnChatScrollUp");
+                style.down = resourceLoader.createDrawable("ui/chat/btnChatScrollUp");
+                style.font = resourceLoader.getFont("font_calibri_36px");
                 break;
             case GAME_CHAT_INNER_SCROLL_DOWN_BUTTON:
-                this.style.up = resourceLoader.createDrawable("ui/chat/btnChatScrollDown");
-                this.style.down = resourceLoader.createDrawable("ui/chat/btnChatScrollDown");
-                this.style.font = resourceLoader.getFont("assets/font_calibri_36px");
+                style.up = resourceLoader.createDrawable("ui/chat/btnChatScrollDown");
+                style.down = resourceLoader.createDrawable("ui/chat/btnChatScrollDown");
+                style.font = resourceLoader.getFont("font_impact_36px");
                 break;
             case GAME_CHAT_INNER_AUTO_SCROLL_BUTTON:
-                this.style.up = resourceLoader.createDrawable("ui/chat/btnChatAutoScroll");
-                this.style.down = resourceLoader.createDrawable("ui/chat/btnChatAutoScroll");
-                this.style.font = resourceLoader.getFont("assets/font_calibri_36px");
+                style.up = resourceLoader.createDrawable("ui/chat/btnChatAutoScroll");
+                style.down = resourceLoader.createDrawable("ui/chat/btnChatAutoScroll");
+                style.font = resourceLoader.getFont("font_impact_36px");
                 break;
             case GAME_MINIMAP_HIDE_BUTTON:
-                this.style.up = resourceLoader.createDrawable("ui/minimap/btnMiniMap");
-                this.style.down = resourceLoader.createDrawable("ui/minimap/btnMiniMap");
-                this.style.font = resourceLoader.getFont("assets/font_calibri_36px");
+                style.up = resourceLoader.createDrawable("ui/minimap/btnMiniMap");
+                style.down = resourceLoader.createDrawable("ui/minimap/btnMiniMap");
+                style.font = resourceLoader.getFont("font_impact_36px");
+                textCenterCorrectionY = MINIMAP_BUTTONTEXT_CENTER_CORRECTION_Y;
+                break;
+            case GAME_STATE_HIDE_BUTTON:
+                style.up = resourceLoader.createDrawable("ui/state/btnState");
+                style.down = resourceLoader.createDrawable("ui/state/btnState");
+                style.font = resourceLoader.getFont("font_impact_36px");
+                textCenterCorrectionY = STATE_BUTTONTEXT_CENTER_CORRECTION_Y;
+                break;
+            case GAME_MAINMENU_HIDE_BUTTON:
+                style.up = resourceLoader.createDrawable("ui/btnMainMenu");
+                style.down = resourceLoader.createDrawable("ui/btnMainMenu");
+                style.font = resourceLoader.getFont("font_impact_36px");
+                textCenterCorrectionY = MINIMAP_BUTTONTEXT_CENTER_CORRECTION_Y;
                 break;
         }
-        this.style.fontColor = Color.WHITE;
-        this.style.downFontColor = Color.GRAY;
-        this.style.pressedOffsetX = BUTTON_DOWN_OFFSET;
-        this.style.pressedOffsetY = -BUTTON_DOWN_OFFSET;
+        style.fontColor = Color.WHITE;
+        style.downFontColor = Color.GRAY;
+        style.pressedOffsetX = BUTTON_DOWN_OFFSET;
+        style.pressedOffsetY = -BUTTON_DOWN_OFFSET;
         return this;
     }
 
@@ -97,6 +123,7 @@ class DefaultButtonBuilder implements IButtonBuilder {
         button.addListener(listener);
         button.setPrefTextPaddingY(TEXT_PADDING_Y);
         button.setClickCommand(connectButtonCommand);
+        button.setTextCenterCorrectionY(textCenterCorrectionY);
         button.addListener(new FocusListener() {
             @Override
             public void keyboardFocusChanged(FocusEvent event, Actor actor, boolean focused) {
