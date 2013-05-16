@@ -30,9 +30,9 @@ class ClientWindow implements IClientWindow {
     private static final float VIRTUAL_WIDTH    = 4;
     private static final float VIRTUAL_HEIGHT   = 3;
     private static final float ASPECT_RATIO     = VIRTUAL_WIDTH / VIRTUAL_HEIGHT;
-    private final TaskRunnablePair<RenderRequestRunnable> renderRequestTaskRunnablePair;
-    private GeExecutor executor;
 
+    private TaskRunnablePair<RenderRequestRunnable> renderRequestTaskRunnablePair;
+    private GeExecutor executor;
     private IStageProvider stageProvider;
     private Rectangle viewport;
     private List<IDestroyable> destroyables;
@@ -71,11 +71,6 @@ class ClientWindow implements IClientWindow {
                 break;
         }
         new LwjglApplication(new ClientListener(), config);
-
-        renderRequestTaskRunnablePair = new TaskRunnablePair<>(
-                RENDER_REQUEST_MILLISECONDS_DELAY, new RenderRequestRunnable(),
-                true, false);
-        renderRequestTaskRunnablePair.start();
     }
 
     @Override
@@ -112,6 +107,11 @@ class ClientWindow implements IClientWindow {
 
             setStageProvider(StageProviderFactory.createStageProvider(
                     StageProviderFactory.StagePresenterType.MAIN_MENU));
+
+            renderRequestTaskRunnablePair = new TaskRunnablePair<>(
+                    RENDER_REQUEST_MILLISECONDS_DELAY, new RenderRequestRunnable(),
+                    true, false);
+            renderRequestTaskRunnablePair.start();
         }
 
         @Override
