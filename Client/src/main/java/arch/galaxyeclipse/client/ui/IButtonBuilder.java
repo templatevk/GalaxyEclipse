@@ -12,7 +12,9 @@ public interface IButtonBuilder extends IBuilder<TextButton> {
         GAME_CHAT_INNER_SCROLL_UP_BUTTON,
         GAME_CHAT_INNER_SCROLL_DOWN_BUTTON,
         GAME_CHAT_INNER_AUTO_SCROLL_BUTTON,
-        GAME_MINIMAP_HIDE_BUTTON;
+        GAME_MINIMAP_HIDE_BUTTON,
+        GAME_STATE_HIDE_BUTTON,
+        GAME_MAINMENU_HIDE_BUTTON;
     }
 
     IButtonBuilder setType(ButtonType buttonType);

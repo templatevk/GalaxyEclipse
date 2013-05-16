@@ -50,6 +50,9 @@ public class Button extends Table {
     @Setter
     private float textPaddingY = 0;
 
+    @Setter
+    private float textCenterCorrectionY = 0;
+
     @Setter @Getter
     private boolean pressedStyle = false;
 
@@ -188,7 +191,7 @@ public class Button extends Table {
 		float offsetX = 0, offsetY = 0;
 		if ((isPressed() && !isDisabled) || pressedStyle) {
 			background = style.down == null ? style.up : style.down;
-			offsetX = style.pressedOffsetX;
+			offsetX = style.pressedOffsetX+textCenterCorrectionY;
 			offsetY = style.pressedOffsetY-textPaddingY;
 		} else {
 			if (isDisabled && style.disabled != null)
@@ -199,7 +202,7 @@ public class Button extends Table {
 				background = style.over;
 			else
 				background = style.up;
-			offsetX = style.unpressedOffsetX;
+			offsetX = style.unpressedOffsetX+textCenterCorrectionY;
 			offsetY = style.unpressedOffsetY-textPaddingY;
 		}
 
