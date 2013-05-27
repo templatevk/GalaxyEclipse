@@ -13,14 +13,14 @@ DIMA
     CONSOLE
     ADMIN COMMANDS (STOP SERVER, MESSANGING, SYSTEM, BROADCAST, PRIVATE),
     COMMANDS AND ROLES
-JODA
+YODA
     REMOTE CLIENT CONNECTION
-    DECREASE CLIENT'S SYSTEM RESOURCCE USAGE
+    DECREASE CLIENT'S SYSTEM RESOURCCE USAGE                                           +
     ANIMATION MODULE               `
     SOUNDS AND MUSIC MODULE
     RESOURCE LOADER API FOR MEDIA
     REFACTOR TO LOGUTILS USAGE FOR LOGGING MESSAGES TO INVOKE FROM ADMIN
-        ABSTRACT GE_LOGGER, GELOGGER STRATEGY TO DECIDE UPON MESSAGES PRODUCED
+        ABSTRACT GE_LOGGER, GE_LOGGER STRATEGY TO DECIDE UPON MESSAGES PRODUCED
         GE_LOGGER STRATEGY FACTORY, GE_LOGGER FACTORY
 
 
@@ -33,46 +33,46 @@ JODA
 FINAL PRESENTATION
 Инструменты
 Сборка
-	Мавен   															    JODA
+	Мавен   															    YODA
 Отрисовка
 	Libgdx, OPEN_GL                                                         DIMA
 Сеть
 	Netty, Protobuf                                                         DIMA
 Фреймворки
-    Netty, lombok, guava, DBCP, COMMONS COLLECTIONS, SPRING DATA,           BEAN
+    NETTY, LOMBOK, GUAVA, DBCP, COMMONS COLLECTIONS, SPRING DATA,           BEAN
         SPRING DATA REDIS, SPRING CORE, MYSQL_JAVA_CONNECTOR,               BEAN
         SLF4J, LOGBACK, SPRING ORM, SPRING TX, HIBERNATE CORE,              BEAN
-        JUNIT, TESTNG, JMOCKIT, FEST_ASSERT, LIBGDX, PROTOBUF,              BEAN
+        JUNIT, TESTNG, JMOCKIT, FEST_ASSERT, LIBGDX, PROTOBUF               BEAN
 Cайт
     PHP, ACTIVATION_PROC                                                    DIMA
 Данные
 	Java Collections - Protobuf Builders - Hiberbate - Database             ALEX
 	    Structure and Scripts - LocationObjectPopulator - MySQL	            ALEX
-	Redis															        JODA
+	Redis															        YODA
 Логирование
-	Slf4j, Logback, Log4j, Политики логирования							    JODA
+	Slf4j, Logback, Log4j, Политики логирования							    YODA
 Логика
 	СЕРВЕР
 	Аутентификация и Авторизация клиента сервером						    BEAN
 	Обработка сообщений клиента, декораторы, обработка сообщений            ALEX
 	    сервера, listener'ы                         					    ALEX
-	HibernateUnitOfWork, многопоточность (ExecutorService, Runnable,        JODA
-	    GeExecutor), модуль Shared                                          JODA
-    Параметры виртуальной машины, конфигурации запуска, компиляции,         JODA
-        JRebel, JProfiler, нагрузка системы приложением, ОС настройки,      JODA
-        настройки IDEA, интеграция с фреймворками, Git, Youtrack,           JODA
-        стратегии именования, bash_scripts                                  JODA
+	HibernateUnitOfWork, многопоточность (ExecutorService, Runnable,        YODA
+	    GeExecutor), модуль Shared                                          YODA
+    Параметры виртуальной машины, конфигурации запуска, компиляции,         YODA
+        JRebel, JProfiler, нагрузка системы приложением, ОС настройки,      YODA
+        настройки IDEA, интеграция с фреймворками, Git, Youtrack,           YODA
+        стратегии именования, bash_scripts                                  YODA
 Используемые шаблоны проектирования, MVC, MVP, UNIT_OF_WORK,                BEAN
     FACTORY, BUILDER, DECORATOR, LISTENER, COMMAND, UTIL,                   BEAN
     SINGLETON (Spring)                                                      BEAN
 Spring IoC, DI
-    SPRING CONTEXT, SPRING EXPRESSION LANGUAGE, DEPENDENCY INJECTION,       JODA
-    REFLEXION IN JAVA WITH IoC Container, ALTERNATIVES (GOOGLE GUICE)       JODA
-UI
+    SPRING CONTEXT, SPRING EXPRESSION LANGUAGE, DEPENDENCY INJECTION,       YODA
+    REFLEXION IN JAVA WITH IoC Container, ALTERNATIVES (GOOGLE GUICE)       YODA
+UI               
     SCENE2D, LAYOUTS, ACTOR, ACTOR FACTORY, FACTORY/BUILDER, TAB ORDER,     ALEX
-    KEY LISTNER, RENDERING FROM MODEL (FLIGHT MODE), ACTOR TYPES, SCALING,  JODA
+    KEY LISTNER, RENDERING FROM MODEL (FLIGHT MODE), ACTOR TYPES, SCALING,  YODA
     ABSTRACT GAME STAGE, CLIENT WINDOW, OPEN_GL HINTS, TEXTURES, PACKER,    ALEX
-    IMAGE FOLDER STRUCTURE, Conv. over Conf, PROFILES AND CLIENT            JODA
+    IMAGE FOLDER STRUCTURE, CONV OVER CONF, PROFILES AND CLIENT             YODA
     RENDERING, CUSTOM WIDGETS, EDITED LIBGDX CLASSES, PHOTOSHOP, FONTS      ALEX
 SCRUM, TESTING, GIT REPO                                                    DIMA
 
@@ -81,7 +81,7 @@ SCRUM, TESTING, GIT REPO                                                    DIMA
 
 
 BEAN (JavaBean, Mister Bin, Binary (bin))
-JODA (Star Wars)
+YODA (Star Wars)
 ALEX (UI MASTA | PS 80 LVL)
 DIMA
 

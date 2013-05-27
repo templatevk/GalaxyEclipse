@@ -18,7 +18,6 @@ import java.util.concurrent.Executors;
 
 @Slf4j
 class ServerNetworkManager implements IServerNetworkManager, IMonitoringNetworkManager {
-    private static final String HOST_PROPERTY = "host";
     private static final String PORT_PROPERTY = "port";
 
     // All the connected clients
@@ -28,16 +27,13 @@ class ServerNetworkManager implements IServerNetworkManager, IMonitoringNetworkM
     private ServerBootstrap bootstrap;
     private Channel serverChannel;
 
-    private final String host;
     private final String port;
     private SocketAddress hostAddress;
 
     public ServerNetworkManager(ProtobufChannelPipelineFactory channelPipelineFactory) {
-        host = System.getProperty(HOST_PROPERTY);
         port = System.getProperty(PORT_PROPERTY);
-        Preconditions.checkNotNull(host, "Network error, host property is not set");
         Preconditions.checkNotNull(port, "Network error, port property is not set");
-        hostAddress = new InetSocketAddress(host, Integer.valueOf(port));
+        hostAddress = new InetSocketAddress(Integer.valueOf(port));
 
         this.channelPipelineFactory = channelPipelineFactory;
         serverChannelHandlers = new HashSet<>();
@@ -61,14 +57,10 @@ class ServerNetworkManager implements IServerNetworkManager, IMonitoringNetworkM
 		serverChannel = bootstrap.bind(hostAddress);
 
         if (log.isInfoEnabled()) {
-            log.info("Starting server on " + host + ":" + port);
-            log.info("Remote address " + serverChannel.getRemoteAddress());
+            log.info("Starting server on port " + port);
             log.info("Local address " + serverChannel.getLocalAddress());
             log.info("Is bound " + serverChannel.isBound());
-            log.info("Is connected  " + serverChannel.isConnected());
             log.info("Is open " + serverChannel.isOpen());
-            log.info("Is readable " + serverChannel.isReadable());
-            log.info("Is writable " + serverChannel.isWritable());
         }
 	}
 	
