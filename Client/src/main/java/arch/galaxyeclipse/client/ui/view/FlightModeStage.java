@@ -292,9 +292,6 @@ public class FlightModeStage extends AbstractGameStage {
         stageInfo.setScaleY(getScaleY());
         stageInfo.setScaleX(getScaleX());
 
-        log.debug("----1 h="+getHeight()+" w="+getWidth());
-        log.debug("----2 h="+gameActorsLayout.getHeight()+" w="+gameActorsLayout.getWidth());
-
         IGeActor background = model.getBackground();
         gameActorsLayout.addActor(background.toActor());
         background.adjust(stageInfo);
