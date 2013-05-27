@@ -47,7 +47,7 @@ class CachingResourceLoader extends TextureAtlas implements IResourceLoader, IDe
                 region = super.findRegion(name);
                 regions.put(name, region);
             } catch (Exception e) {
-                throw new RuntimeException("Error loading region, try rerunning TexturePackerMain", e);
+                throw new RuntimeException("Error loading region, try rerunning TexturePacker", e);
             }
 		}
 		return region;

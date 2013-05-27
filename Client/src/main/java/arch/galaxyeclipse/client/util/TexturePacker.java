@@ -7,7 +7,7 @@ import com.badlogic.gdx.tools.imagepacker.TexturePacker2.Settings;
 /**
  * Utility class to pack the pictures into .atlas.
  */
-public class TexturePackerMain {
+public class TexturePacker {
 	public static void main(String args[]) {
 		Settings settings = new Settings();
 		settings.pot = true;

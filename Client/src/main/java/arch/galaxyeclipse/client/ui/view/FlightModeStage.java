@@ -14,6 +14,7 @@ import arch.galaxyeclipse.client.ui.provider.IStageProvider;
 import arch.galaxyeclipse.client.ui.provider.StageProviderFactory;
 import arch.galaxyeclipse.shared.common.StubCallback;
 import arch.galaxyeclipse.shared.context.ContextHolder;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
@@ -200,6 +201,7 @@ public class FlightModeStage extends AbstractGameStage {
         rootLayout.setSize(viewportWidth, viewportHeight);
         rootLayout.setOrigin(viewportWidth / 2f, viewportHeight / 2f);
         rootLayout.setPosition(rootLayoutX, rootLayoutY);
+        getRoot().setCullingArea(new Rectangle(0, 0, rootLayout.getWidth(), rootLayout.getHeight()));
 
         float gameActorsLayoutHeight = viewportHeight;
         float gameActorsLayoutWidth = viewportWidth;
