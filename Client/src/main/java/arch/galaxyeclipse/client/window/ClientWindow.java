@@ -105,6 +105,10 @@ class ClientWindow implements IClientWindow {
             Gdx.gl.glHint(GL20.GL_FRAGMENT_SHADER,              GL20.GL_NICEST);
             glClear();
 
+//            int shader = glCreateProgram();
+//            int vertexSader = glCreateShader(GL_VERTEX_SHADER);
+//            int fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
+
             setStageProvider(StageProviderFactory.createStageProvider(
                     StageProviderFactory.StagePresenterType.MAIN_MENU));
 
