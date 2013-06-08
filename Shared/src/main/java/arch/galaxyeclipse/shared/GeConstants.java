@@ -8,7 +8,7 @@ public class GeConstants {
 	public static final int PORT = 7777;
 
     // Initial location location size is 1000.00 x 1000.00
-    public static final float DYNAMIC_OBJECT_QUERY_RADIUS = 50;
+    public static final float DYNAMIC_OBJECT_QUERY_RADIUS = 100;
     public static final float LOCATION_TO_SCREEN_COORDS_COEF = 30;
     public static final float SHIP_MOVE_SPEED_TO_LOCATION_COORDS_COEF = 0.01f;
 

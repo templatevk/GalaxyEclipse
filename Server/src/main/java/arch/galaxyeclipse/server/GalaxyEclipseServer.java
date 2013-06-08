@@ -4,7 +4,6 @@ import arch.galaxyeclipse.server.data.DictionaryTypesMapperHelper;
 import arch.galaxyeclipse.server.data.HibernateUnitOfWork;
 import arch.galaxyeclipse.server.network.IServerNetworkManager;
 import arch.galaxyeclipse.shared.EnvType;
-import arch.galaxyeclipse.shared.GeConstants;
 import arch.galaxyeclipse.shared.context.ContextHolder;
 import arch.galaxyeclipse.shared.thread.GeExecutor;
 import arch.galaxyeclipse.shared.types.DictionaryTypesMapper;
@@ -37,7 +36,7 @@ public class GalaxyEclipseServer {
     public void start() {
         preconfigure();
         hibernateAllPlayers();
-        serverNetworkManager.startServer(GeConstants.HOST, GeConstants.PORT);
+        serverNetworkManager.startServer();
     }
 
     public void stop() {

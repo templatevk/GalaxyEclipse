@@ -4,7 +4,6 @@ import arch.galaxyeclipse.client.ui.provider.IStageProvider;
 import arch.galaxyeclipse.client.ui.provider.StageProviderFactory;
 import arch.galaxyeclipse.shared.EnvType;
 import arch.galaxyeclipse.shared.common.IDestroyable;
-import arch.galaxyeclipse.shared.context.ContextHolder;
 import arch.galaxyeclipse.shared.thread.GeExecutor;
 import arch.galaxyeclipse.shared.thread.TaskRunnablePair;
 import com.badlogic.gdx.ApplicationListener;
@@ -23,30 +22,32 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.ArrayList;
 import java.util.List;
 
+import static arch.galaxyeclipse.shared.context.ContextHolder.getBean;
+import static com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration.getDesktopDisplayMode;
+
 @Slf4j
 class ClientWindow implements IClientWindow {
-    public static final int RENDER_REQUEST_MILLISECONDS_DELAY = 25;
+    public static final int RENDER_REQUEST_MILLISECONDS_DELAY = 300;
 
     private static final float VIRTUAL_WIDTH    = 4;
     private static final float VIRTUAL_HEIGHT   = 3;
     private static final float ASPECT_RATIO     = VIRTUAL_WIDTH / VIRTUAL_HEIGHT;
 
     private TaskRunnablePair<RenderRequestRunnable> renderRequestTaskRunnablePair;
-    private GeExecutor executor;
     private IStageProvider stageProvider;
-    private Rectangle viewport;
     private List<IDestroyable> destroyables;
 
+    private @Getter Rectangle viewport;
     private @Getter float width;
     private @Getter float height;
     private @Getter float viewportWidth;
     private @Getter float viewportHeight;
 
     public ClientWindow() {
-        this.destroyables = new ArrayList<>();
+        destroyables = new ArrayList<>();
 
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-        DisplayMode desktopDisplayMode = LwjglApplicationConfiguration.getDesktopDisplayMode();
+        DisplayMode desktopDisplayMode = getDesktopDisplayMode();
 
         if (log.isInfoEnabled()) {
             log.info("Setting display mode width " + desktopDisplayMode.width
@@ -122,7 +123,7 @@ class ClientWindow implements IClientWindow {
             if (stageProvider != null) {
                 stageProvider.detach();
             }
-            ContextHolder.getBean(GeExecutor.class).shutdownNow();
+            getBean(GeExecutor.class).shutdownNow();
         }
 
         @Override
@@ -133,7 +134,6 @@ class ClientWindow implements IClientWindow {
         @Override
         public void render() {
             glClear();
-
             stageProvider.getGameStage().act(Gdx.graphics.getDeltaTime());
             stageProvider.getGameStage().draw();
 

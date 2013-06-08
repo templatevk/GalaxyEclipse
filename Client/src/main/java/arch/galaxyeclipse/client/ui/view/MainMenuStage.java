@@ -14,6 +14,9 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 
 import java.util.Arrays;
 
+import static arch.galaxyeclipse.client.ui.StageUiFactory.createButtonBuilder;
+import static arch.galaxyeclipse.client.ui.StageUiFactory.createTextFieldBuilder;
+
 public class MainMenuStage extends AbstractGameStage {
     private static final float TABLE_SPACING = 10;
     private static final float TEXTFIELD_WIDTH = 370;
@@ -31,14 +34,14 @@ public class MainMenuStage extends AbstractGameStage {
     public MainMenuStage(final MainMenuPresenter presenter) {
         IResourceLoader resourceLoader = ContextHolder.getBean(IResourceLoader.class);
 
-        usernameTxt = StageUiFactory.createTextFieldBuilder()
+        usernameTxt = createTextFieldBuilder()
                 .setWidth(TEXTFIELD_WIDTH).setHeight(TEXTFIELD_HEIGHT)
                 .setMessageText("Your username").build();
-        passwordTxt = StageUiFactory.createTextFieldBuilder()
+        passwordTxt = createTextFieldBuilder()
                 .setWidth(TEXTFIELD_WIDTH).setHeight(TEXTFIELD_HEIGHT)
                 .setMessageText("Your password").setPasswordMode(true)
                 .setPasswordCharacter('*').build();
-        connectBtn = StageUiFactory.createButtonBuilder().setText("Connect")
+        connectBtn = createButtonBuilder().setText("Connect")
                 .setType(IButtonBuilder.ButtonType.MAIN_MENU_BUTTON)
                 .setClickCommand(presenter.getConnectButtonCommand()).build();
 
@@ -62,9 +65,6 @@ public class MainMenuStage extends AbstractGameStage {
                 innerTable.getPrefHeight() / 2);
 
         if (EnvType.CURRENT == EnvType.DEV || EnvType.CURRENT == EnvType.DEV_UI) {
-            rootTable.debug();
-            innerTable.debug();
-
             usernameTxt.setText(TEST_PLAYER_LOGIN_PASSWORD);
             passwordTxt.setText(TEST_PLAYER_LOGIN_PASSWORD);
         }

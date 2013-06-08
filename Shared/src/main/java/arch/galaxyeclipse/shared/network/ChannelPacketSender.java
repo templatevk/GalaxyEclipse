@@ -1,7 +1,7 @@
 package arch.galaxyeclipse.shared.network;
 
-import arch.galaxyeclipse.shared.protocol.GeProtocol.Packet;
 import arch.galaxyeclipse.shared.common.LogUtils;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.Packet;
 import lombok.extern.slf4j.Slf4j;
 import org.jboss.netty.channel.Channel;
 
@@ -14,7 +14,7 @@ public class ChannelPacketSender implements IPacketSender {
 
 	public ChannelPacketSender(Channel channel) {
 		super();
-		this.channel = channel;
+        this.channel = channel;
 	}
 	
 	@Override

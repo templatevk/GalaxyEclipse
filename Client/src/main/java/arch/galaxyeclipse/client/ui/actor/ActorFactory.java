@@ -32,17 +32,17 @@ class ActorFactory implements IActorFactory {
     }
 
     @Override
-    public LocationObjectActor createLocationObjectActor(LocationObjectPacket locationObject) {
+    public LocationObjectActor createLocationObjectActor(LocationObjectPacket locationObjectPacket) {
         LocationObjectTypesMapperType objectType = dictionaryTypesMapper
-                .getLocationObjectTypeById(locationObject.getObjectTypeId());
+                .getLocationObjectTypeById(locationObjectPacket.getObjectTypeId());
         String path = null;
 
         switch (objectType) {
             case FOG:
-                path = String.format(FOG_IMAGE_PATH, locationObject.getNativeId());
+                path = String.format(FOG_IMAGE_PATH, locationObjectPacket.getNativeId());
                 break;
             case STAR:
-                path = String.format(STAR_IMAGE_PATH, locationObject.getNativeId());
+                path = String.format(STAR_IMAGE_PATH, locationObjectPacket.getNativeId());
                 break;
             case ROCKET:
                 break;
@@ -51,14 +51,14 @@ class ActorFactory implements IActorFactory {
             case STATION:
                 break;
             case PLAYER:
-                path = String.format(PLAYER_IMAGE_PATH, locationObject.getNativeId());
+                path = String.format(PLAYER_IMAGE_PATH, locationObjectPacket.getNativeId());
                 break;
         }
 
         Drawable drawable = new TextureRegionDrawable(resourceLoader.findRegion(path));
 
         LocationObjectActor locationObjectActor = new LocationObjectActor(
-                drawable, locationObject);
+                drawable, locationObjectPacket);
         locationObjectActor.setDrawable(drawable);
         locationObjectActor.setLocationObjectType(objectType);
 
@@ -66,7 +66,7 @@ class ActorFactory implements IActorFactory {
     }
 
     @Override
-    public IGeActor createBackgroundActor(int locationId) {
+    public BackgroundActor createBackgroundActor(int locationId) {
         String path = String.format(LOCATION_BACKGROUND_IMAGE_PATH, locationId);
         Drawable drawable = new TextureRegionDrawable(resourceLoader.findRegion(path));
         BackgroundActor background = new BackgroundActor(drawable);

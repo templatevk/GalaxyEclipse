@@ -59,7 +59,7 @@ public class ChatWidget extends Table implements IServerPacketListener {
     private float fontHeight;
 
     public ChatWidget() {
-        this.isAutoScrollEnabled = true;
+        isAutoScrollEnabled = true;
         networkManager = ContextHolder.getBean(IClientNetworkManager.class);
         resourceLoader = ContextHolder.getBean(IResourceLoader.class);
         background = resourceLoader.createDrawable("ui/chat/chat");

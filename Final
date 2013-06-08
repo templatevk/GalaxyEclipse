@@ -1,0 +1,110 @@
+TODO
+ALEX
+	Переименовать в Ge
+	Бага туман
+    Loading stage with factory post-init callback
+    Star regions instead of 10k stars
+
+VITO1D, GIRLS
+    Музыкальное сопровождение действий корабля
+    Фоновая музыка
+    Картинки пушек
+    Анимация двигателя корабля
+
+DIMA
+    CONSOLE
+    ADMIN COMMANDS (STOP SERVER, MESSANGING, SYSTEM, BROADCAST, PRIVATE),
+    COMMANDS AND ROLES
+
+YODA
+    REMOTE CLIENT CONNECTION
+    DECREASE CLIENT'S SYSTEM RESOURCCE USAGE                                           +
+    ANIMATION MODULE               `
+    SOUNDS AND MUSIC MODULE
+    RESOURCE LOADER API FOR MEDIA
+    REFACTOR TO LOGUTILS USAGE FOR LOGGING MESSAGES TO INVOKE FROM ADMIN
+        ABSTRACT GE_LOGGER, GE_LOGGER STRATEGY TO DECIDE UPON MESSAGES
+        PRODUCED GE_LOGGER STRATEGY FACTORY, GE_LOGGER FACTORY
+
+
+
+
+
+
+
+
+FINAL PRESENTATION
+Инструменты
+
+Сборка
+	Мавен   															        YODA
+
+Сеть
+	Netty, Protobuf                                                             DIMA
+
+Фреймворки
+    NETTY, LOMBOK, GUAVA, DBCP, COMMONS COLLECTIONS, SPRING DATA,               VITO1D
+        SPRING DATA REDIS, SPRING CORE, MYSQL_JAVA_CONNECTOR,                   VITO1D
+        SLF4J, LOGBACK, SPRING ORM, SPRING TX, HIBERNATE CORE,                  VITO1D
+        JUNIT, TESTNG, JMOCKIT, FEST_ASSERT, LIBGDX, PROTOBUF                   VITO1D
+Cайт
+    PHP, ACTIVATION_PROC                                                        DIMA
+
+Данные
+	Java Collections - Protobuf Builders - Hiberbate - Database                 DIMA
+	    Structure and Scripts - LocationObjectPopulator - MySQL	                DIMA
+	Redis															            YODA
+
+Логирование
+	Slf4j, Logback, Log4j, Политики логирования							        YODA
+
+Логика
+	СЕРВЕР
+	Аутентификация и Авторизация клиента сервером						        VITO1D
+	Обработка сообщений клиента, декораторы, обработка сообщений                ALEX
+	    сервера, listener'ы                         					        ALEX
+	HibernateUnitOfWork, многопоточность (ExecutorService, Runnable,            YODA
+	    GeExecutor), модуль Shared                                              YODA
+    Параметры виртуальной машины, конфигурации запуска, компиляции,             YODA
+        JRebel, JProfiler, нагрузка системы приложением, ОС настройки,          YODA
+        настройки IDEA, интеграция с фреймворками, Git, Youtrack,               YODA
+        стратегии именования, bash_scripts                                      YODA
+
+Используемые шаблоны проектирования, MVC, MVP, UNIT_OF_WORK,                    ALEX/YODA
+    FACTORY, BUILDER, DECORATOR, LISTENER, COMMAND, UTIL,                       ALEX/YODA
+    SINGLETON (Spring)                                                          ALEX/YODA
+
+Spring IoC, DI
+    SPRING CONTEXT, SPRING EXPRESSION LANGUAGE, DEPENDENCY INJECTION,           YODA
+    REFLEXION IN JAVA WITH IoC Container, ALTERNATIVES (GOOGLE GUICE)           YODA
+
+UI               
+    OPEN_LGSCENE2D, LAYOUTS, ACTOR, ACTOR FACTORY, FACTORY/BUILDER, TAB ORDER,  ALEX/YODA
+    KEY LISTNER, RENDERING FROM MODEL (FLIGHT MODE), ACTOR TYPES, SCALING,      ALEX/YODA
+    Libgdx, ABSTRACT GAME STAGE, CLIENT WINDOW, OPEN_GL HINTS, TEXTURES,        ALEX/YODA
+    PACKER, IMAGE FOLDER STRUCTURE, CONV OVER CONF, PROFILES AND CLIENT         ALEX/YODA
+    RENDERING, CUSTOM WIDGETS, EDITED LIBGDX CLASSES, PHOTOSHOP, FONTS          ALEX/YODA
+
+SCRUM, TESTING, GIT REPO                                                        DIMA
+
+
+
+
+
+VITO1D (JavaBean, Mister Bin, Binary (bin))
+YODA (Star Wars)
+ALEX (UI MASTA | PS 80 LVL)
+DIMA
+
+
+
+
+
+
+
+
+
+
+
+
+

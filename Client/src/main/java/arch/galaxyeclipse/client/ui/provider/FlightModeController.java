@@ -7,7 +7,6 @@ import arch.galaxyeclipse.client.network.sender.DynamicObjectsRequestSender;
 import arch.galaxyeclipse.client.network.sender.ShipStateRequestSender;
 import arch.galaxyeclipse.client.ui.actor.IActorFactory;
 import arch.galaxyeclipse.client.ui.actor.IGeActor;
-import arch.galaxyeclipse.client.ui.model.FlightModeModel;
 import arch.galaxyeclipse.client.ui.view.AbstractGameStage;
 import arch.galaxyeclipse.client.ui.view.FlightModeStage;
 import arch.galaxyeclipse.shared.EnvType;
@@ -18,7 +17,6 @@ import arch.galaxyeclipse.shared.protocol.GeProtocol;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket;
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -34,7 +32,7 @@ public class FlightModeController implements IStageProvider {
     private FlightModeStage view;
 
     public FlightModeController() {
-        view = new FlightModeStage(this);
+        view = new FlightModeStage();
         actorFactory = ContextHolder.getBean(IActorFactory.class);
         locationInfoHolder = ContextHolder.getBean(LocationInfoHolder.class);
         shipStateInfoHolder = ContextHolder.getBean(ShipStateInfoHolder.class);
@@ -55,23 +53,17 @@ public class FlightModeController implements IStageProvider {
             public void perform(GeProtocol.Packet packet) {
                 GePosition position = new GePosition(shipStateInfoHolder.getPositionX(),
                         shipStateInfoHolder.getPositionY());
-                List<LocationObjectPacket> locationObjects =
+                List<LocationObjectPacket> lopList =
                         locationInfoHolder.getObjectsForRadius(position);
-
-                FlightModeModel model = new FlightModeModel(locationObjects.size());
-                for (LocationObjectPacket locationObject : locationObjects) {
-                    model.getGameActors().add(actorFactory.createLocationObjectActor(locationObject));
-                }
+                view.getModel().refresh(lopList);
 
                 int locationId = locationInfoHolder.getLocationId();
                 IGeActor background = actorFactory.createBackgroundActor(locationId);
-                model.setBackground(background);
+                view.getModel().setBackground(background);
 
-                Collections.sort(model.getGameActors());
-                view.updateModel(model);
 
                 if (FlightModeController.log.isDebugEnabled()) {
-                    FlightModeController.log.debug("Added " + model.getGameActors().size()
+                    FlightModeController.log.debug("Added " + lopList.size()
                             + " actors to the flight stage");
                 }
             }

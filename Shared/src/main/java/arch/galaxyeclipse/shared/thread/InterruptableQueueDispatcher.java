@@ -13,7 +13,7 @@ import java.util.AbstractQueue;
 public class InterruptableQueueDispatcher<T> extends AbstractGeRunnable implements GeRunnable {
 	private AbstractQueue<T> queue;
 	private ICommand<T> command;
-	private boolean yield;
+	private boolean yieldOnQueueEmpty;
 	
 	public InterruptableQueueDispatcher(AbstractQueue<T> queue) {
 		this(queue, new StubCommand<T>(), false);
@@ -27,7 +27,7 @@ public class InterruptableQueueDispatcher<T> extends AbstractGeRunnable implemen
             ICommand<T> command, boolean yieldOnQueueEmpty) {
 		this.queue = queue;
 		this.command = command;
-		this.yield = yieldOnQueueEmpty;
+		this.yieldOnQueueEmpty = yieldOnQueueEmpty;
 	}
 	
 	@Override
@@ -43,7 +43,7 @@ public class InterruptableQueueDispatcher<T> extends AbstractGeRunnable implemen
 					item = queue.poll();
 					command.perform(item);
 				}
-				if (yield) {
+				if (yieldOnQueueEmpty) {
 					Thread.yield();
 				}
 			}

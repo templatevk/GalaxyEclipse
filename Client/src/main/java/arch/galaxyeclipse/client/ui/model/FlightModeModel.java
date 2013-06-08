@@ -1,31 +1,52 @@
 package arch.galaxyeclipse.client.ui.model;
 
+import arch.galaxyeclipse.client.ui.actor.IActorFactory;
 import arch.galaxyeclipse.client.ui.actor.IGeActor;
-import lombok.Data;
+import arch.galaxyeclipse.client.ui.actor.LocationObjectActor;
+import arch.galaxyeclipse.shared.context.ContextHolder;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket;
+import lombok.Getter;
+import lombok.Setter;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  *
  */
-@Data
 public class FlightModeModel {
-    private static final int ACRORS_SIZE = 0;
 
-    private List<IGeActor> gameActors;
-    private IGeActor background;
+    private Map<Integer, LocationObjectActor> actorsCache;
+    private IActorFactory actorFactory;
+    private @Getter @Setter NavigableSet<LocationObjectActor> sortedActors;
+    private @Getter @Setter IGeActor background;
 
     public FlightModeModel() {
-        this(ACRORS_SIZE);
+        this(null);
     }
 
-    public FlightModeModel(int actorsCapacity) {
-        this(actorsCapacity, null);
-    }
-
-    public FlightModeModel(int actorsCapacity, IGeActor background) {
-        gameActors = new ArrayList<>(actorsCapacity);
+    public FlightModeModel(IGeActor background) {
         this.background = background;
+        actorsCache = new HashMap<>();
+        sortedActors = new TreeSet<>();
+        actorFactory = ContextHolder.getBean(IActorFactory.class);
+    }
+
+    public void refresh(List<LocationObjectPacket> lopList) {
+        List<Integer> newActorIds = new ArrayList<>(lopList.size());
+        for (LocationObjectPacket lop : lopList) {
+            int objectId = lop.getObjectId();
+            LocationObjectActor actor = actorsCache.get(objectId);
+
+            if (actor == null) {
+                actor = actorFactory.createLocationObjectActor(lop);
+                actorsCache.put(objectId, actor);
+            } else {
+                actor.setLop(lop);
+            }
+            newActorIds.add(objectId);
+        }
+        actorsCache.keySet().retainAll(newActorIds);
+
+        sortedActors = new TreeSet<>(actorsCache.values());
     }
 }

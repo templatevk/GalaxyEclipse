@@ -16,7 +16,7 @@ abstract class PacketHandlerDecorator extends StatefulPacketHandler
 
     PacketHandlerDecorator(IChannelAwarePacketHandler decoratedPacketHandler) {
         this.decoratedPacketHandler = decoratedPacketHandler;
-        this.serverChannelHandler = decoratedPacketHandler.getServerChannelHandler();
+        serverChannelHandler = decoratedPacketHandler.getServerChannelHandler();
     }
 
     @Override
