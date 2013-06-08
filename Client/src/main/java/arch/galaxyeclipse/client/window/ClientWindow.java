@@ -70,6 +70,7 @@ class ClientWindow implements IClientWindow {
                 config.fullscreen = true;
                 break;
         }
+        config.vSyncEnabled = false;
         new LwjglApplication(new ClientListener(), config);
     }
 
@@ -134,11 +135,13 @@ class ClientWindow implements IClientWindow {
 
         }
 
+
         @Override
         public void render() {
+
             glClear();
 
-            stageProvider.getGameStage().act(Gdx.graphics.getDeltaTime());
+            stageProvider.getGameStage().act(Gdx.graphics.getRawDeltaTime());
             stageProvider.getGameStage().draw();
 
             if (EnvType.CURRENT == EnvType.DEV) {
@@ -183,7 +186,7 @@ class ClientWindow implements IClientWindow {
             } else {
                 Gdx.gl.glClearColor(0, 0, 0.2f, 1);
             }
-            Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
+            Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
         }
     }
 
@@ -191,6 +194,7 @@ class ClientWindow implements IClientWindow {
         @Override
         public void run() {
             Gdx.graphics.requestRendering();
+
             if (log.isTraceEnabled()) {
                 log.trace("Client rendering request");
             }
