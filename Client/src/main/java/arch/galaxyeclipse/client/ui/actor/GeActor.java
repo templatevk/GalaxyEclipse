@@ -14,7 +14,7 @@ import lombok.extern.slf4j.Slf4j;
  *
  */
 @Slf4j
-public class GeActor extends Image implements IGeActor {
+public abstract class GeActor extends Image implements IGeActor {
 
     @Getter(AccessLevel.PROTECTED)
     private static ShipStateInfoHolder shipStateInfoHolder;
@@ -25,6 +25,17 @@ public class GeActor extends Image implements IGeActor {
 
     static {
         shipStateInfoHolder = ContextHolder.getBean(ShipStateInfoHolder.class);
+    }
+
+    protected abstract int compareToImpl(IGeActor actor);
+
+    public static IGeActor newStub() {
+        return new GeActor() {
+            @Override
+            protected int compareToImpl(IGeActor actor) {
+                return 0;
+            }
+        };
     }
 
     public GeActor() {
@@ -48,11 +59,7 @@ public class GeActor extends Image implements IGeActor {
 
     @Override
     public int compareTo(IGeActor actor) {
-        return actorType.compareTo(actor.getActorType());
-    }
-
-    @Override
-    public boolean isSelectable() {
-        return false;
+        int compareResult = actorType.compareTo(actor.getActorType());
+        return compareResult == 0 ? compareToImpl(actor) : compareResult;
     }
 }

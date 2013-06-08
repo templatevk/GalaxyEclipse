@@ -29,8 +29,8 @@ abstract class RepeatablePacketSender extends SubscribableServerPacketListener
     public RepeatablePacketSender(Packet.Type packetType,
             long sleepMilliseconds) {
         this.packetType = packetType;
-        this.clientNetworkManager = ContextHolder.getBean(IClientNetworkManager.class);
-        this.packetSendingTask = new DelayedRunnableTask(sleepMilliseconds,
+        clientNetworkManager = ContextHolder.getBean(IClientNetworkManager.class);
+        packetSendingTask = new DelayedRunnableTask(sleepMilliseconds,
                 new Runnable() {
                     @Override
                     public void run() {

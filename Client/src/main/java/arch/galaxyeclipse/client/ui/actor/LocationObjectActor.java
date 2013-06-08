@@ -6,17 +6,19 @@ import arch.galaxyeclipse.shared.common.StubCommand;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket;
 import arch.galaxyeclipse.shared.types.LocationObjectTypesMapperType;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import static arch.galaxyeclipse.shared.GeConstants.LOCATION_TO_SCREEN_COORDS_COEF;
 
 /**
  *
  */
-@Data
-class LocationObjectActor extends ClickableActor {
+@Getter
+@Setter
+public class LocationObjectActor extends ClickableActor {
 
-    private LocationObjectPacket locationObject;
+    private LocationObjectPacket lop;
     private LocationObjectTypesMapperType locationObjectType;
     private boolean selectable = false;
 
@@ -24,18 +26,17 @@ class LocationObjectActor extends ClickableActor {
         this(drawable, locationObject, new StubCommand<GePosition>());
     }
 
-    public LocationObjectActor(Drawable drawable, LocationObjectPacket locationObject,
+    public LocationObjectActor(Drawable drawable, LocationObjectPacket lop,
             ICommand<GePosition> hitCommand) {
 
         super(drawable, null);
 
-        boolean self = locationObject.getObjectId() ==
+        boolean self = lop.getObjectId() ==
                 getShipStateInfoHolder().getLocationObjectId();
 
-        this.locationObject = locationObject;
-        this.setHitCommand(hitCommand);
-        this.setActorType(self ? ActorType.SELF : ActorType.PLAYER);
-
+        this.lop = lop;
+        setHitCommand(hitCommand);
+        setActorType(self ? ActorType.SELF : ActorType.LOCATION_OBJECT);
     }
 
     @Override
@@ -59,8 +60,8 @@ class LocationObjectActor extends ClickableActor {
         } else {
             float locationShipX = getShipStateInfoHolder().getPositionX();
             float locationShipY = getShipStateInfoHolder().getPositionY();
-            float locationObjectX = locationObject.getPositionX();
-            float locationObjectY = locationObject.getPositionY();
+            float locationObjectX = lop.getPositionX();
+            float locationObjectY = lop.getPositionY();
             float screenDiffX = (locationObjectX - locationShipX) * LOCATION_TO_SCREEN_COORDS_COEF;
             float screenDiffY = (locationObjectY - locationShipY) * LOCATION_TO_SCREEN_COORDS_COEF;
             screenDiffX *= stageInfo.getScaleX();
@@ -70,12 +71,17 @@ class LocationObjectActor extends ClickableActor {
             setPosition(screenObjectX, screenObjectY);
         }
 
-        setRotation(locationObject.getRotationAngle());
+        setRotation(lop.getRotationAngle());
         setScale(stageInfo.getScaleX(), stageInfo.getScaleY());
     }
 
     @Override
-    public boolean isSelectable() {
+    protected boolean isSelectable() {
         return selectable;
+    }
+
+    @Override
+    protected int compareToImpl(IGeActor actor) {
+        return ((LocationObjectActor)actor).getLop().getObjectId() - lop.getObjectId();
     }
 }

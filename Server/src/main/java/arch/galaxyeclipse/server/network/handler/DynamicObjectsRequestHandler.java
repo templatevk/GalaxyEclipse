@@ -17,7 +17,7 @@ class DynamicObjectsRequestHandler extends PacketHandlerDecorator {
 
     public DynamicObjectsRequestHandler(IChannelAwarePacketHandler decoratedPacketHandler) {
         super(decoratedPacketHandler);
-        this.playerInfoHolder = getServerChannelHandler().getPlayerInfoHolder();
+        playerInfoHolder = getServerChannelHandler().getPlayerInfoHolder();
     }
 
     @Override

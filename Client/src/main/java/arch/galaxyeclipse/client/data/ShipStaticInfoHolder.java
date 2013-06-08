@@ -9,14 +9,14 @@ import arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPa
 import arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket;
 import arch.galaxyeclipse.shared.protocol.ShipStaticInfoCommand;
 import arch.galaxyeclipse.shared.types.DictionaryTypesMapper;
-import lombok.Getter;
+import lombok.Delegate;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
 
 import static arch.galaxyeclipse.shared.context.ContextHolder.getBean;
 import static arch.galaxyeclipse.shared.protocol.GeProtocol.Packet;
-import static arch.galaxyeclipse.shared.protocol.GeProtocol.Packet.Type.*;
+import static arch.galaxyeclipse.shared.protocol.GeProtocol.Packet.Type.SHIP_STATIC_INFO_COMMAND;
 import static java.util.Arrays.asList;
 import static org.springframework.util.SerializationUtils.deserialize;
 
@@ -25,8 +25,8 @@ import static org.springframework.util.SerializationUtils.deserialize;
  */
 @Slf4j
 public class ShipStaticInfoHolder extends ServerPacketListener {
-    @Getter
-    private ShipStaticInfoPacket ShipStaticInfoPacket;
+    @Delegate
+    private ShipStaticInfoPacket ssiPacket;
     private DictionaryTypesMapper dictionaryTypesMapper;
 
     ShipStaticInfoHolder() {
@@ -42,7 +42,7 @@ public class ShipStaticInfoHolder extends ServerPacketListener {
                 ShipStaticInfoCommand command = (ShipStaticInfoCommand)
                         deserialize(packet.getGameInfoCommandHolder()
                                 .getSerializedCommand().toByteArray());
-                command.perform(ShipStaticInfoPacket);
+                command.perform(ssiPacket);
                 break;
         }
     }
@@ -56,7 +56,7 @@ public class ShipStaticInfoHolder extends ServerPacketListener {
         if (log.isInfoEnabled()) {
             log.info("Updating ship static info");
         }
-        this.ShipStaticInfoPacket = ssiPacket;
+        this.ssiPacket = ssiPacket;
 
         if (log.isDebugEnabled()) {
             log.debug("\tName " + ssiPacket.getName());

@@ -15,8 +15,8 @@ public class AuthenticationResult {
 		this(isSuccess, new Player());
 	}
 
-    public AuthenticationResult(boolean isSuccess, Player player) {
-        this.success = isSuccess;
+    public AuthenticationResult(boolean success, Player player) {
+        this.success = success;
         this.player = player;
     }
 }

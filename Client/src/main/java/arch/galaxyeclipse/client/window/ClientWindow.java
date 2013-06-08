@@ -44,7 +44,7 @@ class ClientWindow implements IClientWindow {
     private @Getter float viewportHeight;
 
     public ClientWindow() {
-        this.destroyables = new ArrayList<>();
+        destroyables = new ArrayList<>();
 
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
         DisplayMode desktopDisplayMode = getDesktopDisplayMode();

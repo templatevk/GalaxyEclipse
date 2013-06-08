@@ -8,7 +8,7 @@ import lombok.extern.slf4j.Slf4j;
  *
  */
 @Slf4j
-class BackgroundActor extends ClickableActor {
+public class BackgroundActor extends ClickableActor {
 
     public BackgroundActor(Drawable drawable) {
         super(drawable, ActorType.BACKGROUND);
@@ -31,7 +31,12 @@ class BackgroundActor extends ClickableActor {
     }
 
     @Override
-    public boolean isSelectable() {
+    protected boolean isSelectable() {
         return false;
+    }
+
+    @Override
+    protected int compareToImpl(IGeActor actor) {
+        return 0;
     }
 }

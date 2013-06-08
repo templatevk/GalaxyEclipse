@@ -3,9 +3,8 @@ package arch.galaxyeclipse.client.ui.actor;
 import arch.galaxyeclipse.shared.common.GePosition;
 import arch.galaxyeclipse.shared.common.ICommand;
 import arch.galaxyeclipse.shared.common.StubCommand;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
-import com.badlogic.gdx.scenes.scene2d.actions.ColorAction;
+import com.badlogic.gdx.scenes.scene2d.actions.AlphaAction;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import lombok.Data;
@@ -19,7 +18,10 @@ import lombok.extern.slf4j.Slf4j;
 abstract class ClickableActor extends GeActor {
 
     private ICommand<GePosition> hitCommand;
+    private AlphaAction selectAction;
     private boolean selected;
+
+    protected abstract boolean isSelectable();
 
     public ClickableActor() {
         this(null, ActorType.UNDEFINED);
@@ -33,25 +35,30 @@ abstract class ClickableActor extends GeActor {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 if (isSelectable()) {
+                    if (!selected) {
+                        addAction(selectAction);
+                    }
                     selected = !selected;
-                    select();
+
                 }
                 hitCommand.perform(new GePosition(x, y));
             }
         });
 
         setOrigin(getPrefWidth() / 2, getPrefHeight() / 2);
-    }
 
-    @Override
-    public boolean isSelectable() {
-        return true;
-    }
-
-    private void select() {
-        ColorAction colorAction = new ColorAction();
-        colorAction.setEndColor(Color.RED);
-        colorAction.setDuration(1f);
-        addAction(colorAction);
+        selectAction = new AlphaAction() {
+            @Override
+            protected void end() {
+                if (selected) {
+                    setAlpha(getAlpha() == 0.5f ? 1 : 0.5f);
+                    restart();
+                } else {
+                    ClickableActor.this.getColor().a = 1f;
+                }
+            }
+        };
+        selectAction.setAlpha(0.5f);
+        selectAction.setDuration(0.5f);
     }
 }
