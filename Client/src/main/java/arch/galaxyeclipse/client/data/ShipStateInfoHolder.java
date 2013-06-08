@@ -1,8 +1,9 @@
 package arch.galaxyeclipse.client.data;
 
-import arch.galaxyeclipse.shared.protocol.GeProtocol;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
+
+import static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse;
 
 /**
  *
@@ -19,15 +20,15 @@ public class ShipStateInfoHolder {
     private float positionY;
     private int locationObjectId;
 
-    public void setShipState(GeProtocol.ShipStateResponse shipStateResponse) {
-        armorDurability = shipStateResponse.getArmorDurability();
-        hp = shipStateResponse.getHp();
-        moveSpeed = shipStateResponse.getMoveSpeed();
-        positionX = shipStateResponse.getPositionX();
-        positionY = shipStateResponse.getPositionY();
-        rotationAngle = shipStateResponse.getRotationAngle();
-        rotationSpeed = shipStateResponse.getRotationSpeed();
-        locationObjectId = shipStateResponse.getLocationObjectId();
+    public void setShipState(ShipStateResponse ssResponse) {
+        armorDurability = ssResponse.getArmorDurability();
+        hp = ssResponse.getHp();
+        moveSpeed = ssResponse.getMoveSpeed();
+        positionX = ssResponse.getPositionX();
+        positionY = ssResponse.getPositionY();
+        rotationAngle = ssResponse.getRotationAngle();
+        rotationSpeed = ssResponse.getRotationSpeed();
+        locationObjectId = ssResponse.getLocationObjectId();
 
         if (log.isDebugEnabled()) {
             log.debug("Updating ship state");

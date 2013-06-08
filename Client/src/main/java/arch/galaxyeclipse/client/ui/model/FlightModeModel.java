@@ -3,8 +3,8 @@ package arch.galaxyeclipse.client.ui.model;
 import arch.galaxyeclipse.client.ui.actor.IGeActor;
 import lombok.Data;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 /**
  *
@@ -13,7 +13,7 @@ import java.util.List;
 public class FlightModeModel {
     private static final int ACRORS_SIZE = 0;
 
-    private List<IGeActor> gameActors;
+    private Set<IGeActor> gameActors;
     private IGeActor background;
 
     public FlightModeModel() {
@@ -25,7 +25,7 @@ public class FlightModeModel {
     }
 
     public FlightModeModel(int actorsCapacity, IGeActor background) {
-        gameActors = new ArrayList<>(actorsCapacity);
+        gameActors = new LinkedHashSet<>(actorsCapacity);
         this.background = background;
     }
 }

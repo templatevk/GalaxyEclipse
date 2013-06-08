@@ -2,7 +2,6 @@ package arch.galaxyeclipse.client.ui.actor;
 
 import arch.galaxyeclipse.client.data.ShipStateInfoHolder;
 import arch.galaxyeclipse.shared.context.ContextHolder;
-import arch.galaxyeclipse.shared.common.LogUtils;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
@@ -16,6 +15,7 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class GeActor extends Image implements IGeActor {
+
     @Getter(AccessLevel.PROTECTED)
     private static ShipStateInfoHolder shipStateInfoHolder;
 
@@ -28,12 +28,12 @@ public class GeActor extends Image implements IGeActor {
     }
 
     public GeActor() {
-        this(null);
-        actorType = ActorType.UNDEFINED;
+        this(null, ActorType.UNDEFINED);
     }
 
-    public GeActor(Drawable drawable) {
+    public GeActor(Drawable drawable, ActorType actorType) {
         super(drawable);
+        this.actorType = actorType;
     }
 
     @Override
@@ -47,19 +47,12 @@ public class GeActor extends Image implements IGeActor {
     }
 
     @Override
-    public Actor hit(float x, float y, boolean touchable) {
-        Actor hittedActor = super.hit(x, y, touchable);
-        if (hittedActor == this) {
-            if (GeActor.log.isDebugEnabled()) {
-                GeActor.log.debug(LogUtils.getObjectInfo(GeActor.this) +
-                        "hit (" + x + ", " + y + ")");
-            }
-        }
-        return hittedActor;
+    public int compareTo(IGeActor actor) {
+        return actorType.compareTo(actor.getActorType());
     }
 
     @Override
-    public int compareTo(IGeActor actor) {
-        return actorType.compareTo(actor.getActorType());
+    public boolean isSelectable() {
+        return false;
     }
 }

@@ -66,7 +66,7 @@ class ActorFactory implements IActorFactory {
     }
 
     @Override
-    public IGeActor createBackgroundActor(int locationId) {
+    public BackgroundActor createBackgroundActor(int locationId) {
         String path = String.format(LOCATION_BACKGROUND_IMAGE_PATH, locationId);
         Drawable drawable = new TextureRegionDrawable(resourceLoader.findRegion(path));
         BackgroundActor background = new BackgroundActor(drawable);

@@ -49,18 +49,6 @@
             </list>
         </property>
     </bean>
-    <bean id="jedisConnectionFactory" destroy-method="destroy"
-          class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
-        <property name="poolConfig">
-            <bean class="redis.clients.jedis.JedisPoolConfig">
-                <property name="maxActive" value="40"/>
-                <property name="minIdle" value="20"/>
-            </bean>
-        </property>
-        <property name="usePool" value="true"/>
-        <property name="hostName" value="${env.redis.hostname}"/>
-        <property name="port" value="#{T(java.lang.Integer).valueOf('${env.redis.port}')}"/>
-    </bean>
 
     <!-- Network -->
     <bean class="arch.galaxyeclipse.server.network.ServerNetworkManager">

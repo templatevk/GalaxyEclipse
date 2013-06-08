@@ -139,7 +139,7 @@ class ClientNetworkManager implements IClientNetworkManager {
         if (log.isTraceEnabled()) {
             log.trace(LogUtils.getObjectInfo(this) + " sending packet " + packet.getType());
         }
-
+        Preconditions.checkNotNull(packet, "`packet` can not be null");
 		channelHandler.sendPacket(packet);
 	}
 }

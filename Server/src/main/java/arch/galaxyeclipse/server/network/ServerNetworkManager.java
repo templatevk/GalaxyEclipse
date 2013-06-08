@@ -27,13 +27,13 @@ class ServerNetworkManager implements IServerNetworkManager, IMonitoringNetworkM
     private ServerBootstrap bootstrap;
     private Channel serverChannel;
 
-    private final String port;
+    private String port;
     private SocketAddress hostAddress;
 
     public ServerNetworkManager(ProtobufChannelPipelineFactory channelPipelineFactory) {
         port = System.getProperty(PORT_PROPERTY);
         Preconditions.checkNotNull(port, "Network error, port property is not set");
-        hostAddress = new InetSocketAddress(Integer.valueOf(port));
+        hostAddress = new InetSocketAddress("0.0.0.0", Integer.valueOf(port));
 
         this.channelPipelineFactory = channelPipelineFactory;
         serverChannelHandlers = new HashSet<>();

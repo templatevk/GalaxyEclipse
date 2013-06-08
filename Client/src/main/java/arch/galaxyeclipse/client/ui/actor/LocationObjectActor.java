@@ -15,8 +15,10 @@ import static arch.galaxyeclipse.shared.GeConstants.LOCATION_TO_SCREEN_COORDS_CO
  */
 @Data
 class LocationObjectActor extends ClickableActor {
+
     private LocationObjectPacket locationObject;
     private LocationObjectTypesMapperType locationObjectType;
+    private boolean selectable = false;
 
     public LocationObjectActor(Drawable drawable, LocationObjectPacket locationObject) {
         this(drawable, locationObject, new StubCommand<GePosition>());
@@ -24,13 +26,16 @@ class LocationObjectActor extends ClickableActor {
 
     public LocationObjectActor(Drawable drawable, LocationObjectPacket locationObject,
             ICommand<GePosition> hitCommand) {
-        super(drawable);
-        this.locationObject = locationObject;
-        setHitCommand(hitCommand);
+
+        super(drawable, null);
 
         boolean self = locationObject.getObjectId() ==
                 getShipStateInfoHolder().getLocationObjectId();
-        setActorType(self ? ActorType.SELF : ActorType.PLAYER);
+
+        this.locationObject = locationObject;
+        this.setHitCommand(hitCommand);
+        this.setActorType(self ? ActorType.SELF : ActorType.PLAYER);
+
     }
 
     @Override
@@ -43,6 +48,7 @@ class LocationObjectActor extends ClickableActor {
             case STATION:
                 break;
             case PLAYER:
+                selectable = true;
                 break;
         }
 
@@ -66,5 +72,10 @@ class LocationObjectActor extends ClickableActor {
 
         setRotation(locationObject.getRotationAngle());
         setScale(stageInfo.getScaleX(), stageInfo.getScaleY());
+    }
+
+    @Override
+    public boolean isSelectable() {
+        return selectable;
     }
 }

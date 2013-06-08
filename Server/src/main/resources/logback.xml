@@ -10,7 +10,7 @@
         <appender-ref ref="STDOUT" />
     </root>
 
-    <logger name="arch.galaxyeclipse.client" level="${log.client.network}"/>
+    <logger name="arch.galaxyeclipse.client.window" level="${log.client.window}"/>
     <logger name="arch.galaxyeclipse.shared.network" level="${log.shared.network}"/>
 
     <logger name="arch.galaxyeclipse.server.network" level="${log.server.network}"/>

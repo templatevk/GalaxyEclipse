@@ -14,7 +14,6 @@ import arch.galaxyeclipse.client.ui.provider.IStageProvider;
 import arch.galaxyeclipse.client.ui.provider.StageProviderFactory;
 import arch.galaxyeclipse.shared.common.StubCallback;
 import arch.galaxyeclipse.shared.context.ContextHolder;
-import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
@@ -22,12 +21,9 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import lombok.extern.slf4j.Slf4j;
 
-/**
- *
- */
-
 @Slf4j
 public class FlightModeStage extends AbstractGameStage {
+
     private ShipStaticInfoHolder shipStaticInfoHolder;
     private LocationInfoHolder locationInfoHolder;
     private ShipStateInfoHolder shipStateInfoHolder;
@@ -47,33 +43,31 @@ public class FlightModeStage extends AbstractGameStage {
     private Table stateBtnTable;
     private Button stateBtn;
     private Table mainMenuBtnTable;
-
-    // DEV MODE
     private TextButton mainMenuBtn;
 
+    private static final float HUD_PADDING_OFFSET = 55;
+    private static final float HUD_PADDING = 15;
 
-    private final float HUD_PADDING = 15;
+    private static final float CHAT_BUTTON_PADDING_BOTTOM = HUD_PADDING;
+    private static final float CHAT_BUTTON_PADDING_LEFT = HUD_PADDING;
+    private static final float CHAT_PADDING_BOTTOM = HUD_PADDING + HUD_PADDING_OFFSET;
+    private static final float CHAT_PADDING_LEFT = HUD_PADDING;
 
-    private final float CHAT_BUTTON_PADDING_BOTTOM = HUD_PADDING;
-    private final float CHAT_BUTTON_PADDING_LEFT = HUD_PADDING;
-    private final float CHAT_PADDING_BOTTOM = HUD_PADDING + 55;
-    private final float CHAT_PADDING_LEFT = HUD_PADDING;
+    private static final float MINIMAP_BUTTON_PADDING_BOTTOM = HUD_PADDING;
+    private static final float MINIMAP_BUTTON_PADDING_RIGHT = HUD_PADDING;
+    private static final float MINIMAP_PADDING_BOTTOM = HUD_PADDING + HUD_PADDING_OFFSET;
+    private static final float MINIMAP_PADDING_RIGHT = HUD_PADDING;
 
-    private final float MINIMAP_BUTTON_PADDING_BOTTOM = HUD_PADDING;
-    private final float MINIMAP_BUTTON_PADDING_RIGHT = HUD_PADDING;
-    private final float MINIMAP_PADDING_BOTTOM = HUD_PADDING + 55;
-    private final float MINIMAP_PADDING_RIGHT = HUD_PADDING;
+    private static final float STATE_BUTTON_PADDING_TOP = HUD_PADDING;
+    private static final float STATE_BUTTON_PADDING_LEFT = HUD_PADDING;
+    private static final float STATE_PADDING_TOP = HUD_PADDING + HUD_PADDING_OFFSET;
+    private static final float STATE_PADDING_LEFT = HUD_PADDING;
 
-    private final float STATE_BUTTON_PADDING_TOP = HUD_PADDING;
-    private final float STATE_BUTTON_PADDING_LEFT = HUD_PADDING;
-    private final float STATE_PADDING_TOP = HUD_PADDING + 55;
-    private final float STATE_PADDING_LEFT = HUD_PADDING;
+    private static final float MAINMENU_BUTTON_PADDING_TOP = HUD_PADDING;
+    private static final float MAINMENU_BUTTON_PADDING_RIGHT = HUD_PADDING;
 
-    private final float MAINMENU_BUTTON_PADDING_TOP = HUD_PADDING;
-    private final float MAINMENU_BUTTON_PADDING_RIGHT = HUD_PADDING;
-
-    private final float BOTTOMPANEL_PADDING_BOTTOM = 0;
-    private final float TOPPANEL_PADDING_TOP = 0;
+    private static final float BOTTOMPANEL_PADDING_BOTTOM = 0;
+    private static final float TOPPANEL_PADDING_TOP = 0;
 
     private FlightModeController controller;
     private FlightModeModel model;
@@ -201,7 +195,6 @@ public class FlightModeStage extends AbstractGameStage {
         rootLayout.setSize(viewportWidth, viewportHeight);
         rootLayout.setOrigin(viewportWidth / 2f, viewportHeight / 2f);
         rootLayout.setPosition(rootLayoutX, rootLayoutY);
-        getRoot().setCullingArea(new Rectangle(0, 0, rootLayout.getWidth(), rootLayout.getHeight()));
 
         float gameActorsLayoutHeight = viewportHeight;
         float gameActorsLayoutWidth = viewportWidth;
@@ -210,7 +203,6 @@ public class FlightModeStage extends AbstractGameStage {
         gameActorsLayout.setSize(gameActorsLayoutWidth, gameActorsLayoutHeight);
         gameActorsLayout.setOrigin(gameActorsLayoutWidth / 2f, gameActorsLayoutHeight / 2f);
         gameActorsLayout.setPosition(gameActorsLayoutX, gameActorsLayoutY);
-
 
         float bottomPanelWidgetWidth = bottomPanelWidget.getPrefWidth() * getScaleX();
         float bottomPanelWidgetHeight = bottomPanelWidget.getPrefHeight() * getScaleY();
@@ -280,7 +272,6 @@ public class FlightModeStage extends AbstractGameStage {
         mainMenuBtnTable.setX(mainMenuBtnTableX);
         mainMenuBtnTable.setY(mainMenuBtnTableY);
     }
-
 
     @Override
     public void draw() {

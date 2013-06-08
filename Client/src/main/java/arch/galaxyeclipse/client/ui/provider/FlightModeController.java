@@ -18,6 +18,7 @@ import arch.galaxyeclipse.shared.protocol.GeProtocol;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -32,12 +33,14 @@ public class FlightModeController implements IStageProvider {
     private ShipStateRequestSender shipStateRequestSender;
     private IActorFactory actorFactory;
     private FlightModeStage view;
+    private List<IGeActor> sortedActors;
 
     public FlightModeController() {
         view = new FlightModeStage(this);
         actorFactory = ContextHolder.getBean(IActorFactory.class);
         locationInfoHolder = ContextHolder.getBean(LocationInfoHolder.class);
         shipStateInfoHolder = ContextHolder.getBean(ShipStateInfoHolder.class);
+        sortedActors = new ArrayList<>();
 
         if (EnvType.CURRENT != EnvType.DEV_UI) {
             initializeRequestSenders();
@@ -59,17 +62,20 @@ public class FlightModeController implements IStageProvider {
                         locationInfoHolder.getObjectsForRadius(position);
 
                 FlightModeModel model = new FlightModeModel(locationObjects.size());
+                sortedActors.clear();
                 for (LocationObjectPacket locationObject : locationObjects) {
-                    model.getGameActors().add(actorFactory.createLocationObjectActor(locationObject));
+                    sortedActors.add(actorFactory.createLocationObjectActor(locationObject));
                 }
 
                 int locationId = locationInfoHolder.getLocationId();
                 IGeActor background = actorFactory.createBackgroundActor(locationId);
                 model.setBackground(background);
 
-                Collections.sort(model.getGameActors());
-                view.updateModel(model);
+                Collections.sort(sortedActors);
+                model.getGameActors().clear();
+                model.getGameActors().addAll(sortedActors);
 
+                view.updateModel(model);
                 if (FlightModeController.log.isDebugEnabled()) {
                     FlightModeController.log.debug("Added " + model.getGameActors().size()
                             + " actors to the flight stage");

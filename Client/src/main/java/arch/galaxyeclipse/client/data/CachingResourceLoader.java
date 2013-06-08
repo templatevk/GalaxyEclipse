@@ -14,6 +14,9 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.badlogic.gdx.graphics.Texture.TextureFilter.Linear;
+import static com.badlogic.gdx.graphics.Texture.TextureFilter.MipMapLinearLinear;
+
 /**
  * Texture atlas instance caching the regions, etc through HashMaps.
  */
@@ -68,8 +71,7 @@ class CachingResourceLoader extends TextureAtlas implements IResourceLoader, IDe
             }
 
             Texture fontTexture = new Texture(Gdx.files.internal(FONTS_LOCATIONS + path + "_0.png"));
-            fontTexture.setFilter(Texture.TextureFilter.Linear,
-                    Texture.TextureFilter.MipMapLinearLinear);
+            fontTexture.setFilter(Linear, MipMapLinearLinear);
             TextureRegion fontTextureRegion = new TextureRegion(fontTexture);
             font = new BitmapFont(Gdx.files.internal(FONTS_LOCATIONS + path + ".fnt"),
                     fontTextureRegion, false);
