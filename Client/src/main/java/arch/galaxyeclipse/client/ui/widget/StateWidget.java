@@ -94,13 +94,17 @@ public class StateWidget extends Table  {
     public void draw(SpriteBatch batch, float parentAlpha) {
         ShipStateInfoHolder shipStateInfoHolder = ContextHolder.getBean(ShipStateInfoHolder.class);
         ShipStaticInfoHolder shipStaticInfoHolder = ContextHolder.getBean(ShipStaticInfoHolder.class);
+
         int hp = shipStateInfoHolder.getHp();
         int hpMax = shipStaticInfoHolder.getHpMax();
+
         hpLabel.setText("" + hp + "/" + hpMax);
         hpScrollPane.setWidth((hpInnerImage.getWidth()) / ((float)hpMax) * ((float)hp));
         hpScrollPane.invalidate();
+
         hpLabel.setX(((float)HP_LABEL_CENTER_PADDING_LEFT * getScaleX()) - (hpLabel.getWidth() / 2f));
         hpLabel.invalidate();
+
         super.draw(batch, parentAlpha);
     }
 
