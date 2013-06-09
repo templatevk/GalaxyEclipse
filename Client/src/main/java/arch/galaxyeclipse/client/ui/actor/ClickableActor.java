@@ -22,8 +22,8 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 abstract class ClickableActor extends GeActor {
 
-    private static final float SELECTION_ALPHA = 0.5f;
-    private static final float SELECTION_SCALE = 0.9f;
+    private static final float SELECTION_ALPHA = 0.3f;
+    private static final float SELECTION_SCALE = 0.95f;
     private static final float SELECTION_ALPHA_ACTION_DURATION = 1f;
     private static final float SELECTION_SCALE_ACTION_DURATION = 0.5f;
 

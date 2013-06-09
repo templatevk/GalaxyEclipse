@@ -14,7 +14,7 @@ import lombok.extern.slf4j.Slf4j;
  *
  */
 @Slf4j
-public abstract class GeActor extends Image implements IGeActor {
+public class GeActor extends Image implements IGeActor {
 
     @Getter(AccessLevel.PROTECTED)
     private static ShipStateInfoHolder shipStateInfoHolder;
@@ -29,7 +29,9 @@ public abstract class GeActor extends Image implements IGeActor {
 
     private @Getter StageInfo stageInfo;
 
-    protected abstract int compareToImpl(IGeActor actor);
+    protected int compareToImpl(IGeActor actor) {
+        return 1;
+    }
 
     public static IGeActor newStub() {
         return new GeActor() {

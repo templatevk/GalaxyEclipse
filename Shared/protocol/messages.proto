@@ -62,6 +62,7 @@ message ShipStateResponse {
     required float positionX        = 6;
     required float positionY        = 7;
     required int32 locationObjectId = 8;
+    required int32 energy           = 9;
 }
 
 

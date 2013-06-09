@@ -35,10 +35,6 @@ public class LocationObjectActor extends ClickableActor {
         this.lop = lop;
         setHitCommand(hitCommand);
         setActorType(self ? ActorType.SELF : ActorType.LOCATION_OBJECT);
-
-        // TODO: REMOVE!
-        if (self) {
-        }
     }
 
     @Override

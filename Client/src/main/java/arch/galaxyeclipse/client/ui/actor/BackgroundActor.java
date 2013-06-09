@@ -34,9 +34,4 @@ public class BackgroundActor extends ClickableActor {
     protected boolean isSelectable() {
         return false;
     }
-
-    @Override
-    protected int compareToImpl(IGeActor actor) {
-        return 0;
-    }
 }
