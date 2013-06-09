@@ -5,24 +5,30 @@ import arch.galaxyeclipse.shared.common.ICommand;
 import arch.galaxyeclipse.shared.common.StubCommand;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.actions.AlphaAction;
+import com.badlogic.gdx.scenes.scene2d.actions.ScaleToAction;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
 /**
  *
  */
-@Data
+@Getter
+@Setter
 @Slf4j
 abstract class ClickableActor extends GeActor {
 
     private static final float SELECTION_ALPHA = 0.5f;
+    private static final float SELECTION_SCALE = 0.8f;
     private static final float SELECTION_ALPHA_ACTION_DURATION = 0.5f;
+    private static final float SELECTION_SCALE_ACTION_DURATION = 1.5f;
 
     private ICommand<GePosition> hitCommand;
-    private AlphaAction selectAction;
+    private AlphaAction alphaAction;
     private boolean selected;
+    private ScaleToAction scaleToAction;
 
     protected abstract boolean isSelectable();
 
@@ -39,7 +45,8 @@ abstract class ClickableActor extends GeActor {
             public void clicked(InputEvent event, float x, float y) {
                 if (isSelectable()) {
                     if (!selected) {
-                        addAction(selectAction);
+                        addAction(alphaAction);
+                        addAction(scaleToAction);
                     }
                     selected = !selected;
 
@@ -50,7 +57,11 @@ abstract class ClickableActor extends GeActor {
 
         setOrigin(getPrefWidth() / 2, getPrefHeight() / 2);
 
-        selectAction = new AlphaAction() {
+        initSelectionActions();
+    }
+
+    private void initSelectionActions() {
+        alphaAction = new AlphaAction() {
             @Override
             protected void end() {
                 if (selected) {
@@ -61,8 +72,34 @@ abstract class ClickableActor extends GeActor {
                 }
             }
         };
-        selectAction.setAlpha(SELECTION_ALPHA);
-        selectAction.setDuration(SELECTION_ALPHA_ACTION_DURATION);
-//        new ScaleByAction()
+        alphaAction.setAlpha(SELECTION_ALPHA);
+        alphaAction.setDuration(SELECTION_ALPHA_ACTION_DURATION);
+
+        scaleToAction = new ScaleToAction() {
+            @Override
+            protected void begin() {
+                float scaleX = getStageInfo().getScaleX();
+                float scaleY = getStageInfo().getScaleY();
+                float initialEndScaleX = actor.getScaleX() * SELECTION_SCALE;
+                float initialScaleY = actor.getScaleY() * SELECTION_SCALE;
+
+                startX = startX == initialEndScaleX ? scaleX : initialEndScaleX;
+                startY = startY == initialScaleY ? scaleY : initialScaleY;
+
+                setScale(getX() == scaleX ? scaleX * SELECTION_SCALE : scaleX,
+                        getY() == scaleY ? scaleY * SELECTION_SCALE : scaleY);
+            }
+
+            @Override
+            protected void end() {
+                if (selected) {
+                    setReverse(!isReverse());
+                    restart();
+                } else {
+                    setScale(getStageInfo().getScaleX(), getStageInfo().getScaleY());
+                }
+            }
+        };
+        scaleToAction.setDuration(SELECTION_SCALE_ACTION_DURATION);
     }
 }

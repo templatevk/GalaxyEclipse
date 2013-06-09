@@ -75,7 +75,9 @@ public class LocationObjectActor extends ClickableActor {
         }
 
         setRotation(lop.getRotationAngle());
-        setScale(stageInfo.getScaleX(), stageInfo.getScaleY());
+        if (!isSelected()) {
+            setScale(stageInfo.getScaleX(), stageInfo.getScaleY());
+        }
     }
 
     @Override
