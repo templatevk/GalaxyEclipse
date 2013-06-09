@@ -31,7 +31,7 @@ public class FlightModeModel {
         actorFactory = ContextHolder.getBean(IActorFactory.class);
     }
 
-    public void refresh(List<LocationObjectPacket> lopList) {
+    public void refreshActors(List<LocationObjectPacket> lopList) {
         List<Integer> newActorIds = new ArrayList<>(lopList.size());
         for (LocationObjectPacket lop : lopList) {
             int objectId = lop.getObjectId();

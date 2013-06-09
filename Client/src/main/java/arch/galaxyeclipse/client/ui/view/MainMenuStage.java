@@ -64,7 +64,7 @@ public class MainMenuStage extends AbstractGameStage {
         innerTable.setOrigin(innerTable.getPrefWidth() / 2,
                 innerTable.getPrefHeight() / 2);
 
-        if (EnvType.CURRENT == EnvType.DEV || EnvType.CURRENT == EnvType.DEV_UI) {
+        if (EnvType.CURRENT == EnvType.DEV) {
             usernameTxt.setText(TEST_PLAYER_LOGIN_PASSWORD);
             passwordTxt.setText(TEST_PLAYER_LOGIN_PASSWORD);
         }
