@@ -324,9 +324,9 @@ class ClientActionHandler extends PacketHandlerDecorator {
                 float positionY = lopBuilder.getPositionY();
                 float xDiff = currentMoveSpeed * MathUtils.sinDeg(rotationAngle);
                 float yDiff = currentMoveSpeed * MathUtils.cosDeg(rotationAngle);
-                positionX += xDiff * SHIP_MOVE_SPEED_TO_LOCATION_COORDS_COEF;
+                positionX += xDiff;
                 // -= here because of client rendering
-                positionY -= yDiff * SHIP_MOVE_SPEED_TO_LOCATION_COORDS_COEF;
+                positionY -= yDiff;
 
                 locationObjectsHolder.updateLopBuilderX(lopBuilder, positionX);
                 locationObjectsHolder.updateLopBuilderY(lopBuilder, positionY);

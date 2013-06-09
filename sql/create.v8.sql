@@ -49,8 +49,8 @@ create table ship_type (
 create table ship_config (-- static state of the shipType
   ship_config_id                    integer auto_increment primary key,
   ship_config_move_max_speed        float   not null,
-  ship_config_rotation_max_speed    float   not null,
   ship_config_move_acceleration     float   not null,
+  ship_config_rotation_max_speed    float   not null,
   ship_config_rotation_acceleration float   not null,
   ship_config_armor                 integer not null,
   ship_config_energy_max            integer not null,
@@ -130,8 +130,8 @@ create table inventory_item (
 create table location (
   location_id     integer auto_increment primary key,
   location_name   varchar(32) not null,
-  location_width  float       not null,
-  location_height float       not null
+  location_width  integer     not null,
+  location_height integer     not null
 );
 create table location_object (
   location_object_id               integer auto_increment primary key,

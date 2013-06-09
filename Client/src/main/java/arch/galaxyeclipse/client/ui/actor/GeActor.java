@@ -27,6 +27,8 @@ public abstract class GeActor extends Image implements IGeActor {
         shipStateInfoHolder = ContextHolder.getBean(ShipStateInfoHolder.class);
     }
 
+    private @Getter StageInfo stageInfo;
+
     protected abstract int compareToImpl(IGeActor actor);
 
     public static IGeActor newStub() {
@@ -54,7 +56,7 @@ public abstract class GeActor extends Image implements IGeActor {
 
     @Override
     public void adjust(StageInfo stageInfo) {
-
+        this.stageInfo = stageInfo;
     }
 
     @Override

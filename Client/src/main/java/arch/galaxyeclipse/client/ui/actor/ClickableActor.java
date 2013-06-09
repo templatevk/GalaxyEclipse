@@ -17,6 +17,9 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 abstract class ClickableActor extends GeActor {
 
+    private static final float SELECTION_ALPHA = 0.5f;
+    private static final float SELECTION_ALPHA_ACTION_DURATION = 0.5f;
+
     private ICommand<GePosition> hitCommand;
     private AlphaAction selectAction;
     private boolean selected;
@@ -41,7 +44,7 @@ abstract class ClickableActor extends GeActor {
                     selected = !selected;
 
                 }
-                hitCommand.perform(new GePosition(x, y));
+                hitCommand.perform(new GePosition((int)x, (int)y));
             }
         });
 
@@ -51,14 +54,15 @@ abstract class ClickableActor extends GeActor {
             @Override
             protected void end() {
                 if (selected) {
-                    setAlpha(getAlpha() == 0.5f ? 1 : 0.5f);
+                    setAlpha(getAlpha() == SELECTION_ALPHA ? 1f : SELECTION_ALPHA);
                     restart();
                 } else {
                     ClickableActor.this.getColor().a = 1f;
                 }
             }
         };
-        selectAction.setAlpha(0.5f);
-        selectAction.setDuration(0.5f);
+        selectAction.setAlpha(SELECTION_ALPHA);
+        selectAction.setDuration(SELECTION_ALPHA_ACTION_DURATION);
+//        new ScaleByAction()
     }
 }

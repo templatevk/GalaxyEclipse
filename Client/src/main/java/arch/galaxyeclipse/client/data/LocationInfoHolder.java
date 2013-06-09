@@ -106,8 +106,8 @@ public class LocationInfoHolder {
         public boolean apply(LocationObjectPacket input) {
             float xAbs = Math.abs(input.getPositionX() - position.getX());
             float yAbs = Math.abs(input.getPositionY() - position.getY());
-            return xAbs < GeConstants.DYNAMIC_OBJECT_QUERY_RADIUS
-                    && yAbs < GeConstants.DYNAMIC_OBJECT_QUERY_RADIUS;
+            return xAbs < GeConstants.RADIUS_DYNAMIC_OBJECT_QUERY
+                    && yAbs < GeConstants.RADIUS_DYNAMIC_OBJECT_QUERY;
         }
     }
 

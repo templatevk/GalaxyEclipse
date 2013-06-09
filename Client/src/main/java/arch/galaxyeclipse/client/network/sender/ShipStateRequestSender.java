@@ -14,7 +14,7 @@ public class ShipStateRequestSender extends RepeatablePacketSender {
 
     public ShipStateRequestSender() {
         super(Packet.Type.SHIP_STATE_RESPONSE,
-                GeConstants.CLIENT_SHIP_STATE_REQUEST_INTERVAL_MILLISECONDS);
+                GeConstants.CLIENT_REQUEST_SHIP_STATE_INTERVAL_MILLISECONDS);
         shipStateInfoHolder = ContextHolder.getBean(ShipStateInfoHolder.class);
         getClientNetworkManager().addPacketListener(this);
     }
