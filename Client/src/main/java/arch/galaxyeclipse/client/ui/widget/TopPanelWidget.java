@@ -5,9 +5,7 @@ import arch.galaxyeclipse.client.network.IClientNetworkManager;
 import arch.galaxyeclipse.client.network.IServerPacketListener;
 import arch.galaxyeclipse.shared.context.ContextHolder;
 import arch.galaxyeclipse.shared.protocol.GeProtocol;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
-import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Arrays;
@@ -22,13 +20,11 @@ public class TopPanelWidget extends Table implements IServerPacketListener {
     private IClientNetworkManager networkManager;
     private IResourceLoader resourceLoader;
 
-    private Drawable background;
-
     public TopPanelWidget() {
         networkManager = ContextHolder.getBean(IClientNetworkManager.class);
 
         resourceLoader = ContextHolder.getBean(IResourceLoader.class);
-        background = resourceLoader.createDrawable("ui/toppanel/toppanel");
+        setBackground(resourceLoader.createDrawable("ui/toppanel/toppanel"));
         setWidth(getPrefWidth());
         setHeight(getPrefHeight());
 
@@ -53,12 +49,6 @@ public class TopPanelWidget extends Table implements IServerPacketListener {
     @Override
     public float getPrefHeight() {
         return DEFAULT_HEIGHT;
-    }
-
-    @Override
-    public void draw(SpriteBatch batch, float parentAlpha) {
-        validate();
-        super.draw(batch, parentAlpha);
     }
 
     @Override

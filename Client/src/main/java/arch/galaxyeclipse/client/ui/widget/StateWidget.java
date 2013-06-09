@@ -7,7 +7,6 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
-import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import lombok.extern.slf4j.Slf4j;
 
 
@@ -20,14 +19,12 @@ public class StateWidget extends Table {
 
     private IResourceLoader resourceLoader;
 
-    private Drawable background;
-
     private Label hpLabel;
     private Table hpLabelTable;
 
     public StateWidget() {
         resourceLoader = ContextHolder.getBean(IResourceLoader.class);
-        background = resourceLoader.createDrawable("ui/state/state");
+        setBackground(resourceLoader.createDrawable("ui/state/state"));
         setWidth(getPrefWidth());
         setHeight(getPrefHeight());
 
@@ -68,7 +65,6 @@ public class StateWidget extends Table {
         ShipStateInfoHolder holder = ContextHolder.getBean(ShipStateInfoHolder.class);
         hpLabel.setText("[TEST] HP = " + holder.getHp());
 
-        background.draw(batch, getX(), getY(), getWidth(), getHeight());
         super.draw(batch, parentAlpha);
     }
 }
