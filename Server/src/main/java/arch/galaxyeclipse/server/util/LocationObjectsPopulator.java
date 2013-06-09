@@ -112,12 +112,12 @@ public class LocationObjectsPopulator {
             String objMethod = prop.getProperty(
                     "object." + i + ".method");
             objectsMethod.put(i, objMethod);
-            if (objMethod.toString().equals(RANDOM)) {
+            if (objMethod.equals(RANDOM)) {
                 Integer objCount = Integer.valueOf(prop.getProperty(
                         "object." + i + ".count"));
                 objectsCount.put(i, objCount);
             }
-            if (objMethod.toString().equals(FILL)) {
+            if (objMethod.equals(FILL)) {
                 Integer objWidth = Integer.valueOf(prop.getProperty(
                         "object." + i + ".width"));
                 objectsWidth.put(i, objWidth);
@@ -136,20 +136,20 @@ public class LocationObjectsPopulator {
 
     private void generateScript() {
         StringBuilder scriptBuilder = new StringBuilder();
-        scriptBuilder.append(
-                "use " + databaseName + ";\n\n" +
-                "insert into location_object" +
-                "(\nlocation_object_behavior_type_id,\n" +
-                "location_object_type_id,\n" +
-                "object_native_id,\n" +
-                "rotation_angle,\n" +
-                "position_x,\n" +
-                "position_y,\n" +
-                "location_id)\n" +
-                "values\n(");
+        scriptBuilder.append("use ")
+                .append(databaseName)
+                .append(";\n\n")
+                .append("insert into location_object")
+                .append("(\nlocation_object_behavior_type_id,\n")
+                .append("location_object_type_id,\n")
+                .append("object_native_id,\n")
+                .append("rotation_angle,\n")
+                .append("position_x,\n")
+                .append("position_y,\n")
+                .append("location_id)\n")
+                .append("values\n(");
 
         for (int i = 0; i < objectDescriptionsCount; i++) {
-
             GePosition[] positions = new GePosition[0];
             int posCount = 0;
 

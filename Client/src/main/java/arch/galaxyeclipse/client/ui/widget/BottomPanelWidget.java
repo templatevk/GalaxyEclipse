@@ -1,4 +1,4 @@
-package arch.galaxyeclipse.client.ui;
+package arch.galaxyeclipse.client.ui.widget;
 
 import arch.galaxyeclipse.client.data.IResourceLoader;
 import arch.galaxyeclipse.client.network.IClientNetworkManager;
@@ -8,7 +8,6 @@ import arch.galaxyeclipse.shared.protocol.GeProtocol;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
-import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Arrays;
@@ -16,20 +15,20 @@ import java.util.List;
 
 
 @Slf4j
-public class TopPanelWidget extends Table implements IServerPacketListener {
-    private final int DEFAULT_WIDTH = 1670;
-    private final int DEFAULT_HEIGHT = 169;
+public class BottomPanelWidget extends Table implements IServerPacketListener {
+    private final int DEFAULT_WIDTH = 1446;
+    private final int DEFAULT_HEIGHT = 159;
 
     private IClientNetworkManager networkManager;
     private IResourceLoader resourceLoader;
 
     private Drawable background;
 
-    public TopPanelWidget() {
+    public BottomPanelWidget() {
         networkManager = ContextHolder.getBean(IClientNetworkManager.class);
 
         resourceLoader = ContextHolder.getBean(IResourceLoader.class);
-        background = new TextureRegionDrawable(resourceLoader.findRegion("ui/toppanel/toppanel"));
+        background = resourceLoader.createDrawable("ui/bottompanel/bottompanel");
         setWidth(getPrefWidth());
         setHeight(getPrefHeight());
 
@@ -58,7 +57,6 @@ public class TopPanelWidget extends Table implements IServerPacketListener {
 
     @Override
     public void draw(SpriteBatch batch, float parentAlpha) {
-        validate();
         background.draw(batch, getX(), getY(), getWidth(), getHeight());
         super.draw(batch, parentAlpha);
     }

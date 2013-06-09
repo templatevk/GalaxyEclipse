@@ -1,4 +1,4 @@
-package arch.galaxyeclipse.client.ui;
+package arch.galaxyeclipse.client.ui.widget;
 
 import arch.galaxyeclipse.client.data.IResourceLoader;
 import arch.galaxyeclipse.client.network.IClientNetworkManager;
@@ -8,7 +8,6 @@ import arch.galaxyeclipse.shared.protocol.GeProtocol;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
-import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Arrays;
@@ -29,7 +28,7 @@ public class MiniMapWidget extends Table implements IServerPacketListener {
         networkManager = ContextHolder.getBean(IClientNetworkManager.class);
 
         resourceLoader = ContextHolder.getBean(IResourceLoader.class);
-        background = new TextureRegionDrawable(resourceLoader.findRegion("ui/minimap/minimap"));
+        background = resourceLoader.createDrawable("ui/minimap/minimap");
         setWidth(getPrefWidth());
         setHeight(getPrefHeight());
 

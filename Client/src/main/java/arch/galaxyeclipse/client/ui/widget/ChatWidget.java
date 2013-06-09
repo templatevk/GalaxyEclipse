@@ -1,8 +1,11 @@
-package arch.galaxyeclipse.client.ui;
+package arch.galaxyeclipse.client.ui.widget;
 
 import arch.galaxyeclipse.client.data.IResourceLoader;
 import arch.galaxyeclipse.client.network.IClientNetworkManager;
 import arch.galaxyeclipse.client.network.IServerPacketListener;
+import arch.galaxyeclipse.client.ui.IButtonBuilder;
+import arch.galaxyeclipse.client.ui.IButtonClickCommand;
+import arch.galaxyeclipse.client.ui.StageUiFactory;
 import arch.galaxyeclipse.shared.context.ContextHolder;
 import arch.galaxyeclipse.shared.protocol.GeProtocol;
 import com.badlogic.gdx.Input.Keys;
@@ -266,7 +269,6 @@ public class ChatWidget extends Table implements IServerPacketListener {
 
     @Override
     public void draw(SpriteBatch batch, float parentAlpha) {
-        validate();
         background.draw(batch, getX(), getY(), getWidth(), getHeight());
         super.draw(batch, parentAlpha);
     }

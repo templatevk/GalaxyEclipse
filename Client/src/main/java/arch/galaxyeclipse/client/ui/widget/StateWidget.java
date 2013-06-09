@@ -1,4 +1,4 @@
-package arch.galaxyeclipse.client.ui;
+package arch.galaxyeclipse.client.ui.widget;
 
 import arch.galaxyeclipse.client.data.IResourceLoader;
 import arch.galaxyeclipse.client.data.ShipStateInfoHolder;
@@ -8,7 +8,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
-import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import lombok.extern.slf4j.Slf4j;
 
 
@@ -28,7 +27,7 @@ public class StateWidget extends Table {
 
     public StateWidget() {
         resourceLoader = ContextHolder.getBean(IResourceLoader.class);
-        background = new TextureRegionDrawable(resourceLoader.findRegion("ui/state/state"));
+        background = resourceLoader.createDrawable("ui/state/state");
         setWidth(getPrefWidth());
         setHeight(getPrefHeight());
 
@@ -66,9 +65,9 @@ public class StateWidget extends Table {
 
     @Override
     public void draw(SpriteBatch batch, float parentAlpha) {
-        validate();
         ShipStateInfoHolder holder = ContextHolder.getBean(ShipStateInfoHolder.class);
         hpLabel.setText("[TEST] HP = " + holder.getHp());
+
         background.draw(batch, getX(), getY(), getWidth(), getHeight());
         super.draw(batch, parentAlpha);
     }

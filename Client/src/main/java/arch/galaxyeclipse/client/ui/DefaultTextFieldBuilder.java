@@ -7,7 +7,6 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
-import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 
 /**
  *
@@ -33,12 +32,12 @@ class DefaultTextFieldBuilder implements ITextFieldBuilder {
         IResourceLoader resourceLoader = ContextHolder
                 .getBean(IResourceLoader.class);
 
-        Drawable carret = new TextureRegionDrawable(resourceLoader.findRegion("ui/carret"));
-        Drawable selection = new TextureRegionDrawable(resourceLoader.findRegion("ui/selection"));
+        Drawable carret = resourceLoader.createDrawable("ui/carret");
+        Drawable selection = resourceLoader.createDrawable("ui/selection");
         BitmapFont font = resourceLoader.getFont("font_calibri_48px");
 
         textFieldStyle = new TextField.TextFieldStyle(font, Color.RED, carret, selection,
-                new TextureRegionDrawable(resourceLoader.findRegion("ui/textField")));
+                resourceLoader.createDrawable("ui/textField"));
         textFieldStyle.fontColor = Color.WHITE;
     }
 

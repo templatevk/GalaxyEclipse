@@ -40,7 +40,6 @@ public class LocationObjectActor extends ClickableActor {
 
         // TODO: REMOVE!
         if (self) {
-            getColor().r = 255;
         }
     }
 

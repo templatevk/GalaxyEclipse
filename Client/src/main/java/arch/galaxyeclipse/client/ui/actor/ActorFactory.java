@@ -7,7 +7,6 @@ import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.Location
 import arch.galaxyeclipse.shared.types.DictionaryTypesMapper;
 import arch.galaxyeclipse.shared.types.LocationObjectTypesMapperType;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
-import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -58,7 +57,7 @@ class ActorFactory implements IActorFactory {
                 break;
         }
 
-        Drawable drawable = new TextureRegionDrawable(resourceLoader.findRegion(path));
+        Drawable drawable = resourceLoader.createDrawable(path);
 
         LocationObjectActor locationObjectActor = new LocationObjectActor(
                 drawable, locationObjectPacket);
