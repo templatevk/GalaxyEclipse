@@ -41,9 +41,7 @@ public class ShipStateInfoHolder {
     }
 
     public int getHp() {
-        Random r = new Random();
-        return r.nextInt(500);
-        //return ssResponse.getHp();
+        return ssResponse.getHp();
     }
 
     public int getArmorDurability() {

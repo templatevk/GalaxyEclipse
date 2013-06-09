@@ -26,7 +26,7 @@ public class StateWidget extends Table  {
 
     private IResourceLoader resourceLoader;
 
-    private ScrollPane testScrollPane;
+    private ScrollPane hpScrollPane;
     private Image hpLineImage;
     private Image hpInnerImage;
     private Label hpLabel;
@@ -41,9 +41,9 @@ public class StateWidget extends Table  {
         hpInnerImage = new Image(resourceLoader.createDrawable("ui/state/hpInner"));
         //addActor(hpInnerImage);
         ScrollPane.ScrollPaneStyle scrollPaneStyle = new ScrollPane.ScrollPaneStyle();
-        testScrollPane = new ScrollPane(hpInnerImage,scrollPaneStyle);
-        testScrollPane.setFillParent(false);
-        addActor(testScrollPane);
+        hpScrollPane = new ScrollPane(hpInnerImage,scrollPaneStyle);
+        hpScrollPane.setFillParent(false);
+        addActor(hpScrollPane);
 
         hpLineImage = new Image(resourceLoader.createDrawable("ui/state/hpLine"));
         addActor(hpLineImage);
@@ -63,11 +63,11 @@ public class StateWidget extends Table  {
         float scaleX = width / getPrefWidth();
         float scaleY = height / getPrefHeight();
 
-        testScrollPane.setScale(scaleX,scaleY);
-        testScrollPane.setWidth(hpInnerImage.getWidth());
-        testScrollPane.setHeight(hpInnerImage.getHeight());
-        testScrollPane.setX((float) HP_INNER_PADDING_LEFT * scaleX);
-        testScrollPane.setY((float) HP_INNER_PADDING_BOTTOM * scaleY);
+        hpScrollPane.setScale(scaleX,scaleY);
+        hpScrollPane.setWidth(hpInnerImage.getWidth());
+        hpScrollPane.setHeight(hpInnerImage.getHeight());
+        hpScrollPane.setX((float) HP_INNER_PADDING_LEFT * scaleX);
+        hpScrollPane.setY((float) HP_INNER_PADDING_BOTTOM * scaleY);
 
         hpLineImage.setScale(scaleX, scaleY);
         hpLineImage.setX((float) HP_LINE_PADDING_LEFT * scaleX);
@@ -97,8 +97,10 @@ public class StateWidget extends Table  {
         int hp = shipStateInfoHolder.getHp();
         int hpMax = shipStaticInfoHolder.getHpMax();
         hpLabel.setText("" + hp + "/" + hpMax);
-        testScrollPane.setWidth(((float)hpInnerImage.getWidth()) / ((float)hpMax) * ((float)hp));
-        hpLabel.setX(((float)HP_LABEL_CENTER_PADDING_LEFT * getScaleX()) - (hpLabel.getWidth() / 2));
+        hpScrollPane.setWidth((hpInnerImage.getWidth()) / ((float)hpMax) * ((float)hp));
+        hpScrollPane.invalidate();
+        hpLabel.setX(((float)HP_LABEL_CENTER_PADDING_LEFT * getScaleX()) - (hpLabel.getWidth() / 2f));
+        hpLabel.invalidate();
         super.draw(batch, parentAlpha);
     }
 
