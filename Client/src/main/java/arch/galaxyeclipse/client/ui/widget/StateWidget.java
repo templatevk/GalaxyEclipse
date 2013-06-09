@@ -23,12 +23,12 @@ public class StateWidget extends Table {
     private static final int HP_LINE_PADDING_LEFT = 30;
     private static final int HP_INNER_PADDING_BOTTOM = 190;
     private static final int HP_INNER_PADDING_LEFT = 105;
-    private static final int ENERGY_LABEL_PADDING_BOTTOM = 214;
-    private static final int ENERGY_LABEL_CENTER_PADDING_LEFT = 230;
+    private static final int ENERGY_LABEL_PADDING_BOTTOM = 134;
+    private static final int ENERGY_LABEL_CENTER_PADDING_LEFT = 175;
     private static final int ENERGY_LINE_PADDING_BOTTOM = 100;
     private static final int ENERGY_LINE_PADDING_LEFT = 30;
     private static final int ENERGY_INNER_PADDING_BOTTOM = 110;
-    private static final int ENERGY_INNER_PADDING_LEFT = 105;
+    private static final int ENERGY_INNER_PADDING_LEFT = 50;
 
     private IResourceLoader resourceLoader;
 
@@ -75,6 +75,15 @@ public class StateWidget extends Table {
 
         energyLineImage = new Image(resourceLoader.createDrawable("ui/state/energyLine"));
         addActor(energyLineImage);
+
+        Label.LabelStyle energyLabelStyle = new Label.LabelStyle(
+                resourceLoader.getFont("font_calibri_36px"), Color.WHITE);
+        energyLabel = new Label("", energyLabelStyle);
+        energyLabelTable = new Table();
+        energyLabelTable.setTransform(true);
+        energyLabelTable.row();
+        energyLabelTable.add(energyLabel);
+        addActor(energyLabelTable);
     }
 
     @Override
@@ -105,6 +114,10 @@ public class StateWidget extends Table {
         energyLineImage.setScale(scaleX, scaleY);
         energyLineImage.setX((float) ENERGY_LINE_PADDING_LEFT * scaleX);
         energyLineImage.setY((float) ENERGY_LINE_PADDING_BOTTOM * scaleY);
+
+        energyLabelTable.setScale(scaleX, scaleY);
+        energyLabelTable.setX((((float)ENERGY_LABEL_CENTER_PADDING_LEFT) * scaleX) - (energyLabelTable.getWidth() * scaleX / 2f));
+        energyLabelTable.setY(((float)ENERGY_LABEL_PADDING_BOTTOM) * scaleY);
 
         super.setSize(width, height);
     }
@@ -141,9 +154,16 @@ public class StateWidget extends Table {
         int energy = shipStateInfoHolder.getEnergy();
         int energyMax = shipStaticInfoHolder.getEnergyMax();
 
+        energyLabel.setText("" + energy + "/" + energyMax);
+
         float energyScrollPaneWidth = (energyInnerImage.getWidth()) / ((float) energyMax) * ((float) energy);
         energyScrollPane.invalidate();
         energyScrollPane.setWidth(energyScrollPaneWidth);
+
+        float energyLabelX = (((float) ENERGY_LABEL_CENTER_PADDING_LEFT) * getScaleX()) - (energyLabel.getWidth() * getScaleX() / 2f);
+        energyLabel.setX(energyLabelX);
+        energyLabel.invalidate();
+        energyLabelTable.invalidate();
 
         super.draw(batch, parentAlpha);
     }
