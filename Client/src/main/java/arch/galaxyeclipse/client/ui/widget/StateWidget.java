@@ -15,8 +15,9 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class StateWidget extends Table {
-    private final int DEFAULT_WIDTH = 398;
-    private final int DEFAULT_HEIGHT = 345;
+
+    private static final int DEFAULT_WIDTH = 398;
+    private static final int DEFAULT_HEIGHT = 345;
     private static final int HP_LABEL_PADDING_BOTTOM = 214;
     private static final int HP_LABEL_CENTER_PADDING_LEFT = 230;
     private static final int HP_LINE_PADDING_BOTTOM = 180;
