@@ -14,7 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 
 
 @Slf4j
-public class StateWidget extends Table  {
+public class StateWidget extends Table {
     private final int DEFAULT_WIDTH = 398;
     private final int DEFAULT_HEIGHT = 345;
     private static final int HP_LABEL_PADDING_BOTTOM = 214;
@@ -40,7 +40,7 @@ public class StateWidget extends Table  {
 
         hpInnerImage = new Image(resourceLoader.createDrawable("ui/state/hpInner"));
         ScrollPane.ScrollPaneStyle scrollPaneStyle = new ScrollPane.ScrollPaneStyle();
-        hpScrollPane = new ScrollPane(hpInnerImage,scrollPaneStyle);
+        hpScrollPane = new ScrollPane(hpInnerImage, scrollPaneStyle);
         hpScrollPane.setFillParent(false);
         addActor(hpScrollPane);
 
@@ -49,7 +49,7 @@ public class StateWidget extends Table  {
 
         Label.LabelStyle hpLabelStyle = new Label.LabelStyle(
                 resourceLoader.getFont("font_calibri_36px"), Color.WHITE);
-        hpLabel = new Label("",hpLabelStyle);
+        hpLabel = new Label("", hpLabelStyle);
         hpLabelTable = new Table();
         hpLabelTable.setTransform(true);
         hpLabelTable.row();
@@ -62,7 +62,7 @@ public class StateWidget extends Table  {
         float scaleX = width / getPrefWidth();
         float scaleY = height / getPrefHeight();
 
-        hpScrollPane.setScale(scaleX,scaleY);
+        hpScrollPane.setScale(scaleX, scaleY);
         hpScrollPane.setWidth(hpInnerImage.getWidth());
         hpScrollPane.setHeight(hpInnerImage.getHeight());
         hpScrollPane.setX((float) HP_INNER_PADDING_LEFT * scaleX);
@@ -73,7 +73,7 @@ public class StateWidget extends Table  {
         hpLineImage.setY((float) HP_LINE_PADDING_BOTTOM * scaleY);
 
         hpLabelTable.setScale(scaleX, scaleY);
-        hpLabelTable.setX(((float)HP_LABEL_CENTER_PADDING_LEFT * scaleX) - (hpLabel.getWidth() / 2));
+        hpLabelTable.setX(((float) HP_LABEL_CENTER_PADDING_LEFT * scaleX) - (hpLabel.getWidth() / 2));
         hpLabelTable.setY((float) HP_LABEL_PADDING_BOTTOM * scaleY);
 
         super.setSize(width, height);
@@ -98,10 +98,10 @@ public class StateWidget extends Table  {
         int hpMax = shipStaticInfoHolder.getHpMax();
 
         hpLabel.setText("" + hp + "/" + hpMax);
-        hpScrollPane.setWidth((hpInnerImage.getWidth()) / ((float)hpMax) * ((float)hp));
+        hpScrollPane.setWidth((hpInnerImage.getWidth()) / ((float) hpMax) * ((float) hp));
         hpScrollPane.invalidate();
 
-        hpLabel.setX(((float)HP_LABEL_CENTER_PADDING_LEFT * getScaleX()) - (hpLabel.getWidth() / 2f));
+        hpLabel.setX(((float) HP_LABEL_CENTER_PADDING_LEFT * getScaleX()) - (hpLabel.getWidth() / 2f));
         hpLabel.invalidate();
 
         super.draw(batch, parentAlpha);
