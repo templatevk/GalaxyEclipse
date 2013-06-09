@@ -104,7 +104,9 @@ class ClientWindow implements IClientWindow {
             Gdx.graphics.setContinuousRendering(false);
             glClear();
 
-            Gdx.input.setCursorCatched(true);
+            if (EnvType.CURRENT == EnvType.PROD) {
+                Gdx.input.setCursorCatched(true);
+            }
 
             setStageProvider(StageProviderFactory.createStageProvider(
                     StageProviderFactory.StagePresenterType.MAIN_MENU));

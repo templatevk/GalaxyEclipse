@@ -2,6 +2,7 @@ package arch.galaxyeclipse.client.ui.widget;
 
 import arch.galaxyeclipse.client.data.IResourceLoader;
 import arch.galaxyeclipse.client.window.IClientWindow;
+import arch.galaxyeclipse.shared.EnvType;
 import arch.galaxyeclipse.shared.context.ContextHolder;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Animation;
@@ -48,18 +49,20 @@ public class CursorWidget {
         int clientWidth = (int)clientWindow.getWidth();
         int clientHeight = (int)clientWindow.getHeight();
 
-        if (x < 0) {
-            x = 0;
-        } else if (x > clientWidth) {
-            x = clientWidth;
-        }
-        if (y + cursorHeight < 0) {
-            y = -cursorHeight;
-        } else if (y + cursorHeight > clientHeight) {
-            y = clientHeight - cursorHeight;
+        if (EnvType.CURRENT == EnvType.PROD) {
+            if (x < 0) {
+                x = 0;
+            } else if (x > clientWidth) {
+                x = clientWidth;
+            }
+            if (y + cursorHeight < 0) {
+                y = -cursorHeight;
+            } else if (y + cursorHeight > clientHeight) {
+                y = clientHeight - cursorHeight;
+            }
+            Gdx.input.setCursorPosition(x, y + cursorHeight);
         }
 
-        Gdx.input.setCursorPosition(x, y + cursorHeight);
         batch.draw(frame, x, y);
     }
 }
