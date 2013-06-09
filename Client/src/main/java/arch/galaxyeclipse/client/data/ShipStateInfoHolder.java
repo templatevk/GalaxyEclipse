@@ -30,7 +30,7 @@ public class ShipStateInfoHolder {
         }
     }
 
-    public int getMoveSpeed() {
+    public float getMoveSpeed() {
         return ssResponse.getMoveSpeed();
     }
 
@@ -50,11 +50,11 @@ public class ShipStateInfoHolder {
         return ssResponse.getRotationAngle();
     }
 
-    public int getPositionX() {
+    public float getPositionX() {
         return ssResponse.getPositionX();
     }
 
-    public int getPositionY() {
+    public float getPositionY() {
         return ssResponse.getPositionY();
     }
 

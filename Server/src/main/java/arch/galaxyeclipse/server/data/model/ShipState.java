@@ -24,15 +24,15 @@ public class ShipState {
         this.shipStateId = shipStateId;
     }
 
-    private int shipStateMoveSpeed;
+    private float shipStateMoveSpeed;
 
     @Column(name = "ship_state_move_speed", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     @Basic
-    public int getShipStateMoveSpeed() {
+    public float getShipStateMoveSpeed() {
         return shipStateMoveSpeed;
     }
 
-    public void setShipStateMoveSpeed(int shipStateMoveSpeed) {
+    public void setShipStateMoveSpeed(float shipStateMoveSpeed) {
         this.shipStateMoveSpeed = shipStateMoveSpeed;
     }
 

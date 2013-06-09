@@ -275,9 +275,9 @@ class ClientActionHandler extends PacketHandlerDecorator {
 
             @Override
             public void run() {
-                int currentMoveSpeed = ssrBuilder.getMoveSpeed();
-                int moveAcceleration = shipConfig.getShipConfigMoveAcceleration();
-                int maxMoveSpeed = shipConfig.getShipConfigMoveMaxSpeed();
+                float currentMoveSpeed = ssrBuilder.getMoveSpeed();
+                float moveAcceleration = shipConfig.getShipConfigMoveAcceleration();
+                float maxMoveSpeed = shipConfig.getShipConfigMoveMaxSpeed();
 
                 do {
                     moveType = moveActions.size() == 1 ? moveActions.peek() : moveActions.poll();
@@ -320,8 +320,8 @@ class ClientActionHandler extends PacketHandlerDecorator {
             public void run() {
                 float currentMoveSpeed = ssrBuilder.getMoveSpeed();
                 float rotationAngle = lopBuilder.getRotationAngle();
-                int positionX = lopBuilder.getPositionX();
-                int positionY = lopBuilder.getPositionY();
+                float positionX = lopBuilder.getPositionX();
+                float positionY = lopBuilder.getPositionY();
                 float xDiff = currentMoveSpeed * MathUtils.sinDeg(rotationAngle);
                 float yDiff = currentMoveSpeed * MathUtils.cosDeg(rotationAngle);
                 positionX += xDiff;

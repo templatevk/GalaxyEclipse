@@ -51,7 +51,7 @@ insert into location_object_type
 insert into location
 (location_name, location_width, location_height)
   values
-  (get_default_location_name(), 10000, 10000);
+  (get_default_location_name(), 100000, 100000);
 
 
 # item
@@ -125,7 +125,7 @@ insert into ship_type
  ship_type_move_acceleration, ship_type_rotation_max_speed, ship_type_rotation_acceleration,
  weapon_slots_count, bonus_slots_count)
   values
-  (get_default_ship_type_name(), 100, 100, 100, 500, 5, 10, 25, 0.5, 1, 0.05, 3, 3),
+  (get_default_ship_type_name(), 100, 100, 100, 500, 5, 10, 10, 0.1, 1, 0.01, 3, 3),
   ('Jass', 120, 120, 120, 600, 6, 12, 40, 4, 5, 1, 4, 4);
 
 

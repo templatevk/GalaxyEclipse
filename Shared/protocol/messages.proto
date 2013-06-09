@@ -54,13 +54,13 @@ message ShipStateRequest {
 
 }
 message ShipStateResponse {
-    required int32 moveSpeed        = 1;
+    required float moveSpeed        = 1;
     required float rotationSpeed    = 2;
     required int32 hp               = 3;
     required int32 armorDurability  = 4;
     required float rotationAngle    = 5;
-    required int32 positionX        = 6;
-    required int32 positionY        = 7;
+    required float positionX        = 6;
+    required float positionY        = 7;
     required int32 locationObjectId = 8;
 }
 
@@ -104,8 +104,8 @@ message AuthResponse {
 message LocationInfoPacket {
     required int32                  locationId              = 1;
     required string                 name                    = 2;
-    required int32                   width                  = 3;
-    required int32                   height                 = 4;
+    required int32                  width                   = 3;
+    required int32                  height                  = 4;
     required CachedObjectsPacket    locationCachedObjects   = 5;
 
     message CachedObjectsPacket {
@@ -116,16 +116,16 @@ message LocationInfoPacket {
         required int32 objectId         = 1;
         required int32 objectTypeId     = 2;
         required int32 nativeId         = 3;
-        required int32 positionX        = 4;
-        required int32 positionY        = 5;
+        required float positionX        = 4;
+        required float positionY        = 5;
         required float rotationAngle    = 6;
     }
 }
 message ShipStaticInfoPacket {
     // Ship config values
-    required int32           moveMaxSpeed           = 1;
+    required float          moveMaxSpeed            = 1;
     required float          rotationMaxSpeed        = 2;
-    required int32           moveAccelerationSpeed  = 3;
+    required float          moveAccelerationSpeed   = 3;
     required float          rotationAcceleration    = 4;
     required int32          armor                   = 5;
     required int32          energyMax               = 6;
@@ -169,8 +169,8 @@ message ShipStaticInfoPacket {
         }
 
         message EnginePacket {
-            required int32  moveAccelerationBonus       = 1;
-            required int32  moveMaxSpeedBonus           = 2;
+            required float  moveAccelerationBonus       = 1;
+            required float  moveMaxSpeedBonus           = 2;
             required float rotationAccelerationBonus    = 3;
             required float rotationMaxSpeedBonus        = 4;
         }

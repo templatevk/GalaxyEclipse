@@ -11,6 +11,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class GePosition {
-    private int x;
-    private int y;
+    private float x;
+    private float y;
 }

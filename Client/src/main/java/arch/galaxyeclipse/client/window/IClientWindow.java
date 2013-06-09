@@ -7,8 +7,8 @@ import arch.galaxyeclipse.shared.common.IDestroyable;
  *
  */
 public interface IClientWindow {
-    float DEFAULT_WIDTH = 2048;
-    float DEFAULT_HEIGHT = 1496;
+    float DEFAULT_WIDTH = 1024;
+    float DEFAULT_HEIGHT = 748;
 
     void setStageProvider(IStageProvider stagePresenter);
 

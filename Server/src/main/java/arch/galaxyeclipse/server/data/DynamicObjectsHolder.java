@@ -50,13 +50,13 @@ public class DynamicObjectsHolder {
             locationObjectsY.remove(lopBuilder);
         }
 
-        public void updateLopBuilderX(LocationObjectPacket.Builder lopBuilder, int positionX) {
+        public void updateLopBuilderX(LocationObjectPacket.Builder lopBuilder, float positionX) {
             locationObjectsX.remove(lopBuilder);
             lopBuilder.setPositionX(positionX);
             locationObjectsX.add(lopBuilder);
         }
 
-        public void updateLopBuilderY(LocationObjectPacket.Builder lopBuilder, int positionY) {
+        public void updateLopBuilderY(LocationObjectPacket.Builder lopBuilder, float positionY) {
             locationObjectsY.remove(lopBuilder);
             lopBuilder.setPositionY(positionY);
             locationObjectsY.add(lopBuilder);
@@ -64,12 +64,12 @@ public class DynamicObjectsHolder {
 
         public Collection<LocationObjectPacket.Builder> getMatchingObjects(
                 LocationObjectPacket.Builder lopBuilder) {
-            int positionX = lopBuilder.getPositionX();
-            int positionY = lopBuilder.getPositionY();
-            int x1Pos = positionX - RADIUS_DYNAMIC_OBJECT_QUERY;
-            int x2Pos = positionX + RADIUS_DYNAMIC_OBJECT_QUERY;
-            int y1Pos = positionY - RADIUS_DYNAMIC_OBJECT_QUERY;
-            int y2Pos = positionY + RADIUS_DYNAMIC_OBJECT_QUERY;
+            float positionX = lopBuilder.getPositionX();
+            float positionY = lopBuilder.getPositionY();
+            float x1Pos = positionX - RADIUS_DYNAMIC_OBJECT_QUERY;
+            float x2Pos = positionX + RADIUS_DYNAMIC_OBJECT_QUERY;
+            float y1Pos = positionY - RADIUS_DYNAMIC_OBJECT_QUERY;
+            float y2Pos = positionY + RADIUS_DYNAMIC_OBJECT_QUERY;
 
             LocationObjectPacket.Builder x1 = LocationObjectPacket.newBuilder();
             LocationObjectPacket.Builder x2 = LocationObjectPacket.newBuilder();

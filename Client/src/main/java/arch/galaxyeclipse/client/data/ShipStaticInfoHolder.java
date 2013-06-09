@@ -128,7 +128,7 @@ public class ShipStaticInfoHolder extends ServerPacketListener {
         }
     }
 
-    public int getMoveMaxSpeed() {
+    public float getMoveMaxSpeed() {
         return ssiPacket.getMoveMaxSpeed();
     }
 
@@ -136,7 +136,7 @@ public class ShipStaticInfoHolder extends ServerPacketListener {
         return ssiPacket.getRotationMaxSpeed();
     }
 
-    public int getMoveAccelerationSpeed() {
+    public float getMoveAccelerationSpeed() {
         return ssiPacket.getMoveAccelerationSpeed();
     }
 
