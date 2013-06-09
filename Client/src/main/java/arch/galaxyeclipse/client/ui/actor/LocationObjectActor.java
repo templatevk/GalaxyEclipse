@@ -43,6 +43,7 @@ public class LocationObjectActor extends ClickableActor {
 
     @Override
     public void adjust(StageInfo stageInfo) {
+        super.adjust(stageInfo);
         switch (locationObjectType) {
             case ROCKET:
                 break;

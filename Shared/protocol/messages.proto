@@ -169,8 +169,8 @@ message ShipStaticInfoPacket {
         }
 
         message EnginePacket {
-            required float  moveAccelerationBonus       = 1;
-            required float  moveMaxSpeedBonus           = 2;
+            required float moveAccelerationBonus        = 1;
+            required float moveMaxSpeedBonus            = 2;
             required float rotationAccelerationBonus    = 3;
             required float rotationMaxSpeedBonus        = 4;
         }
