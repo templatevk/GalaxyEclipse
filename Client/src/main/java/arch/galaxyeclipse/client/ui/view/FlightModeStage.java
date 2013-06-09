@@ -275,6 +275,7 @@ public class FlightModeStage extends AbstractGameStage {
             gameActor.adjust(stageInfo);
         }
 
+
         super.draw();
     }
 
