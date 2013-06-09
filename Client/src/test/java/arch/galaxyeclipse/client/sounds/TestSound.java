@@ -3,7 +3,12 @@ package arch.galaxyeclipse.client.sounds;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class TestSound implements ApplicationListener {
 
@@ -11,7 +16,9 @@ public class TestSound implements ApplicationListener {
 
     @Override
     public void create() {
-        sound = Gdx.audio.newSound(Gdx.files.internal("assets/sounds/flight.wav"));
+        FileHandle musicHandle = Gdx.files.internal("assets/sounds/test.ogg");
+        sound = Gdx.audio.newSound(musicHandle);
+
     }
 
     @Override
@@ -25,11 +32,13 @@ public class TestSound implements ApplicationListener {
 
     @Override
     public void render() {
+
         if(Gdx.input.isKeyPressed(Input.Keys.SPACE)) {
             System.out.println("playing...");
 
-            long soundId = sound.play();
-            sound.setVolume(soundId, 1f);
+            //long soundId = sound.play();
+            //sound.setVolume(soundId, 1f);
+            sound.play();
         }
     }
 
