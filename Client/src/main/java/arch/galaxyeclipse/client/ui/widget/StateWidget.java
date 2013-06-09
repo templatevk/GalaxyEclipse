@@ -39,7 +39,6 @@ public class StateWidget extends Table  {
         setHeight(getPrefHeight());
 
         hpInnerImage = new Image(resourceLoader.createDrawable("ui/state/hpInner"));
-        //addActor(hpInnerImage);
         ScrollPane.ScrollPaneStyle scrollPaneStyle = new ScrollPane.ScrollPaneStyle();
         hpScrollPane = new ScrollPane(hpInnerImage,scrollPaneStyle);
         hpScrollPane.setFillParent(false);
