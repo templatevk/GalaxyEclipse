@@ -26,6 +26,7 @@ import static arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacke
 
 @Slf4j
 public class ChatWidget extends Table implements IServerPacketListener {
+
     private static final int DEFAULT_WIDTH = 570;
     private static final int DEFAULT_HEIGHT = 591;
     private static final int DEFAULT_MESSAGES_FIELD_WIDTH = 500;
@@ -137,7 +138,7 @@ public class ChatWidget extends Table implements IServerPacketListener {
                 return super.scrolled(event, x, y, amount);    //To change body of overridden methods use File | Settings | File Templates.
             }
         });
-        messagesScrollPane.setMySinglePropertyListener(new IPropertyListener<Float>() {
+        messagesScrollPane.setPropertyListener(new IPropertyListener<Float>() {
             @Override
             public void onPropertyChanged(Float newValue) {
                 if (isAutoScrollEnabled) {

@@ -29,7 +29,7 @@ import lombok.Setter;
 public class ScrollPane extends WidgetGroup {
 
     @Setter
-    private IPropertyListener<Float> mySinglePropertyListener;
+    private IPropertyListener<Float> propertyListener;
 
 	private ScrollPaneStyle style;
 	private Actor widget;
@@ -410,8 +410,8 @@ public class ScrollPane extends WidgetGroup {
 			// Make sure widget is drawn under fading scrollbars.
 			if (scrollX) maxY -= scrollbarHeight;
 			if (scrollY) maxX -= scrollbarWidth;
-            if(mySinglePropertyListener!=null)
-                mySinglePropertyListener.onPropertyChanged(maxY);
+            if(propertyListener !=null)
+                propertyListener.onPropertyChanged(maxY);
 		}
 		scrollX(MathUtils.clamp(amountX, 0, maxX));
 		scrollY(MathUtils.clamp(amountY, 0, maxY));
