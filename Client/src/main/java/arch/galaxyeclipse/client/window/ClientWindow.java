@@ -27,7 +27,7 @@ import static com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration.getD
 
 @Slf4j
 class ClientWindow implements IClientWindow {
-    public static final int RENDER_REQUEST_MILLISECONDS_DELAY = 300;
+    public static final int RENDER_REQUEST_MILLISECONDS_DELAY = 50;
 
     private static final float VIRTUAL_WIDTH    = 4;
     private static final float VIRTUAL_HEIGHT   = 3;
@@ -60,10 +60,6 @@ class ClientWindow implements IClientWindow {
                 final int DEV_MODE_HEIGHT = (int)(DEV_MODE_WIDTH / ASPECT_RATIO);
                 config.width = DEV_MODE_WIDTH;
                 config.height = DEV_MODE_HEIGHT;
-                break;
-            case DEV_UI:
-                config.width = (int)DEFAULT_WIDTH;
-                config.height = (int)DEFAULT_HEIGHT;
                 break;
             case PROD:
                 config.width = desktopDisplayMode.width;
@@ -104,6 +100,7 @@ class ClientWindow implements IClientWindow {
             Gdx.gl.glHint(GL10.GL_POINT_SMOOTH_HINT,            GL20.GL_NICEST);
             Gdx.gl.glHint(GL10.GL_POLYGON_SMOOTH_HINT,          GL20.GL_NICEST);
             Gdx.gl.glHint(GL20.GL_FRAGMENT_SHADER,              GL20.GL_NICEST);
+            Gdx.graphics.setContinuousRendering(false);
             glClear();
 
             setStageProvider(StageProviderFactory.createStageProvider(

@@ -9,7 +9,6 @@ import arch.galaxyeclipse.client.ui.actor.IActorFactory;
 import arch.galaxyeclipse.client.ui.actor.IGeActor;
 import arch.galaxyeclipse.client.ui.view.AbstractGameStage;
 import arch.galaxyeclipse.client.ui.view.FlightModeStage;
-import arch.galaxyeclipse.shared.EnvType;
 import arch.galaxyeclipse.shared.common.GePosition;
 import arch.galaxyeclipse.shared.common.ICommand;
 import arch.galaxyeclipse.shared.context.ContextHolder;
@@ -37,9 +36,7 @@ public class FlightModeController implements IStageProvider {
         locationInfoHolder = ContextHolder.getBean(LocationInfoHolder.class);
         shipStateInfoHolder = ContextHolder.getBean(ShipStateInfoHolder.class);
 
-        if (EnvType.CURRENT != EnvType.DEV_UI) {
-            initializeRequestSenders();
-        }
+        initializeRequestSenders();
     }
 
     private void initializeRequestSenders() {
@@ -55,12 +52,11 @@ public class FlightModeController implements IStageProvider {
                         shipStateInfoHolder.getPositionY());
                 List<LocationObjectPacket> lopList =
                         locationInfoHolder.getObjectsForRadius(position);
-                view.getModel().refresh(lopList);
+                view.getModel().refreshActors(lopList);
 
                 int locationId = locationInfoHolder.getLocationId();
                 IGeActor background = actorFactory.createBackgroundActor(locationId);
                 view.getModel().setBackground(background);
-
 
                 if (FlightModeController.log.isDebugEnabled()) {
                     FlightModeController.log.debug("Added " + lopList.size()
@@ -78,9 +74,7 @@ public class FlightModeController implements IStageProvider {
 
     @Override
     public void detach() {
-        if (EnvType.CURRENT != EnvType.DEV_UI) {
-            dynamicObjectsRequestSender.interrupt();
-            shipStateRequestSender.interrupt();
-        }
+        dynamicObjectsRequestSender.interrupt();
+        shipStateRequestSender.interrupt();
     }
 }

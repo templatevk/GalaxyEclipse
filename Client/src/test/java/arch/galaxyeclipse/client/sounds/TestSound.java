@@ -7,15 +7,16 @@ import com.badlogic.gdx.audio.Sound;
 
 public class TestSound implements ApplicationListener {
 
-    private Sound shoot;
+    private Sound sound;
+
     @Override
     public void create() {
-        shoot = Gdx.audio.newSound(Gdx.files.internal("assets/sounds/shoot.mp3"));
+        sound = Gdx.audio.newSound(Gdx.files.internal("assets/sounds/flight.wav"));
     }
 
     @Override
     public void dispose() {
-        shoot.dispose();
+        sound.dispose();
     }
 
     @Override
@@ -25,8 +26,10 @@ public class TestSound implements ApplicationListener {
     @Override
     public void render() {
         if(Gdx.input.isKeyPressed(Input.Keys.SPACE)) {
-            System.out.println("TESTMESSAGE");
-            shoot.play();
+            System.out.println("playing...");
+
+            long soundId = sound.play();
+            sound.setVolume(soundId, 1f);
         }
     }
 
@@ -37,5 +40,4 @@ public class TestSound implements ApplicationListener {
     @Override
     public void resume() {
     }
-
 }
