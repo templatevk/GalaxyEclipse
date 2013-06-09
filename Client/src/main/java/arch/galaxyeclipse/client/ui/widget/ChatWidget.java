@@ -11,7 +11,6 @@ import arch.galaxyeclipse.shared.protocol.GeProtocol;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
@@ -47,7 +46,6 @@ public class ChatWidget extends Table implements IServerPacketListener {
     private IResourceLoader resourceLoader;
     private IClientNetworkManager networkManager;
 
-    private Drawable background;
     private TextField textField;
     private Table textFieldTable;
     private Label messagesField;
@@ -65,7 +63,7 @@ public class ChatWidget extends Table implements IServerPacketListener {
         isAutoScrollEnabled = true;
         networkManager = ContextHolder.getBean(IClientNetworkManager.class);
         resourceLoader = ContextHolder.getBean(IResourceLoader.class);
-        background = resourceLoader.createDrawable("ui/chat/chat");
+        setBackground(resourceLoader.createDrawable("ui/chat/chat"));
 
         setWidth(getPrefWidth());
         setHeight(getPrefHeight());
@@ -265,12 +263,6 @@ public class ChatWidget extends Table implements IServerPacketListener {
     @Override
     public float getPrefHeight() {
         return DEFAULT_HEIGHT;
-    }
-
-    @Override
-    public void draw(SpriteBatch batch, float parentAlpha) {
-        background.draw(batch, getX(), getY(), getWidth(), getHeight());
-        super.draw(batch, parentAlpha);
     }
 
     @Override
