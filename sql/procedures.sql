@@ -62,9 +62,13 @@ create procedure activate_player(player_id integer)
     set ship_config_id = (select last_insert_id());
 
     insert into ship_state
-    (ship_state_hp, ship_state_armor_durability)
+
+    (ship_state_hp, ship_state_energy, ship_state_armor_durability)
       values
       ((select ship_type_hp_max
+        from ship_type st
+        where st.ship_type_id = ship_type_id),
+       (select ship_type_energy_max
         from ship_type st
         where st.ship_type_id = ship_type_id),
        (select ship_type_armor_durability

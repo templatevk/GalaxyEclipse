@@ -3,6 +3,7 @@ package arch.galaxyeclipse.client.ui.widget;
 import arch.galaxyeclipse.client.data.IResourceLoader;
 import arch.galaxyeclipse.client.window.IClientWindow;
 import arch.galaxyeclipse.shared.context.ContextHolder;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
@@ -14,10 +15,12 @@ import com.badlogic.gdx.utils.Array;
  */
 public class CursorWidget {
 
-    private static final float FRAME_DURATION = 100;
+    private static final float FRAME_DURATION = 0.12f;
     private static final String[] FRAMES = {
-        "cursor1", "cursor2", "cursor3", "cursor4", "cursor5",
-        "cursor6", "cursor7", "cursor8", "cursor9", "cursor10"
+        "ui/cursor/cursor1", "ui/cursor/cursor2", "ui/cursor/cursor3",
+        "ui/cursor/cursor4", "ui/cursor/cursor5", "ui/cursor/cursor6",
+        "ui/cursor/cursor7", "ui/cursor/cursor8", "ui/cursor/cursor9",
+        "ui/cursor/cursor10"
     };
 
     private IClientWindow clientWindow;
@@ -27,8 +30,8 @@ public class CursorWidget {
     public CursorWidget() {
         IResourceLoader resourceLoader = ContextHolder.getBean(IResourceLoader.class);
         Array<TextureRegion> cursorRegions = new Array<>(FRAMES.length);
-        for (String frame : FRAMES) {
-            AtlasRegion region = resourceLoader.findRegion(frame);
+        for (int i = 0; i < FRAMES.length; i++) {
+            AtlasRegion region = resourceLoader.findRegion(FRAMES[i]);
             cursorRegions.add(region);
         }
 
@@ -37,7 +40,7 @@ public class CursorWidget {
     }
 
     public void draw(SpriteBatch batch) {
-//        TextureRegion frame = animation.getKeyFrame(clientWindow.getStateTime());
-//        batch.draw(frame, Gdx.input.getX(), clientWindow.getHeight() - Gdx.input.getY());
+        TextureRegion frame = animation.getKeyFrame(clientWindow.getStateTime());
+        batch.draw(frame, Gdx.input.getX(), clientWindow.getHeight() - Gdx.input.getY());
     }
 }
