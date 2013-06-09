@@ -1,12 +1,12 @@
 package arch.galaxyeclipse.client.ui.actor;
 
 import arch.galaxyeclipse.client.data.IResourceLoader;
+import arch.galaxyeclipse.shared.EnvType;
 import arch.galaxyeclipse.shared.context.ContextHolder;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket;
 import arch.galaxyeclipse.shared.types.DictionaryTypesMapper;
 import arch.galaxyeclipse.shared.types.LocationObjectTypesMapperType;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
-import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -22,6 +22,8 @@ class ActorFactory implements IActorFactory {
             "static/star/%d";
     private static final String LOCATION_BACKGROUND_IMAGE_PATH = // <id>
             "location/%d";
+
+    public static final String DEV_PLEASURE = "pleasure/girls";
 
     private final DictionaryTypesMapper dictionaryTypesMapper;
     private IResourceLoader resourceLoader;
@@ -55,7 +57,7 @@ class ActorFactory implements IActorFactory {
                 break;
         }
 
-        Drawable drawable = new TextureRegionDrawable(resourceLoader.findRegion(path));
+        Drawable drawable = resourceLoader.createDrawable(path);
 
         LocationObjectActor locationObjectActor = new LocationObjectActor(
                 drawable, locationObjectPacket);
@@ -67,8 +69,13 @@ class ActorFactory implements IActorFactory {
 
     @Override
     public BackgroundActor createBackgroundActor(int locationId) {
+        if (EnvType.CURRENT == EnvType.DEV) {
+            return new BackgroundActor(resourceLoader.createDrawable(DEV_PLEASURE));
+        }
+
         String path = String.format(LOCATION_BACKGROUND_IMAGE_PATH, locationId);
-        Drawable drawable = new TextureRegionDrawable(resourceLoader.findRegion(path));
+        Drawable drawable = resourceLoader.createDrawable(path);
+
         BackgroundActor background = new BackgroundActor(drawable);
 
         return background;

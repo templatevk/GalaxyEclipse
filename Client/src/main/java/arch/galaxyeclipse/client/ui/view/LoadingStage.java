@@ -4,7 +4,6 @@ import arch.galaxyeclipse.client.data.IResourceLoader;
 import arch.galaxyeclipse.shared.context.ContextHolder;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
-import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 
 /**
  *
@@ -19,14 +18,12 @@ public class LoadingStage extends AbstractGameStage {
         innerTable = new Table();
         innerTable.setBounds(0, 0, 400, 200);
         innerTable.setTransform(true);
-        innerTable.setBackground(new TextureRegionDrawable(resourceLoader
-                .findRegion("ui/progress")));
+        innerTable.setBackground(resourceLoader.createDrawable("ui/progress"));
 
         rootTable = new Table();
         rootTable.setFillParent(true);
         rootTable.setTransform(false);
-        rootTable.setBackground(new TextureRegionDrawable(resourceLoader
-                .findRegion("ui/menu_login")));
+        rootTable.setBackground(resourceLoader.createDrawable("ui/menu_login"));
         rootTable.add(innerTable);
 
         addActor(rootTable);

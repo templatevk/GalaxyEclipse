@@ -4,12 +4,12 @@ import arch.galaxyeclipse.client.network.IClientNetworkManager;
 import arch.galaxyeclipse.client.network.ServerPacketListener;
 import arch.galaxyeclipse.shared.protocol.GeProtocol;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket;
 import arch.galaxyeclipse.shared.protocol.ShipStaticInfoCommand;
 import arch.galaxyeclipse.shared.types.DictionaryTypesMapper;
-import lombok.Delegate;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
@@ -25,7 +25,7 @@ import static org.springframework.util.SerializationUtils.deserialize;
  */
 @Slf4j
 public class ShipStaticInfoHolder extends ServerPacketListener {
-    @Delegate
+
     private ShipStaticInfoPacket ssiPacket;
     private DictionaryTypesMapper dictionaryTypesMapper;
 
@@ -126,5 +126,69 @@ public class ShipStaticInfoHolder extends ServerPacketListener {
             case MONEY:
                 break;
         }
+    }
+
+    public float getMoveMaxSpeed() {
+        return ssiPacket.getMoveMaxSpeed();
+    }
+
+    public float getRotationMaxSpeed() {
+        return ssiPacket.getRotationMaxSpeed();
+    }
+
+    public float getMoveAccelerationSpeed() {
+        return ssiPacket.getMoveAccelerationSpeed();
+    }
+
+    public float getRotationAcceleration() {
+        return ssiPacket.getRotationAcceleration();
+    }
+
+    public int getArmor() {
+        return ssiPacket.getArmor();
+    }
+
+    public int getEnergyMax() {
+        return ssiPacket.getEnergyMax();
+    }
+
+    public int getHpMax() {
+        return ssiPacket.getHpMax();
+    }
+
+    public int getEnergyRegen() {
+        return ssiPacket.getEnergyRegen();
+    }
+
+    public int getHpRegen() {
+        return ssiPacket.getHpRegen();
+    }
+
+    public int getArmorDurability() {
+        return ssiPacket.getArmorDurability();
+    }
+
+    public int getWeaponSlotsCount() {
+        return ssiPacket.getWeaponSlotsCount();
+    }
+
+    public int getBonusSlotsCount() {
+        return ssiPacket.getBonusSlotsCount();
+    }
+
+    public List<ItemPacket> getInventoryItemsList() {
+        return ssiPacket.getInventoryItemsList();
+    }
+
+    public List<ItemPacket> getShipBonusList() {
+        return ssiPacket.getShipBonusList();
+    }
+
+    public List<ItemPacket> getShipWeaponsList() {
+        return ssiPacket.getShipWeaponsList();
+    }
+
+    public ItemPacket getShipEngine() {
+        return ssiPacket.getShipEngine();
     }
 }

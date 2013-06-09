@@ -1,7 +1,6 @@
 package arch.galaxyeclipse.client.data;
 
 import lombok.Data;
-import lombok.Delegate;
 import lombok.extern.slf4j.Slf4j;
 
 import static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse;
@@ -12,7 +11,7 @@ import static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse;
 @Data
 @Slf4j
 public class ShipStateInfoHolder {
-    @Delegate
+
     private ShipStateResponse ssResponse;
 
     public void setShipState(ShipStateResponse ssResponse) {
@@ -29,5 +28,37 @@ public class ShipStateInfoHolder {
             log.debug("\tGePosition y " + ssResponse.getPositionY());
             log.debug("\tObject id " + ssResponse.getLocationObjectId());
         }
+    }
+
+    public float getMoveSpeed() {
+        return ssResponse.getMoveSpeed();
+    }
+
+    public float getRotationSpeed() {
+        return ssResponse.getRotationSpeed();
+    }
+
+    public int getHp() {
+        return ssResponse.getHp();
+    }
+
+    public int getArmorDurability() {
+        return ssResponse.getArmorDurability();
+    }
+
+    public float getRotationAngle() {
+        return ssResponse.getRotationAngle();
+    }
+
+    public float getPositionX() {
+        return ssResponse.getPositionX();
+    }
+
+    public float getPositionY() {
+        return ssResponse.getPositionY();
+    }
+
+    public int getLocationObjectId() {
+        return ssResponse.getLocationObjectId();
     }
 }

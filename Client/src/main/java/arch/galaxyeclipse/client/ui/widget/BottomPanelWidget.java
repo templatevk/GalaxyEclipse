@@ -1,14 +1,12 @@
-package arch.galaxyeclipse.client.ui;
+package arch.galaxyeclipse.client.ui.widget;
 
 import arch.galaxyeclipse.client.data.IResourceLoader;
 import arch.galaxyeclipse.client.network.IClientNetworkManager;
 import arch.galaxyeclipse.client.network.IServerPacketListener;
 import arch.galaxyeclipse.shared.context.ContextHolder;
 import arch.galaxyeclipse.shared.protocol.GeProtocol;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
-import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Arrays;
@@ -29,7 +27,7 @@ public class BottomPanelWidget extends Table implements IServerPacketListener {
         networkManager = ContextHolder.getBean(IClientNetworkManager.class);
 
         resourceLoader = ContextHolder.getBean(IResourceLoader.class);
-        background = new TextureRegionDrawable(resourceLoader.findRegion("ui/bottompanel/bottompanel"));
+        setBackground(resourceLoader.createDrawable("ui/bottompanel/bottompanel"));
         setWidth(getPrefWidth());
         setHeight(getPrefHeight());
 
@@ -54,13 +52,6 @@ public class BottomPanelWidget extends Table implements IServerPacketListener {
     @Override
     public float getPrefHeight() {
         return DEFAULT_HEIGHT;
-    }
-
-    @Override
-    public void draw(SpriteBatch batch, float parentAlpha) {
-        validate();
-        background.draw(batch, getX(), getY(), getWidth(), getHeight());
-        super.draw(batch, parentAlpha);
     }
 
     @Override

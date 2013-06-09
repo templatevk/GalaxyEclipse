@@ -8,6 +8,7 @@ import arch.galaxyeclipse.client.ui.actor.StageInfo;
 import arch.galaxyeclipse.client.ui.model.FlightModeModel;
 import arch.galaxyeclipse.client.ui.provider.IStageProvider;
 import arch.galaxyeclipse.client.ui.provider.StageProviderFactory;
+import arch.galaxyeclipse.client.ui.widget.*;
 import arch.galaxyeclipse.shared.common.StubCallback;
 import arch.galaxyeclipse.shared.context.ContextHolder;
 import com.badlogic.gdx.scenes.scene2d.Group;
@@ -274,6 +275,7 @@ public class FlightModeStage extends AbstractGameStage {
             gameActorsLayout.addActor(gameActor.toActor());
             gameActor.adjust(stageInfo);
         }
+
 
         super.draw();
     }
