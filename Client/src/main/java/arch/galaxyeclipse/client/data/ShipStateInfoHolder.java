@@ -3,6 +3,8 @@ package arch.galaxyeclipse.client.data;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.Random;
+
 import static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse;
 
 /**
@@ -39,7 +41,9 @@ public class ShipStateInfoHolder {
     }
 
     public int getHp() {
-        return ssResponse.getHp();
+        Random r = new Random();
+        return r.nextInt(500);
+        //return ssResponse.getHp();
     }
 
     public int getArmorDurability() {
