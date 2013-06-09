@@ -26,7 +26,7 @@ import static org.springframework.util.SerializationUtils.deserialize;
 @Slf4j
 public class ShipStaticInfoHolder extends ServerPacketListener {
 
-    private ShipStaticInfoPacket ssiPacket;
+    private ShipStaticInfoPacket ssiPacket = ShipStaticInfoPacket.getDefaultInstance();
     private DictionaryTypesMapper dictionaryTypesMapper;
 
     ShipStaticInfoHolder() {

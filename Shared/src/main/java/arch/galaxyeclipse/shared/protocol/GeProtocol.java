@@ -6826,25 +6826,25 @@ public final class GeProtocol {
     com.google.protobuf.ByteString
         getNameBytes();
 
-    // required float width = 3;
+    // required int32 width = 3;
     /**
-     * <code>required float width = 3;</code>
+     * <code>required int32 width = 3;</code>
      */
     boolean hasWidth();
     /**
-     * <code>required float width = 3;</code>
+     * <code>required int32 width = 3;</code>
      */
-    float getWidth();
+    int getWidth();
 
-    // required float height = 4;
+    // required int32 height = 4;
     /**
-     * <code>required float height = 4;</code>
+     * <code>required int32 height = 4;</code>
      */
     boolean hasHeight();
     /**
-     * <code>required float height = 4;</code>
+     * <code>required int32 height = 4;</code>
      */
-    float getHeight();
+    int getHeight();
 
     // required .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.CachedObjectsPacket locationCachedObjects = 5;
     /**
@@ -6921,14 +6921,14 @@ public final class GeProtocol {
               name_ = input.readBytes();
               break;
             }
-            case 29: {
+            case 24: {
               bitField0_ |= 0x00000004;
-              width_ = input.readFloat();
+              width_ = input.readInt32();
               break;
             }
-            case 37: {
+            case 32: {
               bitField0_ |= 0x00000008;
-              height_ = input.readFloat();
+              height_ = input.readInt32();
               break;
             }
             case 42: {
@@ -8578,35 +8578,35 @@ public final class GeProtocol {
       }
     }
 
-    // required float width = 3;
+    // required int32 width = 3;
     public static final int WIDTH_FIELD_NUMBER = 3;
-    private float width_;
+    private int width_;
     /**
-     * <code>required float width = 3;</code>
+     * <code>required int32 width = 3;</code>
      */
     public boolean hasWidth() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>required float width = 3;</code>
+     * <code>required int32 width = 3;</code>
      */
-    public float getWidth() {
+    public int getWidth() {
       return width_;
     }
 
-    // required float height = 4;
+    // required int32 height = 4;
     public static final int HEIGHT_FIELD_NUMBER = 4;
-    private float height_;
+    private int height_;
     /**
-     * <code>required float height = 4;</code>
+     * <code>required int32 height = 4;</code>
      */
     public boolean hasHeight() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
-     * <code>required float height = 4;</code>
+     * <code>required int32 height = 4;</code>
      */
-    public float getHeight() {
+    public int getHeight() {
       return height_;
     }
 
@@ -8635,8 +8635,8 @@ public final class GeProtocol {
     private void initFields() {
       locationId_ = 0;
       name_ = "";
-      width_ = 0F;
-      height_ = 0F;
+      width_ = 0;
+      height_ = 0;
       locationCachedObjects_ = arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket.getDefaultInstance();
     }
     private byte memoizedIsInitialized = -1;
@@ -8682,10 +8682,10 @@ public final class GeProtocol {
         output.writeBytes(2, getNameBytes());
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeFloat(3, width_);
+        output.writeInt32(3, width_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeFloat(4, height_);
+        output.writeInt32(4, height_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         output.writeMessage(5, locationCachedObjects_);
@@ -8709,11 +8709,11 @@ public final class GeProtocol {
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeFloatSize(3, width_);
+          .computeInt32Size(3, width_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeFloatSize(4, height_);
+          .computeInt32Size(4, height_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
@@ -8840,9 +8840,9 @@ public final class GeProtocol {
         bitField0_ = (bitField0_ & ~0x00000001);
         name_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
-        width_ = 0F;
+        width_ = 0;
         bitField0_ = (bitField0_ & ~0x00000004);
-        height_ = 0F;
+        height_ = 0;
         bitField0_ = (bitField0_ & ~0x00000008);
         if (locationCachedObjectsBuilder_ == null) {
           locationCachedObjects_ = arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket.getDefaultInstance();
@@ -9093,68 +9093,68 @@ public final class GeProtocol {
         return this;
       }
 
-      // required float width = 3;
-      private float width_ ;
+      // required int32 width = 3;
+      private int width_ ;
       /**
-       * <code>required float width = 3;</code>
+       * <code>required int32 width = 3;</code>
        */
       public boolean hasWidth() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>required float width = 3;</code>
+       * <code>required int32 width = 3;</code>
        */
-      public float getWidth() {
+      public int getWidth() {
         return width_;
       }
       /**
-       * <code>required float width = 3;</code>
+       * <code>required int32 width = 3;</code>
        */
-      public Builder setWidth(float value) {
+      public Builder setWidth(int value) {
         bitField0_ |= 0x00000004;
         width_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required float width = 3;</code>
+       * <code>required int32 width = 3;</code>
        */
       public Builder clearWidth() {
         bitField0_ = (bitField0_ & ~0x00000004);
-        width_ = 0F;
+        width_ = 0;
         onChanged();
         return this;
       }
 
-      // required float height = 4;
-      private float height_ ;
+      // required int32 height = 4;
+      private int height_ ;
       /**
-       * <code>required float height = 4;</code>
+       * <code>required int32 height = 4;</code>
        */
       public boolean hasHeight() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
-       * <code>required float height = 4;</code>
+       * <code>required int32 height = 4;</code>
        */
-      public float getHeight() {
+      public int getHeight() {
         return height_;
       }
       /**
-       * <code>required float height = 4;</code>
+       * <code>required int32 height = 4;</code>
        */
-      public Builder setHeight(float value) {
+      public Builder setHeight(int value) {
         bitField0_ |= 0x00000008;
         height_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required float height = 4;</code>
+       * <code>required int32 height = 4;</code>
        */
       public Builder clearHeight() {
         bitField0_ = (bitField0_ & ~0x00000008);
-        height_ = 0F;
+        height_ = 0;
         onChanged();
         return this;
       }
@@ -20706,7 +20706,7 @@ public final class GeProtocol {
       "rname\030\001 \002(\t\022\020\n\010password\030\002 \002(\t\"!\n\014AuthRes" +
       "ponse\022\021\n\tisSuccess\030\001 \002(\010\"\305\003\n\022LocationInf" +
       "oPacket\022\022\n\nlocationId\030\001 \002(\005\022\014\n\004name\030\002 \002(" +
-      "\t\022\r\n\005width\030\003 \002(\002\022\016\n\006height\030\004 \002(\002\022i\n\025loca" +
+      "\t\022\r\n\005width\030\003 \002(\005\022\016\n\006height\030\004 \002(\005\022i\n\025loca" +
       "tionCachedObjects\030\005 \002(\0132J.arch.galaxyecl" +
       "ipse.shared.protocol.LocationInfoPacket." +
       "CachedObjectsPacket\032s\n\023CachedObjectsPack" +

@@ -104,8 +104,8 @@ message AuthResponse {
 message LocationInfoPacket {
     required int32                  locationId              = 1;
     required string                 name                    = 2;
-    required float                  width                   = 3;
-    required float                  height                  = 4;
+    required int32                  width                   = 3;
+    required int32                  height                  = 4;
     required CachedObjectsPacket    locationCachedObjects   = 5;
 
     message CachedObjectsPacket {

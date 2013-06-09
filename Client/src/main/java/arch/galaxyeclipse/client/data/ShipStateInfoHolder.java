@@ -3,6 +3,8 @@ package arch.galaxyeclipse.client.data;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.Random;
+
 import static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse;
 
 /**
@@ -12,7 +14,7 @@ import static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse;
 @Slf4j
 public class ShipStateInfoHolder {
 
-    private ShipStateResponse ssResponse;
+    private ShipStateResponse ssResponse = ShipStateResponse.getDefaultInstance();
 
     public void setShipState(ShipStateResponse ssResponse) {
         this.ssResponse = ssResponse;

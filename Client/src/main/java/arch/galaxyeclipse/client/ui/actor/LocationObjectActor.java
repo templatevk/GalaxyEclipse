@@ -9,8 +9,6 @@ import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import lombok.Getter;
 import lombok.Setter;
 
-import static arch.galaxyeclipse.shared.GeConstants.LOCATION_TO_SCREEN_COORDS_COEF;
-
 /**
  *
  */
@@ -45,6 +43,7 @@ public class LocationObjectActor extends ClickableActor {
 
     @Override
     public void adjust(StageInfo stageInfo) {
+        super.adjust(stageInfo);
         switch (locationObjectType) {
             case ROCKET:
                 break;
@@ -66,8 +65,8 @@ public class LocationObjectActor extends ClickableActor {
             float locationShipY = getShipStateInfoHolder().getPositionY();
             float locationObjectX = lop.getPositionX();
             float locationObjectY = lop.getPositionY();
-            float screenDiffX = (locationObjectX - locationShipX) * LOCATION_TO_SCREEN_COORDS_COEF;
-            float screenDiffY = (locationObjectY - locationShipY) * LOCATION_TO_SCREEN_COORDS_COEF;
+            float screenDiffX = locationObjectX - locationShipX;
+            float screenDiffY = locationObjectY - locationShipY;
             screenDiffX *= stageInfo.getScaleX();
             screenDiffY *= stageInfo.getScaleY();
             float screenObjectX = screenCenterX + screenDiffX;
@@ -76,7 +75,9 @@ public class LocationObjectActor extends ClickableActor {
         }
 
         setRotation(lop.getRotationAngle());
-        setScale(stageInfo.getScaleX(), stageInfo.getScaleY());
+        if (!isSelected()) {
+            setScale(stageInfo.getScaleX(), stageInfo.getScaleY());
+        }
     }
 
     @Override

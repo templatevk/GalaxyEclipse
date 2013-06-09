@@ -7,7 +7,7 @@ import arch.galaxyeclipse.shared.protocol.GeProtocol.Packet;
 
 import java.util.List;
 
-import static arch.galaxyeclipse.shared.GeConstants.CLIENT_DYNAMIC_OBJECTS_REQUEST_INTERVAL_MILLISECONDS;
+import static arch.galaxyeclipse.shared.GeConstants.CLIENT_REQUEST_DYNAMIC_OBJECTS_INTERVAL_MILLISECONDS;
 
 /**
  *
@@ -17,7 +17,7 @@ public class DynamicObjectsRequestSender extends RepeatablePacketSender {
 
     public DynamicObjectsRequestSender() {
         super(Packet.Type.DYNAMIC_OBJECTS_RESPONSE,
-                CLIENT_DYNAMIC_OBJECTS_REQUEST_INTERVAL_MILLISECONDS);
+                CLIENT_REQUEST_DYNAMIC_OBJECTS_INTERVAL_MILLISECONDS);
         locationInfoHolder = ContextHolder.getBean(LocationInfoHolder.class);
         getClientNetworkManager().addPacketListener(this);
     }
