@@ -20,7 +20,7 @@ package com.badlogic.gdx.scenes.scene2d.actions;
  * @author Nathan Sweet */
 public class ScaleToAction extends TemporalAction {
 	protected float startX, startY;
-	private float endX, endY;
+	protected float endX, endY;
 
 	protected void begin () {
 		startX = actor.getScaleX();
