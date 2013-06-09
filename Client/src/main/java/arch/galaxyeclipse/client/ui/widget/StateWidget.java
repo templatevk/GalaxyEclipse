@@ -73,8 +73,8 @@ public class StateWidget extends Table {
         hpLineImage.setY((float) HP_LINE_PADDING_BOTTOM * scaleY);
 
         hpLabelTable.setScale(scaleX, scaleY);
-        hpLabelTable.setX(((float) HP_LABEL_CENTER_PADDING_LEFT * scaleX) - (hpLabel.getWidth() / 2));
-        hpLabelTable.setY((float) HP_LABEL_PADDING_BOTTOM * scaleY);
+        hpLabelTable.setX((((float)HP_LABEL_CENTER_PADDING_LEFT) * scaleX) - (hpLabelTable.getWidth() * scaleX / 2f));
+        hpLabelTable.setY(((float)HP_LABEL_PADDING_BOTTOM) * scaleY);
 
         super.setSize(width, height);
     }
@@ -98,11 +98,15 @@ public class StateWidget extends Table {
         int hpMax = shipStaticInfoHolder.getHpMax();
 
         hpLabel.setText("" + hp + "/" + hpMax);
-        hpScrollPane.setWidth((hpInnerImage.getWidth()) / ((float) hpMax) * ((float) hp));
+
+        float hpScrollPaneWidth = (hpInnerImage.getWidth()) / ((float) hpMax) * ((float) hp);
+        hpScrollPane.setWidth(hpScrollPaneWidth);
         hpScrollPane.invalidate();
 
-        hpLabel.setX(((float) HP_LABEL_CENTER_PADDING_LEFT * getScaleX()) - (hpLabel.getWidth() / 2f));
+        float hpLabelX = (((float) HP_LABEL_CENTER_PADDING_LEFT) * getScaleX()) - (hpLabel.getWidth() * getScaleX() / 2f);
+        hpLabel.setX(hpLabelX);
         hpLabel.invalidate();
+        hpLabelTable.invalidate();
 
         super.draw(batch, parentAlpha);
     }
