@@ -1,6 +1,5 @@
 package arch.galaxyeclipse.server.util;
 
-import arch.galaxyeclipse.shared.GeConstants;
 import arch.galaxyeclipse.shared.common.GePosition;
 import com.google.common.io.Files;
 import lombok.extern.slf4j.Slf4j;
@@ -16,17 +15,19 @@ import java.util.Random;
 
 @Slf4j
 public class LocationObjectsPopulator {
+
     private static final String PROP_FILE_NAME = "obj_script.properties";
-    private static final float MAX_DEGREES = 360f;
-    public static final String FILL = "fill";
-    public static final String RANDOM = "random";
-    public static final int OBJEECT_TYPE_STAR = 3;
+    private static final String FILL = "fill";
+    private static final String RANDOM = "random";
+
+    private static final int MAX_DEGREES = 360;
+    private static final int OBJECT_TYPE_STAR = 3;
 
     private Properties prop;
     private String script;
     private File scriptFile;
-    private Float locationWidth;
-    private Float locationHeight;
+    private int locationWidth;
+    private int locationHeight;
     private String dstDir;
     private String fileName;
     private String databaseName;
@@ -103,8 +104,8 @@ public class LocationObjectsPopulator {
         locationObjectBehaviorTypeId = Integer.parseInt(prop.getProperty(
                 "location_object_behavior_type_id"));
         locationId = Integer.parseInt(prop.getProperty("location.id"));
-        locationWidth = Float.valueOf(prop.getProperty("location.width"));
-        locationHeight = Float.valueOf(prop.getProperty("location.height"));
+        locationWidth = Integer.valueOf(prop.getProperty("location.width"));
+        locationHeight = Integer.valueOf(prop.getProperty("location.height"));
         objectDescriptionsCount = Integer.valueOf(prop.getProperty(
                 "object_descriptions_count"));
 
@@ -150,49 +151,43 @@ public class LocationObjectsPopulator {
                 .append("values\n(");
 
         for (int i = 0; i < objectDescriptionsCount; i++) {
-            GePosition[] positions = new GePosition[0];
-            int posCount = 0;
+            GePosition[] positions = null;
 
             if (objectsMethod.get(i).equals(RANDOM)) {
-                int count = objectsCount.get(i);
-                positions = new GePosition[count];
-                posCount = count;
+                positions = new GePosition[objectsCount.get(i)];
 
                 for (int j = 0; j < positions.length; j++) {
                     positions[j] = new GePosition();
-                    positions[j].setX(rand.nextFloat() * locationWidth);
-                    positions[j].setY(rand.nextFloat() * locationHeight);
+                    positions[j].setX(rand.nextInt(locationWidth));
+                    positions[j].setY(rand.nextInt(locationHeight));
                 }
             } else if (objectsMethod.get(i).equals(FILL)) {
-                int countX = (int) (locationWidth / (objectsWidth.get(i)
-                        / GeConstants.LOCATION_TO_SCREEN_COORDS_COEF));
-                int countY = (int) (locationHeight / (objectsHeight.get(i)
-                        / GeConstants.LOCATION_TO_SCREEN_COORDS_COEF));
+                int objectX = (int)Math.floor(locationWidth / objectsWidth.get(i));
+                int objectY = (int)Math.floor(locationHeight / objectsHeight.get(i));
 
-                int count = countX * countY;
-                positions = new GePosition[count];
-                posCount = count;
+                positions = new GePosition[objectX * objectY];
 
-                int jX = 0;
-                int jY = 0;
-                for (int j = 0; j < count; j++) {
+                int xCount = 0;
+                int yCount = 0;
+                int width = objectsWidth.get(i);
+                int height = objectsHeight.get(i);
+                for (int j = 0; j < positions.length; j++) {
                     positions[j] = new GePosition();
-                    positions[j].setX((objectsWidth.get(i)
-                            / GeConstants.LOCATION_TO_SCREEN_COORDS_COEF) * jX);
-                    positions[j].setY((objectsHeight.get(i)
-                            / GeConstants.LOCATION_TO_SCREEN_COORDS_COEF) * jY);
-                    jX++;
-                    if ((objectsWidth.get(i) / GeConstants.LOCATION_TO_SCREEN_COORDS_COEF) * jX > locationWidth) {
-                        jY++;
-                        jX = 0;
+                    positions[j].setX(width * xCount);
+                    positions[j].setY(height * yCount);
+                    xCount++;
+
+                    if (xCount == objectX) {
+                        yCount++;
+                        xCount = 0;
                     }
                 }
             }
 
-            for (int j = 0; j < posCount; j++) {
-                float rotation_angle = 0;
-                if (!objectsTypeId.get(i).equals(OBJEECT_TYPE_STAR)) {
-                    rotation_angle = rand.nextFloat() * MAX_DEGREES;
+            for (int j = 0; j < positions.length; j++) {
+                int rotation_angle = 0;
+                if (!objectsTypeId.get(i).equals(OBJECT_TYPE_STAR)) {
+                    rotation_angle = rand.nextInt(MAX_DEGREES);
                 }
 
                 scriptBuilder.append(locationObjectBehaviorTypeId)

@@ -33,27 +33,27 @@ public class Location {
         this.locationName = locationName;
     }
 
-    private float locationWidth;
+    private int locationWidth;
 
     @Column(name = "location_width", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     @Basic
-    public float getLocationWidth() {
+    public int getLocationWidth() {
         return locationWidth;
     }
 
-    public void setLocationWidth(float locationWidth) {
+    public void setLocationWidth(int locationWidth) {
         this.locationWidth = locationWidth;
     }
 
-    private float locationHeight;
+    private int locationHeight;
 
     @Column(name = "location_height", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     @Basic
-    public float getLocationHeight() {
+    public int getLocationHeight() {
         return locationHeight;
     }
 
-    public void setLocationHeight(float locationHeight) {
+    public void setLocationHeight(int locationHeight) {
         this.locationHeight = locationHeight;
     }
 

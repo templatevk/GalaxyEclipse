@@ -26,7 +26,7 @@ import static org.springframework.util.SerializationUtils.deserialize;
 @Slf4j
 public class ShipStaticInfoHolder extends ServerPacketListener {
 
-    private ShipStaticInfoPacket ssiPacket;
+    private ShipStaticInfoPacket ssiPacket = ShipStaticInfoPacket.getDefaultInstance();
     private DictionaryTypesMapper dictionaryTypesMapper;
 
     ShipStaticInfoHolder() {
@@ -128,7 +128,7 @@ public class ShipStaticInfoHolder extends ServerPacketListener {
         }
     }
 
-    public float getMoveMaxSpeed() {
+    public int getMoveMaxSpeed() {
         return ssiPacket.getMoveMaxSpeed();
     }
 
@@ -136,7 +136,7 @@ public class ShipStaticInfoHolder extends ServerPacketListener {
         return ssiPacket.getRotationMaxSpeed();
     }
 
-    public float getMoveAccelerationSpeed() {
+    public int getMoveAccelerationSpeed() {
         return ssiPacket.getMoveAccelerationSpeed();
     }
 

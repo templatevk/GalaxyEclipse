@@ -12,7 +12,7 @@ import static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse;
 @Slf4j
 public class ShipStateInfoHolder {
 
-    private ShipStateResponse ssResponse;
+    private ShipStateResponse ssResponse = ShipStateResponse.getDefaultInstance();
 
     public void setShipState(ShipStateResponse ssResponse) {
         this.ssResponse = ssResponse;
@@ -30,7 +30,7 @@ public class ShipStateInfoHolder {
         }
     }
 
-    public float getMoveSpeed() {
+    public int getMoveSpeed() {
         return ssResponse.getMoveSpeed();
     }
 
@@ -50,11 +50,11 @@ public class ShipStateInfoHolder {
         return ssResponse.getRotationAngle();
     }
 
-    public float getPositionX() {
+    public int getPositionX() {
         return ssResponse.getPositionX();
     }
 
-    public float getPositionY() {
+    public int getPositionY() {
         return ssResponse.getPositionY();
     }
 

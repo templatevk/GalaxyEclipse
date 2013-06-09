@@ -41,7 +41,7 @@ abstract class ClickableActor extends GeActor {
                     selected = !selected;
 
                 }
-                hitCommand.perform(new GePosition(x, y));
+                hitCommand.perform(new GePosition((int)x, (int)y));
             }
         });
 

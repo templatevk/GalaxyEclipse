@@ -82,27 +82,27 @@ public class LocationObject implements Serializable {
         this.rotationAngle = rotationAngle;
     }
 
-    private float positionX;
+    private int positionX;
 
     @Column(name = "position_x", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     @Basic
-    public float getPositionX() {
+    public int getPositionX() {
         return positionX;
     }
 
-    public void setPositionX(float positionX) {
+    public void setPositionX(int positionX) {
         this.positionX = positionX;
     }
 
-    private float positionY;
+    private int positionY;
 
     @Column(name = "position_y", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     @Basic
-    public float getPositionY() {
+    public int getPositionY() {
         return positionY;
     }
 
-    public void setPositionY(float positionY) {
+    public void setPositionY(int positionY) {
         this.positionY = positionY;
     }
 

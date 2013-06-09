@@ -10,27 +10,27 @@ import javax.persistence.*;
 @DiscriminatorValue(value = Item.ENGINE_TYPE)
 @PrimaryKeyJoinColumn(name = "item_id")
 public class Engine extends Item {
-    private float moveAccelerationBonus;
+    private int moveAccelerationBonus;
 
     @Column(name = "move_acceleration_bonus", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     @Basic
-    public float getMoveAccelerationBonus() {
+    public int getMoveAccelerationBonus() {
         return moveAccelerationBonus;
     }
 
-    public void setMoveAccelerationBonus(float moveAccelerationBonus) {
+    public void setMoveAccelerationBonus(int moveAccelerationBonus) {
         this.moveAccelerationBonus = moveAccelerationBonus;
     }
 
-    private float moveMaxSpeedBonus;
+    private int moveMaxSpeedBonus;
 
     @Column(name = "move_max_speed_bonus", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     @Basic
-    public float getMoveMaxSpeedBonus() {
+    public int getMoveMaxSpeedBonus() {
         return moveMaxSpeedBonus;
     }
 
-    public void setMoveMaxSpeedBonus(float moveMaxSpeedBonus) {
+    public void setMoveMaxSpeedBonus(int moveMaxSpeedBonus) {
         this.moveMaxSpeedBonus = moveMaxSpeedBonus;
     }
 
