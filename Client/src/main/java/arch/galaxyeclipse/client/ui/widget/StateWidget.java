@@ -54,7 +54,6 @@ public class StateWidget extends Table {
         hpLabelTable.setTransform(true);
         hpLabelTable.row();
         hpLabelTable.add(hpLabel);
-        hpLabelTable.debug();
         addActor(hpLabelTable);
     }
 
