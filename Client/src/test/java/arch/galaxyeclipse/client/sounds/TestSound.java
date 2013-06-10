@@ -1,29 +1,42 @@
 package arch.galaxyeclipse.client.sounds;
 
 import com.badlogic.gdx.ApplicationListener;
+import com.badlogic.gdx.Files;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
-import com.badlogic.gdx.files.FileHandle;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-public class TestSound implements ApplicationListener {
 
-    private Sound sound;
+public class TestSound implements ApplicationListener  {
+    public TestSound(){}
+    Music music;
+    Sound shoot;
 
     @Override
     public void create() {
-        FileHandle musicHandle = Gdx.files.internal("assets/sounds/test.ogg");
-        sound = Gdx.audio.newSound(musicHandle);
+
+        music =  Gdx.audio.newMusic(Gdx.files.getFileHandle("assets/sounds/flight.mp3", Files.FileType.Internal));
+
+        shoot = Gdx.audio.newSound(Gdx.files.internal("assets/sounds/shoot.mp3"));
+        System.out.println("playing from create method..");
+        shoot.play();
+        music.setVolume(0.5f);
+        music.play();
+        music.setLooping(true);
+    }
+
+    @Override
+    public void resize(int i, int i2) {
 
     }
 
     @Override
-    public void dispose() {
-        sound.dispose();
+    public void render() {
+       if(Gdx.input.isKeyPressed(Input.Keys.SPACE)){
+           System.out.println("playing..");
+           shoot.play();
+       }
     }
 
     @Override
@@ -31,22 +44,12 @@ public class TestSound implements ApplicationListener {
     }
 
     @Override
-    public void render() {
-
-        if(Gdx.input.isKeyPressed(Input.Keys.SPACE)) {
-            System.out.println("playing...");
-
-            //long soundId = sound.play();
-            //sound.setVolume(soundId, 1f);
-            sound.play();
-        }
-    }
-
-    @Override
-    public void resize(int width, int height) {
-    }
-
-    @Override
     public void resume() {
+    }
+
+    @Override
+    public void dispose() {
+        music.dispose();
+        shoot.dispose();
     }
 }

@@ -3,6 +3,8 @@ package arch.galaxyeclipse.client.data;
 import arch.galaxyeclipse.client.util.Destroyable;
 import arch.galaxyeclipse.shared.common.IDestroyable;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -22,23 +24,29 @@ import static com.badlogic.gdx.graphics.Texture.TextureFilter.MipMapLinearLinear
  */
 @Slf4j
 class CachingResourceLoader extends TextureAtlas implements IResourceLoader, IDestroyable {
-    private static final String FONTS_LOCATIONS = "assets/fonts/";
+    private static final String FONTS_LOCATION = "assets/fonts/";
+    private static final String AUDIO_LOCATION = "assets/sounds/";
 
     private Map<String, AtlasRegion> regions;
     private Map<String, BitmapFont> fonts;
+    private Map<String, Sound> sounds;
+    private Map<String, Music> music;
 
-	public CachingResourceLoader() {
-		super(Gdx.files.internal("assets/textures/pack.atlas"));
+    public CachingResourceLoader() {
+        super(Gdx.files.internal("assets/textures/pack.atlas"));
 
         regions = new HashMap<>();
         fonts = new HashMap<>();
 
+        music = new HashMap<>();
+        sounds = new HashMap<>();
+
         Destroyable.addDestroyable(this);
-	}
-	
-	@Override
-	public AtlasRegion findRegion(String name) {
-		AtlasRegion region = regions.get(name);
+    }
+
+    @Override
+    public AtlasRegion findRegion(String name) {
+        AtlasRegion region = regions.get(name);
 
         if (region == null) {
             if (CachingResourceLoader.log.isInfoEnabled()) {
@@ -52,13 +60,51 @@ class CachingResourceLoader extends TextureAtlas implements IResourceLoader, IDe
             } catch (Exception e) {
                 throw new RuntimeException("Error loading region, try rerunning TexturePacker", e);
             }
-		}
-		return region;
-	}
+        }
+        return region;
+    }
 
     @Override
     public Drawable createDrawable(String path) {
         return new TextureRegionDrawable(findRegion(path));
+    }
+
+    @Override
+    public Sound loadSound(String soundName) {
+        Sound tmpSound = sounds.get(soundName);
+
+        if (tmpSound == null) {
+            if (CachingResourceLoader.log.isInfoEnabled()) {
+                CachingResourceLoader.log.info("Loading sound " + soundName);
+            }
+
+            try {
+                tmpSound = Gdx.audio.newSound(Gdx.files.internal(AUDIO_LOCATION + soundName));
+                sounds.put(soundName, tmpSound);
+            } catch (Exception e) {
+                throw new RuntimeException("Error loading sounds", e);
+            }
+        }
+        return tmpSound;
+    }
+
+    @Override
+    public Music loadMusic(String musicName) {
+        Music tmpMusic = music.get(musicName);
+
+        if (tmpMusic == null) {
+            if (CachingResourceLoader.log.isInfoEnabled()) {
+                CachingResourceLoader.log.info("Loading music " + musicName);
+            }
+
+            try {
+                tmpMusic = Gdx.audio.newMusic(Gdx.files.internal(AUDIO_LOCATION + musicName));
+                music.put(musicName, tmpMusic);
+            } catch (Exception e) {
+                throw new RuntimeException("Error loading music", e);
+            }
+        }
+        return tmpMusic;
     }
 
     @Override
@@ -70,10 +116,10 @@ class CachingResourceLoader extends TextureAtlas implements IResourceLoader, IDe
                 CachingResourceLoader.log.info("Loading font " + path);
             }
 
-            Texture fontTexture = new Texture(Gdx.files.internal(FONTS_LOCATIONS + path + "_0.png"));
+            Texture fontTexture = new Texture(Gdx.files.internal(FONTS_LOCATION + path + "_0.png"));
             fontTexture.setFilter(Linear, MipMapLinearLinear);
             TextureRegion fontTextureRegion = new TextureRegion(fontTexture);
-            font = new BitmapFont(Gdx.files.internal(FONTS_LOCATIONS + path + ".fnt"),
+            font = new BitmapFont(Gdx.files.internal(FONTS_LOCATION + path + ".fnt"),
                     fontTextureRegion, false);
 
             fonts.put(path, font);
@@ -85,6 +131,14 @@ class CachingResourceLoader extends TextureAtlas implements IResourceLoader, IDe
     public void destroy() {
         for (BitmapFont font : fonts.values()) {
             font.dispose();
+        }
+
+        for (Sound sound : sounds.values()) {
+            sound.dispose();
+        }
+
+        for (Music mus : music.values()) {
+            mus.dispose();
         }
         super.dispose();
     }
