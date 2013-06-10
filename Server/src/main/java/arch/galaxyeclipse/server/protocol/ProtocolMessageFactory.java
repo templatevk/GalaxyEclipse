@@ -19,7 +19,7 @@ import java.util.List;
 /**
  * Convenience class to build protobuf messages
  */
-public class GeProtocolMessageFactory {
+public class ProtocolMessageFactory {
     private DictionaryTypesMapper dictionaryTypesMapper;
 
     // Helper functions' builders
@@ -31,7 +31,7 @@ public class GeProtocolMessageFactory {
     private BonusPacket.Builder getBonusBuilder;
     private WeaponPacket.Builder getWeaponBuilder;
 
-    public GeProtocolMessageFactory() {
+    public ProtocolMessageFactory() {
         dictionaryTypesMapper = ContextHolder.getBean(DictionaryTypesMapper.class);
 
         getStaticObjectsBuilder = CachedObjectsPacket.newBuilder();
@@ -128,6 +128,7 @@ public class GeProtocolMessageFactory {
                 .setPositionY(locationObject.getPositionY())
                 .setRotationAngle(locationObject.getRotationAngle())
                 .setLocationObjectId(locationObject.getLocationObjectId())
+                .setEnergy(shipState.getShipStateEnergy())
                 .build();
     }
 

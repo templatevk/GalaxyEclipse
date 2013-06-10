@@ -63,4 +63,8 @@ public class ShipStateInfoHolder {
     public int getLocationObjectId() {
         return ssResponse.getLocationObjectId();
     }
+
+    public int getEnergy() {
+        return ssResponse.getEnergy();
+    }
 }

@@ -1,5 +1,7 @@
 package arch.galaxyeclipse.client.ui.view;
 
+import arch.galaxyeclipse.client.data.IResourceLoader;
+import arch.galaxyeclipse.client.ui.widget.CursorWidget;
 import arch.galaxyeclipse.client.window.IClientWindow;
 import arch.galaxyeclipse.shared.context.ContextHolder;
 import com.badlogic.gdx.scenes.scene2d.Group;
@@ -10,7 +12,11 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public abstract class AbstractGameStage extends Stage {
+
     private static final float DEFAULT_SCALE_COEF = 0.5f;
+
+    private IResourceLoader resourceLoader;
+    private CursorWidget cursorWidget;
 
     private @Getter(AccessLevel.PROTECTED) IClientWindow clientWindow;
     private @Getter(AccessLevel.PROTECTED) float scaleX;
@@ -18,6 +24,9 @@ public abstract class AbstractGameStage extends Stage {
 
     protected AbstractGameStage() {
         clientWindow = ContextHolder.getBean(IClientWindow.class);
+
+        resourceLoader = ContextHolder.getBean(IResourceLoader.class);
+        cursorWidget = ContextHolder.getBean(CursorWidget.class);
     }
 
     public void resize(float viewportWidth, float viewportHeight) {
@@ -39,6 +48,14 @@ public abstract class AbstractGameStage extends Stage {
                     + ", viewportWidth = " + viewportWidth
                     + ", viewportHeight = " + viewportHeight);
         }
+    }
+
+    @Override
+    public void draw() {
+        super.draw();
+        getSpriteBatch().begin();
+        cursorWidget.draw(getSpriteBatch());
+        getSpriteBatch().end();
     }
 
     public void forceResize() {

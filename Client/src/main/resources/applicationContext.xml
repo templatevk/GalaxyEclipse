@@ -5,6 +5,7 @@
 
     <!-- Rendering -->
     <bean class="arch.galaxyeclipse.client.window.ClientWindow"/>
+    <bean class="arch.galaxyeclipse.client.ui.widget.CursorWidget" lazy-init="true"/>
     <bean class="arch.galaxyeclipse.client.ui.actor.ActorFactory" lazy-init="true"/>
 
     <!-- Network -->

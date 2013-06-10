@@ -22,10 +22,12 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 abstract class ClickableActor extends GeActor {
 
-    private static final float SELECTION_ALPHA = 0.5f;
-    private static final float SELECTION_SCALE = 0.9f;
+    private static final float SELECTION_ALPHA = 0.4f;
+    private static final float SELECTION_SCALE = 0.95f;
     private static final float SELECTION_ALPHA_ACTION_DURATION = 1f;
     private static final float SELECTION_SCALE_ACTION_DURATION = 0.5f;
+
+    static ClickableActor selectedActor;
 
     private ICommand<GePosition> hitCommand;
     private AlphaAction alphaAction;
@@ -48,21 +50,41 @@ abstract class ClickableActor extends GeActor {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 if (isSelectable()) {
-                    if (!selected) {
-                        addAction(new SelectionAlphaAction());
-                        addAction(new SelectionScaleAction());
-                        addAction(new SelectionColorAction());
-                    } else {
-                        setColor(new Color(initialColor));
-                    }
-
-                    selected = !selected;
+                    onSelect();
                 }
                 hitCommand.perform(new GePosition((int)x, (int)y));
             }
         });
 
         setOrigin(getPrefWidth() / 2, getPrefHeight() / 2);
+    }
+
+    private void onSelect() {
+        if (selectedActor != null) {
+            if (selectedActor == this) {
+                deselect();
+                selectedActor = null;
+            } else {
+                selectedActor.deselect();
+                select();
+            }
+        } else {
+            selectedActor = this;
+            select();
+        }
+    }
+
+    private void select() {
+        addAction(new SelectionAlphaAction());
+        addAction(new SelectionScaleAction());
+        addAction(new SelectionColorAction());
+        selectedActor = this;
+        selected = true;
+    }
+
+    private void deselect() {
+        setColor(new Color(initialColor));
+        selected = false;
     }
 
     private class SelectionScaleAction extends ScaleToAction {

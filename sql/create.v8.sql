@@ -28,6 +28,7 @@ create table ship_state (-- dynamic state of the shipType
   ship_state_move_speed       float   not null default 0,
   ship_state_rotation_speed   float   not null default 0,
   ship_state_hp               integer not null,
+  ship_state_energy           integer not null,
   ship_state_armor_durability integer not null
 );
 create table ship_type (

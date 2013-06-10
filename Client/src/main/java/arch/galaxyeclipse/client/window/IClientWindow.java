@@ -7,6 +7,7 @@ import arch.galaxyeclipse.shared.common.IDestroyable;
  *
  */
 public interface IClientWindow {
+
     float DEFAULT_WIDTH = 1024;
     float DEFAULT_HEIGHT = 748;
 
@@ -18,4 +19,5 @@ public interface IClientWindow {
     float getWidth() ;
     float getViewportHeight();
     float getViewportWidth() ;
+    float getStateTime();
 }

@@ -29,7 +29,9 @@ public abstract class GeActor extends Image implements IGeActor {
 
     private @Getter StageInfo stageInfo;
 
-    protected abstract int compareToImpl(IGeActor actor);
+    protected int compareToImpl(IGeActor actor) {
+        return 1;
+    }
 
     public static IGeActor newStub() {
         return new GeActor() {
@@ -63,5 +65,10 @@ public abstract class GeActor extends Image implements IGeActor {
     public int compareTo(IGeActor actor) {
         int compareResult = actorType.compareTo(actor.getActorType());
         return compareResult == 0 ? compareToImpl(actor) : compareResult;
+    }
+
+    @Override
+    public IGeActor getSelectedActor() {
+        return ClickableActor.selectedActor;
     }
 }

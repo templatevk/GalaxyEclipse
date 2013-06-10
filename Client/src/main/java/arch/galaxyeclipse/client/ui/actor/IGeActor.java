@@ -12,4 +12,6 @@ public interface IGeActor extends Comparable<IGeActor> {
     ActorType getActorType();
 
     Actor toActor();
+
+    IGeActor getSelectedActor();
 }

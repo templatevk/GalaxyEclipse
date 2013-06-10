@@ -43,6 +43,7 @@ class ClientWindow implements IClientWindow {
     private @Getter float height;
     private @Getter float viewportWidth;
     private @Getter float viewportHeight;
+    private @Getter float stateTime;
 
     public ClientWindow() {
         destroyables = new ArrayList<>();
@@ -104,6 +105,10 @@ class ClientWindow implements IClientWindow {
             Gdx.graphics.setContinuousRendering(false);
             glClear();
 
+            if (EnvType.CURRENT == EnvType.PROD) {
+                Gdx.input.setCursorCatched(true);
+            }
+
             setStageProvider(StageProviderFactory.createStageProvider(
                     StageProviderType.MAIN_MENU));
 
@@ -132,7 +137,11 @@ class ClientWindow implements IClientWindow {
         @Override
         public void render() {
             glClear();
-            stageProvider.getGameStage().act(Gdx.graphics.getDeltaTime());
+
+            float deltaTime = Gdx.graphics.getDeltaTime();
+            stateTime += deltaTime;
+
+            stageProvider.getGameStage().act(deltaTime);
             stageProvider.getGameStage().draw();
 
             if (EnvType.CURRENT == EnvType.DEV) {

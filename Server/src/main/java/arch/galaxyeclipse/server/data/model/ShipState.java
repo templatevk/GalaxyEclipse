@@ -60,6 +60,18 @@ public class ShipState {
         this.shipStateHp = shipStateHp;
     }
 
+    private int shipStateEnergy;
+
+    @Column(name = "ship_state_energy", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
+    @Basic
+    public int getShipStateEnergy() {
+        return shipStateEnergy;
+    }
+
+    public void setShipStateEnergy(int shipStateEnergy) {
+        this.shipStateEnergy = shipStateEnergy;
+    }
+
     private int shipStateArmorDurability;
 
     @Column(name = "ship_state_armor_durability", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)

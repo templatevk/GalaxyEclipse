@@ -11,7 +11,7 @@ import arch.galaxyeclipse.server.data.model.LocationObject;
 import arch.galaxyeclipse.server.data.model.Player;
 import arch.galaxyeclipse.server.data.model.ShipState;
 import arch.galaxyeclipse.server.network.IServerChannelHandler;
-import arch.galaxyeclipse.server.protocol.GeProtocolMessageFactory;
+import arch.galaxyeclipse.server.protocol.ProtocolMessageFactory;
 import arch.galaxyeclipse.shared.context.ContextHolder;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.*;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket;
@@ -32,14 +32,14 @@ class UnauthenticatedPacketHandler extends StatefulPacketHandler {
     private DictionaryTypesMapper dictionaryTypesMapper;
     private IServerChannelHandler serverChannelHandler;
 	private IClientAuthenticator authenticator;
-    private GeProtocolMessageFactory messageFactory;
+    private ProtocolMessageFactory messageFactory;
 
     public UnauthenticatedPacketHandler(IServerChannelHandler serverChannelHandler) {
 		this.serverChannelHandler = serverChannelHandler;
 
         dictionaryTypesMapper = ContextHolder.getBean(DictionaryTypesMapper.class);
 		authenticator = ContextHolder.getBean(IClientAuthenticator.class);
-        messageFactory = ContextHolder.getBean(GeProtocolMessageFactory.class);
+        messageFactory = ContextHolder.getBean(ProtocolMessageFactory.class);
 	}
 
 	@Override
