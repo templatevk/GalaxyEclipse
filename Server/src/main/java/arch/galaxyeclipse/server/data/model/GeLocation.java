@@ -9,6 +9,7 @@ import java.util.Set;
 @Table(name = "location", schema = "", catalog = "ge")
 @Entity
 public class GeLocation {
+
     private int locationId;
 
     @Column(name = "location_id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)

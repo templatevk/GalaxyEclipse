@@ -13,6 +13,7 @@ import java.util.Map;
  */
 @Slf4j
 public class GeDictionaryTypesMapperHelper {
+
     private GeDictionaryTypesMapperHelper() {
 
     }

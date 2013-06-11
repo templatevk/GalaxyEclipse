@@ -1,8 +1,8 @@
 package arch.galaxyeclipse.client.ui.widget;
 
-import arch.galaxyeclipse.client.data.IGeResourceLoader;
 import arch.galaxyeclipse.client.network.IGeClientNetworkManager;
 import arch.galaxyeclipse.client.network.IGeServerPacketListener;
+import arch.galaxyeclipse.client.resource.IGeResourceLoader;
 import arch.galaxyeclipse.client.ui.GeStageUiFactory;
 import arch.galaxyeclipse.client.ui.IGeButtonBuilder;
 import arch.galaxyeclipse.client.ui.IGeButtonClickCommand;
@@ -45,7 +45,9 @@ public class GeChatWidget extends Table implements IGeServerPacketListener {
     private static final int CHAT_BUTTON_AUTO_SCROLL_PADDING_LEFT = 10;
     private static final int CHAT_BUTTON_AUTO_SCROLL_PADDING_BOTTOM = 28;
 
-    private @Getter TextField textField;
+    private
+    @Getter
+    TextField textField;
 
     private IGeResourceLoader resourceLoader;
     private IGeClientNetworkManager networkManager;

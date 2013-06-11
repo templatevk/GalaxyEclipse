@@ -1,8 +1,10 @@
-package arch.galaxyeclipse.client.data;
+package arch.galaxyeclipse.client.resource;
 
-import arch.galaxyeclipse.client.util.Destroyable;
-import arch.galaxyeclipse.shared.common.IDestroyable;
+import arch.galaxyeclipse.client.util.GeDisposable;
+import arch.galaxyeclipse.shared.common.IGeDisposable;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -22,31 +24,34 @@ import static com.badlogic.gdx.graphics.Texture.TextureFilter.MipMapLinearLinear
  */
 @Slf4j
 class GeCachingResourceLoader extends TextureAtlas implements IGeResourceLoader, IGeDisposable {
+
     private static final String FONTS_LOCATIONS = "assets/fonts/";
+    private static final String AUDIO_LOCATION = "assets/sounds/";
 
     private Map<String, AtlasRegion> regions;
     private Map<String, BitmapFont> fonts;
     private Map<String, Sound> sounds;
     private Map<String, Music> music;
 
-	public GeCachingResourceLoader() {
-		super(Gdx.files.internal("assets/textures/pack.atlas"));
+    public GeCachingResourceLoader() {
+        super(Gdx.files.internal("assets/textures/pack.atlas"));
 
         regions = new HashMap<>();
         fonts = new HashMap<>();
+        sounds = new HashMap<>();
+        music = new HashMap<>();
 
         GeDisposable.addDestroyable(this);
-	}
-	
-	@Override
-	public AtlasRegion findRegion(String name) {
-		AtlasRegion region = regions.get(name);
+    }
+
+    @Override
+    public AtlasRegion findRegion(String name) {
+        AtlasRegion region = regions.get(name);
 
         if (region == null) {
             if (GeCachingResourceLoader.log.isInfoEnabled()) {
                 GeCachingResourceLoader.log.info("Loading region " + name);
             }
-
 
             try {
                 region = super.findRegion(name);
@@ -65,40 +70,40 @@ class GeCachingResourceLoader extends TextureAtlas implements IGeResourceLoader,
 
     @Override
     public Sound loadSound(String soundName) {
-        Sound tmpSound = sounds.get(soundName);
+        Sound sound = sounds.get(soundName);
 
-        if (tmpSound == null) {
-            if (CachingResourceLoader.log.isInfoEnabled()) {
-                CachingResourceLoader.log.info("Loading sound " + soundName);
+        if (sound == null) {
+            if (GeCachingResourceLoader.log.isInfoEnabled()) {
+                GeCachingResourceLoader.log.info("Loading sound " + soundName);
             }
 
             try {
-                tmpSound = Gdx.audio.newSound(Gdx.files.internal(AUDIO_LOCATION + soundName));
-                sounds.put(soundName, tmpSound);
+                sound = Gdx.audio.newSound(Gdx.files.internal(AUDIO_LOCATION + soundName));
+                sounds.put(soundName, sound);
             } catch (Exception e) {
                 throw new RuntimeException("Error loading sounds", e);
             }
         }
-        return tmpSound;
+        return sound;
     }
 
     @Override
     public Music loadMusic(String musicName) {
-        Music tmpMusic = music.get(musicName);
+        Music music = this.music.get(musicName);
 
-        if (tmpMusic == null) {
-            if (CachingResourceLoader.log.isInfoEnabled()) {
-                CachingResourceLoader.log.info("Loading music " + musicName);
+        if (music == null) {
+            if (GeCachingResourceLoader.log.isInfoEnabled()) {
+                GeCachingResourceLoader.log.info("Loading music " + musicName);
             }
 
             try {
-                tmpMusic = Gdx.audio.newMusic(Gdx.files.internal(AUDIO_LOCATION + musicName));
-                music.put(musicName, tmpMusic);
+                music = Gdx.audio.newMusic(Gdx.files.internal(AUDIO_LOCATION + musicName));
+                this.music.put(musicName, music);
             } catch (Exception e) {
                 throw new RuntimeException("Error loading music", e);
             }
         }
-        return tmpMusic;
+        return music;
     }
 
     @Override

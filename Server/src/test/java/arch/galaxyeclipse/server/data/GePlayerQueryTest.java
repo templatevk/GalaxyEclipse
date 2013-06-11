@@ -13,6 +13,7 @@ import java.util.Calendar;
  */
 @Slf4j
 public class GePlayerQueryTest extends GeAbstractTestNGServerTest {
+
     @Test
     public void startupInfoQueryTest() {
         long start = Calendar.getInstance().getTimeInMillis();
@@ -20,7 +21,7 @@ public class GePlayerQueryTest extends GeAbstractTestNGServerTest {
         GePlayer p2 = new GeHibernateUnitOfWork<GePlayer>() {
             @Override
             protected void doWork(Session session) {
-                setResult((GePlayer)session.getNamedQuery("player.startupInfo")
+                setResult((GePlayer) session.getNamedQuery("player.startupInfo")
                         .setParameter("playerId", 1)
                         .uniqueResult());
             }

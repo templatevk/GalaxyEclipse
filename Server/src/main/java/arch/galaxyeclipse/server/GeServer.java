@@ -17,12 +17,13 @@ import org.slf4j.LoggerFactory;
 
 @Slf4j
 public class GeServer {
+
     private IGeServerNetworkManager serverNetworkManager;
     private GeDictionaryTypesMapper dictionaryTypesMapper;
 
-	public GeServer() {
+    public GeServer() {
 
-	}
+    }
 
     public static void main(String[] args) throws Exception {
         GeServer server = new GeServer();

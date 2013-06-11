@@ -9,14 +9,15 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class GeStubPacketSender implements IGePacketSender {
-    public GeStubPacketSender() {
-		
-	}
 
-	@Override
-	public void send(GePacket packet) {
+    public GeStubPacketSender() {
+
+    }
+
+    @Override
+    public void send(GePacket packet) {
         if (GeStubPacketSender.log.isDebugEnabled()) {
-		    GeStubPacketSender.log.debug(GeLogUtils.getObjectInfo(this) + " " + packet.getType());
+            GeStubPacketSender.log.debug(GeLogUtils.getObjectInfo(this) + " " + packet.getType());
         }
-	}
+    }
 }

@@ -1,8 +1,8 @@
 package arch.galaxyeclipse.client.ui.actor;
 
 import arch.galaxyeclipse.shared.common.GePosition;
-import arch.galaxyeclipse.shared.common.IGeCommand;
 import arch.galaxyeclipse.shared.common.GeStubCommand;
+import arch.galaxyeclipse.shared.common.IGeCommand;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.actions.AlphaAction;
@@ -52,7 +52,7 @@ abstract class GeClickableActor extends GeActor {
                 if (isSelectable()) {
                     onSelect();
                 }
-                hitCommand.perform(new GePosition((int)x, (int)y));
+                hitCommand.perform(new GePosition((int) x, (int) y));
             }
         });
 
@@ -103,7 +103,8 @@ abstract class GeClickableActor extends GeActor {
             float initialEndScaleY = scaleY * SELECTION_SCALE;
 
             if (startX == initialEndScaleX) {
-                startX = firstScale ? scaleX : 2 * scaleX - initialEndScaleX;;
+                startX = firstScale ? scaleX : 2 * scaleX - initialEndScaleX;
+                ;
                 endX = initialEndScaleX;
             } else {
                 startX = initialEndScaleX;

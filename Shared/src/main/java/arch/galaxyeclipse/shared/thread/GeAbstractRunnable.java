@@ -6,6 +6,7 @@ import java.util.concurrent.Future;
  *
  */
 public abstract class GeAbstractRunnable implements GeRunnable {
+
     private Future<?> future;
 
     protected GeAbstractRunnable() {

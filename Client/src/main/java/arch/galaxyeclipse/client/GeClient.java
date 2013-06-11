@@ -10,20 +10,21 @@ import static arch.galaxyeclipse.shared.GeEnvType.CURRENT;
 
 @Slf4j
 public class GeClient {
+
     public GeClient() {
 
-	}
-	
-	public void start() {
-        StatusPrinter.print((LoggerContext)LoggerFactory.getILoggerFactory());
+    }
+
+    public void start() {
+        StatusPrinter.print((LoggerContext) LoggerFactory.getILoggerFactory());
         GeContextHolder.INSTANCE.getClass();
 
         if (GeClient.log.isInfoEnabled()) {
             GeClient.log.info("Client initialized for " + CURRENT.toString() + " environment");
         }
-	}
-	
-	public static void main(String[] args) throws Exception {
-		new GeClient().start();
-	}
+    }
+
+    public static void main(String[] args) throws Exception {
+        new GeClient().start();
+    }
 }				

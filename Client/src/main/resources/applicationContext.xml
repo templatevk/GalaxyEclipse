@@ -12,7 +12,7 @@
     <bean class="arch.galaxyeclipse.client.network.GeClientNetworkManager"/>
 
     <!-- Other -->
-    <bean class="arch.galaxyeclipse.client.data.GeCachingResourceLoader" lazy-init="true"/>
+    <bean class="arch.galaxyeclipse.client.resource.GeCachingResourceLoader" lazy-init="true"/>
     <bean class="arch.galaxyeclipse.shared.types.GeDictionaryTypesMapper" lazy-init="true"/>
     <bean class="arch.galaxyeclipse.client.data.GeShipStaticInfoHolder" lazy-init="true"/>
     <bean class="arch.galaxyeclipse.client.data.GeLocationInfoHolder" lazy-init="true"/>

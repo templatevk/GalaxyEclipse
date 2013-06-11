@@ -10,13 +10,14 @@ import java.util.Set;
 @Entity
 @NamedQuery(name = "player.startupInfo", query =
         "select p from GePlayer p inner join fetch p.shipState ss " +
-        "inner join fetch p.locationObject lo inner join fetch lo.location l " +
-        "left outer join fetch p.inventoryItems ii left outer join fetch ii.item " +
-        "inner join fetch p.shipConfig sc inner join fetch sc.shipType st " +
-        "inner join fetch sc.engine e left outer join fetch sc.shipConfigBonusSlots scbs " +
-        "left outer join scbs.item left outer join fetch sc.shipConfigWeaponSlots scws " +
-        "left outer join fetch scws.item where p.playerId = :playerId")
+                "inner join fetch p.locationObject lo inner join fetch lo.location l " +
+                "left outer join fetch p.inventoryItems ii left outer join fetch ii.item " +
+                "inner join fetch p.shipConfig sc inner join fetch sc.shipType st " +
+                "inner join fetch sc.engine e left outer join fetch sc.shipConfigBonusSlots scbs " +
+                "left outer join scbs.item left outer join fetch sc.shipConfigWeaponSlots scws " +
+                "left outer join fetch scws.item where p.playerId = :playerId")
 public class GePlayer {
+
     private int playerId;
 
     @Column(name = "player_id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)

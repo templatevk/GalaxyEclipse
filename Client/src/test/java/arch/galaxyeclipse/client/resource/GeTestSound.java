@@ -1,4 +1,4 @@
-package arch.galaxyeclipse.client.sounds;
+package arch.galaxyeclipse.client.resource;
 
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Files;
@@ -8,15 +8,14 @@ import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 
 
-public class TestSound implements ApplicationListener  {
-    public TestSound(){}
-    Music music;
-    Sound shoot;
+public class GeTestSound implements ApplicationListener {
+
+    private Music music;
+    private Sound shoot;
 
     @Override
     public void create() {
-
-        music =  Gdx.audio.newMusic(Gdx.files.getFileHandle("assets/sounds/flight.mp3", Files.FileType.Internal));
+        music = Gdx.audio.newMusic(Gdx.files.getFileHandle("assets/sounds/flight.mp3", Files.FileType.Internal));
 
         shoot = Gdx.audio.newSound(Gdx.files.internal("assets/sounds/shoot.mp3"));
         System.out.println("playing from create method..");
@@ -33,10 +32,10 @@ public class TestSound implements ApplicationListener  {
 
     @Override
     public void render() {
-       if(Gdx.input.isKeyPressed(Input.Keys.SPACE)){
-           System.out.println("playing..");
-           shoot.play();
-       }
+        if (Gdx.input.isKeyPressed(Input.Keys.SPACE)) {
+            System.out.println("playing..");
+            shoot.play();
+        }
     }
 
     @Override

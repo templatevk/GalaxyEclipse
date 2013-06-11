@@ -10,6 +10,7 @@ import javax.persistence.*;
 @DiscriminatorValue(value = GeItem.WEAPON_TYPE)
 @PrimaryKeyJoinColumn(name = "item_id")
 public class GeWeapon extends GeItem {
+
     private int damage;
 
     @Column(name = "damage", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)

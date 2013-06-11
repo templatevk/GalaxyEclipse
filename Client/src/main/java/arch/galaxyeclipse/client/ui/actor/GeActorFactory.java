@@ -1,6 +1,6 @@
 package arch.galaxyeclipse.client.ui.actor;
 
-import arch.galaxyeclipse.client.data.IGeResourceLoader;
+import arch.galaxyeclipse.client.resource.IGeResourceLoader;
 import arch.galaxyeclipse.shared.GeEnvType;
 import arch.galaxyeclipse.shared.context.GeContextHolder;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket;
@@ -14,6 +14,7 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 class GeActorFactory implements IGeActorFactory {
+
     private static final String PLAYER_IMAGE_PATH =  // <id>
             "ship_type/%d";
     private static final String FOG_IMAGE_PATH = // <id>

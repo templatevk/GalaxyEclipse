@@ -9,6 +9,7 @@ import java.util.Set;
 @Table(name = "weapon_type", schema = "", catalog = "ge")
 @Entity
 public class GeWeaponType {
+
     private int weaponTypeId;
 
     @Column(name = "weapon_type_id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)

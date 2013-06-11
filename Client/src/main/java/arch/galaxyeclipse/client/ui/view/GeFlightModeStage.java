@@ -8,8 +8,8 @@ import arch.galaxyeclipse.client.ui.actor.GeActor;
 import arch.galaxyeclipse.client.ui.actor.GeStageInfo;
 import arch.galaxyeclipse.client.ui.model.GeFlightModeModel;
 import arch.galaxyeclipse.client.ui.provider.GeStageProviderFactory;
+import arch.galaxyeclipse.client.ui.provider.GeStageProviderType;
 import arch.galaxyeclipse.client.ui.provider.IGeStageProvider;
-import arch.galaxyeclipse.client.ui.provider.GeStageProviderFactory.StageProviderType;
 import arch.galaxyeclipse.client.ui.widget.*;
 import arch.galaxyeclipse.shared.common.GeStubCallback;
 import arch.galaxyeclipse.shared.context.GeContextHolder;
@@ -50,7 +50,8 @@ public class GeFlightModeStage extends GeAbstractGameStage {
     private static final float BOTTOMPANEL_PADDING_BOTTOM = 0;
     private static final float TOPPANEL_PADDING_TOP = 0;
 
-    private @Getter
+    private
+    @Getter
     GeFlightModeModel model;
 
     private Group rootLayout;
@@ -101,7 +102,7 @@ public class GeFlightModeStage extends GeAbstractGameStage {
                     }
                 }).build();
         chatBtnTable = new Table();
-        chatBtnTable.setSize(chatBtn.getWidth() ,chatBtn.getHeight());
+        chatBtnTable.setSize(chatBtn.getWidth(), chatBtn.getHeight());
         chatBtnTable.setTransform(true);
         chatBtnTable.row();
         chatBtnTable.add(chatBtn);
@@ -140,7 +141,7 @@ public class GeFlightModeStage extends GeAbstractGameStage {
                     }
                 }).build();
         stateBtnTable = new Table();
-        stateBtnTable.setSize(stateBtn.getWidth() ,stateBtn.getHeight());
+        stateBtnTable.setSize(stateBtn.getWidth(), stateBtn.getHeight());
         stateBtnTable.setTransform(true);
         stateBtnTable.row();
         stateBtnTable.add(stateBtn);
@@ -155,14 +156,14 @@ public class GeFlightModeStage extends GeAbstractGameStage {
                         GeContextHolder.getBean(IGeClientNetworkManager.class).disconnect(
                                 new GeStubCallback<Boolean>());
                         IGeStageProvider provider = GeStageProviderFactory.createStageProvider(
-                                StageProviderType.MAIN_MENU);
+                                GeStageProviderType.MAIN_MENU);
                         getClientWindow().setStageProvider(provider);
                         provider.getGameStage().forceResize();
                     }
                 }).build();
 
         mainMenuBtnTable = new Table();
-        mainMenuBtnTable.setSize(mainMenuBtn.getWidth() ,mainMenuBtn.getHeight());
+        mainMenuBtnTable.setSize(mainMenuBtn.getWidth(), mainMenuBtn.getHeight());
         mainMenuBtnTable.setTransform(true);
         mainMenuBtnTable.row();
         mainMenuBtnTable.add(mainMenuBtn);
@@ -176,7 +177,7 @@ public class GeFlightModeStage extends GeAbstractGameStage {
             @Override
             public void keyboardFocusChanged(FocusEvent event, Actor actor, boolean focused) {
                 if (focused && actor == chatWidget.getTextField()) {
-                     clientActionListener.setEnabled(false);
+                    clientActionListener.setEnabled(false);
                 } else {
                     clientActionListener.setEnabled(true);
                 }
@@ -209,7 +210,7 @@ public class GeFlightModeStage extends GeAbstractGameStage {
         float bottomPanelWidgetHeight = bottomPanelWidget.getPrefHeight() * getScaleY();
         float bottomPanelWidgetX = (viewportWidth / 2f) - (bottomPanelWidgetWidth / 2f);
         float bottomPanelWidgetY = BOTTOMPANEL_PADDING_BOTTOM * getScaleY();
-        bottomPanelWidget.setSize(bottomPanelWidgetWidth , bottomPanelWidgetHeight);
+        bottomPanelWidget.setSize(bottomPanelWidgetWidth, bottomPanelWidgetHeight);
         bottomPanelWidget.setX(bottomPanelWidgetX);
         bottomPanelWidget.setY(bottomPanelWidgetY);
 
@@ -217,7 +218,7 @@ public class GeFlightModeStage extends GeAbstractGameStage {
         float topPanelWidgetHeight = topPanelWidget.getPrefHeight() * getScaleY();
         float topPanelWidgetX = (viewportWidth / 2f) - (topPanelWidgetWidth / 2f);
         float topPanelWidgetY = viewportHeight - topPanelWidgetHeight - TOPPANEL_PADDING_TOP * getScaleY();
-        topPanelWidget.setSize(topPanelWidgetWidth , topPanelWidgetHeight);
+        topPanelWidget.setSize(topPanelWidgetWidth, topPanelWidgetHeight);
         topPanelWidget.setX(topPanelWidgetX);
         topPanelWidget.setY(topPanelWidgetY);
 
@@ -239,7 +240,7 @@ public class GeFlightModeStage extends GeAbstractGameStage {
         float miniMapWidgetHeight = miniMapWidget.getPrefHeight() * getScaleY();
         float miniMapWidgetX = viewportWidth - miniMapWidgetWidth - (MINIMAP_PADDING_RIGHT * getScaleX());
         float miniMapWidgetY = MINIMAP_PADDING_BOTTOM * getScaleX();
-        miniMapWidget.setSize(miniMapWidgetWidth , miniMapWidgetHeight);
+        miniMapWidget.setSize(miniMapWidgetWidth, miniMapWidgetHeight);
         miniMapWidget.setX(miniMapWidgetX);
         miniMapWidget.setY(miniMapWidgetY);
 
@@ -252,7 +253,7 @@ public class GeFlightModeStage extends GeAbstractGameStage {
         float stateWidgetWidth = stateWidget.getPrefWidth() * getScaleX();
         float stateWidgetHeight = stateWidget.getPrefHeight() * getScaleY();
         float stateWidgetX = STATE_PADDING_LEFT * getScaleX();
-        float stateWidgetY =  viewportHeight - stateWidgetHeight - (STATE_PADDING_TOP * getScaleY());
+        float stateWidgetY = viewportHeight - stateWidgetHeight - (STATE_PADDING_TOP * getScaleY());
         stateWidget.setSize(stateWidgetWidth, stateWidgetHeight);
         stateWidget.setX(stateWidgetX);
         stateWidget.setY(stateWidgetY);

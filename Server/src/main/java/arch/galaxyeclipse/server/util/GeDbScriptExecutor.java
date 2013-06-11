@@ -19,6 +19,7 @@ import java.util.Properties;
 
 @Slf4j
 class GeDbScriptExecutor {
+
     private static final String PROP_FILENAME = "env/db.properties";
 
     private Properties prop;

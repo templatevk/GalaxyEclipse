@@ -8,6 +8,7 @@ import javax.persistence.*;
 @Table(name = "ship_config_bonus_slot", schema = "", catalog = "ge")
 @Entity
 public class GeShipConfigBonusSlot {
+
     private int shipConfigBonusSlotId;
 
     @Column(name = "ship_config_bonus_slot_id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)

@@ -1,6 +1,6 @@
 package arch.galaxyeclipse.client.ui.view;
 
-import arch.galaxyeclipse.client.data.IGeResourceLoader;
+import arch.galaxyeclipse.client.resource.IGeResourceLoader;
 import arch.galaxyeclipse.client.ui.GeStageUiFactory;
 import arch.galaxyeclipse.client.ui.IGeButtonBuilder;
 import arch.galaxyeclipse.client.ui.provider.GeMainMenuPresenter;
@@ -18,6 +18,7 @@ import static arch.galaxyeclipse.client.ui.GeStageUiFactory.createButtonBuilder;
 import static arch.galaxyeclipse.client.ui.GeStageUiFactory.createTextFieldBuilder;
 
 public class GeMainMenuStage extends GeAbstractGameStage {
+
     private static final float TABLE_SPACING = 10;
     private static final float TEXTFIELD_WIDTH = 370;
     private static final float TEXTFIELD_HEIGHT = 100;

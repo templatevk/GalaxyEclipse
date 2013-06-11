@@ -37,7 +37,7 @@ public class GeTaskRunnablePair<T extends Runnable> {
         Preconditions.checkNotNull(runnable);
 
         delayedRunnableTask = new GeDelayedRunnableTask(millisecondsDelay,
-        runnable, repeat, sleepAfter);
+                runnable, repeat, sleepAfter);
         delayedRunnableTask.start();
     }
 

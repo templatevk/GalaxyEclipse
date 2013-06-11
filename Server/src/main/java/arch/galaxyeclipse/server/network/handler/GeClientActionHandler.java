@@ -22,6 +22,7 @@ import static arch.galaxyeclipse.shared.GeConstants.*;
  */
 @Slf4j
 class GeClientActionHandler extends GePacketHandlerDecorator {
+
     private GePlayerInfoHolder playerInfoHolder;
 
     private MoveHandler moveHandler;
@@ -87,6 +88,7 @@ class GeClientActionHandler extends GePacketHandlerDecorator {
     }
 
     private static class RotationHandler extends GeTaskRunnablePair<Runnable> {
+
         public static final int MAX_ANGLE = 360;
 
         private ClientActionType rotationType;
@@ -129,6 +131,7 @@ class GeClientActionHandler extends GePacketHandlerDecorator {
         }
 
         private class RotatingRunnable implements Runnable {
+
             @Override
             public void run() {
                 float currentRotationSpeed = ssrBuilder.getRotationSpeed();
@@ -168,6 +171,7 @@ class GeClientActionHandler extends GePacketHandlerDecorator {
         }
 
         private class PostRotatingRunnable implements Runnable {
+
             @Override
             public void run() {
                 float currentRotationSpeed = ssrBuilder.getRotationSpeed();
@@ -212,6 +216,7 @@ class GeClientActionHandler extends GePacketHandlerDecorator {
     }
 
     private static class MoveHandler {
+
         private GeShipConfig shipConfig;
         private GeShipStateResponse.Builder ssrBuilder;
         private GeLocationObjectPacket.Builder lopBuilder;
@@ -266,6 +271,7 @@ class GeClientActionHandler extends GePacketHandlerDecorator {
         }
 
         private class SpeedTask extends GeTaskRunnablePair<Runnable> implements Runnable {
+
             private ClientActionType moveType;
 
             private SpeedTask() {
@@ -311,6 +317,7 @@ class GeClientActionHandler extends GePacketHandlerDecorator {
         }
 
         private class PositionTask extends GeTaskRunnablePair<Runnable> implements Runnable {
+
             private PositionTask() {
                 super(CLIENT_ACTION_MOVE_DELAY_MILLISECONDS, null, true, true);
                 setRunnable(this);

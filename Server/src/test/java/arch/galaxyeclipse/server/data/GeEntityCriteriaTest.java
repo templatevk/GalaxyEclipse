@@ -11,6 +11,7 @@ import java.util.List;
  *
  */
 public class GeEntityCriteriaTest extends GeAbstractTestNGServerTest {
+
     @Test(groups = "fast")
     public void criteriaTest() {
         List<Class<?>> entities = Arrays.asList(

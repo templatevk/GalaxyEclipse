@@ -8,6 +8,7 @@ import javax.persistence.*;
 @Table(name = "player_activation_hash", schema = "", catalog = "ge")
 @Entity
 public class GePlayerActivationHash {
+
     private int playerActivationHashId;
 
     @Column(name = "player_activation_hash_id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)

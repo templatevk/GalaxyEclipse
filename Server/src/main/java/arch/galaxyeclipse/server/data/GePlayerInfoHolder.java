@@ -14,6 +14,7 @@ import lombok.Data;
  */
 @Data
 public class GePlayerInfoHolder {
+
     // MySQL
     private GePlayer player;
     private GeShipState shipState;

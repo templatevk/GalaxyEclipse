@@ -9,6 +9,7 @@ import java.util.Set;
 @Table(name = "ship_config", schema = "", catalog = "ge")
 @Entity
 public class GeShipConfig {
+
     private int shipConfigId;
 
     @Column(name = "ship_config_id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)

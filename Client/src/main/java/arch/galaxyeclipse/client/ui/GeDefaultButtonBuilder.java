@@ -1,6 +1,6 @@
 package arch.galaxyeclipse.client.ui;
 
-import arch.galaxyeclipse.client.data.IGeResourceLoader;
+import arch.galaxyeclipse.client.resource.IGeResourceLoader;
 import arch.galaxyeclipse.shared.context.GeContextHolder;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Color;

@@ -24,10 +24,19 @@ import java.util.List;
  */
 @Slf4j
 public class GeLocationInfoHolder {
-    private @Getter String name;
-    private @Getter int locationId;
-    private @Getter float width;
-    private @Getter float height;
+
+    private
+    @Getter
+    String name;
+    private
+    @Getter
+    int locationId;
+    private
+    @Getter
+    float width;
+    private
+    @Getter
+    float height;
     private TreeMultiset<GeLocationObjectPacket> cachedObjects;
     private TreeMultiset<GeLocationObjectPacket> dynamicObjects;
     private PositionPredicate positionPredicate;
@@ -99,6 +108,7 @@ public class GeLocationInfoHolder {
 
     @Data
     static class PositionPredicate implements Predicate<GeLocationObjectPacket> {
+
         @Delegate
         private GePosition position;
 
@@ -112,6 +122,7 @@ public class GeLocationInfoHolder {
     }
 
     static class LocationObjectPositionOrdering extends Ordering<GeLocationObjectPacket> {
+
         @Override
         public int compare(GeLocationObjectPacket left, GeLocationObjectPacket right) {
             return left.getPositionX() < right.getPositionX()

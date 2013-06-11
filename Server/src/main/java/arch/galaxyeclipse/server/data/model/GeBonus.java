@@ -10,6 +10,7 @@ import javax.persistence.*;
 @DiscriminatorValue(value = GeItem.BONUS_TYPE)
 @PrimaryKeyJoinColumn(name = "item_id")
 public class GeBonus extends GeItem {
+
     private int bonusValue;
 
     @Column(name = "bonus_value", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)

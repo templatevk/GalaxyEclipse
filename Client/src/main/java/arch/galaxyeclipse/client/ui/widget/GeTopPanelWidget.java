@@ -1,8 +1,8 @@
 package arch.galaxyeclipse.client.ui.widget;
 
-import arch.galaxyeclipse.client.data.IGeResourceLoader;
 import arch.galaxyeclipse.client.network.IGeClientNetworkManager;
 import arch.galaxyeclipse.client.network.IGeServerPacketListener;
+import arch.galaxyeclipse.client.resource.IGeResourceLoader;
 import arch.galaxyeclipse.shared.context.GeContextHolder;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.GePacket;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
@@ -14,6 +14,7 @@ import java.util.List;
 
 @Slf4j
 public class GeTopPanelWidget extends Table implements IGeServerPacketListener {
+
     private final int DEFAULT_WIDTH = 1670;
     private final int DEFAULT_HEIGHT = 169;
 

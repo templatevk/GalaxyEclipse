@@ -11,6 +11,7 @@ import java.util.concurrent.*;
  *
  */
 public class GeExecutor implements ExecutorService {
+
     @Getter(AccessLevel.PACKAGE)
     private static GeExecutor INSTANCE;
 

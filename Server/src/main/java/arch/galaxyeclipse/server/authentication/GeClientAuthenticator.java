@@ -7,9 +7,10 @@ import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
 /**
-*
-*/
+ *
+ */
 class GeClientAuthenticator implements IGeClientAuthenticator {
+
     public GeClientAuthenticator() {
 
     }
@@ -20,12 +21,12 @@ class GeClientAuthenticator implements IGeClientAuthenticator {
         GePlayer player = new GeHibernateUnitOfWork<GePlayer>() {
             @Override
             protected void doWork(Session session) {
-               GePlayer player = (GePlayer)session.createCriteria(GePlayer.class)
-                       .add(Restrictions.eq("activated", true))
-                       .add(Restrictions.eq("banned", false))
-                       .add(Restrictions.eq("username", username))
-                       .add(Restrictions.eq("password", DigestUtils.md5Hex(password)))
-                       .uniqueResult();
+                GePlayer player = (GePlayer) session.createCriteria(GePlayer.class)
+                        .add(Restrictions.eq("activated", true))
+                        .add(Restrictions.eq("banned", false))
+                        .add(Restrictions.eq("username", username))
+                        .add(Restrictions.eq("password", DigestUtils.md5Hex(password)))
+                        .uniqueResult();
 
                 if (player != null) {
                     setResult(player);

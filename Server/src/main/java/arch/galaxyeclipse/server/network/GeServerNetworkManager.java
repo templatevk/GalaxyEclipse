@@ -18,12 +18,13 @@ import java.util.concurrent.Executors;
 
 @Slf4j
 class GeServerNetworkManager implements IGeServerNetworkManager, IGeMonitoringNetworkManager {
+
     private static final String PORT_PROPERTY = "port";
 
     // All the connected clients
     private Set<IGeServerChannelHandler> serverChannelHandlers;
 
-	private GeProtobufChannelPipelineFactory channelPipelineFactory;
+    private GeProtobufChannelPipelineFactory channelPipelineFactory;
     private ServerBootstrap bootstrap;
     private Channel serverChannel;
 
@@ -37,24 +38,24 @@ class GeServerNetworkManager implements IGeServerNetworkManager, IGeMonitoringNe
 
         this.channelPipelineFactory = channelPipelineFactory;
         serverChannelHandlers = new HashSet<>();
-	}
-	
-	@Override
-	public void startServer() {
+    }
+
+    @Override
+    public void startServer() {
         // Initialize server bootstrap
         if (bootstrap == null) {
-			bootstrap = new ServerBootstrap(new NioServerSocketChannelFactory(
-					Executors.newCachedThreadPool(), Executors.newCachedThreadPool()));
-			bootstrap.setPipelineFactory(channelPipelineFactory);
-			bootstrap.setOption("keepAlive", true);
-			bootstrap.setOption("tcpNoDelay", true);
-		}
+            bootstrap = new ServerBootstrap(new NioServerSocketChannelFactory(
+                    Executors.newCachedThreadPool(), Executors.newCachedThreadPool()));
+            bootstrap.setPipelineFactory(channelPipelineFactory);
+            bootstrap.setOption("keepAlive", true);
+            bootstrap.setOption("tcpNoDelay", true);
+        }
 
         // Unbind the port if bound
-		if (serverChannel != null && serverChannel.isBound()) {
-			serverChannel.unbind();
-		}
-		serverChannel = bootstrap.bind(hostAddress);
+        if (serverChannel != null && serverChannel.isBound()) {
+            serverChannel.unbind();
+        }
+        serverChannel = bootstrap.bind(hostAddress);
 
         if (GeServerNetworkManager.log.isInfoEnabled()) {
             GeServerNetworkManager.log.info("Starting server on port " + port);
@@ -62,18 +63,18 @@ class GeServerNetworkManager implements IGeServerNetworkManager, IGeMonitoringNe
             GeServerNetworkManager.log.info("Is bound " + serverChannel.isBound());
             GeServerNetworkManager.log.info("Is open " + serverChannel.isOpen());
         }
-	}
-	
-	@Override
-	public void stopServer() {
-		if (serverChannel != null && serverChannel.isOpen()) {
+    }
+
+    @Override
+    public void stopServer() {
+        if (serverChannel != null && serverChannel.isOpen()) {
             if (GeServerNetworkManager.log.isInfoEnabled()) {
                 GeServerNetworkManager.log.info("Stopping server");
             }
-			serverChannel.close();
-			serverChannel.unbind();
-		}
-	}
+            serverChannel.close();
+            serverChannel.unbind();
+        }
+    }
 
     @Override
     public void registerServerChannelHandler(IGeServerChannelHandler handler) {

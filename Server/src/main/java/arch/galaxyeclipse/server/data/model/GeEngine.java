@@ -10,6 +10,7 @@ import javax.persistence.*;
 @DiscriminatorValue(value = GeItem.ENGINE_TYPE)
 @PrimaryKeyJoinColumn(name = "item_id")
 public class GeEngine extends GeItem {
+
     private float moveAccelerationBonus;
 
     @Column(name = "move_acceleration_bonus", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)

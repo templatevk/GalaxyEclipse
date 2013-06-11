@@ -8,7 +8,8 @@ import arch.galaxyeclipse.shared.network.IGeChannelHandler;
  * Represents server channel handler, state pattern applied.
  */
 public interface IGeServerChannelHandler extends IGeChannelHandler {
-	void setStatefulPacketHandler(IGeStatefulPacketHandler packetHandler);
+
+    void setStatefulPacketHandler(IGeStatefulPacketHandler packetHandler);
 
     GePlayerInfoHolder getPlayerInfoHolder();
 }

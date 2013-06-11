@@ -8,12 +8,13 @@ import lombok.Data;
  */
 @Data
 public class GeAuthenticationResult {
+
     private boolean success;
     private GePlayer player;
 
-	public GeAuthenticationResult(boolean isSuccess) {
-		this(isSuccess, new GePlayer());
-	}
+    public GeAuthenticationResult(boolean isSuccess) {
+        this(isSuccess, new GePlayer());
+    }
 
     public GeAuthenticationResult(boolean success, GePlayer player) {
         this.success = success;

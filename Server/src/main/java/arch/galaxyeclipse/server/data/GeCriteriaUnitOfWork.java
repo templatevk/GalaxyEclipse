@@ -8,6 +8,7 @@ import java.util.List;
  *
  */
 public class GeCriteriaUnitOfWork<T> extends GeHibernateUnitOfWork<List<T>> {
+
     private Class<T> clazz;
 
     public GeCriteriaUnitOfWork(Class<T> clazz) {

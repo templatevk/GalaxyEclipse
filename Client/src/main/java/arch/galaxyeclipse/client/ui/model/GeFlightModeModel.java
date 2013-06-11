@@ -15,8 +15,14 @@ import java.util.*;
  */
 public class GeFlightModeModel {
 
-    private @Getter @Setter NavigableSet<GeLocationObjectActor> sortedActors;
-    private @Getter @Setter GeActor background;
+    private
+    @Getter
+    @Setter
+    NavigableSet<GeLocationObjectActor> sortedActors;
+    private
+    @Getter
+    @Setter
+    GeActor background;
 
     private IGeActorFactory actorFactory;
     private Map<Integer, GeLocationObjectActor> actorsCache;

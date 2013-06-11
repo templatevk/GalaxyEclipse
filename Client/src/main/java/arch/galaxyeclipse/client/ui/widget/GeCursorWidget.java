@@ -1,6 +1,6 @@
 package arch.galaxyeclipse.client.ui.widget;
 
-import arch.galaxyeclipse.client.data.IGeResourceLoader;
+import arch.galaxyeclipse.client.resource.IGeResourceLoader;
 import arch.galaxyeclipse.client.window.IGeClientWindow;
 import arch.galaxyeclipse.shared.GeEnvType;
 import arch.galaxyeclipse.shared.context.GeContextHolder;
@@ -19,10 +19,10 @@ public class GeCursorWidget {
     private static final float FRAME_DURATION = 0.12f;
 
     private static final String[] FRAMES = {
-        "ui/cursor/cursor1", "ui/cursor/cursor2", "ui/cursor/cursor3",
-        "ui/cursor/cursor4", "ui/cursor/cursor5", "ui/cursor/cursor6",
-        "ui/cursor/cursor7", "ui/cursor/cursor8", "ui/cursor/cursor9",
-        "ui/cursor/cursor10"
+            "ui/cursor/cursor1", "ui/cursor/cursor2", "ui/cursor/cursor3",
+            "ui/cursor/cursor4", "ui/cursor/cursor5", "ui/cursor/cursor6",
+            "ui/cursor/cursor7", "ui/cursor/cursor8", "ui/cursor/cursor9",
+            "ui/cursor/cursor10"
     };
 
     private IGeClientWindow clientWindow;
@@ -44,10 +44,10 @@ public class GeCursorWidget {
     public void draw(SpriteBatch batch) {
         TextureRegion frame = animation.getKeyFrame(clientWindow.getStateTime());
         int cursorHeight = frame.getRegionHeight();
-        int y = (int)clientWindow.getHeight() - Gdx.input.getY() - cursorHeight;
+        int y = (int) clientWindow.getHeight() - Gdx.input.getY() - cursorHeight;
         int x = Gdx.input.getX();
-        int clientWidth = (int)clientWindow.getWidth();
-        int clientHeight = (int)clientWindow.getHeight();
+        int clientWidth = (int) clientWindow.getWidth();
+        int clientHeight = (int) clientWindow.getHeight();
 
         if (GeEnvType.CURRENT == GeEnvType.PROD) {
             if (x < 0) {

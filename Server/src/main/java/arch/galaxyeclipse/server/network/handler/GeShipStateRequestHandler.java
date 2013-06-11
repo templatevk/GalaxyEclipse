@@ -10,6 +10,7 @@ import arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse;
  *
  */
 class GeShipStateRequestHandler extends GePacketHandlerDecorator {
+
     private GeProtocolMessageFactory messageFactory;
 
     GeShipStateRequestHandler(IGeChannelAwarePacketHandler decoratedPacketHandler) {

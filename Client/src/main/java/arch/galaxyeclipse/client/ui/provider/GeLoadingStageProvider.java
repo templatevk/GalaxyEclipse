@@ -7,6 +7,7 @@ import arch.galaxyeclipse.client.ui.view.GeLoadingStage;
  *
  */
 public class GeLoadingStageProvider implements IGeStageProvider {
+
     private GeLoadingStage stage;
 
     public GeLoadingStageProvider() {

@@ -1,10 +1,10 @@
 package arch.galaxyeclipse.shared.network;
 
 import arch.galaxyeclipse.shared.common.GeLogUtils;
-import arch.galaxyeclipse.shared.protocol.GeProtocol.GePacket;
-import arch.galaxyeclipse.shared.thread.GeInterruptableQueueDispatcher;
 import arch.galaxyeclipse.shared.common.IGeCallback;
 import arch.galaxyeclipse.shared.common.IGeCommand;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.GePacket;
+import arch.galaxyeclipse.shared.thread.GeInterruptableQueueDispatcher;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
@@ -18,12 +18,12 @@ import java.util.concurrent.ConcurrentLinkedQueue;
  */
 @Slf4j
 public abstract class GeProtobufChannelHandler extends SimpleChannelHandler
-		implements IGeChannelHandler {
+        implements IGeChannelHandler {
 
-	private ConcurrentLinkedQueue<GePacket> incomingGePackets;
-	private GeInterruptableQueueDispatcher<GePacket> incomingGePacketDispatcher;
-	private ConcurrentLinkedQueue<GePacket> outgoingGePackets;
-	private GeInterruptableQueueDispatcher<GePacket> outgoingGePacketDispatcher;
+    private ConcurrentLinkedQueue<GePacket> incomingGePackets;
+    private GeInterruptableQueueDispatcher<GePacket> incomingGePacketDispatcher;
+    private ConcurrentLinkedQueue<GePacket> outgoingGePackets;
+    private GeInterruptableQueueDispatcher<GePacket> outgoingGePacketDispatcher;
     private IGeCommand<GePacket> outgoingGePacketDispatcherCommand;
     private volatile IGePacketSender GePacketSender;
 
@@ -44,9 +44,9 @@ public abstract class GeProtobufChannelHandler extends SimpleChannelHandler
         outgoingGePackets = new ConcurrentLinkedQueue<>();
         incomingGePackets = new ConcurrentLinkedQueue<>();
 
-		// Drop GePackets because of no connection
-		GePacketSender = new GeStubPacketSender();
-	}
+        // Drop GePackets because of no connection
+        GePacketSender = new GeStubPacketSender();
+    }
 
     protected abstract IGeCommand<GePacket> getIncomingPacketDispatcherCommand();
 
@@ -64,7 +64,7 @@ public abstract class GeProtobufChannelHandler extends SimpleChannelHandler
     }
 
     @Override
-	public void disconnect(final IGeCallback<Boolean> callback) {
+    public void disconnect(final IGeCallback<Boolean> callback) {
         if (isConnected()) {
             channel.disconnect().addListener(new ChannelFutureListener() {
                 @Override
@@ -72,55 +72,55 @@ public abstract class GeProtobufChannelHandler extends SimpleChannelHandler
                     future.getChannel().close();
                     callback.onOperationComplete(future.isSuccess());
                 }
-		    });
+            });
         }
-	}
+    }
 
-	@Override
-	public boolean isConnected() {
-		return channel != null && channel.isConnected();
-	}
+    @Override
+    public boolean isConnected() {
+        return channel != null && channel.isConnected();
+    }
 
-	@Override
-	public void channelConnected(ChannelHandlerContext ctx, ChannelStateEvent e)
-		    throws Exception {
-		channel = e.getChannel();
+    @Override
+    public void channelConnected(ChannelHandlerContext ctx, ChannelStateEvent e)
+            throws Exception {
+        channel = e.getChannel();
         GePacketSender = new GeChannelPacketSender(channel);
         prepareGePacketDispatchers();
-	}
+    }
 
-	@Override
-	public void channelDisconnected(ChannelHandlerContext ctx,
-		    ChannelStateEvent e) throws Exception {
-		GePacketSender = new GeStubPacketSender();
+    @Override
+    public void channelDisconnected(ChannelHandlerContext ctx,
+            ChannelStateEvent e) throws Exception {
+        GePacketSender = new GeStubPacketSender();
         outgoingGePacketDispatcher.interrupt();
-		incomingGePacketDispatcher.interrupt();
-	}
+        incomingGePacketDispatcher.interrupt();
+    }
 
-	@Override
-	public void messageReceived(ChannelHandlerContext ctx, MessageEvent e)
-			throws Exception {
-		// Get the GePacket and put to the received GePackets queue
-		GePacket GePacket = (GePacket)e.getMessage();
+    @Override
+    public void messageReceived(ChannelHandlerContext ctx, MessageEvent e)
+            throws Exception {
+        // Get the GePacket and put to the received GePackets queue
+        GePacket GePacket = (GePacket) e.getMessage();
         if (GeProtobufChannelHandler.log.isTraceEnabled()) {
             GeProtobufChannelHandler.log.trace(GeLogUtils.getObjectInfo(this) + " put GePacket "
-			    	+ GePacket.getType() + " to the incoming queue");
+                    + GePacket.getType() + " to the incoming queue");
         }
-		incomingGePackets.add(GePacket);
-	}
+        incomingGePackets.add(GePacket);
+    }
 
-	@Override
-	public void exceptionCaught(ChannelHandlerContext ctx, ExceptionEvent e)
-			throws Exception {
-		GeProtobufChannelHandler.log.error("Network error", e.getCause());
-	}
+    @Override
+    public void exceptionCaught(ChannelHandlerContext ctx, ExceptionEvent e)
+            throws Exception {
+        GeProtobufChannelHandler.log.error("Network error", e.getCause());
+    }
 
-	@Override
-	public void sendPacket(GePacket GePacket) {
+    @Override
+    public void sendPacket(GePacket GePacket) {
         if (GeProtobufChannelHandler.log.isTraceEnabled()) {
             GeProtobufChannelHandler.log.trace(GeLogUtils.getObjectInfo(this) + " put GePacket "
-				    + GePacket.getType() + " to the outgoing queue");
+                    + GePacket.getType() + " to the outgoing queue");
         }
-		outgoingGePackets.add(GePacket);
-	}
+        outgoingGePackets.add(GePacket);
+    }
 }

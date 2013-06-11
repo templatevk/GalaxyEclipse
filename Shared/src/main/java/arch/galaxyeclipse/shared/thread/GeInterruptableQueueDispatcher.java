@@ -11,48 +11,49 @@ import java.util.AbstractQueue;
  */
 @Slf4j
 public class GeInterruptableQueueDispatcher<T> extends GeAbstractRunnable implements GeRunnable {
-	private AbstractQueue<T> queue;
-	private IGeCommand<T> command;
-	private boolean yieldOnQueueEmpty;
-	
-	public GeInterruptableQueueDispatcher(AbstractQueue<T> queue) {
-		this(queue, new GeStubCommand<T>(), false);
-	}
-	
-	public GeInterruptableQueueDispatcher(AbstractQueue<T> queue, IGeCommand<T> command) {
-		this(queue, command, false);
-	}
-	
-	public GeInterruptableQueueDispatcher(AbstractQueue<T> queue,
+
+    private AbstractQueue<T> queue;
+    private IGeCommand<T> command;
+    private boolean yieldOnQueueEmpty;
+
+    public GeInterruptableQueueDispatcher(AbstractQueue<T> queue) {
+        this(queue, new GeStubCommand<T>(), false);
+    }
+
+    public GeInterruptableQueueDispatcher(AbstractQueue<T> queue, IGeCommand<T> command) {
+        this(queue, command, false);
+    }
+
+    public GeInterruptableQueueDispatcher(AbstractQueue<T> queue,
             IGeCommand<T> command, boolean yieldOnQueueEmpty) {
-		this.queue = queue;
-		this.command = command;
-		this.yieldOnQueueEmpty = yieldOnQueueEmpty;
-	}
-	
-	@Override
-	public void run() {
+        this.queue = queue;
+        this.command = command;
+        this.yieldOnQueueEmpty = yieldOnQueueEmpty;
+    }
+
+    @Override
+    public void run() {
         if (GeInterruptableQueueDispatcher.log.isTraceEnabled()) {
-		    GeInterruptableQueueDispatcher.log.trace("Starting " + this);
+            GeInterruptableQueueDispatcher.log.trace("Starting " + this);
         }
 
-		try {
-			T item;
-			while (!Thread.interrupted()) {
-				while (!queue.isEmpty()) {
-					item = queue.poll();
-					command.perform(item);
-				}
-				if (yieldOnQueueEmpty) {
-					Thread.yield();
-				}
-			}
-		} catch (Exception e) {
-			GeInterruptableQueueDispatcher.log.error("Error on dispatcher thread", e);
-		}
-	}
+        try {
+            T item;
+            while (!Thread.interrupted()) {
+                while (!queue.isEmpty()) {
+                    item = queue.poll();
+                    command.perform(item);
+                }
+                if (yieldOnQueueEmpty) {
+                    Thread.yield();
+                }
+            }
+        } catch (Exception e) {
+            GeInterruptableQueueDispatcher.log.error("Error on dispatcher thread", e);
+        }
+    }
 
-	public void setCommand(IGeCommand<T> command) {
-		this.command = command;
-	}
+    public void setCommand(IGeCommand<T> command) {
+        this.command = command;
+    }
 }

@@ -7,10 +7,10 @@ delimiter //
 create procedure activate_player(player_id integer)
   begin
 
-    declare ship_type_id       int;
+    declare ship_type_id int;
     declare location_object_id int;
-    declare ship_config_id     int;
-    declare ship_state_id      int;
+    declare ship_config_id int;
+    declare ship_state_id int;
 
     set ship_type_id = (select get_ship_type_id_by_name(get_default_ship_type_name()));
 

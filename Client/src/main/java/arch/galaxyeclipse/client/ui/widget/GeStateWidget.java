@@ -2,7 +2,7 @@ package arch.galaxyeclipse.client.ui.widget;
 
 import arch.galaxyeclipse.client.data.GeShipStateInfoHolder;
 import arch.galaxyeclipse.client.data.GeShipStaticInfoHolder;
-import arch.galaxyeclipse.client.data.IGeResourceLoader;
+import arch.galaxyeclipse.client.resource.IGeResourceLoader;
 import arch.galaxyeclipse.shared.context.GeContextHolder;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -103,8 +103,8 @@ public class GeStateWidget extends Table {
         hpLineImage.setY((float) HP_LINE_PADDING_BOTTOM * scaleY);
 
         hpLabelTable.setScale(scaleX, scaleY);
-        hpLabelTable.setX((((float)HP_LABEL_CENTER_PADDING_LEFT) * scaleX) - (hpLabelTable.getWidth() * scaleX / 2f));
-        hpLabelTable.setY(((float)HP_LABEL_PADDING_BOTTOM) * scaleY);
+        hpLabelTable.setX((((float) HP_LABEL_CENTER_PADDING_LEFT) * scaleX) - (hpLabelTable.getWidth() * scaleX / 2f));
+        hpLabelTable.setY(((float) HP_LABEL_PADDING_BOTTOM) * scaleY);
 
         energyScrollPane.setScale(scaleX, scaleY);
         energyScrollPane.setWidth(energyInnerImage.getWidth());
@@ -117,8 +117,8 @@ public class GeStateWidget extends Table {
         energyLineImage.setY((float) ENERGY_LINE_PADDING_BOTTOM * scaleY);
 
         energyLabelTable.setScale(scaleX, scaleY);
-        energyLabelTable.setX((((float)ENERGY_LABEL_CENTER_PADDING_LEFT) * scaleX) - (energyLabelTable.getWidth() * scaleX / 2f));
-        energyLabelTable.setY(((float)ENERGY_LABEL_PADDING_BOTTOM) * scaleY);
+        energyLabelTable.setX((((float) ENERGY_LABEL_CENTER_PADDING_LEFT) * scaleX) - (energyLabelTable.getWidth() * scaleX / 2f));
+        energyLabelTable.setY(((float) ENERGY_LABEL_PADDING_BOTTOM) * scaleY);
 
         super.setSize(width, height);
     }

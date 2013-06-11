@@ -8,6 +8,7 @@ import javax.persistence.*;
 @Table(name = "ship_config_weapon_slot", schema = "", catalog = "ge")
 @Entity
 public class GeShipConfigWeaponSlot {
+
     private int shipConfigWeaponSlotId;
 
     @Column(name = "ship_config_weapon_slot_id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)

@@ -10,18 +10,19 @@ import org.jboss.netty.channel.Channel;
  */
 @Slf4j
 public class GeChannelPacketSender implements IGePacketSender {
-	private Channel channel;
 
-	public GeChannelPacketSender(Channel channel) {
-		super();
+    private Channel channel;
+
+    public GeChannelPacketSender(Channel channel) {
+        super();
         this.channel = channel;
-	}
-	
-	@Override
-	public void send(GePacket packet) {
+    }
+
+    @Override
+    public void send(GePacket packet) {
         if (GeChannelPacketSender.log.isDebugEnabled()) {
-		    GeChannelPacketSender.log.debug(GeLogUtils.getObjectInfo(this) + " "  + packet.getType());
+            GeChannelPacketSender.log.debug(GeLogUtils.getObjectInfo(this) + " " + packet.getType());
         }
-		channel.write(packet);
-	}
+        channel.write(packet);
+    }
 }

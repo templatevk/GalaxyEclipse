@@ -14,13 +14,13 @@ import org.jboss.netty.channel.ChannelStateEvent;
 
 @Slf4j
 class GeServerChannelHandler extends GeProtobufChannelHandler
-		implements IGeServerChannelHandler {
+        implements IGeServerChannelHandler {
 
     private GePacketHandlerFactory packetHandlerFactory;
     private GePlayerInfoHolder playerInfoHolder;
 
     private IGeMonitoringNetworkManager monitoringNetworkManager;
-	private IGeStatefulPacketHandler statefulPacketHandler;
+    private IGeStatefulPacketHandler statefulPacketHandler;
     private IGeCommand<GePacket> incomingPacketDispatcherCommand;
 
     public GeServerChannelHandler() {
@@ -36,7 +36,7 @@ class GeServerChannelHandler extends GeProtobufChannelHandler
                 statefulPacketHandler.handle(packet);
             }
         };
-	}
+    }
 
     @Override
     protected IGeCommand<GePacket> getIncomingPacketDispatcherCommand() {
@@ -44,8 +44,8 @@ class GeServerChannelHandler extends GeProtobufChannelHandler
     }
 
     @Override
-	public void channelConnected(ChannelHandlerContext ctx, ChannelStateEvent e)
-			throws Exception {
+    public void channelConnected(ChannelHandlerContext ctx, ChannelStateEvent e)
+            throws Exception {
         super.channelConnected(ctx, e);
         if (GeServerChannelHandler.log.isDebugEnabled()) {
             GeServerChannelHandler.log.debug("Server channel connected " + e.getChannel().hashCode());
@@ -53,12 +53,12 @@ class GeServerChannelHandler extends GeProtobufChannelHandler
 
         monitoringNetworkManager.registerServerChannelHandler(this);
 
-		statefulPacketHandler = GePacketHandlerFactory.createStatefulPacketHandler(this);
-	}
+        statefulPacketHandler = GePacketHandlerFactory.createStatefulPacketHandler(this);
+    }
 
     @Override
-	public void channelDisconnected(ChannelHandlerContext ctx,
-			ChannelStateEvent e) throws Exception {
+    public void channelDisconnected(ChannelHandlerContext ctx,
+            ChannelStateEvent e) throws Exception {
         super.channelDisconnected(ctx, e);
         if (GeServerChannelHandler.log.isDebugEnabled()) {
             GeServerChannelHandler.log.debug("Server channel disconnected");
@@ -67,11 +67,11 @@ class GeServerChannelHandler extends GeProtobufChannelHandler
         monitoringNetworkManager.unregisterServerChannelHandler(this);
 
         statefulPacketHandler.onChannelClosed();
-	}
-	
-	@Override
-	public void setStatefulPacketHandler(IGeStatefulPacketHandler statefulPacketHandler) {
-		this.statefulPacketHandler = statefulPacketHandler;
+    }
+
+    @Override
+    public void setStatefulPacketHandler(IGeStatefulPacketHandler statefulPacketHandler) {
+        this.statefulPacketHandler = statefulPacketHandler;
 
         if (GeServerChannelHandler.log.isDebugEnabled()) {
             GeServerChannelHandler.log.debug("Client packet handler changed to "

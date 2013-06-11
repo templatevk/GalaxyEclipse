@@ -27,6 +27,7 @@ import java.util.Map;
  */
 @Slf4j
 public class GeMainMenuPresenter extends GeServerPacketListener implements IGeStageProvider {
+
     private IGeClientNetworkManager networkManager;
     private IGeClientWindow clientWindow;
 
@@ -34,7 +35,8 @@ public class GeMainMenuPresenter extends GeServerPacketListener implements IGeSt
     private GeShipStaticInfoHolder shipStaticInfoHolder;
     private GeLocationInfoHolder locationInfoHolder;
 
-    private @Getter
+    private
+    @Getter
     IGeButtonClickCommand connectButtonCommand;
 
     public GeMainMenuPresenter() {

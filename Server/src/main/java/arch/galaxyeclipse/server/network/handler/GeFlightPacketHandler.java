@@ -17,8 +17,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.hibernate.Session;
 
 /**
-* Handles packets of authenticated players.
-*/
+ * Handles packets of authenticated players.
+ */
 @Slf4j
 class GeFlightPacketHandler implements IGeChannelAwarePacketHandler {
 
@@ -46,10 +46,10 @@ class GeFlightPacketHandler implements IGeChannelAwarePacketHandler {
         energyRegenHandler.start();
     }
 
-	@Override
-	public boolean handle(GePacket packet) {
+    @Override
+    public boolean handle(GePacket packet) {
         return false;
-	}
+    }
 
     @Override
     public void onChannelClosed() {

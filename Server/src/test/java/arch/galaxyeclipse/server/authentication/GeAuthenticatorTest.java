@@ -10,6 +10,7 @@ import org.testng.annotations.Test;
  *
  */
 public class GeAuthenticatorTest extends GeAbstractTestNGServerTest {
+
     private IGeClientAuthenticator authenticator;
 
     @BeforeClass

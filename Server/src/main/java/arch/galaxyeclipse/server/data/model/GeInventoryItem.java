@@ -8,6 +8,7 @@ import javax.persistence.*;
 @Table(name = "inventory_item", schema = "", catalog = "ge")
 @Entity
 public class GeInventoryItem {
+
     private int inventoryItemId;
 
     @Column(name = "inventory_item_id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)

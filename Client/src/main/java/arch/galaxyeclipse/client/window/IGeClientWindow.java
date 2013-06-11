@@ -16,8 +16,12 @@ public interface IGeClientWindow {
     void addDestroyable(IGeDisposable destroyable);
 
     float getHeight();
-    float getWidth() ;
+
+    float getWidth();
+
     float getViewportHeight();
-    float getViewportWidth() ;
+
+    float getViewportWidth();
+
     float getStateTime();
 }

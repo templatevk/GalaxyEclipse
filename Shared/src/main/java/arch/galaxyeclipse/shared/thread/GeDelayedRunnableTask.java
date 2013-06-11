@@ -5,32 +5,35 @@ import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * Represents a thread that will execute submitted runnable after the submitted 
+ * Represents a thread that will execute submitted runnable after the submitted
  * milliseconds delay.
  */
 @Slf4j
 public class GeDelayedRunnableTask extends GeAbstractRunnable implements GeRunnable {
-	private long millisecondsDelay;
+
+    private long millisecondsDelay;
     private boolean repeat;
     private boolean sleepAfter;
 
-    private @Setter Runnable runnable;
+    private
+    @Setter
+    Runnable runnable;
 
     public GeDelayedRunnableTask(long millisecondsDelay, Runnable runnable) {
         this(millisecondsDelay, runnable, false, false);
     }
 
-	public GeDelayedRunnableTask(long millisecondsDelay, Runnable runnable,
+    public GeDelayedRunnableTask(long millisecondsDelay, Runnable runnable,
             boolean repeat, boolean sleepAfter) {
         this.millisecondsDelay = millisecondsDelay;
-		this.runnable = runnable;
+        this.runnable = runnable;
         this.repeat = repeat;
         this.sleepAfter = sleepAfter;
     }
-	
-	@Override
-	public void run() {
-		try {
+
+    @Override
+    public void run() {
+        try {
             if (sleepAfter) {
                 do {
                     runnable.run();
@@ -42,10 +45,10 @@ public class GeDelayedRunnableTask extends GeAbstractRunnable implements GeRunna
                     runnable.run();
                 } while (repeat && !Thread.interrupted());
             }
-		} catch (InterruptedException e) {
+        } catch (InterruptedException e) {
 
-		} catch (Exception e) {
+        } catch (Exception e) {
             GeDelayedRunnableTask.log.error(GeLogUtils.getObjectInfo(this) + " error", e);
         }
-	}
+    }
 }

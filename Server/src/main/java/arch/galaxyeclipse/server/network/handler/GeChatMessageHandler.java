@@ -9,6 +9,7 @@ import arch.galaxyeclipse.shared.protocol.GeProtocol.GePacket;
  *
  */
 class GeChatMessageHandler extends GePacketHandlerDecorator {
+
     private IGeServerNetworkManager networkManager;
 
     GeChatMessageHandler(IGeChannelAwarePacketHandler decoratedPacketHandler) {

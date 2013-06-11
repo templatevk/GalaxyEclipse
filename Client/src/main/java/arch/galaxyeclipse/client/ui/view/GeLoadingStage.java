@@ -1,6 +1,6 @@
 package arch.galaxyeclipse.client.ui.view;
 
-import arch.galaxyeclipse.client.data.IGeResourceLoader;
+import arch.galaxyeclipse.client.resource.IGeResourceLoader;
 import arch.galaxyeclipse.shared.context.GeContextHolder;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
@@ -9,6 +9,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
  *
  */
 public class GeLoadingStage extends GeAbstractGameStage {
+
     private Table rootTable;
     private Table innerTable;
 

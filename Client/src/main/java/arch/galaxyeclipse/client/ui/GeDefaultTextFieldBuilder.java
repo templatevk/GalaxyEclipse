@@ -1,7 +1,7 @@
 package arch.galaxyeclipse.client.ui;
 
 
-import arch.galaxyeclipse.client.data.IGeResourceLoader;
+import arch.galaxyeclipse.client.resource.IGeResourceLoader;
 import arch.galaxyeclipse.shared.context.GeContextHolder;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -12,6 +12,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
  *
  */
 class GeDefaultTextFieldBuilder implements IGeTextFieldBuilder {
+
     private static final int TEXT_PADDING_X = 45;
     private static final int TEXT_PADDING_Y = -5;
 

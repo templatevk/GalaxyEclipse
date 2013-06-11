@@ -23,6 +23,7 @@ import java.util.List;
  */
 @Slf4j
 public class GeFlightModeController implements IGeStageProvider {
+
     private GeLocationInfoHolder locationInfoHolder;
     private GeShipStateInfoHolder shipStateInfoHolder;
     private GeDynamicObjectsRequestSender dynamicObjectsRequestSender;

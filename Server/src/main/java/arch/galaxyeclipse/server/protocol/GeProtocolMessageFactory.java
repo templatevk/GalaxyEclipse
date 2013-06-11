@@ -20,6 +20,7 @@ import java.util.List;
  * Convenience class to build protobuf messages
  */
 public class GeProtocolMessageFactory {
+
     private GeDictionaryTypesMapper dictionaryTypesMapper;
 
     // Helper functions' builders

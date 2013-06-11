@@ -6,6 +6,7 @@ import arch.galaxyeclipse.server.network.IGeServerChannelHandler;
  *
  */
 public class GePacketHandlerFactory {
+
     public GePacketHandlerFactory() {
 
     }
@@ -21,9 +22,9 @@ public class GePacketHandlerFactory {
             case FLIGHT:
                 return new GeDynamicObjectsRequestHandler(
                         new GeShipStateRequestHandler(
-                        new GeClientActionHandler(
-                        new GeChatMessageHandler(
-                        new GeFlightPacketHandler(serverChannelHandler)))));
+                                new GeClientActionHandler(
+                                        new GeChatMessageHandler(
+                                                new GeFlightPacketHandler(serverChannelHandler)))));
         }
         return null;
     }

@@ -15,6 +15,7 @@ import java.util.List;
  */
 @Slf4j
 public class GeStageUiFactory {
+
     private GeStageUiFactory() {
     }
 
@@ -53,12 +54,12 @@ public class GeStageUiFactory {
         });
     }
 
-    private static void addEnterListener(final Actor actor, final Button defaultButton){
+    private static void addEnterListener(final Actor actor, final Button defaultButton) {
         actor.addListener(new InputListener() {
             @Override
             public boolean keyTyped(InputEvent event, char character) {
                 if (event.getKeyCode() == Input.Keys.ENTER) {
-                    defaultButton.getClickCommand().execute(null,0,0);
+                    defaultButton.getClickCommand().execute(null, 0, 0);
                 }
                 return super.keyTyped(event, character);
             }

@@ -14,6 +14,7 @@ import org.hibernate.Transaction;
  */
 @Slf4j
 public abstract class GeHibernateUnitOfWork<T> {
+
     @Setter(AccessLevel.PROTECTED)
     private T result;
 
@@ -47,6 +48,7 @@ public abstract class GeHibernateUnitOfWork<T> {
     }
 
     private static class SessionFactoryHolder {
+
         private static SessionFactory sessionFactory =
                 GeContextHolder.getBean(SessionFactory.class);
     }

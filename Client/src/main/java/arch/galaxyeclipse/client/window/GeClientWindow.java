@@ -1,11 +1,12 @@
 package arch.galaxyeclipse.client.window;
 
-import arch.galaxyeclipse.client.ui.provider.IStageProvider;
-import arch.galaxyeclipse.client.ui.provider.StageProviderFactory;
-import arch.galaxyeclipse.shared.EnvType;
-import arch.galaxyeclipse.shared.common.IDestroyable;
+import arch.galaxyeclipse.client.ui.provider.GeStageProviderFactory;
+import arch.galaxyeclipse.client.ui.provider.GeStageProviderType;
+import arch.galaxyeclipse.client.ui.provider.IGeStageProvider;
+import arch.galaxyeclipse.shared.GeEnvType;
+import arch.galaxyeclipse.shared.common.IGeDisposable;
 import arch.galaxyeclipse.shared.thread.GeExecutor;
-import arch.galaxyeclipse.shared.thread.TaskRunnablePair;
+import arch.galaxyeclipse.shared.thread.GeTaskRunnablePair;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Graphics.DisplayMode;
@@ -27,27 +28,40 @@ import static com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration.getD
 
 @Slf4j
 class GeClientWindow implements IGeClientWindow {
+
     public static final int RENDER_REQUEST_MILLISECONDS_DELAY = 50;
 
-    private static final float VIRTUAL_WIDTH    = 4;
-    private static final float VIRTUAL_HEIGHT   = 3;
-    private static final float ASPECT_RATIO     = VIRTUAL_WIDTH / VIRTUAL_HEIGHT;
+    private static final float VIRTUAL_WIDTH = 4;
+    private static final float VIRTUAL_HEIGHT = 3;
+    private static final float ASPECT_RATIO = VIRTUAL_WIDTH / VIRTUAL_HEIGHT;
 
     private GeTaskRunnablePair<RenderRequestRunnable> renderRequestTaskRunnablePair;
     private IGeStageProvider stageProvider;
     private List<IGeDisposable> disposables;
 
-    private @Getter Rectangle viewport;
-    private @Getter float width;
-    private @Getter float height;
-    private @Getter float viewportWidth;
-    private @Getter float viewportHeight;
-    private @Getter float stateTime;
+    private
+    @Getter
+    Rectangle viewport;
+    private
+    @Getter
+    float width;
+    private
+    @Getter
+    float height;
+    private
+    @Getter
+    float viewportWidth;
+    private
+    @Getter
+    float viewportHeight;
+    private
+    @Getter
+    float stateTime;
 
     public GeClientWindow() {
         disposables = new ArrayList<>();
 
-		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
+        LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
         DisplayMode desktopDisplayMode = getDesktopDisplayMode();
 
         if (GeClientWindow.log.isInfoEnabled()) {
@@ -58,7 +72,7 @@ class GeClientWindow implements IGeClientWindow {
         switch (GeEnvType.CURRENT) {
             case DEV:
                 final int DEV_MODE_WIDTH = 800;
-                final int DEV_MODE_HEIGHT = (int)(DEV_MODE_WIDTH / ASPECT_RATIO);
+                final int DEV_MODE_HEIGHT = (int) (DEV_MODE_WIDTH / ASPECT_RATIO);
                 config.width = DEV_MODE_WIDTH;
                 config.height = DEV_MODE_HEIGHT;
                 break;
@@ -87,6 +101,7 @@ class GeClientWindow implements IGeClientWindow {
     }
 
     private class ClientListener implements ApplicationListener {
+
         @Override
         public void create() {
             Gdx.gl.glDepthFunc(GL20.GL_LEQUAL);
@@ -94,13 +109,13 @@ class GeClientWindow implements IGeClientWindow {
             Gdx.gl.glEnable(GL10.GL_LINE_SMOOTH);
             Gdx.gl.glEnable(GL10.GL_POINT_SMOOTH);
 
-            Gdx.gl.glHint(GL20.GL_GENERATE_MIPMAP_HINT,         GL20.GL_NICEST);
-            Gdx.gl.glHint(GL10.GL_GENERATE_MIPMAP,              GL20.GL_NICEST);
-            Gdx.gl.glHint(GL10.GL_LINE_SMOOTH_HINT,             GL20.GL_NICEST);
-            Gdx.gl.glHint(GL10.GL_PERSPECTIVE_CORRECTION_HINT,  GL20.GL_NICEST);
-            Gdx.gl.glHint(GL10.GL_POINT_SMOOTH_HINT,            GL20.GL_NICEST);
-            Gdx.gl.glHint(GL10.GL_POLYGON_SMOOTH_HINT,          GL20.GL_NICEST);
-            Gdx.gl.glHint(GL20.GL_FRAGMENT_SHADER,              GL20.GL_NICEST);
+            Gdx.gl.glHint(GL20.GL_GENERATE_MIPMAP_HINT, GL20.GL_NICEST);
+            Gdx.gl.glHint(GL10.GL_GENERATE_MIPMAP, GL20.GL_NICEST);
+            Gdx.gl.glHint(GL10.GL_LINE_SMOOTH_HINT, GL20.GL_NICEST);
+            Gdx.gl.glHint(GL10.GL_PERSPECTIVE_CORRECTION_HINT, GL20.GL_NICEST);
+            Gdx.gl.glHint(GL10.GL_POINT_SMOOTH_HINT, GL20.GL_NICEST);
+            Gdx.gl.glHint(GL10.GL_POLYGON_SMOOTH_HINT, GL20.GL_NICEST);
+            Gdx.gl.glHint(GL20.GL_FRAGMENT_SHADER, GL20.GL_NICEST);
             Gdx.graphics.setContinuousRendering(false);
             glClear();
 
@@ -109,7 +124,7 @@ class GeClientWindow implements IGeClientWindow {
             }
 
             setStageProvider(GeStageProviderFactory.createStageProvider(
-                    StageProviderType.MAIN_MENU));
+                    GeStageProviderType.MAIN_MENU));
 
             renderRequestTaskRunnablePair = new GeTaskRunnablePair<>(
                     RENDER_REQUEST_MILLISECONDS_DELAY, new RenderRequestRunnable(),
@@ -153,14 +168,14 @@ class GeClientWindow implements IGeClientWindow {
             GeClientWindow.this.width = width;
             GeClientWindow.this.height = height;
 
-            float aspectRatio = (float)width / (float)height;
+            float aspectRatio = (float) width / (float) height;
             float scale;
             Vector2 crop = new Vector2(0f, 0f);
 
             if (aspectRatio > ASPECT_RATIO) {
                 scale = height / VIRTUAL_HEIGHT;
                 crop.x = (width - VIRTUAL_WIDTH * scale) / 2f;
-            } else if(aspectRatio < ASPECT_RATIO) {
+            } else if (aspectRatio < ASPECT_RATIO) {
                 scale = width / VIRTUAL_WIDTH;
                 crop.y = (height - VIRTUAL_HEIGHT * scale) / 2f;
             } else {
@@ -190,6 +205,7 @@ class GeClientWindow implements IGeClientWindow {
     }
 
     private class RenderRequestRunnable implements Runnable {
+
         @Override
         public void run() {
             Gdx.graphics.requestRendering();

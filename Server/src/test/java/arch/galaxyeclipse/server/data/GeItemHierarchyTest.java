@@ -9,12 +9,13 @@ import org.testng.annotations.Test;
  *
  */
 public class GeItemHierarchyTest extends GeAbstractTestNGServerTest {
+
     @Test(groups = "fast")
     public void criteriaTest() {
         new GeHibernateUnitOfWork() {
             @Override
             protected void doWork(Session session) {
-                GeWeapon weapon = (GeWeapon)session.get(GeWeapon.class, 1);
+                GeWeapon weapon = (GeWeapon) session.get(GeWeapon.class, 1);
 
             }
         }.execute();

@@ -29,28 +29,29 @@ import java.util.List;
  */
 @Slf4j
 class GeUnauthenticatedPacketHandler extends GeStatefulPacketHandler {
+
     private GeDictionaryTypesMapper dictionaryTypesMapper;
     private IGeServerChannelHandler serverChannelHandler;
-	private IGeClientAuthenticator authenticator;
+    private IGeClientAuthenticator authenticator;
     private GeProtocolMessageFactory messageFactory;
 
     public GeUnauthenticatedPacketHandler(IGeServerChannelHandler serverChannelHandler) {
-		this.serverChannelHandler = serverChannelHandler;
+        this.serverChannelHandler = serverChannelHandler;
 
         dictionaryTypesMapper = GeContextHolder.getBean(GeDictionaryTypesMapper.class);
-		authenticator = GeContextHolder.getBean(IGeClientAuthenticator.class);
+        authenticator = GeContextHolder.getBean(IGeClientAuthenticator.class);
         messageFactory = GeContextHolder.getBean(GeProtocolMessageFactory.class);
-	}
+    }
 
-	@Override
-	public boolean handle(GePacket packet) {
+    @Override
+    public boolean handle(GePacket packet) {
         switch (packet.getType()) {
             case AUTH_REQUEST:
                 processAuthRequest(packet.getAuthRequest());
                 return true;
         }
         return false;
-	}
+    }
 
     private void processAuthRequest(GeAuthRequest authRequest) {
         GeAuthenticationResult authenticationResult = authenticator.authenticate(
@@ -118,7 +119,7 @@ class GeUnauthenticatedPacketHandler extends GeStatefulPacketHandler {
             protected void doWork(Session session) {
                 StartupInfoData startupInfoData = new StartupInfoData();
 
-                GePlayer player = (GePlayer)session.getNamedQuery("player.startupInfo")
+                GePlayer player = (GePlayer) session.getNamedQuery("player.startupInfo")
                         .setParameter("playerId", playerId).uniqueResult();
                 startupInfoData.setPlayer(player);
 
@@ -172,6 +173,7 @@ class GeUnauthenticatedPacketHandler extends GeStatefulPacketHandler {
 
     @Data
     private static class StartupInfoData {
+
         private GePlayer player;
         private List<GeLocationObject> locationCachedObjects;
         private GeLocation location;

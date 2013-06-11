@@ -10,6 +10,7 @@ import arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse;
  *
  */
 public class GeShipStateRequestSender extends GeRepeatablePacketSender {
+
     private GeShipStateInfoHolder shipStateInfoHolder;
 
     public GeShipStateRequestSender() {

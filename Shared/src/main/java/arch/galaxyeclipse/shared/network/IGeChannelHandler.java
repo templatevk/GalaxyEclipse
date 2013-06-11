@@ -7,8 +7,8 @@ import org.jboss.netty.channel.ChannelHandler;
 public interface IGeChannelHandler extends ChannelHandler {
 
     void sendPacket(GePacket packet);
-	
-	void disconnect(IGeCallback<Boolean> callback);
-	
-	boolean isConnected();
+
+    void disconnect(IGeCallback<Boolean> callback);
+
+    boolean isConnected();
 }

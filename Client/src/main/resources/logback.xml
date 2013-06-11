@@ -2,20 +2,20 @@
 <configuration>
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%d{HH:mm:ss.SSS} %-5level %-40logger{0}  %msg%n</pattern>
+            <pattern>%d{HH:mm:ss.SSS} %-5level %-40logger{0} %msg%n</pattern>
         </encoder>
     </appender>
 
     <root level="DEBUG">
-        <appender-ref ref="STDOUT" />
+        <appender-ref ref="STDOUT"/>
     </root>
 
-    <logger name="arch.galaxyeclipse.shared.network"    level="${log.shared.network}"/>
+    <logger name="arch.galaxyeclipse.shared.network" level="${log.shared.network}"/>
 
-    <logger name="arch.galaxyeclipse.client.network"    level="${log.client.network}"/>
-    <logger name="arch.galaxyeclipse.client.data"       level="${log.client.data}"/>
-    <logger name="arch.galaxyeclipse.client.ui"         level="${log.client.ui}"/>
-    <logger name="arch.galaxyeclipse.client.ui.view"    level="${log.client.ui.view}"/>
+    <logger name="arch.galaxyeclipse.client.network" level="${log.client.network}"/>
+    <logger name="arch.galaxyeclipse.client.data" level="${log.client.data}"/>
+    <logger name="arch.galaxyeclipse.client.ui" level="${log.client.ui}"/>
+    <logger name="arch.galaxyeclipse.client.ui.view" level="${log.client.ui.view}"/>
 
     <logger name="org.springframework" level="INFO"/>
 </configuration>

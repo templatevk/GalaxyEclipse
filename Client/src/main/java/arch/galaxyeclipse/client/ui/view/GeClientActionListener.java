@@ -18,7 +18,9 @@ import static arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket
 @Slf4j
 class GeClientActionListener extends InputListener {
 
-    private @Setter boolean enabled = true;
+    private
+    @Setter
+    boolean enabled = true;
 
     private IGeClientNetworkManager networkManager;
 

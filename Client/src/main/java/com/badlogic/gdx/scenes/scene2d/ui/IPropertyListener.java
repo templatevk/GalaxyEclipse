@@ -8,5 +8,6 @@ package com.badlogic.gdx.scenes.scene2d.ui;
  * To change this template use File | Settings | File Templates.
  */
 public interface IPropertyListener<T> {
+
     void onPropertyChanged(T newValue);
 }

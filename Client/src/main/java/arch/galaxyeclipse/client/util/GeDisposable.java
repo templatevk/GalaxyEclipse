@@ -9,6 +9,7 @@ import static arch.galaxyeclipse.shared.context.GeContextHolder.getBean;
  *
  */
 public abstract class GeDisposable implements IGeDisposable {
+
     public GeDisposable() {
         getBean(IGeClientWindow.class).addDestroyable(this);
     }

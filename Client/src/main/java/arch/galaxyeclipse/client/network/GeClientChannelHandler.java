@@ -10,7 +10,8 @@ import org.jboss.netty.channel.ChannelStateEvent;
 
 @Slf4j
 class GeClientChannelHandler extends GeProtobufChannelHandler
-		implements IGeChannelHandler {
+        implements IGeChannelHandler {
+
     private IGeCommand<GePacket> incomingPacketDispatcherCommand;
 
     public GeClientChannelHandler(IGeCommand<GePacket> incomingPacketDispatcherCommand) {
@@ -23,18 +24,18 @@ class GeClientChannelHandler extends GeProtobufChannelHandler
     }
 
     @Override
-	public void channelConnected(ChannelHandlerContext ctx, ChannelStateEvent e)
-			throws Exception {
+    public void channelConnected(ChannelHandlerContext ctx, ChannelStateEvent e)
+            throws Exception {
         super.channelConnected(ctx, e);
         if (GeClientChannelHandler.log.isInfoEnabled()) {
             GeClientChannelHandler.log.info("Client channel connected " + e.getChannel().hashCode());
         }
     }
-	
-	@Override
-	public void channelDisconnected(ChannelHandlerContext ctx,
-			ChannelStateEvent e) throws Exception {
-		super.channelDisconnected(ctx, e);
+
+    @Override
+    public void channelDisconnected(ChannelHandlerContext ctx,
+            ChannelStateEvent e) throws Exception {
+        super.channelDisconnected(ctx, e);
         if (GeClientChannelHandler.log.isInfoEnabled()) {
             GeClientChannelHandler.log.info("Client channel disconnected " + e.getChannel().hashCode());
         }

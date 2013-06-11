@@ -1,6 +1,6 @@
 package arch.galaxyeclipse.client.ui.view;
 
-import arch.galaxyeclipse.client.data.IGeResourceLoader;
+import arch.galaxyeclipse.client.resource.IGeResourceLoader;
 import arch.galaxyeclipse.client.ui.widget.GeCursorWidget;
 import arch.galaxyeclipse.client.window.IGeClientWindow;
 import arch.galaxyeclipse.shared.context.GeContextHolder;
@@ -20,10 +20,15 @@ public abstract class GeAbstractGameStage extends Stage {
     private IGeResourceLoader resourceLoader;
     private GeCursorWidget cursorWidget;
 
-    private @Getter(AccessLevel.PROTECTED)
+    private
+    @Getter(AccessLevel.PROTECTED)
     IGeClientWindow clientWindow;
-    private @Getter(AccessLevel.PROTECTED) float scaleX;
-    private @Getter(AccessLevel.PROTECTED) float scaleY;
+    private
+    @Getter(AccessLevel.PROTECTED)
+    float scaleX;
+    private
+    @Getter(AccessLevel.PROTECTED)
+    float scaleY;
 
     protected GeAbstractGameStage() {
         clientWindow = GeContextHolder.getBean(IGeClientWindow.class);

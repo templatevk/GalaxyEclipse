@@ -30,18 +30,19 @@ import java.util.concurrent.Executors;
  */
 @Slf4j
 class GeClientNetworkManager implements IGeClientNetworkManager {
+
     private static final int CONNECTION_TIMEOUT_MILLISECONDS = 300;
     private static final String HOST_PROPERTY = "host";
     private static final String PORT_PROPERTY = "port";
 
     @Getter(AccessLevel.PROTECTED)
-	private IGeChannelHandler channelHandler;
+    private IGeChannelHandler channelHandler;
     @Getter(AccessLevel.PROTECTED)
-	private ClientBootstrap bootstrap;
-	private SetMultimap<GePacket.Type, IGeServerPacketListener> listeners;
+    private ClientBootstrap bootstrap;
+    private SetMultimap<GePacket.Type, IGeServerPacketListener> listeners;
     private SocketAddress hostAddress;
-	
-	public GeClientNetworkManager() {
+
+    public GeClientNetworkManager() {
         String host = System.getProperty(HOST_PROPERTY);
         String port = System.getProperty(PORT_PROPERTY);
         Preconditions.checkNotNull(host, "Network error, host property is not set");
@@ -67,24 +68,24 @@ class GeClientNetworkManager implements IGeClientNetworkManager {
         });
 
         bootstrap = new ClientBootstrap(new NioClientSocketChannelFactory(
-				Executors.newCachedThreadPool(), Executors.newCachedThreadPool()));
-		bootstrap.setPipelineFactory(new GeProtobufChannelPipelineFactory() {
-			@Override
-			protected void configureHandlers(ChannelPipeline pipeline) {
-				pipeline.addLast("clientHanlder", channelHandler);
-			}
-		});
-		bootstrap.setOption("keepAlive", true);
-		bootstrap.setOption("tcpNoDelay", true);
-	}
-	
-	@Override
-	public void connect(final IGeCallback<Boolean> callback) {
+                Executors.newCachedThreadPool(), Executors.newCachedThreadPool()));
+        bootstrap.setPipelineFactory(new GeProtobufChannelPipelineFactory() {
+            @Override
+            protected void configureHandlers(ChannelPipeline pipeline) {
+                pipeline.addLast("clientHanlder", channelHandler);
+            }
+        });
+        bootstrap.setOption("keepAlive", true);
+        bootstrap.setOption("tcpNoDelay", true);
+    }
+
+    @Override
+    public void connect(final IGeCallback<Boolean> callback) {
         if (channelHandler.isConnected()) {
             channelHandler.disconnect(new GeStubCallback<Boolean>());
         }
 
-		bootstrap.connect(hostAddress).addListener(new ChannelFutureListener() {
+        bootstrap.connect(hostAddress).addListener(new ChannelFutureListener() {
             @Override
             public void operationComplete(final ChannelFuture future) throws Exception {
                 new GeDelayedRunnableTask(CONNECTION_TIMEOUT_MILLISECONDS, new Runnable() {
@@ -95,50 +96,50 @@ class GeClientNetworkManager implements IGeClientNetworkManager {
                 }).start();
             }
         });
-	}
-	
-	@Override
-	public void disconnect(final IGeCallback<Boolean> callback) {
-		if (channelHandler.isConnected()) {
-			channelHandler.disconnect(callback);
-		} else {
-			callback.onOperationComplete(false);
-		}
-	}
-	
-	@Override
-	public void addPacketListener(IGeServerPacketListener listener) {
+    }
+
+    @Override
+    public void disconnect(final IGeCallback<Boolean> callback) {
+        if (channelHandler.isConnected()) {
+            channelHandler.disconnect(callback);
+        } else {
+            callback.onOperationComplete(false);
+        }
+    }
+
+    @Override
+    public void addPacketListener(IGeServerPacketListener listener) {
         for (GePacket.Type packetType : listener.getPacketTypes()) {
             if (GeClientNetworkManager.log.isInfoEnabled()) {
                 GeClientNetworkManager.log.info("Adding listener of type " + packetType.toString());
             }
             listeners.put(packetType, listener);
         }
-	}
-	
-	@Override
-	public void removePacketListener(IGeServerPacketListener listener) {
+    }
+
+    @Override
+    public void removePacketListener(IGeServerPacketListener listener) {
         for (GePacket.Type packetType : listener.getPacketTypes()) {
             removeListenerForType(listener, packetType);
-		}
-	}
-	
-	@Override
-	public void removeListenerForType(IGeServerPacketListener listener,
+        }
+    }
+
+    @Override
+    public void removeListenerForType(IGeServerPacketListener listener,
             GePacket.Type packetType) {
         if (GeClientNetworkManager.log.isInfoEnabled()) {
             GeClientNetworkManager.log.info("Removing listener " + listener + " of type " + packetType);
         }
 
         listeners.get(packetType).remove(listener);
-	}
-	
-	@Override
-	public void sendPacket(GePacket packet) {
+    }
+
+    @Override
+    public void sendPacket(GePacket packet) {
         if (GeClientNetworkManager.log.isTraceEnabled()) {
             GeClientNetworkManager.log.trace(GeLogUtils.getObjectInfo(this) + " sending packet " + packet.getType());
         }
         Preconditions.checkNotNull(packet, "`packet` can not be null");
-		channelHandler.sendPacket(packet);
-	}
+        channelHandler.sendPacket(packet);
+    }
 }

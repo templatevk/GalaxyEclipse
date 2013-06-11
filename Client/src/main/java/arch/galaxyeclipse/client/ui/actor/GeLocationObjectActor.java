@@ -83,6 +83,6 @@ public class GeLocationObjectActor extends GeClickableActor {
 
     @Override
     protected int compareToImpl(GeActor actor) {
-        return ((GeLocationObjectActor)actor).getLop().getObjectId() - lop.getObjectId();
+        return ((GeLocationObjectActor) actor).getLop().getObjectId() - lop.getObjectId();
     }
 }

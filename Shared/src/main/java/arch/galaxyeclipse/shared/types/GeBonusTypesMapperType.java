@@ -4,7 +4,7 @@ package arch.galaxyeclipse.shared.types;
  * Enum mapping bonus_types dictionary table values.
  */
 public enum GeBonusTypesMapperType {
-     ARMOR,
+    ARMOR,
     HP_REGEN,
     ENERGY_REGEN,
     SPEED_ROTATION,

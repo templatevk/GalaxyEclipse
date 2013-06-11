@@ -6,6 +6,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
  *
  */
 public interface IGeButtonBuilder extends IGeBuilder<TextButton> {
+
     enum ButtonType {
         MAIN_MENU_BUTTON,
         GAME_CHAT_HIDE_BUTTON,
@@ -18,6 +19,8 @@ public interface IGeButtonBuilder extends IGeBuilder<TextButton> {
     }
 
     IGeButtonBuilder setType(ButtonType buttonType);
+
     IGeButtonBuilder setText(String text);
+
     IGeButtonBuilder setClickCommand(IGeButtonClickCommand command);
 }

@@ -13,6 +13,7 @@ import static arch.galaxyeclipse.shared.GeConstants.CLIENT_REQUEST_DYNAMIC_OBJEC
  *
  */
 public class GeDynamicObjectsRequestSender extends GeRepeatablePacketSender {
+
     private GeLocationInfoHolder locationInfoHolder;
 
     public GeDynamicObjectsRequestSender() {

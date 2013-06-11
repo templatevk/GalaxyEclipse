@@ -15,24 +15,25 @@ import org.jboss.netty.handler.codec.protobuf.ProtobufVarint32LengthFieldPrepend
  */
 @Slf4j
 public abstract class GeProtobufChannelPipelineFactory implements ChannelPipelineFactory {
-	protected abstract void configureHandlers(ChannelPipeline pipeline);
-	
-	@Override
-	public ChannelPipeline getPipeline() throws Exception {
-		ChannelPipeline pipeline = Channels.pipeline();
 
-		// Adding length and protobuf handlers
-		pipeline.addLast("frameDecoder", new ProtobufVarint32FrameDecoder());
-		pipeline.addLast("protobufDecoder", new ProtobufDecoder(GePacket.getDefaultInstance()));
-		
-		pipeline.addLast("frameEncoder", new ProtobufVarint32LengthFieldPrepender());
-		pipeline.addLast("protobufEncoder", new ProtobufEncoder());
-		
-		configureHandlers(pipeline);
+    protected abstract void configureHandlers(ChannelPipeline pipeline);
+
+    @Override
+    public ChannelPipeline getPipeline() throws Exception {
+        ChannelPipeline pipeline = Channels.pipeline();
+
+        // Adding length and protobuf handlers
+        pipeline.addLast("frameDecoder", new ProtobufVarint32FrameDecoder());
+        pipeline.addLast("protobufDecoder", new ProtobufDecoder(GePacket.getDefaultInstance()));
+
+        pipeline.addLast("frameEncoder", new ProtobufVarint32LengthFieldPrepender());
+        pipeline.addLast("protobufEncoder", new ProtobufEncoder());
+
+        configureHandlers(pipeline);
         if (GeProtobufChannelPipelineFactory.log.isDebugEnabled()) {
-		    GeProtobufChannelPipelineFactory.log.debug("Channel handlers configured");
+            GeProtobufChannelPipelineFactory.log.debug("Channel handlers configured");
         }
-		
-		return pipeline;
-	}
+
+        return pipeline;
+    }
 }

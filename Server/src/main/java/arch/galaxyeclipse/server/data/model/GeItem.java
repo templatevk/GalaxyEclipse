@@ -11,6 +11,7 @@ import java.util.Set;
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name = "item_type_id", discriminatorType = DiscriminatorType.INTEGER)
 public class GeItem {
+
     @Transient
     public static final String ENGINE_TYPE = "1";
     @Transient

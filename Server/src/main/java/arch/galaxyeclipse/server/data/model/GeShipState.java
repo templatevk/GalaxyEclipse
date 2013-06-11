@@ -12,6 +12,7 @@ import java.util.Set;
 @Entity
 @DynamicUpdate
 public class GeShipState {
+
     private int shipStateId;
 
     @Column(name = "ship_state_id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)

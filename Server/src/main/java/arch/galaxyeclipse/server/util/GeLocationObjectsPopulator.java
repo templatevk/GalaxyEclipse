@@ -162,8 +162,8 @@ public class GeLocationObjectsPopulator {
                     positions[j].setY(rand.nextInt(locationHeight));
                 }
             } else if (objectsMethod.get(i).equals(FILL)) {
-                int objectX = (int)Math.floor(locationWidth / objectsWidth.get(i));
-                int objectY = (int)Math.floor(locationHeight / objectsHeight.get(i));
+                int objectX = (int) Math.floor(locationWidth / objectsWidth.get(i));
+                int objectY = (int) Math.floor(locationHeight / objectsHeight.get(i));
 
                 positions = new GePosition[objectX * objectY];
 

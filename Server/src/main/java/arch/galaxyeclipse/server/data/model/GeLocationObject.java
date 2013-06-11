@@ -10,6 +10,7 @@ import java.util.Set;
 @Table(name = "location_object", schema = "", catalog = "ge")
 @Entity
 public class GeLocationObject implements Serializable {
+
     private int locationObjectId;
 
     @Column(name = "location_object_id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)

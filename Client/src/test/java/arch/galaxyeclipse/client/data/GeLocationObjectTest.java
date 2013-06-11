@@ -10,6 +10,7 @@ import org.testng.annotations.Test;
  *
  */
 public class GeLocationObjectTest {
+
     @Test
     public void testWrapper() throws Exception {
         GeLocationObjectPacket locationObject1 = GeLocationObjectPacket.newBuilder()

@@ -13,7 +13,7 @@ import lombok.extern.slf4j.Slf4j;
  *
  */
 @Slf4j
-public abstract class GeActor extends Image implements Comparable<GeActor>  {
+public abstract class GeActor extends Image implements Comparable<GeActor> {
 
     @Getter(AccessLevel.PROTECTED)
     private static GeShipStateInfoHolder shipStateInfoHolder;
@@ -26,7 +26,8 @@ public abstract class GeActor extends Image implements Comparable<GeActor>  {
         shipStateInfoHolder = GeContextHolder.getBean(GeShipStateInfoHolder.class);
     }
 
-    private @Getter
+    private
+    @Getter
     GeStageInfo stageInfo;
 
     protected int compareToImpl(GeActor actor) {

@@ -10,6 +10,7 @@ import java.util.List;
  *
  */
 public class GePacketProcessingListenerCommand implements IGePacketProcessingListener {
+
     private GePacket.Type packetType;
     private IGeCommand<GePacket> command;
 

@@ -108,6 +108,7 @@ public class GeDynamicObjectsHolder {
 
     private static class LocationObjectXComparator
             implements Comparator<GeLocationObjectPacket.Builder> {
+
         @Override
         public int compare(GeLocationObjectPacket.Builder o1, GeLocationObjectPacket.Builder o2) {
             boolean equal = o1.getObjectId() == o2.getObjectId();
@@ -119,6 +120,7 @@ public class GeDynamicObjectsHolder {
 
     private static class LocationObjectYComparator
             implements Comparator<GeLocationObjectPacket.Builder> {
+
         @Override
         public int compare(GeLocationObjectPacket.Builder o1, GeLocationObjectPacket.Builder o2) {
             boolean equal = o1.getObjectId() == o2.getObjectId();
