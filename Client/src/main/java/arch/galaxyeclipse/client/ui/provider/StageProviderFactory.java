@@ -8,15 +8,11 @@ public class StageProviderFactory {
 
     }
 
-    public static IStageProvider createStageProvider(StagePresenterType stagePresenterType) {
-        switch (stagePresenterType) {
+    public static IStageProvider createStageProvider(StageProviderType stageProviderType) {
+        switch (stageProviderType) {
             case MAIN_MENU:
                 return new MainMenuPresenter();
         }
         return null;
-    }
-
-    public enum StagePresenterType {
-        MAIN_MENU;
     }
 }

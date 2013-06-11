@@ -2,6 +2,7 @@ package arch.galaxyeclipse.client.window;
 
 import arch.galaxyeclipse.client.ui.provider.IStageProvider;
 import arch.galaxyeclipse.client.ui.provider.StageProviderFactory;
+import arch.galaxyeclipse.client.ui.provider.StageProviderType;
 import arch.galaxyeclipse.shared.EnvType;
 import arch.galaxyeclipse.shared.common.IDestroyable;
 import arch.galaxyeclipse.shared.thread.GeExecutor;
@@ -109,7 +110,7 @@ class ClientWindow implements IClientWindow {
             }
 
             setStageProvider(StageProviderFactory.createStageProvider(
-                    StageProviderFactory.StagePresenterType.MAIN_MENU));
+                    StageProviderType.MAIN_MENU));
 
             renderRequestTaskRunnablePair = new TaskRunnablePair<>(
                     RENDER_REQUEST_MILLISECONDS_DELAY, new RenderRequestRunnable(),
