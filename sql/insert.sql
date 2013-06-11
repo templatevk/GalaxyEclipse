@@ -39,11 +39,12 @@ insert into location_object_behavior_type
 insert into location_object_type
 (object_type_name)
   values
-  ('rocket'),
-  ('asteroid'),
   ('star'),
   ('fog'),
   ('station'),
+  ('asteroid'),
+  ('rocket'),
+  ('laser'),
   ('player');
 
 

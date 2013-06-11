@@ -16,7 +16,7 @@
 
 package com.badlogic.gdx.scenes.scene2d.ui;
 
-import arch.galaxyeclipse.client.ui.IButtonClickCommand;
+import arch.galaxyeclipse.client.ui.IGeButtonClickCommand;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
@@ -45,7 +45,7 @@ public class Button extends Table {
 	private ClickListener clickListener;
 
     @Setter @Getter
-    private IButtonClickCommand clickCommand;
+    private IGeButtonClickCommand clickCommand;
 
     @Setter
     private float textPaddingY = 0;

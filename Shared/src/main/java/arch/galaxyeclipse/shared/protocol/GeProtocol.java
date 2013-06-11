@@ -8,178 +8,178 @@ public final class GeProtocol {
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
   }
-  public interface PacketOrBuilder
+  public interface GePacketOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // required .arch.galaxyeclipse.shared.protocol.Packet.Type type = 1;
+    // required .arch.galaxyeclipse.shared.protocol.GePacket.Type type = 1;
     /**
-     * <code>required .arch.galaxyeclipse.shared.protocol.Packet.Type type = 1;</code>
+     * <code>required .arch.galaxyeclipse.shared.protocol.GePacket.Type type = 1;</code>
      */
     boolean hasType();
     /**
-     * <code>required .arch.galaxyeclipse.shared.protocol.Packet.Type type = 1;</code>
+     * <code>required .arch.galaxyeclipse.shared.protocol.GePacket.Type type = 1;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.Packet.Type getType();
+    arch.galaxyeclipse.shared.protocol.GeProtocol.GePacket.Type getType();
 
-    // optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse dynamicObjectsResponse = 2;
+    // optional .arch.galaxyeclipse.shared.protocol.GeDynamicObjectsResponse dynamicObjectsResponse = 2;
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse dynamicObjectsResponse = 2;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeDynamicObjectsResponse dynamicObjectsResponse = 2;</code>
      */
     boolean hasDynamicObjectsResponse();
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse dynamicObjectsResponse = 2;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeDynamicObjectsResponse dynamicObjectsResponse = 2;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse getDynamicObjectsResponse();
+    arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponse getDynamicObjectsResponse();
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse dynamicObjectsResponse = 2;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeDynamicObjectsResponse dynamicObjectsResponse = 2;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponseOrBuilder getDynamicObjectsResponseOrBuilder();
+    arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponseOrBuilder getDynamicObjectsResponseOrBuilder();
 
-    // optional .arch.galaxyeclipse.shared.protocol.ShipStateResponse shipStateResponse = 3;
+    // optional .arch.galaxyeclipse.shared.protocol.GeShipStateResponse shipStateResponse = 3;
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStateResponse shipStateResponse = 3;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStateResponse shipStateResponse = 3;</code>
      */
     boolean hasShipStateResponse();
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStateResponse shipStateResponse = 3;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStateResponse shipStateResponse = 3;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse getShipStateResponse();
+    arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse getShipStateResponse();
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStateResponse shipStateResponse = 3;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStateResponse shipStateResponse = 3;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponseOrBuilder getShipStateResponseOrBuilder();
+    arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponseOrBuilder getShipStateResponseOrBuilder();
 
-    // optional .arch.galaxyeclipse.shared.protocol.ClientActionPacket clientAction = 4;
+    // optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket clientAction = 4;
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.ClientActionPacket clientAction = 4;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket clientAction = 4;</code>
      */
     boolean hasClientAction();
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.ClientActionPacket clientAction = 4;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket clientAction = 4;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket getClientAction();
+    arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket getClientAction();
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.ClientActionPacket clientAction = 4;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket clientAction = 4;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacketOrBuilder getClientActionOrBuilder();
+    arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacketOrBuilder getClientActionOrBuilder();
 
-    // optional .arch.galaxyeclipse.shared.protocol.AuthRequest authRequest = 16;
+    // optional .arch.galaxyeclipse.shared.protocol.GeAuthRequest authRequest = 16;
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.AuthRequest authRequest = 16;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeAuthRequest authRequest = 16;</code>
      */
     boolean hasAuthRequest();
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.AuthRequest authRequest = 16;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeAuthRequest authRequest = 16;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest getAuthRequest();
+    arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequest getAuthRequest();
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.AuthRequest authRequest = 16;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeAuthRequest authRequest = 16;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequestOrBuilder getAuthRequestOrBuilder();
+    arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequestOrBuilder getAuthRequestOrBuilder();
 
-    // optional .arch.galaxyeclipse.shared.protocol.AuthResponse authResponse = 17;
+    // optional .arch.galaxyeclipse.shared.protocol.GeAuthResponse authResponse = 17;
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.AuthResponse authResponse = 17;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeAuthResponse authResponse = 17;</code>
      */
     boolean hasAuthResponse();
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.AuthResponse authResponse = 17;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeAuthResponse authResponse = 17;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse getAuthResponse();
+    arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponse getAuthResponse();
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.AuthResponse authResponse = 17;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeAuthResponse authResponse = 17;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponseOrBuilder getAuthResponseOrBuilder();
+    arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponseOrBuilder getAuthResponseOrBuilder();
 
-    // optional .arch.galaxyeclipse.shared.protocol.LocationInfoPacket locationInfo = 18;
+    // optional .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket locationInfo = 18;
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.LocationInfoPacket locationInfo = 18;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket locationInfo = 18;</code>
      */
     boolean hasLocationInfo();
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.LocationInfoPacket locationInfo = 18;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket locationInfo = 18;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket getLocationInfo();
+    arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket getLocationInfo();
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.LocationInfoPacket locationInfo = 18;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket locationInfo = 18;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacketOrBuilder getLocationInfoOrBuilder();
+    arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacketOrBuilder getLocationInfoOrBuilder();
 
-    // optional .arch.galaxyeclipse.shared.protocol.StartupInfoPacket startupInfo = 19;
+    // optional .arch.galaxyeclipse.shared.protocol.GeStartupInfoPacket startupInfo = 19;
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.StartupInfoPacket startupInfo = 19;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeStartupInfoPacket startupInfo = 19;</code>
      */
     boolean hasStartupInfo();
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.StartupInfoPacket startupInfo = 19;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeStartupInfoPacket startupInfo = 19;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket getStartupInfo();
+    arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacket getStartupInfo();
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.StartupInfoPacket startupInfo = 19;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeStartupInfoPacket startupInfo = 19;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacketOrBuilder getStartupInfoOrBuilder();
+    arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacketOrBuilder getStartupInfoOrBuilder();
 
-    // optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoCommandPacket gameInfoCommandHolder = 20;
+    // optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoCommandPacket gameInfoCommandHolder = 20;
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoCommandPacket gameInfoCommandHolder = 20;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoCommandPacket gameInfoCommandHolder = 20;</code>
      */
     boolean hasGameInfoCommandHolder();
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoCommandPacket gameInfoCommandHolder = 20;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoCommandPacket gameInfoCommandHolder = 20;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacket getGameInfoCommandHolder();
+    arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacket getGameInfoCommandHolder();
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoCommandPacket gameInfoCommandHolder = 20;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoCommandPacket gameInfoCommandHolder = 20;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacketOrBuilder getGameInfoCommandHolderOrBuilder();
+    arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacketOrBuilder getGameInfoCommandHolderOrBuilder();
 
-    // optional .arch.galaxyeclipse.shared.protocol.ChatSendMessagePacket chatSendMessage = 21;
+    // optional .arch.galaxyeclipse.shared.protocol.GeChatSendMessagePacket chatSendMessage = 21;
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.ChatSendMessagePacket chatSendMessage = 21;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeChatSendMessagePacket chatSendMessage = 21;</code>
      */
     boolean hasChatSendMessage();
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.ChatSendMessagePacket chatSendMessage = 21;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeChatSendMessagePacket chatSendMessage = 21;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacket getChatSendMessage();
+    arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacket getChatSendMessage();
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.ChatSendMessagePacket chatSendMessage = 21;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeChatSendMessagePacket chatSendMessage = 21;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacketOrBuilder getChatSendMessageOrBuilder();
+    arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacketOrBuilder getChatSendMessageOrBuilder();
 
-    // optional .arch.galaxyeclipse.shared.protocol.ChatReceiveMessagePacket chatReceiveMessage = 22;
+    // optional .arch.galaxyeclipse.shared.protocol.GeChatReceiveMessagePacket chatReceiveMessage = 22;
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.ChatReceiveMessagePacket chatReceiveMessage = 22;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeChatReceiveMessagePacket chatReceiveMessage = 22;</code>
      */
     boolean hasChatReceiveMessage();
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.ChatReceiveMessagePacket chatReceiveMessage = 22;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeChatReceiveMessagePacket chatReceiveMessage = 22;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacket getChatReceiveMessage();
+    arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacket getChatReceiveMessage();
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.ChatReceiveMessagePacket chatReceiveMessage = 22;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeChatReceiveMessagePacket chatReceiveMessage = 22;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacketOrBuilder getChatReceiveMessageOrBuilder();
+    arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacketOrBuilder getChatReceiveMessageOrBuilder();
   }
   /**
-   * Protobuf type {@code arch.galaxyeclipse.shared.protocol.Packet}
+   * Protobuf type {@code arch.galaxyeclipse.shared.protocol.GePacket}
    */
-  public static final class Packet extends
+  public static final class GePacket extends
       com.google.protobuf.GeneratedMessage
-      implements PacketOrBuilder {
-    // Use Packet.newBuilder() to construct.
-    private Packet(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      implements GePacketOrBuilder {
+    // Use GePacket.newBuilder() to construct.
+    private GePacket(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private Packet(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private GePacket(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
-    private static final Packet defaultInstance;
-    public static Packet getDefaultInstance() {
+    private static final GePacket defaultInstance;
+    public static GePacket getDefaultInstance() {
       return defaultInstance;
     }
 
-    public Packet getDefaultInstanceForType() {
+    public GePacket getDefaultInstanceForType() {
       return defaultInstance;
     }
 
@@ -189,7 +189,7 @@ public final class GeProtocol {
         getUnknownFields() {
       return this.unknownFields;
     }
-    private Packet(
+    private GePacket(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -214,7 +214,7 @@ public final class GeProtocol {
             }
             case 8: {
               int rawValue = input.readEnum();
-              arch.galaxyeclipse.shared.protocol.GeProtocol.Packet.Type value = arch.galaxyeclipse.shared.protocol.GeProtocol.Packet.Type.valueOf(rawValue);
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GePacket.Type value = arch.galaxyeclipse.shared.protocol.GeProtocol.GePacket.Type.valueOf(rawValue);
               if (value == null) {
                 unknownFields.mergeVarintField(1, rawValue);
               } else {
@@ -224,11 +224,11 @@ public final class GeProtocol {
               break;
             }
             case 18: {
-              arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.Builder subBuilder = null;
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponse.Builder subBuilder = null;
               if (((bitField0_ & 0x00000002) == 0x00000002)) {
                 subBuilder = dynamicObjectsResponse_.toBuilder();
               }
-              dynamicObjectsResponse_ = input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.PARSER, extensionRegistry);
+              dynamicObjectsResponse_ = input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponse.PARSER, extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(dynamicObjectsResponse_);
                 dynamicObjectsResponse_ = subBuilder.buildPartial();
@@ -237,11 +237,11 @@ public final class GeProtocol {
               break;
             }
             case 26: {
-              arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse.Builder subBuilder = null;
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse.Builder subBuilder = null;
               if (((bitField0_ & 0x00000004) == 0x00000004)) {
                 subBuilder = shipStateResponse_.toBuilder();
               }
-              shipStateResponse_ = input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse.PARSER, extensionRegistry);
+              shipStateResponse_ = input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse.PARSER, extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(shipStateResponse_);
                 shipStateResponse_ = subBuilder.buildPartial();
@@ -250,11 +250,11 @@ public final class GeProtocol {
               break;
             }
             case 34: {
-              arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket.Builder subBuilder = null;
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.Builder subBuilder = null;
               if (((bitField0_ & 0x00000008) == 0x00000008)) {
                 subBuilder = clientAction_.toBuilder();
               }
-              clientAction_ = input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket.PARSER, extensionRegistry);
+              clientAction_ = input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.PARSER, extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(clientAction_);
                 clientAction_ = subBuilder.buildPartial();
@@ -263,11 +263,11 @@ public final class GeProtocol {
               break;
             }
             case 130: {
-              arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest.Builder subBuilder = null;
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequest.Builder subBuilder = null;
               if (((bitField0_ & 0x00000010) == 0x00000010)) {
                 subBuilder = authRequest_.toBuilder();
               }
-              authRequest_ = input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest.PARSER, extensionRegistry);
+              authRequest_ = input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequest.PARSER, extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(authRequest_);
                 authRequest_ = subBuilder.buildPartial();
@@ -276,11 +276,11 @@ public final class GeProtocol {
               break;
             }
             case 138: {
-              arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse.Builder subBuilder = null;
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponse.Builder subBuilder = null;
               if (((bitField0_ & 0x00000020) == 0x00000020)) {
                 subBuilder = authResponse_.toBuilder();
               }
-              authResponse_ = input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse.PARSER, extensionRegistry);
+              authResponse_ = input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponse.PARSER, extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(authResponse_);
                 authResponse_ = subBuilder.buildPartial();
@@ -289,11 +289,11 @@ public final class GeProtocol {
               break;
             }
             case 146: {
-              arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.Builder subBuilder = null;
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.Builder subBuilder = null;
               if (((bitField0_ & 0x00000040) == 0x00000040)) {
                 subBuilder = locationInfo_.toBuilder();
               }
-              locationInfo_ = input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.PARSER, extensionRegistry);
+              locationInfo_ = input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.PARSER, extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(locationInfo_);
                 locationInfo_ = subBuilder.buildPartial();
@@ -302,11 +302,11 @@ public final class GeProtocol {
               break;
             }
             case 154: {
-              arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket.Builder subBuilder = null;
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacket.Builder subBuilder = null;
               if (((bitField0_ & 0x00000080) == 0x00000080)) {
                 subBuilder = startupInfo_.toBuilder();
               }
-              startupInfo_ = input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket.PARSER, extensionRegistry);
+              startupInfo_ = input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacket.PARSER, extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(startupInfo_);
                 startupInfo_ = subBuilder.buildPartial();
@@ -315,11 +315,11 @@ public final class GeProtocol {
               break;
             }
             case 162: {
-              arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacket.Builder subBuilder = null;
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacket.Builder subBuilder = null;
               if (((bitField0_ & 0x00000100) == 0x00000100)) {
                 subBuilder = gameInfoCommandHolder_.toBuilder();
               }
-              gameInfoCommandHolder_ = input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacket.PARSER, extensionRegistry);
+              gameInfoCommandHolder_ = input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacket.PARSER, extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(gameInfoCommandHolder_);
                 gameInfoCommandHolder_ = subBuilder.buildPartial();
@@ -328,11 +328,11 @@ public final class GeProtocol {
               break;
             }
             case 170: {
-              arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacket.Builder subBuilder = null;
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacket.Builder subBuilder = null;
               if (((bitField0_ & 0x00000200) == 0x00000200)) {
                 subBuilder = chatSendMessage_.toBuilder();
               }
-              chatSendMessage_ = input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacket.PARSER, extensionRegistry);
+              chatSendMessage_ = input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacket.PARSER, extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(chatSendMessage_);
                 chatSendMessage_ = subBuilder.buildPartial();
@@ -341,11 +341,11 @@ public final class GeProtocol {
               break;
             }
             case 178: {
-              arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacket.Builder subBuilder = null;
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacket.Builder subBuilder = null;
               if (((bitField0_ & 0x00000400) == 0x00000400)) {
                 subBuilder = chatReceiveMessage_.toBuilder();
               }
-              chatReceiveMessage_ = input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacket.PARSER, extensionRegistry);
+              chatReceiveMessage_ = input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacket.PARSER, extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(chatReceiveMessage_);
                 chatReceiveMessage_ = subBuilder.buildPartial();
@@ -367,33 +367,33 @@ public final class GeProtocol {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_Packet_descriptor;
+      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GePacket_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_Packet_fieldAccessorTable
+      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GePacket_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              arch.galaxyeclipse.shared.protocol.GeProtocol.Packet.class, arch.galaxyeclipse.shared.protocol.GeProtocol.Packet.Builder.class);
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GePacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.GePacket.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<Packet> PARSER =
-        new com.google.protobuf.AbstractParser<Packet>() {
-      public Packet parsePartialFrom(
+    public static com.google.protobuf.Parser<GePacket> PARSER =
+        new com.google.protobuf.AbstractParser<GePacket>() {
+      public GePacket parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Packet(input, extensionRegistry);
+        return new GePacket(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<Packet> getParserForType() {
+    public com.google.protobuf.Parser<GePacket> getParserForType() {
       return PARSER;
     }
 
     /**
-     * Protobuf enum {@code arch.galaxyeclipse.shared.protocol.Packet.Type}
+     * Protobuf enum {@code arch.galaxyeclipse.shared.protocol.GePacket.Type}
      */
     public enum Type
         implements com.google.protobuf.ProtocolMessageEnum {
@@ -539,7 +539,7 @@ public final class GeProtocol {
       }
       public static final com.google.protobuf.Descriptors.EnumDescriptor
           getDescriptor() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.Packet.getDescriptor().getEnumTypes().get(0);
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.GePacket.getDescriptor().getEnumTypes().get(0);
       }
 
       private static final Type[] VALUES = values();
@@ -561,258 +561,258 @@ public final class GeProtocol {
         this.value = value;
       }
 
-      // @@protoc_insertion_point(enum_scope:arch.galaxyeclipse.shared.protocol.Packet.Type)
+      // @@protoc_insertion_point(enum_scope:arch.galaxyeclipse.shared.protocol.GePacket.Type)
     }
 
     private int bitField0_;
-    // required .arch.galaxyeclipse.shared.protocol.Packet.Type type = 1;
+    // required .arch.galaxyeclipse.shared.protocol.GePacket.Type type = 1;
     public static final int TYPE_FIELD_NUMBER = 1;
-    private arch.galaxyeclipse.shared.protocol.GeProtocol.Packet.Type type_;
+    private arch.galaxyeclipse.shared.protocol.GeProtocol.GePacket.Type type_;
     /**
-     * <code>required .arch.galaxyeclipse.shared.protocol.Packet.Type type = 1;</code>
+     * <code>required .arch.galaxyeclipse.shared.protocol.GePacket.Type type = 1;</code>
      */
     public boolean hasType() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required .arch.galaxyeclipse.shared.protocol.Packet.Type type = 1;</code>
+     * <code>required .arch.galaxyeclipse.shared.protocol.GePacket.Type type = 1;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.Packet.Type getType() {
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.GePacket.Type getType() {
       return type_;
     }
 
-    // optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse dynamicObjectsResponse = 2;
+    // optional .arch.galaxyeclipse.shared.protocol.GeDynamicObjectsResponse dynamicObjectsResponse = 2;
     public static final int DYNAMICOBJECTSRESPONSE_FIELD_NUMBER = 2;
-    private arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse dynamicObjectsResponse_;
+    private arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponse dynamicObjectsResponse_;
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse dynamicObjectsResponse = 2;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeDynamicObjectsResponse dynamicObjectsResponse = 2;</code>
      */
     public boolean hasDynamicObjectsResponse() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse dynamicObjectsResponse = 2;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeDynamicObjectsResponse dynamicObjectsResponse = 2;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse getDynamicObjectsResponse() {
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponse getDynamicObjectsResponse() {
       return dynamicObjectsResponse_;
     }
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse dynamicObjectsResponse = 2;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeDynamicObjectsResponse dynamicObjectsResponse = 2;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponseOrBuilder getDynamicObjectsResponseOrBuilder() {
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponseOrBuilder getDynamicObjectsResponseOrBuilder() {
       return dynamicObjectsResponse_;
     }
 
-    // optional .arch.galaxyeclipse.shared.protocol.ShipStateResponse shipStateResponse = 3;
+    // optional .arch.galaxyeclipse.shared.protocol.GeShipStateResponse shipStateResponse = 3;
     public static final int SHIPSTATERESPONSE_FIELD_NUMBER = 3;
-    private arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse shipStateResponse_;
+    private arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse shipStateResponse_;
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStateResponse shipStateResponse = 3;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStateResponse shipStateResponse = 3;</code>
      */
     public boolean hasShipStateResponse() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStateResponse shipStateResponse = 3;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStateResponse shipStateResponse = 3;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse getShipStateResponse() {
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse getShipStateResponse() {
       return shipStateResponse_;
     }
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStateResponse shipStateResponse = 3;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStateResponse shipStateResponse = 3;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponseOrBuilder getShipStateResponseOrBuilder() {
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponseOrBuilder getShipStateResponseOrBuilder() {
       return shipStateResponse_;
     }
 
-    // optional .arch.galaxyeclipse.shared.protocol.ClientActionPacket clientAction = 4;
+    // optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket clientAction = 4;
     public static final int CLIENTACTION_FIELD_NUMBER = 4;
-    private arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket clientAction_;
+    private arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket clientAction_;
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.ClientActionPacket clientAction = 4;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket clientAction = 4;</code>
      */
     public boolean hasClientAction() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.ClientActionPacket clientAction = 4;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket clientAction = 4;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket getClientAction() {
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket getClientAction() {
       return clientAction_;
     }
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.ClientActionPacket clientAction = 4;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket clientAction = 4;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacketOrBuilder getClientActionOrBuilder() {
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacketOrBuilder getClientActionOrBuilder() {
       return clientAction_;
     }
 
-    // optional .arch.galaxyeclipse.shared.protocol.AuthRequest authRequest = 16;
+    // optional .arch.galaxyeclipse.shared.protocol.GeAuthRequest authRequest = 16;
     public static final int AUTHREQUEST_FIELD_NUMBER = 16;
-    private arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest authRequest_;
+    private arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequest authRequest_;
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.AuthRequest authRequest = 16;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeAuthRequest authRequest = 16;</code>
      */
     public boolean hasAuthRequest() {
       return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.AuthRequest authRequest = 16;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeAuthRequest authRequest = 16;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest getAuthRequest() {
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequest getAuthRequest() {
       return authRequest_;
     }
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.AuthRequest authRequest = 16;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeAuthRequest authRequest = 16;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequestOrBuilder getAuthRequestOrBuilder() {
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequestOrBuilder getAuthRequestOrBuilder() {
       return authRequest_;
     }
 
-    // optional .arch.galaxyeclipse.shared.protocol.AuthResponse authResponse = 17;
+    // optional .arch.galaxyeclipse.shared.protocol.GeAuthResponse authResponse = 17;
     public static final int AUTHRESPONSE_FIELD_NUMBER = 17;
-    private arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse authResponse_;
+    private arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponse authResponse_;
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.AuthResponse authResponse = 17;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeAuthResponse authResponse = 17;</code>
      */
     public boolean hasAuthResponse() {
       return ((bitField0_ & 0x00000020) == 0x00000020);
     }
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.AuthResponse authResponse = 17;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeAuthResponse authResponse = 17;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse getAuthResponse() {
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponse getAuthResponse() {
       return authResponse_;
     }
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.AuthResponse authResponse = 17;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeAuthResponse authResponse = 17;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponseOrBuilder getAuthResponseOrBuilder() {
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponseOrBuilder getAuthResponseOrBuilder() {
       return authResponse_;
     }
 
-    // optional .arch.galaxyeclipse.shared.protocol.LocationInfoPacket locationInfo = 18;
+    // optional .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket locationInfo = 18;
     public static final int LOCATIONINFO_FIELD_NUMBER = 18;
-    private arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket locationInfo_;
+    private arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket locationInfo_;
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.LocationInfoPacket locationInfo = 18;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket locationInfo = 18;</code>
      */
     public boolean hasLocationInfo() {
       return ((bitField0_ & 0x00000040) == 0x00000040);
     }
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.LocationInfoPacket locationInfo = 18;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket locationInfo = 18;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket getLocationInfo() {
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket getLocationInfo() {
       return locationInfo_;
     }
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.LocationInfoPacket locationInfo = 18;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket locationInfo = 18;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacketOrBuilder getLocationInfoOrBuilder() {
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacketOrBuilder getLocationInfoOrBuilder() {
       return locationInfo_;
     }
 
-    // optional .arch.galaxyeclipse.shared.protocol.StartupInfoPacket startupInfo = 19;
+    // optional .arch.galaxyeclipse.shared.protocol.GeStartupInfoPacket startupInfo = 19;
     public static final int STARTUPINFO_FIELD_NUMBER = 19;
-    private arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket startupInfo_;
+    private arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacket startupInfo_;
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.StartupInfoPacket startupInfo = 19;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeStartupInfoPacket startupInfo = 19;</code>
      */
     public boolean hasStartupInfo() {
       return ((bitField0_ & 0x00000080) == 0x00000080);
     }
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.StartupInfoPacket startupInfo = 19;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeStartupInfoPacket startupInfo = 19;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket getStartupInfo() {
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacket getStartupInfo() {
       return startupInfo_;
     }
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.StartupInfoPacket startupInfo = 19;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeStartupInfoPacket startupInfo = 19;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacketOrBuilder getStartupInfoOrBuilder() {
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacketOrBuilder getStartupInfoOrBuilder() {
       return startupInfo_;
     }
 
-    // optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoCommandPacket gameInfoCommandHolder = 20;
+    // optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoCommandPacket gameInfoCommandHolder = 20;
     public static final int GAMEINFOCOMMANDHOLDER_FIELD_NUMBER = 20;
-    private arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacket gameInfoCommandHolder_;
+    private arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacket gameInfoCommandHolder_;
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoCommandPacket gameInfoCommandHolder = 20;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoCommandPacket gameInfoCommandHolder = 20;</code>
      */
     public boolean hasGameInfoCommandHolder() {
       return ((bitField0_ & 0x00000100) == 0x00000100);
     }
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoCommandPacket gameInfoCommandHolder = 20;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoCommandPacket gameInfoCommandHolder = 20;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacket getGameInfoCommandHolder() {
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacket getGameInfoCommandHolder() {
       return gameInfoCommandHolder_;
     }
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoCommandPacket gameInfoCommandHolder = 20;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoCommandPacket gameInfoCommandHolder = 20;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacketOrBuilder getGameInfoCommandHolderOrBuilder() {
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacketOrBuilder getGameInfoCommandHolderOrBuilder() {
       return gameInfoCommandHolder_;
     }
 
-    // optional .arch.galaxyeclipse.shared.protocol.ChatSendMessagePacket chatSendMessage = 21;
+    // optional .arch.galaxyeclipse.shared.protocol.GeChatSendMessagePacket chatSendMessage = 21;
     public static final int CHATSENDMESSAGE_FIELD_NUMBER = 21;
-    private arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacket chatSendMessage_;
+    private arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacket chatSendMessage_;
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.ChatSendMessagePacket chatSendMessage = 21;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeChatSendMessagePacket chatSendMessage = 21;</code>
      */
     public boolean hasChatSendMessage() {
       return ((bitField0_ & 0x00000200) == 0x00000200);
     }
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.ChatSendMessagePacket chatSendMessage = 21;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeChatSendMessagePacket chatSendMessage = 21;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacket getChatSendMessage() {
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacket getChatSendMessage() {
       return chatSendMessage_;
     }
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.ChatSendMessagePacket chatSendMessage = 21;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeChatSendMessagePacket chatSendMessage = 21;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacketOrBuilder getChatSendMessageOrBuilder() {
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacketOrBuilder getChatSendMessageOrBuilder() {
       return chatSendMessage_;
     }
 
-    // optional .arch.galaxyeclipse.shared.protocol.ChatReceiveMessagePacket chatReceiveMessage = 22;
+    // optional .arch.galaxyeclipse.shared.protocol.GeChatReceiveMessagePacket chatReceiveMessage = 22;
     public static final int CHATRECEIVEMESSAGE_FIELD_NUMBER = 22;
-    private arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacket chatReceiveMessage_;
+    private arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacket chatReceiveMessage_;
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.ChatReceiveMessagePacket chatReceiveMessage = 22;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeChatReceiveMessagePacket chatReceiveMessage = 22;</code>
      */
     public boolean hasChatReceiveMessage() {
       return ((bitField0_ & 0x00000400) == 0x00000400);
     }
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.ChatReceiveMessagePacket chatReceiveMessage = 22;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeChatReceiveMessagePacket chatReceiveMessage = 22;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacket getChatReceiveMessage() {
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacket getChatReceiveMessage() {
       return chatReceiveMessage_;
     }
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.ChatReceiveMessagePacket chatReceiveMessage = 22;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeChatReceiveMessagePacket chatReceiveMessage = 22;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacketOrBuilder getChatReceiveMessageOrBuilder() {
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacketOrBuilder getChatReceiveMessageOrBuilder() {
       return chatReceiveMessage_;
     }
 
     private void initFields() {
-      type_ = arch.galaxyeclipse.shared.protocol.GeProtocol.Packet.Type.DYNAMIC_OBJECTS_REQUEST;
-      dynamicObjectsResponse_ = arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.getDefaultInstance();
-      shipStateResponse_ = arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse.getDefaultInstance();
-      clientAction_ = arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket.getDefaultInstance();
-      authRequest_ = arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest.getDefaultInstance();
-      authResponse_ = arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse.getDefaultInstance();
-      locationInfo_ = arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.getDefaultInstance();
-      startupInfo_ = arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket.getDefaultInstance();
-      gameInfoCommandHolder_ = arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacket.getDefaultInstance();
-      chatSendMessage_ = arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacket.getDefaultInstance();
-      chatReceiveMessage_ = arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacket.getDefaultInstance();
+      type_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GePacket.Type.DYNAMIC_OBJECTS_REQUEST;
+      dynamicObjectsResponse_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponse.getDefaultInstance();
+      shipStateResponse_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse.getDefaultInstance();
+      clientAction_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.getDefaultInstance();
+      authRequest_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequest.getDefaultInstance();
+      authResponse_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponse.getDefaultInstance();
+      locationInfo_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.getDefaultInstance();
+      startupInfo_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacket.getDefaultInstance();
+      gameInfoCommandHolder_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacket.getDefaultInstance();
+      chatSendMessage_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacket.getDefaultInstance();
+      chatReceiveMessage_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacket.getDefaultInstance();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -988,53 +988,53 @@ public final class GeProtocol {
       return super.writeReplace();
     }
 
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.Packet parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GePacket parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.Packet parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GePacket parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.Packet parseFrom(byte[] data)
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GePacket parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.Packet parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GePacket parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.Packet parseFrom(java.io.InputStream input)
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GePacket parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.Packet parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GePacket parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.Packet parseDelimitedFrom(java.io.InputStream input)
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GePacket parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.Packet parseDelimitedFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GePacket parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.Packet parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GePacket parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.Packet parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GePacket parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -1043,7 +1043,7 @@ public final class GeProtocol {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GeProtocol.Packet prototype) {
+    public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GeProtocol.GePacket prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -1055,24 +1055,24 @@ public final class GeProtocol {
       return builder;
     }
     /**
-     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.Packet}
+     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.GePacket}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements arch.galaxyeclipse.shared.protocol.GeProtocol.PacketOrBuilder {
+       implements arch.galaxyeclipse.shared.protocol.GeProtocol.GePacketOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_Packet_descriptor;
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GePacket_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_Packet_fieldAccessorTable
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GePacket_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                arch.galaxyeclipse.shared.protocol.GeProtocol.Packet.class, arch.galaxyeclipse.shared.protocol.GeProtocol.Packet.Builder.class);
+                arch.galaxyeclipse.shared.protocol.GeProtocol.GePacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.GePacket.Builder.class);
       }
 
-      // Construct using arch.galaxyeclipse.shared.protocol.GeProtocol.Packet.newBuilder()
+      // Construct using arch.galaxyeclipse.shared.protocol.GeProtocol.GePacket.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -1102,64 +1102,64 @@ public final class GeProtocol {
 
       public Builder clear() {
         super.clear();
-        type_ = arch.galaxyeclipse.shared.protocol.GeProtocol.Packet.Type.DYNAMIC_OBJECTS_REQUEST;
+        type_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GePacket.Type.DYNAMIC_OBJECTS_REQUEST;
         bitField0_ = (bitField0_ & ~0x00000001);
         if (dynamicObjectsResponseBuilder_ == null) {
-          dynamicObjectsResponse_ = arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.getDefaultInstance();
+          dynamicObjectsResponse_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponse.getDefaultInstance();
         } else {
           dynamicObjectsResponseBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000002);
         if (shipStateResponseBuilder_ == null) {
-          shipStateResponse_ = arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse.getDefaultInstance();
+          shipStateResponse_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse.getDefaultInstance();
         } else {
           shipStateResponseBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000004);
         if (clientActionBuilder_ == null) {
-          clientAction_ = arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket.getDefaultInstance();
+          clientAction_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.getDefaultInstance();
         } else {
           clientActionBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000008);
         if (authRequestBuilder_ == null) {
-          authRequest_ = arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest.getDefaultInstance();
+          authRequest_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequest.getDefaultInstance();
         } else {
           authRequestBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000010);
         if (authResponseBuilder_ == null) {
-          authResponse_ = arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse.getDefaultInstance();
+          authResponse_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponse.getDefaultInstance();
         } else {
           authResponseBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000020);
         if (locationInfoBuilder_ == null) {
-          locationInfo_ = arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.getDefaultInstance();
+          locationInfo_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.getDefaultInstance();
         } else {
           locationInfoBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000040);
         if (startupInfoBuilder_ == null) {
-          startupInfo_ = arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket.getDefaultInstance();
+          startupInfo_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacket.getDefaultInstance();
         } else {
           startupInfoBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000080);
         if (gameInfoCommandHolderBuilder_ == null) {
-          gameInfoCommandHolder_ = arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacket.getDefaultInstance();
+          gameInfoCommandHolder_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacket.getDefaultInstance();
         } else {
           gameInfoCommandHolderBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000100);
         if (chatSendMessageBuilder_ == null) {
-          chatSendMessage_ = arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacket.getDefaultInstance();
+          chatSendMessage_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacket.getDefaultInstance();
         } else {
           chatSendMessageBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000200);
         if (chatReceiveMessageBuilder_ == null) {
-          chatReceiveMessage_ = arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacket.getDefaultInstance();
+          chatReceiveMessage_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacket.getDefaultInstance();
         } else {
           chatReceiveMessageBuilder_.clear();
         }
@@ -1173,23 +1173,23 @@ public final class GeProtocol {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_Packet_descriptor;
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GePacket_descriptor;
       }
 
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.Packet getDefaultInstanceForType() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.Packet.getDefaultInstance();
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GePacket getDefaultInstanceForType() {
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.GePacket.getDefaultInstance();
       }
 
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.Packet build() {
-        arch.galaxyeclipse.shared.protocol.GeProtocol.Packet result = buildPartial();
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GePacket build() {
+        arch.galaxyeclipse.shared.protocol.GeProtocol.GePacket result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.Packet buildPartial() {
-        arch.galaxyeclipse.shared.protocol.GeProtocol.Packet result = new arch.galaxyeclipse.shared.protocol.GeProtocol.Packet(this);
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GePacket buildPartial() {
+        arch.galaxyeclipse.shared.protocol.GeProtocol.GePacket result = new arch.galaxyeclipse.shared.protocol.GeProtocol.GePacket(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -1282,16 +1282,16 @@ public final class GeProtocol {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof arch.galaxyeclipse.shared.protocol.GeProtocol.Packet) {
-          return mergeFrom((arch.galaxyeclipse.shared.protocol.GeProtocol.Packet)other);
+        if (other instanceof arch.galaxyeclipse.shared.protocol.GeProtocol.GePacket) {
+          return mergeFrom((arch.galaxyeclipse.shared.protocol.GeProtocol.GePacket)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GeProtocol.Packet other) {
-        if (other == arch.galaxyeclipse.shared.protocol.GeProtocol.Packet.getDefaultInstance()) return this;
+      public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GeProtocol.GePacket other) {
+        if (other == arch.galaxyeclipse.shared.protocol.GeProtocol.GePacket.getDefaultInstance()) return this;
         if (other.hasType()) {
           setType(other.getType());
         }
@@ -1401,11 +1401,11 @@ public final class GeProtocol {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        arch.galaxyeclipse.shared.protocol.GeProtocol.Packet parsedMessage = null;
+        arch.galaxyeclipse.shared.protocol.GeProtocol.GePacket parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (arch.galaxyeclipse.shared.protocol.GeProtocol.Packet) e.getUnfinishedMessage();
+          parsedMessage = (arch.galaxyeclipse.shared.protocol.GeProtocol.GePacket) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -1416,24 +1416,24 @@ public final class GeProtocol {
       }
       private int bitField0_;
 
-      // required .arch.galaxyeclipse.shared.protocol.Packet.Type type = 1;
-      private arch.galaxyeclipse.shared.protocol.GeProtocol.Packet.Type type_ = arch.galaxyeclipse.shared.protocol.GeProtocol.Packet.Type.DYNAMIC_OBJECTS_REQUEST;
+      // required .arch.galaxyeclipse.shared.protocol.GePacket.Type type = 1;
+      private arch.galaxyeclipse.shared.protocol.GeProtocol.GePacket.Type type_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GePacket.Type.DYNAMIC_OBJECTS_REQUEST;
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.Packet.Type type = 1;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GePacket.Type type = 1;</code>
        */
       public boolean hasType() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.Packet.Type type = 1;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GePacket.Type type = 1;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.Packet.Type getType() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GePacket.Type getType() {
         return type_;
       }
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.Packet.Type type = 1;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GePacket.Type type = 1;</code>
        */
-      public Builder setType(arch.galaxyeclipse.shared.protocol.GeProtocol.Packet.Type value) {
+      public Builder setType(arch.galaxyeclipse.shared.protocol.GeProtocol.GePacket.Type value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -1443,29 +1443,29 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.Packet.Type type = 1;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GePacket.Type type = 1;</code>
        */
       public Builder clearType() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        type_ = arch.galaxyeclipse.shared.protocol.GeProtocol.Packet.Type.DYNAMIC_OBJECTS_REQUEST;
+        type_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GePacket.Type.DYNAMIC_OBJECTS_REQUEST;
         onChanged();
         return this;
       }
 
-      // optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse dynamicObjectsResponse = 2;
-      private arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse dynamicObjectsResponse_ = arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.getDefaultInstance();
+      // optional .arch.galaxyeclipse.shared.protocol.GeDynamicObjectsResponse dynamicObjectsResponse = 2;
+      private arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponse dynamicObjectsResponse_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponse.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse, arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponseOrBuilder> dynamicObjectsResponseBuilder_;
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponse, arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponse.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponseOrBuilder> dynamicObjectsResponseBuilder_;
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse dynamicObjectsResponse = 2;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeDynamicObjectsResponse dynamicObjectsResponse = 2;</code>
        */
       public boolean hasDynamicObjectsResponse() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse dynamicObjectsResponse = 2;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeDynamicObjectsResponse dynamicObjectsResponse = 2;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse getDynamicObjectsResponse() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponse getDynamicObjectsResponse() {
         if (dynamicObjectsResponseBuilder_ == null) {
           return dynamicObjectsResponse_;
         } else {
@@ -1473,9 +1473,9 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse dynamicObjectsResponse = 2;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeDynamicObjectsResponse dynamicObjectsResponse = 2;</code>
        */
-      public Builder setDynamicObjectsResponse(arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse value) {
+      public Builder setDynamicObjectsResponse(arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponse value) {
         if (dynamicObjectsResponseBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1489,10 +1489,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse dynamicObjectsResponse = 2;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeDynamicObjectsResponse dynamicObjectsResponse = 2;</code>
        */
       public Builder setDynamicObjectsResponse(
-          arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.Builder builderForValue) {
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponse.Builder builderForValue) {
         if (dynamicObjectsResponseBuilder_ == null) {
           dynamicObjectsResponse_ = builderForValue.build();
           onChanged();
@@ -1503,14 +1503,14 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse dynamicObjectsResponse = 2;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeDynamicObjectsResponse dynamicObjectsResponse = 2;</code>
        */
-      public Builder mergeDynamicObjectsResponse(arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse value) {
+      public Builder mergeDynamicObjectsResponse(arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponse value) {
         if (dynamicObjectsResponseBuilder_ == null) {
           if (((bitField0_ & 0x00000002) == 0x00000002) &&
-              dynamicObjectsResponse_ != arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.getDefaultInstance()) {
+              dynamicObjectsResponse_ != arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponse.getDefaultInstance()) {
             dynamicObjectsResponse_ =
-              arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.newBuilder(dynamicObjectsResponse_).mergeFrom(value).buildPartial();
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponse.newBuilder(dynamicObjectsResponse_).mergeFrom(value).buildPartial();
           } else {
             dynamicObjectsResponse_ = value;
           }
@@ -1522,11 +1522,11 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse dynamicObjectsResponse = 2;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeDynamicObjectsResponse dynamicObjectsResponse = 2;</code>
        */
       public Builder clearDynamicObjectsResponse() {
         if (dynamicObjectsResponseBuilder_ == null) {
-          dynamicObjectsResponse_ = arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.getDefaultInstance();
+          dynamicObjectsResponse_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponse.getDefaultInstance();
           onChanged();
         } else {
           dynamicObjectsResponseBuilder_.clear();
@@ -1535,17 +1535,17 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse dynamicObjectsResponse = 2;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeDynamicObjectsResponse dynamicObjectsResponse = 2;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.Builder getDynamicObjectsResponseBuilder() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponse.Builder getDynamicObjectsResponseBuilder() {
         bitField0_ |= 0x00000002;
         onChanged();
         return getDynamicObjectsResponseFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse dynamicObjectsResponse = 2;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeDynamicObjectsResponse dynamicObjectsResponse = 2;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponseOrBuilder getDynamicObjectsResponseOrBuilder() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponseOrBuilder getDynamicObjectsResponseOrBuilder() {
         if (dynamicObjectsResponseBuilder_ != null) {
           return dynamicObjectsResponseBuilder_.getMessageOrBuilder();
         } else {
@@ -1553,14 +1553,14 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse dynamicObjectsResponse = 2;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeDynamicObjectsResponse dynamicObjectsResponse = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse, arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponseOrBuilder> 
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponse, arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponse.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponseOrBuilder> 
           getDynamicObjectsResponseFieldBuilder() {
         if (dynamicObjectsResponseBuilder_ == null) {
           dynamicObjectsResponseBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse, arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponseOrBuilder>(
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponse, arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponse.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponseOrBuilder>(
                   dynamicObjectsResponse_,
                   getParentForChildren(),
                   isClean());
@@ -1569,20 +1569,20 @@ public final class GeProtocol {
         return dynamicObjectsResponseBuilder_;
       }
 
-      // optional .arch.galaxyeclipse.shared.protocol.ShipStateResponse shipStateResponse = 3;
-      private arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse shipStateResponse_ = arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse.getDefaultInstance();
+      // optional .arch.galaxyeclipse.shared.protocol.GeShipStateResponse shipStateResponse = 3;
+      private arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse shipStateResponse_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponseOrBuilder> shipStateResponseBuilder_;
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponseOrBuilder> shipStateResponseBuilder_;
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStateResponse shipStateResponse = 3;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStateResponse shipStateResponse = 3;</code>
        */
       public boolean hasShipStateResponse() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStateResponse shipStateResponse = 3;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStateResponse shipStateResponse = 3;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse getShipStateResponse() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse getShipStateResponse() {
         if (shipStateResponseBuilder_ == null) {
           return shipStateResponse_;
         } else {
@@ -1590,9 +1590,9 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStateResponse shipStateResponse = 3;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStateResponse shipStateResponse = 3;</code>
        */
-      public Builder setShipStateResponse(arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse value) {
+      public Builder setShipStateResponse(arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse value) {
         if (shipStateResponseBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1606,10 +1606,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStateResponse shipStateResponse = 3;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStateResponse shipStateResponse = 3;</code>
        */
       public Builder setShipStateResponse(
-          arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse.Builder builderForValue) {
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse.Builder builderForValue) {
         if (shipStateResponseBuilder_ == null) {
           shipStateResponse_ = builderForValue.build();
           onChanged();
@@ -1620,14 +1620,14 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStateResponse shipStateResponse = 3;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStateResponse shipStateResponse = 3;</code>
        */
-      public Builder mergeShipStateResponse(arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse value) {
+      public Builder mergeShipStateResponse(arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse value) {
         if (shipStateResponseBuilder_ == null) {
           if (((bitField0_ & 0x00000004) == 0x00000004) &&
-              shipStateResponse_ != arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse.getDefaultInstance()) {
+              shipStateResponse_ != arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse.getDefaultInstance()) {
             shipStateResponse_ =
-              arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse.newBuilder(shipStateResponse_).mergeFrom(value).buildPartial();
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse.newBuilder(shipStateResponse_).mergeFrom(value).buildPartial();
           } else {
             shipStateResponse_ = value;
           }
@@ -1639,11 +1639,11 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStateResponse shipStateResponse = 3;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStateResponse shipStateResponse = 3;</code>
        */
       public Builder clearShipStateResponse() {
         if (shipStateResponseBuilder_ == null) {
-          shipStateResponse_ = arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse.getDefaultInstance();
+          shipStateResponse_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse.getDefaultInstance();
           onChanged();
         } else {
           shipStateResponseBuilder_.clear();
@@ -1652,17 +1652,17 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStateResponse shipStateResponse = 3;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStateResponse shipStateResponse = 3;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse.Builder getShipStateResponseBuilder() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse.Builder getShipStateResponseBuilder() {
         bitField0_ |= 0x00000004;
         onChanged();
         return getShipStateResponseFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStateResponse shipStateResponse = 3;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStateResponse shipStateResponse = 3;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponseOrBuilder getShipStateResponseOrBuilder() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponseOrBuilder getShipStateResponseOrBuilder() {
         if (shipStateResponseBuilder_ != null) {
           return shipStateResponseBuilder_.getMessageOrBuilder();
         } else {
@@ -1670,14 +1670,14 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStateResponse shipStateResponse = 3;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStateResponse shipStateResponse = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponseOrBuilder> 
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponseOrBuilder> 
           getShipStateResponseFieldBuilder() {
         if (shipStateResponseBuilder_ == null) {
           shipStateResponseBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponseOrBuilder>(
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponseOrBuilder>(
                   shipStateResponse_,
                   getParentForChildren(),
                   isClean());
@@ -1686,20 +1686,20 @@ public final class GeProtocol {
         return shipStateResponseBuilder_;
       }
 
-      // optional .arch.galaxyeclipse.shared.protocol.ClientActionPacket clientAction = 4;
-      private arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket clientAction_ = arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket.getDefaultInstance();
+      // optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket clientAction = 4;
+      private arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket clientAction_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacketOrBuilder> clientActionBuilder_;
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacketOrBuilder> clientActionBuilder_;
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ClientActionPacket clientAction = 4;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket clientAction = 4;</code>
        */
       public boolean hasClientAction() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ClientActionPacket clientAction = 4;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket clientAction = 4;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket getClientAction() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket getClientAction() {
         if (clientActionBuilder_ == null) {
           return clientAction_;
         } else {
@@ -1707,9 +1707,9 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ClientActionPacket clientAction = 4;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket clientAction = 4;</code>
        */
-      public Builder setClientAction(arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket value) {
+      public Builder setClientAction(arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket value) {
         if (clientActionBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1723,10 +1723,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ClientActionPacket clientAction = 4;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket clientAction = 4;</code>
        */
       public Builder setClientAction(
-          arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket.Builder builderForValue) {
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.Builder builderForValue) {
         if (clientActionBuilder_ == null) {
           clientAction_ = builderForValue.build();
           onChanged();
@@ -1737,14 +1737,14 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ClientActionPacket clientAction = 4;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket clientAction = 4;</code>
        */
-      public Builder mergeClientAction(arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket value) {
+      public Builder mergeClientAction(arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket value) {
         if (clientActionBuilder_ == null) {
           if (((bitField0_ & 0x00000008) == 0x00000008) &&
-              clientAction_ != arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket.getDefaultInstance()) {
+              clientAction_ != arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.getDefaultInstance()) {
             clientAction_ =
-              arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket.newBuilder(clientAction_).mergeFrom(value).buildPartial();
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.newBuilder(clientAction_).mergeFrom(value).buildPartial();
           } else {
             clientAction_ = value;
           }
@@ -1756,11 +1756,11 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ClientActionPacket clientAction = 4;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket clientAction = 4;</code>
        */
       public Builder clearClientAction() {
         if (clientActionBuilder_ == null) {
-          clientAction_ = arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket.getDefaultInstance();
+          clientAction_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.getDefaultInstance();
           onChanged();
         } else {
           clientActionBuilder_.clear();
@@ -1769,17 +1769,17 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ClientActionPacket clientAction = 4;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket clientAction = 4;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket.Builder getClientActionBuilder() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.Builder getClientActionBuilder() {
         bitField0_ |= 0x00000008;
         onChanged();
         return getClientActionFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ClientActionPacket clientAction = 4;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket clientAction = 4;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacketOrBuilder getClientActionOrBuilder() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacketOrBuilder getClientActionOrBuilder() {
         if (clientActionBuilder_ != null) {
           return clientActionBuilder_.getMessageOrBuilder();
         } else {
@@ -1787,14 +1787,14 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ClientActionPacket clientAction = 4;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket clientAction = 4;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacketOrBuilder> 
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacketOrBuilder> 
           getClientActionFieldBuilder() {
         if (clientActionBuilder_ == null) {
           clientActionBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacketOrBuilder>(
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacketOrBuilder>(
                   clientAction_,
                   getParentForChildren(),
                   isClean());
@@ -1803,20 +1803,20 @@ public final class GeProtocol {
         return clientActionBuilder_;
       }
 
-      // optional .arch.galaxyeclipse.shared.protocol.AuthRequest authRequest = 16;
-      private arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest authRequest_ = arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest.getDefaultInstance();
+      // optional .arch.galaxyeclipse.shared.protocol.GeAuthRequest authRequest = 16;
+      private arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequest authRequest_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequest.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest, arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequestOrBuilder> authRequestBuilder_;
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequest, arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequest.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequestOrBuilder> authRequestBuilder_;
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.AuthRequest authRequest = 16;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeAuthRequest authRequest = 16;</code>
        */
       public boolean hasAuthRequest() {
         return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.AuthRequest authRequest = 16;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeAuthRequest authRequest = 16;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest getAuthRequest() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequest getAuthRequest() {
         if (authRequestBuilder_ == null) {
           return authRequest_;
         } else {
@@ -1824,9 +1824,9 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.AuthRequest authRequest = 16;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeAuthRequest authRequest = 16;</code>
        */
-      public Builder setAuthRequest(arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest value) {
+      public Builder setAuthRequest(arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequest value) {
         if (authRequestBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1840,10 +1840,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.AuthRequest authRequest = 16;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeAuthRequest authRequest = 16;</code>
        */
       public Builder setAuthRequest(
-          arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest.Builder builderForValue) {
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequest.Builder builderForValue) {
         if (authRequestBuilder_ == null) {
           authRequest_ = builderForValue.build();
           onChanged();
@@ -1854,14 +1854,14 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.AuthRequest authRequest = 16;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeAuthRequest authRequest = 16;</code>
        */
-      public Builder mergeAuthRequest(arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest value) {
+      public Builder mergeAuthRequest(arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequest value) {
         if (authRequestBuilder_ == null) {
           if (((bitField0_ & 0x00000010) == 0x00000010) &&
-              authRequest_ != arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest.getDefaultInstance()) {
+              authRequest_ != arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequest.getDefaultInstance()) {
             authRequest_ =
-              arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest.newBuilder(authRequest_).mergeFrom(value).buildPartial();
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequest.newBuilder(authRequest_).mergeFrom(value).buildPartial();
           } else {
             authRequest_ = value;
           }
@@ -1873,11 +1873,11 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.AuthRequest authRequest = 16;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeAuthRequest authRequest = 16;</code>
        */
       public Builder clearAuthRequest() {
         if (authRequestBuilder_ == null) {
-          authRequest_ = arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest.getDefaultInstance();
+          authRequest_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequest.getDefaultInstance();
           onChanged();
         } else {
           authRequestBuilder_.clear();
@@ -1886,17 +1886,17 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.AuthRequest authRequest = 16;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeAuthRequest authRequest = 16;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest.Builder getAuthRequestBuilder() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequest.Builder getAuthRequestBuilder() {
         bitField0_ |= 0x00000010;
         onChanged();
         return getAuthRequestFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.AuthRequest authRequest = 16;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeAuthRequest authRequest = 16;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequestOrBuilder getAuthRequestOrBuilder() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequestOrBuilder getAuthRequestOrBuilder() {
         if (authRequestBuilder_ != null) {
           return authRequestBuilder_.getMessageOrBuilder();
         } else {
@@ -1904,14 +1904,14 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.AuthRequest authRequest = 16;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeAuthRequest authRequest = 16;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest, arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequestOrBuilder> 
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequest, arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequest.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequestOrBuilder> 
           getAuthRequestFieldBuilder() {
         if (authRequestBuilder_ == null) {
           authRequestBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest, arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequestOrBuilder>(
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequest, arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequest.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequestOrBuilder>(
                   authRequest_,
                   getParentForChildren(),
                   isClean());
@@ -1920,20 +1920,20 @@ public final class GeProtocol {
         return authRequestBuilder_;
       }
 
-      // optional .arch.galaxyeclipse.shared.protocol.AuthResponse authResponse = 17;
-      private arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse authResponse_ = arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse.getDefaultInstance();
+      // optional .arch.galaxyeclipse.shared.protocol.GeAuthResponse authResponse = 17;
+      private arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponse authResponse_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponse.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse, arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponseOrBuilder> authResponseBuilder_;
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponse, arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponse.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponseOrBuilder> authResponseBuilder_;
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.AuthResponse authResponse = 17;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeAuthResponse authResponse = 17;</code>
        */
       public boolean hasAuthResponse() {
         return ((bitField0_ & 0x00000020) == 0x00000020);
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.AuthResponse authResponse = 17;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeAuthResponse authResponse = 17;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse getAuthResponse() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponse getAuthResponse() {
         if (authResponseBuilder_ == null) {
           return authResponse_;
         } else {
@@ -1941,9 +1941,9 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.AuthResponse authResponse = 17;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeAuthResponse authResponse = 17;</code>
        */
-      public Builder setAuthResponse(arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse value) {
+      public Builder setAuthResponse(arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponse value) {
         if (authResponseBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1957,10 +1957,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.AuthResponse authResponse = 17;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeAuthResponse authResponse = 17;</code>
        */
       public Builder setAuthResponse(
-          arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse.Builder builderForValue) {
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponse.Builder builderForValue) {
         if (authResponseBuilder_ == null) {
           authResponse_ = builderForValue.build();
           onChanged();
@@ -1971,14 +1971,14 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.AuthResponse authResponse = 17;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeAuthResponse authResponse = 17;</code>
        */
-      public Builder mergeAuthResponse(arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse value) {
+      public Builder mergeAuthResponse(arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponse value) {
         if (authResponseBuilder_ == null) {
           if (((bitField0_ & 0x00000020) == 0x00000020) &&
-              authResponse_ != arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse.getDefaultInstance()) {
+              authResponse_ != arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponse.getDefaultInstance()) {
             authResponse_ =
-              arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse.newBuilder(authResponse_).mergeFrom(value).buildPartial();
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponse.newBuilder(authResponse_).mergeFrom(value).buildPartial();
           } else {
             authResponse_ = value;
           }
@@ -1990,11 +1990,11 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.AuthResponse authResponse = 17;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeAuthResponse authResponse = 17;</code>
        */
       public Builder clearAuthResponse() {
         if (authResponseBuilder_ == null) {
-          authResponse_ = arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse.getDefaultInstance();
+          authResponse_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponse.getDefaultInstance();
           onChanged();
         } else {
           authResponseBuilder_.clear();
@@ -2003,17 +2003,17 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.AuthResponse authResponse = 17;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeAuthResponse authResponse = 17;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse.Builder getAuthResponseBuilder() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponse.Builder getAuthResponseBuilder() {
         bitField0_ |= 0x00000020;
         onChanged();
         return getAuthResponseFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.AuthResponse authResponse = 17;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeAuthResponse authResponse = 17;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponseOrBuilder getAuthResponseOrBuilder() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponseOrBuilder getAuthResponseOrBuilder() {
         if (authResponseBuilder_ != null) {
           return authResponseBuilder_.getMessageOrBuilder();
         } else {
@@ -2021,14 +2021,14 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.AuthResponse authResponse = 17;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeAuthResponse authResponse = 17;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse, arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponseOrBuilder> 
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponse, arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponse.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponseOrBuilder> 
           getAuthResponseFieldBuilder() {
         if (authResponseBuilder_ == null) {
           authResponseBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse, arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponseOrBuilder>(
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponse, arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponse.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponseOrBuilder>(
                   authResponse_,
                   getParentForChildren(),
                   isClean());
@@ -2037,20 +2037,20 @@ public final class GeProtocol {
         return authResponseBuilder_;
       }
 
-      // optional .arch.galaxyeclipse.shared.protocol.LocationInfoPacket locationInfo = 18;
-      private arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket locationInfo_ = arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.getDefaultInstance();
+      // optional .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket locationInfo = 18;
+      private arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket locationInfo_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacketOrBuilder> locationInfoBuilder_;
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacketOrBuilder> locationInfoBuilder_;
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.LocationInfoPacket locationInfo = 18;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket locationInfo = 18;</code>
        */
       public boolean hasLocationInfo() {
         return ((bitField0_ & 0x00000040) == 0x00000040);
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.LocationInfoPacket locationInfo = 18;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket locationInfo = 18;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket getLocationInfo() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket getLocationInfo() {
         if (locationInfoBuilder_ == null) {
           return locationInfo_;
         } else {
@@ -2058,9 +2058,9 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.LocationInfoPacket locationInfo = 18;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket locationInfo = 18;</code>
        */
-      public Builder setLocationInfo(arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket value) {
+      public Builder setLocationInfo(arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket value) {
         if (locationInfoBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2074,10 +2074,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.LocationInfoPacket locationInfo = 18;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket locationInfo = 18;</code>
        */
       public Builder setLocationInfo(
-          arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.Builder builderForValue) {
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.Builder builderForValue) {
         if (locationInfoBuilder_ == null) {
           locationInfo_ = builderForValue.build();
           onChanged();
@@ -2088,14 +2088,14 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.LocationInfoPacket locationInfo = 18;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket locationInfo = 18;</code>
        */
-      public Builder mergeLocationInfo(arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket value) {
+      public Builder mergeLocationInfo(arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket value) {
         if (locationInfoBuilder_ == null) {
           if (((bitField0_ & 0x00000040) == 0x00000040) &&
-              locationInfo_ != arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.getDefaultInstance()) {
+              locationInfo_ != arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.getDefaultInstance()) {
             locationInfo_ =
-              arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.newBuilder(locationInfo_).mergeFrom(value).buildPartial();
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.newBuilder(locationInfo_).mergeFrom(value).buildPartial();
           } else {
             locationInfo_ = value;
           }
@@ -2107,11 +2107,11 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.LocationInfoPacket locationInfo = 18;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket locationInfo = 18;</code>
        */
       public Builder clearLocationInfo() {
         if (locationInfoBuilder_ == null) {
-          locationInfo_ = arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.getDefaultInstance();
+          locationInfo_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.getDefaultInstance();
           onChanged();
         } else {
           locationInfoBuilder_.clear();
@@ -2120,17 +2120,17 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.LocationInfoPacket locationInfo = 18;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket locationInfo = 18;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.Builder getLocationInfoBuilder() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.Builder getLocationInfoBuilder() {
         bitField0_ |= 0x00000040;
         onChanged();
         return getLocationInfoFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.LocationInfoPacket locationInfo = 18;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket locationInfo = 18;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacketOrBuilder getLocationInfoOrBuilder() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacketOrBuilder getLocationInfoOrBuilder() {
         if (locationInfoBuilder_ != null) {
           return locationInfoBuilder_.getMessageOrBuilder();
         } else {
@@ -2138,14 +2138,14 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.LocationInfoPacket locationInfo = 18;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket locationInfo = 18;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacketOrBuilder> 
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacketOrBuilder> 
           getLocationInfoFieldBuilder() {
         if (locationInfoBuilder_ == null) {
           locationInfoBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacketOrBuilder>(
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacketOrBuilder>(
                   locationInfo_,
                   getParentForChildren(),
                   isClean());
@@ -2154,20 +2154,20 @@ public final class GeProtocol {
         return locationInfoBuilder_;
       }
 
-      // optional .arch.galaxyeclipse.shared.protocol.StartupInfoPacket startupInfo = 19;
-      private arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket startupInfo_ = arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket.getDefaultInstance();
+      // optional .arch.galaxyeclipse.shared.protocol.GeStartupInfoPacket startupInfo = 19;
+      private arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacket startupInfo_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacket.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacketOrBuilder> startupInfoBuilder_;
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacketOrBuilder> startupInfoBuilder_;
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.StartupInfoPacket startupInfo = 19;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeStartupInfoPacket startupInfo = 19;</code>
        */
       public boolean hasStartupInfo() {
         return ((bitField0_ & 0x00000080) == 0x00000080);
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.StartupInfoPacket startupInfo = 19;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeStartupInfoPacket startupInfo = 19;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket getStartupInfo() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacket getStartupInfo() {
         if (startupInfoBuilder_ == null) {
           return startupInfo_;
         } else {
@@ -2175,9 +2175,9 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.StartupInfoPacket startupInfo = 19;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeStartupInfoPacket startupInfo = 19;</code>
        */
-      public Builder setStartupInfo(arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket value) {
+      public Builder setStartupInfo(arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacket value) {
         if (startupInfoBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2191,10 +2191,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.StartupInfoPacket startupInfo = 19;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeStartupInfoPacket startupInfo = 19;</code>
        */
       public Builder setStartupInfo(
-          arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket.Builder builderForValue) {
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacket.Builder builderForValue) {
         if (startupInfoBuilder_ == null) {
           startupInfo_ = builderForValue.build();
           onChanged();
@@ -2205,14 +2205,14 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.StartupInfoPacket startupInfo = 19;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeStartupInfoPacket startupInfo = 19;</code>
        */
-      public Builder mergeStartupInfo(arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket value) {
+      public Builder mergeStartupInfo(arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacket value) {
         if (startupInfoBuilder_ == null) {
           if (((bitField0_ & 0x00000080) == 0x00000080) &&
-              startupInfo_ != arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket.getDefaultInstance()) {
+              startupInfo_ != arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacket.getDefaultInstance()) {
             startupInfo_ =
-              arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket.newBuilder(startupInfo_).mergeFrom(value).buildPartial();
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacket.newBuilder(startupInfo_).mergeFrom(value).buildPartial();
           } else {
             startupInfo_ = value;
           }
@@ -2224,11 +2224,11 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.StartupInfoPacket startupInfo = 19;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeStartupInfoPacket startupInfo = 19;</code>
        */
       public Builder clearStartupInfo() {
         if (startupInfoBuilder_ == null) {
-          startupInfo_ = arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket.getDefaultInstance();
+          startupInfo_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacket.getDefaultInstance();
           onChanged();
         } else {
           startupInfoBuilder_.clear();
@@ -2237,17 +2237,17 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.StartupInfoPacket startupInfo = 19;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeStartupInfoPacket startupInfo = 19;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket.Builder getStartupInfoBuilder() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacket.Builder getStartupInfoBuilder() {
         bitField0_ |= 0x00000080;
         onChanged();
         return getStartupInfoFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.StartupInfoPacket startupInfo = 19;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeStartupInfoPacket startupInfo = 19;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacketOrBuilder getStartupInfoOrBuilder() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacketOrBuilder getStartupInfoOrBuilder() {
         if (startupInfoBuilder_ != null) {
           return startupInfoBuilder_.getMessageOrBuilder();
         } else {
@@ -2255,14 +2255,14 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.StartupInfoPacket startupInfo = 19;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeStartupInfoPacket startupInfo = 19;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacketOrBuilder> 
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacketOrBuilder> 
           getStartupInfoFieldBuilder() {
         if (startupInfoBuilder_ == null) {
           startupInfoBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacketOrBuilder>(
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacketOrBuilder>(
                   startupInfo_,
                   getParentForChildren(),
                   isClean());
@@ -2271,20 +2271,20 @@ public final class GeProtocol {
         return startupInfoBuilder_;
       }
 
-      // optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoCommandPacket gameInfoCommandHolder = 20;
-      private arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacket gameInfoCommandHolder_ = arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacket.getDefaultInstance();
+      // optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoCommandPacket gameInfoCommandHolder = 20;
+      private arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacket gameInfoCommandHolder_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacket.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacketOrBuilder> gameInfoCommandHolderBuilder_;
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacketOrBuilder> gameInfoCommandHolderBuilder_;
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoCommandPacket gameInfoCommandHolder = 20;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoCommandPacket gameInfoCommandHolder = 20;</code>
        */
       public boolean hasGameInfoCommandHolder() {
         return ((bitField0_ & 0x00000100) == 0x00000100);
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoCommandPacket gameInfoCommandHolder = 20;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoCommandPacket gameInfoCommandHolder = 20;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacket getGameInfoCommandHolder() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacket getGameInfoCommandHolder() {
         if (gameInfoCommandHolderBuilder_ == null) {
           return gameInfoCommandHolder_;
         } else {
@@ -2292,9 +2292,9 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoCommandPacket gameInfoCommandHolder = 20;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoCommandPacket gameInfoCommandHolder = 20;</code>
        */
-      public Builder setGameInfoCommandHolder(arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacket value) {
+      public Builder setGameInfoCommandHolder(arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacket value) {
         if (gameInfoCommandHolderBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2308,10 +2308,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoCommandPacket gameInfoCommandHolder = 20;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoCommandPacket gameInfoCommandHolder = 20;</code>
        */
       public Builder setGameInfoCommandHolder(
-          arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacket.Builder builderForValue) {
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacket.Builder builderForValue) {
         if (gameInfoCommandHolderBuilder_ == null) {
           gameInfoCommandHolder_ = builderForValue.build();
           onChanged();
@@ -2322,14 +2322,14 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoCommandPacket gameInfoCommandHolder = 20;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoCommandPacket gameInfoCommandHolder = 20;</code>
        */
-      public Builder mergeGameInfoCommandHolder(arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacket value) {
+      public Builder mergeGameInfoCommandHolder(arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacket value) {
         if (gameInfoCommandHolderBuilder_ == null) {
           if (((bitField0_ & 0x00000100) == 0x00000100) &&
-              gameInfoCommandHolder_ != arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacket.getDefaultInstance()) {
+              gameInfoCommandHolder_ != arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacket.getDefaultInstance()) {
             gameInfoCommandHolder_ =
-              arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacket.newBuilder(gameInfoCommandHolder_).mergeFrom(value).buildPartial();
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacket.newBuilder(gameInfoCommandHolder_).mergeFrom(value).buildPartial();
           } else {
             gameInfoCommandHolder_ = value;
           }
@@ -2341,11 +2341,11 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoCommandPacket gameInfoCommandHolder = 20;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoCommandPacket gameInfoCommandHolder = 20;</code>
        */
       public Builder clearGameInfoCommandHolder() {
         if (gameInfoCommandHolderBuilder_ == null) {
-          gameInfoCommandHolder_ = arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacket.getDefaultInstance();
+          gameInfoCommandHolder_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacket.getDefaultInstance();
           onChanged();
         } else {
           gameInfoCommandHolderBuilder_.clear();
@@ -2354,17 +2354,17 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoCommandPacket gameInfoCommandHolder = 20;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoCommandPacket gameInfoCommandHolder = 20;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacket.Builder getGameInfoCommandHolderBuilder() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacket.Builder getGameInfoCommandHolderBuilder() {
         bitField0_ |= 0x00000100;
         onChanged();
         return getGameInfoCommandHolderFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoCommandPacket gameInfoCommandHolder = 20;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoCommandPacket gameInfoCommandHolder = 20;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacketOrBuilder getGameInfoCommandHolderOrBuilder() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacketOrBuilder getGameInfoCommandHolderOrBuilder() {
         if (gameInfoCommandHolderBuilder_ != null) {
           return gameInfoCommandHolderBuilder_.getMessageOrBuilder();
         } else {
@@ -2372,14 +2372,14 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoCommandPacket gameInfoCommandHolder = 20;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoCommandPacket gameInfoCommandHolder = 20;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacketOrBuilder> 
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacketOrBuilder> 
           getGameInfoCommandHolderFieldBuilder() {
         if (gameInfoCommandHolderBuilder_ == null) {
           gameInfoCommandHolderBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacketOrBuilder>(
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacketOrBuilder>(
                   gameInfoCommandHolder_,
                   getParentForChildren(),
                   isClean());
@@ -2388,20 +2388,20 @@ public final class GeProtocol {
         return gameInfoCommandHolderBuilder_;
       }
 
-      // optional .arch.galaxyeclipse.shared.protocol.ChatSendMessagePacket chatSendMessage = 21;
-      private arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacket chatSendMessage_ = arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacket.getDefaultInstance();
+      // optional .arch.galaxyeclipse.shared.protocol.GeChatSendMessagePacket chatSendMessage = 21;
+      private arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacket chatSendMessage_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacket.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacket, arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacketOrBuilder> chatSendMessageBuilder_;
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacketOrBuilder> chatSendMessageBuilder_;
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ChatSendMessagePacket chatSendMessage = 21;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeChatSendMessagePacket chatSendMessage = 21;</code>
        */
       public boolean hasChatSendMessage() {
         return ((bitField0_ & 0x00000200) == 0x00000200);
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ChatSendMessagePacket chatSendMessage = 21;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeChatSendMessagePacket chatSendMessage = 21;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacket getChatSendMessage() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacket getChatSendMessage() {
         if (chatSendMessageBuilder_ == null) {
           return chatSendMessage_;
         } else {
@@ -2409,9 +2409,9 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ChatSendMessagePacket chatSendMessage = 21;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeChatSendMessagePacket chatSendMessage = 21;</code>
        */
-      public Builder setChatSendMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacket value) {
+      public Builder setChatSendMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacket value) {
         if (chatSendMessageBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2425,10 +2425,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ChatSendMessagePacket chatSendMessage = 21;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeChatSendMessagePacket chatSendMessage = 21;</code>
        */
       public Builder setChatSendMessage(
-          arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacket.Builder builderForValue) {
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacket.Builder builderForValue) {
         if (chatSendMessageBuilder_ == null) {
           chatSendMessage_ = builderForValue.build();
           onChanged();
@@ -2439,14 +2439,14 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ChatSendMessagePacket chatSendMessage = 21;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeChatSendMessagePacket chatSendMessage = 21;</code>
        */
-      public Builder mergeChatSendMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacket value) {
+      public Builder mergeChatSendMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacket value) {
         if (chatSendMessageBuilder_ == null) {
           if (((bitField0_ & 0x00000200) == 0x00000200) &&
-              chatSendMessage_ != arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacket.getDefaultInstance()) {
+              chatSendMessage_ != arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacket.getDefaultInstance()) {
             chatSendMessage_ =
-              arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacket.newBuilder(chatSendMessage_).mergeFrom(value).buildPartial();
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacket.newBuilder(chatSendMessage_).mergeFrom(value).buildPartial();
           } else {
             chatSendMessage_ = value;
           }
@@ -2458,11 +2458,11 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ChatSendMessagePacket chatSendMessage = 21;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeChatSendMessagePacket chatSendMessage = 21;</code>
        */
       public Builder clearChatSendMessage() {
         if (chatSendMessageBuilder_ == null) {
-          chatSendMessage_ = arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacket.getDefaultInstance();
+          chatSendMessage_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacket.getDefaultInstance();
           onChanged();
         } else {
           chatSendMessageBuilder_.clear();
@@ -2471,17 +2471,17 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ChatSendMessagePacket chatSendMessage = 21;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeChatSendMessagePacket chatSendMessage = 21;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacket.Builder getChatSendMessageBuilder() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacket.Builder getChatSendMessageBuilder() {
         bitField0_ |= 0x00000200;
         onChanged();
         return getChatSendMessageFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ChatSendMessagePacket chatSendMessage = 21;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeChatSendMessagePacket chatSendMessage = 21;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacketOrBuilder getChatSendMessageOrBuilder() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacketOrBuilder getChatSendMessageOrBuilder() {
         if (chatSendMessageBuilder_ != null) {
           return chatSendMessageBuilder_.getMessageOrBuilder();
         } else {
@@ -2489,14 +2489,14 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ChatSendMessagePacket chatSendMessage = 21;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeChatSendMessagePacket chatSendMessage = 21;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacket, arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacketOrBuilder> 
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacketOrBuilder> 
           getChatSendMessageFieldBuilder() {
         if (chatSendMessageBuilder_ == null) {
           chatSendMessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacket, arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacketOrBuilder>(
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacketOrBuilder>(
                   chatSendMessage_,
                   getParentForChildren(),
                   isClean());
@@ -2505,20 +2505,20 @@ public final class GeProtocol {
         return chatSendMessageBuilder_;
       }
 
-      // optional .arch.galaxyeclipse.shared.protocol.ChatReceiveMessagePacket chatReceiveMessage = 22;
-      private arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacket chatReceiveMessage_ = arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacket.getDefaultInstance();
+      // optional .arch.galaxyeclipse.shared.protocol.GeChatReceiveMessagePacket chatReceiveMessage = 22;
+      private arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacket chatReceiveMessage_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacket.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacket, arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacketOrBuilder> chatReceiveMessageBuilder_;
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacketOrBuilder> chatReceiveMessageBuilder_;
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ChatReceiveMessagePacket chatReceiveMessage = 22;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeChatReceiveMessagePacket chatReceiveMessage = 22;</code>
        */
       public boolean hasChatReceiveMessage() {
         return ((bitField0_ & 0x00000400) == 0x00000400);
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ChatReceiveMessagePacket chatReceiveMessage = 22;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeChatReceiveMessagePacket chatReceiveMessage = 22;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacket getChatReceiveMessage() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacket getChatReceiveMessage() {
         if (chatReceiveMessageBuilder_ == null) {
           return chatReceiveMessage_;
         } else {
@@ -2526,9 +2526,9 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ChatReceiveMessagePacket chatReceiveMessage = 22;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeChatReceiveMessagePacket chatReceiveMessage = 22;</code>
        */
-      public Builder setChatReceiveMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacket value) {
+      public Builder setChatReceiveMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacket value) {
         if (chatReceiveMessageBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2542,10 +2542,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ChatReceiveMessagePacket chatReceiveMessage = 22;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeChatReceiveMessagePacket chatReceiveMessage = 22;</code>
        */
       public Builder setChatReceiveMessage(
-          arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacket.Builder builderForValue) {
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacket.Builder builderForValue) {
         if (chatReceiveMessageBuilder_ == null) {
           chatReceiveMessage_ = builderForValue.build();
           onChanged();
@@ -2556,14 +2556,14 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ChatReceiveMessagePacket chatReceiveMessage = 22;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeChatReceiveMessagePacket chatReceiveMessage = 22;</code>
        */
-      public Builder mergeChatReceiveMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacket value) {
+      public Builder mergeChatReceiveMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacket value) {
         if (chatReceiveMessageBuilder_ == null) {
           if (((bitField0_ & 0x00000400) == 0x00000400) &&
-              chatReceiveMessage_ != arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacket.getDefaultInstance()) {
+              chatReceiveMessage_ != arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacket.getDefaultInstance()) {
             chatReceiveMessage_ =
-              arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacket.newBuilder(chatReceiveMessage_).mergeFrom(value).buildPartial();
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacket.newBuilder(chatReceiveMessage_).mergeFrom(value).buildPartial();
           } else {
             chatReceiveMessage_ = value;
           }
@@ -2575,11 +2575,11 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ChatReceiveMessagePacket chatReceiveMessage = 22;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeChatReceiveMessagePacket chatReceiveMessage = 22;</code>
        */
       public Builder clearChatReceiveMessage() {
         if (chatReceiveMessageBuilder_ == null) {
-          chatReceiveMessage_ = arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacket.getDefaultInstance();
+          chatReceiveMessage_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacket.getDefaultInstance();
           onChanged();
         } else {
           chatReceiveMessageBuilder_.clear();
@@ -2588,17 +2588,17 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ChatReceiveMessagePacket chatReceiveMessage = 22;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeChatReceiveMessagePacket chatReceiveMessage = 22;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacket.Builder getChatReceiveMessageBuilder() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacket.Builder getChatReceiveMessageBuilder() {
         bitField0_ |= 0x00000400;
         onChanged();
         return getChatReceiveMessageFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ChatReceiveMessagePacket chatReceiveMessage = 22;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeChatReceiveMessagePacket chatReceiveMessage = 22;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacketOrBuilder getChatReceiveMessageOrBuilder() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacketOrBuilder getChatReceiveMessageOrBuilder() {
         if (chatReceiveMessageBuilder_ != null) {
           return chatReceiveMessageBuilder_.getMessageOrBuilder();
         } else {
@@ -2606,14 +2606,14 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ChatReceiveMessagePacket chatReceiveMessage = 22;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeChatReceiveMessagePacket chatReceiveMessage = 22;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacket, arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacketOrBuilder> 
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacketOrBuilder> 
           getChatReceiveMessageFieldBuilder() {
         if (chatReceiveMessageBuilder_ == null) {
           chatReceiveMessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacket, arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacketOrBuilder>(
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacketOrBuilder>(
                   chatReceiveMessage_,
                   getParentForChildren(),
                   isClean());
@@ -2622,39 +2622,39 @@ public final class GeProtocol {
         return chatReceiveMessageBuilder_;
       }
 
-      // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.Packet)
+      // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.GePacket)
     }
 
     static {
-      defaultInstance = new Packet(true);
+      defaultInstance = new GePacket(true);
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.Packet)
+    // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.GePacket)
   }
 
-  public interface DynamicObjectsRequestOrBuilder
+  public interface GeDynamicObjectsRequestOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
   }
   /**
-   * Protobuf type {@code arch.galaxyeclipse.shared.protocol.DynamicObjectsRequest}
+   * Protobuf type {@code arch.galaxyeclipse.shared.protocol.GeDynamicObjectsRequest}
    */
-  public static final class DynamicObjectsRequest extends
+  public static final class GeDynamicObjectsRequest extends
       com.google.protobuf.GeneratedMessage
-      implements DynamicObjectsRequestOrBuilder {
-    // Use DynamicObjectsRequest.newBuilder() to construct.
-    private DynamicObjectsRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      implements GeDynamicObjectsRequestOrBuilder {
+    // Use GeDynamicObjectsRequest.newBuilder() to construct.
+    private GeDynamicObjectsRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private DynamicObjectsRequest(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private GeDynamicObjectsRequest(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
-    private static final DynamicObjectsRequest defaultInstance;
-    public static DynamicObjectsRequest getDefaultInstance() {
+    private static final GeDynamicObjectsRequest defaultInstance;
+    public static GeDynamicObjectsRequest getDefaultInstance() {
       return defaultInstance;
     }
 
-    public DynamicObjectsRequest getDefaultInstanceForType() {
+    public GeDynamicObjectsRequest getDefaultInstanceForType() {
       return defaultInstance;
     }
 
@@ -2664,7 +2664,7 @@ public final class GeProtocol {
         getUnknownFields() {
       return this.unknownFields;
     }
-    private DynamicObjectsRequest(
+    private GeDynamicObjectsRequest(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -2700,28 +2700,28 @@ public final class GeProtocol {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_DynamicObjectsRequest_descriptor;
+      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeDynamicObjectsRequest_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_DynamicObjectsRequest_fieldAccessorTable
+      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeDynamicObjectsRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequest.class, arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequest.Builder.class);
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsRequest.class, arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsRequest.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<DynamicObjectsRequest> PARSER =
-        new com.google.protobuf.AbstractParser<DynamicObjectsRequest>() {
-      public DynamicObjectsRequest parsePartialFrom(
+    public static com.google.protobuf.Parser<GeDynamicObjectsRequest> PARSER =
+        new com.google.protobuf.AbstractParser<GeDynamicObjectsRequest>() {
+      public GeDynamicObjectsRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DynamicObjectsRequest(input, extensionRegistry);
+        return new GeDynamicObjectsRequest(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<DynamicObjectsRequest> getParserForType() {
+    public com.google.protobuf.Parser<GeDynamicObjectsRequest> getParserForType() {
       return PARSER;
     }
 
@@ -2760,53 +2760,53 @@ public final class GeProtocol {
       return super.writeReplace();
     }
 
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequest parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequest parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequest parseFrom(byte[] data)
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequest parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequest parseFrom(java.io.InputStream input)
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequest parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequest parseDelimitedFrom(java.io.InputStream input)
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequest parseDelimitedFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequest parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequest parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -2815,7 +2815,7 @@ public final class GeProtocol {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequest prototype) {
+    public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsRequest prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -2827,24 +2827,24 @@ public final class GeProtocol {
       return builder;
     }
     /**
-     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.DynamicObjectsRequest}
+     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.GeDynamicObjectsRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequestOrBuilder {
+       implements arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_DynamicObjectsRequest_descriptor;
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeDynamicObjectsRequest_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_DynamicObjectsRequest_fieldAccessorTable
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeDynamicObjectsRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequest.class, arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequest.Builder.class);
+                arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsRequest.class, arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsRequest.Builder.class);
       }
 
-      // Construct using arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequest.newBuilder()
+      // Construct using arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -2873,38 +2873,38 @@ public final class GeProtocol {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_DynamicObjectsRequest_descriptor;
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeDynamicObjectsRequest_descriptor;
       }
 
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequest getDefaultInstanceForType() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequest.getDefaultInstance();
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsRequest getDefaultInstanceForType() {
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsRequest.getDefaultInstance();
       }
 
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequest build() {
-        arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequest result = buildPartial();
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsRequest build() {
+        arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequest buildPartial() {
-        arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequest result = new arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequest(this);
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsRequest buildPartial() {
+        arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsRequest result = new arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsRequest(this);
         onBuilt();
         return result;
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequest) {
-          return mergeFrom((arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequest)other);
+        if (other instanceof arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsRequest) {
+          return mergeFrom((arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequest other) {
-        if (other == arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsRequest other) {
+        if (other == arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsRequest.getDefaultInstance()) return this;
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
@@ -2917,11 +2917,11 @@ public final class GeProtocol {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequest parsedMessage = null;
+        arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsRequest) e.getUnfinishedMessage();
+          parsedMessage = (arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsRequest) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -2931,64 +2931,64 @@ public final class GeProtocol {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.DynamicObjectsRequest)
+      // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.GeDynamicObjectsRequest)
     }
 
     static {
-      defaultInstance = new DynamicObjectsRequest(true);
+      defaultInstance = new GeDynamicObjectsRequest(true);
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.DynamicObjectsRequest)
+    // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.GeDynamicObjectsRequest)
   }
 
-  public interface DynamicObjectsResponseOrBuilder
+  public interface GeDynamicObjectsResponseOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;
+    // repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
      */
-    java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket> 
+    java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket> 
         getObjectsList();
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket getObjects(int index);
+    arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket getObjects(int index);
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
      */
     int getObjectsCount();
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
      */
-    java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacketOrBuilder> 
+    java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacketOrBuilder> 
         getObjectsOrBuilderList();
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacketOrBuilder getObjectsOrBuilder(
+    arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacketOrBuilder getObjectsOrBuilder(
         int index);
   }
   /**
-   * Protobuf type {@code arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse}
+   * Protobuf type {@code arch.galaxyeclipse.shared.protocol.GeDynamicObjectsResponse}
    */
-  public static final class DynamicObjectsResponse extends
+  public static final class GeDynamicObjectsResponse extends
       com.google.protobuf.GeneratedMessage
-      implements DynamicObjectsResponseOrBuilder {
-    // Use DynamicObjectsResponse.newBuilder() to construct.
-    private DynamicObjectsResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      implements GeDynamicObjectsResponseOrBuilder {
+    // Use GeDynamicObjectsResponse.newBuilder() to construct.
+    private GeDynamicObjectsResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private DynamicObjectsResponse(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private GeDynamicObjectsResponse(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
-    private static final DynamicObjectsResponse defaultInstance;
-    public static DynamicObjectsResponse getDefaultInstance() {
+    private static final GeDynamicObjectsResponse defaultInstance;
+    public static GeDynamicObjectsResponse getDefaultInstance() {
       return defaultInstance;
     }
 
-    public DynamicObjectsResponse getDefaultInstanceForType() {
+    public GeDynamicObjectsResponse getDefaultInstanceForType() {
       return defaultInstance;
     }
 
@@ -2998,7 +2998,7 @@ public final class GeProtocol {
         getUnknownFields() {
       return this.unknownFields;
     }
-    private DynamicObjectsResponse(
+    private GeDynamicObjectsResponse(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -3023,10 +3023,10 @@ public final class GeProtocol {
             }
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                objects_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket>();
+                objects_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket>();
                 mutable_bitField0_ |= 0x00000001;
               }
-              objects_.add(input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket.PARSER, extensionRegistry));
+              objects_.add(input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket.PARSER, extensionRegistry));
               break;
             }
           }
@@ -3046,63 +3046,63 @@ public final class GeProtocol {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_DynamicObjectsResponse_descriptor;
+      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeDynamicObjectsResponse_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_DynamicObjectsResponse_fieldAccessorTable
+      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeDynamicObjectsResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.class, arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.Builder.class);
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponse.class, arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponse.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<DynamicObjectsResponse> PARSER =
-        new com.google.protobuf.AbstractParser<DynamicObjectsResponse>() {
-      public DynamicObjectsResponse parsePartialFrom(
+    public static com.google.protobuf.Parser<GeDynamicObjectsResponse> PARSER =
+        new com.google.protobuf.AbstractParser<GeDynamicObjectsResponse>() {
+      public GeDynamicObjectsResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DynamicObjectsResponse(input, extensionRegistry);
+        return new GeDynamicObjectsResponse(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<DynamicObjectsResponse> getParserForType() {
+    public com.google.protobuf.Parser<GeDynamicObjectsResponse> getParserForType() {
       return PARSER;
     }
 
-    // repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;
+    // repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;
     public static final int OBJECTS_FIELD_NUMBER = 1;
-    private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket> objects_;
+    private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket> objects_;
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
      */
-    public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket> getObjectsList() {
+    public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket> getObjectsList() {
       return objects_;
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
      */
-    public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacketOrBuilder> 
+    public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacketOrBuilder> 
         getObjectsOrBuilderList() {
       return objects_;
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
      */
     public int getObjectsCount() {
       return objects_.size();
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket getObjects(int index) {
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket getObjects(int index) {
       return objects_.get(index);
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacketOrBuilder getObjectsOrBuilder(
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacketOrBuilder getObjectsOrBuilder(
         int index) {
       return objects_.get(index);
     }
@@ -3156,53 +3156,53 @@ public final class GeProtocol {
       return super.writeReplace();
     }
 
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse parseFrom(byte[] data)
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse parseFrom(java.io.InputStream input)
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse parseDelimitedFrom(java.io.InputStream input)
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse parseDelimitedFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -3211,7 +3211,7 @@ public final class GeProtocol {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse prototype) {
+    public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponse prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -3223,24 +3223,24 @@ public final class GeProtocol {
       return builder;
     }
     /**
-     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse}
+     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.GeDynamicObjectsResponse}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponseOrBuilder {
+       implements arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_DynamicObjectsResponse_descriptor;
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeDynamicObjectsResponse_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_DynamicObjectsResponse_fieldAccessorTable
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeDynamicObjectsResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.class, arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.Builder.class);
+                arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponse.class, arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponse.Builder.class);
       }
 
-      // Construct using arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.newBuilder()
+      // Construct using arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -3276,23 +3276,23 @@ public final class GeProtocol {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_DynamicObjectsResponse_descriptor;
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeDynamicObjectsResponse_descriptor;
       }
 
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse getDefaultInstanceForType() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.getDefaultInstance();
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponse getDefaultInstanceForType() {
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponse.getDefaultInstance();
       }
 
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse build() {
-        arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse result = buildPartial();
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponse build() {
+        arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse buildPartial() {
-        arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse result = new arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse(this);
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponse buildPartial() {
+        arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponse result = new arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponse(this);
         int from_bitField0_ = bitField0_;
         if (objectsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -3308,16 +3308,16 @@ public final class GeProtocol {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse) {
-          return mergeFrom((arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse)other);
+        if (other instanceof arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponse) {
+          return mergeFrom((arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse other) {
-        if (other == arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponse other) {
+        if (other == arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponse.getDefaultInstance()) return this;
         if (objectsBuilder_ == null) {
           if (!other.objects_.isEmpty()) {
             if (objects_.isEmpty()) {
@@ -3362,11 +3362,11 @@ public final class GeProtocol {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse parsedMessage = null;
+        arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (arch.galaxyeclipse.shared.protocol.GeProtocol.DynamicObjectsResponse) e.getUnfinishedMessage();
+          parsedMessage = (arch.galaxyeclipse.shared.protocol.GeProtocol.GeDynamicObjectsResponse) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -3377,23 +3377,23 @@ public final class GeProtocol {
       }
       private int bitField0_;
 
-      // repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;
-      private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket> objects_ =
+      // repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;
+      private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket> objects_ =
         java.util.Collections.emptyList();
       private void ensureObjectsIsMutable() {
         if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-          objects_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket>(objects_);
+          objects_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket>(objects_);
           bitField0_ |= 0x00000001;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacketOrBuilder> objectsBuilder_;
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacketOrBuilder> objectsBuilder_;
 
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
        */
-      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket> getObjectsList() {
+      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket> getObjectsList() {
         if (objectsBuilder_ == null) {
           return java.util.Collections.unmodifiableList(objects_);
         } else {
@@ -3401,7 +3401,7 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
        */
       public int getObjectsCount() {
         if (objectsBuilder_ == null) {
@@ -3411,9 +3411,9 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket getObjects(int index) {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket getObjects(int index) {
         if (objectsBuilder_ == null) {
           return objects_.get(index);
         } else {
@@ -3421,10 +3421,10 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
        */
       public Builder setObjects(
-          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket value) {
+          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket value) {
         if (objectsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -3438,10 +3438,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
        */
       public Builder setObjects(
-          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket.Builder builderForValue) {
+          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket.Builder builderForValue) {
         if (objectsBuilder_ == null) {
           ensureObjectsIsMutable();
           objects_.set(index, builderForValue.build());
@@ -3452,9 +3452,9 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
        */
-      public Builder addObjects(arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket value) {
+      public Builder addObjects(arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket value) {
         if (objectsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -3468,10 +3468,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
        */
       public Builder addObjects(
-          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket value) {
+          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket value) {
         if (objectsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -3485,10 +3485,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
        */
       public Builder addObjects(
-          arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket.Builder builderForValue) {
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket.Builder builderForValue) {
         if (objectsBuilder_ == null) {
           ensureObjectsIsMutable();
           objects_.add(builderForValue.build());
@@ -3499,10 +3499,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
        */
       public Builder addObjects(
-          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket.Builder builderForValue) {
+          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket.Builder builderForValue) {
         if (objectsBuilder_ == null) {
           ensureObjectsIsMutable();
           objects_.add(index, builderForValue.build());
@@ -3513,10 +3513,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
        */
       public Builder addAllObjects(
-          java.lang.Iterable<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket> values) {
+          java.lang.Iterable<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket> values) {
         if (objectsBuilder_ == null) {
           ensureObjectsIsMutable();
           super.addAll(values, objects_);
@@ -3527,7 +3527,7 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
        */
       public Builder clearObjects() {
         if (objectsBuilder_ == null) {
@@ -3540,7 +3540,7 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
        */
       public Builder removeObjects(int index) {
         if (objectsBuilder_ == null) {
@@ -3553,16 +3553,16 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket.Builder getObjectsBuilder(
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket.Builder getObjectsBuilder(
           int index) {
         return getObjectsFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacketOrBuilder getObjectsOrBuilder(
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacketOrBuilder getObjectsOrBuilder(
           int index) {
         if (objectsBuilder_ == null) {
           return objects_.get(index);  } else {
@@ -3570,9 +3570,9 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
        */
-      public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacketOrBuilder> 
+      public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacketOrBuilder> 
            getObjectsOrBuilderList() {
         if (objectsBuilder_ != null) {
           return objectsBuilder_.getMessageOrBuilderList();
@@ -3581,33 +3581,33 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket.Builder addObjectsBuilder() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket.Builder addObjectsBuilder() {
         return getObjectsFieldBuilder().addBuilder(
-            arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket.getDefaultInstance());
+            arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket.getDefaultInstance());
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket.Builder addObjectsBuilder(
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket.Builder addObjectsBuilder(
           int index) {
         return getObjectsFieldBuilder().addBuilder(
-            index, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket.getDefaultInstance());
+            index, arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket.getDefaultInstance());
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
        */
-      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket.Builder> 
+      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket.Builder> 
            getObjectsBuilderList() {
         return getObjectsFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacketOrBuilder> 
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacketOrBuilder> 
           getObjectsFieldBuilder() {
         if (objectsBuilder_ == null) {
           objectsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacketOrBuilder>(
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacketOrBuilder>(
                   objects_,
                   ((bitField0_ & 0x00000001) == 0x00000001),
                   getParentForChildren(),
@@ -3617,39 +3617,39 @@ public final class GeProtocol {
         return objectsBuilder_;
       }
 
-      // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse)
+      // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.GeDynamicObjectsResponse)
     }
 
     static {
-      defaultInstance = new DynamicObjectsResponse(true);
+      defaultInstance = new GeDynamicObjectsResponse(true);
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.DynamicObjectsResponse)
+    // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.GeDynamicObjectsResponse)
   }
 
-  public interface ShipStateRequestOrBuilder
+  public interface GeShipStateRequestOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
   }
   /**
-   * Protobuf type {@code arch.galaxyeclipse.shared.protocol.ShipStateRequest}
+   * Protobuf type {@code arch.galaxyeclipse.shared.protocol.GeShipStateRequest}
    */
-  public static final class ShipStateRequest extends
+  public static final class GeShipStateRequest extends
       com.google.protobuf.GeneratedMessage
-      implements ShipStateRequestOrBuilder {
-    // Use ShipStateRequest.newBuilder() to construct.
-    private ShipStateRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      implements GeShipStateRequestOrBuilder {
+    // Use GeShipStateRequest.newBuilder() to construct.
+    private GeShipStateRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private ShipStateRequest(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private GeShipStateRequest(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
-    private static final ShipStateRequest defaultInstance;
-    public static ShipStateRequest getDefaultInstance() {
+    private static final GeShipStateRequest defaultInstance;
+    public static GeShipStateRequest getDefaultInstance() {
       return defaultInstance;
     }
 
-    public ShipStateRequest getDefaultInstanceForType() {
+    public GeShipStateRequest getDefaultInstanceForType() {
       return defaultInstance;
     }
 
@@ -3659,7 +3659,7 @@ public final class GeProtocol {
         getUnknownFields() {
       return this.unknownFields;
     }
-    private ShipStateRequest(
+    private GeShipStateRequest(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -3695,28 +3695,28 @@ public final class GeProtocol {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ShipStateRequest_descriptor;
+      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeShipStateRequest_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ShipStateRequest_fieldAccessorTable
+      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeShipStateRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateRequest.class, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateRequest.Builder.class);
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateRequest.class, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateRequest.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<ShipStateRequest> PARSER =
-        new com.google.protobuf.AbstractParser<ShipStateRequest>() {
-      public ShipStateRequest parsePartialFrom(
+    public static com.google.protobuf.Parser<GeShipStateRequest> PARSER =
+        new com.google.protobuf.AbstractParser<GeShipStateRequest>() {
+      public GeShipStateRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ShipStateRequest(input, extensionRegistry);
+        return new GeShipStateRequest(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<ShipStateRequest> getParserForType() {
+    public com.google.protobuf.Parser<GeShipStateRequest> getParserForType() {
       return PARSER;
     }
 
@@ -3755,53 +3755,53 @@ public final class GeProtocol {
       return super.writeReplace();
     }
 
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateRequest parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateRequest parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateRequest parseFrom(byte[] data)
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateRequest parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateRequest parseFrom(java.io.InputStream input)
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateRequest parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateRequest parseDelimitedFrom(java.io.InputStream input)
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateRequest parseDelimitedFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateRequest parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateRequest parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -3810,7 +3810,7 @@ public final class GeProtocol {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateRequest prototype) {
+    public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateRequest prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -3822,24 +3822,24 @@ public final class GeProtocol {
       return builder;
     }
     /**
-     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.ShipStateRequest}
+     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.GeShipStateRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateRequestOrBuilder {
+       implements arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ShipStateRequest_descriptor;
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeShipStateRequest_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ShipStateRequest_fieldAccessorTable
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeShipStateRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateRequest.class, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateRequest.Builder.class);
+                arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateRequest.class, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateRequest.Builder.class);
       }
 
-      // Construct using arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateRequest.newBuilder()
+      // Construct using arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -3868,38 +3868,38 @@ public final class GeProtocol {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ShipStateRequest_descriptor;
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeShipStateRequest_descriptor;
       }
 
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateRequest getDefaultInstanceForType() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateRequest.getDefaultInstance();
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateRequest getDefaultInstanceForType() {
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateRequest.getDefaultInstance();
       }
 
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateRequest build() {
-        arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateRequest result = buildPartial();
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateRequest build() {
+        arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateRequest buildPartial() {
-        arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateRequest result = new arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateRequest(this);
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateRequest buildPartial() {
+        arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateRequest result = new arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateRequest(this);
         onBuilt();
         return result;
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateRequest) {
-          return mergeFrom((arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateRequest)other);
+        if (other instanceof arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateRequest) {
+          return mergeFrom((arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateRequest other) {
-        if (other == arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateRequest other) {
+        if (other == arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateRequest.getDefaultInstance()) return this;
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
@@ -3912,11 +3912,11 @@ public final class GeProtocol {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateRequest parsedMessage = null;
+        arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateRequest) e.getUnfinishedMessage();
+          parsedMessage = (arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateRequest) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -3926,18 +3926,18 @@ public final class GeProtocol {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.ShipStateRequest)
+      // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.GeShipStateRequest)
     }
 
     static {
-      defaultInstance = new ShipStateRequest(true);
+      defaultInstance = new GeShipStateRequest(true);
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.ShipStateRequest)
+    // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.GeShipStateRequest)
   }
 
-  public interface ShipStateResponseOrBuilder
+  public interface GeShipStateResponseOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
     // required float moveSpeed = 1;
@@ -4031,24 +4031,24 @@ public final class GeProtocol {
     int getEnergy();
   }
   /**
-   * Protobuf type {@code arch.galaxyeclipse.shared.protocol.ShipStateResponse}
+   * Protobuf type {@code arch.galaxyeclipse.shared.protocol.GeShipStateResponse}
    */
-  public static final class ShipStateResponse extends
+  public static final class GeShipStateResponse extends
       com.google.protobuf.GeneratedMessage
-      implements ShipStateResponseOrBuilder {
-    // Use ShipStateResponse.newBuilder() to construct.
-    private ShipStateResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      implements GeShipStateResponseOrBuilder {
+    // Use GeShipStateResponse.newBuilder() to construct.
+    private GeShipStateResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private ShipStateResponse(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private GeShipStateResponse(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
-    private static final ShipStateResponse defaultInstance;
-    public static ShipStateResponse getDefaultInstance() {
+    private static final GeShipStateResponse defaultInstance;
+    public static GeShipStateResponse getDefaultInstance() {
       return defaultInstance;
     }
 
-    public ShipStateResponse getDefaultInstanceForType() {
+    public GeShipStateResponse getDefaultInstanceForType() {
       return defaultInstance;
     }
 
@@ -4058,7 +4058,7 @@ public final class GeProtocol {
         getUnknownFields() {
       return this.unknownFields;
     }
-    private ShipStateResponse(
+    private GeShipStateResponse(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -4140,28 +4140,28 @@ public final class GeProtocol {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ShipStateResponse_descriptor;
+      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeShipStateResponse_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ShipStateResponse_fieldAccessorTable
+      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeShipStateResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse.class, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse.Builder.class);
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse.class, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<ShipStateResponse> PARSER =
-        new com.google.protobuf.AbstractParser<ShipStateResponse>() {
-      public ShipStateResponse parsePartialFrom(
+    public static com.google.protobuf.Parser<GeShipStateResponse> PARSER =
+        new com.google.protobuf.AbstractParser<GeShipStateResponse>() {
+      public GeShipStateResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ShipStateResponse(input, extensionRegistry);
+        return new GeShipStateResponse(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<ShipStateResponse> getParserForType() {
+    public com.google.protobuf.Parser<GeShipStateResponse> getParserForType() {
       return PARSER;
     }
 
@@ -4453,53 +4453,53 @@ public final class GeProtocol {
       return super.writeReplace();
     }
 
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse parseFrom(byte[] data)
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse parseFrom(java.io.InputStream input)
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse parseDelimitedFrom(java.io.InputStream input)
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse parseDelimitedFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -4508,7 +4508,7 @@ public final class GeProtocol {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse prototype) {
+    public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -4520,24 +4520,24 @@ public final class GeProtocol {
       return builder;
     }
     /**
-     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.ShipStateResponse}
+     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.GeShipStateResponse}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponseOrBuilder {
+       implements arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ShipStateResponse_descriptor;
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeShipStateResponse_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ShipStateResponse_fieldAccessorTable
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeShipStateResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse.class, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse.Builder.class);
+                arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse.class, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse.Builder.class);
       }
 
-      // Construct using arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse.newBuilder()
+      // Construct using arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -4584,23 +4584,23 @@ public final class GeProtocol {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ShipStateResponse_descriptor;
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeShipStateResponse_descriptor;
       }
 
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse getDefaultInstanceForType() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse.getDefaultInstance();
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse getDefaultInstanceForType() {
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse.getDefaultInstance();
       }
 
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse build() {
-        arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse result = buildPartial();
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse build() {
+        arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse buildPartial() {
-        arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse result = new arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse(this);
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse buildPartial() {
+        arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse result = new arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -4645,16 +4645,16 @@ public final class GeProtocol {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse) {
-          return mergeFrom((arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse)other);
+        if (other instanceof arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse) {
+          return mergeFrom((arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse other) {
-        if (other == arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse other) {
+        if (other == arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse.getDefaultInstance()) return this;
         if (other.hasMoveSpeed()) {
           setMoveSpeed(other.getMoveSpeed());
         }
@@ -4730,11 +4730,11 @@ public final class GeProtocol {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse parsedMessage = null;
+        arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStateResponse) e.getUnfinishedMessage();
+          parsedMessage = (arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -5042,29 +5042,29 @@ public final class GeProtocol {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.ShipStateResponse)
+      // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.GeShipStateResponse)
     }
 
     static {
-      defaultInstance = new ShipStateResponse(true);
+      defaultInstance = new GeShipStateResponse(true);
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.ShipStateResponse)
+    // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.GeShipStateResponse)
   }
 
-  public interface ClientActionPacketOrBuilder
+  public interface GeClientActionPacketOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // required .arch.galaxyeclipse.shared.protocol.ClientActionPacket.ClientActionType type = 1;
+    // required .arch.galaxyeclipse.shared.protocol.GeClientActionPacket.ClientActionType type = 1;
     /**
-     * <code>required .arch.galaxyeclipse.shared.protocol.ClientActionPacket.ClientActionType type = 1;</code>
+     * <code>required .arch.galaxyeclipse.shared.protocol.GeClientActionPacket.ClientActionType type = 1;</code>
      */
     boolean hasType();
     /**
-     * <code>required .arch.galaxyeclipse.shared.protocol.ClientActionPacket.ClientActionType type = 1;</code>
+     * <code>required .arch.galaxyeclipse.shared.protocol.GeClientActionPacket.ClientActionType type = 1;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket.ClientActionType getType();
+    arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.ClientActionType getType();
 
     // optional int32 locationObjectId = 2;
     /**
@@ -5087,24 +5087,24 @@ public final class GeProtocol {
     int getLocationObjectTypeId();
   }
   /**
-   * Protobuf type {@code arch.galaxyeclipse.shared.protocol.ClientActionPacket}
+   * Protobuf type {@code arch.galaxyeclipse.shared.protocol.GeClientActionPacket}
    */
-  public static final class ClientActionPacket extends
+  public static final class GeClientActionPacket extends
       com.google.protobuf.GeneratedMessage
-      implements ClientActionPacketOrBuilder {
-    // Use ClientActionPacket.newBuilder() to construct.
-    private ClientActionPacket(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      implements GeClientActionPacketOrBuilder {
+    // Use GeClientActionPacket.newBuilder() to construct.
+    private GeClientActionPacket(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private ClientActionPacket(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private GeClientActionPacket(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
-    private static final ClientActionPacket defaultInstance;
-    public static ClientActionPacket getDefaultInstance() {
+    private static final GeClientActionPacket defaultInstance;
+    public static GeClientActionPacket getDefaultInstance() {
       return defaultInstance;
     }
 
-    public ClientActionPacket getDefaultInstanceForType() {
+    public GeClientActionPacket getDefaultInstanceForType() {
       return defaultInstance;
     }
 
@@ -5114,7 +5114,7 @@ public final class GeProtocol {
         getUnknownFields() {
       return this.unknownFields;
     }
-    private ClientActionPacket(
+    private GeClientActionPacket(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -5139,7 +5139,7 @@ public final class GeProtocol {
             }
             case 8: {
               int rawValue = input.readEnum();
-              arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket.ClientActionType value = arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket.ClientActionType.valueOf(rawValue);
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.ClientActionType value = arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.ClientActionType.valueOf(rawValue);
               if (value == null) {
                 unknownFields.mergeVarintField(1, rawValue);
               } else {
@@ -5172,33 +5172,33 @@ public final class GeProtocol {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ClientActionPacket_descriptor;
+      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeClientActionPacket_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ClientActionPacket_fieldAccessorTable
+      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeClientActionPacket_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket.Builder.class);
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<ClientActionPacket> PARSER =
-        new com.google.protobuf.AbstractParser<ClientActionPacket>() {
-      public ClientActionPacket parsePartialFrom(
+    public static com.google.protobuf.Parser<GeClientActionPacket> PARSER =
+        new com.google.protobuf.AbstractParser<GeClientActionPacket>() {
+      public GeClientActionPacket parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ClientActionPacket(input, extensionRegistry);
+        return new GeClientActionPacket(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<ClientActionPacket> getParserForType() {
+    public com.google.protobuf.Parser<GeClientActionPacket> getParserForType() {
       return PARSER;
     }
 
     /**
-     * Protobuf enum {@code arch.galaxyeclipse.shared.protocol.ClientActionPacket.ClientActionType}
+     * Protobuf enum {@code arch.galaxyeclipse.shared.protocol.GeClientActionPacket.ClientActionType}
      */
     public enum ClientActionType
         implements com.google.protobuf.ProtocolMessageEnum {
@@ -5384,7 +5384,7 @@ public final class GeProtocol {
       }
       public static final com.google.protobuf.Descriptors.EnumDescriptor
           getDescriptor() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket.getDescriptor().getEnumTypes().get(0);
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.getDescriptor().getEnumTypes().get(0);
       }
 
       private static final ClientActionType[] VALUES = values();
@@ -5406,23 +5406,23 @@ public final class GeProtocol {
         this.value = value;
       }
 
-      // @@protoc_insertion_point(enum_scope:arch.galaxyeclipse.shared.protocol.ClientActionPacket.ClientActionType)
+      // @@protoc_insertion_point(enum_scope:arch.galaxyeclipse.shared.protocol.GeClientActionPacket.ClientActionType)
     }
 
     private int bitField0_;
-    // required .arch.galaxyeclipse.shared.protocol.ClientActionPacket.ClientActionType type = 1;
+    // required .arch.galaxyeclipse.shared.protocol.GeClientActionPacket.ClientActionType type = 1;
     public static final int TYPE_FIELD_NUMBER = 1;
-    private arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket.ClientActionType type_;
+    private arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.ClientActionType type_;
     /**
-     * <code>required .arch.galaxyeclipse.shared.protocol.ClientActionPacket.ClientActionType type = 1;</code>
+     * <code>required .arch.galaxyeclipse.shared.protocol.GeClientActionPacket.ClientActionType type = 1;</code>
      */
     public boolean hasType() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required .arch.galaxyeclipse.shared.protocol.ClientActionPacket.ClientActionType type = 1;</code>
+     * <code>required .arch.galaxyeclipse.shared.protocol.GeClientActionPacket.ClientActionType type = 1;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket.ClientActionType getType() {
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.ClientActionType getType() {
       return type_;
     }
 
@@ -5459,7 +5459,7 @@ public final class GeProtocol {
     }
 
     private void initFields() {
-      type_ = arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket.ClientActionType.ROTATE_LEFT_UP;
+      type_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.ClientActionType.ROTATE_LEFT_UP;
       locationObjectId_ = 0;
       locationObjectTypeId_ = 0;
     }
@@ -5521,53 +5521,53 @@ public final class GeProtocol {
       return super.writeReplace();
     }
 
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket parseFrom(byte[] data)
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket parseFrom(java.io.InputStream input)
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket parseDelimitedFrom(java.io.InputStream input)
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket parseDelimitedFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -5576,7 +5576,7 @@ public final class GeProtocol {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket prototype) {
+    public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -5588,24 +5588,24 @@ public final class GeProtocol {
       return builder;
     }
     /**
-     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.ClientActionPacket}
+     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.GeClientActionPacket}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacketOrBuilder {
+       implements arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacketOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ClientActionPacket_descriptor;
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeClientActionPacket_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ClientActionPacket_fieldAccessorTable
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeClientActionPacket_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket.Builder.class);
+                arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.Builder.class);
       }
 
-      // Construct using arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket.newBuilder()
+      // Construct using arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -5625,7 +5625,7 @@ public final class GeProtocol {
 
       public Builder clear() {
         super.clear();
-        type_ = arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket.ClientActionType.ROTATE_LEFT_UP;
+        type_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.ClientActionType.ROTATE_LEFT_UP;
         bitField0_ = (bitField0_ & ~0x00000001);
         locationObjectId_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -5640,23 +5640,23 @@ public final class GeProtocol {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ClientActionPacket_descriptor;
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeClientActionPacket_descriptor;
       }
 
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket getDefaultInstanceForType() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket.getDefaultInstance();
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket getDefaultInstanceForType() {
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.getDefaultInstance();
       }
 
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket build() {
-        arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket result = buildPartial();
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket build() {
+        arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket buildPartial() {
-        arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket result = new arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket(this);
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket buildPartial() {
+        arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket result = new arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -5677,16 +5677,16 @@ public final class GeProtocol {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket) {
-          return mergeFrom((arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket)other);
+        if (other instanceof arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket) {
+          return mergeFrom((arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket other) {
-        if (other == arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket.getDefaultInstance()) return this;
+      public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket other) {
+        if (other == arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.getDefaultInstance()) return this;
         if (other.hasType()) {
           setType(other.getType());
         }
@@ -5712,11 +5712,11 @@ public final class GeProtocol {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket parsedMessage = null;
+        arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket) e.getUnfinishedMessage();
+          parsedMessage = (arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -5727,24 +5727,24 @@ public final class GeProtocol {
       }
       private int bitField0_;
 
-      // required .arch.galaxyeclipse.shared.protocol.ClientActionPacket.ClientActionType type = 1;
-      private arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket.ClientActionType type_ = arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket.ClientActionType.ROTATE_LEFT_UP;
+      // required .arch.galaxyeclipse.shared.protocol.GeClientActionPacket.ClientActionType type = 1;
+      private arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.ClientActionType type_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.ClientActionType.ROTATE_LEFT_UP;
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.ClientActionPacket.ClientActionType type = 1;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GeClientActionPacket.ClientActionType type = 1;</code>
        */
       public boolean hasType() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.ClientActionPacket.ClientActionType type = 1;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GeClientActionPacket.ClientActionType type = 1;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket.ClientActionType getType() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.ClientActionType getType() {
         return type_;
       }
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.ClientActionPacket.ClientActionType type = 1;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GeClientActionPacket.ClientActionType type = 1;</code>
        */
-      public Builder setType(arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket.ClientActionType value) {
+      public Builder setType(arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.ClientActionType value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -5754,11 +5754,11 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.ClientActionPacket.ClientActionType type = 1;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GeClientActionPacket.ClientActionType type = 1;</code>
        */
       public Builder clearType() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        type_ = arch.galaxyeclipse.shared.protocol.GeProtocol.ClientActionPacket.ClientActionType.ROTATE_LEFT_UP;
+        type_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.ClientActionType.ROTATE_LEFT_UP;
         onChanged();
         return this;
       }
@@ -5829,18 +5829,18 @@ public final class GeProtocol {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.ClientActionPacket)
+      // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.GeClientActionPacket)
     }
 
     static {
-      defaultInstance = new ClientActionPacket(true);
+      defaultInstance = new GeClientActionPacket(true);
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.ClientActionPacket)
+    // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.GeClientActionPacket)
   }
 
-  public interface AuthRequestOrBuilder
+  public interface GeAuthRequestOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
     // required string username = 1;
@@ -5874,24 +5874,24 @@ public final class GeProtocol {
         getPasswordBytes();
   }
   /**
-   * Protobuf type {@code arch.galaxyeclipse.shared.protocol.AuthRequest}
+   * Protobuf type {@code arch.galaxyeclipse.shared.protocol.GeAuthRequest}
    */
-  public static final class AuthRequest extends
+  public static final class GeAuthRequest extends
       com.google.protobuf.GeneratedMessage
-      implements AuthRequestOrBuilder {
-    // Use AuthRequest.newBuilder() to construct.
-    private AuthRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      implements GeAuthRequestOrBuilder {
+    // Use GeAuthRequest.newBuilder() to construct.
+    private GeAuthRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private AuthRequest(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private GeAuthRequest(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
-    private static final AuthRequest defaultInstance;
-    public static AuthRequest getDefaultInstance() {
+    private static final GeAuthRequest defaultInstance;
+    public static GeAuthRequest getDefaultInstance() {
       return defaultInstance;
     }
 
-    public AuthRequest getDefaultInstanceForType() {
+    public GeAuthRequest getDefaultInstanceForType() {
       return defaultInstance;
     }
 
@@ -5901,7 +5901,7 @@ public final class GeProtocol {
         getUnknownFields() {
       return this.unknownFields;
     }
-    private AuthRequest(
+    private GeAuthRequest(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -5948,28 +5948,28 @@ public final class GeProtocol {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_AuthRequest_descriptor;
+      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeAuthRequest_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_AuthRequest_fieldAccessorTable
+      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeAuthRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest.class, arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest.Builder.class);
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequest.class, arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequest.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<AuthRequest> PARSER =
-        new com.google.protobuf.AbstractParser<AuthRequest>() {
-      public AuthRequest parsePartialFrom(
+    public static com.google.protobuf.Parser<GeAuthRequest> PARSER =
+        new com.google.protobuf.AbstractParser<GeAuthRequest>() {
+      public GeAuthRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new AuthRequest(input, extensionRegistry);
+        return new GeAuthRequest(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<AuthRequest> getParserForType() {
+    public com.google.protobuf.Parser<GeAuthRequest> getParserForType() {
       return PARSER;
     }
 
@@ -6119,53 +6119,53 @@ public final class GeProtocol {
       return super.writeReplace();
     }
 
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest parseFrom(byte[] data)
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest parseFrom(java.io.InputStream input)
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest parseDelimitedFrom(java.io.InputStream input)
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest parseDelimitedFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -6174,7 +6174,7 @@ public final class GeProtocol {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest prototype) {
+    public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequest prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -6186,24 +6186,24 @@ public final class GeProtocol {
       return builder;
     }
     /**
-     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.AuthRequest}
+     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.GeAuthRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequestOrBuilder {
+       implements arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_AuthRequest_descriptor;
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeAuthRequest_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_AuthRequest_fieldAccessorTable
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeAuthRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest.class, arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest.Builder.class);
+                arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequest.class, arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequest.Builder.class);
       }
 
-      // Construct using arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest.newBuilder()
+      // Construct using arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -6236,23 +6236,23 @@ public final class GeProtocol {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_AuthRequest_descriptor;
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeAuthRequest_descriptor;
       }
 
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest getDefaultInstanceForType() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest.getDefaultInstance();
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequest getDefaultInstanceForType() {
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequest.getDefaultInstance();
       }
 
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest build() {
-        arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest result = buildPartial();
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequest build() {
+        arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest buildPartial() {
-        arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest result = new arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest(this);
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequest buildPartial() {
+        arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequest result = new arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequest(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -6269,16 +6269,16 @@ public final class GeProtocol {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest) {
-          return mergeFrom((arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest)other);
+        if (other instanceof arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequest) {
+          return mergeFrom((arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest other) {
-        if (other == arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequest other) {
+        if (other == arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequest.getDefaultInstance()) return this;
         if (other.hasUsername()) {
           bitField0_ |= 0x00000001;
           username_ = other.username_;
@@ -6309,11 +6309,11 @@ public final class GeProtocol {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest parsedMessage = null;
+        arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (arch.galaxyeclipse.shared.protocol.GeProtocol.AuthRequest) e.getUnfinishedMessage();
+          parsedMessage = (arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthRequest) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -6472,18 +6472,18 @@ public final class GeProtocol {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.AuthRequest)
+      // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.GeAuthRequest)
     }
 
     static {
-      defaultInstance = new AuthRequest(true);
+      defaultInstance = new GeAuthRequest(true);
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.AuthRequest)
+    // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.GeAuthRequest)
   }
 
-  public interface AuthResponseOrBuilder
+  public interface GeAuthResponseOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
     // required bool isSuccess = 1;
@@ -6497,24 +6497,24 @@ public final class GeProtocol {
     boolean getIsSuccess();
   }
   /**
-   * Protobuf type {@code arch.galaxyeclipse.shared.protocol.AuthResponse}
+   * Protobuf type {@code arch.galaxyeclipse.shared.protocol.GeAuthResponse}
    */
-  public static final class AuthResponse extends
+  public static final class GeAuthResponse extends
       com.google.protobuf.GeneratedMessage
-      implements AuthResponseOrBuilder {
-    // Use AuthResponse.newBuilder() to construct.
-    private AuthResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      implements GeAuthResponseOrBuilder {
+    // Use GeAuthResponse.newBuilder() to construct.
+    private GeAuthResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private AuthResponse(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private GeAuthResponse(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
-    private static final AuthResponse defaultInstance;
-    public static AuthResponse getDefaultInstance() {
+    private static final GeAuthResponse defaultInstance;
+    public static GeAuthResponse getDefaultInstance() {
       return defaultInstance;
     }
 
-    public AuthResponse getDefaultInstanceForType() {
+    public GeAuthResponse getDefaultInstanceForType() {
       return defaultInstance;
     }
 
@@ -6524,7 +6524,7 @@ public final class GeProtocol {
         getUnknownFields() {
       return this.unknownFields;
     }
-    private AuthResponse(
+    private GeAuthResponse(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -6566,28 +6566,28 @@ public final class GeProtocol {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_AuthResponse_descriptor;
+      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeAuthResponse_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_AuthResponse_fieldAccessorTable
+      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeAuthResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse.class, arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse.Builder.class);
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponse.class, arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponse.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<AuthResponse> PARSER =
-        new com.google.protobuf.AbstractParser<AuthResponse>() {
-      public AuthResponse parsePartialFrom(
+    public static com.google.protobuf.Parser<GeAuthResponse> PARSER =
+        new com.google.protobuf.AbstractParser<GeAuthResponse>() {
+      public GeAuthResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new AuthResponse(input, extensionRegistry);
+        return new GeAuthResponse(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<AuthResponse> getParserForType() {
+    public com.google.protobuf.Parser<GeAuthResponse> getParserForType() {
       return PARSER;
     }
 
@@ -6655,53 +6655,53 @@ public final class GeProtocol {
       return super.writeReplace();
     }
 
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse parseFrom(byte[] data)
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse parseFrom(java.io.InputStream input)
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse parseDelimitedFrom(java.io.InputStream input)
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse parseDelimitedFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -6710,7 +6710,7 @@ public final class GeProtocol {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse prototype) {
+    public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponse prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -6722,24 +6722,24 @@ public final class GeProtocol {
       return builder;
     }
     /**
-     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.AuthResponse}
+     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.GeAuthResponse}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponseOrBuilder {
+       implements arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_AuthResponse_descriptor;
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeAuthResponse_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_AuthResponse_fieldAccessorTable
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeAuthResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse.class, arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse.Builder.class);
+                arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponse.class, arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponse.Builder.class);
       }
 
-      // Construct using arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse.newBuilder()
+      // Construct using arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -6770,23 +6770,23 @@ public final class GeProtocol {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_AuthResponse_descriptor;
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeAuthResponse_descriptor;
       }
 
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse getDefaultInstanceForType() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse.getDefaultInstance();
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponse getDefaultInstanceForType() {
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponse.getDefaultInstance();
       }
 
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse build() {
-        arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse result = buildPartial();
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponse build() {
+        arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse buildPartial() {
-        arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse result = new arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse(this);
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponse buildPartial() {
+        arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponse result = new arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponse(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -6799,16 +6799,16 @@ public final class GeProtocol {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse) {
-          return mergeFrom((arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse)other);
+        if (other instanceof arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponse) {
+          return mergeFrom((arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse other) {
-        if (other == arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponse other) {
+        if (other == arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponse.getDefaultInstance()) return this;
         if (other.hasIsSuccess()) {
           setIsSuccess(other.getIsSuccess());
         }
@@ -6828,11 +6828,11 @@ public final class GeProtocol {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse parsedMessage = null;
+        arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (arch.galaxyeclipse.shared.protocol.GeProtocol.AuthResponse) e.getUnfinishedMessage();
+          parsedMessage = (arch.galaxyeclipse.shared.protocol.GeProtocol.GeAuthResponse) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -6876,18 +6876,18 @@ public final class GeProtocol {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.AuthResponse)
+      // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.GeAuthResponse)
     }
 
     static {
-      defaultInstance = new AuthResponse(true);
+      defaultInstance = new GeAuthResponse(true);
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.AuthResponse)
+    // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.GeAuthResponse)
   }
 
-  public interface LocationInfoPacketOrBuilder
+  public interface GeLocationInfoPacketOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
     // required int32 locationId = 1;
@@ -6935,39 +6935,39 @@ public final class GeProtocol {
      */
     int getHeight();
 
-    // required .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.CachedObjectsPacket locationCachedObjects = 5;
+    // required .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeCachedObjectsPacket locationCachedObjects = 5;
     /**
-     * <code>required .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.CachedObjectsPacket locationCachedObjects = 5;</code>
+     * <code>required .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeCachedObjectsPacket locationCachedObjects = 5;</code>
      */
     boolean hasLocationCachedObjects();
     /**
-     * <code>required .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.CachedObjectsPacket locationCachedObjects = 5;</code>
+     * <code>required .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeCachedObjectsPacket locationCachedObjects = 5;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket getLocationCachedObjects();
+    arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacket getLocationCachedObjects();
     /**
-     * <code>required .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.CachedObjectsPacket locationCachedObjects = 5;</code>
+     * <code>required .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeCachedObjectsPacket locationCachedObjects = 5;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacketOrBuilder getLocationCachedObjectsOrBuilder();
+    arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacketOrBuilder getLocationCachedObjectsOrBuilder();
   }
   /**
-   * Protobuf type {@code arch.galaxyeclipse.shared.protocol.LocationInfoPacket}
+   * Protobuf type {@code arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket}
    */
-  public static final class LocationInfoPacket extends
+  public static final class GeLocationInfoPacket extends
       com.google.protobuf.GeneratedMessage
-      implements LocationInfoPacketOrBuilder {
-    // Use LocationInfoPacket.newBuilder() to construct.
-    private LocationInfoPacket(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      implements GeLocationInfoPacketOrBuilder {
+    // Use GeLocationInfoPacket.newBuilder() to construct.
+    private GeLocationInfoPacket(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private LocationInfoPacket(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private GeLocationInfoPacket(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
-    private static final LocationInfoPacket defaultInstance;
-    public static LocationInfoPacket getDefaultInstance() {
+    private static final GeLocationInfoPacket defaultInstance;
+    public static GeLocationInfoPacket getDefaultInstance() {
       return defaultInstance;
     }
 
-    public LocationInfoPacket getDefaultInstanceForType() {
+    public GeLocationInfoPacket getDefaultInstanceForType() {
       return defaultInstance;
     }
 
@@ -6977,7 +6977,7 @@ public final class GeProtocol {
         getUnknownFields() {
       return this.unknownFields;
     }
-    private LocationInfoPacket(
+    private GeLocationInfoPacket(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -7021,11 +7021,11 @@ public final class GeProtocol {
               break;
             }
             case 42: {
-              arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket.Builder subBuilder = null;
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacket.Builder subBuilder = null;
               if (((bitField0_ & 0x00000010) == 0x00000010)) {
                 subBuilder = locationCachedObjects_.toBuilder();
               }
-              locationCachedObjects_ = input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket.PARSER, extensionRegistry);
+              locationCachedObjects_ = input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacket.PARSER, extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(locationCachedObjects_);
                 locationCachedObjects_ = subBuilder.buildPartial();
@@ -7047,78 +7047,78 @@ public final class GeProtocol {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_LocationInfoPacket_descriptor;
+      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeLocationInfoPacket_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_LocationInfoPacket_fieldAccessorTable
+      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeLocationInfoPacket_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.Builder.class);
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<LocationInfoPacket> PARSER =
-        new com.google.protobuf.AbstractParser<LocationInfoPacket>() {
-      public LocationInfoPacket parsePartialFrom(
+    public static com.google.protobuf.Parser<GeLocationInfoPacket> PARSER =
+        new com.google.protobuf.AbstractParser<GeLocationInfoPacket>() {
+      public GeLocationInfoPacket parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new LocationInfoPacket(input, extensionRegistry);
+        return new GeLocationInfoPacket(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<LocationInfoPacket> getParserForType() {
+    public com.google.protobuf.Parser<GeLocationInfoPacket> getParserForType() {
       return PARSER;
     }
 
-    public interface CachedObjectsPacketOrBuilder
+    public interface GeCachedObjectsPacketOrBuilder
         extends com.google.protobuf.MessageOrBuilder {
 
-      // repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;
+      // repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
        */
-      java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket> 
+      java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket> 
           getObjectsList();
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
        */
-      arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket getObjects(int index);
+      arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket getObjects(int index);
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
        */
       int getObjectsCount();
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
        */
-      java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacketOrBuilder> 
+      java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacketOrBuilder> 
           getObjectsOrBuilderList();
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
        */
-      arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacketOrBuilder getObjectsOrBuilder(
+      arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacketOrBuilder getObjectsOrBuilder(
           int index);
     }
     /**
-     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.LocationInfoPacket.CachedObjectsPacket}
+     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeCachedObjectsPacket}
      */
-    public static final class CachedObjectsPacket extends
+    public static final class GeCachedObjectsPacket extends
         com.google.protobuf.GeneratedMessage
-        implements CachedObjectsPacketOrBuilder {
-      // Use CachedObjectsPacket.newBuilder() to construct.
-      private CachedObjectsPacket(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+        implements GeCachedObjectsPacketOrBuilder {
+      // Use GeCachedObjectsPacket.newBuilder() to construct.
+      private GeCachedObjectsPacket(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
         super(builder);
         this.unknownFields = builder.getUnknownFields();
       }
-      private CachedObjectsPacket(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+      private GeCachedObjectsPacket(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
-      private static final CachedObjectsPacket defaultInstance;
-      public static CachedObjectsPacket getDefaultInstance() {
+      private static final GeCachedObjectsPacket defaultInstance;
+      public static GeCachedObjectsPacket getDefaultInstance() {
         return defaultInstance;
       }
 
-      public CachedObjectsPacket getDefaultInstanceForType() {
+      public GeCachedObjectsPacket getDefaultInstanceForType() {
         return defaultInstance;
       }
 
@@ -7128,7 +7128,7 @@ public final class GeProtocol {
           getUnknownFields() {
         return this.unknownFields;
       }
-      private CachedObjectsPacket(
+      private GeCachedObjectsPacket(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
@@ -7153,10 +7153,10 @@ public final class GeProtocol {
               }
               case 10: {
                 if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                  objects_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket>();
+                  objects_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket>();
                   mutable_bitField0_ |= 0x00000001;
                 }
-                objects_.add(input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket.PARSER, extensionRegistry));
+                objects_.add(input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket.PARSER, extensionRegistry));
                 break;
               }
             }
@@ -7176,63 +7176,63 @@ public final class GeProtocol {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_LocationInfoPacket_CachedObjectsPacket_descriptor;
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeLocationInfoPacket_GeCachedObjectsPacket_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_LocationInfoPacket_CachedObjectsPacket_fieldAccessorTable
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeLocationInfoPacket_GeCachedObjectsPacket_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket.Builder.class);
+                arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacket.Builder.class);
       }
 
-      public static com.google.protobuf.Parser<CachedObjectsPacket> PARSER =
-          new com.google.protobuf.AbstractParser<CachedObjectsPacket>() {
-        public CachedObjectsPacket parsePartialFrom(
+      public static com.google.protobuf.Parser<GeCachedObjectsPacket> PARSER =
+          new com.google.protobuf.AbstractParser<GeCachedObjectsPacket>() {
+        public GeCachedObjectsPacket parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new CachedObjectsPacket(input, extensionRegistry);
+          return new GeCachedObjectsPacket(input, extensionRegistry);
         }
       };
 
       @java.lang.Override
-      public com.google.protobuf.Parser<CachedObjectsPacket> getParserForType() {
+      public com.google.protobuf.Parser<GeCachedObjectsPacket> getParserForType() {
         return PARSER;
       }
 
-      // repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;
+      // repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;
       public static final int OBJECTS_FIELD_NUMBER = 1;
-      private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket> objects_;
+      private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket> objects_;
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
        */
-      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket> getObjectsList() {
+      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket> getObjectsList() {
         return objects_;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
        */
-      public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacketOrBuilder> 
+      public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacketOrBuilder> 
           getObjectsOrBuilderList() {
         return objects_;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
        */
       public int getObjectsCount() {
         return objects_.size();
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket getObjects(int index) {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket getObjects(int index) {
         return objects_.get(index);
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacketOrBuilder getObjectsOrBuilder(
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacketOrBuilder getObjectsOrBuilder(
           int index) {
         return objects_.get(index);
       }
@@ -7286,53 +7286,53 @@ public final class GeProtocol {
         return super.writeReplace();
       }
 
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket parseFrom(
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacket parseFrom(
           com.google.protobuf.ByteString data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket parseFrom(
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacket parseFrom(
           com.google.protobuf.ByteString data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket parseFrom(byte[] data)
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacket parseFrom(byte[] data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket parseFrom(
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacket parseFrom(
           byte[] data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket parseFrom(java.io.InputStream input)
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacket parseFrom(java.io.InputStream input)
           throws java.io.IOException {
         return PARSER.parseFrom(input);
       }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket parseFrom(
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacket parseFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return PARSER.parseFrom(input, extensionRegistry);
       }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket parseDelimitedFrom(java.io.InputStream input)
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacket parseDelimitedFrom(java.io.InputStream input)
           throws java.io.IOException {
         return PARSER.parseDelimitedFrom(input);
       }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket parseDelimitedFrom(
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacket parseDelimitedFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return PARSER.parseDelimitedFrom(input, extensionRegistry);
       }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket parseFrom(
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacket parseFrom(
           com.google.protobuf.CodedInputStream input)
           throws java.io.IOException {
         return PARSER.parseFrom(input);
       }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket parseFrom(
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacket parseFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
@@ -7341,7 +7341,7 @@ public final class GeProtocol {
 
       public static Builder newBuilder() { return Builder.create(); }
       public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket prototype) {
+      public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacket prototype) {
         return newBuilder().mergeFrom(prototype);
       }
       public Builder toBuilder() { return newBuilder(this); }
@@ -7353,24 +7353,24 @@ public final class GeProtocol {
         return builder;
       }
       /**
-       * Protobuf type {@code arch.galaxyeclipse.shared.protocol.LocationInfoPacket.CachedObjectsPacket}
+       * Protobuf type {@code arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeCachedObjectsPacket}
        */
       public static final class Builder extends
           com.google.protobuf.GeneratedMessage.Builder<Builder>
-         implements arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacketOrBuilder {
+         implements arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacketOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_LocationInfoPacket_CachedObjectsPacket_descriptor;
+          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeLocationInfoPacket_GeCachedObjectsPacket_descriptor;
         }
 
         protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_LocationInfoPacket_CachedObjectsPacket_fieldAccessorTable
+          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeLocationInfoPacket_GeCachedObjectsPacket_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
-                  arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket.Builder.class);
+                  arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacket.Builder.class);
         }
 
-        // Construct using arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket.newBuilder()
+        // Construct using arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacket.newBuilder()
         private Builder() {
           maybeForceBuilderInitialization();
         }
@@ -7406,23 +7406,23 @@ public final class GeProtocol {
 
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_LocationInfoPacket_CachedObjectsPacket_descriptor;
+          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeLocationInfoPacket_GeCachedObjectsPacket_descriptor;
         }
 
-        public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket getDefaultInstanceForType() {
-          return arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket.getDefaultInstance();
+        public arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacket getDefaultInstanceForType() {
+          return arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacket.getDefaultInstance();
         }
 
-        public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket build() {
-          arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket result = buildPartial();
+        public arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacket build() {
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacket result = buildPartial();
           if (!result.isInitialized()) {
             throw newUninitializedMessageException(result);
           }
           return result;
         }
 
-        public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket buildPartial() {
-          arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket result = new arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket(this);
+        public arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacket buildPartial() {
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacket result = new arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacket(this);
           int from_bitField0_ = bitField0_;
           if (objectsBuilder_ == null) {
             if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -7438,16 +7438,16 @@ public final class GeProtocol {
         }
 
         public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket) {
-            return mergeFrom((arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket)other);
+          if (other instanceof arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacket) {
+            return mergeFrom((arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacket)other);
           } else {
             super.mergeFrom(other);
             return this;
           }
         }
 
-        public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket other) {
-          if (other == arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket.getDefaultInstance()) return this;
+        public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacket other) {
+          if (other == arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacket.getDefaultInstance()) return this;
           if (objectsBuilder_ == null) {
             if (!other.objects_.isEmpty()) {
               if (objects_.isEmpty()) {
@@ -7492,11 +7492,11 @@ public final class GeProtocol {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket parsedMessage = null;
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacket parsedMessage = null;
           try {
             parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket) e.getUnfinishedMessage();
+            parsedMessage = (arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacket) e.getUnfinishedMessage();
             throw e;
           } finally {
             if (parsedMessage != null) {
@@ -7507,23 +7507,23 @@ public final class GeProtocol {
         }
         private int bitField0_;
 
-        // repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;
-        private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket> objects_ =
+        // repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;
+        private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket> objects_ =
           java.util.Collections.emptyList();
         private void ensureObjectsIsMutable() {
           if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-            objects_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket>(objects_);
+            objects_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket>(objects_);
             bitField0_ |= 0x00000001;
            }
         }
 
         private com.google.protobuf.RepeatedFieldBuilder<
-            arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacketOrBuilder> objectsBuilder_;
+            arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacketOrBuilder> objectsBuilder_;
 
         /**
-         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+         * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
          */
-        public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket> getObjectsList() {
+        public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket> getObjectsList() {
           if (objectsBuilder_ == null) {
             return java.util.Collections.unmodifiableList(objects_);
           } else {
@@ -7531,7 +7531,7 @@ public final class GeProtocol {
           }
         }
         /**
-         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+         * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
          */
         public int getObjectsCount() {
           if (objectsBuilder_ == null) {
@@ -7541,9 +7541,9 @@ public final class GeProtocol {
           }
         }
         /**
-         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+         * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
          */
-        public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket getObjects(int index) {
+        public arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket getObjects(int index) {
           if (objectsBuilder_ == null) {
             return objects_.get(index);
           } else {
@@ -7551,10 +7551,10 @@ public final class GeProtocol {
           }
         }
         /**
-         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+         * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
          */
         public Builder setObjects(
-            int index, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket value) {
+            int index, arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket value) {
           if (objectsBuilder_ == null) {
             if (value == null) {
               throw new NullPointerException();
@@ -7568,10 +7568,10 @@ public final class GeProtocol {
           return this;
         }
         /**
-         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+         * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
          */
         public Builder setObjects(
-            int index, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket.Builder builderForValue) {
+            int index, arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket.Builder builderForValue) {
           if (objectsBuilder_ == null) {
             ensureObjectsIsMutable();
             objects_.set(index, builderForValue.build());
@@ -7582,9 +7582,9 @@ public final class GeProtocol {
           return this;
         }
         /**
-         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+         * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
          */
-        public Builder addObjects(arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket value) {
+        public Builder addObjects(arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket value) {
           if (objectsBuilder_ == null) {
             if (value == null) {
               throw new NullPointerException();
@@ -7598,10 +7598,10 @@ public final class GeProtocol {
           return this;
         }
         /**
-         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+         * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
          */
         public Builder addObjects(
-            int index, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket value) {
+            int index, arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket value) {
           if (objectsBuilder_ == null) {
             if (value == null) {
               throw new NullPointerException();
@@ -7615,10 +7615,10 @@ public final class GeProtocol {
           return this;
         }
         /**
-         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+         * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
          */
         public Builder addObjects(
-            arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket.Builder builderForValue) {
+            arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket.Builder builderForValue) {
           if (objectsBuilder_ == null) {
             ensureObjectsIsMutable();
             objects_.add(builderForValue.build());
@@ -7629,10 +7629,10 @@ public final class GeProtocol {
           return this;
         }
         /**
-         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+         * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
          */
         public Builder addObjects(
-            int index, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket.Builder builderForValue) {
+            int index, arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket.Builder builderForValue) {
           if (objectsBuilder_ == null) {
             ensureObjectsIsMutable();
             objects_.add(index, builderForValue.build());
@@ -7643,10 +7643,10 @@ public final class GeProtocol {
           return this;
         }
         /**
-         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+         * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
          */
         public Builder addAllObjects(
-            java.lang.Iterable<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket> values) {
+            java.lang.Iterable<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket> values) {
           if (objectsBuilder_ == null) {
             ensureObjectsIsMutable();
             super.addAll(values, objects_);
@@ -7657,7 +7657,7 @@ public final class GeProtocol {
           return this;
         }
         /**
-         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+         * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
          */
         public Builder clearObjects() {
           if (objectsBuilder_ == null) {
@@ -7670,7 +7670,7 @@ public final class GeProtocol {
           return this;
         }
         /**
-         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+         * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
          */
         public Builder removeObjects(int index) {
           if (objectsBuilder_ == null) {
@@ -7683,16 +7683,16 @@ public final class GeProtocol {
           return this;
         }
         /**
-         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+         * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
          */
-        public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket.Builder getObjectsBuilder(
+        public arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket.Builder getObjectsBuilder(
             int index) {
           return getObjectsFieldBuilder().getBuilder(index);
         }
         /**
-         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+         * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
          */
-        public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacketOrBuilder getObjectsOrBuilder(
+        public arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacketOrBuilder getObjectsOrBuilder(
             int index) {
           if (objectsBuilder_ == null) {
             return objects_.get(index);  } else {
@@ -7700,9 +7700,9 @@ public final class GeProtocol {
           }
         }
         /**
-         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+         * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
          */
-        public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacketOrBuilder> 
+        public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacketOrBuilder> 
              getObjectsOrBuilderList() {
           if (objectsBuilder_ != null) {
             return objectsBuilder_.getMessageOrBuilderList();
@@ -7711,33 +7711,33 @@ public final class GeProtocol {
           }
         }
         /**
-         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+         * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
          */
-        public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket.Builder addObjectsBuilder() {
+        public arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket.Builder addObjectsBuilder() {
           return getObjectsFieldBuilder().addBuilder(
-              arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket.getDefaultInstance());
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket.getDefaultInstance());
         }
         /**
-         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+         * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
          */
-        public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket.Builder addObjectsBuilder(
+        public arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket.Builder addObjectsBuilder(
             int index) {
           return getObjectsFieldBuilder().addBuilder(
-              index, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket.getDefaultInstance());
+              index, arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket.getDefaultInstance());
         }
         /**
-         * <code>repeated .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket objects = 1;</code>
+         * <code>repeated .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket objects = 1;</code>
          */
-        public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket.Builder> 
+        public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket.Builder> 
              getObjectsBuilderList() {
           return getObjectsFieldBuilder().getBuilderList();
         }
         private com.google.protobuf.RepeatedFieldBuilder<
-            arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacketOrBuilder> 
+            arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacketOrBuilder> 
             getObjectsFieldBuilder() {
           if (objectsBuilder_ == null) {
             objectsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-                arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacketOrBuilder>(
+                arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacketOrBuilder>(
                     objects_,
                     ((bitField0_ & 0x00000001) == 0x00000001),
                     getParentForChildren(),
@@ -7747,18 +7747,18 @@ public final class GeProtocol {
           return objectsBuilder_;
         }
 
-        // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.LocationInfoPacket.CachedObjectsPacket)
+        // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeCachedObjectsPacket)
       }
 
       static {
-        defaultInstance = new CachedObjectsPacket(true);
+        defaultInstance = new GeCachedObjectsPacket(true);
         defaultInstance.initFields();
       }
 
-      // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.LocationInfoPacket.CachedObjectsPacket)
+      // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeCachedObjectsPacket)
     }
 
-    public interface LocationObjectPacketOrBuilder
+    public interface GeLocationObjectPacketOrBuilder
         extends com.google.protobuf.MessageOrBuilder {
 
       // required int32 objectId = 1;
@@ -7822,24 +7822,24 @@ public final class GeProtocol {
       float getRotationAngle();
     }
     /**
-     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket}
+     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket}
      */
-    public static final class LocationObjectPacket extends
+    public static final class GeLocationObjectPacket extends
         com.google.protobuf.GeneratedMessage
-        implements LocationObjectPacketOrBuilder {
-      // Use LocationObjectPacket.newBuilder() to construct.
-      private LocationObjectPacket(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+        implements GeLocationObjectPacketOrBuilder {
+      // Use GeLocationObjectPacket.newBuilder() to construct.
+      private GeLocationObjectPacket(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
         super(builder);
         this.unknownFields = builder.getUnknownFields();
       }
-      private LocationObjectPacket(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+      private GeLocationObjectPacket(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
-      private static final LocationObjectPacket defaultInstance;
-      public static LocationObjectPacket getDefaultInstance() {
+      private static final GeLocationObjectPacket defaultInstance;
+      public static GeLocationObjectPacket getDefaultInstance() {
         return defaultInstance;
       }
 
-      public LocationObjectPacket getDefaultInstanceForType() {
+      public GeLocationObjectPacket getDefaultInstanceForType() {
         return defaultInstance;
       }
 
@@ -7849,7 +7849,7 @@ public final class GeProtocol {
           getUnknownFields() {
         return this.unknownFields;
       }
-      private LocationObjectPacket(
+      private GeLocationObjectPacket(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
@@ -7916,28 +7916,28 @@ public final class GeProtocol {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_LocationInfoPacket_LocationObjectPacket_descriptor;
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeLocationInfoPacket_GeLocationObjectPacket_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_LocationInfoPacket_LocationObjectPacket_fieldAccessorTable
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeLocationInfoPacket_GeLocationObjectPacket_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket.Builder.class);
+                arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket.Builder.class);
       }
 
-      public static com.google.protobuf.Parser<LocationObjectPacket> PARSER =
-          new com.google.protobuf.AbstractParser<LocationObjectPacket>() {
-        public LocationObjectPacket parsePartialFrom(
+      public static com.google.protobuf.Parser<GeLocationObjectPacket> PARSER =
+          new com.google.protobuf.AbstractParser<GeLocationObjectPacket>() {
+        public GeLocationObjectPacket parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new LocationObjectPacket(input, extensionRegistry);
+          return new GeLocationObjectPacket(input, extensionRegistry);
         }
       };
 
       @java.lang.Override
-      public com.google.protobuf.Parser<LocationObjectPacket> getParserForType() {
+      public com.google.protobuf.Parser<GeLocationObjectPacket> getParserForType() {
         return PARSER;
       }
 
@@ -8145,53 +8145,53 @@ public final class GeProtocol {
         return super.writeReplace();
       }
 
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket parseFrom(
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket parseFrom(
           com.google.protobuf.ByteString data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket parseFrom(
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket parseFrom(
           com.google.protobuf.ByteString data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket parseFrom(byte[] data)
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket parseFrom(byte[] data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket parseFrom(
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket parseFrom(
           byte[] data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket parseFrom(java.io.InputStream input)
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket parseFrom(java.io.InputStream input)
           throws java.io.IOException {
         return PARSER.parseFrom(input);
       }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket parseFrom(
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket parseFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return PARSER.parseFrom(input, extensionRegistry);
       }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket parseDelimitedFrom(java.io.InputStream input)
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket parseDelimitedFrom(java.io.InputStream input)
           throws java.io.IOException {
         return PARSER.parseDelimitedFrom(input);
       }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket parseDelimitedFrom(
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket parseDelimitedFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return PARSER.parseDelimitedFrom(input, extensionRegistry);
       }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket parseFrom(
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket parseFrom(
           com.google.protobuf.CodedInputStream input)
           throws java.io.IOException {
         return PARSER.parseFrom(input);
       }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket parseFrom(
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket parseFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
@@ -8200,7 +8200,7 @@ public final class GeProtocol {
 
       public static Builder newBuilder() { return Builder.create(); }
       public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket prototype) {
+      public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket prototype) {
         return newBuilder().mergeFrom(prototype);
       }
       public Builder toBuilder() { return newBuilder(this); }
@@ -8212,24 +8212,24 @@ public final class GeProtocol {
         return builder;
       }
       /**
-       * Protobuf type {@code arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket}
+       * Protobuf type {@code arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket}
        */
       public static final class Builder extends
           com.google.protobuf.GeneratedMessage.Builder<Builder>
-         implements arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacketOrBuilder {
+         implements arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacketOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_LocationInfoPacket_LocationObjectPacket_descriptor;
+          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeLocationInfoPacket_GeLocationObjectPacket_descriptor;
         }
 
         protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_LocationInfoPacket_LocationObjectPacket_fieldAccessorTable
+          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeLocationInfoPacket_GeLocationObjectPacket_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
-                  arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket.Builder.class);
+                  arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket.Builder.class);
         }
 
-        // Construct using arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket.newBuilder()
+        // Construct using arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket.newBuilder()
         private Builder() {
           maybeForceBuilderInitialization();
         }
@@ -8270,23 +8270,23 @@ public final class GeProtocol {
 
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_LocationInfoPacket_LocationObjectPacket_descriptor;
+          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeLocationInfoPacket_GeLocationObjectPacket_descriptor;
         }
 
-        public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket getDefaultInstanceForType() {
-          return arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket.getDefaultInstance();
+        public arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket getDefaultInstanceForType() {
+          return arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket.getDefaultInstance();
         }
 
-        public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket build() {
-          arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket result = buildPartial();
+        public arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket build() {
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket result = buildPartial();
           if (!result.isInitialized()) {
             throw newUninitializedMessageException(result);
           }
           return result;
         }
 
-        public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket buildPartial() {
-          arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket result = new arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket(this);
+        public arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket buildPartial() {
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket result = new arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket(this);
           int from_bitField0_ = bitField0_;
           int to_bitField0_ = 0;
           if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -8319,16 +8319,16 @@ public final class GeProtocol {
         }
 
         public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket) {
-            return mergeFrom((arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket)other);
+          if (other instanceof arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket) {
+            return mergeFrom((arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket)other);
           } else {
             super.mergeFrom(other);
             return this;
           }
         }
 
-        public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket other) {
-          if (other == arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket.getDefaultInstance()) return this;
+        public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket other) {
+          if (other == arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket.getDefaultInstance()) return this;
           if (other.hasObjectId()) {
             setObjectId(other.getObjectId());
           }
@@ -8383,11 +8383,11 @@ public final class GeProtocol {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket parsedMessage = null;
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket parsedMessage = null;
           try {
             parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.LocationObjectPacket) e.getUnfinishedMessage();
+            parsedMessage = (arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket) e.getUnfinishedMessage();
             throw e;
           } finally {
             if (parsedMessage != null) {
@@ -8596,15 +8596,15 @@ public final class GeProtocol {
           return this;
         }
 
-        // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket)
+        // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket)
       }
 
       static {
-        defaultInstance = new LocationObjectPacket(true);
+        defaultInstance = new GeLocationObjectPacket(true);
         defaultInstance.initFields();
       }
 
-      // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.LocationInfoPacket.LocationObjectPacket)
+      // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeLocationObjectPacket)
     }
 
     private int bitField0_;
@@ -8699,25 +8699,25 @@ public final class GeProtocol {
       return height_;
     }
 
-    // required .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.CachedObjectsPacket locationCachedObjects = 5;
+    // required .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeCachedObjectsPacket locationCachedObjects = 5;
     public static final int LOCATIONCACHEDOBJECTS_FIELD_NUMBER = 5;
-    private arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket locationCachedObjects_;
+    private arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacket locationCachedObjects_;
     /**
-     * <code>required .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.CachedObjectsPacket locationCachedObjects = 5;</code>
+     * <code>required .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeCachedObjectsPacket locationCachedObjects = 5;</code>
      */
     public boolean hasLocationCachedObjects() {
       return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
-     * <code>required .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.CachedObjectsPacket locationCachedObjects = 5;</code>
+     * <code>required .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeCachedObjectsPacket locationCachedObjects = 5;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket getLocationCachedObjects() {
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacket getLocationCachedObjects() {
       return locationCachedObjects_;
     }
     /**
-     * <code>required .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.CachedObjectsPacket locationCachedObjects = 5;</code>
+     * <code>required .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeCachedObjectsPacket locationCachedObjects = 5;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacketOrBuilder getLocationCachedObjectsOrBuilder() {
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacketOrBuilder getLocationCachedObjectsOrBuilder() {
       return locationCachedObjects_;
     }
 
@@ -8726,7 +8726,7 @@ public final class GeProtocol {
       name_ = "";
       width_ = 0;
       height_ = 0;
-      locationCachedObjects_ = arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket.getDefaultInstance();
+      locationCachedObjects_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacket.getDefaultInstance();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -8820,53 +8820,53 @@ public final class GeProtocol {
       return super.writeReplace();
     }
 
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket parseFrom(byte[] data)
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket parseFrom(java.io.InputStream input)
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket parseDelimitedFrom(java.io.InputStream input)
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket parseDelimitedFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -8875,7 +8875,7 @@ public final class GeProtocol {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket prototype) {
+    public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -8887,24 +8887,24 @@ public final class GeProtocol {
       return builder;
     }
     /**
-     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.LocationInfoPacket}
+     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacketOrBuilder {
+       implements arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacketOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_LocationInfoPacket_descriptor;
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeLocationInfoPacket_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_LocationInfoPacket_fieldAccessorTable
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeLocationInfoPacket_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.Builder.class);
+                arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.Builder.class);
       }
 
-      // Construct using arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.newBuilder()
+      // Construct using arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -8934,7 +8934,7 @@ public final class GeProtocol {
         height_ = 0;
         bitField0_ = (bitField0_ & ~0x00000008);
         if (locationCachedObjectsBuilder_ == null) {
-          locationCachedObjects_ = arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket.getDefaultInstance();
+          locationCachedObjects_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacket.getDefaultInstance();
         } else {
           locationCachedObjectsBuilder_.clear();
         }
@@ -8948,23 +8948,23 @@ public final class GeProtocol {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_LocationInfoPacket_descriptor;
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeLocationInfoPacket_descriptor;
       }
 
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket getDefaultInstanceForType() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.getDefaultInstance();
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket getDefaultInstanceForType() {
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.getDefaultInstance();
       }
 
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket build() {
-        arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket result = buildPartial();
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket build() {
+        arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket buildPartial() {
-        arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket result = new arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket(this);
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket buildPartial() {
+        arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket result = new arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -8997,16 +8997,16 @@ public final class GeProtocol {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket) {
-          return mergeFrom((arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket)other);
+        if (other instanceof arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket) {
+          return mergeFrom((arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket other) {
-        if (other == arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.getDefaultInstance()) return this;
+      public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket other) {
+        if (other == arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.getDefaultInstance()) return this;
         if (other.hasLocationId()) {
           setLocationId(other.getLocationId());
         }
@@ -9060,11 +9060,11 @@ public final class GeProtocol {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket parsedMessage = null;
+        arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket) e.getUnfinishedMessage();
+          parsedMessage = (arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -9248,20 +9248,20 @@ public final class GeProtocol {
         return this;
       }
 
-      // required .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.CachedObjectsPacket locationCachedObjects = 5;
-      private arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket locationCachedObjects_ = arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket.getDefaultInstance();
+      // required .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeCachedObjectsPacket locationCachedObjects = 5;
+      private arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacket locationCachedObjects_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacket.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacketOrBuilder> locationCachedObjectsBuilder_;
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacketOrBuilder> locationCachedObjectsBuilder_;
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.CachedObjectsPacket locationCachedObjects = 5;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeCachedObjectsPacket locationCachedObjects = 5;</code>
        */
       public boolean hasLocationCachedObjects() {
         return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.CachedObjectsPacket locationCachedObjects = 5;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeCachedObjectsPacket locationCachedObjects = 5;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket getLocationCachedObjects() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacket getLocationCachedObjects() {
         if (locationCachedObjectsBuilder_ == null) {
           return locationCachedObjects_;
         } else {
@@ -9269,9 +9269,9 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.CachedObjectsPacket locationCachedObjects = 5;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeCachedObjectsPacket locationCachedObjects = 5;</code>
        */
-      public Builder setLocationCachedObjects(arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket value) {
+      public Builder setLocationCachedObjects(arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacket value) {
         if (locationCachedObjectsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -9285,10 +9285,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.CachedObjectsPacket locationCachedObjects = 5;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeCachedObjectsPacket locationCachedObjects = 5;</code>
        */
       public Builder setLocationCachedObjects(
-          arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket.Builder builderForValue) {
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacket.Builder builderForValue) {
         if (locationCachedObjectsBuilder_ == null) {
           locationCachedObjects_ = builderForValue.build();
           onChanged();
@@ -9299,14 +9299,14 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.CachedObjectsPacket locationCachedObjects = 5;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeCachedObjectsPacket locationCachedObjects = 5;</code>
        */
-      public Builder mergeLocationCachedObjects(arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket value) {
+      public Builder mergeLocationCachedObjects(arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacket value) {
         if (locationCachedObjectsBuilder_ == null) {
           if (((bitField0_ & 0x00000010) == 0x00000010) &&
-              locationCachedObjects_ != arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket.getDefaultInstance()) {
+              locationCachedObjects_ != arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacket.getDefaultInstance()) {
             locationCachedObjects_ =
-              arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket.newBuilder(locationCachedObjects_).mergeFrom(value).buildPartial();
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacket.newBuilder(locationCachedObjects_).mergeFrom(value).buildPartial();
           } else {
             locationCachedObjects_ = value;
           }
@@ -9318,11 +9318,11 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.CachedObjectsPacket locationCachedObjects = 5;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeCachedObjectsPacket locationCachedObjects = 5;</code>
        */
       public Builder clearLocationCachedObjects() {
         if (locationCachedObjectsBuilder_ == null) {
-          locationCachedObjects_ = arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket.getDefaultInstance();
+          locationCachedObjects_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacket.getDefaultInstance();
           onChanged();
         } else {
           locationCachedObjectsBuilder_.clear();
@@ -9331,17 +9331,17 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.CachedObjectsPacket locationCachedObjects = 5;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeCachedObjectsPacket locationCachedObjects = 5;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket.Builder getLocationCachedObjectsBuilder() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacket.Builder getLocationCachedObjectsBuilder() {
         bitField0_ |= 0x00000010;
         onChanged();
         return getLocationCachedObjectsFieldBuilder().getBuilder();
       }
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.CachedObjectsPacket locationCachedObjects = 5;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeCachedObjectsPacket locationCachedObjects = 5;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacketOrBuilder getLocationCachedObjectsOrBuilder() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacketOrBuilder getLocationCachedObjectsOrBuilder() {
         if (locationCachedObjectsBuilder_ != null) {
           return locationCachedObjectsBuilder_.getMessageOrBuilder();
         } else {
@@ -9349,14 +9349,14 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.LocationInfoPacket.CachedObjectsPacket locationCachedObjects = 5;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket.GeCachedObjectsPacket locationCachedObjects = 5;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacketOrBuilder> 
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacketOrBuilder> 
           getLocationCachedObjectsFieldBuilder() {
         if (locationCachedObjectsBuilder_ == null) {
           locationCachedObjectsBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.CachedObjectsPacketOrBuilder>(
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeCachedObjectsPacketOrBuilder>(
                   locationCachedObjects_,
                   getParentForChildren(),
                   isClean());
@@ -9365,18 +9365,18 @@ public final class GeProtocol {
         return locationCachedObjectsBuilder_;
       }
 
-      // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.LocationInfoPacket)
+      // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket)
     }
 
     static {
-      defaultInstance = new LocationInfoPacket(true);
+      defaultInstance = new GeLocationInfoPacket(true);
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.LocationInfoPacket)
+    // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket)
   }
 
-  public interface ShipStaticInfoPacketOrBuilder
+  public interface GeShipStaticInfoPacketOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
     // required float moveMaxSpeed = 1;
@@ -9534,114 +9534,114 @@ public final class GeProtocol {
      */
     int getBonusSlotsCount();
 
-    // repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket inventoryItems = 14;
+    // repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket inventoryItems = 14;
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket inventoryItems = 14;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket inventoryItems = 14;</code>
      */
-    java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket> 
+    java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket> 
         getInventoryItemsList();
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket inventoryItems = 14;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket inventoryItems = 14;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket getInventoryItems(int index);
+    arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket getInventoryItems(int index);
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket inventoryItems = 14;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket inventoryItems = 14;</code>
      */
     int getInventoryItemsCount();
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket inventoryItems = 14;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket inventoryItems = 14;</code>
      */
-    java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacketOrBuilder> 
+    java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacketOrBuilder> 
         getInventoryItemsOrBuilderList();
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket inventoryItems = 14;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket inventoryItems = 14;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacketOrBuilder getInventoryItemsOrBuilder(
+    arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacketOrBuilder getInventoryItemsOrBuilder(
         int index);
 
-    // repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipBonus = 15;
+    // repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipBonus = 15;
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipBonus = 15;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipBonus = 15;</code>
      */
-    java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket> 
+    java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket> 
         getShipBonusList();
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipBonus = 15;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipBonus = 15;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket getShipBonus(int index);
+    arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket getShipBonus(int index);
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipBonus = 15;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipBonus = 15;</code>
      */
     int getShipBonusCount();
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipBonus = 15;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipBonus = 15;</code>
      */
-    java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacketOrBuilder> 
+    java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacketOrBuilder> 
         getShipBonusOrBuilderList();
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipBonus = 15;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipBonus = 15;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacketOrBuilder getShipBonusOrBuilder(
+    arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacketOrBuilder getShipBonusOrBuilder(
         int index);
 
-    // repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipWeapons = 16;
+    // repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipWeapons = 16;
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipWeapons = 16;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipWeapons = 16;</code>
      */
-    java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket> 
+    java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket> 
         getShipWeaponsList();
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipWeapons = 16;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipWeapons = 16;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket getShipWeapons(int index);
+    arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket getShipWeapons(int index);
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipWeapons = 16;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipWeapons = 16;</code>
      */
     int getShipWeaponsCount();
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipWeapons = 16;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipWeapons = 16;</code>
      */
-    java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacketOrBuilder> 
+    java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacketOrBuilder> 
         getShipWeaponsOrBuilderList();
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipWeapons = 16;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipWeapons = 16;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacketOrBuilder getShipWeaponsOrBuilder(
+    arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacketOrBuilder getShipWeaponsOrBuilder(
         int index);
 
-    // required .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipEngine = 17;
+    // required .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipEngine = 17;
     /**
-     * <code>required .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipEngine = 17;</code>
+     * <code>required .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipEngine = 17;</code>
      */
     boolean hasShipEngine();
     /**
-     * <code>required .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipEngine = 17;</code>
+     * <code>required .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipEngine = 17;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket getShipEngine();
+    arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket getShipEngine();
     /**
-     * <code>required .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipEngine = 17;</code>
+     * <code>required .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipEngine = 17;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacketOrBuilder getShipEngineOrBuilder();
+    arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacketOrBuilder getShipEngineOrBuilder();
   }
   /**
-   * Protobuf type {@code arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket}
+   * Protobuf type {@code arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket}
    */
-  public static final class ShipStaticInfoPacket extends
+  public static final class GeShipStaticInfoPacket extends
       com.google.protobuf.GeneratedMessage
-      implements ShipStaticInfoPacketOrBuilder {
-    // Use ShipStaticInfoPacket.newBuilder() to construct.
-    private ShipStaticInfoPacket(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      implements GeShipStaticInfoPacketOrBuilder {
+    // Use GeShipStaticInfoPacket.newBuilder() to construct.
+    private GeShipStaticInfoPacket(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private ShipStaticInfoPacket(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private GeShipStaticInfoPacket(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
-    private static final ShipStaticInfoPacket defaultInstance;
-    public static ShipStaticInfoPacket getDefaultInstance() {
+    private static final GeShipStaticInfoPacket defaultInstance;
+    public static GeShipStaticInfoPacket getDefaultInstance() {
       return defaultInstance;
     }
 
-    public ShipStaticInfoPacket getDefaultInstanceForType() {
+    public GeShipStaticInfoPacket getDefaultInstanceForType() {
       return defaultInstance;
     }
 
@@ -9651,7 +9651,7 @@ public final class GeProtocol {
         getUnknownFields() {
       return this.unknownFields;
     }
-    private ShipStaticInfoPacket(
+    private GeShipStaticInfoPacket(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -9741,34 +9741,34 @@ public final class GeProtocol {
             }
             case 114: {
               if (!((mutable_bitField0_ & 0x00002000) == 0x00002000)) {
-                inventoryItems_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket>();
+                inventoryItems_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket>();
                 mutable_bitField0_ |= 0x00002000;
               }
-              inventoryItems_.add(input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.PARSER, extensionRegistry));
+              inventoryItems_.add(input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.PARSER, extensionRegistry));
               break;
             }
             case 122: {
               if (!((mutable_bitField0_ & 0x00004000) == 0x00004000)) {
-                shipBonus_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket>();
+                shipBonus_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket>();
                 mutable_bitField0_ |= 0x00004000;
               }
-              shipBonus_.add(input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.PARSER, extensionRegistry));
+              shipBonus_.add(input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.PARSER, extensionRegistry));
               break;
             }
             case 130: {
               if (!((mutable_bitField0_ & 0x00008000) == 0x00008000)) {
-                shipWeapons_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket>();
+                shipWeapons_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket>();
                 mutable_bitField0_ |= 0x00008000;
               }
-              shipWeapons_.add(input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.PARSER, extensionRegistry));
+              shipWeapons_.add(input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.PARSER, extensionRegistry));
               break;
             }
             case 138: {
-              arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.Builder subBuilder = null;
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.Builder subBuilder = null;
               if (((bitField0_ & 0x00002000) == 0x00002000)) {
                 subBuilder = shipEngine_.toBuilder();
               }
-              shipEngine_ = input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.PARSER, extensionRegistry);
+              shipEngine_ = input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.PARSER, extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(shipEngine_);
                 shipEngine_ = subBuilder.buildPartial();
@@ -9799,32 +9799,32 @@ public final class GeProtocol {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_descriptor;
+      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_fieldAccessorTable
+      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.Builder.class);
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<ShipStaticInfoPacket> PARSER =
-        new com.google.protobuf.AbstractParser<ShipStaticInfoPacket>() {
-      public ShipStaticInfoPacket parsePartialFrom(
+    public static com.google.protobuf.Parser<GeShipStaticInfoPacket> PARSER =
+        new com.google.protobuf.AbstractParser<GeShipStaticInfoPacket>() {
+      public GeShipStaticInfoPacket parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ShipStaticInfoPacket(input, extensionRegistry);
+        return new GeShipStaticInfoPacket(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<ShipStaticInfoPacket> getParserForType() {
+    public com.google.protobuf.Parser<GeShipStaticInfoPacket> getParserForType() {
       return PARSER;
     }
 
-    public interface ItemPacketOrBuilder
+    public interface GeItemPacketOrBuilder
         extends com.google.protobuf.MessageOrBuilder {
 
       // required int32 itemId = 1;
@@ -9887,67 +9887,67 @@ public final class GeProtocol {
        */
       int getItemTypeId();
 
-      // optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.BonusPacket bonus = 6;
+      // optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket bonus = 6;
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.BonusPacket bonus = 6;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket bonus = 6;</code>
        */
       boolean hasBonus();
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.BonusPacket bonus = 6;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket bonus = 6;</code>
        */
-      arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket getBonus();
+      arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket getBonus();
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.BonusPacket bonus = 6;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket bonus = 6;</code>
        */
-      arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacketOrBuilder getBonusOrBuilder();
+      arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacketOrBuilder getBonusOrBuilder();
 
-      // optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket weapon = 7;
+      // optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket weapon = 7;
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket weapon = 7;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket weapon = 7;</code>
        */
       boolean hasWeapon();
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket weapon = 7;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket weapon = 7;</code>
        */
-      arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket getWeapon();
+      arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket getWeapon();
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket weapon = 7;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket weapon = 7;</code>
        */
-      arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacketOrBuilder getWeaponOrBuilder();
+      arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacketOrBuilder getWeaponOrBuilder();
 
-      // optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.EnginePacket engine = 8;
+      // optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket engine = 8;
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.EnginePacket engine = 8;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket engine = 8;</code>
        */
       boolean hasEngine();
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.EnginePacket engine = 8;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket engine = 8;</code>
        */
-      arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket getEngine();
+      arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket getEngine();
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.EnginePacket engine = 8;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket engine = 8;</code>
        */
-      arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacketOrBuilder getEngineOrBuilder();
+      arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacketOrBuilder getEngineOrBuilder();
     }
     /**
-     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket}
+     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket}
      */
-    public static final class ItemPacket extends
+    public static final class GeItemPacket extends
         com.google.protobuf.GeneratedMessage
-        implements ItemPacketOrBuilder {
-      // Use ItemPacket.newBuilder() to construct.
-      private ItemPacket(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+        implements GeItemPacketOrBuilder {
+      // Use GeItemPacket.newBuilder() to construct.
+      private GeItemPacket(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
         super(builder);
         this.unknownFields = builder.getUnknownFields();
       }
-      private ItemPacket(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+      private GeItemPacket(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
-      private static final ItemPacket defaultInstance;
-      public static ItemPacket getDefaultInstance() {
+      private static final GeItemPacket defaultInstance;
+      public static GeItemPacket getDefaultInstance() {
         return defaultInstance;
       }
 
-      public ItemPacket getDefaultInstanceForType() {
+      public GeItemPacket getDefaultInstanceForType() {
         return defaultInstance;
       }
 
@@ -9957,7 +9957,7 @@ public final class GeProtocol {
           getUnknownFields() {
         return this.unknownFields;
       }
-      private ItemPacket(
+      private GeItemPacket(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
@@ -10006,11 +10006,11 @@ public final class GeProtocol {
                 break;
               }
               case 50: {
-                arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket.Builder subBuilder = null;
+                arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket.Builder subBuilder = null;
                 if (((bitField0_ & 0x00000020) == 0x00000020)) {
                   subBuilder = bonus_.toBuilder();
                 }
-                bonus_ = input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket.PARSER, extensionRegistry);
+                bonus_ = input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket.PARSER, extensionRegistry);
                 if (subBuilder != null) {
                   subBuilder.mergeFrom(bonus_);
                   bonus_ = subBuilder.buildPartial();
@@ -10019,11 +10019,11 @@ public final class GeProtocol {
                 break;
               }
               case 58: {
-                arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket.Builder subBuilder = null;
+                arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket.Builder subBuilder = null;
                 if (((bitField0_ & 0x00000040) == 0x00000040)) {
                   subBuilder = weapon_.toBuilder();
                 }
-                weapon_ = input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket.PARSER, extensionRegistry);
+                weapon_ = input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket.PARSER, extensionRegistry);
                 if (subBuilder != null) {
                   subBuilder.mergeFrom(weapon_);
                   weapon_ = subBuilder.buildPartial();
@@ -10032,11 +10032,11 @@ public final class GeProtocol {
                 break;
               }
               case 66: {
-                arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket.Builder subBuilder = null;
+                arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket.Builder subBuilder = null;
                 if (((bitField0_ & 0x00000080) == 0x00000080)) {
                   subBuilder = engine_.toBuilder();
                 }
-                engine_ = input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket.PARSER, extensionRegistry);
+                engine_ = input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket.PARSER, extensionRegistry);
                 if (subBuilder != null) {
                   subBuilder.mergeFrom(engine_);
                   engine_ = subBuilder.buildPartial();
@@ -10058,32 +10058,32 @@ public final class GeProtocol {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_ItemPacket_descriptor;
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_GeItemPacket_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_ItemPacket_fieldAccessorTable
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_GeItemPacket_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.Builder.class);
+                arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.Builder.class);
       }
 
-      public static com.google.protobuf.Parser<ItemPacket> PARSER =
-          new com.google.protobuf.AbstractParser<ItemPacket>() {
-        public ItemPacket parsePartialFrom(
+      public static com.google.protobuf.Parser<GeItemPacket> PARSER =
+          new com.google.protobuf.AbstractParser<GeItemPacket>() {
+        public GeItemPacket parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new ItemPacket(input, extensionRegistry);
+          return new GeItemPacket(input, extensionRegistry);
         }
       };
 
       @java.lang.Override
-      public com.google.protobuf.Parser<ItemPacket> getParserForType() {
+      public com.google.protobuf.Parser<GeItemPacket> getParserForType() {
         return PARSER;
       }
 
-      public interface BonusPacketOrBuilder
+      public interface GeBonusPacketOrBuilder
           extends com.google.protobuf.MessageOrBuilder {
 
         // required int32 bonusValue = 1;
@@ -10107,24 +10107,24 @@ public final class GeProtocol {
         int getBonusTypeId();
       }
       /**
-       * Protobuf type {@code arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.BonusPacket}
+       * Protobuf type {@code arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket}
        */
-      public static final class BonusPacket extends
+      public static final class GeBonusPacket extends
           com.google.protobuf.GeneratedMessage
-          implements BonusPacketOrBuilder {
-        // Use BonusPacket.newBuilder() to construct.
-        private BonusPacket(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+          implements GeBonusPacketOrBuilder {
+        // Use GeBonusPacket.newBuilder() to construct.
+        private GeBonusPacket(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
           super(builder);
           this.unknownFields = builder.getUnknownFields();
         }
-        private BonusPacket(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+        private GeBonusPacket(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
-        private static final BonusPacket defaultInstance;
-        public static BonusPacket getDefaultInstance() {
+        private static final GeBonusPacket defaultInstance;
+        public static GeBonusPacket getDefaultInstance() {
           return defaultInstance;
         }
 
-        public BonusPacket getDefaultInstanceForType() {
+        public GeBonusPacket getDefaultInstanceForType() {
           return defaultInstance;
         }
 
@@ -10134,7 +10134,7 @@ public final class GeProtocol {
             getUnknownFields() {
           return this.unknownFields;
         }
-        private BonusPacket(
+        private GeBonusPacket(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
@@ -10181,28 +10181,28 @@ public final class GeProtocol {
         }
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_ItemPacket_BonusPacket_descriptor;
+          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_GeItemPacket_GeBonusPacket_descriptor;
         }
 
         protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_ItemPacket_BonusPacket_fieldAccessorTable
+          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_GeItemPacket_GeBonusPacket_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
-                  arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket.Builder.class);
+                  arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket.Builder.class);
         }
 
-        public static com.google.protobuf.Parser<BonusPacket> PARSER =
-            new com.google.protobuf.AbstractParser<BonusPacket>() {
-          public BonusPacket parsePartialFrom(
+        public static com.google.protobuf.Parser<GeBonusPacket> PARSER =
+            new com.google.protobuf.AbstractParser<GeBonusPacket>() {
+          public GeBonusPacket parsePartialFrom(
               com.google.protobuf.CodedInputStream input,
               com.google.protobuf.ExtensionRegistryLite extensionRegistry)
               throws com.google.protobuf.InvalidProtocolBufferException {
-            return new BonusPacket(input, extensionRegistry);
+            return new GeBonusPacket(input, extensionRegistry);
           }
         };
 
         @java.lang.Override
-        public com.google.protobuf.Parser<BonusPacket> getParserForType() {
+        public com.google.protobuf.Parser<GeBonusPacket> getParserForType() {
           return PARSER;
         }
 
@@ -10298,53 +10298,53 @@ public final class GeProtocol {
           return super.writeReplace();
         }
 
-        public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket parseFrom(
+        public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket parseFrom(
             com.google.protobuf.ByteString data)
             throws com.google.protobuf.InvalidProtocolBufferException {
           return PARSER.parseFrom(data);
         }
-        public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket parseFrom(
+        public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket parseFrom(
             com.google.protobuf.ByteString data,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
           return PARSER.parseFrom(data, extensionRegistry);
         }
-        public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket parseFrom(byte[] data)
+        public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket parseFrom(byte[] data)
             throws com.google.protobuf.InvalidProtocolBufferException {
           return PARSER.parseFrom(data);
         }
-        public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket parseFrom(
+        public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket parseFrom(
             byte[] data,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
           return PARSER.parseFrom(data, extensionRegistry);
         }
-        public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket parseFrom(java.io.InputStream input)
+        public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket parseFrom(java.io.InputStream input)
             throws java.io.IOException {
           return PARSER.parseFrom(input);
         }
-        public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket parseFrom(
+        public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket parseFrom(
             java.io.InputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
           return PARSER.parseFrom(input, extensionRegistry);
         }
-        public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket parseDelimitedFrom(java.io.InputStream input)
+        public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket parseDelimitedFrom(java.io.InputStream input)
             throws java.io.IOException {
           return PARSER.parseDelimitedFrom(input);
         }
-        public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket parseDelimitedFrom(
+        public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket parseDelimitedFrom(
             java.io.InputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
           return PARSER.parseDelimitedFrom(input, extensionRegistry);
         }
-        public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket parseFrom(
+        public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket parseFrom(
             com.google.protobuf.CodedInputStream input)
             throws java.io.IOException {
           return PARSER.parseFrom(input);
         }
-        public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket parseFrom(
+        public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket parseFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
@@ -10353,7 +10353,7 @@ public final class GeProtocol {
 
         public static Builder newBuilder() { return Builder.create(); }
         public Builder newBuilderForType() { return newBuilder(); }
-        public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket prototype) {
+        public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket prototype) {
           return newBuilder().mergeFrom(prototype);
         }
         public Builder toBuilder() { return newBuilder(this); }
@@ -10365,24 +10365,24 @@ public final class GeProtocol {
           return builder;
         }
         /**
-         * Protobuf type {@code arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.BonusPacket}
+         * Protobuf type {@code arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket}
          */
         public static final class Builder extends
             com.google.protobuf.GeneratedMessage.Builder<Builder>
-           implements arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacketOrBuilder {
+           implements arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacketOrBuilder {
           public static final com.google.protobuf.Descriptors.Descriptor
               getDescriptor() {
-            return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_ItemPacket_BonusPacket_descriptor;
+            return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_GeItemPacket_GeBonusPacket_descriptor;
           }
 
           protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
               internalGetFieldAccessorTable() {
-            return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_ItemPacket_BonusPacket_fieldAccessorTable
+            return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_GeItemPacket_GeBonusPacket_fieldAccessorTable
                 .ensureFieldAccessorsInitialized(
-                    arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket.Builder.class);
+                    arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket.Builder.class);
           }
 
-          // Construct using arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket.newBuilder()
+          // Construct using arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket.newBuilder()
           private Builder() {
             maybeForceBuilderInitialization();
           }
@@ -10415,23 +10415,23 @@ public final class GeProtocol {
 
           public com.google.protobuf.Descriptors.Descriptor
               getDescriptorForType() {
-            return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_ItemPacket_BonusPacket_descriptor;
+            return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_GeItemPacket_GeBonusPacket_descriptor;
           }
 
-          public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket getDefaultInstanceForType() {
-            return arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket.getDefaultInstance();
+          public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket getDefaultInstanceForType() {
+            return arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket.getDefaultInstance();
           }
 
-          public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket build() {
-            arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket result = buildPartial();
+          public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket build() {
+            arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket result = buildPartial();
             if (!result.isInitialized()) {
               throw newUninitializedMessageException(result);
             }
             return result;
           }
 
-          public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket buildPartial() {
-            arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket result = new arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket(this);
+          public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket buildPartial() {
+            arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket result = new arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket(this);
             int from_bitField0_ = bitField0_;
             int to_bitField0_ = 0;
             if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -10448,16 +10448,16 @@ public final class GeProtocol {
           }
 
           public Builder mergeFrom(com.google.protobuf.Message other) {
-            if (other instanceof arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket) {
-              return mergeFrom((arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket)other);
+            if (other instanceof arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket) {
+              return mergeFrom((arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket)other);
             } else {
               super.mergeFrom(other);
               return this;
             }
           }
 
-          public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket other) {
-            if (other == arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket.getDefaultInstance()) return this;
+          public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket other) {
+            if (other == arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket.getDefaultInstance()) return this;
             if (other.hasBonusValue()) {
               setBonusValue(other.getBonusValue());
             }
@@ -10484,11 +10484,11 @@ public final class GeProtocol {
               com.google.protobuf.CodedInputStream input,
               com.google.protobuf.ExtensionRegistryLite extensionRegistry)
               throws java.io.IOException {
-            arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket parsedMessage = null;
+            arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket parsedMessage = null;
             try {
               parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
             } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-              parsedMessage = (arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket) e.getUnfinishedMessage();
+              parsedMessage = (arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket) e.getUnfinishedMessage();
               throw e;
             } finally {
               if (parsedMessage != null) {
@@ -10565,18 +10565,18 @@ public final class GeProtocol {
             return this;
           }
 
-          // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.BonusPacket)
+          // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket)
         }
 
         static {
-          defaultInstance = new BonusPacket(true);
+          defaultInstance = new GeBonusPacket(true);
           defaultInstance.initFields();
         }
 
-        // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.BonusPacket)
+        // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket)
       }
 
-      public interface WeaponPacketOrBuilder
+      public interface GeWeaponPacketOrBuilder
           extends com.google.protobuf.MessageOrBuilder {
 
         // required int32 damage = 1;
@@ -10630,24 +10630,24 @@ public final class GeProtocol {
         int getEnergyCost();
       }
       /**
-       * Protobuf type {@code arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket}
+       * Protobuf type {@code arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket}
        */
-      public static final class WeaponPacket extends
+      public static final class GeWeaponPacket extends
           com.google.protobuf.GeneratedMessage
-          implements WeaponPacketOrBuilder {
-        // Use WeaponPacket.newBuilder() to construct.
-        private WeaponPacket(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+          implements GeWeaponPacketOrBuilder {
+        // Use GeWeaponPacket.newBuilder() to construct.
+        private GeWeaponPacket(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
           super(builder);
           this.unknownFields = builder.getUnknownFields();
         }
-        private WeaponPacket(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+        private GeWeaponPacket(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
-        private static final WeaponPacket defaultInstance;
-        public static WeaponPacket getDefaultInstance() {
+        private static final GeWeaponPacket defaultInstance;
+        public static GeWeaponPacket getDefaultInstance() {
           return defaultInstance;
         }
 
-        public WeaponPacket getDefaultInstanceForType() {
+        public GeWeaponPacket getDefaultInstanceForType() {
           return defaultInstance;
         }
 
@@ -10657,7 +10657,7 @@ public final class GeProtocol {
             getUnknownFields() {
           return this.unknownFields;
         }
-        private WeaponPacket(
+        private GeWeaponPacket(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
@@ -10719,28 +10719,28 @@ public final class GeProtocol {
         }
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_ItemPacket_WeaponPacket_descriptor;
+          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_GeItemPacket_GeWeaponPacket_descriptor;
         }
 
         protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_ItemPacket_WeaponPacket_fieldAccessorTable
+          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_GeItemPacket_GeWeaponPacket_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
-                  arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket.Builder.class);
+                  arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket.Builder.class);
         }
 
-        public static com.google.protobuf.Parser<WeaponPacket> PARSER =
-            new com.google.protobuf.AbstractParser<WeaponPacket>() {
-          public WeaponPacket parsePartialFrom(
+        public static com.google.protobuf.Parser<GeWeaponPacket> PARSER =
+            new com.google.protobuf.AbstractParser<GeWeaponPacket>() {
+          public GeWeaponPacket parsePartialFrom(
               com.google.protobuf.CodedInputStream input,
               com.google.protobuf.ExtensionRegistryLite extensionRegistry)
               throws com.google.protobuf.InvalidProtocolBufferException {
-            return new WeaponPacket(input, extensionRegistry);
+            return new GeWeaponPacket(input, extensionRegistry);
           }
         };
 
         @java.lang.Override
-        public com.google.protobuf.Parser<WeaponPacket> getParserForType() {
+        public com.google.protobuf.Parser<GeWeaponPacket> getParserForType() {
           return PARSER;
         }
 
@@ -10920,53 +10920,53 @@ public final class GeProtocol {
           return super.writeReplace();
         }
 
-        public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket parseFrom(
+        public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket parseFrom(
             com.google.protobuf.ByteString data)
             throws com.google.protobuf.InvalidProtocolBufferException {
           return PARSER.parseFrom(data);
         }
-        public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket parseFrom(
+        public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket parseFrom(
             com.google.protobuf.ByteString data,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
           return PARSER.parseFrom(data, extensionRegistry);
         }
-        public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket parseFrom(byte[] data)
+        public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket parseFrom(byte[] data)
             throws com.google.protobuf.InvalidProtocolBufferException {
           return PARSER.parseFrom(data);
         }
-        public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket parseFrom(
+        public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket parseFrom(
             byte[] data,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
           return PARSER.parseFrom(data, extensionRegistry);
         }
-        public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket parseFrom(java.io.InputStream input)
+        public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket parseFrom(java.io.InputStream input)
             throws java.io.IOException {
           return PARSER.parseFrom(input);
         }
-        public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket parseFrom(
+        public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket parseFrom(
             java.io.InputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
           return PARSER.parseFrom(input, extensionRegistry);
         }
-        public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket parseDelimitedFrom(java.io.InputStream input)
+        public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket parseDelimitedFrom(java.io.InputStream input)
             throws java.io.IOException {
           return PARSER.parseDelimitedFrom(input);
         }
-        public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket parseDelimitedFrom(
+        public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket parseDelimitedFrom(
             java.io.InputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
           return PARSER.parseDelimitedFrom(input, extensionRegistry);
         }
-        public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket parseFrom(
+        public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket parseFrom(
             com.google.protobuf.CodedInputStream input)
             throws java.io.IOException {
           return PARSER.parseFrom(input);
         }
-        public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket parseFrom(
+        public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket parseFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
@@ -10975,7 +10975,7 @@ public final class GeProtocol {
 
         public static Builder newBuilder() { return Builder.create(); }
         public Builder newBuilderForType() { return newBuilder(); }
-        public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket prototype) {
+        public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket prototype) {
           return newBuilder().mergeFrom(prototype);
         }
         public Builder toBuilder() { return newBuilder(this); }
@@ -10987,24 +10987,24 @@ public final class GeProtocol {
           return builder;
         }
         /**
-         * Protobuf type {@code arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket}
+         * Protobuf type {@code arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket}
          */
         public static final class Builder extends
             com.google.protobuf.GeneratedMessage.Builder<Builder>
-           implements arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacketOrBuilder {
+           implements arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacketOrBuilder {
           public static final com.google.protobuf.Descriptors.Descriptor
               getDescriptor() {
-            return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_ItemPacket_WeaponPacket_descriptor;
+            return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_GeItemPacket_GeWeaponPacket_descriptor;
           }
 
           protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
               internalGetFieldAccessorTable() {
-            return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_ItemPacket_WeaponPacket_fieldAccessorTable
+            return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_GeItemPacket_GeWeaponPacket_fieldAccessorTable
                 .ensureFieldAccessorsInitialized(
-                    arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket.Builder.class);
+                    arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket.Builder.class);
           }
 
-          // Construct using arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket.newBuilder()
+          // Construct using arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket.newBuilder()
           private Builder() {
             maybeForceBuilderInitialization();
           }
@@ -11043,23 +11043,23 @@ public final class GeProtocol {
 
           public com.google.protobuf.Descriptors.Descriptor
               getDescriptorForType() {
-            return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_ItemPacket_WeaponPacket_descriptor;
+            return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_GeItemPacket_GeWeaponPacket_descriptor;
           }
 
-          public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket getDefaultInstanceForType() {
-            return arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket.getDefaultInstance();
+          public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket getDefaultInstanceForType() {
+            return arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket.getDefaultInstance();
           }
 
-          public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket build() {
-            arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket result = buildPartial();
+          public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket build() {
+            arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket result = buildPartial();
             if (!result.isInitialized()) {
               throw newUninitializedMessageException(result);
             }
             return result;
           }
 
-          public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket buildPartial() {
-            arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket result = new arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket(this);
+          public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket buildPartial() {
+            arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket result = new arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket(this);
             int from_bitField0_ = bitField0_;
             int to_bitField0_ = 0;
             if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -11088,16 +11088,16 @@ public final class GeProtocol {
           }
 
           public Builder mergeFrom(com.google.protobuf.Message other) {
-            if (other instanceof arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket) {
-              return mergeFrom((arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket)other);
+            if (other instanceof arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket) {
+              return mergeFrom((arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket)other);
             } else {
               super.mergeFrom(other);
               return this;
             }
           }
 
-          public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket other) {
-            if (other == arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket.getDefaultInstance()) return this;
+          public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket other) {
+            if (other == arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket.getDefaultInstance()) return this;
             if (other.hasDamage()) {
               setDamage(other.getDamage());
             }
@@ -11145,11 +11145,11 @@ public final class GeProtocol {
               com.google.protobuf.CodedInputStream input,
               com.google.protobuf.ExtensionRegistryLite extensionRegistry)
               throws java.io.IOException {
-            arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket parsedMessage = null;
+            arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket parsedMessage = null;
             try {
               parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
             } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-              parsedMessage = (arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket) e.getUnfinishedMessage();
+              parsedMessage = (arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket) e.getUnfinishedMessage();
               throw e;
             } finally {
               if (parsedMessage != null) {
@@ -11325,18 +11325,18 @@ public final class GeProtocol {
             return this;
           }
 
-          // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket)
+          // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket)
         }
 
         static {
-          defaultInstance = new WeaponPacket(true);
+          defaultInstance = new GeWeaponPacket(true);
           defaultInstance.initFields();
         }
 
-        // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket)
+        // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket)
       }
 
-      public interface EnginePacketOrBuilder
+      public interface GeEnginePacketOrBuilder
           extends com.google.protobuf.MessageOrBuilder {
 
         // required float moveAccelerationBonus = 1;
@@ -11380,24 +11380,24 @@ public final class GeProtocol {
         float getRotationMaxSpeedBonus();
       }
       /**
-       * Protobuf type {@code arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.EnginePacket}
+       * Protobuf type {@code arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket}
        */
-      public static final class EnginePacket extends
+      public static final class GeEnginePacket extends
           com.google.protobuf.GeneratedMessage
-          implements EnginePacketOrBuilder {
-        // Use EnginePacket.newBuilder() to construct.
-        private EnginePacket(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+          implements GeEnginePacketOrBuilder {
+        // Use GeEnginePacket.newBuilder() to construct.
+        private GeEnginePacket(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
           super(builder);
           this.unknownFields = builder.getUnknownFields();
         }
-        private EnginePacket(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+        private GeEnginePacket(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
-        private static final EnginePacket defaultInstance;
-        public static EnginePacket getDefaultInstance() {
+        private static final GeEnginePacket defaultInstance;
+        public static GeEnginePacket getDefaultInstance() {
           return defaultInstance;
         }
 
-        public EnginePacket getDefaultInstanceForType() {
+        public GeEnginePacket getDefaultInstanceForType() {
           return defaultInstance;
         }
 
@@ -11407,7 +11407,7 @@ public final class GeProtocol {
             getUnknownFields() {
           return this.unknownFields;
         }
-        private EnginePacket(
+        private GeEnginePacket(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
@@ -11464,28 +11464,28 @@ public final class GeProtocol {
         }
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_ItemPacket_EnginePacket_descriptor;
+          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_GeItemPacket_GeEnginePacket_descriptor;
         }
 
         protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_ItemPacket_EnginePacket_fieldAccessorTable
+          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_GeItemPacket_GeEnginePacket_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
-                  arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket.Builder.class);
+                  arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket.Builder.class);
         }
 
-        public static com.google.protobuf.Parser<EnginePacket> PARSER =
-            new com.google.protobuf.AbstractParser<EnginePacket>() {
-          public EnginePacket parsePartialFrom(
+        public static com.google.protobuf.Parser<GeEnginePacket> PARSER =
+            new com.google.protobuf.AbstractParser<GeEnginePacket>() {
+          public GeEnginePacket parsePartialFrom(
               com.google.protobuf.CodedInputStream input,
               com.google.protobuf.ExtensionRegistryLite extensionRegistry)
               throws com.google.protobuf.InvalidProtocolBufferException {
-            return new EnginePacket(input, extensionRegistry);
+            return new GeEnginePacket(input, extensionRegistry);
           }
         };
 
         @java.lang.Override
-        public com.google.protobuf.Parser<EnginePacket> getParserForType() {
+        public com.google.protobuf.Parser<GeEnginePacket> getParserForType() {
           return PARSER;
         }
 
@@ -11637,53 +11637,53 @@ public final class GeProtocol {
           return super.writeReplace();
         }
 
-        public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket parseFrom(
+        public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket parseFrom(
             com.google.protobuf.ByteString data)
             throws com.google.protobuf.InvalidProtocolBufferException {
           return PARSER.parseFrom(data);
         }
-        public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket parseFrom(
+        public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket parseFrom(
             com.google.protobuf.ByteString data,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
           return PARSER.parseFrom(data, extensionRegistry);
         }
-        public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket parseFrom(byte[] data)
+        public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket parseFrom(byte[] data)
             throws com.google.protobuf.InvalidProtocolBufferException {
           return PARSER.parseFrom(data);
         }
-        public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket parseFrom(
+        public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket parseFrom(
             byte[] data,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
           return PARSER.parseFrom(data, extensionRegistry);
         }
-        public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket parseFrom(java.io.InputStream input)
+        public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket parseFrom(java.io.InputStream input)
             throws java.io.IOException {
           return PARSER.parseFrom(input);
         }
-        public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket parseFrom(
+        public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket parseFrom(
             java.io.InputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
           return PARSER.parseFrom(input, extensionRegistry);
         }
-        public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket parseDelimitedFrom(java.io.InputStream input)
+        public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket parseDelimitedFrom(java.io.InputStream input)
             throws java.io.IOException {
           return PARSER.parseDelimitedFrom(input);
         }
-        public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket parseDelimitedFrom(
+        public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket parseDelimitedFrom(
             java.io.InputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
           return PARSER.parseDelimitedFrom(input, extensionRegistry);
         }
-        public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket parseFrom(
+        public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket parseFrom(
             com.google.protobuf.CodedInputStream input)
             throws java.io.IOException {
           return PARSER.parseFrom(input);
         }
-        public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket parseFrom(
+        public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket parseFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
@@ -11692,7 +11692,7 @@ public final class GeProtocol {
 
         public static Builder newBuilder() { return Builder.create(); }
         public Builder newBuilderForType() { return newBuilder(); }
-        public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket prototype) {
+        public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket prototype) {
           return newBuilder().mergeFrom(prototype);
         }
         public Builder toBuilder() { return newBuilder(this); }
@@ -11704,24 +11704,24 @@ public final class GeProtocol {
           return builder;
         }
         /**
-         * Protobuf type {@code arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.EnginePacket}
+         * Protobuf type {@code arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket}
          */
         public static final class Builder extends
             com.google.protobuf.GeneratedMessage.Builder<Builder>
-           implements arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacketOrBuilder {
+           implements arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacketOrBuilder {
           public static final com.google.protobuf.Descriptors.Descriptor
               getDescriptor() {
-            return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_ItemPacket_EnginePacket_descriptor;
+            return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_GeItemPacket_GeEnginePacket_descriptor;
           }
 
           protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
               internalGetFieldAccessorTable() {
-            return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_ItemPacket_EnginePacket_fieldAccessorTable
+            return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_GeItemPacket_GeEnginePacket_fieldAccessorTable
                 .ensureFieldAccessorsInitialized(
-                    arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket.Builder.class);
+                    arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket.Builder.class);
           }
 
-          // Construct using arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket.newBuilder()
+          // Construct using arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket.newBuilder()
           private Builder() {
             maybeForceBuilderInitialization();
           }
@@ -11758,23 +11758,23 @@ public final class GeProtocol {
 
           public com.google.protobuf.Descriptors.Descriptor
               getDescriptorForType() {
-            return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_ItemPacket_EnginePacket_descriptor;
+            return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_GeItemPacket_GeEnginePacket_descriptor;
           }
 
-          public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket getDefaultInstanceForType() {
-            return arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket.getDefaultInstance();
+          public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket getDefaultInstanceForType() {
+            return arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket.getDefaultInstance();
           }
 
-          public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket build() {
-            arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket result = buildPartial();
+          public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket build() {
+            arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket result = buildPartial();
             if (!result.isInitialized()) {
               throw newUninitializedMessageException(result);
             }
             return result;
           }
 
-          public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket buildPartial() {
-            arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket result = new arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket(this);
+          public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket buildPartial() {
+            arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket result = new arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket(this);
             int from_bitField0_ = bitField0_;
             int to_bitField0_ = 0;
             if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -11799,16 +11799,16 @@ public final class GeProtocol {
           }
 
           public Builder mergeFrom(com.google.protobuf.Message other) {
-            if (other instanceof arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket) {
-              return mergeFrom((arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket)other);
+            if (other instanceof arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket) {
+              return mergeFrom((arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket)other);
             } else {
               super.mergeFrom(other);
               return this;
             }
           }
 
-          public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket other) {
-            if (other == arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket.getDefaultInstance()) return this;
+          public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket other) {
+            if (other == arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket.getDefaultInstance()) return this;
             if (other.hasMoveAccelerationBonus()) {
               setMoveAccelerationBonus(other.getMoveAccelerationBonus());
             }
@@ -11849,11 +11849,11 @@ public final class GeProtocol {
               com.google.protobuf.CodedInputStream input,
               com.google.protobuf.ExtensionRegistryLite extensionRegistry)
               throws java.io.IOException {
-            arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket parsedMessage = null;
+            arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket parsedMessage = null;
             try {
               parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
             } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-              parsedMessage = (arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket) e.getUnfinishedMessage();
+              parsedMessage = (arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket) e.getUnfinishedMessage();
               throw e;
             } finally {
               if (parsedMessage != null) {
@@ -11996,15 +11996,15 @@ public final class GeProtocol {
             return this;
           }
 
-          // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.EnginePacket)
+          // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket)
         }
 
         static {
-          defaultInstance = new EnginePacket(true);
+          defaultInstance = new GeEnginePacket(true);
           defaultInstance.initFields();
         }
 
-        // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.EnginePacket)
+        // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket)
       }
 
       private int bitField0_;
@@ -12142,69 +12142,69 @@ public final class GeProtocol {
         return itemTypeId_;
       }
 
-      // optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.BonusPacket bonus = 6;
+      // optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket bonus = 6;
       public static final int BONUS_FIELD_NUMBER = 6;
-      private arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket bonus_;
+      private arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket bonus_;
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.BonusPacket bonus = 6;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket bonus = 6;</code>
        */
       public boolean hasBonus() {
         return ((bitField0_ & 0x00000020) == 0x00000020);
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.BonusPacket bonus = 6;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket bonus = 6;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket getBonus() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket getBonus() {
         return bonus_;
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.BonusPacket bonus = 6;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket bonus = 6;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacketOrBuilder getBonusOrBuilder() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacketOrBuilder getBonusOrBuilder() {
         return bonus_;
       }
 
-      // optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket weapon = 7;
+      // optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket weapon = 7;
       public static final int WEAPON_FIELD_NUMBER = 7;
-      private arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket weapon_;
+      private arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket weapon_;
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket weapon = 7;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket weapon = 7;</code>
        */
       public boolean hasWeapon() {
         return ((bitField0_ & 0x00000040) == 0x00000040);
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket weapon = 7;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket weapon = 7;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket getWeapon() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket getWeapon() {
         return weapon_;
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket weapon = 7;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket weapon = 7;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacketOrBuilder getWeaponOrBuilder() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacketOrBuilder getWeaponOrBuilder() {
         return weapon_;
       }
 
-      // optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.EnginePacket engine = 8;
+      // optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket engine = 8;
       public static final int ENGINE_FIELD_NUMBER = 8;
-      private arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket engine_;
+      private arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket engine_;
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.EnginePacket engine = 8;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket engine = 8;</code>
        */
       public boolean hasEngine() {
         return ((bitField0_ & 0x00000080) == 0x00000080);
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.EnginePacket engine = 8;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket engine = 8;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket getEngine() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket getEngine() {
         return engine_;
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.EnginePacket engine = 8;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket engine = 8;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacketOrBuilder getEngineOrBuilder() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacketOrBuilder getEngineOrBuilder() {
         return engine_;
       }
 
@@ -12214,9 +12214,9 @@ public final class GeProtocol {
         description_ = "";
         price_ = 0;
         itemTypeId_ = 0;
-        bonus_ = arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket.getDefaultInstance();
-        weapon_ = arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket.getDefaultInstance();
-        engine_ = arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket.getDefaultInstance();
+        bonus_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket.getDefaultInstance();
+        weapon_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket.getDefaultInstance();
+        engine_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket.getDefaultInstance();
       }
       private byte memoizedIsInitialized = -1;
       public final boolean isInitialized() {
@@ -12345,53 +12345,53 @@ public final class GeProtocol {
         return super.writeReplace();
       }
 
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket parseFrom(
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket parseFrom(
           com.google.protobuf.ByteString data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket parseFrom(
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket parseFrom(
           com.google.protobuf.ByteString data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket parseFrom(byte[] data)
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket parseFrom(byte[] data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket parseFrom(
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket parseFrom(
           byte[] data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket parseFrom(java.io.InputStream input)
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket parseFrom(java.io.InputStream input)
           throws java.io.IOException {
         return PARSER.parseFrom(input);
       }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket parseFrom(
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket parseFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return PARSER.parseFrom(input, extensionRegistry);
       }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket parseDelimitedFrom(java.io.InputStream input)
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket parseDelimitedFrom(java.io.InputStream input)
           throws java.io.IOException {
         return PARSER.parseDelimitedFrom(input);
       }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket parseDelimitedFrom(
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket parseDelimitedFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return PARSER.parseDelimitedFrom(input, extensionRegistry);
       }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket parseFrom(
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket parseFrom(
           com.google.protobuf.CodedInputStream input)
           throws java.io.IOException {
         return PARSER.parseFrom(input);
       }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket parseFrom(
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket parseFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
@@ -12400,7 +12400,7 @@ public final class GeProtocol {
 
       public static Builder newBuilder() { return Builder.create(); }
       public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket prototype) {
+      public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket prototype) {
         return newBuilder().mergeFrom(prototype);
       }
       public Builder toBuilder() { return newBuilder(this); }
@@ -12412,24 +12412,24 @@ public final class GeProtocol {
         return builder;
       }
       /**
-       * Protobuf type {@code arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket}
+       * Protobuf type {@code arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket}
        */
       public static final class Builder extends
           com.google.protobuf.GeneratedMessage.Builder<Builder>
-         implements arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacketOrBuilder {
+         implements arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacketOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_ItemPacket_descriptor;
+          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_GeItemPacket_descriptor;
         }
 
         protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_ItemPacket_fieldAccessorTable
+          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_GeItemPacket_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
-                  arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.Builder.class);
+                  arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.Builder.class);
         }
 
-        // Construct using arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.newBuilder()
+        // Construct using arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.newBuilder()
         private Builder() {
           maybeForceBuilderInitialization();
         }
@@ -12463,19 +12463,19 @@ public final class GeProtocol {
           itemTypeId_ = 0;
           bitField0_ = (bitField0_ & ~0x00000010);
           if (bonusBuilder_ == null) {
-            bonus_ = arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket.getDefaultInstance();
+            bonus_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket.getDefaultInstance();
           } else {
             bonusBuilder_.clear();
           }
           bitField0_ = (bitField0_ & ~0x00000020);
           if (weaponBuilder_ == null) {
-            weapon_ = arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket.getDefaultInstance();
+            weapon_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket.getDefaultInstance();
           } else {
             weaponBuilder_.clear();
           }
           bitField0_ = (bitField0_ & ~0x00000040);
           if (engineBuilder_ == null) {
-            engine_ = arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket.getDefaultInstance();
+            engine_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket.getDefaultInstance();
           } else {
             engineBuilder_.clear();
           }
@@ -12489,23 +12489,23 @@ public final class GeProtocol {
 
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_ItemPacket_descriptor;
+          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_GeItemPacket_descriptor;
         }
 
-        public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket getDefaultInstanceForType() {
-          return arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.getDefaultInstance();
+        public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket getDefaultInstanceForType() {
+          return arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.getDefaultInstance();
         }
 
-        public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket build() {
-          arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket result = buildPartial();
+        public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket build() {
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket result = buildPartial();
           if (!result.isInitialized()) {
             throw newUninitializedMessageException(result);
           }
           return result;
         }
 
-        public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket buildPartial() {
-          arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket result = new arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket(this);
+        public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket buildPartial() {
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket result = new arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket(this);
           int from_bitField0_ = bitField0_;
           int to_bitField0_ = 0;
           if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -12558,16 +12558,16 @@ public final class GeProtocol {
         }
 
         public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket) {
-            return mergeFrom((arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket)other);
+          if (other instanceof arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket) {
+            return mergeFrom((arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket)other);
           } else {
             super.mergeFrom(other);
             return this;
           }
         }
 
-        public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket other) {
-          if (other == arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.getDefaultInstance()) return this;
+        public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket other) {
+          if (other == arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.getDefaultInstance()) return this;
           if (other.hasItemId()) {
             setItemId(other.getItemId());
           }
@@ -12646,11 +12646,11 @@ public final class GeProtocol {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket parsedMessage = null;
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket parsedMessage = null;
           try {
             parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket) e.getUnfinishedMessage();
+            parsedMessage = (arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket) e.getUnfinishedMessage();
             throw e;
           } finally {
             if (parsedMessage != null) {
@@ -12908,20 +12908,20 @@ public final class GeProtocol {
           return this;
         }
 
-        // optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.BonusPacket bonus = 6;
-        private arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket bonus_ = arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket.getDefaultInstance();
+        // optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket bonus = 6;
+        private arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket bonus_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket.getDefaultInstance();
         private com.google.protobuf.SingleFieldBuilder<
-            arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacketOrBuilder> bonusBuilder_;
+            arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacketOrBuilder> bonusBuilder_;
         /**
-         * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.BonusPacket bonus = 6;</code>
+         * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket bonus = 6;</code>
          */
         public boolean hasBonus() {
           return ((bitField0_ & 0x00000020) == 0x00000020);
         }
         /**
-         * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.BonusPacket bonus = 6;</code>
+         * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket bonus = 6;</code>
          */
-        public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket getBonus() {
+        public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket getBonus() {
           if (bonusBuilder_ == null) {
             return bonus_;
           } else {
@@ -12929,9 +12929,9 @@ public final class GeProtocol {
           }
         }
         /**
-         * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.BonusPacket bonus = 6;</code>
+         * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket bonus = 6;</code>
          */
-        public Builder setBonus(arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket value) {
+        public Builder setBonus(arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket value) {
           if (bonusBuilder_ == null) {
             if (value == null) {
               throw new NullPointerException();
@@ -12945,10 +12945,10 @@ public final class GeProtocol {
           return this;
         }
         /**
-         * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.BonusPacket bonus = 6;</code>
+         * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket bonus = 6;</code>
          */
         public Builder setBonus(
-            arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket.Builder builderForValue) {
+            arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket.Builder builderForValue) {
           if (bonusBuilder_ == null) {
             bonus_ = builderForValue.build();
             onChanged();
@@ -12959,14 +12959,14 @@ public final class GeProtocol {
           return this;
         }
         /**
-         * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.BonusPacket bonus = 6;</code>
+         * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket bonus = 6;</code>
          */
-        public Builder mergeBonus(arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket value) {
+        public Builder mergeBonus(arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket value) {
           if (bonusBuilder_ == null) {
             if (((bitField0_ & 0x00000020) == 0x00000020) &&
-                bonus_ != arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket.getDefaultInstance()) {
+                bonus_ != arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket.getDefaultInstance()) {
               bonus_ =
-                arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket.newBuilder(bonus_).mergeFrom(value).buildPartial();
+                arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket.newBuilder(bonus_).mergeFrom(value).buildPartial();
             } else {
               bonus_ = value;
             }
@@ -12978,11 +12978,11 @@ public final class GeProtocol {
           return this;
         }
         /**
-         * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.BonusPacket bonus = 6;</code>
+         * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket bonus = 6;</code>
          */
         public Builder clearBonus() {
           if (bonusBuilder_ == null) {
-            bonus_ = arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket.getDefaultInstance();
+            bonus_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket.getDefaultInstance();
             onChanged();
           } else {
             bonusBuilder_.clear();
@@ -12991,17 +12991,17 @@ public final class GeProtocol {
           return this;
         }
         /**
-         * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.BonusPacket bonus = 6;</code>
+         * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket bonus = 6;</code>
          */
-        public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket.Builder getBonusBuilder() {
+        public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket.Builder getBonusBuilder() {
           bitField0_ |= 0x00000020;
           onChanged();
           return getBonusFieldBuilder().getBuilder();
         }
         /**
-         * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.BonusPacket bonus = 6;</code>
+         * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket bonus = 6;</code>
          */
-        public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacketOrBuilder getBonusOrBuilder() {
+        public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacketOrBuilder getBonusOrBuilder() {
           if (bonusBuilder_ != null) {
             return bonusBuilder_.getMessageOrBuilder();
           } else {
@@ -13009,14 +13009,14 @@ public final class GeProtocol {
           }
         }
         /**
-         * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.BonusPacket bonus = 6;</code>
+         * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket bonus = 6;</code>
          */
         private com.google.protobuf.SingleFieldBuilder<
-            arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacketOrBuilder> 
+            arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacketOrBuilder> 
             getBonusFieldBuilder() {
           if (bonusBuilder_ == null) {
             bonusBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-                arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.BonusPacketOrBuilder>(
+                arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacketOrBuilder>(
                     bonus_,
                     getParentForChildren(),
                     isClean());
@@ -13025,20 +13025,20 @@ public final class GeProtocol {
           return bonusBuilder_;
         }
 
-        // optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket weapon = 7;
-        private arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket weapon_ = arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket.getDefaultInstance();
+        // optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket weapon = 7;
+        private arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket weapon_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket.getDefaultInstance();
         private com.google.protobuf.SingleFieldBuilder<
-            arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacketOrBuilder> weaponBuilder_;
+            arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacketOrBuilder> weaponBuilder_;
         /**
-         * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket weapon = 7;</code>
+         * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket weapon = 7;</code>
          */
         public boolean hasWeapon() {
           return ((bitField0_ & 0x00000040) == 0x00000040);
         }
         /**
-         * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket weapon = 7;</code>
+         * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket weapon = 7;</code>
          */
-        public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket getWeapon() {
+        public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket getWeapon() {
           if (weaponBuilder_ == null) {
             return weapon_;
           } else {
@@ -13046,9 +13046,9 @@ public final class GeProtocol {
           }
         }
         /**
-         * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket weapon = 7;</code>
+         * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket weapon = 7;</code>
          */
-        public Builder setWeapon(arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket value) {
+        public Builder setWeapon(arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket value) {
           if (weaponBuilder_ == null) {
             if (value == null) {
               throw new NullPointerException();
@@ -13062,10 +13062,10 @@ public final class GeProtocol {
           return this;
         }
         /**
-         * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket weapon = 7;</code>
+         * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket weapon = 7;</code>
          */
         public Builder setWeapon(
-            arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket.Builder builderForValue) {
+            arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket.Builder builderForValue) {
           if (weaponBuilder_ == null) {
             weapon_ = builderForValue.build();
             onChanged();
@@ -13076,14 +13076,14 @@ public final class GeProtocol {
           return this;
         }
         /**
-         * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket weapon = 7;</code>
+         * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket weapon = 7;</code>
          */
-        public Builder mergeWeapon(arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket value) {
+        public Builder mergeWeapon(arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket value) {
           if (weaponBuilder_ == null) {
             if (((bitField0_ & 0x00000040) == 0x00000040) &&
-                weapon_ != arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket.getDefaultInstance()) {
+                weapon_ != arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket.getDefaultInstance()) {
               weapon_ =
-                arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket.newBuilder(weapon_).mergeFrom(value).buildPartial();
+                arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket.newBuilder(weapon_).mergeFrom(value).buildPartial();
             } else {
               weapon_ = value;
             }
@@ -13095,11 +13095,11 @@ public final class GeProtocol {
           return this;
         }
         /**
-         * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket weapon = 7;</code>
+         * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket weapon = 7;</code>
          */
         public Builder clearWeapon() {
           if (weaponBuilder_ == null) {
-            weapon_ = arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket.getDefaultInstance();
+            weapon_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket.getDefaultInstance();
             onChanged();
           } else {
             weaponBuilder_.clear();
@@ -13108,17 +13108,17 @@ public final class GeProtocol {
           return this;
         }
         /**
-         * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket weapon = 7;</code>
+         * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket weapon = 7;</code>
          */
-        public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket.Builder getWeaponBuilder() {
+        public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket.Builder getWeaponBuilder() {
           bitField0_ |= 0x00000040;
           onChanged();
           return getWeaponFieldBuilder().getBuilder();
         }
         /**
-         * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket weapon = 7;</code>
+         * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket weapon = 7;</code>
          */
-        public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacketOrBuilder getWeaponOrBuilder() {
+        public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacketOrBuilder getWeaponOrBuilder() {
           if (weaponBuilder_ != null) {
             return weaponBuilder_.getMessageOrBuilder();
           } else {
@@ -13126,14 +13126,14 @@ public final class GeProtocol {
           }
         }
         /**
-         * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket weapon = 7;</code>
+         * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket weapon = 7;</code>
          */
         private com.google.protobuf.SingleFieldBuilder<
-            arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacketOrBuilder> 
+            arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacketOrBuilder> 
             getWeaponFieldBuilder() {
           if (weaponBuilder_ == null) {
             weaponBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-                arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.WeaponPacketOrBuilder>(
+                arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacketOrBuilder>(
                     weapon_,
                     getParentForChildren(),
                     isClean());
@@ -13142,20 +13142,20 @@ public final class GeProtocol {
           return weaponBuilder_;
         }
 
-        // optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.EnginePacket engine = 8;
-        private arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket engine_ = arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket.getDefaultInstance();
+        // optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket engine = 8;
+        private arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket engine_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket.getDefaultInstance();
         private com.google.protobuf.SingleFieldBuilder<
-            arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacketOrBuilder> engineBuilder_;
+            arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacketOrBuilder> engineBuilder_;
         /**
-         * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.EnginePacket engine = 8;</code>
+         * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket engine = 8;</code>
          */
         public boolean hasEngine() {
           return ((bitField0_ & 0x00000080) == 0x00000080);
         }
         /**
-         * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.EnginePacket engine = 8;</code>
+         * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket engine = 8;</code>
          */
-        public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket getEngine() {
+        public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket getEngine() {
           if (engineBuilder_ == null) {
             return engine_;
           } else {
@@ -13163,9 +13163,9 @@ public final class GeProtocol {
           }
         }
         /**
-         * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.EnginePacket engine = 8;</code>
+         * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket engine = 8;</code>
          */
-        public Builder setEngine(arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket value) {
+        public Builder setEngine(arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket value) {
           if (engineBuilder_ == null) {
             if (value == null) {
               throw new NullPointerException();
@@ -13179,10 +13179,10 @@ public final class GeProtocol {
           return this;
         }
         /**
-         * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.EnginePacket engine = 8;</code>
+         * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket engine = 8;</code>
          */
         public Builder setEngine(
-            arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket.Builder builderForValue) {
+            arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket.Builder builderForValue) {
           if (engineBuilder_ == null) {
             engine_ = builderForValue.build();
             onChanged();
@@ -13193,14 +13193,14 @@ public final class GeProtocol {
           return this;
         }
         /**
-         * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.EnginePacket engine = 8;</code>
+         * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket engine = 8;</code>
          */
-        public Builder mergeEngine(arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket value) {
+        public Builder mergeEngine(arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket value) {
           if (engineBuilder_ == null) {
             if (((bitField0_ & 0x00000080) == 0x00000080) &&
-                engine_ != arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket.getDefaultInstance()) {
+                engine_ != arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket.getDefaultInstance()) {
               engine_ =
-                arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket.newBuilder(engine_).mergeFrom(value).buildPartial();
+                arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket.newBuilder(engine_).mergeFrom(value).buildPartial();
             } else {
               engine_ = value;
             }
@@ -13212,11 +13212,11 @@ public final class GeProtocol {
           return this;
         }
         /**
-         * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.EnginePacket engine = 8;</code>
+         * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket engine = 8;</code>
          */
         public Builder clearEngine() {
           if (engineBuilder_ == null) {
-            engine_ = arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket.getDefaultInstance();
+            engine_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket.getDefaultInstance();
             onChanged();
           } else {
             engineBuilder_.clear();
@@ -13225,17 +13225,17 @@ public final class GeProtocol {
           return this;
         }
         /**
-         * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.EnginePacket engine = 8;</code>
+         * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket engine = 8;</code>
          */
-        public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket.Builder getEngineBuilder() {
+        public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket.Builder getEngineBuilder() {
           bitField0_ |= 0x00000080;
           onChanged();
           return getEngineFieldBuilder().getBuilder();
         }
         /**
-         * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.EnginePacket engine = 8;</code>
+         * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket engine = 8;</code>
          */
-        public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacketOrBuilder getEngineOrBuilder() {
+        public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacketOrBuilder getEngineOrBuilder() {
           if (engineBuilder_ != null) {
             return engineBuilder_.getMessageOrBuilder();
           } else {
@@ -13243,14 +13243,14 @@ public final class GeProtocol {
           }
         }
         /**
-         * <code>optional .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket.EnginePacket engine = 8;</code>
+         * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket engine = 8;</code>
          */
         private com.google.protobuf.SingleFieldBuilder<
-            arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacketOrBuilder> 
+            arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacketOrBuilder> 
             getEngineFieldBuilder() {
           if (engineBuilder_ == null) {
             engineBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-                arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.EnginePacketOrBuilder>(
+                arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeEnginePacketOrBuilder>(
                     engine_,
                     getParentForChildren(),
                     isClean());
@@ -13259,15 +13259,15 @@ public final class GeProtocol {
           return engineBuilder_;
         }
 
-        // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket)
+        // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket)
       }
 
       static {
-        defaultInstance = new ItemPacket(true);
+        defaultInstance = new GeItemPacket(true);
         defaultInstance.initFields();
       }
 
-      // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket)
+      // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket)
     }
 
     private int bitField0_;
@@ -13526,133 +13526,133 @@ public final class GeProtocol {
       return bonusSlotsCount_;
     }
 
-    // repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket inventoryItems = 14;
+    // repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket inventoryItems = 14;
     public static final int INVENTORYITEMS_FIELD_NUMBER = 14;
-    private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket> inventoryItems_;
+    private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket> inventoryItems_;
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket inventoryItems = 14;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket inventoryItems = 14;</code>
      */
-    public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket> getInventoryItemsList() {
+    public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket> getInventoryItemsList() {
       return inventoryItems_;
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket inventoryItems = 14;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket inventoryItems = 14;</code>
      */
-    public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacketOrBuilder> 
+    public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacketOrBuilder> 
         getInventoryItemsOrBuilderList() {
       return inventoryItems_;
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket inventoryItems = 14;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket inventoryItems = 14;</code>
      */
     public int getInventoryItemsCount() {
       return inventoryItems_.size();
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket inventoryItems = 14;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket inventoryItems = 14;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket getInventoryItems(int index) {
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket getInventoryItems(int index) {
       return inventoryItems_.get(index);
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket inventoryItems = 14;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket inventoryItems = 14;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacketOrBuilder getInventoryItemsOrBuilder(
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacketOrBuilder getInventoryItemsOrBuilder(
         int index) {
       return inventoryItems_.get(index);
     }
 
-    // repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipBonus = 15;
+    // repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipBonus = 15;
     public static final int SHIPBONUS_FIELD_NUMBER = 15;
-    private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket> shipBonus_;
+    private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket> shipBonus_;
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipBonus = 15;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipBonus = 15;</code>
      */
-    public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket> getShipBonusList() {
+    public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket> getShipBonusList() {
       return shipBonus_;
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipBonus = 15;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipBonus = 15;</code>
      */
-    public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacketOrBuilder> 
+    public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacketOrBuilder> 
         getShipBonusOrBuilderList() {
       return shipBonus_;
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipBonus = 15;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipBonus = 15;</code>
      */
     public int getShipBonusCount() {
       return shipBonus_.size();
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipBonus = 15;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipBonus = 15;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket getShipBonus(int index) {
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket getShipBonus(int index) {
       return shipBonus_.get(index);
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipBonus = 15;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipBonus = 15;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacketOrBuilder getShipBonusOrBuilder(
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacketOrBuilder getShipBonusOrBuilder(
         int index) {
       return shipBonus_.get(index);
     }
 
-    // repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipWeapons = 16;
+    // repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipWeapons = 16;
     public static final int SHIPWEAPONS_FIELD_NUMBER = 16;
-    private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket> shipWeapons_;
+    private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket> shipWeapons_;
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipWeapons = 16;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipWeapons = 16;</code>
      */
-    public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket> getShipWeaponsList() {
+    public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket> getShipWeaponsList() {
       return shipWeapons_;
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipWeapons = 16;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipWeapons = 16;</code>
      */
-    public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacketOrBuilder> 
+    public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacketOrBuilder> 
         getShipWeaponsOrBuilderList() {
       return shipWeapons_;
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipWeapons = 16;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipWeapons = 16;</code>
      */
     public int getShipWeaponsCount() {
       return shipWeapons_.size();
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipWeapons = 16;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipWeapons = 16;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket getShipWeapons(int index) {
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket getShipWeapons(int index) {
       return shipWeapons_.get(index);
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipWeapons = 16;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipWeapons = 16;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacketOrBuilder getShipWeaponsOrBuilder(
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacketOrBuilder getShipWeaponsOrBuilder(
         int index) {
       return shipWeapons_.get(index);
     }
 
-    // required .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipEngine = 17;
+    // required .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipEngine = 17;
     public static final int SHIPENGINE_FIELD_NUMBER = 17;
-    private arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket shipEngine_;
+    private arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket shipEngine_;
     /**
-     * <code>required .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipEngine = 17;</code>
+     * <code>required .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipEngine = 17;</code>
      */
     public boolean hasShipEngine() {
       return ((bitField0_ & 0x00002000) == 0x00002000);
     }
     /**
-     * <code>required .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipEngine = 17;</code>
+     * <code>required .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipEngine = 17;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket getShipEngine() {
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket getShipEngine() {
       return shipEngine_;
     }
     /**
-     * <code>required .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipEngine = 17;</code>
+     * <code>required .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipEngine = 17;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacketOrBuilder getShipEngineOrBuilder() {
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacketOrBuilder getShipEngineOrBuilder() {
       return shipEngine_;
     }
 
@@ -13673,7 +13673,7 @@ public final class GeProtocol {
       inventoryItems_ = java.util.Collections.emptyList();
       shipBonus_ = java.util.Collections.emptyList();
       shipWeapons_ = java.util.Collections.emptyList();
-      shipEngine_ = arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.getDefaultInstance();
+      shipEngine_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.getDefaultInstance();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -13905,53 +13905,53 @@ public final class GeProtocol {
       return super.writeReplace();
     }
 
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket parseFrom(byte[] data)
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket parseFrom(java.io.InputStream input)
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket parseDelimitedFrom(java.io.InputStream input)
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket parseDelimitedFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -13960,7 +13960,7 @@ public final class GeProtocol {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket prototype) {
+    public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -13972,24 +13972,24 @@ public final class GeProtocol {
       return builder;
     }
     /**
-     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket}
+     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacketOrBuilder {
+       implements arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacketOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_descriptor;
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_fieldAccessorTable
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.Builder.class);
+                arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.Builder.class);
       }
 
-      // Construct using arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.newBuilder()
+      // Construct using arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -14058,7 +14058,7 @@ public final class GeProtocol {
           shipWeaponsBuilder_.clear();
         }
         if (shipEngineBuilder_ == null) {
-          shipEngine_ = arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.getDefaultInstance();
+          shipEngine_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.getDefaultInstance();
         } else {
           shipEngineBuilder_.clear();
         }
@@ -14072,23 +14072,23 @@ public final class GeProtocol {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_descriptor;
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_descriptor;
       }
 
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket getDefaultInstanceForType() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.getDefaultInstance();
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket getDefaultInstanceForType() {
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.getDefaultInstance();
       }
 
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket build() {
-        arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket result = buildPartial();
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket build() {
+        arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket buildPartial() {
-        arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket result = new arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket(this);
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket buildPartial() {
+        arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket result = new arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -14184,16 +14184,16 @@ public final class GeProtocol {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket) {
-          return mergeFrom((arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket)other);
+        if (other instanceof arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket) {
+          return mergeFrom((arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket other) {
-        if (other == arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.getDefaultInstance()) return this;
+      public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket other) {
+        if (other == arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.getDefaultInstance()) return this;
         if (other.hasMoveMaxSpeed()) {
           setMoveMaxSpeed(other.getMoveMaxSpeed());
         }
@@ -14406,11 +14406,11 @@ public final class GeProtocol {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket parsedMessage = null;
+        arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket) e.getUnfinishedMessage();
+          parsedMessage = (arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -14931,23 +14931,23 @@ public final class GeProtocol {
         return this;
       }
 
-      // repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket inventoryItems = 14;
-      private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket> inventoryItems_ =
+      // repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket inventoryItems = 14;
+      private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket> inventoryItems_ =
         java.util.Collections.emptyList();
       private void ensureInventoryItemsIsMutable() {
         if (!((bitField0_ & 0x00002000) == 0x00002000)) {
-          inventoryItems_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket>(inventoryItems_);
+          inventoryItems_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket>(inventoryItems_);
           bitField0_ |= 0x00002000;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacketOrBuilder> inventoryItemsBuilder_;
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacketOrBuilder> inventoryItemsBuilder_;
 
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket inventoryItems = 14;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket inventoryItems = 14;</code>
        */
-      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket> getInventoryItemsList() {
+      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket> getInventoryItemsList() {
         if (inventoryItemsBuilder_ == null) {
           return java.util.Collections.unmodifiableList(inventoryItems_);
         } else {
@@ -14955,7 +14955,7 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket inventoryItems = 14;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket inventoryItems = 14;</code>
        */
       public int getInventoryItemsCount() {
         if (inventoryItemsBuilder_ == null) {
@@ -14965,9 +14965,9 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket inventoryItems = 14;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket inventoryItems = 14;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket getInventoryItems(int index) {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket getInventoryItems(int index) {
         if (inventoryItemsBuilder_ == null) {
           return inventoryItems_.get(index);
         } else {
@@ -14975,10 +14975,10 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket inventoryItems = 14;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket inventoryItems = 14;</code>
        */
       public Builder setInventoryItems(
-          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket value) {
+          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket value) {
         if (inventoryItemsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -14992,10 +14992,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket inventoryItems = 14;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket inventoryItems = 14;</code>
        */
       public Builder setInventoryItems(
-          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.Builder builderForValue) {
+          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.Builder builderForValue) {
         if (inventoryItemsBuilder_ == null) {
           ensureInventoryItemsIsMutable();
           inventoryItems_.set(index, builderForValue.build());
@@ -15006,9 +15006,9 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket inventoryItems = 14;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket inventoryItems = 14;</code>
        */
-      public Builder addInventoryItems(arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket value) {
+      public Builder addInventoryItems(arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket value) {
         if (inventoryItemsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -15022,10 +15022,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket inventoryItems = 14;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket inventoryItems = 14;</code>
        */
       public Builder addInventoryItems(
-          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket value) {
+          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket value) {
         if (inventoryItemsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -15039,10 +15039,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket inventoryItems = 14;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket inventoryItems = 14;</code>
        */
       public Builder addInventoryItems(
-          arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.Builder builderForValue) {
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.Builder builderForValue) {
         if (inventoryItemsBuilder_ == null) {
           ensureInventoryItemsIsMutable();
           inventoryItems_.add(builderForValue.build());
@@ -15053,10 +15053,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket inventoryItems = 14;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket inventoryItems = 14;</code>
        */
       public Builder addInventoryItems(
-          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.Builder builderForValue) {
+          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.Builder builderForValue) {
         if (inventoryItemsBuilder_ == null) {
           ensureInventoryItemsIsMutable();
           inventoryItems_.add(index, builderForValue.build());
@@ -15067,10 +15067,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket inventoryItems = 14;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket inventoryItems = 14;</code>
        */
       public Builder addAllInventoryItems(
-          java.lang.Iterable<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket> values) {
+          java.lang.Iterable<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket> values) {
         if (inventoryItemsBuilder_ == null) {
           ensureInventoryItemsIsMutable();
           super.addAll(values, inventoryItems_);
@@ -15081,7 +15081,7 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket inventoryItems = 14;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket inventoryItems = 14;</code>
        */
       public Builder clearInventoryItems() {
         if (inventoryItemsBuilder_ == null) {
@@ -15094,7 +15094,7 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket inventoryItems = 14;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket inventoryItems = 14;</code>
        */
       public Builder removeInventoryItems(int index) {
         if (inventoryItemsBuilder_ == null) {
@@ -15107,16 +15107,16 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket inventoryItems = 14;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket inventoryItems = 14;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.Builder getInventoryItemsBuilder(
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.Builder getInventoryItemsBuilder(
           int index) {
         return getInventoryItemsFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket inventoryItems = 14;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket inventoryItems = 14;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacketOrBuilder getInventoryItemsOrBuilder(
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacketOrBuilder getInventoryItemsOrBuilder(
           int index) {
         if (inventoryItemsBuilder_ == null) {
           return inventoryItems_.get(index);  } else {
@@ -15124,9 +15124,9 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket inventoryItems = 14;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket inventoryItems = 14;</code>
        */
-      public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacketOrBuilder> 
+      public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacketOrBuilder> 
            getInventoryItemsOrBuilderList() {
         if (inventoryItemsBuilder_ != null) {
           return inventoryItemsBuilder_.getMessageOrBuilderList();
@@ -15135,33 +15135,33 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket inventoryItems = 14;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket inventoryItems = 14;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.Builder addInventoryItemsBuilder() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.Builder addInventoryItemsBuilder() {
         return getInventoryItemsFieldBuilder().addBuilder(
-            arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.getDefaultInstance());
+            arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.getDefaultInstance());
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket inventoryItems = 14;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket inventoryItems = 14;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.Builder addInventoryItemsBuilder(
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.Builder addInventoryItemsBuilder(
           int index) {
         return getInventoryItemsFieldBuilder().addBuilder(
-            index, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.getDefaultInstance());
+            index, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.getDefaultInstance());
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket inventoryItems = 14;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket inventoryItems = 14;</code>
        */
-      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.Builder> 
+      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.Builder> 
            getInventoryItemsBuilderList() {
         return getInventoryItemsFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacketOrBuilder> 
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacketOrBuilder> 
           getInventoryItemsFieldBuilder() {
         if (inventoryItemsBuilder_ == null) {
           inventoryItemsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacketOrBuilder>(
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacketOrBuilder>(
                   inventoryItems_,
                   ((bitField0_ & 0x00002000) == 0x00002000),
                   getParentForChildren(),
@@ -15171,23 +15171,23 @@ public final class GeProtocol {
         return inventoryItemsBuilder_;
       }
 
-      // repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipBonus = 15;
-      private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket> shipBonus_ =
+      // repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipBonus = 15;
+      private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket> shipBonus_ =
         java.util.Collections.emptyList();
       private void ensureShipBonusIsMutable() {
         if (!((bitField0_ & 0x00004000) == 0x00004000)) {
-          shipBonus_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket>(shipBonus_);
+          shipBonus_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket>(shipBonus_);
           bitField0_ |= 0x00004000;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacketOrBuilder> shipBonusBuilder_;
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacketOrBuilder> shipBonusBuilder_;
 
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipBonus = 15;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipBonus = 15;</code>
        */
-      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket> getShipBonusList() {
+      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket> getShipBonusList() {
         if (shipBonusBuilder_ == null) {
           return java.util.Collections.unmodifiableList(shipBonus_);
         } else {
@@ -15195,7 +15195,7 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipBonus = 15;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipBonus = 15;</code>
        */
       public int getShipBonusCount() {
         if (shipBonusBuilder_ == null) {
@@ -15205,9 +15205,9 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipBonus = 15;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipBonus = 15;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket getShipBonus(int index) {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket getShipBonus(int index) {
         if (shipBonusBuilder_ == null) {
           return shipBonus_.get(index);
         } else {
@@ -15215,10 +15215,10 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipBonus = 15;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipBonus = 15;</code>
        */
       public Builder setShipBonus(
-          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket value) {
+          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket value) {
         if (shipBonusBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -15232,10 +15232,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipBonus = 15;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipBonus = 15;</code>
        */
       public Builder setShipBonus(
-          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.Builder builderForValue) {
+          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.Builder builderForValue) {
         if (shipBonusBuilder_ == null) {
           ensureShipBonusIsMutable();
           shipBonus_.set(index, builderForValue.build());
@@ -15246,9 +15246,9 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipBonus = 15;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipBonus = 15;</code>
        */
-      public Builder addShipBonus(arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket value) {
+      public Builder addShipBonus(arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket value) {
         if (shipBonusBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -15262,10 +15262,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipBonus = 15;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipBonus = 15;</code>
        */
       public Builder addShipBonus(
-          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket value) {
+          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket value) {
         if (shipBonusBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -15279,10 +15279,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipBonus = 15;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipBonus = 15;</code>
        */
       public Builder addShipBonus(
-          arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.Builder builderForValue) {
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.Builder builderForValue) {
         if (shipBonusBuilder_ == null) {
           ensureShipBonusIsMutable();
           shipBonus_.add(builderForValue.build());
@@ -15293,10 +15293,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipBonus = 15;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipBonus = 15;</code>
        */
       public Builder addShipBonus(
-          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.Builder builderForValue) {
+          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.Builder builderForValue) {
         if (shipBonusBuilder_ == null) {
           ensureShipBonusIsMutable();
           shipBonus_.add(index, builderForValue.build());
@@ -15307,10 +15307,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipBonus = 15;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipBonus = 15;</code>
        */
       public Builder addAllShipBonus(
-          java.lang.Iterable<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket> values) {
+          java.lang.Iterable<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket> values) {
         if (shipBonusBuilder_ == null) {
           ensureShipBonusIsMutable();
           super.addAll(values, shipBonus_);
@@ -15321,7 +15321,7 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipBonus = 15;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipBonus = 15;</code>
        */
       public Builder clearShipBonus() {
         if (shipBonusBuilder_ == null) {
@@ -15334,7 +15334,7 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipBonus = 15;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipBonus = 15;</code>
        */
       public Builder removeShipBonus(int index) {
         if (shipBonusBuilder_ == null) {
@@ -15347,16 +15347,16 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipBonus = 15;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipBonus = 15;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.Builder getShipBonusBuilder(
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.Builder getShipBonusBuilder(
           int index) {
         return getShipBonusFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipBonus = 15;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipBonus = 15;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacketOrBuilder getShipBonusOrBuilder(
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacketOrBuilder getShipBonusOrBuilder(
           int index) {
         if (shipBonusBuilder_ == null) {
           return shipBonus_.get(index);  } else {
@@ -15364,9 +15364,9 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipBonus = 15;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipBonus = 15;</code>
        */
-      public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacketOrBuilder> 
+      public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacketOrBuilder> 
            getShipBonusOrBuilderList() {
         if (shipBonusBuilder_ != null) {
           return shipBonusBuilder_.getMessageOrBuilderList();
@@ -15375,33 +15375,33 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipBonus = 15;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipBonus = 15;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.Builder addShipBonusBuilder() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.Builder addShipBonusBuilder() {
         return getShipBonusFieldBuilder().addBuilder(
-            arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.getDefaultInstance());
+            arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.getDefaultInstance());
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipBonus = 15;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipBonus = 15;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.Builder addShipBonusBuilder(
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.Builder addShipBonusBuilder(
           int index) {
         return getShipBonusFieldBuilder().addBuilder(
-            index, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.getDefaultInstance());
+            index, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.getDefaultInstance());
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipBonus = 15;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipBonus = 15;</code>
        */
-      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.Builder> 
+      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.Builder> 
            getShipBonusBuilderList() {
         return getShipBonusFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacketOrBuilder> 
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacketOrBuilder> 
           getShipBonusFieldBuilder() {
         if (shipBonusBuilder_ == null) {
           shipBonusBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacketOrBuilder>(
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacketOrBuilder>(
                   shipBonus_,
                   ((bitField0_ & 0x00004000) == 0x00004000),
                   getParentForChildren(),
@@ -15411,23 +15411,23 @@ public final class GeProtocol {
         return shipBonusBuilder_;
       }
 
-      // repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipWeapons = 16;
-      private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket> shipWeapons_ =
+      // repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipWeapons = 16;
+      private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket> shipWeapons_ =
         java.util.Collections.emptyList();
       private void ensureShipWeaponsIsMutable() {
         if (!((bitField0_ & 0x00008000) == 0x00008000)) {
-          shipWeapons_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket>(shipWeapons_);
+          shipWeapons_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket>(shipWeapons_);
           bitField0_ |= 0x00008000;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacketOrBuilder> shipWeaponsBuilder_;
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacketOrBuilder> shipWeaponsBuilder_;
 
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipWeapons = 16;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipWeapons = 16;</code>
        */
-      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket> getShipWeaponsList() {
+      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket> getShipWeaponsList() {
         if (shipWeaponsBuilder_ == null) {
           return java.util.Collections.unmodifiableList(shipWeapons_);
         } else {
@@ -15435,7 +15435,7 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipWeapons = 16;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipWeapons = 16;</code>
        */
       public int getShipWeaponsCount() {
         if (shipWeaponsBuilder_ == null) {
@@ -15445,9 +15445,9 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipWeapons = 16;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipWeapons = 16;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket getShipWeapons(int index) {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket getShipWeapons(int index) {
         if (shipWeaponsBuilder_ == null) {
           return shipWeapons_.get(index);
         } else {
@@ -15455,10 +15455,10 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipWeapons = 16;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipWeapons = 16;</code>
        */
       public Builder setShipWeapons(
-          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket value) {
+          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket value) {
         if (shipWeaponsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -15472,10 +15472,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipWeapons = 16;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipWeapons = 16;</code>
        */
       public Builder setShipWeapons(
-          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.Builder builderForValue) {
+          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.Builder builderForValue) {
         if (shipWeaponsBuilder_ == null) {
           ensureShipWeaponsIsMutable();
           shipWeapons_.set(index, builderForValue.build());
@@ -15486,9 +15486,9 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipWeapons = 16;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipWeapons = 16;</code>
        */
-      public Builder addShipWeapons(arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket value) {
+      public Builder addShipWeapons(arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket value) {
         if (shipWeaponsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -15502,10 +15502,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipWeapons = 16;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipWeapons = 16;</code>
        */
       public Builder addShipWeapons(
-          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket value) {
+          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket value) {
         if (shipWeaponsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -15519,10 +15519,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipWeapons = 16;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipWeapons = 16;</code>
        */
       public Builder addShipWeapons(
-          arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.Builder builderForValue) {
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.Builder builderForValue) {
         if (shipWeaponsBuilder_ == null) {
           ensureShipWeaponsIsMutable();
           shipWeapons_.add(builderForValue.build());
@@ -15533,10 +15533,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipWeapons = 16;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipWeapons = 16;</code>
        */
       public Builder addShipWeapons(
-          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.Builder builderForValue) {
+          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.Builder builderForValue) {
         if (shipWeaponsBuilder_ == null) {
           ensureShipWeaponsIsMutable();
           shipWeapons_.add(index, builderForValue.build());
@@ -15547,10 +15547,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipWeapons = 16;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipWeapons = 16;</code>
        */
       public Builder addAllShipWeapons(
-          java.lang.Iterable<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket> values) {
+          java.lang.Iterable<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket> values) {
         if (shipWeaponsBuilder_ == null) {
           ensureShipWeaponsIsMutable();
           super.addAll(values, shipWeapons_);
@@ -15561,7 +15561,7 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipWeapons = 16;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipWeapons = 16;</code>
        */
       public Builder clearShipWeapons() {
         if (shipWeaponsBuilder_ == null) {
@@ -15574,7 +15574,7 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipWeapons = 16;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipWeapons = 16;</code>
        */
       public Builder removeShipWeapons(int index) {
         if (shipWeaponsBuilder_ == null) {
@@ -15587,16 +15587,16 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipWeapons = 16;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipWeapons = 16;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.Builder getShipWeaponsBuilder(
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.Builder getShipWeaponsBuilder(
           int index) {
         return getShipWeaponsFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipWeapons = 16;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipWeapons = 16;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacketOrBuilder getShipWeaponsOrBuilder(
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacketOrBuilder getShipWeaponsOrBuilder(
           int index) {
         if (shipWeaponsBuilder_ == null) {
           return shipWeapons_.get(index);  } else {
@@ -15604,9 +15604,9 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipWeapons = 16;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipWeapons = 16;</code>
        */
-      public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacketOrBuilder> 
+      public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacketOrBuilder> 
            getShipWeaponsOrBuilderList() {
         if (shipWeaponsBuilder_ != null) {
           return shipWeaponsBuilder_.getMessageOrBuilderList();
@@ -15615,33 +15615,33 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipWeapons = 16;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipWeapons = 16;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.Builder addShipWeaponsBuilder() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.Builder addShipWeaponsBuilder() {
         return getShipWeaponsFieldBuilder().addBuilder(
-            arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.getDefaultInstance());
+            arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.getDefaultInstance());
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipWeapons = 16;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipWeapons = 16;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.Builder addShipWeaponsBuilder(
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.Builder addShipWeaponsBuilder(
           int index) {
         return getShipWeaponsFieldBuilder().addBuilder(
-            index, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.getDefaultInstance());
+            index, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.getDefaultInstance());
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipWeapons = 16;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipWeapons = 16;</code>
        */
-      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.Builder> 
+      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.Builder> 
            getShipWeaponsBuilderList() {
         return getShipWeaponsFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacketOrBuilder> 
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacketOrBuilder> 
           getShipWeaponsFieldBuilder() {
         if (shipWeaponsBuilder_ == null) {
           shipWeaponsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacketOrBuilder>(
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacketOrBuilder>(
                   shipWeapons_,
                   ((bitField0_ & 0x00008000) == 0x00008000),
                   getParentForChildren(),
@@ -15651,20 +15651,20 @@ public final class GeProtocol {
         return shipWeaponsBuilder_;
       }
 
-      // required .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipEngine = 17;
-      private arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket shipEngine_ = arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.getDefaultInstance();
+      // required .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipEngine = 17;
+      private arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket shipEngine_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacketOrBuilder> shipEngineBuilder_;
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacketOrBuilder> shipEngineBuilder_;
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipEngine = 17;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipEngine = 17;</code>
        */
       public boolean hasShipEngine() {
         return ((bitField0_ & 0x00010000) == 0x00010000);
       }
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipEngine = 17;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipEngine = 17;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket getShipEngine() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket getShipEngine() {
         if (shipEngineBuilder_ == null) {
           return shipEngine_;
         } else {
@@ -15672,9 +15672,9 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipEngine = 17;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipEngine = 17;</code>
        */
-      public Builder setShipEngine(arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket value) {
+      public Builder setShipEngine(arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket value) {
         if (shipEngineBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -15688,10 +15688,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipEngine = 17;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipEngine = 17;</code>
        */
       public Builder setShipEngine(
-          arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.Builder builderForValue) {
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.Builder builderForValue) {
         if (shipEngineBuilder_ == null) {
           shipEngine_ = builderForValue.build();
           onChanged();
@@ -15702,14 +15702,14 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipEngine = 17;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipEngine = 17;</code>
        */
-      public Builder mergeShipEngine(arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket value) {
+      public Builder mergeShipEngine(arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket value) {
         if (shipEngineBuilder_ == null) {
           if (((bitField0_ & 0x00010000) == 0x00010000) &&
-              shipEngine_ != arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.getDefaultInstance()) {
+              shipEngine_ != arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.getDefaultInstance()) {
             shipEngine_ =
-              arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.newBuilder(shipEngine_).mergeFrom(value).buildPartial();
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.newBuilder(shipEngine_).mergeFrom(value).buildPartial();
           } else {
             shipEngine_ = value;
           }
@@ -15721,11 +15721,11 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipEngine = 17;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipEngine = 17;</code>
        */
       public Builder clearShipEngine() {
         if (shipEngineBuilder_ == null) {
-          shipEngine_ = arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.getDefaultInstance();
+          shipEngine_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.getDefaultInstance();
           onChanged();
         } else {
           shipEngineBuilder_.clear();
@@ -15734,17 +15734,17 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipEngine = 17;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipEngine = 17;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.Builder getShipEngineBuilder() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.Builder getShipEngineBuilder() {
         bitField0_ |= 0x00010000;
         onChanged();
         return getShipEngineFieldBuilder().getBuilder();
       }
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipEngine = 17;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipEngine = 17;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacketOrBuilder getShipEngineOrBuilder() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacketOrBuilder getShipEngineOrBuilder() {
         if (shipEngineBuilder_ != null) {
           return shipEngineBuilder_.getMessageOrBuilder();
         } else {
@@ -15752,14 +15752,14 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket.ItemPacket shipEngine = 17;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket shipEngine = 17;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacketOrBuilder> 
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacketOrBuilder> 
           getShipEngineFieldBuilder() {
         if (shipEngineBuilder_ == null) {
           shipEngineBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.ItemPacketOrBuilder>(
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacketOrBuilder>(
                   shipEngine_,
                   getParentForChildren(),
                   isClean());
@@ -15768,139 +15768,139 @@ public final class GeProtocol {
         return shipEngineBuilder_;
       }
 
-      // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket)
+      // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket)
     }
 
     static {
-      defaultInstance = new ShipStaticInfoPacket(true);
+      defaultInstance = new GeShipStaticInfoPacket(true);
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket)
+    // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket)
   }
 
-  public interface TypesMapPacketOrBuilder
+  public interface GeTypesMapPacketOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type itemTypes = 1;
+    // repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type itemTypes = 1;
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type itemTypes = 1;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type itemTypes = 1;</code>
      */
-    java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type> 
+    java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type> 
         getItemTypesList();
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type itemTypes = 1;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type itemTypes = 1;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type getItemTypes(int index);
+    arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type getItemTypes(int index);
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type itemTypes = 1;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type itemTypes = 1;</code>
      */
     int getItemTypesCount();
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type itemTypes = 1;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type itemTypes = 1;</code>
      */
-    java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.TypeOrBuilder> 
+    java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.TypeOrBuilder> 
         getItemTypesOrBuilderList();
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type itemTypes = 1;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type itemTypes = 1;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.TypeOrBuilder getItemTypesOrBuilder(
+    arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.TypeOrBuilder getItemTypesOrBuilder(
         int index);
 
-    // repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type weaponTypes = 2;
+    // repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type weaponTypes = 2;
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type weaponTypes = 2;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type weaponTypes = 2;</code>
      */
-    java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type> 
+    java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type> 
         getWeaponTypesList();
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type weaponTypes = 2;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type weaponTypes = 2;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type getWeaponTypes(int index);
+    arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type getWeaponTypes(int index);
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type weaponTypes = 2;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type weaponTypes = 2;</code>
      */
     int getWeaponTypesCount();
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type weaponTypes = 2;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type weaponTypes = 2;</code>
      */
-    java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.TypeOrBuilder> 
+    java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.TypeOrBuilder> 
         getWeaponTypesOrBuilderList();
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type weaponTypes = 2;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type weaponTypes = 2;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.TypeOrBuilder getWeaponTypesOrBuilder(
+    arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.TypeOrBuilder getWeaponTypesOrBuilder(
         int index);
 
-    // repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type locationObjectTypes = 3;
+    // repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type locationObjectTypes = 3;
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type locationObjectTypes = 3;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type locationObjectTypes = 3;</code>
      */
-    java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type> 
+    java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type> 
         getLocationObjectTypesList();
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type locationObjectTypes = 3;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type locationObjectTypes = 3;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type getLocationObjectTypes(int index);
+    arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type getLocationObjectTypes(int index);
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type locationObjectTypes = 3;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type locationObjectTypes = 3;</code>
      */
     int getLocationObjectTypesCount();
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type locationObjectTypes = 3;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type locationObjectTypes = 3;</code>
      */
-    java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.TypeOrBuilder> 
+    java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.TypeOrBuilder> 
         getLocationObjectTypesOrBuilderList();
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type locationObjectTypes = 3;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type locationObjectTypes = 3;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.TypeOrBuilder getLocationObjectTypesOrBuilder(
+    arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.TypeOrBuilder getLocationObjectTypesOrBuilder(
         int index);
 
-    // repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type bonusTypes = 4;
+    // repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type bonusTypes = 4;
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type bonusTypes = 4;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type bonusTypes = 4;</code>
      */
-    java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type> 
+    java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type> 
         getBonusTypesList();
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type bonusTypes = 4;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type bonusTypes = 4;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type getBonusTypes(int index);
+    arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type getBonusTypes(int index);
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type bonusTypes = 4;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type bonusTypes = 4;</code>
      */
     int getBonusTypesCount();
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type bonusTypes = 4;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type bonusTypes = 4;</code>
      */
-    java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.TypeOrBuilder> 
+    java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.TypeOrBuilder> 
         getBonusTypesOrBuilderList();
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type bonusTypes = 4;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type bonusTypes = 4;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.TypeOrBuilder getBonusTypesOrBuilder(
+    arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.TypeOrBuilder getBonusTypesOrBuilder(
         int index);
   }
   /**
-   * Protobuf type {@code arch.galaxyeclipse.shared.protocol.TypesMapPacket}
+   * Protobuf type {@code arch.galaxyeclipse.shared.protocol.GeTypesMapPacket}
    */
-  public static final class TypesMapPacket extends
+  public static final class GeTypesMapPacket extends
       com.google.protobuf.GeneratedMessage
-      implements TypesMapPacketOrBuilder {
-    // Use TypesMapPacket.newBuilder() to construct.
-    private TypesMapPacket(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      implements GeTypesMapPacketOrBuilder {
+    // Use GeTypesMapPacket.newBuilder() to construct.
+    private GeTypesMapPacket(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private TypesMapPacket(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private GeTypesMapPacket(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
-    private static final TypesMapPacket defaultInstance;
-    public static TypesMapPacket getDefaultInstance() {
+    private static final GeTypesMapPacket defaultInstance;
+    public static GeTypesMapPacket getDefaultInstance() {
       return defaultInstance;
     }
 
-    public TypesMapPacket getDefaultInstanceForType() {
+    public GeTypesMapPacket getDefaultInstanceForType() {
       return defaultInstance;
     }
 
@@ -15910,7 +15910,7 @@ public final class GeProtocol {
         getUnknownFields() {
       return this.unknownFields;
     }
-    private TypesMapPacket(
+    private GeTypesMapPacket(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -15935,34 +15935,34 @@ public final class GeProtocol {
             }
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                itemTypes_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type>();
+                itemTypes_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type>();
                 mutable_bitField0_ |= 0x00000001;
               }
-              itemTypes_.add(input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.PARSER, extensionRegistry));
+              itemTypes_.add(input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.PARSER, extensionRegistry));
               break;
             }
             case 18: {
               if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-                weaponTypes_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type>();
+                weaponTypes_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type>();
                 mutable_bitField0_ |= 0x00000002;
               }
-              weaponTypes_.add(input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.PARSER, extensionRegistry));
+              weaponTypes_.add(input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.PARSER, extensionRegistry));
               break;
             }
             case 26: {
               if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-                locationObjectTypes_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type>();
+                locationObjectTypes_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type>();
                 mutable_bitField0_ |= 0x00000004;
               }
-              locationObjectTypes_.add(input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.PARSER, extensionRegistry));
+              locationObjectTypes_.add(input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.PARSER, extensionRegistry));
               break;
             }
             case 34: {
               if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-                bonusTypes_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type>();
+                bonusTypes_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type>();
                 mutable_bitField0_ |= 0x00000008;
               }
-              bonusTypes_.add(input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.PARSER, extensionRegistry));
+              bonusTypes_.add(input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.PARSER, extensionRegistry));
               break;
             }
           }
@@ -15991,28 +15991,28 @@ public final class GeProtocol {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_TypesMapPacket_descriptor;
+      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeTypesMapPacket_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_TypesMapPacket_fieldAccessorTable
+      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeTypesMapPacket_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Builder.class);
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<TypesMapPacket> PARSER =
-        new com.google.protobuf.AbstractParser<TypesMapPacket>() {
-      public TypesMapPacket parsePartialFrom(
+    public static com.google.protobuf.Parser<GeTypesMapPacket> PARSER =
+        new com.google.protobuf.AbstractParser<GeTypesMapPacket>() {
+      public GeTypesMapPacket parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new TypesMapPacket(input, extensionRegistry);
+        return new GeTypesMapPacket(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<TypesMapPacket> getParserForType() {
+    public com.google.protobuf.Parser<GeTypesMapPacket> getParserForType() {
       return PARSER;
     }
 
@@ -16045,7 +16045,7 @@ public final class GeProtocol {
           getNameBytes();
     }
     /**
-     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type}
+     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type}
      */
     public static final class Type extends
         com.google.protobuf.GeneratedMessage
@@ -16119,14 +16119,14 @@ public final class GeProtocol {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_TypesMapPacket_Type_descriptor;
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeTypesMapPacket_Type_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_TypesMapPacket_Type_fieldAccessorTable
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeTypesMapPacket_Type_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.class, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.Builder.class);
+                arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.class, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.Builder.class);
       }
 
       public static com.google.protobuf.Parser<Type> PARSER =
@@ -16263,53 +16263,53 @@ public final class GeProtocol {
         return super.writeReplace();
       }
 
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type parseFrom(
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type parseFrom(
           com.google.protobuf.ByteString data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type parseFrom(
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type parseFrom(
           com.google.protobuf.ByteString data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type parseFrom(byte[] data)
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type parseFrom(byte[] data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type parseFrom(
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type parseFrom(
           byte[] data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type parseFrom(java.io.InputStream input)
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type parseFrom(java.io.InputStream input)
           throws java.io.IOException {
         return PARSER.parseFrom(input);
       }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type parseFrom(
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type parseFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return PARSER.parseFrom(input, extensionRegistry);
       }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type parseDelimitedFrom(java.io.InputStream input)
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type parseDelimitedFrom(java.io.InputStream input)
           throws java.io.IOException {
         return PARSER.parseDelimitedFrom(input);
       }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type parseDelimitedFrom(
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type parseDelimitedFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return PARSER.parseDelimitedFrom(input, extensionRegistry);
       }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type parseFrom(
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type parseFrom(
           com.google.protobuf.CodedInputStream input)
           throws java.io.IOException {
         return PARSER.parseFrom(input);
       }
-      public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type parseFrom(
+      public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type parseFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
@@ -16318,7 +16318,7 @@ public final class GeProtocol {
 
       public static Builder newBuilder() { return Builder.create(); }
       public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type prototype) {
+      public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type prototype) {
         return newBuilder().mergeFrom(prototype);
       }
       public Builder toBuilder() { return newBuilder(this); }
@@ -16330,24 +16330,24 @@ public final class GeProtocol {
         return builder;
       }
       /**
-       * Protobuf type {@code arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type}
+       * Protobuf type {@code arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type}
        */
       public static final class Builder extends
           com.google.protobuf.GeneratedMessage.Builder<Builder>
-         implements arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.TypeOrBuilder {
+         implements arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.TypeOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_TypesMapPacket_Type_descriptor;
+          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeTypesMapPacket_Type_descriptor;
         }
 
         protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_TypesMapPacket_Type_fieldAccessorTable
+          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeTypesMapPacket_Type_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
-                  arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.class, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.Builder.class);
+                  arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.class, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.Builder.class);
         }
 
-        // Construct using arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.newBuilder()
+        // Construct using arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.newBuilder()
         private Builder() {
           maybeForceBuilderInitialization();
         }
@@ -16380,23 +16380,23 @@ public final class GeProtocol {
 
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_TypesMapPacket_Type_descriptor;
+          return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeTypesMapPacket_Type_descriptor;
         }
 
-        public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type getDefaultInstanceForType() {
-          return arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.getDefaultInstance();
+        public arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type getDefaultInstanceForType() {
+          return arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.getDefaultInstance();
         }
 
-        public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type build() {
-          arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type result = buildPartial();
+        public arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type build() {
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type result = buildPartial();
           if (!result.isInitialized()) {
             throw newUninitializedMessageException(result);
           }
           return result;
         }
 
-        public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type buildPartial() {
-          arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type result = new arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type(this);
+        public arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type buildPartial() {
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type result = new arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type(this);
           int from_bitField0_ = bitField0_;
           int to_bitField0_ = 0;
           if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -16413,16 +16413,16 @@ public final class GeProtocol {
         }
 
         public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type) {
-            return mergeFrom((arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type)other);
+          if (other instanceof arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type) {
+            return mergeFrom((arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type)other);
           } else {
             super.mergeFrom(other);
             return this;
           }
         }
 
-        public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type other) {
-          if (other == arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.getDefaultInstance()) return this;
+        public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type other) {
+          if (other == arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.getDefaultInstance()) return this;
           if (other.hasId()) {
             setId(other.getId());
           }
@@ -16451,11 +16451,11 @@ public final class GeProtocol {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type parsedMessage = null;
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type parsedMessage = null;
           try {
             parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type) e.getUnfinishedMessage();
+            parsedMessage = (arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type) e.getUnfinishedMessage();
             throw e;
           } finally {
             if (parsedMessage != null) {
@@ -16573,7 +16573,7 @@ public final class GeProtocol {
           return this;
         }
 
-        // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type)
+        // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type)
       }
 
       static {
@@ -16581,149 +16581,149 @@ public final class GeProtocol {
         defaultInstance.initFields();
       }
 
-      // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type)
+      // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type)
     }
 
-    // repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type itemTypes = 1;
+    // repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type itemTypes = 1;
     public static final int ITEMTYPES_FIELD_NUMBER = 1;
-    private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type> itemTypes_;
+    private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type> itemTypes_;
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type itemTypes = 1;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type itemTypes = 1;</code>
      */
-    public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type> getItemTypesList() {
+    public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type> getItemTypesList() {
       return itemTypes_;
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type itemTypes = 1;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type itemTypes = 1;</code>
      */
-    public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.TypeOrBuilder> 
+    public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.TypeOrBuilder> 
         getItemTypesOrBuilderList() {
       return itemTypes_;
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type itemTypes = 1;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type itemTypes = 1;</code>
      */
     public int getItemTypesCount() {
       return itemTypes_.size();
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type itemTypes = 1;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type itemTypes = 1;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type getItemTypes(int index) {
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type getItemTypes(int index) {
       return itemTypes_.get(index);
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type itemTypes = 1;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type itemTypes = 1;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.TypeOrBuilder getItemTypesOrBuilder(
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.TypeOrBuilder getItemTypesOrBuilder(
         int index) {
       return itemTypes_.get(index);
     }
 
-    // repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type weaponTypes = 2;
+    // repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type weaponTypes = 2;
     public static final int WEAPONTYPES_FIELD_NUMBER = 2;
-    private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type> weaponTypes_;
+    private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type> weaponTypes_;
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type weaponTypes = 2;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type weaponTypes = 2;</code>
      */
-    public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type> getWeaponTypesList() {
+    public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type> getWeaponTypesList() {
       return weaponTypes_;
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type weaponTypes = 2;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type weaponTypes = 2;</code>
      */
-    public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.TypeOrBuilder> 
+    public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.TypeOrBuilder> 
         getWeaponTypesOrBuilderList() {
       return weaponTypes_;
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type weaponTypes = 2;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type weaponTypes = 2;</code>
      */
     public int getWeaponTypesCount() {
       return weaponTypes_.size();
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type weaponTypes = 2;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type weaponTypes = 2;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type getWeaponTypes(int index) {
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type getWeaponTypes(int index) {
       return weaponTypes_.get(index);
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type weaponTypes = 2;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type weaponTypes = 2;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.TypeOrBuilder getWeaponTypesOrBuilder(
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.TypeOrBuilder getWeaponTypesOrBuilder(
         int index) {
       return weaponTypes_.get(index);
     }
 
-    // repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type locationObjectTypes = 3;
+    // repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type locationObjectTypes = 3;
     public static final int LOCATIONOBJECTTYPES_FIELD_NUMBER = 3;
-    private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type> locationObjectTypes_;
+    private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type> locationObjectTypes_;
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type locationObjectTypes = 3;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type locationObjectTypes = 3;</code>
      */
-    public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type> getLocationObjectTypesList() {
+    public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type> getLocationObjectTypesList() {
       return locationObjectTypes_;
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type locationObjectTypes = 3;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type locationObjectTypes = 3;</code>
      */
-    public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.TypeOrBuilder> 
+    public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.TypeOrBuilder> 
         getLocationObjectTypesOrBuilderList() {
       return locationObjectTypes_;
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type locationObjectTypes = 3;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type locationObjectTypes = 3;</code>
      */
     public int getLocationObjectTypesCount() {
       return locationObjectTypes_.size();
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type locationObjectTypes = 3;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type locationObjectTypes = 3;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type getLocationObjectTypes(int index) {
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type getLocationObjectTypes(int index) {
       return locationObjectTypes_.get(index);
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type locationObjectTypes = 3;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type locationObjectTypes = 3;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.TypeOrBuilder getLocationObjectTypesOrBuilder(
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.TypeOrBuilder getLocationObjectTypesOrBuilder(
         int index) {
       return locationObjectTypes_.get(index);
     }
 
-    // repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type bonusTypes = 4;
+    // repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type bonusTypes = 4;
     public static final int BONUSTYPES_FIELD_NUMBER = 4;
-    private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type> bonusTypes_;
+    private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type> bonusTypes_;
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type bonusTypes = 4;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type bonusTypes = 4;</code>
      */
-    public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type> getBonusTypesList() {
+    public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type> getBonusTypesList() {
       return bonusTypes_;
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type bonusTypes = 4;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type bonusTypes = 4;</code>
      */
-    public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.TypeOrBuilder> 
+    public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.TypeOrBuilder> 
         getBonusTypesOrBuilderList() {
       return bonusTypes_;
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type bonusTypes = 4;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type bonusTypes = 4;</code>
      */
     public int getBonusTypesCount() {
       return bonusTypes_.size();
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type bonusTypes = 4;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type bonusTypes = 4;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type getBonusTypes(int index) {
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type getBonusTypes(int index) {
       return bonusTypes_.get(index);
     }
     /**
-     * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type bonusTypes = 4;</code>
+     * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type bonusTypes = 4;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.TypeOrBuilder getBonusTypesOrBuilder(
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.TypeOrBuilder getBonusTypesOrBuilder(
         int index) {
       return bonusTypes_.get(index);
     }
@@ -16819,53 +16819,53 @@ public final class GeProtocol {
       return super.writeReplace();
     }
 
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket parseFrom(byte[] data)
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket parseFrom(java.io.InputStream input)
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket parseDelimitedFrom(java.io.InputStream input)
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket parseDelimitedFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -16874,7 +16874,7 @@ public final class GeProtocol {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket prototype) {
+    public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -16886,24 +16886,24 @@ public final class GeProtocol {
       return builder;
     }
     /**
-     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.TypesMapPacket}
+     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.GeTypesMapPacket}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacketOrBuilder {
+       implements arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacketOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_TypesMapPacket_descriptor;
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeTypesMapPacket_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_TypesMapPacket_fieldAccessorTable
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeTypesMapPacket_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Builder.class);
+                arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Builder.class);
       }
 
-      // Construct using arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.newBuilder()
+      // Construct using arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -16960,23 +16960,23 @@ public final class GeProtocol {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_TypesMapPacket_descriptor;
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeTypesMapPacket_descriptor;
       }
 
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket getDefaultInstanceForType() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.getDefaultInstance();
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket getDefaultInstanceForType() {
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.getDefaultInstance();
       }
 
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket build() {
-        arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket result = buildPartial();
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket build() {
+        arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket buildPartial() {
-        arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket result = new arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket(this);
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket buildPartial() {
+        arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket result = new arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket(this);
         int from_bitField0_ = bitField0_;
         if (itemTypesBuilder_ == null) {
           if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -17019,16 +17019,16 @@ public final class GeProtocol {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket) {
-          return mergeFrom((arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket)other);
+        if (other instanceof arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket) {
+          return mergeFrom((arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket other) {
-        if (other == arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.getDefaultInstance()) return this;
+      public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket other) {
+        if (other == arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.getDefaultInstance()) return this;
         if (itemTypesBuilder_ == null) {
           if (!other.itemTypes_.isEmpty()) {
             if (itemTypes_.isEmpty()) {
@@ -17169,11 +17169,11 @@ public final class GeProtocol {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket parsedMessage = null;
+        arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket) e.getUnfinishedMessage();
+          parsedMessage = (arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -17184,23 +17184,23 @@ public final class GeProtocol {
       }
       private int bitField0_;
 
-      // repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type itemTypes = 1;
-      private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type> itemTypes_ =
+      // repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type itemTypes = 1;
+      private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type> itemTypes_ =
         java.util.Collections.emptyList();
       private void ensureItemTypesIsMutable() {
         if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-          itemTypes_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type>(itemTypes_);
+          itemTypes_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type>(itemTypes_);
           bitField0_ |= 0x00000001;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.TypeOrBuilder> itemTypesBuilder_;
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.TypeOrBuilder> itemTypesBuilder_;
 
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type itemTypes = 1;</code>
        */
-      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type> getItemTypesList() {
+      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type> getItemTypesList() {
         if (itemTypesBuilder_ == null) {
           return java.util.Collections.unmodifiableList(itemTypes_);
         } else {
@@ -17208,7 +17208,7 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type itemTypes = 1;</code>
        */
       public int getItemTypesCount() {
         if (itemTypesBuilder_ == null) {
@@ -17218,9 +17218,9 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type itemTypes = 1;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type getItemTypes(int index) {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type getItemTypes(int index) {
         if (itemTypesBuilder_ == null) {
           return itemTypes_.get(index);
         } else {
@@ -17228,10 +17228,10 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type itemTypes = 1;</code>
        */
       public Builder setItemTypes(
-          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type value) {
+          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type value) {
         if (itemTypesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -17245,10 +17245,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type itemTypes = 1;</code>
        */
       public Builder setItemTypes(
-          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.Builder builderForValue) {
+          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.Builder builderForValue) {
         if (itemTypesBuilder_ == null) {
           ensureItemTypesIsMutable();
           itemTypes_.set(index, builderForValue.build());
@@ -17259,9 +17259,9 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type itemTypes = 1;</code>
        */
-      public Builder addItemTypes(arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type value) {
+      public Builder addItemTypes(arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type value) {
         if (itemTypesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -17275,10 +17275,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type itemTypes = 1;</code>
        */
       public Builder addItemTypes(
-          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type value) {
+          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type value) {
         if (itemTypesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -17292,10 +17292,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type itemTypes = 1;</code>
        */
       public Builder addItemTypes(
-          arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.Builder builderForValue) {
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.Builder builderForValue) {
         if (itemTypesBuilder_ == null) {
           ensureItemTypesIsMutable();
           itemTypes_.add(builderForValue.build());
@@ -17306,10 +17306,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type itemTypes = 1;</code>
        */
       public Builder addItemTypes(
-          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.Builder builderForValue) {
+          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.Builder builderForValue) {
         if (itemTypesBuilder_ == null) {
           ensureItemTypesIsMutable();
           itemTypes_.add(index, builderForValue.build());
@@ -17320,10 +17320,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type itemTypes = 1;</code>
        */
       public Builder addAllItemTypes(
-          java.lang.Iterable<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type> values) {
+          java.lang.Iterable<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type> values) {
         if (itemTypesBuilder_ == null) {
           ensureItemTypesIsMutable();
           super.addAll(values, itemTypes_);
@@ -17334,7 +17334,7 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type itemTypes = 1;</code>
        */
       public Builder clearItemTypes() {
         if (itemTypesBuilder_ == null) {
@@ -17347,7 +17347,7 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type itemTypes = 1;</code>
        */
       public Builder removeItemTypes(int index) {
         if (itemTypesBuilder_ == null) {
@@ -17360,16 +17360,16 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type itemTypes = 1;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.Builder getItemTypesBuilder(
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.Builder getItemTypesBuilder(
           int index) {
         return getItemTypesFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type itemTypes = 1;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.TypeOrBuilder getItemTypesOrBuilder(
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.TypeOrBuilder getItemTypesOrBuilder(
           int index) {
         if (itemTypesBuilder_ == null) {
           return itemTypes_.get(index);  } else {
@@ -17377,9 +17377,9 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type itemTypes = 1;</code>
        */
-      public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.TypeOrBuilder> 
+      public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.TypeOrBuilder> 
            getItemTypesOrBuilderList() {
         if (itemTypesBuilder_ != null) {
           return itemTypesBuilder_.getMessageOrBuilderList();
@@ -17388,33 +17388,33 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type itemTypes = 1;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.Builder addItemTypesBuilder() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.Builder addItemTypesBuilder() {
         return getItemTypesFieldBuilder().addBuilder(
-            arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.getDefaultInstance());
+            arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.getDefaultInstance());
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type itemTypes = 1;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.Builder addItemTypesBuilder(
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.Builder addItemTypesBuilder(
           int index) {
         return getItemTypesFieldBuilder().addBuilder(
-            index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.getDefaultInstance());
+            index, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.getDefaultInstance());
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type itemTypes = 1;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type itemTypes = 1;</code>
        */
-      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.Builder> 
+      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.Builder> 
            getItemTypesBuilderList() {
         return getItemTypesFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.TypeOrBuilder> 
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.TypeOrBuilder> 
           getItemTypesFieldBuilder() {
         if (itemTypesBuilder_ == null) {
           itemTypesBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.TypeOrBuilder>(
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.TypeOrBuilder>(
                   itemTypes_,
                   ((bitField0_ & 0x00000001) == 0x00000001),
                   getParentForChildren(),
@@ -17424,23 +17424,23 @@ public final class GeProtocol {
         return itemTypesBuilder_;
       }
 
-      // repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type weaponTypes = 2;
-      private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type> weaponTypes_ =
+      // repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type weaponTypes = 2;
+      private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type> weaponTypes_ =
         java.util.Collections.emptyList();
       private void ensureWeaponTypesIsMutable() {
         if (!((bitField0_ & 0x00000002) == 0x00000002)) {
-          weaponTypes_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type>(weaponTypes_);
+          weaponTypes_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type>(weaponTypes_);
           bitField0_ |= 0x00000002;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.TypeOrBuilder> weaponTypesBuilder_;
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.TypeOrBuilder> weaponTypesBuilder_;
 
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type weaponTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type weaponTypes = 2;</code>
        */
-      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type> getWeaponTypesList() {
+      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type> getWeaponTypesList() {
         if (weaponTypesBuilder_ == null) {
           return java.util.Collections.unmodifiableList(weaponTypes_);
         } else {
@@ -17448,7 +17448,7 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type weaponTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type weaponTypes = 2;</code>
        */
       public int getWeaponTypesCount() {
         if (weaponTypesBuilder_ == null) {
@@ -17458,9 +17458,9 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type weaponTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type weaponTypes = 2;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type getWeaponTypes(int index) {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type getWeaponTypes(int index) {
         if (weaponTypesBuilder_ == null) {
           return weaponTypes_.get(index);
         } else {
@@ -17468,10 +17468,10 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type weaponTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type weaponTypes = 2;</code>
        */
       public Builder setWeaponTypes(
-          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type value) {
+          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type value) {
         if (weaponTypesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -17485,10 +17485,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type weaponTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type weaponTypes = 2;</code>
        */
       public Builder setWeaponTypes(
-          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.Builder builderForValue) {
+          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.Builder builderForValue) {
         if (weaponTypesBuilder_ == null) {
           ensureWeaponTypesIsMutable();
           weaponTypes_.set(index, builderForValue.build());
@@ -17499,9 +17499,9 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type weaponTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type weaponTypes = 2;</code>
        */
-      public Builder addWeaponTypes(arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type value) {
+      public Builder addWeaponTypes(arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type value) {
         if (weaponTypesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -17515,10 +17515,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type weaponTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type weaponTypes = 2;</code>
        */
       public Builder addWeaponTypes(
-          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type value) {
+          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type value) {
         if (weaponTypesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -17532,10 +17532,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type weaponTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type weaponTypes = 2;</code>
        */
       public Builder addWeaponTypes(
-          arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.Builder builderForValue) {
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.Builder builderForValue) {
         if (weaponTypesBuilder_ == null) {
           ensureWeaponTypesIsMutable();
           weaponTypes_.add(builderForValue.build());
@@ -17546,10 +17546,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type weaponTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type weaponTypes = 2;</code>
        */
       public Builder addWeaponTypes(
-          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.Builder builderForValue) {
+          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.Builder builderForValue) {
         if (weaponTypesBuilder_ == null) {
           ensureWeaponTypesIsMutable();
           weaponTypes_.add(index, builderForValue.build());
@@ -17560,10 +17560,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type weaponTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type weaponTypes = 2;</code>
        */
       public Builder addAllWeaponTypes(
-          java.lang.Iterable<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type> values) {
+          java.lang.Iterable<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type> values) {
         if (weaponTypesBuilder_ == null) {
           ensureWeaponTypesIsMutable();
           super.addAll(values, weaponTypes_);
@@ -17574,7 +17574,7 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type weaponTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type weaponTypes = 2;</code>
        */
       public Builder clearWeaponTypes() {
         if (weaponTypesBuilder_ == null) {
@@ -17587,7 +17587,7 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type weaponTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type weaponTypes = 2;</code>
        */
       public Builder removeWeaponTypes(int index) {
         if (weaponTypesBuilder_ == null) {
@@ -17600,16 +17600,16 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type weaponTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type weaponTypes = 2;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.Builder getWeaponTypesBuilder(
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.Builder getWeaponTypesBuilder(
           int index) {
         return getWeaponTypesFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type weaponTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type weaponTypes = 2;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.TypeOrBuilder getWeaponTypesOrBuilder(
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.TypeOrBuilder getWeaponTypesOrBuilder(
           int index) {
         if (weaponTypesBuilder_ == null) {
           return weaponTypes_.get(index);  } else {
@@ -17617,9 +17617,9 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type weaponTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type weaponTypes = 2;</code>
        */
-      public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.TypeOrBuilder> 
+      public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.TypeOrBuilder> 
            getWeaponTypesOrBuilderList() {
         if (weaponTypesBuilder_ != null) {
           return weaponTypesBuilder_.getMessageOrBuilderList();
@@ -17628,33 +17628,33 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type weaponTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type weaponTypes = 2;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.Builder addWeaponTypesBuilder() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.Builder addWeaponTypesBuilder() {
         return getWeaponTypesFieldBuilder().addBuilder(
-            arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.getDefaultInstance());
+            arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.getDefaultInstance());
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type weaponTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type weaponTypes = 2;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.Builder addWeaponTypesBuilder(
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.Builder addWeaponTypesBuilder(
           int index) {
         return getWeaponTypesFieldBuilder().addBuilder(
-            index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.getDefaultInstance());
+            index, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.getDefaultInstance());
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type weaponTypes = 2;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type weaponTypes = 2;</code>
        */
-      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.Builder> 
+      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.Builder> 
            getWeaponTypesBuilderList() {
         return getWeaponTypesFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.TypeOrBuilder> 
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.TypeOrBuilder> 
           getWeaponTypesFieldBuilder() {
         if (weaponTypesBuilder_ == null) {
           weaponTypesBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.TypeOrBuilder>(
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.TypeOrBuilder>(
                   weaponTypes_,
                   ((bitField0_ & 0x00000002) == 0x00000002),
                   getParentForChildren(),
@@ -17664,23 +17664,23 @@ public final class GeProtocol {
         return weaponTypesBuilder_;
       }
 
-      // repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type locationObjectTypes = 3;
-      private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type> locationObjectTypes_ =
+      // repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type locationObjectTypes = 3;
+      private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type> locationObjectTypes_ =
         java.util.Collections.emptyList();
       private void ensureLocationObjectTypesIsMutable() {
         if (!((bitField0_ & 0x00000004) == 0x00000004)) {
-          locationObjectTypes_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type>(locationObjectTypes_);
+          locationObjectTypes_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type>(locationObjectTypes_);
           bitField0_ |= 0x00000004;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.TypeOrBuilder> locationObjectTypesBuilder_;
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.TypeOrBuilder> locationObjectTypesBuilder_;
 
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type locationObjectTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type locationObjectTypes = 3;</code>
        */
-      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type> getLocationObjectTypesList() {
+      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type> getLocationObjectTypesList() {
         if (locationObjectTypesBuilder_ == null) {
           return java.util.Collections.unmodifiableList(locationObjectTypes_);
         } else {
@@ -17688,7 +17688,7 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type locationObjectTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type locationObjectTypes = 3;</code>
        */
       public int getLocationObjectTypesCount() {
         if (locationObjectTypesBuilder_ == null) {
@@ -17698,9 +17698,9 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type locationObjectTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type locationObjectTypes = 3;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type getLocationObjectTypes(int index) {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type getLocationObjectTypes(int index) {
         if (locationObjectTypesBuilder_ == null) {
           return locationObjectTypes_.get(index);
         } else {
@@ -17708,10 +17708,10 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type locationObjectTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type locationObjectTypes = 3;</code>
        */
       public Builder setLocationObjectTypes(
-          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type value) {
+          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type value) {
         if (locationObjectTypesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -17725,10 +17725,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type locationObjectTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type locationObjectTypes = 3;</code>
        */
       public Builder setLocationObjectTypes(
-          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.Builder builderForValue) {
+          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.Builder builderForValue) {
         if (locationObjectTypesBuilder_ == null) {
           ensureLocationObjectTypesIsMutable();
           locationObjectTypes_.set(index, builderForValue.build());
@@ -17739,9 +17739,9 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type locationObjectTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type locationObjectTypes = 3;</code>
        */
-      public Builder addLocationObjectTypes(arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type value) {
+      public Builder addLocationObjectTypes(arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type value) {
         if (locationObjectTypesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -17755,10 +17755,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type locationObjectTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type locationObjectTypes = 3;</code>
        */
       public Builder addLocationObjectTypes(
-          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type value) {
+          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type value) {
         if (locationObjectTypesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -17772,10 +17772,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type locationObjectTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type locationObjectTypes = 3;</code>
        */
       public Builder addLocationObjectTypes(
-          arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.Builder builderForValue) {
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.Builder builderForValue) {
         if (locationObjectTypesBuilder_ == null) {
           ensureLocationObjectTypesIsMutable();
           locationObjectTypes_.add(builderForValue.build());
@@ -17786,10 +17786,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type locationObjectTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type locationObjectTypes = 3;</code>
        */
       public Builder addLocationObjectTypes(
-          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.Builder builderForValue) {
+          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.Builder builderForValue) {
         if (locationObjectTypesBuilder_ == null) {
           ensureLocationObjectTypesIsMutable();
           locationObjectTypes_.add(index, builderForValue.build());
@@ -17800,10 +17800,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type locationObjectTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type locationObjectTypes = 3;</code>
        */
       public Builder addAllLocationObjectTypes(
-          java.lang.Iterable<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type> values) {
+          java.lang.Iterable<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type> values) {
         if (locationObjectTypesBuilder_ == null) {
           ensureLocationObjectTypesIsMutable();
           super.addAll(values, locationObjectTypes_);
@@ -17814,7 +17814,7 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type locationObjectTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type locationObjectTypes = 3;</code>
        */
       public Builder clearLocationObjectTypes() {
         if (locationObjectTypesBuilder_ == null) {
@@ -17827,7 +17827,7 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type locationObjectTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type locationObjectTypes = 3;</code>
        */
       public Builder removeLocationObjectTypes(int index) {
         if (locationObjectTypesBuilder_ == null) {
@@ -17840,16 +17840,16 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type locationObjectTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type locationObjectTypes = 3;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.Builder getLocationObjectTypesBuilder(
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.Builder getLocationObjectTypesBuilder(
           int index) {
         return getLocationObjectTypesFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type locationObjectTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type locationObjectTypes = 3;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.TypeOrBuilder getLocationObjectTypesOrBuilder(
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.TypeOrBuilder getLocationObjectTypesOrBuilder(
           int index) {
         if (locationObjectTypesBuilder_ == null) {
           return locationObjectTypes_.get(index);  } else {
@@ -17857,9 +17857,9 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type locationObjectTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type locationObjectTypes = 3;</code>
        */
-      public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.TypeOrBuilder> 
+      public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.TypeOrBuilder> 
            getLocationObjectTypesOrBuilderList() {
         if (locationObjectTypesBuilder_ != null) {
           return locationObjectTypesBuilder_.getMessageOrBuilderList();
@@ -17868,33 +17868,33 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type locationObjectTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type locationObjectTypes = 3;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.Builder addLocationObjectTypesBuilder() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.Builder addLocationObjectTypesBuilder() {
         return getLocationObjectTypesFieldBuilder().addBuilder(
-            arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.getDefaultInstance());
+            arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.getDefaultInstance());
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type locationObjectTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type locationObjectTypes = 3;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.Builder addLocationObjectTypesBuilder(
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.Builder addLocationObjectTypesBuilder(
           int index) {
         return getLocationObjectTypesFieldBuilder().addBuilder(
-            index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.getDefaultInstance());
+            index, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.getDefaultInstance());
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type locationObjectTypes = 3;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type locationObjectTypes = 3;</code>
        */
-      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.Builder> 
+      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.Builder> 
            getLocationObjectTypesBuilderList() {
         return getLocationObjectTypesFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.TypeOrBuilder> 
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.TypeOrBuilder> 
           getLocationObjectTypesFieldBuilder() {
         if (locationObjectTypesBuilder_ == null) {
           locationObjectTypesBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.TypeOrBuilder>(
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.TypeOrBuilder>(
                   locationObjectTypes_,
                   ((bitField0_ & 0x00000004) == 0x00000004),
                   getParentForChildren(),
@@ -17904,23 +17904,23 @@ public final class GeProtocol {
         return locationObjectTypesBuilder_;
       }
 
-      // repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type bonusTypes = 4;
-      private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type> bonusTypes_ =
+      // repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type bonusTypes = 4;
+      private java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type> bonusTypes_ =
         java.util.Collections.emptyList();
       private void ensureBonusTypesIsMutable() {
         if (!((bitField0_ & 0x00000008) == 0x00000008)) {
-          bonusTypes_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type>(bonusTypes_);
+          bonusTypes_ = new java.util.ArrayList<arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type>(bonusTypes_);
           bitField0_ |= 0x00000008;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.TypeOrBuilder> bonusTypesBuilder_;
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.TypeOrBuilder> bonusTypesBuilder_;
 
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type bonusTypes = 4;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type bonusTypes = 4;</code>
        */
-      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type> getBonusTypesList() {
+      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type> getBonusTypesList() {
         if (bonusTypesBuilder_ == null) {
           return java.util.Collections.unmodifiableList(bonusTypes_);
         } else {
@@ -17928,7 +17928,7 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type bonusTypes = 4;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type bonusTypes = 4;</code>
        */
       public int getBonusTypesCount() {
         if (bonusTypesBuilder_ == null) {
@@ -17938,9 +17938,9 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type bonusTypes = 4;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type bonusTypes = 4;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type getBonusTypes(int index) {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type getBonusTypes(int index) {
         if (bonusTypesBuilder_ == null) {
           return bonusTypes_.get(index);
         } else {
@@ -17948,10 +17948,10 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type bonusTypes = 4;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type bonusTypes = 4;</code>
        */
       public Builder setBonusTypes(
-          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type value) {
+          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type value) {
         if (bonusTypesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -17965,10 +17965,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type bonusTypes = 4;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type bonusTypes = 4;</code>
        */
       public Builder setBonusTypes(
-          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.Builder builderForValue) {
+          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.Builder builderForValue) {
         if (bonusTypesBuilder_ == null) {
           ensureBonusTypesIsMutable();
           bonusTypes_.set(index, builderForValue.build());
@@ -17979,9 +17979,9 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type bonusTypes = 4;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type bonusTypes = 4;</code>
        */
-      public Builder addBonusTypes(arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type value) {
+      public Builder addBonusTypes(arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type value) {
         if (bonusTypesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -17995,10 +17995,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type bonusTypes = 4;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type bonusTypes = 4;</code>
        */
       public Builder addBonusTypes(
-          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type value) {
+          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type value) {
         if (bonusTypesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -18012,10 +18012,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type bonusTypes = 4;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type bonusTypes = 4;</code>
        */
       public Builder addBonusTypes(
-          arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.Builder builderForValue) {
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.Builder builderForValue) {
         if (bonusTypesBuilder_ == null) {
           ensureBonusTypesIsMutable();
           bonusTypes_.add(builderForValue.build());
@@ -18026,10 +18026,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type bonusTypes = 4;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type bonusTypes = 4;</code>
        */
       public Builder addBonusTypes(
-          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.Builder builderForValue) {
+          int index, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.Builder builderForValue) {
         if (bonusTypesBuilder_ == null) {
           ensureBonusTypesIsMutable();
           bonusTypes_.add(index, builderForValue.build());
@@ -18040,10 +18040,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type bonusTypes = 4;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type bonusTypes = 4;</code>
        */
       public Builder addAllBonusTypes(
-          java.lang.Iterable<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type> values) {
+          java.lang.Iterable<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type> values) {
         if (bonusTypesBuilder_ == null) {
           ensureBonusTypesIsMutable();
           super.addAll(values, bonusTypes_);
@@ -18054,7 +18054,7 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type bonusTypes = 4;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type bonusTypes = 4;</code>
        */
       public Builder clearBonusTypes() {
         if (bonusTypesBuilder_ == null) {
@@ -18067,7 +18067,7 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type bonusTypes = 4;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type bonusTypes = 4;</code>
        */
       public Builder removeBonusTypes(int index) {
         if (bonusTypesBuilder_ == null) {
@@ -18080,16 +18080,16 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type bonusTypes = 4;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type bonusTypes = 4;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.Builder getBonusTypesBuilder(
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.Builder getBonusTypesBuilder(
           int index) {
         return getBonusTypesFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type bonusTypes = 4;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type bonusTypes = 4;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.TypeOrBuilder getBonusTypesOrBuilder(
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.TypeOrBuilder getBonusTypesOrBuilder(
           int index) {
         if (bonusTypesBuilder_ == null) {
           return bonusTypes_.get(index);  } else {
@@ -18097,9 +18097,9 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type bonusTypes = 4;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type bonusTypes = 4;</code>
        */
-      public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.TypeOrBuilder> 
+      public java.util.List<? extends arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.TypeOrBuilder> 
            getBonusTypesOrBuilderList() {
         if (bonusTypesBuilder_ != null) {
           return bonusTypesBuilder_.getMessageOrBuilderList();
@@ -18108,33 +18108,33 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type bonusTypes = 4;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type bonusTypes = 4;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.Builder addBonusTypesBuilder() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.Builder addBonusTypesBuilder() {
         return getBonusTypesFieldBuilder().addBuilder(
-            arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.getDefaultInstance());
+            arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.getDefaultInstance());
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type bonusTypes = 4;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type bonusTypes = 4;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.Builder addBonusTypesBuilder(
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.Builder addBonusTypesBuilder(
           int index) {
         return getBonusTypesFieldBuilder().addBuilder(
-            index, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.getDefaultInstance());
+            index, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.getDefaultInstance());
       }
       /**
-       * <code>repeated .arch.galaxyeclipse.shared.protocol.TypesMapPacket.Type bonusTypes = 4;</code>
+       * <code>repeated .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket.Type bonusTypes = 4;</code>
        */
-      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.Builder> 
+      public java.util.List<arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.Builder> 
            getBonusTypesBuilderList() {
         return getBonusTypesFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.TypeOrBuilder> 
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.TypeOrBuilder> 
           getBonusTypesFieldBuilder() {
         if (bonusTypesBuilder_ == null) {
           bonusTypesBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Type.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.TypeOrBuilder>(
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Type.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.TypeOrBuilder>(
                   bonusTypes_,
                   ((bitField0_ & 0x00000008) == 0x00000008),
                   getParentForChildren(),
@@ -18144,81 +18144,81 @@ public final class GeProtocol {
         return bonusTypesBuilder_;
       }
 
-      // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.TypesMapPacket)
+      // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.GeTypesMapPacket)
     }
 
     static {
-      defaultInstance = new TypesMapPacket(true);
+      defaultInstance = new GeTypesMapPacket(true);
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.TypesMapPacket)
+    // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.GeTypesMapPacket)
   }
 
-  public interface StartupInfoPacketOrBuilder
+  public interface GeStartupInfoPacketOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // required .arch.galaxyeclipse.shared.protocol.LocationInfoPacket locationInfo = 1;
+    // required .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket locationInfo = 1;
     /**
-     * <code>required .arch.galaxyeclipse.shared.protocol.LocationInfoPacket locationInfo = 1;</code>
+     * <code>required .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket locationInfo = 1;</code>
      */
     boolean hasLocationInfo();
     /**
-     * <code>required .arch.galaxyeclipse.shared.protocol.LocationInfoPacket locationInfo = 1;</code>
+     * <code>required .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket locationInfo = 1;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket getLocationInfo();
+    arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket getLocationInfo();
     /**
-     * <code>required .arch.galaxyeclipse.shared.protocol.LocationInfoPacket locationInfo = 1;</code>
+     * <code>required .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket locationInfo = 1;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacketOrBuilder getLocationInfoOrBuilder();
+    arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacketOrBuilder getLocationInfoOrBuilder();
 
-    // required .arch.galaxyeclipse.shared.protocol.TypesMapPacket typesMap = 2;
+    // required .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket typesMap = 2;
     /**
-     * <code>required .arch.galaxyeclipse.shared.protocol.TypesMapPacket typesMap = 2;</code>
+     * <code>required .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket typesMap = 2;</code>
      */
     boolean hasTypesMap();
     /**
-     * <code>required .arch.galaxyeclipse.shared.protocol.TypesMapPacket typesMap = 2;</code>
+     * <code>required .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket typesMap = 2;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket getTypesMap();
+    arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket getTypesMap();
     /**
-     * <code>required .arch.galaxyeclipse.shared.protocol.TypesMapPacket typesMap = 2;</code>
+     * <code>required .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket typesMap = 2;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacketOrBuilder getTypesMapOrBuilder();
+    arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacketOrBuilder getTypesMapOrBuilder();
 
-    // required .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket shipStaticInfo = 3;
+    // required .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket shipStaticInfo = 3;
     /**
-     * <code>required .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket shipStaticInfo = 3;</code>
+     * <code>required .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket shipStaticInfo = 3;</code>
      */
     boolean hasShipStaticInfo();
     /**
-     * <code>required .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket shipStaticInfo = 3;</code>
+     * <code>required .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket shipStaticInfo = 3;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket getShipStaticInfo();
+    arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket getShipStaticInfo();
     /**
-     * <code>required .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket shipStaticInfo = 3;</code>
+     * <code>required .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket shipStaticInfo = 3;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacketOrBuilder getShipStaticInfoOrBuilder();
+    arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacketOrBuilder getShipStaticInfoOrBuilder();
   }
   /**
-   * Protobuf type {@code arch.galaxyeclipse.shared.protocol.StartupInfoPacket}
+   * Protobuf type {@code arch.galaxyeclipse.shared.protocol.GeStartupInfoPacket}
    */
-  public static final class StartupInfoPacket extends
+  public static final class GeStartupInfoPacket extends
       com.google.protobuf.GeneratedMessage
-      implements StartupInfoPacketOrBuilder {
-    // Use StartupInfoPacket.newBuilder() to construct.
-    private StartupInfoPacket(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      implements GeStartupInfoPacketOrBuilder {
+    // Use GeStartupInfoPacket.newBuilder() to construct.
+    private GeStartupInfoPacket(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private StartupInfoPacket(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private GeStartupInfoPacket(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
-    private static final StartupInfoPacket defaultInstance;
-    public static StartupInfoPacket getDefaultInstance() {
+    private static final GeStartupInfoPacket defaultInstance;
+    public static GeStartupInfoPacket getDefaultInstance() {
       return defaultInstance;
     }
 
-    public StartupInfoPacket getDefaultInstanceForType() {
+    public GeStartupInfoPacket getDefaultInstanceForType() {
       return defaultInstance;
     }
 
@@ -18228,7 +18228,7 @@ public final class GeProtocol {
         getUnknownFields() {
       return this.unknownFields;
     }
-    private StartupInfoPacket(
+    private GeStartupInfoPacket(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -18252,11 +18252,11 @@ public final class GeProtocol {
               break;
             }
             case 10: {
-              arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.Builder subBuilder = null;
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
                 subBuilder = locationInfo_.toBuilder();
               }
-              locationInfo_ = input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.PARSER, extensionRegistry);
+              locationInfo_ = input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.PARSER, extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(locationInfo_);
                 locationInfo_ = subBuilder.buildPartial();
@@ -18265,11 +18265,11 @@ public final class GeProtocol {
               break;
             }
             case 18: {
-              arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Builder subBuilder = null;
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Builder subBuilder = null;
               if (((bitField0_ & 0x00000002) == 0x00000002)) {
                 subBuilder = typesMap_.toBuilder();
               }
-              typesMap_ = input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.PARSER, extensionRegistry);
+              typesMap_ = input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.PARSER, extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(typesMap_);
                 typesMap_ = subBuilder.buildPartial();
@@ -18278,11 +18278,11 @@ public final class GeProtocol {
               break;
             }
             case 26: {
-              arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.Builder subBuilder = null;
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.Builder subBuilder = null;
               if (((bitField0_ & 0x00000004) == 0x00000004)) {
                 subBuilder = shipStaticInfo_.toBuilder();
               }
-              shipStaticInfo_ = input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.PARSER, extensionRegistry);
+              shipStaticInfo_ = input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.PARSER, extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(shipStaticInfo_);
                 shipStaticInfo_ = subBuilder.buildPartial();
@@ -18304,102 +18304,102 @@ public final class GeProtocol {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_StartupInfoPacket_descriptor;
+      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeStartupInfoPacket_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_StartupInfoPacket_fieldAccessorTable
+      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeStartupInfoPacket_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket.Builder.class);
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacket.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<StartupInfoPacket> PARSER =
-        new com.google.protobuf.AbstractParser<StartupInfoPacket>() {
-      public StartupInfoPacket parsePartialFrom(
+    public static com.google.protobuf.Parser<GeStartupInfoPacket> PARSER =
+        new com.google.protobuf.AbstractParser<GeStartupInfoPacket>() {
+      public GeStartupInfoPacket parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new StartupInfoPacket(input, extensionRegistry);
+        return new GeStartupInfoPacket(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<StartupInfoPacket> getParserForType() {
+    public com.google.protobuf.Parser<GeStartupInfoPacket> getParserForType() {
       return PARSER;
     }
 
     private int bitField0_;
-    // required .arch.galaxyeclipse.shared.protocol.LocationInfoPacket locationInfo = 1;
+    // required .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket locationInfo = 1;
     public static final int LOCATIONINFO_FIELD_NUMBER = 1;
-    private arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket locationInfo_;
+    private arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket locationInfo_;
     /**
-     * <code>required .arch.galaxyeclipse.shared.protocol.LocationInfoPacket locationInfo = 1;</code>
+     * <code>required .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket locationInfo = 1;</code>
      */
     public boolean hasLocationInfo() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required .arch.galaxyeclipse.shared.protocol.LocationInfoPacket locationInfo = 1;</code>
+     * <code>required .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket locationInfo = 1;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket getLocationInfo() {
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket getLocationInfo() {
       return locationInfo_;
     }
     /**
-     * <code>required .arch.galaxyeclipse.shared.protocol.LocationInfoPacket locationInfo = 1;</code>
+     * <code>required .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket locationInfo = 1;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacketOrBuilder getLocationInfoOrBuilder() {
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacketOrBuilder getLocationInfoOrBuilder() {
       return locationInfo_;
     }
 
-    // required .arch.galaxyeclipse.shared.protocol.TypesMapPacket typesMap = 2;
+    // required .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket typesMap = 2;
     public static final int TYPESMAP_FIELD_NUMBER = 2;
-    private arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket typesMap_;
+    private arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket typesMap_;
     /**
-     * <code>required .arch.galaxyeclipse.shared.protocol.TypesMapPacket typesMap = 2;</code>
+     * <code>required .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket typesMap = 2;</code>
      */
     public boolean hasTypesMap() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>required .arch.galaxyeclipse.shared.protocol.TypesMapPacket typesMap = 2;</code>
+     * <code>required .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket typesMap = 2;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket getTypesMap() {
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket getTypesMap() {
       return typesMap_;
     }
     /**
-     * <code>required .arch.galaxyeclipse.shared.protocol.TypesMapPacket typesMap = 2;</code>
+     * <code>required .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket typesMap = 2;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacketOrBuilder getTypesMapOrBuilder() {
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacketOrBuilder getTypesMapOrBuilder() {
       return typesMap_;
     }
 
-    // required .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket shipStaticInfo = 3;
+    // required .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket shipStaticInfo = 3;
     public static final int SHIPSTATICINFO_FIELD_NUMBER = 3;
-    private arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket shipStaticInfo_;
+    private arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket shipStaticInfo_;
     /**
-     * <code>required .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket shipStaticInfo = 3;</code>
+     * <code>required .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket shipStaticInfo = 3;</code>
      */
     public boolean hasShipStaticInfo() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>required .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket shipStaticInfo = 3;</code>
+     * <code>required .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket shipStaticInfo = 3;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket getShipStaticInfo() {
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket getShipStaticInfo() {
       return shipStaticInfo_;
     }
     /**
-     * <code>required .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket shipStaticInfo = 3;</code>
+     * <code>required .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket shipStaticInfo = 3;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacketOrBuilder getShipStaticInfoOrBuilder() {
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacketOrBuilder getShipStaticInfoOrBuilder() {
       return shipStaticInfo_;
     }
 
     private void initFields() {
-      locationInfo_ = arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.getDefaultInstance();
-      typesMap_ = arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.getDefaultInstance();
-      shipStaticInfo_ = arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.getDefaultInstance();
+      locationInfo_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.getDefaultInstance();
+      typesMap_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.getDefaultInstance();
+      shipStaticInfo_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.getDefaultInstance();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -18479,53 +18479,53 @@ public final class GeProtocol {
       return super.writeReplace();
     }
 
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacket parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacket parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket parseFrom(byte[] data)
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacket parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacket parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket parseFrom(java.io.InputStream input)
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacket parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacket parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket parseDelimitedFrom(java.io.InputStream input)
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacket parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket parseDelimitedFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacket parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacket parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacket parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -18534,7 +18534,7 @@ public final class GeProtocol {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket prototype) {
+    public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacket prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -18546,24 +18546,24 @@ public final class GeProtocol {
       return builder;
     }
     /**
-     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.StartupInfoPacket}
+     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.GeStartupInfoPacket}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacketOrBuilder {
+       implements arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacketOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_StartupInfoPacket_descriptor;
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeStartupInfoPacket_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_StartupInfoPacket_fieldAccessorTable
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeStartupInfoPacket_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket.Builder.class);
+                arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacket.Builder.class);
       }
 
-      // Construct using arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket.newBuilder()
+      // Construct using arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacket.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -18587,19 +18587,19 @@ public final class GeProtocol {
       public Builder clear() {
         super.clear();
         if (locationInfoBuilder_ == null) {
-          locationInfo_ = arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.getDefaultInstance();
+          locationInfo_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.getDefaultInstance();
         } else {
           locationInfoBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000001);
         if (typesMapBuilder_ == null) {
-          typesMap_ = arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.getDefaultInstance();
+          typesMap_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.getDefaultInstance();
         } else {
           typesMapBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000002);
         if (shipStaticInfoBuilder_ == null) {
-          shipStaticInfo_ = arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.getDefaultInstance();
+          shipStaticInfo_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.getDefaultInstance();
         } else {
           shipStaticInfoBuilder_.clear();
         }
@@ -18613,23 +18613,23 @@ public final class GeProtocol {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_StartupInfoPacket_descriptor;
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeStartupInfoPacket_descriptor;
       }
 
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket getDefaultInstanceForType() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket.getDefaultInstance();
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacket getDefaultInstanceForType() {
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacket.getDefaultInstance();
       }
 
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket build() {
-        arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket result = buildPartial();
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacket build() {
+        arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacket result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket buildPartial() {
-        arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket result = new arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket(this);
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacket buildPartial() {
+        arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacket result = new arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacket(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -18662,16 +18662,16 @@ public final class GeProtocol {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket) {
-          return mergeFrom((arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket)other);
+        if (other instanceof arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacket) {
+          return mergeFrom((arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacket)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket other) {
-        if (other == arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket.getDefaultInstance()) return this;
+      public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacket other) {
+        if (other == arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacket.getDefaultInstance()) return this;
         if (other.hasLocationInfo()) {
           mergeLocationInfo(other.getLocationInfo());
         }
@@ -18717,11 +18717,11 @@ public final class GeProtocol {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket parsedMessage = null;
+        arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacket parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (arch.galaxyeclipse.shared.protocol.GeProtocol.StartupInfoPacket) e.getUnfinishedMessage();
+          parsedMessage = (arch.galaxyeclipse.shared.protocol.GeProtocol.GeStartupInfoPacket) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -18732,20 +18732,20 @@ public final class GeProtocol {
       }
       private int bitField0_;
 
-      // required .arch.galaxyeclipse.shared.protocol.LocationInfoPacket locationInfo = 1;
-      private arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket locationInfo_ = arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.getDefaultInstance();
+      // required .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket locationInfo = 1;
+      private arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket locationInfo_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacketOrBuilder> locationInfoBuilder_;
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacketOrBuilder> locationInfoBuilder_;
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.LocationInfoPacket locationInfo = 1;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket locationInfo = 1;</code>
        */
       public boolean hasLocationInfo() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.LocationInfoPacket locationInfo = 1;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket locationInfo = 1;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket getLocationInfo() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket getLocationInfo() {
         if (locationInfoBuilder_ == null) {
           return locationInfo_;
         } else {
@@ -18753,9 +18753,9 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.LocationInfoPacket locationInfo = 1;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket locationInfo = 1;</code>
        */
-      public Builder setLocationInfo(arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket value) {
+      public Builder setLocationInfo(arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket value) {
         if (locationInfoBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -18769,10 +18769,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.LocationInfoPacket locationInfo = 1;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket locationInfo = 1;</code>
        */
       public Builder setLocationInfo(
-          arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.Builder builderForValue) {
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.Builder builderForValue) {
         if (locationInfoBuilder_ == null) {
           locationInfo_ = builderForValue.build();
           onChanged();
@@ -18783,14 +18783,14 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.LocationInfoPacket locationInfo = 1;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket locationInfo = 1;</code>
        */
-      public Builder mergeLocationInfo(arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket value) {
+      public Builder mergeLocationInfo(arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket value) {
         if (locationInfoBuilder_ == null) {
           if (((bitField0_ & 0x00000001) == 0x00000001) &&
-              locationInfo_ != arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.getDefaultInstance()) {
+              locationInfo_ != arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.getDefaultInstance()) {
             locationInfo_ =
-              arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.newBuilder(locationInfo_).mergeFrom(value).buildPartial();
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.newBuilder(locationInfo_).mergeFrom(value).buildPartial();
           } else {
             locationInfo_ = value;
           }
@@ -18802,11 +18802,11 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.LocationInfoPacket locationInfo = 1;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket locationInfo = 1;</code>
        */
       public Builder clearLocationInfo() {
         if (locationInfoBuilder_ == null) {
-          locationInfo_ = arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.getDefaultInstance();
+          locationInfo_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.getDefaultInstance();
           onChanged();
         } else {
           locationInfoBuilder_.clear();
@@ -18815,17 +18815,17 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.LocationInfoPacket locationInfo = 1;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket locationInfo = 1;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.Builder getLocationInfoBuilder() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.Builder getLocationInfoBuilder() {
         bitField0_ |= 0x00000001;
         onChanged();
         return getLocationInfoFieldBuilder().getBuilder();
       }
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.LocationInfoPacket locationInfo = 1;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket locationInfo = 1;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacketOrBuilder getLocationInfoOrBuilder() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacketOrBuilder getLocationInfoOrBuilder() {
         if (locationInfoBuilder_ != null) {
           return locationInfoBuilder_.getMessageOrBuilder();
         } else {
@@ -18833,14 +18833,14 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.LocationInfoPacket locationInfo = 1;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GeLocationInfoPacket locationInfo = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacketOrBuilder> 
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacketOrBuilder> 
           getLocationInfoFieldBuilder() {
         if (locationInfoBuilder_ == null) {
           locationInfoBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.LocationInfoPacketOrBuilder>(
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacketOrBuilder>(
                   locationInfo_,
                   getParentForChildren(),
                   isClean());
@@ -18849,20 +18849,20 @@ public final class GeProtocol {
         return locationInfoBuilder_;
       }
 
-      // required .arch.galaxyeclipse.shared.protocol.TypesMapPacket typesMap = 2;
-      private arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket typesMap_ = arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.getDefaultInstance();
+      // required .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket typesMap = 2;
+      private arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket typesMap_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacketOrBuilder> typesMapBuilder_;
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacketOrBuilder> typesMapBuilder_;
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.TypesMapPacket typesMap = 2;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket typesMap = 2;</code>
        */
       public boolean hasTypesMap() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.TypesMapPacket typesMap = 2;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket typesMap = 2;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket getTypesMap() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket getTypesMap() {
         if (typesMapBuilder_ == null) {
           return typesMap_;
         } else {
@@ -18870,9 +18870,9 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.TypesMapPacket typesMap = 2;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket typesMap = 2;</code>
        */
-      public Builder setTypesMap(arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket value) {
+      public Builder setTypesMap(arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket value) {
         if (typesMapBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -18886,10 +18886,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.TypesMapPacket typesMap = 2;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket typesMap = 2;</code>
        */
       public Builder setTypesMap(
-          arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Builder builderForValue) {
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Builder builderForValue) {
         if (typesMapBuilder_ == null) {
           typesMap_ = builderForValue.build();
           onChanged();
@@ -18900,14 +18900,14 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.TypesMapPacket typesMap = 2;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket typesMap = 2;</code>
        */
-      public Builder mergeTypesMap(arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket value) {
+      public Builder mergeTypesMap(arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket value) {
         if (typesMapBuilder_ == null) {
           if (((bitField0_ & 0x00000002) == 0x00000002) &&
-              typesMap_ != arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.getDefaultInstance()) {
+              typesMap_ != arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.getDefaultInstance()) {
             typesMap_ =
-              arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.newBuilder(typesMap_).mergeFrom(value).buildPartial();
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.newBuilder(typesMap_).mergeFrom(value).buildPartial();
           } else {
             typesMap_ = value;
           }
@@ -18919,11 +18919,11 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.TypesMapPacket typesMap = 2;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket typesMap = 2;</code>
        */
       public Builder clearTypesMap() {
         if (typesMapBuilder_ == null) {
-          typesMap_ = arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.getDefaultInstance();
+          typesMap_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.getDefaultInstance();
           onChanged();
         } else {
           typesMapBuilder_.clear();
@@ -18932,17 +18932,17 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.TypesMapPacket typesMap = 2;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket typesMap = 2;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Builder getTypesMapBuilder() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Builder getTypesMapBuilder() {
         bitField0_ |= 0x00000002;
         onChanged();
         return getTypesMapFieldBuilder().getBuilder();
       }
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.TypesMapPacket typesMap = 2;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket typesMap = 2;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacketOrBuilder getTypesMapOrBuilder() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacketOrBuilder getTypesMapOrBuilder() {
         if (typesMapBuilder_ != null) {
           return typesMapBuilder_.getMessageOrBuilder();
         } else {
@@ -18950,14 +18950,14 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.TypesMapPacket typesMap = 2;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GeTypesMapPacket typesMap = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacketOrBuilder> 
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacketOrBuilder> 
           getTypesMapFieldBuilder() {
         if (typesMapBuilder_ == null) {
           typesMapBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.TypesMapPacketOrBuilder>(
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeTypesMapPacketOrBuilder>(
                   typesMap_,
                   getParentForChildren(),
                   isClean());
@@ -18966,20 +18966,20 @@ public final class GeProtocol {
         return typesMapBuilder_;
       }
 
-      // required .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket shipStaticInfo = 3;
-      private arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket shipStaticInfo_ = arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.getDefaultInstance();
+      // required .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket shipStaticInfo = 3;
+      private arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket shipStaticInfo_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacketOrBuilder> shipStaticInfoBuilder_;
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacketOrBuilder> shipStaticInfoBuilder_;
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket shipStaticInfo = 3;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket shipStaticInfo = 3;</code>
        */
       public boolean hasShipStaticInfo() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket shipStaticInfo = 3;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket shipStaticInfo = 3;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket getShipStaticInfo() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket getShipStaticInfo() {
         if (shipStaticInfoBuilder_ == null) {
           return shipStaticInfo_;
         } else {
@@ -18987,9 +18987,9 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket shipStaticInfo = 3;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket shipStaticInfo = 3;</code>
        */
-      public Builder setShipStaticInfo(arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket value) {
+      public Builder setShipStaticInfo(arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket value) {
         if (shipStaticInfoBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -19003,10 +19003,10 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket shipStaticInfo = 3;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket shipStaticInfo = 3;</code>
        */
       public Builder setShipStaticInfo(
-          arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.Builder builderForValue) {
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.Builder builderForValue) {
         if (shipStaticInfoBuilder_ == null) {
           shipStaticInfo_ = builderForValue.build();
           onChanged();
@@ -19017,14 +19017,14 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket shipStaticInfo = 3;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket shipStaticInfo = 3;</code>
        */
-      public Builder mergeShipStaticInfo(arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket value) {
+      public Builder mergeShipStaticInfo(arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket value) {
         if (shipStaticInfoBuilder_ == null) {
           if (((bitField0_ & 0x00000004) == 0x00000004) &&
-              shipStaticInfo_ != arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.getDefaultInstance()) {
+              shipStaticInfo_ != arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.getDefaultInstance()) {
             shipStaticInfo_ =
-              arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.newBuilder(shipStaticInfo_).mergeFrom(value).buildPartial();
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.newBuilder(shipStaticInfo_).mergeFrom(value).buildPartial();
           } else {
             shipStaticInfo_ = value;
           }
@@ -19036,11 +19036,11 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket shipStaticInfo = 3;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket shipStaticInfo = 3;</code>
        */
       public Builder clearShipStaticInfo() {
         if (shipStaticInfoBuilder_ == null) {
-          shipStaticInfo_ = arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.getDefaultInstance();
+          shipStaticInfo_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.getDefaultInstance();
           onChanged();
         } else {
           shipStaticInfoBuilder_.clear();
@@ -19049,17 +19049,17 @@ public final class GeProtocol {
         return this;
       }
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket shipStaticInfo = 3;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket shipStaticInfo = 3;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.Builder getShipStaticInfoBuilder() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.Builder getShipStaticInfoBuilder() {
         bitField0_ |= 0x00000004;
         onChanged();
         return getShipStaticInfoFieldBuilder().getBuilder();
       }
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket shipStaticInfo = 3;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket shipStaticInfo = 3;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacketOrBuilder getShipStaticInfoOrBuilder() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacketOrBuilder getShipStaticInfoOrBuilder() {
         if (shipStaticInfoBuilder_ != null) {
           return shipStaticInfoBuilder_.getMessageOrBuilder();
         } else {
@@ -19067,14 +19067,14 @@ public final class GeProtocol {
         }
       }
       /**
-       * <code>required .arch.galaxyeclipse.shared.protocol.ShipStaticInfoPacket shipStaticInfo = 3;</code>
+       * <code>required .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket shipStaticInfo = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacketOrBuilder> 
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacketOrBuilder> 
           getShipStaticInfoFieldBuilder() {
         if (shipStaticInfoBuilder_ == null) {
           shipStaticInfoBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoPacketOrBuilder>(
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacketOrBuilder>(
                   shipStaticInfo_,
                   getParentForChildren(),
                   isClean());
@@ -19083,18 +19083,18 @@ public final class GeProtocol {
         return shipStaticInfoBuilder_;
       }
 
-      // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.StartupInfoPacket)
+      // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.GeStartupInfoPacket)
     }
 
     static {
-      defaultInstance = new StartupInfoPacket(true);
+      defaultInstance = new GeStartupInfoPacket(true);
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.StartupInfoPacket)
+    // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.GeStartupInfoPacket)
   }
 
-  public interface ShipStaticInfoCommandPacketOrBuilder
+  public interface GeShipStaticInfoCommandPacketOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
     // required bytes serializedCommand = 1;
@@ -19108,24 +19108,24 @@ public final class GeProtocol {
     com.google.protobuf.ByteString getSerializedCommand();
   }
   /**
-   * Protobuf type {@code arch.galaxyeclipse.shared.protocol.ShipStaticInfoCommandPacket}
+   * Protobuf type {@code arch.galaxyeclipse.shared.protocol.GeShipStaticInfoCommandPacket}
    */
-  public static final class ShipStaticInfoCommandPacket extends
+  public static final class GeShipStaticInfoCommandPacket extends
       com.google.protobuf.GeneratedMessage
-      implements ShipStaticInfoCommandPacketOrBuilder {
-    // Use ShipStaticInfoCommandPacket.newBuilder() to construct.
-    private ShipStaticInfoCommandPacket(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      implements GeShipStaticInfoCommandPacketOrBuilder {
+    // Use GeShipStaticInfoCommandPacket.newBuilder() to construct.
+    private GeShipStaticInfoCommandPacket(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private ShipStaticInfoCommandPacket(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private GeShipStaticInfoCommandPacket(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
-    private static final ShipStaticInfoCommandPacket defaultInstance;
-    public static ShipStaticInfoCommandPacket getDefaultInstance() {
+    private static final GeShipStaticInfoCommandPacket defaultInstance;
+    public static GeShipStaticInfoCommandPacket getDefaultInstance() {
       return defaultInstance;
     }
 
-    public ShipStaticInfoCommandPacket getDefaultInstanceForType() {
+    public GeShipStaticInfoCommandPacket getDefaultInstanceForType() {
       return defaultInstance;
     }
 
@@ -19135,7 +19135,7 @@ public final class GeProtocol {
         getUnknownFields() {
       return this.unknownFields;
     }
-    private ShipStaticInfoCommandPacket(
+    private GeShipStaticInfoCommandPacket(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -19177,28 +19177,28 @@ public final class GeProtocol {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoCommandPacket_descriptor;
+      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoCommandPacket_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoCommandPacket_fieldAccessorTable
+      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoCommandPacket_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacket.Builder.class);
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacket.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<ShipStaticInfoCommandPacket> PARSER =
-        new com.google.protobuf.AbstractParser<ShipStaticInfoCommandPacket>() {
-      public ShipStaticInfoCommandPacket parsePartialFrom(
+    public static com.google.protobuf.Parser<GeShipStaticInfoCommandPacket> PARSER =
+        new com.google.protobuf.AbstractParser<GeShipStaticInfoCommandPacket>() {
+      public GeShipStaticInfoCommandPacket parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ShipStaticInfoCommandPacket(input, extensionRegistry);
+        return new GeShipStaticInfoCommandPacket(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<ShipStaticInfoCommandPacket> getParserForType() {
+    public com.google.protobuf.Parser<GeShipStaticInfoCommandPacket> getParserForType() {
       return PARSER;
     }
 
@@ -19266,53 +19266,53 @@ public final class GeProtocol {
       return super.writeReplace();
     }
 
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacket parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacket parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacket parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacket parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacket parseFrom(byte[] data)
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacket parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacket parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacket parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacket parseFrom(java.io.InputStream input)
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacket parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacket parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacket parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacket parseDelimitedFrom(java.io.InputStream input)
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacket parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacket parseDelimitedFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacket parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacket parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacket parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacket parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacket parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -19321,7 +19321,7 @@ public final class GeProtocol {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacket prototype) {
+    public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacket prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -19333,24 +19333,24 @@ public final class GeProtocol {
       return builder;
     }
     /**
-     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.ShipStaticInfoCommandPacket}
+     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.GeShipStaticInfoCommandPacket}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacketOrBuilder {
+       implements arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacketOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoCommandPacket_descriptor;
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoCommandPacket_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoCommandPacket_fieldAccessorTable
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoCommandPacket_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacket.Builder.class);
+                arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacket.Builder.class);
       }
 
-      // Construct using arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacket.newBuilder()
+      // Construct using arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacket.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -19381,23 +19381,23 @@ public final class GeProtocol {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoCommandPacket_descriptor;
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoCommandPacket_descriptor;
       }
 
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacket getDefaultInstanceForType() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacket.getDefaultInstance();
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacket getDefaultInstanceForType() {
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacket.getDefaultInstance();
       }
 
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacket build() {
-        arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacket result = buildPartial();
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacket build() {
+        arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacket result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacket buildPartial() {
-        arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacket result = new arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacket(this);
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacket buildPartial() {
+        arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacket result = new arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacket(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -19410,16 +19410,16 @@ public final class GeProtocol {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacket) {
-          return mergeFrom((arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacket)other);
+        if (other instanceof arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacket) {
+          return mergeFrom((arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacket)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacket other) {
-        if (other == arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacket.getDefaultInstance()) return this;
+      public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacket other) {
+        if (other == arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacket.getDefaultInstance()) return this;
         if (other.hasSerializedCommand()) {
           setSerializedCommand(other.getSerializedCommand());
         }
@@ -19439,11 +19439,11 @@ public final class GeProtocol {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacket parsedMessage = null;
+        arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacket parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (arch.galaxyeclipse.shared.protocol.GeProtocol.ShipStaticInfoCommandPacket) e.getUnfinishedMessage();
+          parsedMessage = (arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoCommandPacket) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -19490,18 +19490,18 @@ public final class GeProtocol {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.ShipStaticInfoCommandPacket)
+      // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.GeShipStaticInfoCommandPacket)
     }
 
     static {
-      defaultInstance = new ShipStaticInfoCommandPacket(true);
+      defaultInstance = new GeShipStaticInfoCommandPacket(true);
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.ShipStaticInfoCommandPacket)
+    // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.GeShipStaticInfoCommandPacket)
   }
 
-  public interface ChatSendMessagePacketOrBuilder
+  public interface GeChatSendMessagePacketOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
     // required string message = 1;
@@ -19520,24 +19520,24 @@ public final class GeProtocol {
         getMessageBytes();
   }
   /**
-   * Protobuf type {@code arch.galaxyeclipse.shared.protocol.ChatSendMessagePacket}
+   * Protobuf type {@code arch.galaxyeclipse.shared.protocol.GeChatSendMessagePacket}
    */
-  public static final class ChatSendMessagePacket extends
+  public static final class GeChatSendMessagePacket extends
       com.google.protobuf.GeneratedMessage
-      implements ChatSendMessagePacketOrBuilder {
-    // Use ChatSendMessagePacket.newBuilder() to construct.
-    private ChatSendMessagePacket(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      implements GeChatSendMessagePacketOrBuilder {
+    // Use GeChatSendMessagePacket.newBuilder() to construct.
+    private GeChatSendMessagePacket(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private ChatSendMessagePacket(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private GeChatSendMessagePacket(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
-    private static final ChatSendMessagePacket defaultInstance;
-    public static ChatSendMessagePacket getDefaultInstance() {
+    private static final GeChatSendMessagePacket defaultInstance;
+    public static GeChatSendMessagePacket getDefaultInstance() {
       return defaultInstance;
     }
 
-    public ChatSendMessagePacket getDefaultInstanceForType() {
+    public GeChatSendMessagePacket getDefaultInstanceForType() {
       return defaultInstance;
     }
 
@@ -19547,7 +19547,7 @@ public final class GeProtocol {
         getUnknownFields() {
       return this.unknownFields;
     }
-    private ChatSendMessagePacket(
+    private GeChatSendMessagePacket(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -19589,28 +19589,28 @@ public final class GeProtocol {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ChatSendMessagePacket_descriptor;
+      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeChatSendMessagePacket_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ChatSendMessagePacket_fieldAccessorTable
+      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeChatSendMessagePacket_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacket.Builder.class);
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacket.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<ChatSendMessagePacket> PARSER =
-        new com.google.protobuf.AbstractParser<ChatSendMessagePacket>() {
-      public ChatSendMessagePacket parsePartialFrom(
+    public static com.google.protobuf.Parser<GeChatSendMessagePacket> PARSER =
+        new com.google.protobuf.AbstractParser<GeChatSendMessagePacket>() {
+      public GeChatSendMessagePacket parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ChatSendMessagePacket(input, extensionRegistry);
+        return new GeChatSendMessagePacket(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<ChatSendMessagePacket> getParserForType() {
+    public com.google.protobuf.Parser<GeChatSendMessagePacket> getParserForType() {
       return PARSER;
     }
 
@@ -19705,53 +19705,53 @@ public final class GeProtocol {
       return super.writeReplace();
     }
 
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacket parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacket parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacket parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacket parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacket parseFrom(byte[] data)
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacket parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacket parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacket parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacket parseFrom(java.io.InputStream input)
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacket parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacket parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacket parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacket parseDelimitedFrom(java.io.InputStream input)
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacket parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacket parseDelimitedFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacket parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacket parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacket parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacket parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacket parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -19760,7 +19760,7 @@ public final class GeProtocol {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacket prototype) {
+    public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacket prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -19772,24 +19772,24 @@ public final class GeProtocol {
       return builder;
     }
     /**
-     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.ChatSendMessagePacket}
+     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.GeChatSendMessagePacket}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacketOrBuilder {
+       implements arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacketOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ChatSendMessagePacket_descriptor;
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeChatSendMessagePacket_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ChatSendMessagePacket_fieldAccessorTable
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeChatSendMessagePacket_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacket.Builder.class);
+                arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacket.Builder.class);
       }
 
-      // Construct using arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacket.newBuilder()
+      // Construct using arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacket.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -19820,23 +19820,23 @@ public final class GeProtocol {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ChatSendMessagePacket_descriptor;
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeChatSendMessagePacket_descriptor;
       }
 
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacket getDefaultInstanceForType() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacket.getDefaultInstance();
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacket getDefaultInstanceForType() {
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacket.getDefaultInstance();
       }
 
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacket build() {
-        arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacket result = buildPartial();
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacket build() {
+        arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacket result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacket buildPartial() {
-        arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacket result = new arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacket(this);
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacket buildPartial() {
+        arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacket result = new arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacket(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -19849,16 +19849,16 @@ public final class GeProtocol {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacket) {
-          return mergeFrom((arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacket)other);
+        if (other instanceof arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacket) {
+          return mergeFrom((arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacket)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacket other) {
-        if (other == arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacket.getDefaultInstance()) return this;
+      public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacket other) {
+        if (other == arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacket.getDefaultInstance()) return this;
         if (other.hasMessage()) {
           bitField0_ |= 0x00000001;
           message_ = other.message_;
@@ -19880,11 +19880,11 @@ public final class GeProtocol {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacket parsedMessage = null;
+        arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacket parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (arch.galaxyeclipse.shared.protocol.GeProtocol.ChatSendMessagePacket) e.getUnfinishedMessage();
+          parsedMessage = (arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatSendMessagePacket) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -19969,18 +19969,18 @@ public final class GeProtocol {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.ChatSendMessagePacket)
+      // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.GeChatSendMessagePacket)
     }
 
     static {
-      defaultInstance = new ChatSendMessagePacket(true);
+      defaultInstance = new GeChatSendMessagePacket(true);
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.ChatSendMessagePacket)
+    // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.GeChatSendMessagePacket)
   }
 
-  public interface ChatReceiveMessagePacketOrBuilder
+  public interface GeChatReceiveMessagePacketOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
     // required string message = 1;
@@ -20014,24 +20014,24 @@ public final class GeProtocol {
         getSenderBytes();
   }
   /**
-   * Protobuf type {@code arch.galaxyeclipse.shared.protocol.ChatReceiveMessagePacket}
+   * Protobuf type {@code arch.galaxyeclipse.shared.protocol.GeChatReceiveMessagePacket}
    */
-  public static final class ChatReceiveMessagePacket extends
+  public static final class GeChatReceiveMessagePacket extends
       com.google.protobuf.GeneratedMessage
-      implements ChatReceiveMessagePacketOrBuilder {
-    // Use ChatReceiveMessagePacket.newBuilder() to construct.
-    private ChatReceiveMessagePacket(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      implements GeChatReceiveMessagePacketOrBuilder {
+    // Use GeChatReceiveMessagePacket.newBuilder() to construct.
+    private GeChatReceiveMessagePacket(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private ChatReceiveMessagePacket(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private GeChatReceiveMessagePacket(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
-    private static final ChatReceiveMessagePacket defaultInstance;
-    public static ChatReceiveMessagePacket getDefaultInstance() {
+    private static final GeChatReceiveMessagePacket defaultInstance;
+    public static GeChatReceiveMessagePacket getDefaultInstance() {
       return defaultInstance;
     }
 
-    public ChatReceiveMessagePacket getDefaultInstanceForType() {
+    public GeChatReceiveMessagePacket getDefaultInstanceForType() {
       return defaultInstance;
     }
 
@@ -20041,7 +20041,7 @@ public final class GeProtocol {
         getUnknownFields() {
       return this.unknownFields;
     }
-    private ChatReceiveMessagePacket(
+    private GeChatReceiveMessagePacket(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -20088,28 +20088,28 @@ public final class GeProtocol {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ChatReceiveMessagePacket_descriptor;
+      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeChatReceiveMessagePacket_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ChatReceiveMessagePacket_fieldAccessorTable
+      return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeChatReceiveMessagePacket_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacket.Builder.class);
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacket.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<ChatReceiveMessagePacket> PARSER =
-        new com.google.protobuf.AbstractParser<ChatReceiveMessagePacket>() {
-      public ChatReceiveMessagePacket parsePartialFrom(
+    public static com.google.protobuf.Parser<GeChatReceiveMessagePacket> PARSER =
+        new com.google.protobuf.AbstractParser<GeChatReceiveMessagePacket>() {
+      public GeChatReceiveMessagePacket parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ChatReceiveMessagePacket(input, extensionRegistry);
+        return new GeChatReceiveMessagePacket(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<ChatReceiveMessagePacket> getParserForType() {
+    public com.google.protobuf.Parser<GeChatReceiveMessagePacket> getParserForType() {
       return PARSER;
     }
 
@@ -20259,53 +20259,53 @@ public final class GeProtocol {
       return super.writeReplace();
     }
 
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacket parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacket parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacket parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacket parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacket parseFrom(byte[] data)
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacket parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacket parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacket parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacket parseFrom(java.io.InputStream input)
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacket parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacket parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacket parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacket parseDelimitedFrom(java.io.InputStream input)
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacket parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacket parseDelimitedFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacket parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacket parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacket parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacket parseFrom(
+    public static arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacket parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -20314,7 +20314,7 @@ public final class GeProtocol {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacket prototype) {
+    public static Builder newBuilder(arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacket prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -20326,24 +20326,24 @@ public final class GeProtocol {
       return builder;
     }
     /**
-     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.ChatReceiveMessagePacket}
+     * Protobuf type {@code arch.galaxyeclipse.shared.protocol.GeChatReceiveMessagePacket}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacketOrBuilder {
+       implements arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacketOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ChatReceiveMessagePacket_descriptor;
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeChatReceiveMessagePacket_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ChatReceiveMessagePacket_fieldAccessorTable
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeChatReceiveMessagePacket_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacket.Builder.class);
+                arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacket.class, arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacket.Builder.class);
       }
 
-      // Construct using arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacket.newBuilder()
+      // Construct using arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacket.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -20376,23 +20376,23 @@ public final class GeProtocol {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_ChatReceiveMessagePacket_descriptor;
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.internal_static_arch_galaxyeclipse_shared_protocol_GeChatReceiveMessagePacket_descriptor;
       }
 
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacket getDefaultInstanceForType() {
-        return arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacket.getDefaultInstance();
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacket getDefaultInstanceForType() {
+        return arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacket.getDefaultInstance();
       }
 
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacket build() {
-        arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacket result = buildPartial();
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacket build() {
+        arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacket result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacket buildPartial() {
-        arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacket result = new arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacket(this);
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacket buildPartial() {
+        arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacket result = new arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacket(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -20409,16 +20409,16 @@ public final class GeProtocol {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacket) {
-          return mergeFrom((arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacket)other);
+        if (other instanceof arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacket) {
+          return mergeFrom((arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacket)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacket other) {
-        if (other == arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacket.getDefaultInstance()) return this;
+      public Builder mergeFrom(arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacket other) {
+        if (other == arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacket.getDefaultInstance()) return this;
         if (other.hasMessage()) {
           bitField0_ |= 0x00000001;
           message_ = other.message_;
@@ -20449,11 +20449,11 @@ public final class GeProtocol {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacket parsedMessage = null;
+        arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacket parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (arch.galaxyeclipse.shared.protocol.GeProtocol.ChatReceiveMessagePacket) e.getUnfinishedMessage();
+          parsedMessage = (arch.galaxyeclipse.shared.protocol.GeProtocol.GeChatReceiveMessagePacket) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -20612,127 +20612,127 @@ public final class GeProtocol {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.ChatReceiveMessagePacket)
+      // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.GeChatReceiveMessagePacket)
     }
 
     static {
-      defaultInstance = new ChatReceiveMessagePacket(true);
+      defaultInstance = new GeChatReceiveMessagePacket(true);
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.ChatReceiveMessagePacket)
+    // @@protoc_insertion_point(class_scope:arch.galaxyeclipse.shared.protocol.GeChatReceiveMessagePacket)
   }
 
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_arch_galaxyeclipse_shared_protocol_Packet_descriptor;
+    internal_static_arch_galaxyeclipse_shared_protocol_GePacket_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_arch_galaxyeclipse_shared_protocol_Packet_fieldAccessorTable;
+      internal_static_arch_galaxyeclipse_shared_protocol_GePacket_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_arch_galaxyeclipse_shared_protocol_DynamicObjectsRequest_descriptor;
+    internal_static_arch_galaxyeclipse_shared_protocol_GeDynamicObjectsRequest_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_arch_galaxyeclipse_shared_protocol_DynamicObjectsRequest_fieldAccessorTable;
+      internal_static_arch_galaxyeclipse_shared_protocol_GeDynamicObjectsRequest_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_arch_galaxyeclipse_shared_protocol_DynamicObjectsResponse_descriptor;
+    internal_static_arch_galaxyeclipse_shared_protocol_GeDynamicObjectsResponse_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_arch_galaxyeclipse_shared_protocol_DynamicObjectsResponse_fieldAccessorTable;
+      internal_static_arch_galaxyeclipse_shared_protocol_GeDynamicObjectsResponse_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_arch_galaxyeclipse_shared_protocol_ShipStateRequest_descriptor;
+    internal_static_arch_galaxyeclipse_shared_protocol_GeShipStateRequest_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_arch_galaxyeclipse_shared_protocol_ShipStateRequest_fieldAccessorTable;
+      internal_static_arch_galaxyeclipse_shared_protocol_GeShipStateRequest_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_arch_galaxyeclipse_shared_protocol_ShipStateResponse_descriptor;
+    internal_static_arch_galaxyeclipse_shared_protocol_GeShipStateResponse_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_arch_galaxyeclipse_shared_protocol_ShipStateResponse_fieldAccessorTable;
+      internal_static_arch_galaxyeclipse_shared_protocol_GeShipStateResponse_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_arch_galaxyeclipse_shared_protocol_ClientActionPacket_descriptor;
+    internal_static_arch_galaxyeclipse_shared_protocol_GeClientActionPacket_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_arch_galaxyeclipse_shared_protocol_ClientActionPacket_fieldAccessorTable;
+      internal_static_arch_galaxyeclipse_shared_protocol_GeClientActionPacket_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_arch_galaxyeclipse_shared_protocol_AuthRequest_descriptor;
+    internal_static_arch_galaxyeclipse_shared_protocol_GeAuthRequest_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_arch_galaxyeclipse_shared_protocol_AuthRequest_fieldAccessorTable;
+      internal_static_arch_galaxyeclipse_shared_protocol_GeAuthRequest_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_arch_galaxyeclipse_shared_protocol_AuthResponse_descriptor;
+    internal_static_arch_galaxyeclipse_shared_protocol_GeAuthResponse_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_arch_galaxyeclipse_shared_protocol_AuthResponse_fieldAccessorTable;
+      internal_static_arch_galaxyeclipse_shared_protocol_GeAuthResponse_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_arch_galaxyeclipse_shared_protocol_LocationInfoPacket_descriptor;
+    internal_static_arch_galaxyeclipse_shared_protocol_GeLocationInfoPacket_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_arch_galaxyeclipse_shared_protocol_LocationInfoPacket_fieldAccessorTable;
+      internal_static_arch_galaxyeclipse_shared_protocol_GeLocationInfoPacket_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_arch_galaxyeclipse_shared_protocol_LocationInfoPacket_CachedObjectsPacket_descriptor;
+    internal_static_arch_galaxyeclipse_shared_protocol_GeLocationInfoPacket_GeCachedObjectsPacket_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_arch_galaxyeclipse_shared_protocol_LocationInfoPacket_CachedObjectsPacket_fieldAccessorTable;
+      internal_static_arch_galaxyeclipse_shared_protocol_GeLocationInfoPacket_GeCachedObjectsPacket_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_arch_galaxyeclipse_shared_protocol_LocationInfoPacket_LocationObjectPacket_descriptor;
+    internal_static_arch_galaxyeclipse_shared_protocol_GeLocationInfoPacket_GeLocationObjectPacket_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_arch_galaxyeclipse_shared_protocol_LocationInfoPacket_LocationObjectPacket_fieldAccessorTable;
+      internal_static_arch_galaxyeclipse_shared_protocol_GeLocationInfoPacket_GeLocationObjectPacket_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_descriptor;
+    internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_fieldAccessorTable;
+      internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_ItemPacket_descriptor;
+    internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_GeItemPacket_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_ItemPacket_fieldAccessorTable;
+      internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_GeItemPacket_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_ItemPacket_BonusPacket_descriptor;
+    internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_GeItemPacket_GeBonusPacket_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_ItemPacket_BonusPacket_fieldAccessorTable;
+      internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_GeItemPacket_GeBonusPacket_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_ItemPacket_WeaponPacket_descriptor;
+    internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_GeItemPacket_GeWeaponPacket_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_ItemPacket_WeaponPacket_fieldAccessorTable;
+      internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_GeItemPacket_GeWeaponPacket_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_ItemPacket_EnginePacket_descriptor;
+    internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_GeItemPacket_GeEnginePacket_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_ItemPacket_EnginePacket_fieldAccessorTable;
+      internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_GeItemPacket_GeEnginePacket_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_arch_galaxyeclipse_shared_protocol_TypesMapPacket_descriptor;
+    internal_static_arch_galaxyeclipse_shared_protocol_GeTypesMapPacket_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_arch_galaxyeclipse_shared_protocol_TypesMapPacket_fieldAccessorTable;
+      internal_static_arch_galaxyeclipse_shared_protocol_GeTypesMapPacket_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_arch_galaxyeclipse_shared_protocol_TypesMapPacket_Type_descriptor;
+    internal_static_arch_galaxyeclipse_shared_protocol_GeTypesMapPacket_Type_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_arch_galaxyeclipse_shared_protocol_TypesMapPacket_Type_fieldAccessorTable;
+      internal_static_arch_galaxyeclipse_shared_protocol_GeTypesMapPacket_Type_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_arch_galaxyeclipse_shared_protocol_StartupInfoPacket_descriptor;
+    internal_static_arch_galaxyeclipse_shared_protocol_GeStartupInfoPacket_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_arch_galaxyeclipse_shared_protocol_StartupInfoPacket_fieldAccessorTable;
+      internal_static_arch_galaxyeclipse_shared_protocol_GeStartupInfoPacket_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoCommandPacket_descriptor;
+    internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoCommandPacket_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoCommandPacket_fieldAccessorTable;
+      internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoCommandPacket_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_arch_galaxyeclipse_shared_protocol_ChatSendMessagePacket_descriptor;
+    internal_static_arch_galaxyeclipse_shared_protocol_GeChatSendMessagePacket_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_arch_galaxyeclipse_shared_protocol_ChatSendMessagePacket_fieldAccessorTable;
+      internal_static_arch_galaxyeclipse_shared_protocol_GeChatSendMessagePacket_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_arch_galaxyeclipse_shared_protocol_ChatReceiveMessagePacket_descriptor;
+    internal_static_arch_galaxyeclipse_shared_protocol_GeChatReceiveMessagePacket_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_arch_galaxyeclipse_shared_protocol_ChatReceiveMessagePacket_fieldAccessorTable;
+      internal_static_arch_galaxyeclipse_shared_protocol_GeChatReceiveMessagePacket_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -20743,260 +20743,263 @@ public final class GeProtocol {
   static {
     java.lang.String[] descriptorData = {
       "\n\016messages.proto\022\"arch.galaxyeclipse.sha" +
-      "red.protocol\"\232\t\n\006Packet\022=\n\004type\030\001 \002(\0162/." +
-      "arch.galaxyeclipse.shared.protocol.Packe" +
-      "t.Type\022Z\n\026dynamicObjectsResponse\030\002 \001(\0132:" +
-      ".arch.galaxyeclipse.shared.protocol.Dyna" +
-      "micObjectsResponse\022P\n\021shipStateResponse\030" +
-      "\003 \001(\01325.arch.galaxyeclipse.shared.protoc" +
-      "ol.ShipStateResponse\022L\n\014clientAction\030\004 \001" +
-      "(\01326.arch.galaxyeclipse.shared.protocol." +
-      "ClientActionPacket\022D\n\013authRequest\030\020 \001(\0132",
-      "/.arch.galaxyeclipse.shared.protocol.Aut" +
-      "hRequest\022F\n\014authResponse\030\021 \001(\01320.arch.ga" +
-      "laxyeclipse.shared.protocol.AuthResponse" +
-      "\022L\n\014locationInfo\030\022 \001(\01326.arch.galaxyecli" +
-      "pse.shared.protocol.LocationInfoPacket\022J" +
-      "\n\013startupInfo\030\023 \001(\01325.arch.galaxyeclipse" +
-      ".shared.protocol.StartupInfoPacket\022^\n\025ga" +
-      "meInfoCommandHolder\030\024 \001(\0132?.arch.galaxye" +
-      "clipse.shared.protocol.ShipStaticInfoCom" +
-      "mandPacket\022R\n\017chatSendMessage\030\025 \001(\01329.ar",
-      "ch.galaxyeclipse.shared.protocol.ChatSen" +
-      "dMessagePacket\022X\n\022chatReceiveMessage\030\026 \001" +
+      "red.protocol\"\262\t\n\010GePacket\022?\n\004type\030\001 \002(\0162" +
+      "1.arch.galaxyeclipse.shared.protocol.GeP" +
+      "acket.Type\022\\\n\026dynamicObjectsResponse\030\002 \001" +
       "(\0132<.arch.galaxyeclipse.shared.protocol." +
-      "ChatReceiveMessagePacket\"\236\002\n\004Type\022\033\n\027DYN" +
-      "AMIC_OBJECTS_REQUEST\020\001\022\034\n\030DYNAMIC_OBJECT" +
-      "S_RESPONSE\020\002\022\026\n\022SHIP_STATE_REQUEST\020\003\022\027\n\023" +
-      "SHIP_STATE_RESPONSE\020\004\022\021\n\rCLIENT_ACTION\020\005" +
-      "\022\020\n\014AUTH_REQUEST\020\020\022\021\n\rAUTH_RESPONSE\020\021\022\021\n" +
-      "\rLOCATION_INFO\020\036\022\020\n\014STARTUP_INFO\020\037\022\034\n\030SH" +
-      "IP_STATIC_INFO_COMMAND\020 \022\025\n\021CHAT_SEND_ME",
-      "SSAGE\020<\022\030\n\024CHAT_RECEIVE_MESSAGE\020=\"\027\n\025Dyn" +
-      "amicObjectsRequest\"v\n\026DynamicObjectsResp" +
-      "onse\022\\\n\007objects\030\001 \003(\0132K.arch.galaxyeclip" +
-      "se.shared.protocol.LocationInfoPacket.Lo" +
-      "cationObjectPacket\"\022\n\020ShipStateRequest\"\311" +
-      "\001\n\021ShipStateResponse\022\021\n\tmoveSpeed\030\001 \002(\002\022" +
-      "\025\n\rrotationSpeed\030\002 \002(\002\022\n\n\002hp\030\003 \002(\005\022\027\n\017ar" +
-      "morDurability\030\004 \002(\005\022\025\n\rrotationAngle\030\005 \002" +
-      "(\002\022\021\n\tpositionX\030\006 \002(\002\022\021\n\tpositionY\030\007 \002(\002" +
-      "\022\030\n\020locationObjectId\030\010 \002(\005\022\016\n\006energy\030\t \002",
-      "(\005\"\205\003\n\022ClientActionPacket\022U\n\004type\030\001 \002(\0162" +
-      "G.arch.galaxyeclipse.shared.protocol.Cli" +
+      "GeDynamicObjectsResponse\022R\n\021shipStateRes" +
+      "ponse\030\003 \001(\01327.arch.galaxyeclipse.shared." +
+      "protocol.GeShipStateResponse\022N\n\014clientAc" +
+      "tion\030\004 \001(\01328.arch.galaxyeclipse.shared.p" +
+      "rotocol.GeClientActionPacket\022F\n\013authRequ",
+      "est\030\020 \001(\01321.arch.galaxyeclipse.shared.pr" +
+      "otocol.GeAuthRequest\022H\n\014authResponse\030\021 \001" +
+      "(\01322.arch.galaxyeclipse.shared.protocol." +
+      "GeAuthResponse\022N\n\014locationInfo\030\022 \001(\01328.a" +
+      "rch.galaxyeclipse.shared.protocol.GeLoca" +
+      "tionInfoPacket\022L\n\013startupInfo\030\023 \001(\01327.ar" +
+      "ch.galaxyeclipse.shared.protocol.GeStart" +
+      "upInfoPacket\022`\n\025gameInfoCommandHolder\030\024 " +
+      "\001(\0132A.arch.galaxyeclipse.shared.protocol" +
+      ".GeShipStaticInfoCommandPacket\022T\n\017chatSe",
+      "ndMessage\030\025 \001(\0132;.arch.galaxyeclipse.sha" +
+      "red.protocol.GeChatSendMessagePacket\022Z\n\022" +
+      "chatReceiveMessage\030\026 \001(\0132>.arch.galaxyec" +
+      "lipse.shared.protocol.GeChatReceiveMessa" +
+      "gePacket\"\236\002\n\004Type\022\033\n\027DYNAMIC_OBJECTS_REQ" +
+      "UEST\020\001\022\034\n\030DYNAMIC_OBJECTS_RESPONSE\020\002\022\026\n\022" +
+      "SHIP_STATE_REQUEST\020\003\022\027\n\023SHIP_STATE_RESPO" +
+      "NSE\020\004\022\021\n\rCLIENT_ACTION\020\005\022\020\n\014AUTH_REQUEST" +
+      "\020\020\022\021\n\rAUTH_RESPONSE\020\021\022\021\n\rLOCATION_INFO\020\036" +
+      "\022\020\n\014STARTUP_INFO\020\037\022\034\n\030SHIP_STATIC_INFO_C",
+      "OMMAND\020 \022\025\n\021CHAT_SEND_MESSAGE\020<\022\030\n\024CHAT_" +
+      "RECEIVE_MESSAGE\020=\"\031\n\027GeDynamicObjectsReq" +
+      "uest\"|\n\030GeDynamicObjectsResponse\022`\n\007obje" +
+      "cts\030\001 \003(\0132O.arch.galaxyeclipse.shared.pr" +
+      "otocol.GeLocationInfoPacket.GeLocationOb" +
+      "jectPacket\"\024\n\022GeShipStateRequest\"\313\001\n\023GeS" +
+      "hipStateResponse\022\021\n\tmoveSpeed\030\001 \002(\002\022\025\n\rr" +
+      "otationSpeed\030\002 \002(\002\022\n\n\002hp\030\003 \002(\005\022\027\n\017armorD" +
+      "urability\030\004 \002(\005\022\025\n\rrotationAngle\030\005 \002(\002\022\021" +
+      "\n\tpositionX\030\006 \002(\002\022\021\n\tpositionY\030\007 \002(\002\022\030\n\020",
+      "locationObjectId\030\010 \002(\005\022\016\n\006energy\030\t \002(\005\"\211" +
+      "\003\n\024GeClientActionPacket\022W\n\004type\030\001 \002(\0162I." +
+      "arch.galaxyeclipse.shared.protocol.GeCli" +
       "entActionPacket.ClientActionType\022\030\n\020loca" +
       "tionObjectId\030\002 \001(\005\022\034\n\024locationObjectType" +
       "Id\030\003 \001(\005\"\337\001\n\020ClientActionType\022\022\n\016ROTATE_" +
       "LEFT_UP\020\001\022\024\n\020ROTATE_LEFT_DOWN\020\002\022\023\n\017ROTAT" +
       "E_RIGHT_UP\020\003\022\025\n\021ROTATE_RIGHT_DOWN\020\004\022\013\n\007M" +
       "OVE_UP\020\005\022\r\n\tMOVE_DOWN\020\006\022\013\n\007STOP_UP\020\007\022\r\n\t" +
-      "STOP_DOWN\020\010\022\020\n\014OBJECT_CLICK\020\t\022\r\n\tLOOT_PI" +
-      "CK\020\n\022\n\n\006ATTACK\020\013\022\020\n\014ROCKET_SHOOT\020\020\"1\n\013Au",
-      "thRequest\022\020\n\010username\030\001 \002(\t\022\020\n\010password\030" +
-      "\002 \002(\t\"!\n\014AuthResponse\022\021\n\tisSuccess\030\001 \002(\010" +
-      "\"\305\003\n\022LocationInfoPacket\022\022\n\nlocationId\030\001 " +
-      "\002(\005\022\014\n\004name\030\002 \002(\t\022\r\n\005width\030\003 \002(\005\022\016\n\006heig" +
-      "ht\030\004 \002(\005\022i\n\025locationCachedObjects\030\005 \002(\0132" +
-      "J.arch.galaxyeclipse.shared.protocol.Loc" +
-      "ationInfoPacket.CachedObjectsPacket\032s\n\023C" +
-      "achedObjectsPacket\022\\\n\007objects\030\001 \003(\0132K.ar" +
-      "ch.galaxyeclipse.shared.protocol.Locatio" +
-      "nInfoPacket.LocationObjectPacket\032\215\001\n\024Loc",
-      "ationObjectPacket\022\020\n\010objectId\030\001 \002(\005\022\024\n\014o" +
-      "bjectTypeId\030\002 \002(\005\022\020\n\010nativeId\030\003 \002(\005\022\021\n\tp" +
-      "ositionX\030\004 \002(\002\022\021\n\tpositionY\030\005 \002(\002\022\025\n\rrot" +
-      "ationAngle\030\006 \002(\002\"\334\n\n\024ShipStaticInfoPacke" +
-      "t\022\024\n\014moveMaxSpeed\030\001 \002(\002\022\030\n\020rotationMaxSp" +
-      "eed\030\002 \002(\002\022\035\n\025moveAccelerationSpeed\030\003 \002(\002" +
-      "\022\034\n\024rotationAcceleration\030\004 \002(\002\022\r\n\005armor\030" +
-      "\005 \002(\005\022\021\n\tenergyMax\030\006 \002(\005\022\r\n\005hpMax\030\007 \002(\005\022" +
-      "\023\n\013energyRegen\030\010 \002(\005\022\017\n\007hpRegen\030\t \002(\005\022\014\n" +
-      "\004name\030\n \002(\t\022\027\n\017armorDurability\030\013 \002(\005\022\030\n\020",
-      "weaponSlotsCount\030\014 \002(\005\022\027\n\017bonusSlotsCoun" +
-      "t\030\r \002(\005\022[\n\016inventoryItems\030\016 \003(\0132C.arch.g" +
-      "alaxyeclipse.shared.protocol.ShipStaticI" +
-      "nfoPacket.ItemPacket\022V\n\tshipBonus\030\017 \003(\0132" +
-      "C.arch.galaxyeclipse.shared.protocol.Shi" +
-      "pStaticInfoPacket.ItemPacket\022X\n\013shipWeap" +
-      "ons\030\020 \003(\0132C.arch.galaxyeclipse.shared.pr" +
-      "otocol.ShipStaticInfoPacket.ItemPacket\022W" +
-      "\n\nshipEngine\030\021 \002(\0132C.arch.galaxyeclipse." +
-      "shared.protocol.ShipStaticInfoPacket.Ite",
-      "mPacket\032\275\005\n\nItemPacket\022\016\n\006itemId\030\001 \002(\005\022\014" +
-      "\n\004name\030\002 \002(\t\022\023\n\013description\030\003 \002(\t\022\r\n\005pri" +
-      "ce\030\004 \002(\005\022\022\n\nitemTypeId\030\005 \002(\005\022^\n\005bonus\030\006 " +
-      "\001(\0132O.arch.galaxyeclipse.shared.protocol" +
-      ".ShipStaticInfoPacket.ItemPacket.BonusPa" +
-      "cket\022`\n\006weapon\030\007 \001(\0132P.arch.galaxyeclips" +
-      "e.shared.protocol.ShipStaticInfoPacket.I" +
-      "temPacket.WeaponPacket\022`\n\006engine\030\010 \001(\0132P" +
-      ".arch.galaxyeclipse.shared.protocol.Ship" +
-      "StaticInfoPacket.ItemPacket.EnginePacket",
-      "\0326\n\013BonusPacket\022\022\n\nbonusValue\030\001 \002(\005\022\023\n\013b" +
-      "onusTypeId\030\002 \002(\005\032p\n\014WeaponPacket\022\016\n\006dama" +
-      "ge\030\001 \002(\005\022\022\n\ndelaySpeed\030\002 \002(\005\022\023\n\013bulletSp" +
-      "eed\030\003 \002(\005\022\023\n\013maxDistance\030\004 \002(\005\022\022\n\nenergy" +
-      "Cost\030\005 \002(\005\032\212\001\n\014EnginePacket\022\035\n\025moveAccel" +
-      "erationBonus\030\001 \002(\002\022\031\n\021moveMaxSpeedBonus\030" +
-      "\002 \002(\002\022!\n\031rotationAccelerationBonus\030\003 \002(\002" +
-      "\022\035\n\025rotationMaxSpeedBonus\030\004 \002(\002\"\357\002\n\016Type" +
-      "sMapPacket\022J\n\titemTypes\030\001 \003(\01327.arch.gal" +
-      "axyeclipse.shared.protocol.TypesMapPacke",
-      "t.Type\022L\n\013weaponTypes\030\002 \003(\01327.arch.galax" +
-      "yeclipse.shared.protocol.TypesMapPacket." +
-      "Type\022T\n\023locationObjectTypes\030\003 \003(\01327.arch" +
-      ".galaxyeclipse.shared.protocol.TypesMapP" +
-      "acket.Type\022K\n\nbonusTypes\030\004 \003(\01327.arch.ga" +
-      "laxyeclipse.shared.protocol.TypesMapPack" +
-      "et.Type\032 \n\004Type\022\n\n\002id\030\001 \002(\005\022\014\n\004name\030\002 \002(" +
-      "\t\"\371\001\n\021StartupInfoPacket\022L\n\014locationInfo\030" +
-      "\001 \002(\01326.arch.galaxyeclipse.shared.protoc" +
-      "ol.LocationInfoPacket\022D\n\010typesMap\030\002 \002(\0132",
-      "2.arch.galaxyeclipse.shared.protocol.Typ" +
-      "esMapPacket\022P\n\016shipStaticInfo\030\003 \002(\01328.ar" +
-      "ch.galaxyeclipse.shared.protocol.ShipSta" +
-      "ticInfoPacket\"8\n\033ShipStaticInfoCommandPa" +
-      "cket\022\031\n\021serializedCommand\030\001 \002(\014\"(\n\025ChatS" +
-      "endMessagePacket\022\017\n\007message\030\001 \002(\t\";\n\030Cha" +
-      "tReceiveMessagePacket\022\017\n\007message\030\001 \002(\t\022\016" +
-      "\n\006sender\030\002 \002(\tB\016B\nGeProtocolH\001"
+      "STOP_DOWN\020\010\022\020\n\014OBJECT_CLICK\020\t\022\r\n\tLOOT_PI",
+      "CK\020\n\022\n\n\006ATTACK\020\013\022\020\n\014ROCKET_SHOOT\020\020\"3\n\rGe" +
+      "AuthRequest\022\020\n\010username\030\001 \002(\t\022\020\n\010passwor" +
+      "d\030\002 \002(\t\"#\n\016GeAuthResponse\022\021\n\tisSuccess\030\001" +
+      " \002(\010\"\323\003\n\024GeLocationInfoPacket\022\022\n\nlocatio" +
+      "nId\030\001 \002(\005\022\014\n\004name\030\002 \002(\t\022\r\n\005width\030\003 \002(\005\022\016" +
+      "\n\006height\030\004 \002(\005\022m\n\025locationCachedObjects\030" +
+      "\005 \002(\0132N.arch.galaxyeclipse.shared.protoc" +
+      "ol.GeLocationInfoPacket.GeCachedObjectsP" +
+      "acket\032y\n\025GeCachedObjectsPacket\022`\n\007object" +
+      "s\030\001 \003(\0132O.arch.galaxyeclipse.shared.prot",
+      "ocol.GeLocationInfoPacket.GeLocationObje" +
+      "ctPacket\032\217\001\n\026GeLocationObjectPacket\022\020\n\010o" +
+      "bjectId\030\001 \002(\005\022\024\n\014objectTypeId\030\002 \002(\005\022\020\n\010n" +
+      "ativeId\030\003 \002(\005\022\021\n\tpositionX\030\004 \002(\002\022\021\n\tposi" +
+      "tionY\030\005 \002(\002\022\025\n\rrotationAngle\030\006 \002(\002\"\210\013\n\026G" +
+      "eShipStaticInfoPacket\022\024\n\014moveMaxSpeed\030\001 " +
+      "\002(\002\022\030\n\020rotationMaxSpeed\030\002 \002(\002\022\035\n\025moveAcc" +
+      "elerationSpeed\030\003 \002(\002\022\034\n\024rotationAccelera" +
+      "tion\030\004 \002(\002\022\r\n\005armor\030\005 \002(\005\022\021\n\tenergyMax\030\006" +
+      " \002(\005\022\r\n\005hpMax\030\007 \002(\005\022\023\n\013energyRegen\030\010 \002(\005",
+      "\022\017\n\007hpRegen\030\t \002(\005\022\014\n\004name\030\n \002(\t\022\027\n\017armor" +
+      "Durability\030\013 \002(\005\022\030\n\020weaponSlotsCount\030\014 \002" +
+      "(\005\022\027\n\017bonusSlotsCount\030\r \002(\005\022_\n\016inventory" +
+      "Items\030\016 \003(\0132G.arch.galaxyeclipse.shared." +
+      "protocol.GeShipStaticInfoPacket.GeItemPa" +
+      "cket\022Z\n\tshipBonus\030\017 \003(\0132G.arch.galaxyecl" +
+      "ipse.shared.protocol.GeShipStaticInfoPac" +
+      "ket.GeItemPacket\022\\\n\013shipWeapons\030\020 \003(\0132G." +
+      "arch.galaxyeclipse.shared.protocol.GeShi" +
+      "pStaticInfoPacket.GeItemPacket\022[\n\nshipEn",
+      "gine\030\021 \002(\0132G.arch.galaxyeclipse.shared.p" +
+      "rotocol.GeShipStaticInfoPacket.GeItemPac" +
+      "ket\032\327\005\n\014GeItemPacket\022\016\n\006itemId\030\001 \002(\005\022\014\n\004" +
+      "name\030\002 \002(\t\022\023\n\013description\030\003 \002(\t\022\r\n\005price" +
+      "\030\004 \002(\005\022\022\n\nitemTypeId\030\005 \002(\005\022d\n\005bonus\030\006 \001(" +
+      "\0132U.arch.galaxyeclipse.shared.protocol.G" +
+      "eShipStaticInfoPacket.GeItemPacket.GeBon" +
+      "usPacket\022f\n\006weapon\030\007 \001(\0132V.arch.galaxyec" +
+      "lipse.shared.protocol.GeShipStaticInfoPa" +
+      "cket.GeItemPacket.GeWeaponPacket\022f\n\006engi",
+      "ne\030\010 \001(\0132V.arch.galaxyeclipse.shared.pro" +
+      "tocol.GeShipStaticInfoPacket.GeItemPacke" +
+      "t.GeEnginePacket\0328\n\rGeBonusPacket\022\022\n\nbon" +
+      "usValue\030\001 \002(\005\022\023\n\013bonusTypeId\030\002 \002(\005\032r\n\016Ge" +
+      "WeaponPacket\022\016\n\006damage\030\001 \002(\005\022\022\n\ndelaySpe" +
+      "ed\030\002 \002(\005\022\023\n\013bulletSpeed\030\003 \002(\005\022\023\n\013maxDist" +
+      "ance\030\004 \002(\005\022\022\n\nenergyCost\030\005 \002(\005\032\214\001\n\016GeEng" +
+      "inePacket\022\035\n\025moveAccelerationBonus\030\001 \002(\002" +
+      "\022\031\n\021moveMaxSpeedBonus\030\002 \002(\002\022!\n\031rotationA" +
+      "ccelerationBonus\030\003 \002(\002\022\035\n\025rotationMaxSpe",
+      "edBonus\030\004 \002(\002\"\371\002\n\020GeTypesMapPacket\022L\n\tit" +
+      "emTypes\030\001 \003(\01329.arch.galaxyeclipse.share" +
+      "d.protocol.GeTypesMapPacket.Type\022N\n\013weap" +
+      "onTypes\030\002 \003(\01329.arch.galaxyeclipse.share" +
+      "d.protocol.GeTypesMapPacket.Type\022V\n\023loca" +
+      "tionObjectTypes\030\003 \003(\01329.arch.galaxyeclip" +
+      "se.shared.protocol.GeTypesMapPacket.Type" +
+      "\022M\n\nbonusTypes\030\004 \003(\01329.arch.galaxyeclips" +
+      "e.shared.protocol.GeTypesMapPacket.Type\032" +
+      " \n\004Type\022\n\n\002id\030\001 \002(\005\022\014\n\004name\030\002 \002(\t\"\201\002\n\023Ge",
+      "StartupInfoPacket\022N\n\014locationInfo\030\001 \002(\0132" +
+      "8.arch.galaxyeclipse.shared.protocol.GeL" +
+      "ocationInfoPacket\022F\n\010typesMap\030\002 \002(\01324.ar" +
+      "ch.galaxyeclipse.shared.protocol.GeTypes" +
+      "MapPacket\022R\n\016shipStaticInfo\030\003 \002(\0132:.arch" +
+      ".galaxyeclipse.shared.protocol.GeShipSta" +
+      "ticInfoPacket\":\n\035GeShipStaticInfoCommand" +
+      "Packet\022\031\n\021serializedCommand\030\001 \002(\014\"*\n\027GeC" +
+      "hatSendMessagePacket\022\017\n\007message\030\001 \002(\t\"=\n" +
+      "\032GeChatReceiveMessagePacket\022\017\n\007message\030\001",
+      " \002(\t\022\016\n\006sender\030\002 \002(\tB\016B\nGeProtocolH\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
         public com.google.protobuf.ExtensionRegistry assignDescriptors(
             com.google.protobuf.Descriptors.FileDescriptor root) {
           descriptor = root;
-          internal_static_arch_galaxyeclipse_shared_protocol_Packet_descriptor =
+          internal_static_arch_galaxyeclipse_shared_protocol_GePacket_descriptor =
             getDescriptor().getMessageTypes().get(0);
-          internal_static_arch_galaxyeclipse_shared_protocol_Packet_fieldAccessorTable = new
+          internal_static_arch_galaxyeclipse_shared_protocol_GePacket_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_arch_galaxyeclipse_shared_protocol_Packet_descriptor,
+              internal_static_arch_galaxyeclipse_shared_protocol_GePacket_descriptor,
               new java.lang.String[] { "Type", "DynamicObjectsResponse", "ShipStateResponse", "ClientAction", "AuthRequest", "AuthResponse", "LocationInfo", "StartupInfo", "GameInfoCommandHolder", "ChatSendMessage", "ChatReceiveMessage", });
-          internal_static_arch_galaxyeclipse_shared_protocol_DynamicObjectsRequest_descriptor =
+          internal_static_arch_galaxyeclipse_shared_protocol_GeDynamicObjectsRequest_descriptor =
             getDescriptor().getMessageTypes().get(1);
-          internal_static_arch_galaxyeclipse_shared_protocol_DynamicObjectsRequest_fieldAccessorTable = new
+          internal_static_arch_galaxyeclipse_shared_protocol_GeDynamicObjectsRequest_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_arch_galaxyeclipse_shared_protocol_DynamicObjectsRequest_descriptor,
+              internal_static_arch_galaxyeclipse_shared_protocol_GeDynamicObjectsRequest_descriptor,
               new java.lang.String[] { });
-          internal_static_arch_galaxyeclipse_shared_protocol_DynamicObjectsResponse_descriptor =
+          internal_static_arch_galaxyeclipse_shared_protocol_GeDynamicObjectsResponse_descriptor =
             getDescriptor().getMessageTypes().get(2);
-          internal_static_arch_galaxyeclipse_shared_protocol_DynamicObjectsResponse_fieldAccessorTable = new
+          internal_static_arch_galaxyeclipse_shared_protocol_GeDynamicObjectsResponse_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_arch_galaxyeclipse_shared_protocol_DynamicObjectsResponse_descriptor,
+              internal_static_arch_galaxyeclipse_shared_protocol_GeDynamicObjectsResponse_descriptor,
               new java.lang.String[] { "Objects", });
-          internal_static_arch_galaxyeclipse_shared_protocol_ShipStateRequest_descriptor =
+          internal_static_arch_galaxyeclipse_shared_protocol_GeShipStateRequest_descriptor =
             getDescriptor().getMessageTypes().get(3);
-          internal_static_arch_galaxyeclipse_shared_protocol_ShipStateRequest_fieldAccessorTable = new
+          internal_static_arch_galaxyeclipse_shared_protocol_GeShipStateRequest_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_arch_galaxyeclipse_shared_protocol_ShipStateRequest_descriptor,
+              internal_static_arch_galaxyeclipse_shared_protocol_GeShipStateRequest_descriptor,
               new java.lang.String[] { });
-          internal_static_arch_galaxyeclipse_shared_protocol_ShipStateResponse_descriptor =
+          internal_static_arch_galaxyeclipse_shared_protocol_GeShipStateResponse_descriptor =
             getDescriptor().getMessageTypes().get(4);
-          internal_static_arch_galaxyeclipse_shared_protocol_ShipStateResponse_fieldAccessorTable = new
+          internal_static_arch_galaxyeclipse_shared_protocol_GeShipStateResponse_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_arch_galaxyeclipse_shared_protocol_ShipStateResponse_descriptor,
+              internal_static_arch_galaxyeclipse_shared_protocol_GeShipStateResponse_descriptor,
               new java.lang.String[] { "MoveSpeed", "RotationSpeed", "Hp", "ArmorDurability", "RotationAngle", "PositionX", "PositionY", "LocationObjectId", "Energy", });
-          internal_static_arch_galaxyeclipse_shared_protocol_ClientActionPacket_descriptor =
+          internal_static_arch_galaxyeclipse_shared_protocol_GeClientActionPacket_descriptor =
             getDescriptor().getMessageTypes().get(5);
-          internal_static_arch_galaxyeclipse_shared_protocol_ClientActionPacket_fieldAccessorTable = new
+          internal_static_arch_galaxyeclipse_shared_protocol_GeClientActionPacket_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_arch_galaxyeclipse_shared_protocol_ClientActionPacket_descriptor,
+              internal_static_arch_galaxyeclipse_shared_protocol_GeClientActionPacket_descriptor,
               new java.lang.String[] { "Type", "LocationObjectId", "LocationObjectTypeId", });
-          internal_static_arch_galaxyeclipse_shared_protocol_AuthRequest_descriptor =
+          internal_static_arch_galaxyeclipse_shared_protocol_GeAuthRequest_descriptor =
             getDescriptor().getMessageTypes().get(6);
-          internal_static_arch_galaxyeclipse_shared_protocol_AuthRequest_fieldAccessorTable = new
+          internal_static_arch_galaxyeclipse_shared_protocol_GeAuthRequest_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_arch_galaxyeclipse_shared_protocol_AuthRequest_descriptor,
+              internal_static_arch_galaxyeclipse_shared_protocol_GeAuthRequest_descriptor,
               new java.lang.String[] { "Username", "Password", });
-          internal_static_arch_galaxyeclipse_shared_protocol_AuthResponse_descriptor =
+          internal_static_arch_galaxyeclipse_shared_protocol_GeAuthResponse_descriptor =
             getDescriptor().getMessageTypes().get(7);
-          internal_static_arch_galaxyeclipse_shared_protocol_AuthResponse_fieldAccessorTable = new
+          internal_static_arch_galaxyeclipse_shared_protocol_GeAuthResponse_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_arch_galaxyeclipse_shared_protocol_AuthResponse_descriptor,
+              internal_static_arch_galaxyeclipse_shared_protocol_GeAuthResponse_descriptor,
               new java.lang.String[] { "IsSuccess", });
-          internal_static_arch_galaxyeclipse_shared_protocol_LocationInfoPacket_descriptor =
+          internal_static_arch_galaxyeclipse_shared_protocol_GeLocationInfoPacket_descriptor =
             getDescriptor().getMessageTypes().get(8);
-          internal_static_arch_galaxyeclipse_shared_protocol_LocationInfoPacket_fieldAccessorTable = new
+          internal_static_arch_galaxyeclipse_shared_protocol_GeLocationInfoPacket_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_arch_galaxyeclipse_shared_protocol_LocationInfoPacket_descriptor,
+              internal_static_arch_galaxyeclipse_shared_protocol_GeLocationInfoPacket_descriptor,
               new java.lang.String[] { "LocationId", "Name", "Width", "Height", "LocationCachedObjects", });
-          internal_static_arch_galaxyeclipse_shared_protocol_LocationInfoPacket_CachedObjectsPacket_descriptor =
-            internal_static_arch_galaxyeclipse_shared_protocol_LocationInfoPacket_descriptor.getNestedTypes().get(0);
-          internal_static_arch_galaxyeclipse_shared_protocol_LocationInfoPacket_CachedObjectsPacket_fieldAccessorTable = new
+          internal_static_arch_galaxyeclipse_shared_protocol_GeLocationInfoPacket_GeCachedObjectsPacket_descriptor =
+            internal_static_arch_galaxyeclipse_shared_protocol_GeLocationInfoPacket_descriptor.getNestedTypes().get(0);
+          internal_static_arch_galaxyeclipse_shared_protocol_GeLocationInfoPacket_GeCachedObjectsPacket_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_arch_galaxyeclipse_shared_protocol_LocationInfoPacket_CachedObjectsPacket_descriptor,
+              internal_static_arch_galaxyeclipse_shared_protocol_GeLocationInfoPacket_GeCachedObjectsPacket_descriptor,
               new java.lang.String[] { "Objects", });
-          internal_static_arch_galaxyeclipse_shared_protocol_LocationInfoPacket_LocationObjectPacket_descriptor =
-            internal_static_arch_galaxyeclipse_shared_protocol_LocationInfoPacket_descriptor.getNestedTypes().get(1);
-          internal_static_arch_galaxyeclipse_shared_protocol_LocationInfoPacket_LocationObjectPacket_fieldAccessorTable = new
+          internal_static_arch_galaxyeclipse_shared_protocol_GeLocationInfoPacket_GeLocationObjectPacket_descriptor =
+            internal_static_arch_galaxyeclipse_shared_protocol_GeLocationInfoPacket_descriptor.getNestedTypes().get(1);
+          internal_static_arch_galaxyeclipse_shared_protocol_GeLocationInfoPacket_GeLocationObjectPacket_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_arch_galaxyeclipse_shared_protocol_LocationInfoPacket_LocationObjectPacket_descriptor,
+              internal_static_arch_galaxyeclipse_shared_protocol_GeLocationInfoPacket_GeLocationObjectPacket_descriptor,
               new java.lang.String[] { "ObjectId", "ObjectTypeId", "NativeId", "PositionX", "PositionY", "RotationAngle", });
-          internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_descriptor =
+          internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_descriptor =
             getDescriptor().getMessageTypes().get(9);
-          internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_fieldAccessorTable = new
+          internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_descriptor,
+              internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_descriptor,
               new java.lang.String[] { "MoveMaxSpeed", "RotationMaxSpeed", "MoveAccelerationSpeed", "RotationAcceleration", "Armor", "EnergyMax", "HpMax", "EnergyRegen", "HpRegen", "Name", "ArmorDurability", "WeaponSlotsCount", "BonusSlotsCount", "InventoryItems", "ShipBonus", "ShipWeapons", "ShipEngine", });
-          internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_ItemPacket_descriptor =
-            internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_descriptor.getNestedTypes().get(0);
-          internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_ItemPacket_fieldAccessorTable = new
+          internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_GeItemPacket_descriptor =
+            internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_descriptor.getNestedTypes().get(0);
+          internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_GeItemPacket_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_ItemPacket_descriptor,
+              internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_GeItemPacket_descriptor,
               new java.lang.String[] { "ItemId", "Name", "Description", "Price", "ItemTypeId", "Bonus", "Weapon", "Engine", });
-          internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_ItemPacket_BonusPacket_descriptor =
-            internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_ItemPacket_descriptor.getNestedTypes().get(0);
-          internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_ItemPacket_BonusPacket_fieldAccessorTable = new
+          internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_GeItemPacket_GeBonusPacket_descriptor =
+            internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_GeItemPacket_descriptor.getNestedTypes().get(0);
+          internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_GeItemPacket_GeBonusPacket_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_ItemPacket_BonusPacket_descriptor,
+              internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_GeItemPacket_GeBonusPacket_descriptor,
               new java.lang.String[] { "BonusValue", "BonusTypeId", });
-          internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_ItemPacket_WeaponPacket_descriptor =
-            internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_ItemPacket_descriptor.getNestedTypes().get(1);
-          internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_ItemPacket_WeaponPacket_fieldAccessorTable = new
+          internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_GeItemPacket_GeWeaponPacket_descriptor =
+            internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_GeItemPacket_descriptor.getNestedTypes().get(1);
+          internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_GeItemPacket_GeWeaponPacket_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_ItemPacket_WeaponPacket_descriptor,
+              internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_GeItemPacket_GeWeaponPacket_descriptor,
               new java.lang.String[] { "Damage", "DelaySpeed", "BulletSpeed", "MaxDistance", "EnergyCost", });
-          internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_ItemPacket_EnginePacket_descriptor =
-            internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_ItemPacket_descriptor.getNestedTypes().get(2);
-          internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_ItemPacket_EnginePacket_fieldAccessorTable = new
+          internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_GeItemPacket_GeEnginePacket_descriptor =
+            internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_GeItemPacket_descriptor.getNestedTypes().get(2);
+          internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_GeItemPacket_GeEnginePacket_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoPacket_ItemPacket_EnginePacket_descriptor,
+              internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_GeItemPacket_GeEnginePacket_descriptor,
               new java.lang.String[] { "MoveAccelerationBonus", "MoveMaxSpeedBonus", "RotationAccelerationBonus", "RotationMaxSpeedBonus", });
-          internal_static_arch_galaxyeclipse_shared_protocol_TypesMapPacket_descriptor =
+          internal_static_arch_galaxyeclipse_shared_protocol_GeTypesMapPacket_descriptor =
             getDescriptor().getMessageTypes().get(10);
-          internal_static_arch_galaxyeclipse_shared_protocol_TypesMapPacket_fieldAccessorTable = new
+          internal_static_arch_galaxyeclipse_shared_protocol_GeTypesMapPacket_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_arch_galaxyeclipse_shared_protocol_TypesMapPacket_descriptor,
+              internal_static_arch_galaxyeclipse_shared_protocol_GeTypesMapPacket_descriptor,
               new java.lang.String[] { "ItemTypes", "WeaponTypes", "LocationObjectTypes", "BonusTypes", });
-          internal_static_arch_galaxyeclipse_shared_protocol_TypesMapPacket_Type_descriptor =
-            internal_static_arch_galaxyeclipse_shared_protocol_TypesMapPacket_descriptor.getNestedTypes().get(0);
-          internal_static_arch_galaxyeclipse_shared_protocol_TypesMapPacket_Type_fieldAccessorTable = new
+          internal_static_arch_galaxyeclipse_shared_protocol_GeTypesMapPacket_Type_descriptor =
+            internal_static_arch_galaxyeclipse_shared_protocol_GeTypesMapPacket_descriptor.getNestedTypes().get(0);
+          internal_static_arch_galaxyeclipse_shared_protocol_GeTypesMapPacket_Type_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_arch_galaxyeclipse_shared_protocol_TypesMapPacket_Type_descriptor,
+              internal_static_arch_galaxyeclipse_shared_protocol_GeTypesMapPacket_Type_descriptor,
               new java.lang.String[] { "Id", "Name", });
-          internal_static_arch_galaxyeclipse_shared_protocol_StartupInfoPacket_descriptor =
+          internal_static_arch_galaxyeclipse_shared_protocol_GeStartupInfoPacket_descriptor =
             getDescriptor().getMessageTypes().get(11);
-          internal_static_arch_galaxyeclipse_shared_protocol_StartupInfoPacket_fieldAccessorTable = new
+          internal_static_arch_galaxyeclipse_shared_protocol_GeStartupInfoPacket_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_arch_galaxyeclipse_shared_protocol_StartupInfoPacket_descriptor,
+              internal_static_arch_galaxyeclipse_shared_protocol_GeStartupInfoPacket_descriptor,
               new java.lang.String[] { "LocationInfo", "TypesMap", "ShipStaticInfo", });
-          internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoCommandPacket_descriptor =
+          internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoCommandPacket_descriptor =
             getDescriptor().getMessageTypes().get(12);
-          internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoCommandPacket_fieldAccessorTable = new
+          internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoCommandPacket_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_arch_galaxyeclipse_shared_protocol_ShipStaticInfoCommandPacket_descriptor,
+              internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoCommandPacket_descriptor,
               new java.lang.String[] { "SerializedCommand", });
-          internal_static_arch_galaxyeclipse_shared_protocol_ChatSendMessagePacket_descriptor =
+          internal_static_arch_galaxyeclipse_shared_protocol_GeChatSendMessagePacket_descriptor =
             getDescriptor().getMessageTypes().get(13);
-          internal_static_arch_galaxyeclipse_shared_protocol_ChatSendMessagePacket_fieldAccessorTable = new
+          internal_static_arch_galaxyeclipse_shared_protocol_GeChatSendMessagePacket_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_arch_galaxyeclipse_shared_protocol_ChatSendMessagePacket_descriptor,
+              internal_static_arch_galaxyeclipse_shared_protocol_GeChatSendMessagePacket_descriptor,
               new java.lang.String[] { "Message", });
-          internal_static_arch_galaxyeclipse_shared_protocol_ChatReceiveMessagePacket_descriptor =
+          internal_static_arch_galaxyeclipse_shared_protocol_GeChatReceiveMessagePacket_descriptor =
             getDescriptor().getMessageTypes().get(14);
-          internal_static_arch_galaxyeclipse_shared_protocol_ChatReceiveMessagePacket_fieldAccessorTable = new
+          internal_static_arch_galaxyeclipse_shared_protocol_GeChatReceiveMessagePacket_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_arch_galaxyeclipse_shared_protocol_ChatReceiveMessagePacket_descriptor,
+              internal_static_arch_galaxyeclipse_shared_protocol_GeChatReceiveMessagePacket_descriptor,
               new java.lang.String[] { "Message", "Sender", });
           return null;
         }

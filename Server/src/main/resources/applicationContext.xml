@@ -27,42 +27,42 @@
         </property>
         <property name="annotatedClasses">
             <list>
-                <value>arch.galaxyeclipse.server.data.model.Bonus</value>
-                <value>arch.galaxyeclipse.server.data.model.BonusType</value>
-                <value>arch.galaxyeclipse.server.data.model.Engine</value>
-                <value>arch.galaxyeclipse.server.data.model.InventoryItem</value>
-                <value>arch.galaxyeclipse.server.data.model.Item</value>
-                <value>arch.galaxyeclipse.server.data.model.ItemType</value>
-                <value>arch.galaxyeclipse.server.data.model.Location</value>
-                <value>arch.galaxyeclipse.server.data.model.LocationObject</value>
-                <value>arch.galaxyeclipse.server.data.model.LocationObjectBehaviorType</value>
-                <value>arch.galaxyeclipse.server.data.model.LocationObjectType</value>
-                <value>arch.galaxyeclipse.server.data.model.Player</value>
-                <value>arch.galaxyeclipse.server.data.model.PlayerActivationHash</value>
-                <value>arch.galaxyeclipse.server.data.model.ShipConfig</value>
-                <value>arch.galaxyeclipse.server.data.model.ShipConfigBonusSlot</value>
-                <value>arch.galaxyeclipse.server.data.model.ShipConfigWeaponSlot</value>
-                <value>arch.galaxyeclipse.server.data.model.ShipState</value>
-                <value>arch.galaxyeclipse.server.data.model.ShipType</value>
-                <value>arch.galaxyeclipse.server.data.model.Weapon</value>
-                <value>arch.galaxyeclipse.server.data.model.WeaponType</value>
+                <value>arch.galaxyeclipse.server.data.model.GeBonus</value>
+                <value>arch.galaxyeclipse.server.data.model.GeBonusType</value>
+                <value>arch.galaxyeclipse.server.data.model.GeEngine</value>
+                <value>arch.galaxyeclipse.server.data.model.GeInventoryItem</value>
+                <value>arch.galaxyeclipse.server.data.model.GeItem</value>
+                <value>arch.galaxyeclipse.server.data.model.GeItemType</value>
+                <value>arch.galaxyeclipse.server.data.model.GeLocation</value>
+                <value>arch.galaxyeclipse.server.data.model.GeLocationObject</value>
+                <value>arch.galaxyeclipse.server.data.model.GeLocationObjectBehaviorType</value>
+                <value>arch.galaxyeclipse.server.data.model.GeLocationObjectType</value>
+                <value>arch.galaxyeclipse.server.data.model.GePlayer</value>
+                <value>arch.galaxyeclipse.server.data.model.GePlayerActivationHash</value>
+                <value>arch.galaxyeclipse.server.data.model.GeShipConfig</value>
+                <value>arch.galaxyeclipse.server.data.model.GeShipConfigBonusSlot</value>
+                <value>arch.galaxyeclipse.server.data.model.GeShipConfigWeaponSlot</value>
+                <value>arch.galaxyeclipse.server.data.model.GeShipState</value>
+                <value>arch.galaxyeclipse.server.data.model.GeShipType</value>
+                <value>arch.galaxyeclipse.server.data.model.GeWeapon</value>
+                <value>arch.galaxyeclipse.server.data.model.GeWeaponType</value>
             </list>
         </property>
     </bean>
 
     <!-- Network -->
-    <bean class="arch.galaxyeclipse.server.network.ServerNetworkManager">
+    <bean class="arch.galaxyeclipse.server.network.GeServerNetworkManager">
         <constructor-arg>
-            <bean class="arch.galaxyeclipse.server.network.ServerPipelineChannelFactory"/>
+            <bean class="arch.galaxyeclipse.server.network.GeServerPipelineChannelFactory"/>
         </constructor-arg>
     </bean>
 
     <!-- Other -->
-    <bean class="arch.galaxyeclipse.server.authentication.ClientAuthenticator" scope="prototype"/>
-    <bean class="arch.galaxyeclipse.server.network.handler.PacketHandlerFactory" scope="prototype"/>
-    <bean class="arch.galaxyeclipse.server.protocol.ProtocolMessageFactory" scope="prototype"/>
+    <bean class="arch.galaxyeclipse.server.authentication.GeClientAuthenticator" scope="prototype"/>
+    <bean class="arch.galaxyeclipse.server.network.handler.GePacketHandlerFactory" scope="prototype"/>
+    <bean class="arch.galaxyeclipse.server.protocol.GeProtocolMessageFactory" scope="prototype"/>
 
-    <bean class="arch.galaxyeclipse.server.data.DynamicObjectsHolder"/>
-    <bean class="arch.galaxyeclipse.shared.types.DictionaryTypesMapper"/>
+    <bean class="arch.galaxyeclipse.server.data.GeDynamicObjectsHolder"/>
+    <bean class="arch.galaxyeclipse.shared.types.GeDictionaryTypesMapper"/>
     <bean class="arch.galaxyeclipse.shared.thread.GeExecutor"/>
 </beans>

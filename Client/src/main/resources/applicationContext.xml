@@ -4,19 +4,19 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!-- Rendering -->
-    <bean class="arch.galaxyeclipse.client.window.ClientWindow"/>
-    <bean class="arch.galaxyeclipse.client.ui.widget.CursorWidget" lazy-init="true"/>
-    <bean class="arch.galaxyeclipse.client.ui.actor.ActorFactory" lazy-init="true"/>
+    <bean class="arch.galaxyeclipse.client.window.GeClientWindow"/>
+    <bean class="arch.galaxyeclipse.client.ui.widget.GeCursorWidget" lazy-init="true"/>
+    <bean class="arch.galaxyeclipse.client.ui.actor.GeActorFactory" lazy-init="true"/>
 
     <!-- Network -->
-    <bean class="arch.galaxyeclipse.client.network.ClientNetworkManager"/>
+    <bean class="arch.galaxyeclipse.client.network.GeClientNetworkManager"/>
 
     <!-- Other -->
-    <bean class="arch.galaxyeclipse.client.data.CachingResourceLoader" lazy-init="true"/>
-    <bean class="arch.galaxyeclipse.shared.types.DictionaryTypesMapper" lazy-init="true"/>
-    <bean class="arch.galaxyeclipse.client.data.ShipStaticInfoHolder" lazy-init="true"/>
-    <bean class="arch.galaxyeclipse.client.data.LocationInfoHolder" lazy-init="true"/>
-    <bean class="arch.galaxyeclipse.client.data.ShipStateInfoHolder" lazy-init="true"/>
+    <bean class="arch.galaxyeclipse.client.data.GeCachingResourceLoader" lazy-init="true"/>
+    <bean class="arch.galaxyeclipse.shared.types.GeDictionaryTypesMapper" lazy-init="true"/>
+    <bean class="arch.galaxyeclipse.client.data.GeShipStaticInfoHolder" lazy-init="true"/>
+    <bean class="arch.galaxyeclipse.client.data.GeLocationInfoHolder" lazy-init="true"/>
+    <bean class="arch.galaxyeclipse.client.data.GeShipStateInfoHolder" lazy-init="true"/>
 
     <bean class="arch.galaxyeclipse.shared.thread.GeExecutor"/>
 </beans>

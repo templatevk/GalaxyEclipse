@@ -1,8 +1,7 @@
 package arch.galaxyeclipse.client.ui.actor;
 
-import arch.galaxyeclipse.client.data.ShipStateInfoHolder;
-import arch.galaxyeclipse.shared.context.ContextHolder;
-import com.badlogic.gdx.scenes.scene2d.Actor;
+import arch.galaxyeclipse.client.data.GeShipStateInfoHolder;
+import arch.galaxyeclipse.shared.context.GeContextHolder;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import lombok.AccessLevel;
@@ -14,61 +13,55 @@ import lombok.extern.slf4j.Slf4j;
  *
  */
 @Slf4j
-public abstract class GeActor extends Image implements IGeActor {
+public abstract class GeActor extends Image implements Comparable<GeActor>  {
 
     @Getter(AccessLevel.PROTECTED)
-    private static ShipStateInfoHolder shipStateInfoHolder;
+    private static GeShipStateInfoHolder shipStateInfoHolder;
 
     @Getter
     @Setter(AccessLevel.PROTECTED)
-    private ActorType actorType;
+    private GeActorType actorType;
 
     static {
-        shipStateInfoHolder = ContextHolder.getBean(ShipStateInfoHolder.class);
+        shipStateInfoHolder = GeContextHolder.getBean(GeShipStateInfoHolder.class);
     }
 
-    private @Getter StageInfo stageInfo;
+    private @Getter
+    GeStageInfo stageInfo;
 
-    protected int compareToImpl(IGeActor actor) {
+    protected int compareToImpl(GeActor actor) {
         return 1;
     }
 
-    public static IGeActor newStub() {
+    public static GeActor newStub() {
         return new GeActor() {
             @Override
-            protected int compareToImpl(IGeActor actor) {
+            protected int compareToImpl(GeActor actor) {
                 return 0;
             }
         };
     }
 
-    public GeActor() {
-        this(null, ActorType.UNDEFINED);
+    public static GeActor getSelectedActor() {
+        return GeClickableActor.selectedActor;
     }
 
-    public GeActor(Drawable drawable, ActorType actorType) {
+    public GeActor() {
+        this(null, GeActorType.UNDEFINED);
+    }
+
+    public GeActor(Drawable drawable, GeActorType actorType) {
         super(drawable);
         this.actorType = actorType;
     }
 
-    @Override
-    public Actor toActor() {
-        return this;
-    }
-
-    @Override
-    public void adjust(StageInfo stageInfo) {
+    public void adjust(GeStageInfo stageInfo) {
         this.stageInfo = stageInfo;
     }
 
     @Override
-    public int compareTo(IGeActor actor) {
+    public int compareTo(GeActor actor) {
         int compareResult = actorType.compareTo(actor.getActorType());
         return compareResult == 0 ? compareToImpl(actor) : compareResult;
-    }
-
-    @Override
-    public IGeActor getSelectedActor() {
-        return ClickableActor.selectedActor;
     }
 }

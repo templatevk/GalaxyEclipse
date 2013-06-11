@@ -3,7 +3,7 @@ package arch.galaxyeclipse.shared.protocol;
 option java_outer_classname = "GeProtocol";
 option optimize_for = SPEED;
 
-message Packet {
+message GePacket {
     enum Type {
         DYNAMIC_OBJECTS_REQUEST     = 1;
         DYNAMIC_OBJECTS_RESPONSE    = 2;
@@ -24,36 +24,36 @@ message Packet {
         CHAT_RECEIVE_MESSAGE        = 61;
     }
 
-    required Type                       type                    = 1;
+    required Type                             type                    = 1;
 
-    optional DynamicObjectsResponse         dynamicObjectsResponse  = 2;
-    optional ShipStateResponse              shipStateResponse       = 3;
-    optional ClientActionPacket             clientAction            = 4;
+    optional GeDynamicObjectsResponse         dynamicObjectsResponse  = 2;
+    optional GeShipStateResponse              shipStateResponse       = 3;
+    optional GeClientActionPacket             clientAction            = 4;
 
-    optional AuthRequest                    authRequest             = 16;
-    optional AuthResponse                   authResponse            = 17;
+    optional GeAuthRequest                    authRequest             = 16;
+    optional GeAuthResponse                   authResponse            = 17;
 
-    optional LocationInfoPacket             locationInfo            = 18;
-    optional StartupInfoPacket              startupInfo             = 19;
-    optional ShipStaticInfoCommandPacket    gameInfoCommandHolder   = 20;
+    optional GeLocationInfoPacket             locationInfo            = 18;
+    optional GeStartupInfoPacket              startupInfo             = 19;
+    optional GeShipStaticInfoCommandPacket    gameInfoCommandHolder   = 20;
 
-    optional ChatSendMessagePacket          chatSendMessage         = 21;
-    optional ChatReceiveMessagePacket       chatReceiveMessage      = 22;
+    optional GeChatSendMessagePacket          chatSendMessage         = 21;
+    optional GeChatReceiveMessagePacket       chatReceiveMessage      = 22;
 }
 
 
-message DynamicObjectsRequest {
+message GeDynamicObjectsRequest {
 
 }
-message DynamicObjectsResponse {
-    repeated LocationInfoPacket.LocationObjectPacket objects = 1;
+message GeDynamicObjectsResponse {
+    repeated GeLocationInfoPacket.GeLocationObjectPacket objects = 1;
 }
 
 
-message ShipStateRequest {
+message GeShipStateRequest {
 
 }
-message ShipStateResponse {
+message GeShipStateResponse {
     required float moveSpeed        = 1;
     required float rotationSpeed    = 2;
     required int32 hp               = 3;
@@ -66,7 +66,7 @@ message ShipStateResponse {
 }
 
 
-message ClientActionPacket {
+message GeClientActionPacket {
     enum ClientActionType {
         // A S W D
         ROTATE_LEFT_UP      = 1;
@@ -93,27 +93,27 @@ message ClientActionPacket {
 }
 
 
-message AuthRequest {
+message GeAuthRequest {
     required string username = 1;
     required string password = 2;
 }
-message AuthResponse {
+message GeAuthResponse {
     required bool isSuccess = 1;
 }
 
 
-message LocationInfoPacket {
+message GeLocationInfoPacket {
     required int32                  locationId              = 1;
     required string                 name                    = 2;
     required int32                  width                   = 3;
     required int32                  height                  = 4;
-    required CachedObjectsPacket    locationCachedObjects   = 5;
+    required GeCachedObjectsPacket  locationCachedObjects   = 5;
 
-    message CachedObjectsPacket {
-        repeated LocationObjectPacket objects = 1;
+    message GeCachedObjectsPacket {
+        repeated GeLocationObjectPacket objects = 1;
     }
 
-    message LocationObjectPacket {
+    message GeLocationObjectPacket {
         required int32 objectId         = 1;
         required int32 objectTypeId     = 2;
         required int32 nativeId         = 3;
@@ -122,7 +122,7 @@ message LocationInfoPacket {
         required float rotationAngle    = 6;
     }
 }
-message ShipStaticInfoPacket {
+message GeShipStaticInfoPacket {
     // Ship config values
     required float          moveMaxSpeed            = 1;
     required float          rotationMaxSpeed        = 2;
@@ -140,28 +140,28 @@ message ShipStaticInfoPacket {
     required int32          weaponSlotsCount        = 12;
     required int32          bonusSlotsCount         = 13;
 
-    repeated ItemPacket     inventoryItems          = 14;
-    repeated ItemPacket     shipBonus               = 15;
-    repeated ItemPacket     shipWeapons             = 16;
-    required ItemPacket     shipEngine              = 17;
+    repeated GeItemPacket     inventoryItems        = 14;
+    repeated GeItemPacket     shipBonus             = 15;
+    repeated GeItemPacket     shipWeapons           = 16;
+    required GeItemPacket     shipEngine            = 17;
 
-    message ItemPacket {
-        required int32  itemId      = 1;
-        required string name        = 2;
-        required string description = 3;
-        required int32  price       = 4;
-        required int32  itemTypeId  = 5;
+    message GeItemPacket {
+        required int32  itemId              = 1;
+        required string name                = 2;
+        required string description         = 3;
+        required int32  price               = 4;
+        required int32  itemTypeId          = 5;
 
-        optional BonusPacket  bonus       = 6;
-        optional WeaponPacket weapon      = 7;
-        optional EnginePacket engine      = 8;
+        optional GeBonusPacket  bonus       = 6;
+        optional GeWeaponPacket weapon      = 7;
+        optional GeEnginePacket engine      = 8;
 
-        message BonusPacket {
+        message GeBonusPacket {
             required int32 bonusValue   = 1;
             required int32 bonusTypeId  = 2;
         }
 
-        message WeaponPacket {
+        message GeWeaponPacket {
             required int32 damage       = 1;
             required int32 delaySpeed   = 2;
             required int32 bulletSpeed  = 3;
@@ -169,7 +169,7 @@ message ShipStaticInfoPacket {
             required int32 energyCost   = 5;
         }
 
-        message EnginePacket {
+        message GeEnginePacket {
             required float moveAccelerationBonus        = 1;
             required float moveMaxSpeedBonus            = 2;
             required float rotationAccelerationBonus    = 3;
@@ -177,7 +177,7 @@ message ShipStaticInfoPacket {
         }
     }
 }
-message TypesMapPacket {
+message GeTypesMapPacket {
     repeated Type itemTypes             = 1;
     repeated Type weaponTypes           = 2;
     repeated Type locationObjectTypes   = 3;
@@ -188,20 +188,20 @@ message TypesMapPacket {
         required string name    = 2;
     }
 }
-message StartupInfoPacket {
-    required LocationInfoPacket   locationInfo    = 1;
-    required TypesMapPacket       typesMap        = 2;
-    required ShipStaticInfoPacket shipStaticInfo  = 3;
+message GeStartupInfoPacket {
+    required GeLocationInfoPacket   locationInfo    = 1;
+    required GeTypesMapPacket       typesMap        = 2;
+    required GeShipStaticInfoPacket shipStaticInfo  = 3;
 }
-message ShipStaticInfoCommandPacket {
+message GeShipStaticInfoCommandPacket {
     required bytes serializedCommand = 1;
 }
 
 
-message ChatSendMessagePacket {
+message GeChatSendMessagePacket {
     required string message = 1;
 }
-message ChatReceiveMessagePacket {
+message GeChatReceiveMessagePacket {
     required string message = 1;
     required string sender  = 2;
 }
