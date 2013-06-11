@@ -1,12 +1,11 @@
 package arch.galaxyeclipse.client.window;
 
-import arch.galaxyeclipse.client.ui.provider.GeStageProviderFactory;
-import arch.galaxyeclipse.client.ui.provider.IGeStageProvider;
-import arch.galaxyeclipse.client.ui.provider.GeStageProviderFactory.StageProviderType;
-import arch.galaxyeclipse.shared.GeEnvType;
-import arch.galaxyeclipse.shared.common.IGeDisposable;
+import arch.galaxyeclipse.client.ui.provider.IStageProvider;
+import arch.galaxyeclipse.client.ui.provider.StageProviderFactory;
+import arch.galaxyeclipse.shared.EnvType;
+import arch.galaxyeclipse.shared.common.IDestroyable;
 import arch.galaxyeclipse.shared.thread.GeExecutor;
-import arch.galaxyeclipse.shared.thread.GeTaskRunnablePair;
+import arch.galaxyeclipse.shared.thread.TaskRunnablePair;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Graphics.DisplayMode;

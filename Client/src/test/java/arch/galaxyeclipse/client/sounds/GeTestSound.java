@@ -1,22 +1,42 @@
 package arch.galaxyeclipse.client.sounds;
 
 import com.badlogic.gdx.ApplicationListener;
+import com.badlogic.gdx.Files;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 
-public class GeTestSound implements ApplicationListener {
 
-    private Sound sound;
+public class TestSound implements ApplicationListener  {
+    public TestSound(){}
+    Music music;
+    Sound shoot;
 
     @Override
     public void create() {
-        sound = Gdx.audio.newSound(Gdx.files.internal("assets/sounds/flight.wav"));
+
+        music =  Gdx.audio.newMusic(Gdx.files.getFileHandle("assets/sounds/flight.mp3", Files.FileType.Internal));
+
+        shoot = Gdx.audio.newSound(Gdx.files.internal("assets/sounds/shoot.mp3"));
+        System.out.println("playing from create method..");
+        shoot.play();
+        music.setVolume(0.5f);
+        music.play();
+        music.setLooping(true);
     }
 
     @Override
-    public void dispose() {
-        sound.dispose();
+    public void resize(int i, int i2) {
+
+    }
+
+    @Override
+    public void render() {
+       if(Gdx.input.isKeyPressed(Input.Keys.SPACE)){
+           System.out.println("playing..");
+           shoot.play();
+       }
     }
 
     @Override
@@ -24,20 +44,12 @@ public class GeTestSound implements ApplicationListener {
     }
 
     @Override
-    public void render() {
-        if(Gdx.input.isKeyPressed(Input.Keys.SPACE)) {
-            System.out.println("playing...");
-
-            long soundId = sound.play();
-            sound.setVolume(soundId, 1f);
-        }
-    }
-
-    @Override
-    public void resize(int width, int height) {
-    }
-
-    @Override
     public void resume() {
+    }
+
+    @Override
+    public void dispose() {
+        music.dispose();
+        shoot.dispose();
     }
 }

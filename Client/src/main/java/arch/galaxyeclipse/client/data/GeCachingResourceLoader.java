@@ -1,7 +1,7 @@
 package arch.galaxyeclipse.client.data;
 
-import arch.galaxyeclipse.client.util.GeDisposable;
-import arch.galaxyeclipse.shared.common.IGeDisposable;
+import arch.galaxyeclipse.client.util.Destroyable;
+import arch.galaxyeclipse.shared.common.IDestroyable;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -26,6 +26,8 @@ class GeCachingResourceLoader extends TextureAtlas implements IGeResourceLoader,
 
     private Map<String, AtlasRegion> regions;
     private Map<String, BitmapFont> fonts;
+    private Map<String, Sound> sounds;
+    private Map<String, Music> music;
 
 	public GeCachingResourceLoader() {
 		super(Gdx.files.internal("assets/textures/pack.atlas"));
@@ -52,13 +54,51 @@ class GeCachingResourceLoader extends TextureAtlas implements IGeResourceLoader,
             } catch (Exception e) {
                 throw new RuntimeException("Error loading region, try rerunning GeTexturePacker", e);
             }
-		}
-		return region;
-	}
+        }
+        return region;
+    }
 
     @Override
     public Drawable createDrawable(String path) {
         return new TextureRegionDrawable(findRegion(path));
+    }
+
+    @Override
+    public Sound loadSound(String soundName) {
+        Sound tmpSound = sounds.get(soundName);
+
+        if (tmpSound == null) {
+            if (CachingResourceLoader.log.isInfoEnabled()) {
+                CachingResourceLoader.log.info("Loading sound " + soundName);
+            }
+
+            try {
+                tmpSound = Gdx.audio.newSound(Gdx.files.internal(AUDIO_LOCATION + soundName));
+                sounds.put(soundName, tmpSound);
+            } catch (Exception e) {
+                throw new RuntimeException("Error loading sounds", e);
+            }
+        }
+        return tmpSound;
+    }
+
+    @Override
+    public Music loadMusic(String musicName) {
+        Music tmpMusic = music.get(musicName);
+
+        if (tmpMusic == null) {
+            if (CachingResourceLoader.log.isInfoEnabled()) {
+                CachingResourceLoader.log.info("Loading music " + musicName);
+            }
+
+            try {
+                tmpMusic = Gdx.audio.newMusic(Gdx.files.internal(AUDIO_LOCATION + musicName));
+                music.put(musicName, tmpMusic);
+            } catch (Exception e) {
+                throw new RuntimeException("Error loading music", e);
+            }
+        }
+        return tmpMusic;
     }
 
     @Override
@@ -85,6 +125,14 @@ class GeCachingResourceLoader extends TextureAtlas implements IGeResourceLoader,
     public void dispose() {
         for (BitmapFont font : fonts.values()) {
             font.dispose();
+        }
+
+        for (Sound sound : sounds.values()) {
+            sound.dispose();
+        }
+
+        for (Music mus : music.values()) {
+            mus.dispose();
         }
         super.dispose();
     }
