@@ -109,7 +109,7 @@ public class GeShipStaticInfoHolder extends GeServerPacketListener {
                 GeWeaponPacket weapon = item.getWeapon();
                 GeShipStaticInfoHolder.log.debug("\t\tBullet speed " + weapon.getBulletSpeed());
                 GeShipStaticInfoHolder.log.debug("\t\tDamage " + weapon.getDamage());
-                GeShipStaticInfoHolder.log.debug("\t\tDelay speed " + weapon.getDelaySpeed());
+                GeShipStaticInfoHolder.log.debug("\t\tShot delay " + weapon.getShotDelay());
                 GeShipStaticInfoHolder.log.debug("\t\tEnergy cost " + weapon.getEnergyCost());
                 GeShipStaticInfoHolder.log.debug("\t\tMax distance " + weapon.getMaxDistance());
                 break;

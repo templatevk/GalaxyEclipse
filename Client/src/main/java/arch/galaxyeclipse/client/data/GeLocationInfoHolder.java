@@ -11,7 +11,7 @@ import com.google.common.collect.Collections2;
 import com.google.common.collect.Multiset;
 import com.google.common.collect.Ordering;
 import com.google.common.collect.TreeMultiset;
-import lombok.Getter;
+import lombok.Data;
 import lombok.Delegate;
 import lombok.extern.slf4j.Slf4j;
 

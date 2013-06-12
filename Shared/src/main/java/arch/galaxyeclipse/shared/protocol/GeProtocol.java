@@ -11044,15 +11044,15 @@ public final class GeProtocol {
          */
         int getDamage();
 
-        // required int32 delaySpeed = 2;
+        // required int32 shotDelay = 2;
         /**
-         * <code>required int32 delaySpeed = 2;</code>
+         * <code>required int32 shotDelay = 2;</code>
          */
-        boolean hasDelaySpeed();
+        boolean hasShotDelay();
         /**
-         * <code>required int32 delaySpeed = 2;</code>
+         * <code>required int32 shotDelay = 2;</code>
          */
-        int getDelaySpeed();
+        int getShotDelay();
 
         // required float bulletSpeed = 3;
         /**
@@ -11142,7 +11142,7 @@ public final class GeProtocol {
                 }
                 case 16: {
                   bitField0_ |= 0x00000002;
-                  delaySpeed_ = input.readInt32();
+                  shotDelay_ = input.readInt32();
                   break;
                 }
                 case 29: {
@@ -11216,20 +11216,20 @@ public final class GeProtocol {
           return damage_;
         }
 
-        // required int32 delaySpeed = 2;
-        public static final int DELAYSPEED_FIELD_NUMBER = 2;
-        private int delaySpeed_;
+        // required int32 shotDelay = 2;
+        public static final int SHOTDELAY_FIELD_NUMBER = 2;
+        private int shotDelay_;
         /**
-         * <code>required int32 delaySpeed = 2;</code>
+         * <code>required int32 shotDelay = 2;</code>
          */
-        public boolean hasDelaySpeed() {
+        public boolean hasShotDelay() {
           return ((bitField0_ & 0x00000002) == 0x00000002);
         }
         /**
-         * <code>required int32 delaySpeed = 2;</code>
+         * <code>required int32 shotDelay = 2;</code>
          */
-        public int getDelaySpeed() {
-          return delaySpeed_;
+        public int getShotDelay() {
+          return shotDelay_;
         }
 
         // required float bulletSpeed = 3;
@@ -11282,7 +11282,7 @@ public final class GeProtocol {
 
         private void initFields() {
           damage_ = 0;
-          delaySpeed_ = 0;
+          shotDelay_ = 0;
           bulletSpeed_ = 0F;
           maxDistance_ = 0;
           energyCost_ = 0;
@@ -11296,7 +11296,7 @@ public final class GeProtocol {
             memoizedIsInitialized = 0;
             return false;
           }
-          if (!hasDelaySpeed()) {
+          if (!hasShotDelay()) {
             memoizedIsInitialized = 0;
             return false;
           }
@@ -11323,7 +11323,7 @@ public final class GeProtocol {
             output.writeInt32(1, damage_);
           }
           if (((bitField0_ & 0x00000002) == 0x00000002)) {
-            output.writeInt32(2, delaySpeed_);
+            output.writeInt32(2, shotDelay_);
           }
           if (((bitField0_ & 0x00000004) == 0x00000004)) {
             output.writeFloat(3, bulletSpeed_);
@@ -11349,7 +11349,7 @@ public final class GeProtocol {
           }
           if (((bitField0_ & 0x00000002) == 0x00000002)) {
             size += com.google.protobuf.CodedOutputStream
-              .computeInt32Size(2, delaySpeed_);
+              .computeInt32Size(2, shotDelay_);
           }
           if (((bitField0_ & 0x00000004) == 0x00000004)) {
             size += com.google.protobuf.CodedOutputStream
@@ -11481,7 +11481,7 @@ public final class GeProtocol {
             super.clear();
             damage_ = 0;
             bitField0_ = (bitField0_ & ~0x00000001);
-            delaySpeed_ = 0;
+            shotDelay_ = 0;
             bitField0_ = (bitField0_ & ~0x00000002);
             bulletSpeed_ = 0F;
             bitField0_ = (bitField0_ & ~0x00000004);
@@ -11524,7 +11524,7 @@ public final class GeProtocol {
             if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
               to_bitField0_ |= 0x00000002;
             }
-            result.delaySpeed_ = delaySpeed_;
+            result.shotDelay_ = shotDelay_;
             if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
               to_bitField0_ |= 0x00000004;
             }
@@ -11556,8 +11556,8 @@ public final class GeProtocol {
             if (other.hasDamage()) {
               setDamage(other.getDamage());
             }
-            if (other.hasDelaySpeed()) {
-              setDelaySpeed(other.getDelaySpeed());
+            if (other.hasShotDelay()) {
+              setShotDelay(other.getShotDelay());
             }
             if (other.hasBulletSpeed()) {
               setBulletSpeed(other.getBulletSpeed());
@@ -11577,7 +11577,7 @@ public final class GeProtocol {
               
               return false;
             }
-            if (!hasDelaySpeed()) {
+            if (!hasShotDelay()) {
               
               return false;
             }
@@ -11648,35 +11648,35 @@ public final class GeProtocol {
             return this;
           }
 
-          // required int32 delaySpeed = 2;
-          private int delaySpeed_ ;
+          // required int32 shotDelay = 2;
+          private int shotDelay_ ;
           /**
-           * <code>required int32 delaySpeed = 2;</code>
+           * <code>required int32 shotDelay = 2;</code>
            */
-          public boolean hasDelaySpeed() {
+          public boolean hasShotDelay() {
             return ((bitField0_ & 0x00000002) == 0x00000002);
           }
           /**
-           * <code>required int32 delaySpeed = 2;</code>
+           * <code>required int32 shotDelay = 2;</code>
            */
-          public int getDelaySpeed() {
-            return delaySpeed_;
+          public int getShotDelay() {
+            return shotDelay_;
           }
           /**
-           * <code>required int32 delaySpeed = 2;</code>
+           * <code>required int32 shotDelay = 2;</code>
            */
-          public Builder setDelaySpeed(int value) {
+          public Builder setShotDelay(int value) {
             bitField0_ |= 0x00000002;
-            delaySpeed_ = value;
+            shotDelay_ = value;
             onChanged();
             return this;
           }
           /**
-           * <code>required int32 delaySpeed = 2;</code>
+           * <code>required int32 shotDelay = 2;</code>
            */
-          public Builder clearDelaySpeed() {
+          public Builder clearShotDelay() {
             bitField0_ = (bitField0_ & ~0x00000002);
-            delaySpeed_ = 0;
+            shotDelay_ = 0;
             onChanged();
             return this;
           }
@@ -21269,7 +21269,7 @@ public final class GeProtocol {
       "jectPacket\022\020\n\010objectId\030\001 \002(\005\022\024\n\014objectTy" +
       "peId\030\002 \002(\005\022\020\n\010nativeId\030\003 \002(\005\022\021\n\tposition" +
       "X\030\004 \002(\002\022\021\n\tpositionY\030\005 \002(\002\022\025\n\rrotationAn" +
-      "gle\030\006 \002(\002\"\210\013\n\026GeShipStaticInfoPacket\022\024\n\014" +
+      "gle\030\006 \002(\002\"\207\013\n\026GeShipStaticInfoPacket\022\024\n\014" +
       "moveMaxSpeed\030\001 \002(\002\022\030\n\020rotationMaxSpeed\030\002" +
       " \002(\002\022\035\n\025moveAccelerationSpeed\030\003 \002(\002\022\034\n\024r",
       "otationAcceleration\030\004 \002(\002\022\r\n\005armor\030\005 \002(\005" +
@@ -21286,7 +21286,7 @@ public final class GeProtocol {
       ".protocol.GeShipStaticInfoPacket.GeItemP" +
       "acket\022[\n\nshipEngine\030\021 \002(\0132G.arch.galaxye" +
       "clipse.shared.protocol.GeShipStaticInfoP" +
-      "acket.GeItemPacket\032\327\005\n\014GeItemPacket\022\016\n\006i" +
+      "acket.GeItemPacket\032\326\005\n\014GeItemPacket\022\016\n\006i" +
       "temId\030\001 \002(\005\022\014\n\004name\030\002 \002(\t\022\023\n\013description" +
       "\030\003 \002(\t\022\r\n\005price\030\004 \002(\005\022\022\n\nitemTypeId\030\005 \002(" +
       "\005\022d\n\005bonus\030\006 \001(\0132U.arch.galaxyeclipse.sh" +
@@ -21298,34 +21298,34 @@ public final class GeProtocol {
       "ipse.shared.protocol.GeShipStaticInfoPac" +
       "ket.GeItemPacket.GeEnginePacket\0328\n\rGeBon" +
       "usPacket\022\022\n\nbonusValue\030\001 \002(\005\022\023\n\013bonusTyp" +
-      "eId\030\002 \002(\005\032r\n\016GeWeaponPacket\022\016\n\006damage\030\001 " +
-      "\002(\005\022\022\n\ndelaySpeed\030\002 \002(\005\022\023\n\013bulletSpeed\030\003" +
-      " \002(\002\022\023\n\013maxDistance\030\004 \002(\005\022\022\n\nenergyCost\030" +
-      "\005 \002(\005\032\214\001\n\016GeEnginePacket\022\035\n\025moveAccelera",
-      "tionBonus\030\001 \002(\002\022\031\n\021moveMaxSpeedBonus\030\002 \002" +
-      "(\002\022!\n\031rotationAccelerationBonus\030\003 \002(\002\022\035\n" +
-      "\025rotationMaxSpeedBonus\030\004 \002(\002\"\371\002\n\020GeTypes" +
-      "MapPacket\022L\n\titemTypes\030\001 \003(\01329.arch.gala" +
-      "xyeclipse.shared.protocol.GeTypesMapPack" +
-      "et.Type\022N\n\013weaponTypes\030\002 \003(\01329.arch.gala" +
-      "xyeclipse.shared.protocol.GeTypesMapPack" +
-      "et.Type\022V\n\023locationObjectTypes\030\003 \003(\01329.a" +
-      "rch.galaxyeclipse.shared.protocol.GeType" +
-      "sMapPacket.Type\022M\n\nbonusTypes\030\004 \003(\01329.ar",
+      "eId\030\002 \002(\005\032q\n\016GeWeaponPacket\022\016\n\006damage\030\001 " +
+      "\002(\005\022\021\n\tshotDelay\030\002 \002(\005\022\023\n\013bulletSpeed\030\003 " +
+      "\002(\002\022\023\n\013maxDistance\030\004 \002(\005\022\022\n\nenergyCost\030\005" +
+      " \002(\005\032\214\001\n\016GeEnginePacket\022\035\n\025moveAccelerat",
+      "ionBonus\030\001 \002(\002\022\031\n\021moveMaxSpeedBonus\030\002 \002(" +
+      "\002\022!\n\031rotationAccelerationBonus\030\003 \002(\002\022\035\n\025" +
+      "rotationMaxSpeedBonus\030\004 \002(\002\"\371\002\n\020GeTypesM" +
+      "apPacket\022L\n\titemTypes\030\001 \003(\01329.arch.galax" +
+      "yeclipse.shared.protocol.GeTypesMapPacke" +
+      "t.Type\022N\n\013weaponTypes\030\002 \003(\01329.arch.galax" +
+      "yeclipse.shared.protocol.GeTypesMapPacke" +
+      "t.Type\022V\n\023locationObjectTypes\030\003 \003(\01329.ar" +
       "ch.galaxyeclipse.shared.protocol.GeTypes" +
-      "MapPacket.Type\032 \n\004Type\022\n\n\002id\030\001 \002(\005\022\014\n\004na" +
-      "me\030\002 \002(\t\"\201\002\n\023GeStartupInfoPacket\022N\n\014loca" +
-      "tionInfo\030\001 \002(\01328.arch.galaxyeclipse.shar" +
-      "ed.protocol.GeLocationInfoPacket\022F\n\010type" +
-      "sMap\030\002 \002(\01324.arch.galaxyeclipse.shared.p" +
-      "rotocol.GeTypesMapPacket\022R\n\016shipStaticIn" +
-      "fo\030\003 \002(\0132:.arch.galaxyeclipse.shared.pro" +
-      "tocol.GeShipStaticInfoPacket\":\n\035GeShipSt" +
-      "aticInfoCommandPacket\022\031\n\021serializedComma",
-      "nd\030\001 \002(\014\"*\n\027GeChatSendMessagePacket\022\017\n\007m" +
-      "essage\030\001 \002(\t\"=\n\032GeChatReceiveMessagePack" +
-      "et\022\017\n\007message\030\001 \002(\t\022\016\n\006sender\030\002 \002(\tB\016B\nG" +
-      "eProtocolH\001"
+      "MapPacket.Type\022M\n\nbonusTypes\030\004 \003(\01329.arc",
+      "h.galaxyeclipse.shared.protocol.GeTypesM" +
+      "apPacket.Type\032 \n\004Type\022\n\n\002id\030\001 \002(\005\022\014\n\004nam" +
+      "e\030\002 \002(\t\"\201\002\n\023GeStartupInfoPacket\022N\n\014locat" +
+      "ionInfo\030\001 \002(\01328.arch.galaxyeclipse.share" +
+      "d.protocol.GeLocationInfoPacket\022F\n\010types" +
+      "Map\030\002 \002(\01324.arch.galaxyeclipse.shared.pr" +
+      "otocol.GeTypesMapPacket\022R\n\016shipStaticInf" +
+      "o\030\003 \002(\0132:.arch.galaxyeclipse.shared.prot" +
+      "ocol.GeShipStaticInfoPacket\":\n\035GeShipSta" +
+      "ticInfoCommandPacket\022\031\n\021serializedComman",
+      "d\030\001 \002(\014\"*\n\027GeChatSendMessagePacket\022\017\n\007me" +
+      "ssage\030\001 \002(\t\"=\n\032GeChatReceiveMessagePacke" +
+      "t\022\017\n\007message\030\001 \002(\t\022\016\n\006sender\030\002 \002(\tB\016B\nGe" +
+      "ProtocolH\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -21427,7 +21427,7 @@ public final class GeProtocol {
           internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_GeItemPacket_GeWeaponPacket_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_GeItemPacket_GeWeaponPacket_descriptor,
-              new java.lang.String[] { "Damage", "DelaySpeed", "BulletSpeed", "MaxDistance", "EnergyCost", });
+              new java.lang.String[] { "Damage", "ShotDelay", "BulletSpeed", "MaxDistance", "EnergyCost", });
           internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_GeItemPacket_GeEnginePacket_descriptor =
             internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_GeItemPacket_descriptor.getNestedTypes().get(2);
           internal_static_arch_galaxyeclipse_shared_protocol_GeShipStaticInfoPacket_GeItemPacket_GeEnginePacket_fieldAccessorTable = new
