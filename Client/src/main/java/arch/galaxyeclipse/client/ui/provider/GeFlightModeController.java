@@ -69,6 +69,11 @@ public class GeFlightModeController implements IGeStageProvider {
     }
 
     @Override
+    public GeStageProviderType getType() {
+        return GeStageProviderType.FLIGHT;
+    }
+
+    @Override
     public GeAbstractGameStage getGameStage() {
         return view;
     }

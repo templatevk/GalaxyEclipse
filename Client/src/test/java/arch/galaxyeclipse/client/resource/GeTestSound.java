@@ -11,18 +11,22 @@ import com.badlogic.gdx.audio.Sound;
 public class GeTestSound implements ApplicationListener {
 
     private Music music;
+    private Music music2;
     private Sound shoot;
 
     @Override
     public void create() {
-        music = Gdx.audio.newMusic(Gdx.files.getFileHandle("assets/sounds/flight.mp3", Files.FileType.Internal));
+        music = Gdx.audio.newMusic(Gdx.files.getFileHandle("assets/audio/fly/1.mp3", Files.FileType.Internal));
+        music2 = Gdx.audio.newMusic(Gdx.files.getFileHandle("assets/audio/shoot/3.mp3", Files.FileType.Internal));
 
-        shoot = Gdx.audio.newSound(Gdx.files.internal("assets/sounds/shoot.mp3"));
+        shoot = Gdx.audio.newSound(Gdx.files.internal("assets/audio/shoot/4.mp3"));
         System.out.println("playing from create method..");
-        shoot.play();
         music.setVolume(0.5f);
-        music.play();
-        music.setLooping(true);
+        //music.play();
+        //music.setLooping(true);
+
+       // music2.play();
+       // music2.setLooping(true);
     }
 
     @Override

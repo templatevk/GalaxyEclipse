@@ -79,6 +79,11 @@ public class GeMainMenuPresenter extends GeServerPacketListener implements IGeSt
     }
 
     @Override
+    public GeStageProviderType getType() {
+        return GeStageProviderType.MAIN_MENU;
+    }
+
+    @Override
     public GeAbstractGameStage getGameStage() {
         return view;
     }
