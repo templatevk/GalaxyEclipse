@@ -37,24 +37,12 @@ class GeClientWindow implements IGeClientWindow {
     private IGeStageProvider stageProvider;
     private List<IGeDisposable> disposables;
 
-    private
-    @Getter
-    Rectangle viewport;
-    private
-    @Getter
-    float width;
-    private
-    @Getter
-    float height;
-    private
-    @Getter
-    float viewportWidth;
-    private
-    @Getter
-    float viewportHeight;
-    private
-    @Getter
-    float stateTime;
+    private @Getter Rectangle viewport;
+    private @Getter float width;
+    private @Getter float height;
+    private @Getter float viewportWidth;
+    private @Getter float viewportHeight;
+    private @Getter float stateTime;
 
     public GeClientWindow() {
         disposables = new ArrayList<>();
@@ -69,7 +57,7 @@ class GeClientWindow implements IGeClientWindow {
         config.title = "Galaxy Eclipse";
         switch (GeEnvType.CURRENT) {
             case DEV:
-                final int DEV_MODE_WIDTH = 800;
+                final int DEV_MODE_WIDTH = 675;
                 final int DEV_MODE_HEIGHT = (int) (DEV_MODE_WIDTH / ASPECT_RATIO);
                 config.width = DEV_MODE_WIDTH;
                 config.height = DEV_MODE_HEIGHT;

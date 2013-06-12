@@ -10,7 +10,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections.CollectionUtils;
 
 import java.util.*;
-import java.util.concurrent.ConcurrentSkipListMap;
 import java.util.concurrent.ConcurrentSkipListSet;
 import java.util.concurrent.TimeUnit;
 
@@ -46,8 +45,8 @@ public class GeDynamicObjectsHolder {
         private GeLocationObjectsHolder() {
             locationObjectsX = new ConcurrentSkipListSet<>(new LocationObjectXComparator());
             locationObjectsY = new ConcurrentSkipListSet<>(new LocationObjectYComparator());
-            movingObjects = new ConcurrentSkipListSet<>();
-            lopByIdMap = new ConcurrentSkipListMap<>();
+            movingObjects = new HashSet<>();
+            lopByIdMap = new HashMap<>();
         }
 
         public void addMovingObject(GeMovingLocationObject object) {
@@ -151,7 +150,7 @@ public class GeDynamicObjectsHolder {
                     double x = initialX - positionX;
                     double y = initialY - positionY;
                     if (Math.sqrt(x * x - y * y) > elapseDistance) {
-
+                        removeMovingObject(this);
                     }
                 }
             }
