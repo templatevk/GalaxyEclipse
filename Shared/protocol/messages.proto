@@ -82,12 +82,13 @@ message GeClientActionPacket {
         LOOT_PICK           = 10;  // RMB
 
         ATTACK              = 11;  // Space button
+        FOCUS               = 12;
 
         ROCKET_SHOOT        = 16;  // SHIFT
     }
 
-    required ClientActionType       type        = 1;
-    optional GeClientFocusTarget    target      = 2;
+    required ClientActionType       type            = 1;
+    optional GeClientFocusTarget    focusTarget     = 2;
 
     message GeClientFocusTarget {
         required int32 objectId = 1;

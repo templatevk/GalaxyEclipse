@@ -5066,19 +5066,19 @@ public final class GeProtocol {
      */
     arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.ClientActionType getType();
 
-    // optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket.GeClientFocusTarget target = 2;
+    // optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket.GeClientFocusTarget focusTarget = 2;
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket.GeClientFocusTarget target = 2;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket.GeClientFocusTarget focusTarget = 2;</code>
      */
-    boolean hasTarget();
+    boolean hasFocusTarget();
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket.GeClientFocusTarget target = 2;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket.GeClientFocusTarget focusTarget = 2;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.GeClientFocusTarget getTarget();
+    arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.GeClientFocusTarget getFocusTarget();
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket.GeClientFocusTarget target = 2;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket.GeClientFocusTarget focusTarget = 2;</code>
      */
-    arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.GeClientFocusTargetOrBuilder getTargetOrBuilder();
+    arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.GeClientFocusTargetOrBuilder getFocusTargetOrBuilder();
   }
   /**
    * Protobuf type {@code arch.galaxyeclipse.shared.protocol.GeClientActionPacket}
@@ -5145,12 +5145,12 @@ public final class GeProtocol {
             case 18: {
               arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.GeClientFocusTarget.Builder subBuilder = null;
               if (((bitField0_ & 0x00000002) == 0x00000002)) {
-                subBuilder = target_.toBuilder();
+                subBuilder = focusTarget_.toBuilder();
               }
-              target_ = input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.GeClientFocusTarget.PARSER, extensionRegistry);
+              focusTarget_ = input.readMessage(arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.GeClientFocusTarget.PARSER, extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom(target_);
-                target_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom(focusTarget_);
+                focusTarget_ = subBuilder.buildPartial();
               }
               bitField0_ |= 0x00000002;
               break;
@@ -5260,13 +5260,17 @@ public final class GeProtocol {
        */
       ATTACK(10, 11),
       /**
+       * <code>FOCUS = 12;</code>
+       */
+      FOCUS(11, 12),
+      /**
        * <code>ROCKET_SHOOT = 16;</code>
        *
        * <pre>
        * SHIFT
        * </pre>
        */
-      ROCKET_SHOOT(11, 16),
+      ROCKET_SHOOT(12, 16),
       ;
 
       /**
@@ -5330,6 +5334,10 @@ public final class GeProtocol {
        */
       public static final int ATTACK_VALUE = 11;
       /**
+       * <code>FOCUS = 12;</code>
+       */
+      public static final int FOCUS_VALUE = 12;
+      /**
        * <code>ROCKET_SHOOT = 16;</code>
        *
        * <pre>
@@ -5354,6 +5362,7 @@ public final class GeProtocol {
           case 9: return OBJECT_CLICK;
           case 10: return LOOT_PICK;
           case 11: return ATTACK;
+          case 12: return FOCUS;
           case 16: return ROCKET_SHOOT;
           default: return null;
         }
@@ -5827,31 +5836,31 @@ public final class GeProtocol {
       return type_;
     }
 
-    // optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket.GeClientFocusTarget target = 2;
-    public static final int TARGET_FIELD_NUMBER = 2;
-    private arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.GeClientFocusTarget target_;
+    // optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket.GeClientFocusTarget focusTarget = 2;
+    public static final int FOCUSTARGET_FIELD_NUMBER = 2;
+    private arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.GeClientFocusTarget focusTarget_;
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket.GeClientFocusTarget target = 2;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket.GeClientFocusTarget focusTarget = 2;</code>
      */
-    public boolean hasTarget() {
+    public boolean hasFocusTarget() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket.GeClientFocusTarget target = 2;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket.GeClientFocusTarget focusTarget = 2;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.GeClientFocusTarget getTarget() {
-      return target_;
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.GeClientFocusTarget getFocusTarget() {
+      return focusTarget_;
     }
     /**
-     * <code>optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket.GeClientFocusTarget target = 2;</code>
+     * <code>optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket.GeClientFocusTarget focusTarget = 2;</code>
      */
-    public arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.GeClientFocusTargetOrBuilder getTargetOrBuilder() {
-      return target_;
+    public arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.GeClientFocusTargetOrBuilder getFocusTargetOrBuilder() {
+      return focusTarget_;
     }
 
     private void initFields() {
       type_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.ClientActionType.ROTATE_LEFT_UP;
-      target_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.GeClientFocusTarget.getDefaultInstance();
+      focusTarget_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.GeClientFocusTarget.getDefaultInstance();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -5862,8 +5871,8 @@ public final class GeProtocol {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (hasTarget()) {
-        if (!getTarget().isInitialized()) {
+      if (hasFocusTarget()) {
+        if (!getFocusTarget().isInitialized()) {
           memoizedIsInitialized = 0;
           return false;
         }
@@ -5879,7 +5888,7 @@ public final class GeProtocol {
         output.writeEnum(1, type_.getNumber());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeMessage(2, target_);
+        output.writeMessage(2, focusTarget_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -5896,7 +5905,7 @@ public final class GeProtocol {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, target_);
+          .computeMessageSize(2, focusTarget_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -6006,7 +6015,7 @@ public final class GeProtocol {
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-          getTargetFieldBuilder();
+          getFocusTargetFieldBuilder();
         }
       }
       private static Builder create() {
@@ -6017,10 +6026,10 @@ public final class GeProtocol {
         super.clear();
         type_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.ClientActionType.ROTATE_LEFT_UP;
         bitField0_ = (bitField0_ & ~0x00000001);
-        if (targetBuilder_ == null) {
-          target_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.GeClientFocusTarget.getDefaultInstance();
+        if (focusTargetBuilder_ == null) {
+          focusTarget_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.GeClientFocusTarget.getDefaultInstance();
         } else {
-          targetBuilder_.clear();
+          focusTargetBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000002);
         return this;
@@ -6058,10 +6067,10 @@ public final class GeProtocol {
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        if (targetBuilder_ == null) {
-          result.target_ = target_;
+        if (focusTargetBuilder_ == null) {
+          result.focusTarget_ = focusTarget_;
         } else {
-          result.target_ = targetBuilder_.build();
+          result.focusTarget_ = focusTargetBuilder_.build();
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -6082,8 +6091,8 @@ public final class GeProtocol {
         if (other.hasType()) {
           setType(other.getType());
         }
-        if (other.hasTarget()) {
-          mergeTarget(other.getTarget());
+        if (other.hasFocusTarget()) {
+          mergeFocusTarget(other.getFocusTarget());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -6094,8 +6103,8 @@ public final class GeProtocol {
           
           return false;
         }
-        if (hasTarget()) {
-          if (!getTarget().isInitialized()) {
+        if (hasFocusTarget()) {
+          if (!getFocusTarget().isInitialized()) {
             
             return false;
           }
@@ -6158,121 +6167,121 @@ public final class GeProtocol {
         return this;
       }
 
-      // optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket.GeClientFocusTarget target = 2;
-      private arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.GeClientFocusTarget target_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.GeClientFocusTarget.getDefaultInstance();
+      // optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket.GeClientFocusTarget focusTarget = 2;
+      private arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.GeClientFocusTarget focusTarget_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.GeClientFocusTarget.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.GeClientFocusTarget, arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.GeClientFocusTarget.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.GeClientFocusTargetOrBuilder> targetBuilder_;
+          arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.GeClientFocusTarget, arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.GeClientFocusTarget.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.GeClientFocusTargetOrBuilder> focusTargetBuilder_;
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket.GeClientFocusTarget target = 2;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket.GeClientFocusTarget focusTarget = 2;</code>
        */
-      public boolean hasTarget() {
+      public boolean hasFocusTarget() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket.GeClientFocusTarget target = 2;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket.GeClientFocusTarget focusTarget = 2;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.GeClientFocusTarget getTarget() {
-        if (targetBuilder_ == null) {
-          return target_;
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.GeClientFocusTarget getFocusTarget() {
+        if (focusTargetBuilder_ == null) {
+          return focusTarget_;
         } else {
-          return targetBuilder_.getMessage();
+          return focusTargetBuilder_.getMessage();
         }
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket.GeClientFocusTarget target = 2;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket.GeClientFocusTarget focusTarget = 2;</code>
        */
-      public Builder setTarget(arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.GeClientFocusTarget value) {
-        if (targetBuilder_ == null) {
+      public Builder setFocusTarget(arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.GeClientFocusTarget value) {
+        if (focusTargetBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          target_ = value;
+          focusTarget_ = value;
           onChanged();
         } else {
-          targetBuilder_.setMessage(value);
+          focusTargetBuilder_.setMessage(value);
         }
         bitField0_ |= 0x00000002;
         return this;
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket.GeClientFocusTarget target = 2;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket.GeClientFocusTarget focusTarget = 2;</code>
        */
-      public Builder setTarget(
+      public Builder setFocusTarget(
           arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.GeClientFocusTarget.Builder builderForValue) {
-        if (targetBuilder_ == null) {
-          target_ = builderForValue.build();
+        if (focusTargetBuilder_ == null) {
+          focusTarget_ = builderForValue.build();
           onChanged();
         } else {
-          targetBuilder_.setMessage(builderForValue.build());
+          focusTargetBuilder_.setMessage(builderForValue.build());
         }
         bitField0_ |= 0x00000002;
         return this;
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket.GeClientFocusTarget target = 2;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket.GeClientFocusTarget focusTarget = 2;</code>
        */
-      public Builder mergeTarget(arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.GeClientFocusTarget value) {
-        if (targetBuilder_ == null) {
+      public Builder mergeFocusTarget(arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.GeClientFocusTarget value) {
+        if (focusTargetBuilder_ == null) {
           if (((bitField0_ & 0x00000002) == 0x00000002) &&
-              target_ != arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.GeClientFocusTarget.getDefaultInstance()) {
-            target_ =
-              arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.GeClientFocusTarget.newBuilder(target_).mergeFrom(value).buildPartial();
+              focusTarget_ != arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.GeClientFocusTarget.getDefaultInstance()) {
+            focusTarget_ =
+              arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.GeClientFocusTarget.newBuilder(focusTarget_).mergeFrom(value).buildPartial();
           } else {
-            target_ = value;
+            focusTarget_ = value;
           }
           onChanged();
         } else {
-          targetBuilder_.mergeFrom(value);
+          focusTargetBuilder_.mergeFrom(value);
         }
         bitField0_ |= 0x00000002;
         return this;
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket.GeClientFocusTarget target = 2;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket.GeClientFocusTarget focusTarget = 2;</code>
        */
-      public Builder clearTarget() {
-        if (targetBuilder_ == null) {
-          target_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.GeClientFocusTarget.getDefaultInstance();
+      public Builder clearFocusTarget() {
+        if (focusTargetBuilder_ == null) {
+          focusTarget_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.GeClientFocusTarget.getDefaultInstance();
           onChanged();
         } else {
-          targetBuilder_.clear();
+          focusTargetBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket.GeClientFocusTarget target = 2;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket.GeClientFocusTarget focusTarget = 2;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.GeClientFocusTarget.Builder getTargetBuilder() {
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.GeClientFocusTarget.Builder getFocusTargetBuilder() {
         bitField0_ |= 0x00000002;
         onChanged();
-        return getTargetFieldBuilder().getBuilder();
+        return getFocusTargetFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket.GeClientFocusTarget target = 2;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket.GeClientFocusTarget focusTarget = 2;</code>
        */
-      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.GeClientFocusTargetOrBuilder getTargetOrBuilder() {
-        if (targetBuilder_ != null) {
-          return targetBuilder_.getMessageOrBuilder();
+      public arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.GeClientFocusTargetOrBuilder getFocusTargetOrBuilder() {
+        if (focusTargetBuilder_ != null) {
+          return focusTargetBuilder_.getMessageOrBuilder();
         } else {
-          return target_;
+          return focusTarget_;
         }
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket.GeClientFocusTarget target = 2;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeClientActionPacket.GeClientFocusTarget focusTarget = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
           arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.GeClientFocusTarget, arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.GeClientFocusTarget.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.GeClientFocusTargetOrBuilder> 
-          getTargetFieldBuilder() {
-        if (targetBuilder_ == null) {
-          targetBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          getFocusTargetFieldBuilder() {
+        if (focusTargetBuilder_ == null) {
+          focusTargetBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.GeClientFocusTarget, arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.GeClientFocusTarget.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.GeClientFocusTargetOrBuilder>(
-                  target_,
+                  focusTarget_,
                   getParentForChildren(),
                   isClean());
-          target_ = null;
+          focusTarget_ = null;
         }
-        return targetBuilder_;
+        return focusTargetBuilder_;
       }
 
       // @@protoc_insertion_point(builder_scope:arch.galaxyeclipse.shared.protocol.GeClientActionPacket)
@@ -21233,89 +21242,90 @@ public final class GeProtocol {
       "otationSpeed\030\002 \002(\002\022\n\n\002hp\030\003 \002(\005\022\027\n\017armorD" +
       "urability\030\004 \002(\005\022\025\n\rrotationAngle\030\005 \002(\002\022\021" +
       "\n\tpositionX\030\006 \002(\002\022\021\n\tpositionY\030\007 \002(\002\022\030\n\020",
-      "locationObjectId\030\010 \002(\005\022\016\n\006energy\030\t \002(\005\"\330" +
+      "locationObjectId\030\010 \002(\005\022\016\n\006energy\030\t \002(\005\"\350" +
       "\003\n\024GeClientActionPacket\022W\n\004type\030\001 \002(\0162I." +
       "arch.galaxyeclipse.shared.protocol.GeCli" +
-      "entActionPacket.ClientActionType\022\\\n\006targ" +
-      "et\030\002 \001(\0132L.arch.galaxyeclipse.shared.pro" +
-      "tocol.GeClientActionPacket.GeClientFocus" +
-      "Target\032\'\n\023GeClientFocusTarget\022\020\n\010objectI" +
-      "d\030\001 \002(\005\"\337\001\n\020ClientActionType\022\022\n\016ROTATE_L" +
-      "EFT_UP\020\001\022\024\n\020ROTATE_LEFT_DOWN\020\002\022\023\n\017ROTATE" +
-      "_RIGHT_UP\020\003\022\025\n\021ROTATE_RIGHT_DOWN\020\004\022\013\n\007MO",
-      "VE_UP\020\005\022\r\n\tMOVE_DOWN\020\006\022\013\n\007STOP_UP\020\007\022\r\n\tS" +
-      "TOP_DOWN\020\010\022\020\n\014OBJECT_CLICK\020\t\022\r\n\tLOOT_PIC" +
-      "K\020\n\022\n\n\006ATTACK\020\013\022\020\n\014ROCKET_SHOOT\020\020\"3\n\rGeA" +
-      "uthRequest\022\020\n\010username\030\001 \002(\t\022\020\n\010password" +
-      "\030\002 \002(\t\"#\n\016GeAuthResponse\022\021\n\tisSuccess\030\001 " +
-      "\002(\010\"\323\003\n\024GeLocationInfoPacket\022\022\n\nlocation" +
-      "Id\030\001 \002(\005\022\014\n\004name\030\002 \002(\t\022\r\n\005width\030\003 \002(\005\022\016\n" +
-      "\006height\030\004 \002(\005\022m\n\025locationCachedObjects\030\005" +
-      " \002(\0132N.arch.galaxyeclipse.shared.protoco" +
-      "l.GeLocationInfoPacket.GeCachedObjectsPa",
-      "cket\032y\n\025GeCachedObjectsPacket\022`\n\007objects" +
-      "\030\001 \003(\0132O.arch.galaxyeclipse.shared.proto" +
-      "col.GeLocationInfoPacket.GeLocationObjec" +
-      "tPacket\032\217\001\n\026GeLocationObjectPacket\022\020\n\010ob" +
-      "jectId\030\001 \002(\005\022\024\n\014objectTypeId\030\002 \002(\005\022\020\n\010na" +
-      "tiveId\030\003 \002(\005\022\021\n\tpositionX\030\004 \002(\002\022\021\n\tposit" +
-      "ionY\030\005 \002(\002\022\025\n\rrotationAngle\030\006 \002(\002\"\210\013\n\026Ge" +
-      "ShipStaticInfoPacket\022\024\n\014moveMaxSpeed\030\001 \002" +
-      "(\002\022\030\n\020rotationMaxSpeed\030\002 \002(\002\022\035\n\025moveAcce" +
-      "lerationSpeed\030\003 \002(\002\022\034\n\024rotationAccelerat",
-      "ion\030\004 \002(\002\022\r\n\005armor\030\005 \002(\005\022\021\n\tenergyMax\030\006 " +
-      "\002(\005\022\r\n\005hpMax\030\007 \002(\005\022\023\n\013energyRegen\030\010 \002(\005\022" +
-      "\017\n\007hpRegen\030\t \002(\005\022\014\n\004name\030\n \002(\t\022\027\n\017armorD" +
-      "urability\030\013 \002(\005\022\030\n\020weaponSlotsCount\030\014 \002(" +
-      "\005\022\027\n\017bonusSlotsCount\030\r \002(\005\022_\n\016inventoryI" +
-      "tems\030\016 \003(\0132G.arch.galaxyeclipse.shared.p" +
-      "rotocol.GeShipStaticInfoPacket.GeItemPac" +
-      "ket\022Z\n\tshipBonus\030\017 \003(\0132G.arch.galaxyecli" +
-      "pse.shared.protocol.GeShipStaticInfoPack" +
-      "et.GeItemPacket\022\\\n\013shipWeapons\030\020 \003(\0132G.a",
-      "rch.galaxyeclipse.shared.protocol.GeShip" +
-      "StaticInfoPacket.GeItemPacket\022[\n\nshipEng" +
-      "ine\030\021 \002(\0132G.arch.galaxyeclipse.shared.pr" +
-      "otocol.GeShipStaticInfoPacket.GeItemPack" +
-      "et\032\327\005\n\014GeItemPacket\022\016\n\006itemId\030\001 \002(\005\022\014\n\004n" +
-      "ame\030\002 \002(\t\022\023\n\013description\030\003 \002(\t\022\r\n\005price\030" +
-      "\004 \002(\005\022\022\n\nitemTypeId\030\005 \002(\005\022d\n\005bonus\030\006 \001(\013" +
-      "2U.arch.galaxyeclipse.shared.protocol.Ge" +
-      "ShipStaticInfoPacket.GeItemPacket.GeBonu" +
-      "sPacket\022f\n\006weapon\030\007 \001(\0132V.arch.galaxyecl",
+      "entActionPacket.ClientActionType\022a\n\013focu" +
+      "sTarget\030\002 \001(\0132L.arch.galaxyeclipse.share" +
+      "d.protocol.GeClientActionPacket.GeClient" +
+      "FocusTarget\032\'\n\023GeClientFocusTarget\022\020\n\010ob" +
+      "jectId\030\001 \002(\005\"\352\001\n\020ClientActionType\022\022\n\016ROT" +
+      "ATE_LEFT_UP\020\001\022\024\n\020ROTATE_LEFT_DOWN\020\002\022\023\n\017R" +
+      "OTATE_RIGHT_UP\020\003\022\025\n\021ROTATE_RIGHT_DOWN\020\004\022",
+      "\013\n\007MOVE_UP\020\005\022\r\n\tMOVE_DOWN\020\006\022\013\n\007STOP_UP\020\007" +
+      "\022\r\n\tSTOP_DOWN\020\010\022\020\n\014OBJECT_CLICK\020\t\022\r\n\tLOO" +
+      "T_PICK\020\n\022\n\n\006ATTACK\020\013\022\t\n\005FOCUS\020\014\022\020\n\014ROCKE" +
+      "T_SHOOT\020\020\"3\n\rGeAuthRequest\022\020\n\010username\030\001" +
+      " \002(\t\022\020\n\010password\030\002 \002(\t\"#\n\016GeAuthResponse" +
+      "\022\021\n\tisSuccess\030\001 \002(\010\"\323\003\n\024GeLocationInfoPa" +
+      "cket\022\022\n\nlocationId\030\001 \002(\005\022\014\n\004name\030\002 \002(\t\022\r" +
+      "\n\005width\030\003 \002(\005\022\016\n\006height\030\004 \002(\005\022m\n\025locatio" +
+      "nCachedObjects\030\005 \002(\0132N.arch.galaxyeclips" +
+      "e.shared.protocol.GeLocationInfoPacket.G",
+      "eCachedObjectsPacket\032y\n\025GeCachedObjectsP" +
+      "acket\022`\n\007objects\030\001 \003(\0132O.arch.galaxyecli" +
+      "pse.shared.protocol.GeLocationInfoPacket" +
+      ".GeLocationObjectPacket\032\217\001\n\026GeLocationOb" +
+      "jectPacket\022\020\n\010objectId\030\001 \002(\005\022\024\n\014objectTy" +
+      "peId\030\002 \002(\005\022\020\n\010nativeId\030\003 \002(\005\022\021\n\tposition" +
+      "X\030\004 \002(\002\022\021\n\tpositionY\030\005 \002(\002\022\025\n\rrotationAn" +
+      "gle\030\006 \002(\002\"\210\013\n\026GeShipStaticInfoPacket\022\024\n\014" +
+      "moveMaxSpeed\030\001 \002(\002\022\030\n\020rotationMaxSpeed\030\002" +
+      " \002(\002\022\035\n\025moveAccelerationSpeed\030\003 \002(\002\022\034\n\024r",
+      "otationAcceleration\030\004 \002(\002\022\r\n\005armor\030\005 \002(\005" +
+      "\022\021\n\tenergyMax\030\006 \002(\005\022\r\n\005hpMax\030\007 \002(\005\022\023\n\013en" +
+      "ergyRegen\030\010 \002(\005\022\017\n\007hpRegen\030\t \002(\005\022\014\n\004name" +
+      "\030\n \002(\t\022\027\n\017armorDurability\030\013 \002(\005\022\030\n\020weapo" +
+      "nSlotsCount\030\014 \002(\005\022\027\n\017bonusSlotsCount\030\r \002" +
+      "(\005\022_\n\016inventoryItems\030\016 \003(\0132G.arch.galaxy" +
+      "eclipse.shared.protocol.GeShipStaticInfo" +
+      "Packet.GeItemPacket\022Z\n\tshipBonus\030\017 \003(\0132G" +
+      ".arch.galaxyeclipse.shared.protocol.GeSh" +
+      "ipStaticInfoPacket.GeItemPacket\022\\\n\013shipW",
+      "eapons\030\020 \003(\0132G.arch.galaxyeclipse.shared" +
+      ".protocol.GeShipStaticInfoPacket.GeItemP" +
+      "acket\022[\n\nshipEngine\030\021 \002(\0132G.arch.galaxye" +
+      "clipse.shared.protocol.GeShipStaticInfoP" +
+      "acket.GeItemPacket\032\327\005\n\014GeItemPacket\022\016\n\006i" +
+      "temId\030\001 \002(\005\022\014\n\004name\030\002 \002(\t\022\023\n\013description" +
+      "\030\003 \002(\t\022\r\n\005price\030\004 \002(\005\022\022\n\nitemTypeId\030\005 \002(" +
+      "\005\022d\n\005bonus\030\006 \001(\0132U.arch.galaxyeclipse.sh" +
+      "ared.protocol.GeShipStaticInfoPacket.GeI" +
+      "temPacket.GeBonusPacket\022f\n\006weapon\030\007 \001(\0132",
+      "V.arch.galaxyeclipse.shared.protocol.GeS" +
+      "hipStaticInfoPacket.GeItemPacket.GeWeapo" +
+      "nPacket\022f\n\006engine\030\010 \001(\0132V.arch.galaxyecl" +
       "ipse.shared.protocol.GeShipStaticInfoPac" +
-      "ket.GeItemPacket.GeWeaponPacket\022f\n\006engin" +
-      "e\030\010 \001(\0132V.arch.galaxyeclipse.shared.prot" +
-      "ocol.GeShipStaticInfoPacket.GeItemPacket" +
-      ".GeEnginePacket\0328\n\rGeBonusPacket\022\022\n\nbonu" +
-      "sValue\030\001 \002(\005\022\023\n\013bonusTypeId\030\002 \002(\005\032r\n\016GeW" +
-      "eaponPacket\022\016\n\006damage\030\001 \002(\005\022\022\n\ndelaySpee" +
-      "d\030\002 \002(\005\022\023\n\013bulletSpeed\030\003 \002(\005\022\023\n\013maxDista" +
-      "nce\030\004 \002(\005\022\022\n\nenergyCost\030\005 \002(\005\032\214\001\n\016GeEngi" +
-      "nePacket\022\035\n\025moveAccelerationBonus\030\001 \002(\002\022",
-      "\031\n\021moveMaxSpeedBonus\030\002 \002(\002\022!\n\031rotationAc" +
-      "celerationBonus\030\003 \002(\002\022\035\n\025rotationMaxSpee" +
-      "dBonus\030\004 \002(\002\"\371\002\n\020GeTypesMapPacket\022L\n\tite" +
-      "mTypes\030\001 \003(\01329.arch.galaxyeclipse.shared" +
-      ".protocol.GeTypesMapPacket.Type\022N\n\013weapo" +
-      "nTypes\030\002 \003(\01329.arch.galaxyeclipse.shared" +
-      ".protocol.GeTypesMapPacket.Type\022V\n\023locat" +
-      "ionObjectTypes\030\003 \003(\01329.arch.galaxyeclips" +
-      "e.shared.protocol.GeTypesMapPacket.Type\022" +
-      "M\n\nbonusTypes\030\004 \003(\01329.arch.galaxyeclipse",
-      ".shared.protocol.GeTypesMapPacket.Type\032 " +
-      "\n\004Type\022\n\n\002id\030\001 \002(\005\022\014\n\004name\030\002 \002(\t\"\201\002\n\023GeS" +
-      "tartupInfoPacket\022N\n\014locationInfo\030\001 \002(\01328" +
-      ".arch.galaxyeclipse.shared.protocol.GeLo" +
-      "cationInfoPacket\022F\n\010typesMap\030\002 \002(\01324.arc" +
-      "h.galaxyeclipse.shared.protocol.GeTypesM" +
-      "apPacket\022R\n\016shipStaticInfo\030\003 \002(\0132:.arch." +
-      "galaxyeclipse.shared.protocol.GeShipStat" +
-      "icInfoPacket\":\n\035GeShipStaticInfoCommandP" +
-      "acket\022\031\n\021serializedCommand\030\001 \002(\014\"*\n\027GeCh",
-      "atSendMessagePacket\022\017\n\007message\030\001 \002(\t\"=\n\032" +
-      "GeChatReceiveMessagePacket\022\017\n\007message\030\001 " +
-      "\002(\t\022\016\n\006sender\030\002 \002(\tB\016B\nGeProtocolH\001"
+      "ket.GeItemPacket.GeEnginePacket\0328\n\rGeBon" +
+      "usPacket\022\022\n\nbonusValue\030\001 \002(\005\022\023\n\013bonusTyp" +
+      "eId\030\002 \002(\005\032r\n\016GeWeaponPacket\022\016\n\006damage\030\001 " +
+      "\002(\005\022\022\n\ndelaySpeed\030\002 \002(\005\022\023\n\013bulletSpeed\030\003" +
+      " \002(\005\022\023\n\013maxDistance\030\004 \002(\005\022\022\n\nenergyCost\030" +
+      "\005 \002(\005\032\214\001\n\016GeEnginePacket\022\035\n\025moveAccelera",
+      "tionBonus\030\001 \002(\002\022\031\n\021moveMaxSpeedBonus\030\002 \002" +
+      "(\002\022!\n\031rotationAccelerationBonus\030\003 \002(\002\022\035\n" +
+      "\025rotationMaxSpeedBonus\030\004 \002(\002\"\371\002\n\020GeTypes" +
+      "MapPacket\022L\n\titemTypes\030\001 \003(\01329.arch.gala" +
+      "xyeclipse.shared.protocol.GeTypesMapPack" +
+      "et.Type\022N\n\013weaponTypes\030\002 \003(\01329.arch.gala" +
+      "xyeclipse.shared.protocol.GeTypesMapPack" +
+      "et.Type\022V\n\023locationObjectTypes\030\003 \003(\01329.a" +
+      "rch.galaxyeclipse.shared.protocol.GeType" +
+      "sMapPacket.Type\022M\n\nbonusTypes\030\004 \003(\01329.ar",
+      "ch.galaxyeclipse.shared.protocol.GeTypes" +
+      "MapPacket.Type\032 \n\004Type\022\n\n\002id\030\001 \002(\005\022\014\n\004na" +
+      "me\030\002 \002(\t\"\201\002\n\023GeStartupInfoPacket\022N\n\014loca" +
+      "tionInfo\030\001 \002(\01328.arch.galaxyeclipse.shar" +
+      "ed.protocol.GeLocationInfoPacket\022F\n\010type" +
+      "sMap\030\002 \002(\01324.arch.galaxyeclipse.shared.p" +
+      "rotocol.GeTypesMapPacket\022R\n\016shipStaticIn" +
+      "fo\030\003 \002(\0132:.arch.galaxyeclipse.shared.pro" +
+      "tocol.GeShipStaticInfoPacket\":\n\035GeShipSt" +
+      "aticInfoCommandPacket\022\031\n\021serializedComma",
+      "nd\030\001 \002(\014\"*\n\027GeChatSendMessagePacket\022\017\n\007m" +
+      "essage\030\001 \002(\t\"=\n\032GeChatReceiveMessagePack" +
+      "et\022\017\n\007message\030\001 \002(\t\022\016\n\006sender\030\002 \002(\tB\016B\nG" +
+      "eProtocolH\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -21357,7 +21367,7 @@ public final class GeProtocol {
           internal_static_arch_galaxyeclipse_shared_protocol_GeClientActionPacket_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_arch_galaxyeclipse_shared_protocol_GeClientActionPacket_descriptor,
-              new java.lang.String[] { "Type", "Target", });
+              new java.lang.String[] { "Type", "FocusTarget", });
           internal_static_arch_galaxyeclipse_shared_protocol_GeClientActionPacket_GeClientFocusTarget_descriptor =
             internal_static_arch_galaxyeclipse_shared_protocol_GeClientActionPacket_descriptor.getNestedTypes().get(0);
           internal_static_arch_galaxyeclipse_shared_protocol_GeClientActionPacket_GeClientFocusTarget_fieldAccessorTable = new
