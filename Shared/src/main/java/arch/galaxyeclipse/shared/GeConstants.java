@@ -9,12 +9,12 @@ public class GeConstants {
     public static final int      RADIUS_DYNAMIC_OBJECT_QUERY        = 2500;
 
     // all values are in millis
-    public static final long    DELAY_SHIP_STATE_REQUEST           = 50;
-    public static final long    DELAY_DYNAMIC_OBJECTS_REQUEST      = 50;
+    public static final long    DELAY_SHIP_STATE_REQUEST           = 100;
+    public static final long    DELAY_DYNAMIC_OBJECTS_REQUEST      = 100;
 
     public static final long    DELAY_OBJECT_SPEED_UPDATE          = 50;
-    public static final long    DELAY_OBJECT_POSITION_UPDATE       = 10;
-    public static final long    DELAY_OBJECT_ROTATION_UPDATE       = 10;
+    public static final long    DELAY_OBJECT_POSITION_UPDATE       = 30;
+    public static final long    DELAY_OBJECT_ROTATION_UPDATE       = 30;
 
     public static final long    DELAY_HP_REGEN                     = 300;
     public static final long    DELAY_ENERGY_REGEN                 = 100;

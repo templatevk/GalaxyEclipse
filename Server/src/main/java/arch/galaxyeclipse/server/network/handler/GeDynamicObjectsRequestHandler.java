@@ -35,8 +35,8 @@ class GeDynamicObjectsRequestHandler extends GePacketHandlerDecorator {
         GeLocationObjectPacket.Builder lopBuilder = playerInfoHolder.getLopBuilder();
         GeLocationObjectsHolder locationObjectsHolder = playerInfoHolder.getLocationObjectsHolder();
 
-        Collection<GeLocationObjectPacket.Builder> matchingObjects = locationObjectsHolder.getNearbyObjects(
-                lopBuilder, GeConstants.RADIUS_DYNAMIC_OBJECT_QUERY);
+        Collection<GeLocationObjectPacket.Builder> matchingObjects = locationObjectsHolder
+                .getNearbyObjects(lopBuilder, GeConstants.RADIUS_DYNAMIC_OBJECT_QUERY);
 
         GeDynamicObjectsResponse.Builder dorBuilder = GeDynamicObjectsResponse.newBuilder();
         for (GeLocationObjectPacket.Builder matchingObject : matchingObjects) {
