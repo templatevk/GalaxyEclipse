@@ -75,11 +75,12 @@ class GeClientActionListener extends InputListener {
             GeClientActionListener.log.debug("Client action " + type);
         }
 
-        GeClientActionPacket action = GeClientActionPacket.newBuilder()
-                .setType(type).build();
         GePacket clientActionPacket = GePacket.newBuilder()
                 .setType(GePacket.Type.CLIENT_ACTION)
-                .setClientAction(action).build();
+                .setClientAction(GeClientActionPacket.newBuilder()
+                        .setType(type))
+                .build();
+
         networkManager.sendPacket(clientActionPacket);
     }
 }

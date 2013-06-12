@@ -167,7 +167,7 @@ message GeShipStaticInfoPacket {
         message GeWeaponPacket {
             required int32 damage       = 1;
             required int32 delaySpeed   = 2;
-            required int32 bulletSpeed  = 3;
+            required float bulletSpeed  = 3;
             required int32 maxDistance  = 4;
             required int32 energyCost   = 5;
         }

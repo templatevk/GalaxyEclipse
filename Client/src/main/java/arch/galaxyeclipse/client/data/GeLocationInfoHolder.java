@@ -70,7 +70,7 @@ public class GeLocationInfoHolder {
         return cachedObjects;
     }
 
-    public List<GeLocationObjectPacket> getObjectsForRadius(GePosition position) {
+    public List<GeLocationObjectPacket> getObjectsForClientRadius(GePosition position) {
         positionPredicate.setPosition(position);
 
         List<GeLocationObjectPacket> locationObjects = new ArrayList<>();

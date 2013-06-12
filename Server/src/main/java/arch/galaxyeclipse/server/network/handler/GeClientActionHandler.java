@@ -1,10 +1,13 @@
 package arch.galaxyeclipse.server.network.handler;
 
 import arch.galaxyeclipse.server.data.GeDynamicObjectsHolder.GeLocationObjectsHolder;
+import arch.galaxyeclipse.server.data.GeDynamicObjectsHolder.GeLocationObjectsHolder.GeMovingLocationObject;
 import arch.galaxyeclipse.server.data.GePlayerInfoHolder;
 import arch.galaxyeclipse.server.data.model.GeShipConfig;
 import arch.galaxyeclipse.server.data.model.GeWeapon;
+import arch.galaxyeclipse.shared.GeConstants;
 import arch.galaxyeclipse.shared.common.GeLogUtils;
+import arch.galaxyeclipse.shared.common.GeMathUtils;
 import arch.galaxyeclipse.shared.common.GeMathUtilsCopied;
 import arch.galaxyeclipse.shared.context.GeContextHolder;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket;
@@ -35,6 +38,8 @@ class GeClientActionHandler extends GePacketHandlerDecorator {
     private MoveHandler moveHandler;
     private RotationHandler rotationHandler;
     private GeDictionaryTypesMapper dictionaryTypesMapper;
+
+    private GeLocationObjectPacket.Builder focusLop;
 
     private int dynamicId;
     private int rocketObjectId;
@@ -88,14 +93,28 @@ class GeClientActionHandler extends GePacketHandlerDecorator {
                     case LOOT_PICK:
                         break;
                     case ATTACK:
+                        processAttack();
                         break;
                     case ROCKET_SHOOT:
+                        break;
+                    case FOCUS:
+                        int focusObjectId = clientAction.getFocusTarget().getObjectId();
+                        if (focusObjectId == GeConstants.UNDEFINED_OBJECT_ID) {
+                            focusLop = null;
+                        } else {
+                            focusLop =  playerInfoHolder.getLocationObjectsHolder()
+                                    .getLopById(focusObjectId);
+                        }
                         break;
                 }
 
                 return true;
         }
         return false;
+    }
+
+    private void processAttack() {
+        // TODO
     }
 
     @Override
@@ -112,33 +131,36 @@ class GeClientActionHandler extends GePacketHandlerDecorator {
         rotationHandler.setRotationType(moveType);
     }
 
-    private class AttackTask extends GeTaskRunnablePair<Runnable> implements Runnable {
+    private class AttackTask {
 
         private GeWeapon weapon;
         private Builder ssrBuilder;
 
         private AttackTask(GeWeapon weapon) {
-            super(weapon.getDelaySpeed());
             this.weapon = weapon;
             ssrBuilder = playerInfoHolder.getSsrBuilder();
         }
 
-        @Override
-        public void run() {
-            // TODO
-//            float rotationAngle = GeMathUtils.getLineAngleInDegrees();
-//
-//            GeLocationObjectPacket bulletLop = GeLocationObjectPacket.newBuilder()
-//                    .setPositionX(ssrBuilder.getPositionX())
-//                    .setPositionY(ssrBuilder.getPositionY())
-//                    .setNativeId(weapon.getItemId())
-//                    .setObjectId(-1)
-//                    .setObjectTypeId(weapon.getWeaponTypeId() == laserWeaponId
-//                            ? laserObjectId : rocketObjectId)
-//                    .setRotationAngle(rotationAngle)
-//                    .build();
-//
-//            GeMovingLocationObject bulletObject = new GeMovingLocationObject();
+        public void attack() {
+            float rotationAngle = GeMathUtils.getLineAngleInDegrees(
+                    ssrBuilder.getPositionX(),
+                    ssrBuilder.getPositionY(),
+                    focusLop.getPositionX(),
+                    focusLop.getPositionY());
+
+            GeLocationObjectPacket.Builder bulletLop = GeLocationObjectPacket.newBuilder()
+                    .setPositionX(ssrBuilder.getPositionX())
+                    .setPositionY(ssrBuilder.getPositionY())
+                    .setNativeId(weapon.getItemId())
+                    .setObjectId(GeConstants.UNDEFINED_OBJECT_ID)
+                    .setObjectTypeId(weapon.getWeaponTypeId() == laserWeaponId
+                            ? laserObjectId : rocketObjectId)
+                    .setRotationAngle(rotationAngle);
+
+            GeLocationObjectsHolder loHolder = playerInfoHolder.getLocationObjectsHolder();
+            GeMovingLocationObject bulletObject = loHolder.new GeMovingLocationObject(
+                    bulletLop, weapon.getBulletSpeed(), weapon.getMaxDistance());
+
         }
     }
 

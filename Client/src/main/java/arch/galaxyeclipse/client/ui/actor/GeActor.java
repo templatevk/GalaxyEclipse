@@ -30,9 +30,7 @@ public abstract class GeActor extends Image implements Comparable<GeActor> {
         clientNetworkManager = GeContextHolder.getBean(IGeClientNetworkManager.class);
     }
 
-    private
-    @Getter
-    GeStageInfo stageInfo;
+    private @Getter GeStageInfo stageInfo;
 
     protected int compareToImpl(GeActor actor) {
         return 1;

@@ -35,15 +35,15 @@ public class GeWeapon extends GeItem {
         this.delaySpeed = delaySpeed;
     }
 
-    private int bulletSpeed;
+    private float bulletSpeed;
 
     @Column(name = "bullet_speed", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     @Basic
-    public int getBulletSpeed() {
+    public float getBulletSpeed() {
         return bulletSpeed;
     }
 
-    public void setBulletSpeed(int bulletSpeed) {
+    public void setBulletSpeed(float bulletSpeed) {
         this.bulletSpeed = bulletSpeed;
     }
 

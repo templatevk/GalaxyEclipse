@@ -78,8 +78,9 @@ abstract class GeClickableActor extends GeActor {
             select();
         }
 
-        int objectId = selectedActor.getActorType() == GeActorType.SELF
-                || selectedActor.getActorType() == GeActorType.LOCATION_OBJECT
+        int objectId = selectedActor != null
+                && (selectedActor.getActorType() == GeActorType.SELF
+                        || selectedActor.getActorType() == GeActorType.LOCATION_OBJECT)
                 ? ((GeLocationObjectActor) selectedActor).getLop().getObjectId()
                 : GeConstants.UNDEFINED_OBJECT_ID;
 

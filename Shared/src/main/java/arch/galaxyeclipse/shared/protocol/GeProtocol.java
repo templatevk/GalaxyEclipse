@@ -11054,15 +11054,15 @@ public final class GeProtocol {
          */
         int getDelaySpeed();
 
-        // required int32 bulletSpeed = 3;
+        // required float bulletSpeed = 3;
         /**
-         * <code>required int32 bulletSpeed = 3;</code>
+         * <code>required float bulletSpeed = 3;</code>
          */
         boolean hasBulletSpeed();
         /**
-         * <code>required int32 bulletSpeed = 3;</code>
+         * <code>required float bulletSpeed = 3;</code>
          */
-        int getBulletSpeed();
+        float getBulletSpeed();
 
         // required int32 maxDistance = 4;
         /**
@@ -11145,9 +11145,9 @@ public final class GeProtocol {
                   delaySpeed_ = input.readInt32();
                   break;
                 }
-                case 24: {
+                case 29: {
                   bitField0_ |= 0x00000004;
-                  bulletSpeed_ = input.readInt32();
+                  bulletSpeed_ = input.readFloat();
                   break;
                 }
                 case 32: {
@@ -11232,19 +11232,19 @@ public final class GeProtocol {
           return delaySpeed_;
         }
 
-        // required int32 bulletSpeed = 3;
+        // required float bulletSpeed = 3;
         public static final int BULLETSPEED_FIELD_NUMBER = 3;
-        private int bulletSpeed_;
+        private float bulletSpeed_;
         /**
-         * <code>required int32 bulletSpeed = 3;</code>
+         * <code>required float bulletSpeed = 3;</code>
          */
         public boolean hasBulletSpeed() {
           return ((bitField0_ & 0x00000004) == 0x00000004);
         }
         /**
-         * <code>required int32 bulletSpeed = 3;</code>
+         * <code>required float bulletSpeed = 3;</code>
          */
-        public int getBulletSpeed() {
+        public float getBulletSpeed() {
           return bulletSpeed_;
         }
 
@@ -11283,7 +11283,7 @@ public final class GeProtocol {
         private void initFields() {
           damage_ = 0;
           delaySpeed_ = 0;
-          bulletSpeed_ = 0;
+          bulletSpeed_ = 0F;
           maxDistance_ = 0;
           energyCost_ = 0;
         }
@@ -11326,7 +11326,7 @@ public final class GeProtocol {
             output.writeInt32(2, delaySpeed_);
           }
           if (((bitField0_ & 0x00000004) == 0x00000004)) {
-            output.writeInt32(3, bulletSpeed_);
+            output.writeFloat(3, bulletSpeed_);
           }
           if (((bitField0_ & 0x00000008) == 0x00000008)) {
             output.writeInt32(4, maxDistance_);
@@ -11353,7 +11353,7 @@ public final class GeProtocol {
           }
           if (((bitField0_ & 0x00000004) == 0x00000004)) {
             size += com.google.protobuf.CodedOutputStream
-              .computeInt32Size(3, bulletSpeed_);
+              .computeFloatSize(3, bulletSpeed_);
           }
           if (((bitField0_ & 0x00000008) == 0x00000008)) {
             size += com.google.protobuf.CodedOutputStream
@@ -11483,7 +11483,7 @@ public final class GeProtocol {
             bitField0_ = (bitField0_ & ~0x00000001);
             delaySpeed_ = 0;
             bitField0_ = (bitField0_ & ~0x00000002);
-            bulletSpeed_ = 0;
+            bulletSpeed_ = 0F;
             bitField0_ = (bitField0_ & ~0x00000004);
             maxDistance_ = 0;
             bitField0_ = (bitField0_ & ~0x00000008);
@@ -11681,35 +11681,35 @@ public final class GeProtocol {
             return this;
           }
 
-          // required int32 bulletSpeed = 3;
-          private int bulletSpeed_ ;
+          // required float bulletSpeed = 3;
+          private float bulletSpeed_ ;
           /**
-           * <code>required int32 bulletSpeed = 3;</code>
+           * <code>required float bulletSpeed = 3;</code>
            */
           public boolean hasBulletSpeed() {
             return ((bitField0_ & 0x00000004) == 0x00000004);
           }
           /**
-           * <code>required int32 bulletSpeed = 3;</code>
+           * <code>required float bulletSpeed = 3;</code>
            */
-          public int getBulletSpeed() {
+          public float getBulletSpeed() {
             return bulletSpeed_;
           }
           /**
-           * <code>required int32 bulletSpeed = 3;</code>
+           * <code>required float bulletSpeed = 3;</code>
            */
-          public Builder setBulletSpeed(int value) {
+          public Builder setBulletSpeed(float value) {
             bitField0_ |= 0x00000004;
             bulletSpeed_ = value;
             onChanged();
             return this;
           }
           /**
-           * <code>required int32 bulletSpeed = 3;</code>
+           * <code>required float bulletSpeed = 3;</code>
            */
           public Builder clearBulletSpeed() {
             bitField0_ = (bitField0_ & ~0x00000004);
-            bulletSpeed_ = 0;
+            bulletSpeed_ = 0F;
             onChanged();
             return this;
           }
@@ -21300,7 +21300,7 @@ public final class GeProtocol {
       "usPacket\022\022\n\nbonusValue\030\001 \002(\005\022\023\n\013bonusTyp" +
       "eId\030\002 \002(\005\032r\n\016GeWeaponPacket\022\016\n\006damage\030\001 " +
       "\002(\005\022\022\n\ndelaySpeed\030\002 \002(\005\022\023\n\013bulletSpeed\030\003" +
-      " \002(\005\022\023\n\013maxDistance\030\004 \002(\005\022\022\n\nenergyCost\030" +
+      " \002(\002\022\023\n\013maxDistance\030\004 \002(\005\022\022\n\nenergyCost\030" +
       "\005 \002(\005\032\214\001\n\016GeEnginePacket\022\035\n\025moveAccelera",
       "tionBonus\030\001 \002(\002\022\031\n\021moveMaxSpeedBonus\030\002 \002" +
       "(\002\022!\n\031rotationAccelerationBonus\030\003 \002(\002\022\035\n" +

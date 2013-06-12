@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections.CollectionUtils;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentSkipListMap;
 import java.util.concurrent.ConcurrentSkipListSet;
 import java.util.concurrent.TimeUnit;
 
@@ -40,11 +41,13 @@ public class GeDynamicObjectsHolder {
         private NavigableSet<Builder> locationObjectsX;
         private NavigableSet<Builder> locationObjectsY;
         private Set<GeMovingLocationObject> movingObjects;
+        private Map<Integer, Builder> lopByIdMap;
 
         private GeLocationObjectsHolder() {
             locationObjectsX = new ConcurrentSkipListSet<>(new LocationObjectXComparator());
             locationObjectsY = new ConcurrentSkipListSet<>(new LocationObjectYComparator());
             movingObjects = new ConcurrentSkipListSet<>();
+            lopByIdMap = new ConcurrentSkipListMap<>();
         }
 
         public void addMovingObject(GeMovingLocationObject object) {
@@ -60,11 +63,13 @@ public class GeDynamicObjectsHolder {
         public void addLopBuilder(GeLocationObjectPacket.Builder lopBuilder) {
             locationObjectsX.add(lopBuilder);
             locationObjectsY.add(lopBuilder);
+            lopByIdMap.put(lopBuilder.getObjectId(), lopBuilder);
         }
 
         public void removeLopBuilder(GeLocationObjectPacket.Builder lopBuilder) {
             locationObjectsX.remove(lopBuilder);
             locationObjectsY.remove(lopBuilder);
+            lopByIdMap.remove(lopBuilder.getObjectId());
         }
 
         public void updateLopBuilderX(GeLocationObjectPacket.Builder lopBuilder, float positionX) {
@@ -79,9 +84,11 @@ public class GeDynamicObjectsHolder {
             locationObjectsY.add(lopBuilder);
         }
 
-        public Collection<GeLocationObjectPacket.Builder> getNearbyObjects(
-                GeLocationObjectPacket.Builder lopBuilder, float radius) {
+        public Builder getLopById(int id) {
+            return lopByIdMap.get(id);
+        }
 
+        public Collection<Builder> getNearbyObjects(Builder lopBuilder, float radius) {
             float positionX = lopBuilder.getPositionX();
             float positionY = lopBuilder.getPositionY();
             float x1Pos = positionX - radius;
