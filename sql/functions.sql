@@ -155,14 +155,14 @@ create function get_default_location_name()
 create function get_default_position_x()
   returns float deterministic
   begin
-    return 15000;
+    return 7500;
   end
 //
 
 create function get_default_position_y()
   returns float deterministic
   begin
-    return 15000;
+    return 7500;
   end
 
 # //

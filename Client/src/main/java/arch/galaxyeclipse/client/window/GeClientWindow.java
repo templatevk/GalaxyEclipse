@@ -29,8 +29,6 @@ import static com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration.getD
 @Slf4j
 class GeClientWindow implements IGeClientWindow {
 
-    public static final int RENDER_REQUEST_MILLISECONDS_DELAY = 50;
-
     private static final float VIRTUAL_WIDTH = 4;
     private static final float VIRTUAL_HEIGHT = 3;
     private static final float ASPECT_RATIO = VIRTUAL_WIDTH / VIRTUAL_HEIGHT;
