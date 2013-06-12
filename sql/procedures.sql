@@ -22,6 +22,7 @@ create procedure activate_player(player_id integer)
        get_location_object_type_id_by_name('player'),
        ship_type_id, get_location_id_by_name(get_default_location_name()),
        get_default_position_x(), get_default_position_y());
+
     set location_object_id = (select last_insert_id());
 
     insert into ship_config
@@ -59,10 +60,10 @@ create procedure activate_player(player_id integer)
         where st.ship_type_id = ship_type_id),
        ship_type_id,
        get_item_id_by_name(get_default_engine_name()));
+
     set ship_config_id = (select last_insert_id());
 
     insert into ship_state
-
     (ship_state_hp, ship_state_energy, ship_state_armor_durability)
       values
       ((select ship_type_hp_max
@@ -74,12 +75,18 @@ create procedure activate_player(player_id integer)
        (select ship_type_armor_durability
         from ship_type st
         where st.ship_type_id = ship_type_id));
+
     set ship_state_id = (select last_insert_id());
 
     insert into inventory_item
     (amount, item_id, player_id)
       values
       (get_default_player_money(), get_item_id_by_name('Gold'), player_id);
+
+    insert into ship_config_weapon_slot
+    (ship_config_id, item_id)
+      values
+      (ship_config_id, get_item_id_by_name(get_default_weapon_name()));
 
     update player p
     set activated = 1, p.location_object_id = location_object_id,

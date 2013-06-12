@@ -101,14 +101,14 @@ insert into bonus
   (3, get_item_id_by_name('Energy Regen Module "Tadpole"'), get_bonus_type_id_by_name('energy_regen'));
 
 insert into weapon
-(damage, delay_speed, bullet_speed, max_distance, energy_cost, weapon_type_id, item_id)
+(damage, shot_delay, bullet_speed, max_distance, energy_cost, weapon_type_id, item_id)
   values
 # rocket
   (25, 10, 100, 200, 10, get_weapon_type_id_by_name('rocket'), get_item_id_by_name('Rocket "Idario"')),
   (50, 15, 85, 300, 15, get_weapon_type_id_by_name('rocket'), get_item_id_by_name('Rocket "Pemelaya')),
 # laser
-  (5, 1, 400, 100, 1, get_weapon_type_id_by_name('laser'), get_item_id_by_name('Laser "Flersiss"')),
-  (10, 1, 350, 100, 2, get_weapon_type_id_by_name('laser'), get_item_id_by_name('Laser "Gyash"'));
+  (25, 200, 30, 1000, 3, get_weapon_type_id_by_name('laser'), get_item_id_by_name(get_default_weapon_name())),
+  (40, 300, 40, 1500, 5, get_weapon_type_id_by_name('laser'), get_item_id_by_name('Laser "Gyash"'));
 
 insert into engine
 (move_acceleration_bonus, move_max_speed_bonus, rotation_acceleration_bonus, rotation_max_speed_bonus, item_id)
