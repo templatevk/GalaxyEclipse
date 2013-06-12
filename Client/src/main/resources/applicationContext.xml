@@ -17,6 +17,8 @@
     <bean class="arch.galaxyeclipse.client.data.GeShipStaticInfoHolder" lazy-init="true"/>
     <bean class="arch.galaxyeclipse.client.data.GeLocationInfoHolder" lazy-init="true"/>
     <bean class="arch.galaxyeclipse.client.data.GeShipStateInfoHolder" lazy-init="true"/>
+    <bean class="arch.galaxyeclipse.client.resource.GeFlySoundManager"/>
+
 
     <bean class="arch.galaxyeclipse.shared.thread.GeExecutor"/>
 </beans>

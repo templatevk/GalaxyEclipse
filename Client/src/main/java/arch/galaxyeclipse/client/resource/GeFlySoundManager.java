@@ -1,12 +1,14 @@
 package arch.galaxyeclipse.client.resource;
 
 import arch.galaxyeclipse.client.network.GeServerPacketListener;
+import arch.galaxyeclipse.client.network.IGeClientNetworkManager;
 import arch.galaxyeclipse.client.window.IGeClientWindow;
 import arch.galaxyeclipse.shared.protocol.GeProtocol;
 import com.badlogic.gdx.audio.Music;
 
 import java.util.List;
 
+import static arch.galaxyeclipse.shared.context.GeContextHolder.getBean;
 import static java.util.Arrays.asList;
 
 
@@ -21,8 +23,9 @@ public class GeFlySoundManager extends GeServerPacketListener {
     private String path;
 
     public GeFlySoundManager() {
-        path = String.format(FLY_SOUND_PATH,
-                clientWindow.getCurrentStageProviderType().toString().toLowerCase());
+        //path = String.format(FLY_SOUND_PATH, );
+
+        //getBean(IGeClientNetworkManager.class).addPacketListener(this);
     }
 
 
