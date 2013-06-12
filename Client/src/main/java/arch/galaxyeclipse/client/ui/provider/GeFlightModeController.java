@@ -52,7 +52,7 @@ public class GeFlightModeController implements IGeStageProvider {
                 GePosition position = new GePosition(shipStateInfoHolder.getPositionX(),
                         shipStateInfoHolder.getPositionY());
                 List<GeLocationObjectPacket> lopList =
-                        locationInfoHolder.getObjectsForRadius(position);
+                        locationInfoHolder.getObjectsForClientRadius(position);
                 view.getModel().refreshActors(lopList);
 
                 int locationId = locationInfoHolder.getLocationId();

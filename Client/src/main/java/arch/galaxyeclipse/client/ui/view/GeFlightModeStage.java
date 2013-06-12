@@ -5,6 +5,7 @@ import arch.galaxyeclipse.client.ui.GeStageUiFactory;
 import arch.galaxyeclipse.client.ui.IGeButtonBuilder;
 import arch.galaxyeclipse.client.ui.IGeButtonClickCommand;
 import arch.galaxyeclipse.client.ui.actor.GeActor;
+import arch.galaxyeclipse.client.ui.actor.GeLocationObjectActor;
 import arch.galaxyeclipse.client.ui.actor.GeStageInfo;
 import arch.galaxyeclipse.client.ui.model.GeFlightModeModel;
 import arch.galaxyeclipse.client.ui.provider.GeStageProviderFactory;
@@ -13,6 +14,8 @@ import arch.galaxyeclipse.client.ui.provider.IGeStageProvider;
 import arch.galaxyeclipse.client.ui.widget.*;
 import arch.galaxyeclipse.shared.common.GeStubCallback;
 import arch.galaxyeclipse.shared.context.GeContextHolder;
+import arch.galaxyeclipse.shared.types.GeDictionaryTypesMapper;
+import arch.galaxyeclipse.shared.types.GeLocationObjectTypesMapperType;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -20,8 +23,13 @@ import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.FocusListener;
+import com.google.common.base.Predicate;
+import com.google.common.collect.Collections2;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Slf4j
 public class GeFlightModeStage extends GeAbstractGameStage {
@@ -50,9 +58,9 @@ public class GeFlightModeStage extends GeAbstractGameStage {
     private static final float BOTTOMPANEL_PADDING_BOTTOM = 0;
     private static final float TOPPANEL_PADDING_TOP = 0;
 
-    private
-    @Getter
-    GeFlightModeModel model;
+    private @Getter GeFlightModeModel model;
+
+    private GeDictionaryTypesMapper dictionaryTypesMapper;
 
     private Group rootLayout;
     private Group gameActorsLayout;
@@ -71,7 +79,15 @@ public class GeFlightModeStage extends GeAbstractGameStage {
     private Table mainMenuBtnTable;
     private TextButton mainMenuBtn;
 
+    private Set<Integer> minimapObjectTypeIds;
+
     public GeFlightModeStage() {
+        dictionaryTypesMapper = GeContextHolder.getBean(GeDictionaryTypesMapper.class);
+
+        minimapObjectTypeIds = new HashSet<>();
+        minimapObjectTypeIds.add(dictionaryTypesMapper.getIdByLocationObjectType(
+                GeLocationObjectTypesMapperType.PLAYER));
+
         model = new GeFlightModeModel();
         model.setBackground(GeActor.newStub());
 
@@ -293,6 +309,14 @@ public class GeFlightModeStage extends GeAbstractGameStage {
             gameActorsLayout.addActor(actor);
             actor.adjust(stageInfo);
         }
+
+        miniMapWidget.setMinimapActors(Collections2.filter(model.getSortedActors(),
+                new Predicate<GeLocationObjectActor>() {
+                    @Override
+                    public boolean apply(GeLocationObjectActor actor) {
+                        return minimapObjectTypeIds.contains(actor.getLop().getObjectId());
+                    }
+                }));
 
         super.draw();
     }

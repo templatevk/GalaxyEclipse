@@ -82,14 +82,17 @@ message GeClientActionPacket {
         LOOT_PICK           = 10;  // RMB
 
         ATTACK              = 11;  // Space button
+        FOCUS               = 12;
 
         ROCKET_SHOOT        = 16;  // SHIFT
     }
 
-    required ClientActionType   type                    = 1;
+    required ClientActionType       type            = 1;
+    optional GeClientFocusTarget    focusTarget     = 2;
 
-    optional int32              locationObjectId        = 2;
-    optional int32              locationObjectTypeId    = 3;
+    message GeClientFocusTarget {
+        required int32 objectId = 1;
+    }
 }
 
 
@@ -164,7 +167,7 @@ message GeShipStaticInfoPacket {
         message GeWeaponPacket {
             required int32 damage       = 1;
             required int32 delaySpeed   = 2;
-            required int32 bulletSpeed  = 3;
+            required float bulletSpeed  = 3;
             required int32 maxDistance  = 4;
             required int32 energyCost   = 5;
         }

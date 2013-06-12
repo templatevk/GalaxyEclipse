@@ -1,6 +1,7 @@
 package arch.galaxyeclipse.client.ui.actor;
 
 import arch.galaxyeclipse.client.data.GeShipStateInfoHolder;
+import arch.galaxyeclipse.client.network.IGeClientNetworkManager;
 import arch.galaxyeclipse.shared.context.GeContextHolder;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
@@ -17,6 +18,8 @@ public abstract class GeActor extends Image implements Comparable<GeActor> {
 
     @Getter(AccessLevel.PROTECTED)
     private static GeShipStateInfoHolder shipStateInfoHolder;
+    @Getter(AccessLevel.PROTECTED)
+    private static IGeClientNetworkManager clientNetworkManager;
 
     @Getter
     @Setter(AccessLevel.PROTECTED)
@@ -24,11 +27,10 @@ public abstract class GeActor extends Image implements Comparable<GeActor> {
 
     static {
         shipStateInfoHolder = GeContextHolder.getBean(GeShipStateInfoHolder.class);
+        clientNetworkManager = GeContextHolder.getBean(IGeClientNetworkManager.class);
     }
 
-    private
-    @Getter
-    GeStageInfo stageInfo;
+    private @Getter GeStageInfo stageInfo;
 
     protected int compareToImpl(GeActor actor) {
         return 1;

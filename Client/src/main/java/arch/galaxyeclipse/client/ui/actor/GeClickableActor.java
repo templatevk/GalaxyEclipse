@@ -1,8 +1,13 @@
 package arch.galaxyeclipse.client.ui.actor;
 
+import arch.galaxyeclipse.shared.GeConstants;
 import arch.galaxyeclipse.shared.common.GePosition;
 import arch.galaxyeclipse.shared.common.GeStubCommand;
 import arch.galaxyeclipse.shared.common.IGeCommand;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.ClientActionType;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.GePacket;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.GePacket.Type;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.actions.AlphaAction;
@@ -59,7 +64,7 @@ abstract class GeClickableActor extends GeActor {
         setOrigin(getPrefWidth() / 2, getPrefHeight() / 2);
     }
 
-    private void onSelect() {
+    protected void onSelect() {
         if (selectedActor != null) {
             if (selectedActor == this) {
                 deselect();
@@ -72,12 +77,28 @@ abstract class GeClickableActor extends GeActor {
             selectedActor = this;
             select();
         }
+
+        int objectId = selectedActor != null
+                && (selectedActor.getActorType() == GeActorType.SELF
+                        || selectedActor.getActorType() == GeActorType.LOCATION_OBJECT)
+                ? ((GeLocationObjectActor) selectedActor).getLop().getObjectId()
+                : GeConstants.UNDEFINED_OBJECT_ID;
+
+        GePacket packet = GePacket.newBuilder()
+                .setType(Type.CLIENT_ACTION)
+                .setClientAction(GeClientActionPacket.newBuilder()
+                        .setType(ClientActionType.FOCUS)
+                        .setFocusTarget(GeClientActionPacket.GeClientFocusTarget.newBuilder()
+                                .setObjectId(objectId))
+                ).build();
+        getClientNetworkManager().sendPacket(packet);
     }
 
     private void select() {
         addAction(new SelectionAlphaAction());
         addAction(new SelectionScaleAction());
         addAction(new SelectionColorAction());
+
         selectedActor = this;
         selected = true;
     }
