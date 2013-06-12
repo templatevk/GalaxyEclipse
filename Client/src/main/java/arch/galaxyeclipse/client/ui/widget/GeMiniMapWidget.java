@@ -10,6 +10,7 @@ import arch.galaxyeclipse.shared.thread.GeTaskRunnablePair;
 import arch.galaxyeclipse.shared.types.GeDictionaryTypesMapper;
 import arch.galaxyeclipse.shared.types.GeLocationObjectTypesMapperType;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import lombok.extern.slf4j.Slf4j;
@@ -29,6 +30,8 @@ public class GeMiniMapWidget extends Table {
     private final int TABLE_ACTORS_HEIGHT = 435;
     private final int TABLE_ACTORS_LEFT = 110;
     private final int TABLE_ACTORS_BOTTOM = 80;
+
+    private ScrollPane minimapScrollPane;
 
     private Table actorsTable;
 
@@ -52,8 +55,10 @@ public class GeMiniMapWidget extends Table {
         setHeight(getPrefHeight());
 
         actorsTable = new Table();
-        actorsTable.debug();
-        addActor(actorsTable);
+
+        ScrollPane.ScrollPaneStyle minimapScrollPaneStyle = new ScrollPane.ScrollPaneStyle();
+        minimapScrollPane = new ScrollPane(actorsTable, minimapScrollPaneStyle);
+        addActor(minimapScrollPane);
 
         doplerImage = new Image(resourceLoader.createDrawable("ui/minimap/dopler"));
 
@@ -66,7 +71,9 @@ public class GeMiniMapWidget extends Table {
         float scaleX = width / getPrefWidth();
         float scaleY = height / getPrefHeight();
 
-        actorsTable.setPosition(TABLE_ACTORS_LEFT * scaleX,TABLE_ACTORS_BOTTOM * scaleY);
+        minimapScrollPane.setPosition(TABLE_ACTORS_LEFT * scaleX,TABLE_ACTORS_BOTTOM * scaleY);
+        minimapScrollPane.setSize(TABLE_ACTORS_WIDTH * scaleX, TABLE_ACTORS_HEIGHT * scaleY);
+
         actorsTable.setScale(scaleX, scaleY);
         actorsTable.setSize(TABLE_ACTORS_WIDTH * scaleX, TABLE_ACTORS_HEIGHT * scaleY);
 
@@ -138,7 +145,7 @@ public class GeMiniMapWidget extends Table {
 
     private class RotationTask extends GeTaskRunnablePair<Runnable> implements Runnable {
 
-        private static final int DEGREES_DIFF = 6;
+        private static final int DEGREES_DIFF = -6;
         private static final int MAX_DEGREES = 360;
 
         private RotationTask() {
