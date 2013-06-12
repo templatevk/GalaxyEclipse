@@ -85,4 +85,12 @@ public class GeLocationObjectActor extends GeClickableActor {
     protected int compareToImpl(GeActor actor) {
         return ((GeLocationObjectActor) actor).getLop().getObjectId() - lop.getObjectId();
     }
+
+    @Override
+    protected void onSelect() {
+        super.onSelect();
+//        GePacket packet = GeClientActionPacket.GeClientFocusTarget.newBuilder()
+//                .setObjectId(selectedActor.)
+//        getClientNetworkManager().sendPacket(packet);
+    }
 }

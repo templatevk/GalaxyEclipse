@@ -86,10 +86,12 @@ message GeClientActionPacket {
         ROCKET_SHOOT        = 16;  // SHIFT
     }
 
-    required ClientActionType   type                    = 1;
+    required ClientActionType       type        = 1;
+    optional GeClientFocusTarget    target      = 2;
 
-    optional int32              locationObjectId        = 2;
-    optional int32              locationObjectTypeId    = 3;
+    message GeClientFocusTarget {
+        required int32 objectId = 1;
+    }
 }
 
 

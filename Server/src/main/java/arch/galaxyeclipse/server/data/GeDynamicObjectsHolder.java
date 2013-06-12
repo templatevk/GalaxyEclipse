@@ -1,15 +1,17 @@
 package arch.galaxyeclipse.server.data;
 
 import arch.galaxyeclipse.shared.GeConstants;
-import arch.galaxyeclipse.shared.common.GeMathUtils;
+import arch.galaxyeclipse.shared.common.GeMathUtilsCopied;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket.Builder;
 import arch.galaxyeclipse.shared.thread.GeTaskRunnablePair;
+import com.google.common.base.Stopwatch;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections.CollectionUtils;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentSkipListSet;
+import java.util.concurrent.TimeUnit;
 
 /**
  *
@@ -36,11 +38,23 @@ public class GeDynamicObjectsHolder {
     public static class GeLocationObjectsHolder {
 
         private NavigableSet<Builder> locationObjectsX;
-        private NavigableSet<GeLocationObjectPacket.Builder> locationObjectsY;
+        private NavigableSet<Builder> locationObjectsY;
+        private Set<GeMovingLocationObject> movingObjects;
 
         private GeLocationObjectsHolder() {
             locationObjectsX = new ConcurrentSkipListSet<>(new LocationObjectXComparator());
             locationObjectsY = new ConcurrentSkipListSet<>(new LocationObjectYComparator());
+            movingObjects = new ConcurrentSkipListSet<>();
+        }
+
+        public void addMovingObject(GeMovingLocationObject object) {
+            movingObjects.add(object);
+            addLopBuilder(object.lopBuilder);
+        }
+
+        public void removeMovingObject(GeMovingLocationObject object) {
+            movingObjects.remove(object);
+            removeLopBuilder(object.lopBuilder);
         }
 
         public void addLopBuilder(GeLocationObjectPacket.Builder lopBuilder) {
@@ -116,8 +130,8 @@ public class GeDynamicObjectsHolder {
                 float rotationAngle = lopBuilder.getRotationAngle();
 
                 float coef = (GeConstants.DELAY_OBJECT_POSITION_UPDATE / msElapsed);
-                float xDiff = moveSpeed * coef * GeMathUtils.sinDeg(rotationAngle);
-                float yDiff = moveSpeed * coef * GeMathUtils.cosDeg(rotationAngle);
+                float xDiff = moveSpeed * coef * GeMathUtilsCopied.sinDeg(rotationAngle);
+                float yDiff = moveSpeed * coef * GeMathUtilsCopied.cosDeg(rotationAngle);
 
                 positionX += xDiff;
                 // -= here because of client rendering
@@ -140,13 +154,34 @@ public class GeDynamicObjectsHolder {
         private class GeMovingObjectUpdater extends GeTaskRunnablePair<Runnable>
                 implements Runnable {
 
-            private GeMovingObjectUpdater(long millisecondsDelay) {
-                super(millisecondsDelay);
+            private static final long DELAY = 50;
+
+            private Stopwatch stopwatch = new Stopwatch();
+            private long prevElapsed;
+
+            private GeMovingObjectUpdater() {
+                super(DELAY);
             }
 
             @Override
             public void run() {
+                long elapsed = stopwatch.elapsed(TimeUnit.MILLISECONDS);
+                for (GeMovingLocationObject object : movingObjects) {
+                    object.move(elapsed - prevElapsed);
+                }
+                prevElapsed = elapsed;
+            }
 
+            @Override
+            public void start() {
+                stopwatch.start();
+                super.start();
+            }
+
+            @Override
+            public void stop() {
+                stopwatch.stop();
+                super.stop();
             }
         }
     }

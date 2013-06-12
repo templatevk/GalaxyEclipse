@@ -59,7 +59,7 @@ abstract class GeClickableActor extends GeActor {
         setOrigin(getPrefWidth() / 2, getPrefHeight() / 2);
     }
 
-    private void onSelect() {
+    protected void onSelect() {
         if (selectedActor != null) {
             if (selectedActor == this) {
                 deselect();

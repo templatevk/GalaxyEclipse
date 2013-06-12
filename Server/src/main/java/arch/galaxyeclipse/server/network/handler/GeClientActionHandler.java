@@ -1,16 +1,25 @@
 package arch.galaxyeclipse.server.network.handler;
 
 import arch.galaxyeclipse.server.data.GeDynamicObjectsHolder.GeLocationObjectsHolder;
+import arch.galaxyeclipse.server.data.GeDynamicObjectsHolder.GeLocationObjectsHolder.GeMovingLocationObject;
 import arch.galaxyeclipse.server.data.GePlayerInfoHolder;
 import arch.galaxyeclipse.server.data.model.GeShipConfig;
+import arch.galaxyeclipse.server.data.model.GeWeapon;
 import arch.galaxyeclipse.shared.common.GeLogUtils;
 import arch.galaxyeclipse.shared.common.GeMathUtils;
+import arch.galaxyeclipse.shared.common.GeMathUtilsCopied;
+import arch.galaxyeclipse.shared.context.GeContextHolder;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket.ClientActionType;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.GePacket;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse.Builder;
 import arch.galaxyeclipse.shared.thread.GeTaskRunnablePair;
+import arch.galaxyeclipse.shared.types.GeDictionaryTypesMapper;
+import arch.galaxyeclipse.shared.types.GeLocationObjectBehaviorTypesMapperType;
+import arch.galaxyeclipse.shared.types.GeLocationObjectTypesMapperType;
+import arch.galaxyeclipse.shared.types.GeWeaponTypesMapperType;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -27,9 +36,27 @@ class GeClientActionHandler extends GePacketHandlerDecorator {
 
     private MoveHandler moveHandler;
     private RotationHandler rotationHandler;
+    private GeDictionaryTypesMapper dictionaryTypesMapper;
+
+    private int dynamicId;
+    private int rocketObjectId;
+    private int laserObjectId;
+    private int laserWeaponId;
+    private int rocketWeaponId;
 
     public GeClientActionHandler(IGeChannelAwarePacketHandler decoratedPacketHandler) {
         super(decoratedPacketHandler);
+
+        dictionaryTypesMapper = GeContextHolder.getBean(GeDictionaryTypesMapper.class);
+
+        laserObjectId = dictionaryTypesMapper.getIdByLocationObjectType(
+                GeLocationObjectTypesMapperType.LASER);
+        rocketObjectId = dictionaryTypesMapper.getIdByLocationObjectType(
+                GeLocationObjectTypesMapperType.ROCKET);
+        laserWeaponId = dictionaryTypesMapper.getIdByWeaponType(GeWeaponTypesMapperType.LASER);
+        rocketWeaponId = dictionaryTypesMapper.getIdByWeaponType(GeWeaponTypesMapperType.ROCKET);
+        dynamicId = dictionaryTypesMapper.getIdByLocationObjectBehaviorType(
+                GeLocationObjectBehaviorTypesMapperType.DYNAMIC);
 
         playerInfoHolder = getServerChannelHandler().getPlayerInfoHolder();
 
@@ -85,6 +112,36 @@ class GeClientActionHandler extends GePacketHandlerDecorator {
 
     private void processRotation(ClientActionType moveType) {
         rotationHandler.setRotationType(moveType);
+    }
+
+    private class AttackTask extends GeTaskRunnablePair<Runnable> implements Runnable {
+
+        private GeWeapon weapon;
+        private Builder ssrBuilder;
+
+        private AttackTask(GeWeapon weapon) {
+            super(weapon.getDelaySpeed());
+            this.weapon = weapon;
+            ssrBuilder = playerInfoHolder.getSsrBuilder();
+        }
+
+        @Override
+        public void run() {
+            // TODO
+            float rotationAngle = GeMathUtils.getLineAngleInDegrees();
+
+            GeLocationObjectPacket bulletLop = GeLocationObjectPacket.newBuilder()
+                    .setPositionX(ssrBuilder.getPositionX())
+                    .setPositionY(ssrBuilder.getPositionY())
+                    .setNativeId(weapon.getItemId())
+                    .setObjectId(-1)
+                    .setObjectTypeId(weapon.getWeaponTypeId() == laserWeaponId
+                            ? laserObjectId : rocketObjectId)
+                    .setRotationAngle(rotationAngle)
+                    .build();
+
+            GeMovingLocationObject bulletObject = new GeMovingLocationObject();
+        }
     }
 
     private static class RotationHandler extends GeTaskRunnablePair<Runnable> {
@@ -329,8 +386,8 @@ class GeClientActionHandler extends GePacketHandlerDecorator {
                 float rotationAngle = lopBuilder.getRotationAngle();
                 float positionX = lopBuilder.getPositionX();
                 float positionY = lopBuilder.getPositionY();
-                float xDiff = currentMoveSpeed * GeMathUtils.sinDeg(rotationAngle);
-                float yDiff = currentMoveSpeed * GeMathUtils.cosDeg(rotationAngle);
+                float xDiff = currentMoveSpeed * GeMathUtilsCopied.sinDeg(rotationAngle);
+                float yDiff = currentMoveSpeed * GeMathUtilsCopied.cosDeg(rotationAngle);
 
                 positionX += xDiff;
                 // -= here because of client rendering
