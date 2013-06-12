@@ -11,6 +11,7 @@ import arch.galaxyeclipse.shared.types.GeDictionaryTypesMapper;
 import arch.galaxyeclipse.shared.types.GeLocationObjectTypesMapperType;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Collection;
@@ -100,25 +101,35 @@ public class GeMiniMapWidget extends Table {
             switch (objectType) {
                 case PLAYER:
                     self = minimapActor.getObjectId() == shipStateInfoHolder.getLocationObjectId();
-                    if(self) {
-                        actorImage = new Image(resourceLoader.createDrawable("ui/minimap/indicatorSelf"));
+                    if (self) {
+                        Drawable drawable = resourceLoader.createDrawable("ui/minimap/indicatorSelf");
+                        actorImage = new Image(drawable);
                     } else {
-                        actorImage = new Image(resourceLoader.createDrawable("ui/minimap/indicatorEnemy"));
+                        Drawable drawable = resourceLoader.createDrawable("ui/minimap/indicatorEnemy");
+                        actorImage = new Image(drawable);
                     }
                     break;
             }
-            float actorMapPositionX = (float) TABLE_ACTORS_WIDTH * actorsTable.getScaleX() / (float)locationInfoHolder.getWidth() * (float)minimapActor.getPositionX();
-            float actorMapPositionY = (float) TABLE_ACTORS_HEIGHT * actorsTable.getScaleY() / (float)locationInfoHolder.getHeight() * (float)minimapActor.getPositionY();
+            float actorPositionX = (float) TABLE_ACTORS_WIDTH * actorsTable.getScaleX()
+                    / (float)locationInfoHolder.getWidth() * minimapActor.getPositionX();
+            float actorPositionY = (float) TABLE_ACTORS_HEIGHT * actorsTable.getScaleY()
+                    / (float)locationInfoHolder.getHeight() * minimapActor.getPositionY();
 
-            if(self){
-                float doplerImagePositionX = actorMapPositionX - ((float) doplerImage.getWidth() * actorsTable.getScaleX() / 2f);
-                float doplerImagePositionY = actorMapPositionY - ((float) doplerImage.getHeight() * actorsTable.getScaleY() / 2f);
+            if (self) {
+                float doplerHalfWidth = doplerImage.getWidth() / 2f;
+                float doplerHalfHeight = doplerImage.getHeight() / 2f;
+                float doplerImagePositionX = actorPositionX - doplerHalfWidth;
+                float doplerImagePositionY = actorPositionY - doplerHalfHeight;
+
                 doplerImage.setOrigin(doplerImage.getWidth()/2f,doplerImage.getHeight()/2f);
                 doplerImage.setPosition(doplerImagePositionX, doplerImagePositionY);
             }
 
-            float actorImagePositionX = actorMapPositionX - ((float) actorImage.getWidth() * actorsTable.getScaleX() / 2f);
-            float actorImagePositionY = actorMapPositionY - ((float) actorImage.getHeight() * actorsTable.getScaleY() / 2f);
+            float actorHalfWidth = actorImage.getWidth() * actorsTable.getScaleX() / 2f;
+            float actorHalfHeight = actorImage.getHeight() * actorsTable.getScaleY() / 2f;
+            float actorImagePositionX = actorPositionX - actorHalfWidth;
+            float actorImagePositionY = actorPositionY - actorHalfHeight;
+
             actorImage.setPosition(actorImagePositionX, actorImagePositionY);
             actorImage.setScale(actorsTable.getScaleX(), actorsTable.getScaleY());
             actorsTable.addActor(actorImage);

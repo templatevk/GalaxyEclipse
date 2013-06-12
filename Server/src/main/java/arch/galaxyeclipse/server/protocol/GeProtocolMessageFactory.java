@@ -180,7 +180,7 @@ public class GeProtocolMessageFactory {
                 break;
             case WEAPON:
                 GeWeapon weapon = (GeWeapon) item;
-                getItemBuilder.clear();
+                getWeaponBuilder.clear();
                 getItemBuilder.setWeapon(getWeaponBuilder
                         .setDamage(weapon.getDamage())
                         .setShotDelay(weapon.getShotDelay())
