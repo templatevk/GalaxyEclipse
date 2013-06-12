@@ -1,5 +1,6 @@
 package arch.galaxyeclipse.client.window;
 
+import arch.galaxyeclipse.client.ui.provider.GeStageProviderType;
 import arch.galaxyeclipse.client.ui.provider.IGeStageProvider;
 import arch.galaxyeclipse.shared.common.IGeDisposable;
 
@@ -12,6 +13,8 @@ public interface IGeClientWindow {
 
     float DEFAULT_WIDTH = 1024;
     float DEFAULT_HEIGHT = 748;
+
+    GeStageProviderType getCurrentStageProviderType();
 
     void setStageProvider(IGeStageProvider stagePresenter);
 

@@ -3,130 +3,69 @@ package arch.galaxyeclipse.client.resource;
 
 import arch.galaxyeclipse.client.ui.provider.GeStageProviderType;
 import arch.galaxyeclipse.client.util.GeDisposable;
+import arch.galaxyeclipse.client.window.IGeClientWindow;
 import arch.galaxyeclipse.shared.context.GeContextHolder;
+import arch.galaxyeclipse.shared.protocol.GeProtocol;
 import arch.galaxyeclipse.shared.types.GeWeaponTypesMapperType;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import lombok.Setter;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Map.Entry;
 
-class GeSoundManager extends GeDisposable implements IGeSoundManager {
+class GeSoundManager implements IGeSoundManager {
 
-    private @Setter float defaultVolume;
+    private static final String SHOOT_SOUND_PATH = // <weapon_id>
+            "assets/audio/shoot/%d";
 
+    private static final String BACKGROUND_MUSIC_PATH =
+            // GeStageProviderType.<VALUE>.toString().toLowerCase()
+            "assets/audio/background/%s";
+
+    private @Setter float backMusicVolume;
+    private @Setter float shootVolume;
+    private @Setter float flyVolume;
+
+    private IGeClientWindow clientWindow;
     private IGeResourceLoader resourceLoader;
-    private Map<MusicType, Music> musicMap;
-    private Map<SoundType, Sound> soundMap;
 
     public GeSoundManager() {
         resourceLoader = GeContextHolder.getBean(IGeResourceLoader.class);
-        musicMap = new HashMap<>();
-        soundMap = new HashMap<>();
-
-        loadAudio();
+        clientWindow = GeContextHolder.getBean(IGeClientWindow.class);
     }
 
-    private void loadAudio() {
-        musicMap.put(MusicType.BACKGROUND, resourceLoader.loadMusic("flight.mp3"));
 
-        soundMap.put(SoundType.LASER, resourceLoader.loadSound("shoot.mp3"));
-        soundMap.put(SoundType.ROCKET, resourceLoader.loadSound("shoot.mp3"));
-        soundMap.put(SoundType.FLY, resourceLoader.loadSound("flight.mp3"));
+    @Override
+    public void playBackMusic() {
+        playBackMusic(backMusicVolume);
     }
 
     @Override
-    public void playFly() {
-        soundMap.get(SoundType.FLY).play();
-    }
-
-    @Override
-    public void setFlyVolume(float volume) {
-        soundMap.get(SoundType.FLY).play(volume);
-    }
-
-    @Override
-    public void stopFly() {
-        soundMap.get(SoundType.FLY).stop();
-    }
-
-    @Override
-    public void playShoot(GeWeaponTypesMapperType weaponTypesMapperType) {
-        playShoot(weaponTypesMapperType, defaultVolume);
-    }
-
-    @Override
-    public void playShoot(GeWeaponTypesMapperType weaponTypesMapperType, float volume) {
-        switch (weaponTypesMapperType) {
-            case LASER:
-                soundMap.get(SoundType.LASER).play(volume);
-                break;
-            case ROCKET:
-                soundMap.get(SoundType.ROCKET).play(volume);
-                break;
-        }
-    }
-
-    @Override
-    public void setShootVolume(float volume) {
-        for (Entry<SoundType, Sound> sound : soundMap.entrySet()) {
-            long id = sound.getValue().play();
-            sound.getValue().setVolume(id, volume);
-        }
-    }
-
-    @Override
-    public void playBackMusic(GeStageProviderType stageProviderType) {
-        switch (stageProviderType) {
-            case MAIN_MENU:
-                musicMap.get(MusicType.BACKGROUND).play();
-                break;
-        }
-    }
-
-    @Override
-    public void playBackMusic(GeStageProviderType stageProviderType, float volume) {
-        switch (stageProviderType) {
-            case MAIN_MENU:
-                musicMap.get(MusicType.BACKGROUND).setVolume(volume);
-                break;
-        }
-    }
-
-    @Override
-    public void setBackMusicVolume(float volume) {
-        for (Entry<MusicType, Music> music : musicMap.entrySet()) {
-            music.getValue().setVolume(volume);
-        }
+    public void playBackMusic(float volume) {
+        String path = String.format(BACKGROUND_MUSIC_PATH,
+                clientWindow.getCurrentStageProviderType().toString().toLowerCase());
+        Music music = resourceLoader.loadMusic(path);
+        music.play();
+        // TODO
     }
 
     @Override
     public void pauseBackMusic() {
+        // TODO
     }
 
     @Override
     public void stopBackMusic() {
+        // TODO
     }
 
     @Override
-    public void dispose() {
-        for (Music music : musicMap.values()) {
-            music.dispose();
-        }
-        for (Sound sound : soundMap.values()) {
-            sound.dispose();
-        }
+    public void playShoot(GeProtocol.GeShipStaticInfoPacket.GeItemPacket weapon) {
+
     }
 
-    private enum SoundType {
-        LASER,
-        ROCKET,
-        FLY;
-    }
+    @Override
+    public void playShoot(GeProtocol.GeShipStaticInfoPacket.GeItemPacket weapon, float volume) {
 
-    private enum MusicType {
-        BACKGROUND;
     }
 }

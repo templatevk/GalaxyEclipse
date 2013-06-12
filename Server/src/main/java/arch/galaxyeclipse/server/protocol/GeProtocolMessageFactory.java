@@ -183,7 +183,7 @@ public class GeProtocolMessageFactory {
                 getItemBuilder.clear();
                 getItemBuilder.setWeapon(getWeaponBuilder
                         .setDamage(weapon.getDamage())
-                        .setDelaySpeed(weapon.getDelaySpeed())
+                        .setShotDelay(weapon.getShotDelay())
                         .setBulletSpeed(weapon.getBulletSpeed())
                         .setMaxDistance(weapon.getMaxDistance())
                         .setEnergyCost(weapon.getEnergyCost()));

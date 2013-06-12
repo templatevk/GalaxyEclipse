@@ -7,6 +7,8 @@ import arch.galaxyeclipse.client.ui.view.GeAbstractGameStage;
  */
 public interface IGeStageProvider {
 
+    GeStageProviderType getType();
+
     GeAbstractGameStage getGameStage();
 
     void detach();

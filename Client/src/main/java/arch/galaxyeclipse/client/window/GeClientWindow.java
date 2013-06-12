@@ -84,6 +84,11 @@ class GeClientWindow implements IGeClientWindow {
     }
 
     @Override
+    public GeStageProviderType getCurrentStageProviderType() {
+        return stageProvider.getType();
+    }
+
+    @Override
     public void setStageProvider(IGeStageProvider stageProvider) {
         if (this.stageProvider != null) {
             this.stageProvider.detach();

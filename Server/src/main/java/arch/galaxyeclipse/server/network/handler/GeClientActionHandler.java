@@ -4,6 +4,7 @@ import arch.galaxyeclipse.server.data.GeDynamicObjectsHolder.GeLocationObjectsHo
 import arch.galaxyeclipse.server.data.GeDynamicObjectsHolder.GeLocationObjectsHolder.GeMovingLocationObject;
 import arch.galaxyeclipse.server.data.GePlayerInfoHolder;
 import arch.galaxyeclipse.server.data.model.GeShipConfig;
+import arch.galaxyeclipse.server.data.model.GeShipConfigWeaponSlot;
 import arch.galaxyeclipse.server.data.model.GeWeapon;
 import arch.galaxyeclipse.shared.GeConstants;
 import arch.galaxyeclipse.shared.common.GeLogUtils;
@@ -21,9 +22,14 @@ import arch.galaxyeclipse.shared.types.GeDictionaryTypesMapper;
 import arch.galaxyeclipse.shared.types.GeLocationObjectBehaviorTypesMapperType;
 import arch.galaxyeclipse.shared.types.GeLocationObjectTypesMapperType;
 import arch.galaxyeclipse.shared.types.GeWeaponTypesMapperType;
+import com.google.common.base.Stopwatch;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.TimeUnit;
 
 import static arch.galaxyeclipse.shared.GeConstants.*;
 
@@ -40,6 +46,9 @@ class GeClientActionHandler extends GePacketHandlerDecorator {
     private GeDictionaryTypesMapper dictionaryTypesMapper;
 
     private GeLocationObjectPacket.Builder focusLop;
+    private Map<Integer, Long> weaponLastShots;
+    private Stopwatch stopwatch;
+    private Builder ssrBuilder;
 
     private int dynamicId;
     private int rocketObjectId;
@@ -52,6 +61,9 @@ class GeClientActionHandler extends GePacketHandlerDecorator {
 
         dictionaryTypesMapper = GeContextHolder.getBean(GeDictionaryTypesMapper.class);
 
+        weaponLastShots = new HashMap<>();
+        stopwatch = new Stopwatch().start();
+
         laserObjectId = dictionaryTypesMapper.getIdByLocationObjectType(
                 GeLocationObjectTypesMapperType.LASER);
         rocketObjectId = dictionaryTypesMapper.getIdByLocationObjectType(
@@ -62,6 +74,7 @@ class GeClientActionHandler extends GePacketHandlerDecorator {
                 GeLocationObjectBehaviorTypesMapperType.DYNAMIC);
 
         playerInfoHolder = getServerChannelHandler().getPlayerInfoHolder();
+        ssrBuilder = playerInfoHolder.getSsrBuilder();
 
         moveHandler = new MoveHandler(playerInfoHolder);
         rotationHandler = new RotationHandler(playerInfoHolder);
@@ -114,7 +127,41 @@ class GeClientActionHandler extends GePacketHandlerDecorator {
     }
 
     private void processAttack() {
-        // TODO
+        Set<GeShipConfigWeaponSlot> weaponSlots = playerInfoHolder
+                .getShipConfig().getShipConfigWeaponSlots();
+
+        for (GeShipConfigWeaponSlot weaponSlot : weaponSlots) {
+            GeWeapon weapon = (GeWeapon)weaponSlot.getItem();
+            Long lastShot = weaponLastShots.get(weapon.getItemId());
+            long elapsed = stopwatch.elapsed(TimeUnit.MILLISECONDS);
+
+            if (lastShot == null || elapsed - lastShot > weapon.getShotDelay()) {
+                attack(weapon);
+                weaponLastShots.put(weapon.getItemId(), elapsed);
+            }
+        }
+    }
+
+    private void attack(GeWeapon weapon) {
+        float rotationAngle = GeMathUtils.getLineAngleInDegrees(
+                ssrBuilder.getPositionX(),
+                ssrBuilder.getPositionY(),
+                focusLop.getPositionX(),
+                focusLop.getPositionY());
+
+        GeLocationObjectPacket.Builder bulletLop = GeLocationObjectPacket.newBuilder()
+                .setPositionX(ssrBuilder.getPositionX())
+                .setPositionY(ssrBuilder.getPositionY())
+                .setNativeId(weapon.getItemId())
+                .setObjectId(GeConstants.UNDEFINED_OBJECT_ID)
+                .setObjectTypeId(weapon.getWeaponTypeId() == laserWeaponId
+                        ? laserObjectId : rocketObjectId)
+                .setRotationAngle(rotationAngle);
+
+        GeLocationObjectsHolder loHolder = playerInfoHolder.getLocationObjectsHolder();
+        GeMovingLocationObject bulletObject = loHolder.new GeMovingLocationObject(
+                bulletLop, weapon.getBulletSpeed(), weapon.getMaxDistance());
+        loHolder.addMovingObject(bulletObject);
     }
 
     @Override
@@ -129,39 +176,6 @@ class GeClientActionHandler extends GePacketHandlerDecorator {
 
     private void processRotation(ClientActionType moveType) {
         rotationHandler.setRotationType(moveType);
-    }
-
-    private class AttackTask {
-
-        private GeWeapon weapon;
-        private Builder ssrBuilder;
-
-        private AttackTask(GeWeapon weapon) {
-            this.weapon = weapon;
-            ssrBuilder = playerInfoHolder.getSsrBuilder();
-        }
-
-        public void attack() {
-            float rotationAngle = GeMathUtils.getLineAngleInDegrees(
-                    ssrBuilder.getPositionX(),
-                    ssrBuilder.getPositionY(),
-                    focusLop.getPositionX(),
-                    focusLop.getPositionY());
-
-            GeLocationObjectPacket.Builder bulletLop = GeLocationObjectPacket.newBuilder()
-                    .setPositionX(ssrBuilder.getPositionX())
-                    .setPositionY(ssrBuilder.getPositionY())
-                    .setNativeId(weapon.getItemId())
-                    .setObjectId(GeConstants.UNDEFINED_OBJECT_ID)
-                    .setObjectTypeId(weapon.getWeaponTypeId() == laserWeaponId
-                            ? laserObjectId : rocketObjectId)
-                    .setRotationAngle(rotationAngle);
-
-            GeLocationObjectsHolder loHolder = playerInfoHolder.getLocationObjectsHolder();
-            GeMovingLocationObject bulletObject = loHolder.new GeMovingLocationObject(
-                    bulletLop, weapon.getBulletSpeed(), weapon.getMaxDistance());
-
-        }
     }
 
     private static class RotationHandler extends GeTaskRunnablePair<Runnable> {

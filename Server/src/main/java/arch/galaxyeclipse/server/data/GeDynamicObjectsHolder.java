@@ -153,7 +153,6 @@ public class GeDynamicObjectsHolder {
                     if (Math.sqrt(x * x - y * y) > elapseDistance) {
 
                     }
-                    // TODO: broadcast object elapse event
                 }
             }
         }

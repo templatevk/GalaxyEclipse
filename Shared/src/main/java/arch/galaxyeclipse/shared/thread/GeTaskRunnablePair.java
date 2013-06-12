@@ -1,6 +1,5 @@
 package arch.galaxyeclipse.shared.thread;
 
-import arch.galaxyeclipse.shared.context.GeContextHolder;
 import com.google.common.base.Preconditions;
 
 /**
@@ -9,20 +8,22 @@ import com.google.common.base.Preconditions;
 public class GeTaskRunnablePair<T extends Runnable> {
 
     private GeDelayedRunnableTask delayedRunnableTask;
-    private GeExecutor geExecutor;
     private T runnable;
     private long millisecondsDelay;
     private boolean repeat;
     private boolean sleepAfter;
 
     public GeTaskRunnablePair(long millisecondsDelay) {
-        this(millisecondsDelay, null, true, false);
+        this(millisecondsDelay, null);
+    }
+
+    public GeTaskRunnablePair(long millisecondsDelay, T runnable) {
+        this(millisecondsDelay, runnable, true, false);
     }
 
     public GeTaskRunnablePair(long millisecondsDelay, T runnable,
             boolean repeat, boolean sleepAfter) {
 
-        this.geExecutor = GeContextHolder.getBean(GeExecutor.class);
         this.millisecondsDelay = millisecondsDelay;
         this.runnable = runnable;
         this.repeat = repeat;

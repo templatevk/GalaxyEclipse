@@ -16,7 +16,9 @@ import lombok.Delegate;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -28,12 +30,14 @@ public class GeLocationInfoHolder {
 
     private TreeMultiset<GeLocationObjectPacket> cachedObjects;
     private TreeMultiset<GeLocationObjectPacket> dynamicObjects;
+    private Map<Integer, GeLocationObjectPacket> lopByIdMap;
     private PositionPredicate positionPredicate;
 
     GeLocationInfoHolder() {
         positionPredicate = new PositionPredicate();
         cachedObjects = TreeMultiset.create(new LocationObjectPositionOrdering());
         dynamicObjects = TreeMultiset.create(new LocationObjectPositionOrdering());
+        lopByIdMap = new HashMap<>();
     }
 
     public void setLip(GeLocationInfoPacket lip) {
@@ -56,14 +60,19 @@ public class GeLocationInfoHolder {
         }
     }
 
-    public void setDynamicObjects(List<GeLocationObjectPacket> locationObjects) {
+    public void setDynamicObjects(List<GeLocationObjectPacket> lopList) {
         if (GeLocationInfoHolder.log.isDebugEnabled()) {
             GeLocationInfoHolder.log.debug("Dynamic objects update, count = " + dynamicObjects.size());
-            outputObjects(locationObjects);
+            outputObjects(lopList);
         }
 
         dynamicObjects = TreeMultiset.create(new LocationObjectPositionOrdering());
-        dynamicObjects.addAll(locationObjects);
+        dynamicObjects.addAll(lopList);
+
+        lopByIdMap.clear();
+        for (GeLocationObjectPacket lop : lopList) {
+            lopByIdMap.put(lop.getObjectId(), lop);
+        }
     }
 
     public Multiset<GeLocationObjectPacket> getCachedObjects() {
@@ -78,6 +87,10 @@ public class GeLocationInfoHolder {
         locationObjects.addAll(Collections2.filter(dynamicObjects, positionPredicate));
 
         return locationObjects;
+    }
+
+    public GeLocationObjectPacket getLopById(int id) {
+        return lopByIdMap.get(id);
     }
 
     private void outputObjects(List<GeLocationObjectPacket> locationObjects) {

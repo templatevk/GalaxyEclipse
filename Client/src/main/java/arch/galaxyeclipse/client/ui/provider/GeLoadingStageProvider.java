@@ -15,6 +15,11 @@ public class GeLoadingStageProvider implements IGeStageProvider {
     }
 
     @Override
+    public GeStageProviderType getType() {
+        return GeStageProviderType.LOADING;
+    }
+
+    @Override
     public GeAbstractGameStage getGameStage() {
         return stage;
     }

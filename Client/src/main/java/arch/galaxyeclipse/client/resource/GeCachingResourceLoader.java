@@ -30,7 +30,6 @@ class GeCachingResourceLoader extends TextureAtlas implements IGeResourceLoader,
 
     private Map<String, AtlasRegion> regions;
     private Map<String, BitmapFont> fonts;
-    private Map<String, Sound> sounds;
     private Map<String, Music> music;
 
     public GeCachingResourceLoader() {
@@ -38,7 +37,6 @@ class GeCachingResourceLoader extends TextureAtlas implements IGeResourceLoader,
 
         regions = new HashMap<>();
         fonts = new HashMap<>();
-        sounds = new HashMap<>();
         music = new HashMap<>();
 
         GeDisposable.addDestroyable(this);
@@ -68,24 +66,6 @@ class GeCachingResourceLoader extends TextureAtlas implements IGeResourceLoader,
         return new TextureRegionDrawable(findRegion(path));
     }
 
-    @Override
-    public Sound loadSound(String soundName) {
-        Sound sound = sounds.get(soundName);
-
-        if (sound == null) {
-            if (GeCachingResourceLoader.log.isInfoEnabled()) {
-                GeCachingResourceLoader.log.info("Loading sound " + soundName);
-            }
-
-            try {
-                sound = Gdx.audio.newSound(Gdx.files.internal(AUDIO_LOCATION + soundName));
-                sounds.put(soundName, sound);
-            } catch (Exception e) {
-                throw new RuntimeException("Error loading sounds", e);
-            }
-        }
-        return sound;
-    }
 
     @Override
     public Music loadMusic(String musicName) {
@@ -132,13 +112,10 @@ class GeCachingResourceLoader extends TextureAtlas implements IGeResourceLoader,
             font.dispose();
         }
 
-        for (Sound sound : sounds.values()) {
-            sound.dispose();
+        for (Music music : this.music.values()) {
+            music.dispose();
         }
 
-        for (Music mus : music.values()) {
-            mus.dispose();
-        }
         super.dispose();
     }
 }

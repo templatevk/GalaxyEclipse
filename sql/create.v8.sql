@@ -103,8 +103,8 @@ create table weapon_type (
 create table weapon (
   weapon_id      integer auto_increment primary key,
   damage         integer not null,
-  delay_speed    integer not null,
-  bullet_speed   float not null,
+  shot_delay     integer not null,
+  bullet_speed   float   not null,
   max_distance   integer not null,
   energy_cost    integer not null, -- amount of energy for one shot
   weapon_type_id integer not null,

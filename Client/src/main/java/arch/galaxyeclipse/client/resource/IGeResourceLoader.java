@@ -17,7 +17,5 @@ public interface IGeResourceLoader {
 
     Drawable createDrawable(String path);
 
-    Sound loadSound(String soundName);
-
     Music loadMusic(String musicName);
 }

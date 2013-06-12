@@ -2,6 +2,7 @@ package arch.galaxyeclipse.client.data;
 
 import arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse;
 import lombok.Data;
+import lombok.Delegate;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -11,7 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class GeShipStateInfoHolder {
 
-    private GeShipStateResponse ssResponse = GeShipStateResponse.getDefaultInstance();
+    private @Delegate GeShipStateResponse ssResponse = GeShipStateResponse.getDefaultInstance();
 
     public void setShipState(GeShipStateResponse ssResponse) {
         this.ssResponse = ssResponse;
@@ -27,41 +28,5 @@ public class GeShipStateInfoHolder {
             GeShipStateInfoHolder.log.debug("\tGePosition y " + ssResponse.getPositionY());
             GeShipStateInfoHolder.log.debug("\tObject id " + ssResponse.getLocationObjectId());
         }
-    }
-
-    public float getMoveSpeed() {
-        return ssResponse.getMoveSpeed();
-    }
-
-    public float getRotationSpeed() {
-        return ssResponse.getRotationSpeed();
-    }
-
-    public int getHp() {
-        return ssResponse.getHp();
-    }
-
-    public int getArmorDurability() {
-        return ssResponse.getArmorDurability();
-    }
-
-    public float getRotationAngle() {
-        return ssResponse.getRotationAngle();
-    }
-
-    public float getPositionX() {
-        return ssResponse.getPositionX();
-    }
-
-    public float getPositionY() {
-        return ssResponse.getPositionY();
-    }
-
-    public int getLocationObjectId() {
-        return ssResponse.getLocationObjectId();
-    }
-
-    public int getEnergy() {
-        return ssResponse.getEnergy();
     }
 }
