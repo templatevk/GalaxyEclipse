@@ -55,8 +55,6 @@ public class GeMiniMapWidget extends Table {
         setHeight(getPrefHeight());
 
         actorsTable = new Table();
-        actorsTable.debug();
-        //addActor(actorsTable);
 
         ScrollPane.ScrollPaneStyle minimapScrollPaneStyle = new ScrollPane.ScrollPaneStyle();
         minimapScrollPane = new ScrollPane(actorsTable, minimapScrollPaneStyle);
@@ -74,7 +72,6 @@ public class GeMiniMapWidget extends Table {
         float scaleY = height / getPrefHeight();
 
         minimapScrollPane.setPosition(TABLE_ACTORS_LEFT * scaleX,TABLE_ACTORS_BOTTOM * scaleY);
-        //minimapScrollPane.setScale(scaleX, scaleY);
         minimapScrollPane.setSize(TABLE_ACTORS_WIDTH * scaleX, TABLE_ACTORS_HEIGHT * scaleY);
 
         actorsTable.setScale(scaleX, scaleY);
