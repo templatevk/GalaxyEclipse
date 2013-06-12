@@ -16,13 +16,15 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 class GeActorFactory implements IGeActorFactory {
 
-    private static final String PLAYER_IMAGE_PATH =  // <id>
+    private static final String PLAYER_IMAGE_PATH =                 // <id>
             "ship_type/%d";
-    private static final String FOG_IMAGE_PATH = // <id>
+    private static final String FOG_IMAGE_PATH =                    // <id>
             "static/fog/%d";
-    private static final String STAR_IMAGE_PATH = // <id>
+    private static final String STAR_IMAGE_PATH =                   // <id>
             "static/star/%d";
-    private static final String LOCATION_BACKGROUND_IMAGE_PATH = // <id>
+    private static final String BULLET_IMAGE_PATH =                 // <id>
+            "bullet/%d";
+    private static final String LOCATION_BACKGROUND_IMAGE_PATH =    // <id>
             "location/%d";
 
     public static final String DEV_PLEASURE = "pleasure/girls";
@@ -48,7 +50,8 @@ class GeActorFactory implements IGeActorFactory {
             case STAR:
                 path = String.format(STAR_IMAGE_PATH, locationObjectPacket.getNativeId());
                 break;
-            case ROCKET:
+            case BULLET:
+                path = String.format(BULLET_IMAGE_PATH, locationObjectPacket.getNativeId());
                 break;
             case ASTEROID:
                 break;

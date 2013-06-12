@@ -131,7 +131,7 @@ public class GeDictionaryTypesMapper {
                 GeDictionaryTypesMapper.log.info("Weapon types mapped");
             }
         } catch (Exception e) {
-            GeDictionaryTypesMapper.log.error("Error mapping weapon types", e);
+            GeDictionaryTypesMapper.log.error("Error mapping bullet types", e);
         }
     }
 

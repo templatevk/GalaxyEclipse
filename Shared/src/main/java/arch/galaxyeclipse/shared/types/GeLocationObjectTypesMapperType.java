@@ -8,7 +8,6 @@ public enum GeLocationObjectTypesMapperType {
     FOG,
     STATION,
     ASTEROID,
-    ROCKET,
-    LASER,
-    PLAYER;
+    PLAYER,
+    BULLET;
 }
