@@ -83,7 +83,7 @@ public class GeDictionaryTypesMapperHelperTest extends GeAbstractTestNGServerTes
         Assertions.assertThat(dictionaryTypesMapper.getIdByLocationObjectType(
                 GeLocationObjectTypesMapperType.PLAYER)).isNotNull();
         Assertions.assertThat(dictionaryTypesMapper.getIdByLocationObjectType(
-                GeLocationObjectTypesMapperType.ROCKET)).isNotNull();
+                GeLocationObjectTypesMapperType.BULLET)).isNotNull();
         Assertions.assertThat(dictionaryTypesMapper.getIdByLocationObjectType(
                 GeLocationObjectTypesMapperType.STATION)).isNotNull();
     }

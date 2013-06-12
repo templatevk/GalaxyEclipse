@@ -77,7 +77,7 @@ create table ship_config_weapon_slot (
 -- game item
 create table item_type (
   item_type_id   integer auto_increment primary key,
-  item_type_name varchar(16) not null unique key  -- engine, weapon, bonus, sale
+  item_type_name varchar(16) not null unique key  -- engine, bullet, bonus, sale
 );
 create table item (
   item_id          integer auto_increment primary key,
@@ -88,7 +88,7 @@ create table item (
 );
 create table bonus_type (
   bonus_type_id   integer auto_increment primary key,
-  bonus_type_name varchar(32) not null unique key    -- armor,  hp_regen, energy_regen, speed(rotation, move), acceleration(rotation,move), weapon
+  bonus_type_name varchar(32) not null unique key    -- armor,  hp_regen, energy_regen, speed(rotation, move), acceleration(rotation,move), bullet
 );
 create table bonus (
   bonus_id      integer auto_increment primary key,

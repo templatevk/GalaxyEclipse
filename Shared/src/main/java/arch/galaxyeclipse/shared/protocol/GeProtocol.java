@@ -10356,17 +10356,17 @@ public final class GeProtocol {
        */
       arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeBonusPacketOrBuilder getBonusOrBuilder();
 
-      // optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket weapon = 7;
+      // optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket bullet = 7;
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket weapon = 7;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket bullet = 7;</code>
        */
       boolean hasWeapon();
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket weapon = 7;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket bullet = 7;</code>
        */
       arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket getWeapon();
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket weapon = 7;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket bullet = 7;</code>
        */
       arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacketOrBuilder getWeaponOrBuilder();
 
@@ -12619,23 +12619,23 @@ public final class GeProtocol {
         return bonus_;
       }
 
-      // optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket weapon = 7;
+      // optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket bullet = 7;
       public static final int WEAPON_FIELD_NUMBER = 7;
       private arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket weapon_;
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket weapon = 7;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket bullet = 7;</code>
        */
       public boolean hasWeapon() {
         return ((bitField0_ & 0x00000040) == 0x00000040);
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket weapon = 7;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket bullet = 7;</code>
        */
       public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket getWeapon() {
         return weapon_;
       }
       /**
-       * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket weapon = 7;</code>
+       * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket bullet = 7;</code>
        */
       public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacketOrBuilder getWeaponOrBuilder() {
         return weapon_;
@@ -13480,18 +13480,18 @@ public final class GeProtocol {
           return bonusBuilder_;
         }
 
-        // optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket weapon = 7;
+        // optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket bullet = 7;
         private arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket weapon_ = arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket.getDefaultInstance();
         private com.google.protobuf.SingleFieldBuilder<
             arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacketOrBuilder> weaponBuilder_;
         /**
-         * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket weapon = 7;</code>
+         * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket bullet = 7;</code>
          */
         public boolean hasWeapon() {
           return ((bitField0_ & 0x00000040) == 0x00000040);
         }
         /**
-         * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket weapon = 7;</code>
+         * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket bullet = 7;</code>
          */
         public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket getWeapon() {
           if (weaponBuilder_ == null) {
@@ -13501,7 +13501,7 @@ public final class GeProtocol {
           }
         }
         /**
-         * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket weapon = 7;</code>
+         * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket bullet = 7;</code>
          */
         public Builder setWeapon(arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket value) {
           if (weaponBuilder_ == null) {
@@ -13517,7 +13517,7 @@ public final class GeProtocol {
           return this;
         }
         /**
-         * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket weapon = 7;</code>
+         * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket bullet = 7;</code>
          */
         public Builder setWeapon(
             arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket.Builder builderForValue) {
@@ -13531,7 +13531,7 @@ public final class GeProtocol {
           return this;
         }
         /**
-         * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket weapon = 7;</code>
+         * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket bullet = 7;</code>
          */
         public Builder mergeWeapon(arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket value) {
           if (weaponBuilder_ == null) {
@@ -13550,7 +13550,7 @@ public final class GeProtocol {
           return this;
         }
         /**
-         * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket weapon = 7;</code>
+         * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket bullet = 7;</code>
          */
         public Builder clearWeapon() {
           if (weaponBuilder_ == null) {
@@ -13563,7 +13563,7 @@ public final class GeProtocol {
           return this;
         }
         /**
-         * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket weapon = 7;</code>
+         * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket bullet = 7;</code>
          */
         public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket.Builder getWeaponBuilder() {
           bitField0_ |= 0x00000040;
@@ -13571,7 +13571,7 @@ public final class GeProtocol {
           return getWeaponFieldBuilder().getBuilder();
         }
         /**
-         * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket weapon = 7;</code>
+         * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket bullet = 7;</code>
          */
         public arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacketOrBuilder getWeaponOrBuilder() {
           if (weaponBuilder_ != null) {
@@ -13581,7 +13581,7 @@ public final class GeProtocol {
           }
         }
         /**
-         * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket weapon = 7;</code>
+         * <code>optional .arch.galaxyeclipse.shared.protocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket bullet = 7;</code>
          */
         private com.google.protobuf.SingleFieldBuilder<
             arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacket.Builder, arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStaticInfoPacket.GeItemPacket.GeWeaponPacketOrBuilder> 

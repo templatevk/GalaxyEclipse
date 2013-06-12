@@ -38,3 +38,5 @@ public class GeDynamicObjectsRequestSender extends GeRepeatablePacketSender {
         locationInfoHolder.setDynamicObjects(objectsList);
     }
 }
+
+// TODO         boolean to indicate response processed, send after

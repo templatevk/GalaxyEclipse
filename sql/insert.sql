@@ -43,8 +43,7 @@ insert into location_object_type
   ('fog'),
   ('station'),
   ('asteroid'),
-  ('rocket'),
-  ('laser'),
+  ('bullet'),
   ('player');
 
 
@@ -64,10 +63,10 @@ insert into item
   ('Engine "Torelin"', 'engine escarpment 1', 100, get_item_type_id_by_name('engine')), --
   ('Engine "Radamaes"', 'engine escarpment 2', 150, get_item_type_id_by_name('engine')), -- engine escarpment 2
   ('Engine "Hayale"', 'engine escarpment 3', 200, get_item_type_id_by_name('engine')), -- engine escarpment 3
-# weapon laser
+# bullet laser
   (get_default_weapon_name(), 'weapon escarpment 0', 500, get_item_type_id_by_name('weapon')),
   ('Laser "Gyash"', 'weapon escarpment 1', 1000, get_item_type_id_by_name('weapon')),
-# weapon rocket
+# bullet rocket
   ('Rocket "Idario"', 'weapon escarpment 0', 2000, get_item_type_id_by_name('weapon')),
   ('Rocket "Pemelaya', 'weapon escarpment 1', 5000, get_item_type_id_by_name('weapon')),
 # bonus armor
