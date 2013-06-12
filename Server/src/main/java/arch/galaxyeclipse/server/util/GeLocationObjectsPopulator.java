@@ -21,7 +21,7 @@ public class GeLocationObjectsPopulator {
     private static final String RANDOM = "random";
 
     private static final int MAX_DEGREES = 360;
-    private static final int OBJECT_TYPE_STAR = 3;
+    private static final int OBJECT_TYPE_STAR = 1;
 
     private Properties prop;
     private String script;
