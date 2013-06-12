@@ -1,12 +1,10 @@
 package arch.galaxyeclipse.server.network.handler;
 
 import arch.galaxyeclipse.server.data.GeDynamicObjectsHolder.GeLocationObjectsHolder;
-import arch.galaxyeclipse.server.data.GeDynamicObjectsHolder.GeLocationObjectsHolder.GeMovingLocationObject;
 import arch.galaxyeclipse.server.data.GePlayerInfoHolder;
 import arch.galaxyeclipse.server.data.model.GeShipConfig;
 import arch.galaxyeclipse.server.data.model.GeWeapon;
 import arch.galaxyeclipse.shared.common.GeLogUtils;
-import arch.galaxyeclipse.shared.common.GeMathUtils;
 import arch.galaxyeclipse.shared.common.GeMathUtilsCopied;
 import arch.galaxyeclipse.shared.context.GeContextHolder;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket;
@@ -128,19 +126,19 @@ class GeClientActionHandler extends GePacketHandlerDecorator {
         @Override
         public void run() {
             // TODO
-            float rotationAngle = GeMathUtils.getLineAngleInDegrees();
-
-            GeLocationObjectPacket bulletLop = GeLocationObjectPacket.newBuilder()
-                    .setPositionX(ssrBuilder.getPositionX())
-                    .setPositionY(ssrBuilder.getPositionY())
-                    .setNativeId(weapon.getItemId())
-                    .setObjectId(-1)
-                    .setObjectTypeId(weapon.getWeaponTypeId() == laserWeaponId
-                            ? laserObjectId : rocketObjectId)
-                    .setRotationAngle(rotationAngle)
-                    .build();
-
-            GeMovingLocationObject bulletObject = new GeMovingLocationObject();
+//            float rotationAngle = GeMathUtils.getLineAngleInDegrees();
+//
+//            GeLocationObjectPacket bulletLop = GeLocationObjectPacket.newBuilder()
+//                    .setPositionX(ssrBuilder.getPositionX())
+//                    .setPositionY(ssrBuilder.getPositionY())
+//                    .setNativeId(weapon.getItemId())
+//                    .setObjectId(-1)
+//                    .setObjectTypeId(weapon.getWeaponTypeId() == laserWeaponId
+//                            ? laserObjectId : rocketObjectId)
+//                    .setRotationAngle(rotationAngle)
+//                    .build();
+//
+//            GeMovingLocationObject bulletObject = new GeMovingLocationObject();
         }
     }
 
