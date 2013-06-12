@@ -177,7 +177,7 @@ abstract class GeClickableActor extends GeActor {
                     setEndColor(new Color(1, 1, 0, 1));
                     break;
                 case LOCATION_OBJECT:
-                    setEndColor(new Color(0, 0, 1, 1));
+                    setEndColor(new Color(1, 0, 0, 1));
                     break;
             }
         }

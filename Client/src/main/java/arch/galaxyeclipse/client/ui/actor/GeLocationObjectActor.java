@@ -40,8 +40,9 @@ public class GeLocationObjectActor extends GeClickableActor {
     @Override
     public void adjust(GeStageInfo stageInfo) {
         super.adjust(stageInfo);
+
         switch (locationObjectType) {
-            case ROCKET:
+            case BULLET:
                 break;
             case ASTEROID:
                 break;

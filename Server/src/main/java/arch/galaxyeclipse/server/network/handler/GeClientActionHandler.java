@@ -149,7 +149,7 @@ class GeClientActionHandler extends GePacketHandlerDecorator {
         GeLocationObjectPacket.Builder bulletLop = GeLocationObjectPacket.newBuilder()
                 .setPositionX(ssrBuilder.getPositionX())
                 .setPositionY(ssrBuilder.getPositionY())
-                .setNativeId(weapon.getItemId())
+                .setNativeId(weapon.getWeaponId())
                 .setObjectId(GeConstants.UNDEFINED_OBJECT_ID)
                 .setObjectTypeId(bulletObjectId)
                 .setRotationAngle(rotationAngle);
