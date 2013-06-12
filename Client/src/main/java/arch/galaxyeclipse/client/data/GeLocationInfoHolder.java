@@ -13,7 +13,6 @@ import com.google.common.collect.Ordering;
 import com.google.common.collect.TreeMultiset;
 import lombok.Data;
 import lombok.Delegate;
-import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
@@ -25,18 +24,8 @@ import java.util.List;
 @Slf4j
 public class GeLocationInfoHolder {
 
-    private
-    @Getter
-    String name;
-    private
-    @Getter
-    int locationId;
-    private
-    @Getter
-    float width;
-    private
-    @Getter
-    float height;
+    private @Delegate GeLocationInfoPacket lip = GeLocationInfoPacket.getDefaultInstance();
+
     private TreeMultiset<GeLocationObjectPacket> cachedObjects;
     private TreeMultiset<GeLocationObjectPacket> dynamicObjects;
     private PositionPredicate positionPredicate;
@@ -47,24 +36,21 @@ public class GeLocationInfoHolder {
         dynamicObjects = TreeMultiset.create(new LocationObjectPositionOrdering());
     }
 
-    public void setLocationInfo(GeLocationInfoPacket locationInfo) {
+    public void setLip(GeLocationInfoPacket lip) {
+        this.lip = lip;
         if (GeLocationInfoHolder.log.isInfoEnabled()) {
             GeLocationInfoHolder.log.info("Updating location info");
         }
-        name = locationInfo.getName();
-        locationId = locationInfo.getLocationId();
-        width = locationInfo.getWidth();
-        height = locationInfo.getHeight();
 
-        List<GeLocationObjectPacket> objectsList = locationInfo.getLocationCachedObjects()
+        List<GeLocationObjectPacket> objectsList = lip.getLocationCachedObjects()
                 .getObjectsList();
         cachedObjects.addAll(objectsList);
 
         if (GeLocationInfoHolder.log.isDebugEnabled()) {
-            GeLocationInfoHolder.log.debug("\tLocation " + name);
-            GeLocationInfoHolder.log.debug("\tId " + locationId);
-            GeLocationInfoHolder.log.debug("\tWidth " + width);
-            GeLocationInfoHolder.log.debug("\tHeight " + height);
+            GeLocationInfoHolder.log.debug("\tLocation " + lip.getName());
+            GeLocationInfoHolder.log.debug("\tId " + lip.getLocationId());
+            GeLocationInfoHolder.log.debug("\tWidth " + lip.getWidth());
+            GeLocationInfoHolder.log.debug("\tHeight " + lip.getHeight());
 
             outputObjects(objectsList);
         }

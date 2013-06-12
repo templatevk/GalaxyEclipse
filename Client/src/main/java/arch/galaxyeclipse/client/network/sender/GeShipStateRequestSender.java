@@ -15,7 +15,7 @@ public class GeShipStateRequestSender extends GeRepeatablePacketSender {
 
     public GeShipStateRequestSender() {
         super(GePacket.Type.SHIP_STATE_RESPONSE,
-                GeConstants.CLIENT_REQUEST_SHIP_STATE_INTERVAL_MILLISECONDS);
+                GeConstants.DELAY_SHIP_STATE_REQUEST);
         shipStateInfoHolder = GeContextHolder.getBean(GeShipStateInfoHolder.class);
         getClientNetworkManager().addPacketListener(this);
     }

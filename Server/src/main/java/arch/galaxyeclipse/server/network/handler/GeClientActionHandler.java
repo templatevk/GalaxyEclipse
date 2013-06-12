@@ -99,7 +99,7 @@ class GeClientActionHandler extends GePacketHandlerDecorator {
         private PostRotatingRunnable postRotatingRunnable;
 
         private RotationHandler(GePlayerInfoHolder playerInfoHolder) {
-            super(CLIENT_ACTION_ROTATION_DELAY_MILLISECONDS, null, true, true);
+            super(DELAY_OBJECT_ROTATION_UPDATE, null, true, true);
 
             shipConfig = playerInfoHolder.getShipConfig();
             ssrBuilder = playerInfoHolder.getSsrBuilder();
@@ -275,7 +275,7 @@ class GeClientActionHandler extends GePacketHandlerDecorator {
             private ClientActionType moveType;
 
             private SpeedTask() {
-                super(CLIENT_ACTION_SPEED_DELAY_MILLISECONDS, null, true, true);
+                super(DELAY_OBJECT_SPEED_UPDATE, null, true, true);
                 setRunnable(this);
             }
 
@@ -319,7 +319,7 @@ class GeClientActionHandler extends GePacketHandlerDecorator {
         private class PositionTask extends GeTaskRunnablePair<Runnable> implements Runnable {
 
             private PositionTask() {
-                super(CLIENT_ACTION_MOVE_DELAY_MILLISECONDS, null, true, true);
+                super(DELAY_OBJECT_POSITION_UPDATE, null, true, true);
                 setRunnable(this);
             }
 
@@ -331,6 +331,7 @@ class GeClientActionHandler extends GePacketHandlerDecorator {
                 float positionY = lopBuilder.getPositionY();
                 float xDiff = currentMoveSpeed * GeMathUtils.sinDeg(rotationAngle);
                 float yDiff = currentMoveSpeed * GeMathUtils.cosDeg(rotationAngle);
+
                 positionX += xDiff;
                 // -= here because of client rendering
                 positionY -= yDiff;

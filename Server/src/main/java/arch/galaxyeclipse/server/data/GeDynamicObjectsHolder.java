@@ -1,7 +1,10 @@
 package arch.galaxyeclipse.server.data;
 
+import arch.galaxyeclipse.shared.GeConstants;
+import arch.galaxyeclipse.shared.common.GeMathUtils;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket.Builder;
+import arch.galaxyeclipse.shared.thread.GeTaskRunnablePair;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections.CollectionUtils;
 
@@ -86,23 +89,65 @@ public class GeDynamicObjectsHolder {
             return CollectionUtils.intersection(xMatching, yMatching);
         }
 
-        //private class
-    }
+        public class GeMovingLocationObject {
 
-    public static class GeMovingLocationObject {
+            private GeLocationObjectPacket.Builder lopBuilder;
+            private float moveSpeed;
+            private float elapseDistance;
+            private float initialX;
+            private float initialY;
 
-        private GeLocationObjectPacket.Builder lopBuilder;
-        private float moveSpeed;
-        private float elapseDistance;
+            public GeMovingLocationObject(Builder lopBuilder, float moveSpeed) {
+                this(lopBuilder, moveSpeed, 0);
+            }
 
-        public GeMovingLocationObject(Builder lopBuilder, float moveSpeed) {
-            this(lopBuilder, moveSpeed, 0);
+            public GeMovingLocationObject(Builder lopBuilder, float moveSpeed, float elapseDistance) {
+                this.lopBuilder = lopBuilder;
+                this.moveSpeed = moveSpeed;
+                this.elapseDistance = elapseDistance;
+
+                initialX = lopBuilder.getPositionX();
+                initialY = lopBuilder.getPositionY();
+            }
+
+            public void move(long msElapsed) {
+                float positionX = lopBuilder.getPositionX();
+                float positionY = lopBuilder.getPositionY();
+                float rotationAngle = lopBuilder.getRotationAngle();
+
+                float coef = (GeConstants.DELAY_OBJECT_POSITION_UPDATE / msElapsed);
+                float xDiff = moveSpeed * coef * GeMathUtils.sinDeg(rotationAngle);
+                float yDiff = moveSpeed * coef * GeMathUtils.cosDeg(rotationAngle);
+
+                positionX += xDiff;
+                // -= here because of client rendering
+                positionY -= yDiff;
+
+                updateLopBuilderX(lopBuilder, positionX);
+                updateLopBuilderY(lopBuilder, positionY);
+
+                if (elapseDistance != 0) {
+                    double x = initialX - positionX;
+                    double y = initialY - positionY;
+                    if (Math.sqrt(x * x - y * y) > elapseDistance) {
+
+                    }
+                    // TODO: broadcast object elapse event
+                }
+            }
         }
 
-        public GeMovingLocationObject(Builder lopBuilder, float moveSpeed, float elapseDistance) {
-            this.lopBuilder = lopBuilder;
-            this.moveSpeed = moveSpeed;
-            this.elapseDistance = elapseDistance;
+        private class GeMovingObjectUpdater extends GeTaskRunnablePair<Runnable>
+                implements Runnable {
+
+            private GeMovingObjectUpdater(long millisecondsDelay) {
+                super(millisecondsDelay);
+            }
+
+            @Override
+            public void run() {
+
+            }
         }
     }
 

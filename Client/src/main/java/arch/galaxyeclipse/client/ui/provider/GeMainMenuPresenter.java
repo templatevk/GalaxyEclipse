@@ -104,7 +104,7 @@ public class GeMainMenuPresenter extends GeServerPacketListener implements IGeSt
         processTypesMap(startupInfo.getTypesMap());
 
         shipStaticInfoHolder.setShipStaticInfo(startupInfo.getShipStaticInfo());
-        locationInfoHolder.setLocationInfo(startupInfo.getLocationInfo());
+        locationInfoHolder.setLip(startupInfo.getLocationInfo());
 
         clientWindow.setStageProvider(new GeFlightModeController());
     }
