@@ -11,6 +11,7 @@ import org.apache.commons.collections.CollectionUtils;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentSkipListSet;
+import java.util.concurrent.CopyOnWriteArraySet;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -37,6 +38,7 @@ public class GeDynamicObjectsHolder {
 
     public static class GeLocationObjectsHolder {
 
+        private GeLocationObjectsHolder.GeMovingObjectUpdater movingObjectUpdater;
         private NavigableSet<Builder> locationObjectsX;
         private NavigableSet<Builder> locationObjectsY;
         private Set<GeMovingLocationObject> movingObjects;
@@ -45,13 +47,16 @@ public class GeDynamicObjectsHolder {
         private GeLocationObjectsHolder() {
             locationObjectsX = new ConcurrentSkipListSet<>(new LocationObjectXComparator());
             locationObjectsY = new ConcurrentSkipListSet<>(new LocationObjectYComparator());
-            movingObjects = new HashSet<>();
+            movingObjects = new CopyOnWriteArraySet<>();
             lopByIdMap = new HashMap<>();
+
+            movingObjectUpdater = new GeMovingObjectUpdater();
+            movingObjectUpdater.start();
         }
 
         public void addMovingObject(GeMovingLocationObject object) {
-            movingObjects.add(object);
             addLopBuilder(object.lopBuilder);
+            movingObjects.add(object);
         }
 
         public void removeMovingObject(GeMovingLocationObject object) {
@@ -135,7 +140,7 @@ public class GeDynamicObjectsHolder {
                 float positionY = lopBuilder.getPositionY();
                 float rotationAngle = lopBuilder.getRotationAngle();
 
-                float coef = (GeConstants.DELAY_OBJECT_POSITION_UPDATE / msElapsed);
+                float coef = msElapsed / GeConstants.DELAY_OBJECT_POSITION_UPDATE;
                 float xDiff = moveSpeed * coef * GeMathUtilsCopied.sinDeg(rotationAngle);
                 float yDiff = moveSpeed * coef * GeMathUtilsCopied.cosDeg(rotationAngle);
 
@@ -149,7 +154,7 @@ public class GeDynamicObjectsHolder {
                 if (elapseDistance != 0) {
                     double x = initialX - positionX;
                     double y = initialY - positionY;
-                    if (Math.sqrt(x * x - y * y) > elapseDistance) {
+                    if (Math.sqrt(x * x + y * y) > elapseDistance) {
                         removeMovingObject(this);
                     }
                 }
@@ -159,13 +164,14 @@ public class GeDynamicObjectsHolder {
         private class GeMovingObjectUpdater extends GeTaskRunnablePair<Runnable>
                 implements Runnable {
 
-            private static final long DELAY = 50;
+            private static final long DELAY = 10;
 
             private Stopwatch stopwatch = new Stopwatch();
             private long prevElapsed;
 
             private GeMovingObjectUpdater() {
                 super(DELAY);
+                setRunnable(this);
             }
 
             @Override

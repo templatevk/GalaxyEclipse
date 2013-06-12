@@ -11,18 +11,6 @@ import javax.persistence.*;
 @PrimaryKeyJoinColumn(name = "item_id")
 public class GeWeapon extends GeItem {
 
-    private int weaponId;
-
-    @Column(name = "weapon_id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
-    @Basic
-    public int getWeaponId() {
-        return damage;
-    }
-
-    public void setWeaponId(int weaponId) {
-        this.weaponId = weaponId;
-    }
-
     private int damage;
 
     @Column(name = "damage", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)

@@ -2,3 +2,4 @@
 .idea*
 pack*
 Thumbs.db
+./all_scripts.sh

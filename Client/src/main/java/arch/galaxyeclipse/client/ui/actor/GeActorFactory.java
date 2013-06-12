@@ -16,18 +16,19 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 class GeActorFactory implements IGeActorFactory {
 
-    private static final String PLAYER_IMAGE_PATH =                 // <id>
+    private static final String PLAYER_IMAGE_PATH =                 // <ship_type_id>
             "ship_type/%d";
-    private static final String FOG_IMAGE_PATH =                    // <id>
+    private static final String FOG_IMAGE_PATH =                    // <location_object_id>
             "static/fog/%d";
-    private static final String STAR_IMAGE_PATH =                   // <id>
+    private static final String STAR_IMAGE_PATH =                   // <location_object_id>
             "static/star/%d";
-    private static final String BULLET_IMAGE_PATH =                 // <id>
+    private static final String BULLET_IMAGE_PATH =                 // <item_id>
             "bullet/%d";
-    private static final String LOCATION_BACKGROUND_IMAGE_PATH =    // <id>
+    private static final String LOCATION_BACKGROUND_IMAGE_PATH =    // <location_id>
             "location/%d";
 
     public static final String DEV_PLEASURE = "pleasure/girls";
+    public static final String DEV_DICK = "bullet/dick";
 
     private final GeDictionaryTypesMapper dictionaryTypesMapper;
     private IGeResourceLoader resourceLoader;
@@ -51,7 +52,11 @@ class GeActorFactory implements IGeActorFactory {
                 path = String.format(STAR_IMAGE_PATH, locationObjectPacket.getNativeId());
                 break;
             case BULLET:
-                path = String.format(BULLET_IMAGE_PATH, locationObjectPacket.getNativeId());
+                if (GeEnvType.CURRENT == GeEnvType.DEV) {
+                    path = DEV_DICK;
+                } else {
+                    path = String.format(BULLET_IMAGE_PATH, locationObjectPacket.getNativeId());
+                }
                 break;
             case ASTEROID:
                 break;
