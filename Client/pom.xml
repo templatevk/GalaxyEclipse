@@ -140,5 +140,10 @@
             <scope>system</scope>
             <systemPath>${basedir}/../lib/libgdx/gdx-texturepacker.jar</systemPath>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>0.11.6</version>
+        </dependency>
     </dependencies>
 </project>

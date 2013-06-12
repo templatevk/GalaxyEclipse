@@ -7,6 +7,7 @@ import arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLoca
 import arch.galaxyeclipse.shared.types.GeDictionaryTypesMapper;
 import arch.galaxyeclipse.shared.types.GeLocationObjectTypesMapperType;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
+import com.google.common.base.Preconditions;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -58,6 +59,8 @@ class GeActorFactory implements IGeActorFactory {
                 break;
         }
 
+        Preconditions.checkNotNull(path, "Image path is null for type="
+                + objectType + ", id=" + locationObjectPacket.getNativeId());
         Drawable drawable = resourceLoader.createDrawable(path);
 
         GeLocationObjectActor locationObjectActor = new GeLocationObjectActor(

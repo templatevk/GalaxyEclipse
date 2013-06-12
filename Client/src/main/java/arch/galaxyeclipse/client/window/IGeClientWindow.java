@@ -9,6 +9,8 @@ import arch.galaxyeclipse.shared.common.IGeDisposable;
  */
 public interface IGeClientWindow {
 
+    int RENDER_REQUEST_MILLISECONDS_DELAY = 50;
+
     float DEFAULT_WIDTH = 1024;
     float DEFAULT_HEIGHT = 748;
 

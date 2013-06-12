@@ -23,13 +23,17 @@ import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.FocusListener;
+import com.google.common.base.Function;
 import com.google.common.base.Predicate;
 import com.google.common.collect.Collections2;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
+
+import static arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket;
 
 @Slf4j
 public class GeFlightModeStage extends GeAbstractGameStage {
@@ -310,13 +314,21 @@ public class GeFlightModeStage extends GeAbstractGameStage {
             actor.adjust(stageInfo);
         }
 
-        miniMapWidget.setMinimapActors(Collections2.filter(model.getSortedActors(),
+        Collection<GeLocationObjectActor> minimapActors = Collections2.filter(model.getSortedActors(),
                 new Predicate<GeLocationObjectActor>() {
                     @Override
                     public boolean apply(GeLocationObjectActor actor) {
-                        return minimapObjectTypeIds.contains(actor.getLop().getObjectId());
+                        return minimapObjectTypeIds.contains(actor.getLop().getObjectTypeId());
                     }
-                }));
+                });
+        Collection<GeLocationObjectPacket> minimapLops = Collections2.transform(minimapActors,
+                new Function<GeLocationObjectActor, GeLocationObjectPacket>() {
+                    @Override
+                    public GeLocationObjectPacket apply(GeLocationObjectActor actor) {
+                        return actor.getLop();
+                    }
+                });
+        miniMapWidget.setMinimapActors(minimapLops);
 
         super.draw();
     }

@@ -1,50 +1,79 @@
 package arch.galaxyeclipse.client.ui.widget;
 
-import arch.galaxyeclipse.client.network.IGeClientNetworkManager;
-import arch.galaxyeclipse.client.network.IGeServerPacketListener;
+import arch.galaxyeclipse.client.data.GeLocationInfoHolder;
+import arch.galaxyeclipse.client.data.GeShipStateInfoHolder;
 import arch.galaxyeclipse.client.resource.IGeResourceLoader;
-import arch.galaxyeclipse.client.ui.actor.GeLocationObjectActor;
+import arch.galaxyeclipse.client.window.IGeClientWindow;
+import arch.galaxyeclipse.shared.GeConstants;
 import arch.galaxyeclipse.shared.context.GeContextHolder;
-import arch.galaxyeclipse.shared.protocol.GeProtocol.GePacket;
+import arch.galaxyeclipse.shared.thread.GeTaskRunnablePair;
+import arch.galaxyeclipse.shared.types.GeDictionaryTypesMapper;
+import arch.galaxyeclipse.shared.types.GeLocationObjectTypesMapperType;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
-import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
+
+import static arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket;
 
 
 @Slf4j
-public class GeMiniMapWidget extends Table implements IGeServerPacketListener {
+public class GeMiniMapWidget extends Table {
 
     private final int DEFAULT_WIDTH = 570;
     private final int DEFAULT_HEIGHT = 591;
 
-    private IGeClientNetworkManager networkManager;
+    private final int TABLE_ACTORS_WIDTH = 435;
+    private final int TABLE_ACTORS_HEIGHT = 435;
+    private final int TABLE_ACTORS_LEFT = 110;
+    private final int TABLE_ACTORS_BOTTOM = 80;
+
+    private Table actorsTable;
+
     private IGeResourceLoader resourceLoader;
 
-    private Drawable background;
-    private Collection<GeLocationObjectActor> minimapActors;
+    private GeDictionaryTypesMapper dictionaryTypesMapper;
+    private GeShipStateInfoHolder shipStateInfoHolder;
+    private GeLocationInfoHolder locationInfoHolder;
+    private RotationTask rotationTask;
+
+    private Image doplerImage;
 
     public GeMiniMapWidget() {
-        networkManager = GeContextHolder.getBean(IGeClientNetworkManager.class);
+        dictionaryTypesMapper = GeContextHolder.getBean(GeDictionaryTypesMapper.class);
+        shipStateInfoHolder = GeContextHolder.getBean(GeShipStateInfoHolder.class);
+        locationInfoHolder = GeContextHolder.getBean(GeLocationInfoHolder.class);
 
         resourceLoader = GeContextHolder.getBean(IGeResourceLoader.class);
         setBackground(resourceLoader.createDrawable("ui/minimap/minimap"));
         setWidth(getPrefWidth());
         setHeight(getPrefHeight());
 
-        //logic
+        actorsTable = new Table();
+        actorsTable.debug();
+        addActor(actorsTable);
 
-        networkManager.addPacketListener(this);
+        doplerImage = new Image(resourceLoader.createDrawable("ui/minimap/dopler"));
+
+        rotationTask = new RotationTask();
+        rotationTask.start();
     }
 
     @Override
     public void setSize(float width, float height) {
         float scaleX = width / getPrefWidth();
         float scaleY = height / getPrefHeight();
-        //scale components
+
+        actorsTable.setPosition(TABLE_ACTORS_LEFT * scaleX,TABLE_ACTORS_BOTTOM * scaleY);
+        actorsTable.setScale(scaleX, scaleY);
+        actorsTable.setSize(TABLE_ACTORS_WIDTH * scaleX, TABLE_ACTORS_HEIGHT * scaleY);
+
+        float doplerImageWidth = (float) TABLE_ACTORS_WIDTH / locationInfoHolder.getWidth() * GeConstants.RADIUS_DYNAMIC_OBJECT_QUERY * 2f;
+        float doplerImageHeight = (float) TABLE_ACTORS_HEIGHT / locationInfoHolder.getHeight() * GeConstants.RADIUS_DYNAMIC_OBJECT_QUERY * 2f;
+        doplerImage.setSize(doplerImageWidth, doplerImageHeight);
+        doplerImage.setScale(scaleX,scaleY);
+
         super.setSize(width, height);
     }
 
@@ -58,23 +87,61 @@ public class GeMiniMapWidget extends Table implements IGeServerPacketListener {
         return DEFAULT_HEIGHT;
     }
 
-    @Override
-    public List<GePacket.Type> getPacketTypes() {
-        return Arrays.asList(GePacket.Type.CHAT_RECEIVE_MESSAGE);
-        //TODO Change type
-    }
+    public void setMinimapActors(Collection<GeLocationObjectPacket> minimapActors) {
+        actorsTable.clear();
+        actorsTable.addActor(doplerImage);
 
-    @Override
-    public void onPacketReceived(GePacket packet) {
-        switch (packet.getType()) {
-            case CHAT_RECEIVE_MESSAGE:
-                //TODO Change type
-                break;
+        for (GeLocationObjectPacket minimapActor : minimapActors) {
+            Image actorImage = new Image();
+            GeLocationObjectTypesMapperType objectType = dictionaryTypesMapper
+                    .getLocationObjectTypeById(minimapActor.getObjectTypeId());
+            boolean self = false;
+
+            switch (objectType) {
+                case PLAYER:
+                    self = minimapActor.getObjectId() == shipStateInfoHolder.getLocationObjectId();
+                    if(self) {
+                        actorImage = new Image(resourceLoader.createDrawable("ui/minimap/indicatorSelf"));
+                    } else {
+                        actorImage = new Image(resourceLoader.createDrawable("ui/minimap/indicatorEnemy"));
+                    }
+                    break;
+            }
+            float actorMapPositionX = (float) TABLE_ACTORS_WIDTH * actorsTable.getScaleX() / (float)locationInfoHolder.getWidth() * (float)minimapActor.getPositionX();
+            float actorMapPositionY = (float) TABLE_ACTORS_HEIGHT * actorsTable.getScaleY() / (float)locationInfoHolder.getHeight() * (float)minimapActor.getPositionY();
+
+            if(self){
+                float doplerImagePositionX = actorMapPositionX - ((float) doplerImage.getWidth() * actorsTable.getScaleX() / 2f);
+                float doplerImagePositionY = actorMapPositionY - ((float) doplerImage.getHeight() * actorsTable.getScaleY() / 2f);
+                doplerImage.setOrigin(doplerImage.getWidth()/2f,doplerImage.getHeight()/2f);
+                doplerImage.setPosition(doplerImagePositionX, doplerImagePositionY);
+            }
+
+            float actorImagePositionX = actorMapPositionX - ((float) actorImage.getWidth() * actorsTable.getScaleX() / 2f);
+            float actorImagePositionY = actorMapPositionY - ((float) actorImage.getHeight() * actorsTable.getScaleY() / 2f);
+            actorImage.setPosition(actorImagePositionX, actorImagePositionY);
+            actorImage.setScale(actorsTable.getScaleX(), actorsTable.getScaleY());
+            actorsTable.addActor(actorImage);
         }
     }
 
-    public void setMinimapActors(Collection<GeLocationObjectActor> minimapActors) {
-        this.minimapActors = minimapActors;
-        // TODO remove old actors and add newly set ones
+    private class RotationTask extends GeTaskRunnablePair<Runnable> implements Runnable {
+
+        private static final int DEGREES_DIFF = 6;
+        private static final int MAX_DEGREES = 360;
+
+        private RotationTask() {
+            super(IGeClientWindow.RENDER_REQUEST_MILLISECONDS_DELAY);
+            setRunnable(this);
+        }
+
+        @Override
+        public void run() {
+            float angle = doplerImage.getRotation() + DEGREES_DIFF;
+            if (angle > MAX_DEGREES) {
+                angle -= MAX_DEGREES;
+            }
+            doplerImage.setRotation(angle);
+        }
     }
 }

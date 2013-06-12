@@ -52,7 +52,7 @@ insert into location_object_type
 insert into location
 (location_name, location_width, location_height)
   values
-  (get_default_location_name(), 30000, 30000);
+  (get_default_location_name(), 15000, 15000);
 
 
 # item
