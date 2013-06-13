@@ -77,7 +77,8 @@ class GeCachingResourceLoader extends TextureAtlas implements IGeResourceLoader,
             }
 
             try {
-                music = Gdx.audio.newMusic(Gdx.files.internal(AUDIO_LOCATION + musicName));
+                music = Gdx.audio.newMusic(Gdx.files.internal(AUDIO_LOCATION
+                        + musicName + ".mp3"));
                 this.music.put(musicName, music);
             } catch (Exception e) {
                 throw new RuntimeException("Error loading music", e);

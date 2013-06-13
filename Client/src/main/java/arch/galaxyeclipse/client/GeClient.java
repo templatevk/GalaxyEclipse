@@ -1,6 +1,5 @@
 package arch.galaxyeclipse.client;
 
-import arch.galaxyeclipse.client.resource.IGeAudioManager;
 import arch.galaxyeclipse.shared.context.GeContextHolder;
 import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.core.util.StatusPrinter;
@@ -11,10 +10,6 @@ import static arch.galaxyeclipse.shared.GeEnvType.CURRENT;
 
 @Slf4j
 public class GeClient {
-
-    private static final Class<?>[] lazyPostInitializableClasses = {
-            IGeAudioManager.class
-    };
 
     public GeClient() {
 
@@ -27,8 +22,6 @@ public class GeClient {
         if (GeClient.log.isInfoEnabled()) {
             GeClient.log.info("Client initialized for " + CURRENT.toString() + " environment");
         }
-
-        GeContextHolder.initialize(lazyPostInitializableClasses);
     }
 
     public static void main(String[] args) throws Exception {
