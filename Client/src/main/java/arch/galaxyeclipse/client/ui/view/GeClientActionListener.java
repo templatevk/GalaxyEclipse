@@ -1,6 +1,7 @@
 package arch.galaxyeclipse.client.ui.view;
 
 import arch.galaxyeclipse.client.network.IGeClientNetworkManager;
+import arch.galaxyeclipse.client.resource.IGeAudioManager;
 import arch.galaxyeclipse.client.ui.actor.GeActor;
 import arch.galaxyeclipse.shared.context.GeContextHolder;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket;
@@ -18,6 +19,7 @@ import static arch.galaxyeclipse.shared.protocol.GeProtocol.GeClientActionPacket
 @Slf4j
 class GeClientActionListener extends InputListener {
 
+    private final IGeAudioManager audioManager;
     private
     @Setter
     boolean enabled = true;
@@ -26,6 +28,7 @@ class GeClientActionListener extends InputListener {
 
     public GeClientActionListener() {
         networkManager = GeContextHolder.getBean(IGeClientNetworkManager.class);
+        audioManager = GeContextHolder.getBean(IGeAudioManager.class);
     }
 
     @Override
@@ -52,6 +55,7 @@ class GeClientActionListener extends InputListener {
             case Input.Keys.SPACE:
                 if (GeActor.getSelectedActor() != null) {
                     sendPacket(ATTACK);
+                    audioManager.playShoot();
                 }
                 return true;
             case Input.Keys.W:
