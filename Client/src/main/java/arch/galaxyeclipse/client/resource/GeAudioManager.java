@@ -19,8 +19,10 @@ class GeAudioManager extends GeServerPacketListener implements IGeAudioManager {
     // GeStageProviderType.<VALUE>.toString().toLowerCase()
     private static final String BACKGROUND_MUSIC_PATH = "background/%s";
 
-    private @Setter float backMusicVolume;
-    private @Setter float shootVolume;
+    private static final int NOBODY_CARES_CONSTANT = 1;
+
+    private @Setter float backMusicVolume = 1f;
+    private @Setter float shootVolume = 1f;
     private @Setter float flyVolume = 1f;
 
     private IGeClientWindow clientWindow;
@@ -70,13 +72,14 @@ class GeAudioManager extends GeServerPacketListener implements IGeAudioManager {
     }
 
     @Override
-    public void playShoot(GeProtocol.GeShipStaticInfoPacket.GeItemPacket weapon) {
-
+    public void playShoot() {
+        playShoot(shootVolume);
     }
 
     @Override
-    public void playShoot(GeProtocol.GeShipStaticInfoPacket.GeItemPacket weapon, float volume) {
-
+    public void playShoot(float volume) {
+        String path = String.format(SHOOT_SOUND_PATH, NOBODY_CARES_CONSTANT);
+        resourceLoader.loadMusic(path).play();
     }
 
     @Override
