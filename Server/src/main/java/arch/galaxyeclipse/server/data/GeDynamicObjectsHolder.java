@@ -217,7 +217,14 @@ public class GeDynamicObjectsHolder {
                             GeShipStateResponse.Builder focusSsr = playerInfoHolder.getSsrBuilder();
 
                             int newHp = focusSsr.getHp() - bullet.damage;
-                            focusSsr.setHp(newHp < 0 ? 0 : newHp);
+                            if (newHp <= 0) {
+                                focusSsr.setHp(0);
+                                bullet.focusLopBuilder.setNativeId(GeConstants.ID_DEATH_SHIP_TYPE);
+                            } else {
+                                int shipTypeId = playerInfoHolder.getShipConfig().getShipTypeId();
+                                focusSsr.setHp(newHp);
+                                bullet.focusLopBuilder.setNativeId(shipTypeId);
+                            }
 
                             removeMovingObject(bullet);
                             continue;

@@ -21,6 +21,8 @@ public class GeConstants {
 
     public static final int     UNDEFINED_OBJECT_ID                 = -1;
 
+    public static final int     ID_DEATH_SHIP_TYPE                  = -1;
+
     private GeConstants() {
 
     }
