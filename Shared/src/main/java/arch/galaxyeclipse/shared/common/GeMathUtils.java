@@ -19,4 +19,10 @@ public class GeMathUtils {
         }
         return angle;
     }
+
+    public static float getDistance(float xStart, float yStart, float xEnd, float yEnd) {
+        double x = xStart - xEnd;
+        double y = yStart - yEnd;
+        return (float)Math.sqrt(x * x + y * y);
+    }
 }

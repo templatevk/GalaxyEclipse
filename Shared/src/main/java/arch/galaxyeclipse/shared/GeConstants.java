@@ -16,8 +16,8 @@ public class GeConstants {
     public static final long    DELAY_OBJECT_POSITION_UPDATE       = 10;
     public static final long    DELAY_OBJECT_ROTATION_UPDATE       = 10;
 
-    public static final long    DELAY_HP_REGEN                     = 300;
-    public static final long    DELAY_ENERGY_REGEN                 = 100;
+    public static final long    DELAY_HP_REGEN                     = 600;
+    public static final long    DELAY_ENERGY_REGEN                 = 400;
 
     public static final int     UNDEFINED_OBJECT_ID                 = -1;
 

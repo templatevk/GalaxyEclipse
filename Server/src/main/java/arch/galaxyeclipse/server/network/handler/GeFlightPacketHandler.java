@@ -62,6 +62,11 @@ class GeFlightPacketHandler implements IGeChannelAwarePacketHandler {
         locationObjectsHolder.removeLopBuilder(lopBuilder);
 
         hibernatePlayer();
+
+        hpRegenHandler.stop();
+        energyRegenHandler.stop();
+
+        playerInfoHolder.dispose();
     }
 
     @Override

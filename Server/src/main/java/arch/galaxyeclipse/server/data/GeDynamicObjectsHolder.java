@@ -1,10 +1,15 @@
 package arch.galaxyeclipse.server.data;
 
 import arch.galaxyeclipse.shared.GeConstants;
+import arch.galaxyeclipse.shared.common.GeMathUtils;
 import arch.galaxyeclipse.shared.common.GeMathUtilsCopied;
+import arch.galaxyeclipse.shared.context.GeContextHolder;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket.Builder;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse;
 import arch.galaxyeclipse.shared.thread.GeTaskRunnablePair;
+import arch.galaxyeclipse.shared.types.GeDictionaryTypesMapper;
+import arch.galaxyeclipse.shared.types.GeLocationObjectTypesMapperType;
 import com.google.common.base.Stopwatch;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections.CollectionUtils;
@@ -14,6 +19,8 @@ import java.util.concurrent.ConcurrentSkipListSet;
 import java.util.concurrent.CopyOnWriteArraySet;
 import java.util.concurrent.TimeUnit;
 
+import static arch.galaxyeclipse.shared.common.GeMathUtils.getDistance;
+
 /**
  *
  */
@@ -22,8 +29,13 @@ public class GeDynamicObjectsHolder {
 
     private Map<Integer, GeLocationObjectsHolder> locationObjectHolders;
 
+    private static int idBullet;
+
     public GeDynamicObjectsHolder() {
         locationObjectHolders = new HashMap<>();
+
+        GeDictionaryTypesMapper typesMapper = GeContextHolder.getBean(GeDictionaryTypesMapper.class);
+        idBullet = typesMapper.getIdByLocationObjectType(GeLocationObjectTypesMapperType.BULLET);
     }
 
     public GeLocationObjectsHolder getLocationObjectsHolder(int locationId) {
@@ -116,11 +128,11 @@ public class GeDynamicObjectsHolder {
 
         public class GeMovingLocationObject {
 
-            private GeLocationObjectPacket.Builder lopBuilder;
-            private float moveSpeed;
-            private float elapseDistance;
-            private float initialX;
-            private float initialY;
+            protected GeLocationObjectPacket.Builder lopBuilder;
+            protected float moveSpeed;
+            protected float elapseDistance;
+            protected float initialX;
+            protected float initialY;
 
             public GeMovingLocationObject(Builder lopBuilder, float moveSpeed) {
                 this(lopBuilder, moveSpeed, 0);
@@ -152,12 +164,24 @@ public class GeDynamicObjectsHolder {
                 updateLopBuilderY(lopBuilder, positionY);
 
                 if (elapseDistance != 0) {
-                    double x = initialX - positionX;
-                    double y = initialY - positionY;
-                    if (Math.sqrt(x * x + y * y) > elapseDistance) {
+                    double distance = getDistance(initialX, initialY, positionX, positionY);
+                    if (distance > elapseDistance) {
                         removeMovingObject(this);
                     }
                 }
+            }
+        }
+
+        public class GeMovingBullet extends GeMovingLocationObject {
+
+            private Builder focusLopBuilder;
+            private int damage;
+
+            public GeMovingBullet(Builder bulletLopBuilder, Builder focusLopBuilder,
+                    int damage, float moveSpeed, float elapseDistance) {
+                super(bulletLopBuilder, moveSpeed, elapseDistance);
+                this.focusLopBuilder = focusLopBuilder;
+                this.damage = damage;
             }
         }
 
@@ -165,6 +189,7 @@ public class GeDynamicObjectsHolder {
                 implements Runnable {
 
             private static final long DELAY = 10;
+            private static final float BULLET_KNOCKOUT_RADIUS = 50;
 
             private Stopwatch stopwatch = new Stopwatch();
             private long prevElapsed;
@@ -178,6 +203,26 @@ public class GeDynamicObjectsHolder {
             public void run() {
                 long elapsed = stopwatch.elapsed(TimeUnit.MILLISECONDS);
                 for (GeMovingLocationObject object : movingObjects) {
+                    if (object.lopBuilder.getObjectTypeId() == idBullet) {
+                        GeMovingBullet bullet = (GeMovingBullet) object;
+                        float distance = GeMathUtils.getDistance(
+                                bullet.lopBuilder.getPositionX(),
+                                bullet.lopBuilder.getPositionY(),
+                                bullet.focusLopBuilder.getPositionX(),
+                                bullet.focusLopBuilder.getPositionY());
+
+                        if (distance <= BULLET_KNOCKOUT_RADIUS) {
+                            int lopId = bullet.focusLopBuilder.getObjectId();
+                            GePlayerInfoHolder playerInfoHolder = GePlayerInfoHolder.getByLopId(lopId);
+                            GeShipStateResponse.Builder focusSsr = playerInfoHolder.getSsrBuilder();
+
+                            int newHp = focusSsr.getHp() - bullet.damage;
+                            focusSsr.setHp(newHp < 0 ? 0 : newHp);
+
+                            removeMovingObject(bullet);
+                            continue;
+                        }
+                    }
                     object.move(elapsed - prevElapsed);
                 }
                 prevElapsed = elapsed;

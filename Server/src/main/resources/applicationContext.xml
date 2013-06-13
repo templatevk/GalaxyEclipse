@@ -62,7 +62,7 @@
     <bean class="arch.galaxyeclipse.server.network.handler.GePacketHandlerFactory" scope="prototype"/>
     <bean class="arch.galaxyeclipse.server.protocol.GeProtocolMessageFactory" scope="prototype"/>
 
-    <bean class="arch.galaxyeclipse.server.data.GeDynamicObjectsHolder"/>
+    <bean class="arch.galaxyeclipse.server.data.GeDynamicObjectsHolder" lazy-init="true"/>
     <bean class="arch.galaxyeclipse.shared.types.GeDictionaryTypesMapper"/>
     <bean class="arch.galaxyeclipse.shared.thread.GeExecutor"/>
 </beans>

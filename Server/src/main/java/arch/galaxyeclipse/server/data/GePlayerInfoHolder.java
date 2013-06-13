@@ -6,23 +6,44 @@ import arch.galaxyeclipse.server.data.model.GePlayer;
 import arch.galaxyeclipse.server.data.model.GeShipConfig;
 import arch.galaxyeclipse.server.data.model.GeShipState;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket;
+import arch.galaxyeclipse.shared.protocol.GeProtocol.GeLocationInfoPacket.GeLocationObjectPacket.Builder;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
  */
-@Data
 public class GePlayerInfoHolder {
 
-    // MySQL
-    private GePlayer player;
-    private GeShipState shipState;
-    private GeShipConfig shipConfig;
-    private GeLocationObject locationObject;
-    // Protobuf
-    private GeLocationObjectPacket.Builder lopBuilder;
-    private GeShipStateResponse.Builder ssrBuilder;
+    private static Map<Integer, GePlayerInfoHolder> thisById = new HashMap<>();
 
-    private GeLocationObjectsHolder locationObjectsHolder;
+    // MySQL
+    private @Getter @Setter GePlayer player;
+    private @Getter @Setter GeShipState shipState;
+    private @Getter @Setter GeShipConfig shipConfig;
+    private @Getter @Setter GeLocationObject locationObject;
+    // Protobuf
+    private @Getter @Setter GeLocationObjectsHolder locationObjectsHolder;
+    private @Getter @Setter GeShipStateResponse.Builder ssrBuilder;
+
+    private @Getter GeLocationObjectPacket.Builder lopBuilder;
+
+    public static GePlayerInfoHolder getByLopId(int id) {
+        return thisById.get(id);
+    }
+
+    public void setLopBuilder(Builder lopBuilder) {
+        this.lopBuilder = lopBuilder;
+        thisById.put(lopBuilder.getObjectId(), this);
+    }
+
+    public void dispose() {
+        if (lopBuilder != null) {
+            thisById.remove(lopBuilder.getObjectId());
+        }
+    }
 }

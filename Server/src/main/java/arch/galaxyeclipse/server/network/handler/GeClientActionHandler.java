@@ -1,7 +1,6 @@
 package arch.galaxyeclipse.server.network.handler;
 
 import arch.galaxyeclipse.server.data.GeDynamicObjectsHolder.GeLocationObjectsHolder;
-import arch.galaxyeclipse.server.data.GeDynamicObjectsHolder.GeLocationObjectsHolder.GeMovingLocationObject;
 import arch.galaxyeclipse.server.data.GePlayerInfoHolder;
 import arch.galaxyeclipse.server.data.model.GeShipConfig;
 import arch.galaxyeclipse.server.data.model.GeShipConfigWeaponSlot;
@@ -19,9 +18,7 @@ import arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse;
 import arch.galaxyeclipse.shared.protocol.GeProtocol.GeShipStateResponse.Builder;
 import arch.galaxyeclipse.shared.thread.GeTaskRunnablePair;
 import arch.galaxyeclipse.shared.types.GeDictionaryTypesMapper;
-import arch.galaxyeclipse.shared.types.GeLocationObjectBehaviorTypesMapperType;
 import arch.galaxyeclipse.shared.types.GeLocationObjectTypesMapperType;
-import arch.galaxyeclipse.shared.types.GeWeaponTypesMapperType;
 import com.google.common.base.Stopwatch;
 import lombok.extern.slf4j.Slf4j;
 
@@ -50,10 +47,7 @@ class GeClientActionHandler extends GePacketHandlerDecorator {
     private Stopwatch stopwatch;
     private Builder ssrBuilder;
 
-    private int dynamicId;
     private int bulletObjectId;
-    private int laserWeaponId;
-    private int rocketWeaponId;
 
     public GeClientActionHandler(IGeChannelAwarePacketHandler decoratedPacketHandler) {
         super(decoratedPacketHandler);
@@ -65,10 +59,6 @@ class GeClientActionHandler extends GePacketHandlerDecorator {
 
         bulletObjectId = dictionaryTypesMapper.getIdByLocationObjectType(
                 GeLocationObjectTypesMapperType.BULLET);
-        laserWeaponId = dictionaryTypesMapper.getIdByWeaponType(GeWeaponTypesMapperType.LASER);
-        rocketWeaponId = dictionaryTypesMapper.getIdByWeaponType(GeWeaponTypesMapperType.ROCKET);
-        dynamicId = dictionaryTypesMapper.getIdByLocationObjectBehaviorType(
-                GeLocationObjectBehaviorTypesMapperType.DYNAMIC);
 
         playerInfoHolder = getServerChannelHandler().getPlayerInfoHolder();
         ssrBuilder = playerInfoHolder.getSsrBuilder();
@@ -133,8 +123,13 @@ class GeClientActionHandler extends GePacketHandlerDecorator {
             long elapsed = stopwatch.elapsed(TimeUnit.MILLISECONDS);
 
             if (lastShot == null || elapsed - lastShot > weapon.getShotDelay()) {
-                attack(weapon);
-                weaponLastShots.put(weapon.getItemId(), elapsed);
+                if (ssrBuilder.getEnergy() > weapon.getEnergyCost()) {
+                    attack(weapon);
+                    weaponLastShots.put(weapon.getItemId(), elapsed);
+
+                    int energy = ssrBuilder.getEnergy() - weapon.getEnergyCost();
+                    ssrBuilder.setEnergy(energy < 0 ? 0 : energy);
+                }
             }
         }
     }
@@ -155,9 +150,12 @@ class GeClientActionHandler extends GePacketHandlerDecorator {
                 .setRotationAngle(rotationAngle);
 
         GeLocationObjectsHolder loHolder = playerInfoHolder.getLocationObjectsHolder();
-        GeMovingLocationObject bulletObject = loHolder.new GeMovingLocationObject(
-                bulletLop, weapon.getBulletSpeed(), weapon.getMaxDistance());
-        loHolder.addMovingObject(bulletObject);
+        loHolder.addMovingObject(loHolder.new GeMovingBullet(
+                bulletLop,
+                focusLop,
+                weapon.getDamage(),
+                weapon.getBulletSpeed(),
+                weapon.getMaxDistance()));
     }
 
     @Override
