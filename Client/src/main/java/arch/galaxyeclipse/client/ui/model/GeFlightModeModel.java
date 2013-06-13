@@ -44,7 +44,7 @@ public class GeFlightModeModel {
             int objectId = lop.getObjectId();
             GeLocationObjectActor actor = actorsCache.get(objectId);
 
-            if (actor == null) {
+            if (actor == null || actor.getLop().getNativeId() != lop.getNativeId()) {
                 actor = actorFactory.createLocationObjectActor(lop);
                 actorsCache.put(objectId, actor);
             } else {

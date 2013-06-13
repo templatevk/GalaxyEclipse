@@ -115,6 +115,10 @@ class GeFlightPacketHandler implements IGeChannelAwarePacketHandler {
 
     private class HpRegenHandler extends GeTaskRunnablePair<Runnable> implements Runnable {
 
+        private static final int IGNORED_ITERATIONS_AFTER_DEATH_COUNT = 15;
+
+        private int iterationsIgnored = 0;
+
         private HpRegenHandler() {
             super(GeConstants.DELAY_HP_REGEN);
             setRunnable(this);
@@ -126,9 +130,20 @@ class GeFlightPacketHandler implements IGeChannelAwarePacketHandler {
             int hpRegen = shipConfig.getShipConfigHpRegen();
             int hpMax = shipConfig.getShipConfigHpMax();
 
-            if (hp < hpMax) {
-                hp = (hp + hpRegen > hpMax ? hpMax : hp + hpRegen);
-                ssrBuilder.setHp(hp);
+            if (hp == 0 && iterationsIgnored < IGNORED_ITERATIONS_AFTER_DEATH_COUNT) {
+                iterationsIgnored++;
+                playerInfoHolder.getLopBuilder().setNativeId(GeConstants.ID_DEATH_SHIP_TYPE);
+                return;
+            } else {
+                int shipTypeId = playerInfoHolder.getShipConfig().getShipTypeId();
+//                playerInfoHolder.getLopBuilder().setNativeId(shipTypeId);
+                playerInfoHolder.getLopBuilder().setNativeId(GeConstants.ID_DEATH_SHIP_TYPE);
+
+                iterationsIgnored = 0;
+                if (hp < hpMax) {
+                    hp = (hp + hpRegen > hpMax ? hpMax : hp + hpRegen);
+                    ssrBuilder.setHp(hp);
+                }
             }
         }
     }
