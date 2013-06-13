@@ -1,5 +1,6 @@
 package arch.galaxyeclipse.client.ui.actor;
 
+import arch.galaxyeclipse.shared.GeConstants;
 import arch.galaxyeclipse.shared.common.GePosition;
 import arch.galaxyeclipse.shared.common.GeStubCommand;
 import arch.galaxyeclipse.shared.common.IGeCommand;
@@ -71,7 +72,10 @@ public class GeLocationObjectActor extends GeClickableActor {
             setPosition(screenObjectX, screenObjectY);
         }
 
-        setRotation(lop.getRotationAngle());
+        if (lop.getNativeId() != GeConstants.ID_DEATH_SHIP_TYPE) {
+            setRotation(lop.getRotationAngle());
+        }
+
         if (!isSelected()) {
             setScale(stageInfo.getScaleX(), stageInfo.getScaleY());
         }

@@ -108,7 +108,7 @@ abstract class GeClickableActor extends GeActor {
         selected = false;
     }
 
-    private class SelectionScaleAction extends ScaleToAction {
+    protected class SelectionScaleAction extends ScaleToAction {
 
         private boolean firstScale = true;
 
