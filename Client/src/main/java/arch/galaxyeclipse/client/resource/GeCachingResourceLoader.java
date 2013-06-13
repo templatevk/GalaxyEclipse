@@ -4,7 +4,6 @@ import arch.galaxyeclipse.client.util.GeDisposable;
 import arch.galaxyeclipse.shared.common.IGeDisposable;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Music;
-import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -25,15 +24,16 @@ import static com.badlogic.gdx.graphics.Texture.TextureFilter.MipMapLinearLinear
 @Slf4j
 class GeCachingResourceLoader extends TextureAtlas implements IGeResourceLoader, IGeDisposable {
 
+    private static final String TEXTURE_ATLAS_PACK_PATH = "assets/textures/pack.atlas";
     private static final String FONTS_LOCATIONS = "assets/fonts/";
-    private static final String AUDIO_LOCATION = "assets/sounds/";
+    private static final String AUDIO_LOCATION = "assets/audio/";
 
     private Map<String, AtlasRegion> regions;
     private Map<String, BitmapFont> fonts;
     private Map<String, Music> music;
 
     public GeCachingResourceLoader() {
-        super(Gdx.files.internal("assets/textures/pack.atlas"));
+        super(Gdx.files.internal(TEXTURE_ATLAS_PACK_PATH));
 
         regions = new HashMap<>();
         fonts = new HashMap<>();
@@ -77,7 +77,8 @@ class GeCachingResourceLoader extends TextureAtlas implements IGeResourceLoader,
             }
 
             try {
-                music = Gdx.audio.newMusic(Gdx.files.internal(AUDIO_LOCATION + musicName));
+                music = Gdx.audio.newMusic(Gdx.files.internal(AUDIO_LOCATION
+                        + musicName + ".mp3"));
                 this.music.put(musicName, music);
             } catch (Exception e) {
                 throw new RuntimeException("Error loading music", e);

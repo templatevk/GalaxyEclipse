@@ -13,4 +13,10 @@ public class GeContextHolder {
     public static <T> T getBean(Class<T> requiredType) {
         return INSTANCE.getBean(requiredType);
     }
+
+    public static void initialize(Class<?>[] classes) {
+        for (Class<?> clazz : classes) {
+            getBean(clazz);
+        }
+    }
 }
