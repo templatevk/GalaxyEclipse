@@ -1,10 +1,12 @@
 package arch.galaxyeclipse.client.window;
 
+import arch.galaxyeclipse.client.resource.IGeAudioManager;
 import arch.galaxyeclipse.client.ui.provider.GeStageProviderFactory;
 import arch.galaxyeclipse.client.ui.provider.GeStageProviderType;
 import arch.galaxyeclipse.client.ui.provider.IGeStageProvider;
 import arch.galaxyeclipse.shared.GeEnvType;
 import arch.galaxyeclipse.shared.common.IGeDisposable;
+import arch.galaxyeclipse.shared.context.GeContextHolder;
 import arch.galaxyeclipse.shared.thread.GeExecutor;
 import arch.galaxyeclipse.shared.thread.GeTaskRunnablePair;
 import com.badlogic.gdx.ApplicationListener;
@@ -82,6 +84,8 @@ class GeClientWindow implements IGeClientWindow {
             this.stageProvider.detach();
         }
         this.stageProvider = stageProvider;
+
+        GeContextHolder.getBean(IGeAudioManager.class).playBackMusic();
 
         Gdx.input.setInputProcessor(stageProvider.getGameStage());
     }
